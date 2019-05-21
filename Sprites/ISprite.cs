@@ -8,10 +8,12 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Sprint0
 {
+    //<param>
+    // Create an interface called iSprite with Update and Draw functions.
+    //</param>
     interface ISprite
     {
         void Update();
-
         void Draw(SpriteBatch spriteBatch);
     }
 }

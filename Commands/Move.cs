@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Sprint0.Commands
 {
-    class Move : ICommand
+    class Move :ICommand
     {
         Game game;
         public Move(Game myGame)
