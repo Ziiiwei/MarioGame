@@ -16,6 +16,7 @@ namespace Sprint0
         {
             using (var game = new Game())
                 game.Run();
+            //To run on mac, a mannul inculsion of Monogame.framwork from nuget is needed
         }
     }
 #endif
