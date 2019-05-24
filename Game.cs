@@ -13,13 +13,13 @@ namespace Sprint0
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
-        List<IController> controller;
+        List<IController> controllers;
         ISprite sprite;
 
         public Game()
         {
             graphics = new GraphicsDeviceManager(this);
-            controller = new List<IController>();
+            controllers = new List<IController>();
             Content.RootDirectory = "Content";
         }
 
@@ -33,12 +33,8 @@ namespace Sprint0
         {
             // TODO: Add your initialization logic here
             base.Initialize();
-            controller.Add(new Keyboard1((Keys.Q, new QuitGame(this)), (Keys.W, new Display(this)),
-                                     (Keys.E, new Animate(this)), (Keys.R, new Move(this)),
-                                     (Keys.T, new MoveAndAnimate(this))));
-            controller.Add(new Gamepad1((Buttons.Start, new QuitGame(this)), (Buttons.A, new Display(this)),
-                                   (Buttons.B, new Animate(this)), (Buttons.X, new Move(this)),
-                                   (Buttons.Y, new MoveAndAnimate(this))));
+            controllers.Add(new Keyboard1(this));
+            controllers.Add(new Gamepad1(this));
         }
 
         /// <summary>
@@ -71,17 +67,13 @@ namespace Sprint0
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
-            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Microsoft.Xna.Framework.Input.Keyboard.GetState().IsKeyDown(Keys.Escape))
-                Exit();
-
-            // TODO: Add your update logic here
-            
-            
-            foreach( IController c in controller)
+            foreach( IController c in controllers)
             {
                 c.Update();
             }
-            if(sprite != null)
+
+            // Need to create null sprite.
+            if (sprite != null)
             {
                 sprite.Update();
             }
