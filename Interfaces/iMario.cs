@@ -15,7 +15,9 @@ namespace Sprint2.Interfaces
         void MovingLeft();
         void FacingRight();
         void FacingLeft();
-        void Crouch();
+        void CrouchRight();
+        void CrouchLeft();
+        void TakeDamage();
 
 
     }
