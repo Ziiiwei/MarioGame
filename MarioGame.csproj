@@ -52,12 +52,15 @@
     <Compile Include="Interfaces\IItem.cs" />
     <Compile Include="Interfaces\IKoopaState.cs" />
     <Compile Include="Interfaces\IMario.cs" />
+    <Compile Include="Interfaces\IMobieEnermy.cs" />
     <Compile Include="Mario.cs" />
     <Compile Include="Sprites\AnimatedNotMoving1.cs" />
     <Compile Include="Commands\QuitGame.cs" />
     <Compile Include="Commands\ICommand.cs" />
     <Compile Include="Controllers\IController.cs" />
+    <Compile Include="Sprites\Goomba.cs" />
     <Compile Include="Sprites\ISprite.cs" />
+    <Compile Include="Sprites\Koopa.cs" />
     <Compile Include="Sprites\MovingAnimated1.cs" />
     <Compile Include="Sprites\MovingNotAnimated1.cs" />
     <Compile Include="Sprites\NotMovingNorAnimated1.cs" />

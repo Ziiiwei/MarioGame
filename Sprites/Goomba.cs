@@ -15,6 +15,15 @@ namespace Sprint2
         public Goomba()
         {
         }
-        
+
+        public void Draw(SpriteBatch spriteBatch)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Update()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
