@@ -17,7 +17,6 @@ namespace Sprint2.Commands
 
         public void Execute()
         {
-            game.Appear();
         }
     }
 }
