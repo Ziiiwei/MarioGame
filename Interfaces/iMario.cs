@@ -6,14 +6,16 @@ using System.Threading.Tasks;
 
 namespace Sprint0.Interfaces
 {
-    interface iMario
+    interface IMario
     {
         void Draw();
         void Update();
         void Jump();
-        void Right();
-        void Left();
-        void Down();
+        void MovingRight();
+        void MovingLeft();
+        void FacingRight();
+        void FacingLeft();
+        void Crouch();
 
 
     }
