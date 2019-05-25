@@ -11,5 +11,7 @@ namespace Sprint2
         void FireMario();
         void BigMario();
         void SmallMario();
+        void TakeDamage();
+        void Update();
     }
 }
