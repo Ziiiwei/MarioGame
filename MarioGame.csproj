@@ -51,6 +51,7 @@
     <Compile Include="Interfaces\IItem.cs" />
     <Compile Include="Interfaces\IKoopaState.cs" />
     <Compile Include="Interfaces\IMario.cs" />
+    <Compile Include="Mario.cs" />
     <Compile Include="Sprites\AnimatedNotMoving1.cs" />
     <Compile Include="Commands\QuitGame.cs" />
     <Compile Include="Commands\ICommand.cs" />
