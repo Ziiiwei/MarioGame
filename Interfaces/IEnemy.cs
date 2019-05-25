@@ -8,6 +8,9 @@ namespace Sprint0.Interfaces
 {
     interface IEnemy
     {
+        void GetStomped();
+        void MoveLeft();
+        void MoveRight();
         void Draw();
         void Update();
     }
