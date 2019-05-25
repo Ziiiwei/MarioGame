@@ -46,6 +46,7 @@
     <Compile Include="Commands\Display.cs" />
     <Compile Include="Commands\MoveAndAnimate.cs" />
     <Compile Include="Commands\Move.cs" />
+    <Compile Include="IMarioState.cs" />
     <Compile Include="Interfaces\IBlock.cs" />
     <Compile Include="Interfaces\IGoombaState.cs" />
     <Compile Include="Interfaces\IItem.cs" />
