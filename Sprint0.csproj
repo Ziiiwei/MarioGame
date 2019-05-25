@@ -46,6 +46,12 @@
     <Compile Include="Commands\Display.cs" />
     <Compile Include="Commands\MoveAndAnimate.cs" />
     <Compile Include="Commands\Move.cs" />
+    <Compile Include="Interfaces\IBlock.cs" />
+    <Compile Include="Interfaces\IEnemy.cs" />
+    <Compile Include="Interfaces\IGoombaState.cs" />
+    <Compile Include="Interfaces\IItem.cs" />
+    <Compile Include="Interfaces\IKoopaState.cs" />
+    <Compile Include="Interfaces\iMario.cs" />
     <Compile Include="Sprites\AnimatedNotMoving1.cs" />
     <Compile Include="Commands\QuitGame.cs" />
     <Compile Include="Commands\ICommand.cs" />
@@ -75,6 +81,7 @@
     <None Include="app.config" />
     <None Include="app.manifest" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\MonoGame\v3.0\MonoGame.Content.Builder.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
