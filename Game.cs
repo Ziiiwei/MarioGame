@@ -1,10 +1,10 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
-using Sprint0.Commands;
+using Sprint2.Commands;
 using System.Collections.Generic;
 
-namespace Sprint0
+namespace Sprint2
 {
     /// <summary>
     /// This is the main type for your game.
@@ -99,26 +99,6 @@ namespace Sprint0
             spriteBatch.End();
 
             base.Draw(gameTime);
-        }
-
-        public void Move()
-        {
-            sprite = new MovingNotAnimated1(textures[0], 1, 1, new Vector2(400, 200));
-        }
-
-        public void Animate()
-        {
-            sprite = new AnimatedNotMoving1(textures[1], 1, 6, new Vector2(400, 200));
-        }
-
-        public void MoveAndAnimate()
-        {
-            sprite = new MovingAnimated1(textures[1], 1, 6, new Vector2(400, 200));
-        }
-
-        public void Appear()
-        {
-            sprite = new NotMovingNorAnimated1(textures[0], 1, 1, new Vector2(400, 200));
         }
     }
 }

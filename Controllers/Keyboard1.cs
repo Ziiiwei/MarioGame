@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Xna.Framework.Input;
-using Sprint0.Commands;
+using Sprint2.Commands;
 
-namespace Sprint0
+namespace Sprint2
 {
     class Keyboard1 : IController
     {

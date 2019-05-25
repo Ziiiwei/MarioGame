@@ -5,8 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Sprint0.Interfaces;
-namespace Sprint0
+using Sprint2.Interfaces;
+namespace Sprint2
 {
     class AnimatedNotMoving1 : ISprite
     {

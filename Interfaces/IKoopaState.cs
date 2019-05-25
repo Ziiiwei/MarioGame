@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Sprint0.Interfaces
+namespace Sprint2.Interfaces
 {
     interface IKoopaState
     {

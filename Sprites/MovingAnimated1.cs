@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
 
-namespace Sprint0
+namespace Sprint2
 {
     class MovingAnimated1 : ISprite
     {
