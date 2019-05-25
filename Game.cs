@@ -15,12 +15,14 @@ namespace Sprint0
         SpriteBatch spriteBatch;
         List<IController> controllers;
         ISprite sprite;
+        List<Texture2D> textures;
 
         public Game()
         {
             graphics = new GraphicsDeviceManager(this);
             controllers = new List<IController>();
             Content.RootDirectory = "Content";
+            textures = new List<Texture2D>();
         }
 
         /// <summary>
@@ -31,7 +33,6 @@ namespace Sprint0
         /// </summary>
         protected override void Initialize()
         {
-            // TODO: Add your initialization logic here
             base.Initialize();
             controllers.Add(new Keyboard1(this));
             controllers.Add(new Gamepad1(this));
@@ -45,9 +46,11 @@ namespace Sprint0
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
+            textures.Add(Content.Load<Texture2D>("SonicDead"));
+            textures.Add(Content.Load<Texture2D>("SonicRoll"));
 
 
-            // TODO: use this.Content to load your game content here
+
         }
 
         /// <summary>
@@ -56,7 +59,6 @@ namespace Sprint0
         /// </summary>
         protected override void UnloadContent()
         {
-            // TODO: Unload any non ContentManager content here
             // Content.Unload();
         }
 
@@ -89,7 +91,6 @@ namespace Sprint0
         {
             GraphicsDevice.Clear(Color.Azure);
 
-            // TODO: Add your drawing code here
             spriteBatch.Begin();
             if (sprite != null)
             {
@@ -102,28 +103,22 @@ namespace Sprint0
 
         public void Move()
         {
-            Texture2D texture = Content.Load<Texture2D>("SonicDead");
-            sprite = new MovingNotAnimated1(texture, 1, 1, new Vector2(400, 200));
+            sprite = new MovingNotAnimated1(textures[0], 1, 1, new Vector2(400, 200));
         }
 
         public void Animate()
         {
-            Texture2D texture = Content.Load<Texture2D>("SonicRoll");
-            sprite = new AnimatedNotMoving1(texture, 1, 6, new Vector2(400, 200));
+            sprite = new AnimatedNotMoving1(textures[1], 1, 6, new Vector2(400, 200));
         }
 
         public void MoveAndAnimate()
         {
-            Texture2D texture = Content.Load<Texture2D>("SonicRoll");
-            sprite = new MovingAnimated1(texture, 1, 6, new Vector2(400, 200));
+            sprite = new MovingAnimated1(textures[1], 1, 6, new Vector2(400, 200));
         }
 
         public void Appear()
         {
-
-            Texture2D texture = Content.Load<Texture2D>("SonicDead");
-            sprite = new NotMovingNorAnimated1(texture, 1, 1, new Vector2(400, 200));
-
+            sprite = new NotMovingNorAnimated1(textures[0], 1, 1, new Vector2(400, 200));
         }
     }
 }

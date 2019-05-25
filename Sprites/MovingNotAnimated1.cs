@@ -10,9 +10,9 @@ namespace Sprint0
 {
     class MovingNotAnimated1 : ISprite
     {
-        public Texture2D Texture { get; set; }
-        public int Rows { get; set; }
-        public int Columns { get; set; }
+        private Texture2D Texture { get; set; }
+        private int Rows { get; set; }
+        private int Columns { get; set; }
         private int currentFrame;
         private int totalFrames;
         private Vector2 location;

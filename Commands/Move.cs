@@ -8,7 +8,7 @@ namespace Sprint0.Commands
 {
     class Move :ICommand
     {
-        Game game;
+        private Game game;
         public Move(Game myGame)
         {
             game = myGame;

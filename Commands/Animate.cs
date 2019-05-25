@@ -8,7 +8,7 @@ namespace Sprint0.Commands
 {
     class Animate : ICommand
     {
-        Game game;
+        private Game game;
         public Animate(Game myGame)
         {
             game = myGame;

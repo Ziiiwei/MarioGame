@@ -11,6 +11,7 @@ namespace Sprint0
     class Keyboard1 : IController
     {
         private Dictionary<Keys, ICommand> keyCommands;
+        private List<Keys> previouslyPressed;
 
         public Keyboard1(Game game)
         {
@@ -20,6 +21,7 @@ namespace Sprint0
             keyCommands.Add(Keys.E, new Animate(game));
             keyCommands.Add(Keys.R, new Move(game));
             keyCommands.Add(Keys.T, new MoveAndAnimate(game));
+            previouslyPressed = new List<Keys>();
         }
 
         public void Update()
@@ -28,10 +30,15 @@ namespace Sprint0
 
             foreach (Keys key in pressed)
             {
-                if(keyCommands.ContainsKey(key))
+                if(keyCommands.ContainsKey(key) && !previouslyPressed.Contains(key))
                 {
                     keyCommands[key].Execute();
                 }
+            }
+            previouslyPressed.Clear();
+            foreach(Keys key in pressed)
+            {
+                previouslyPressed.Add(key);
             }
         }
 

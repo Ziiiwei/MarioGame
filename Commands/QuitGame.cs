@@ -8,7 +8,7 @@ namespace Sprint0
 {
     class QuitGame : ICommand
     {
-        Game game;
+        private Game game;
         public QuitGame(Game thisGame)
         {
             game = thisGame;
