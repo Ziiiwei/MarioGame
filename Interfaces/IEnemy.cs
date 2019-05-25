@@ -6,9 +6,12 @@ using System.Threading.Tasks;
 
 namespace Sprint0.Interfaces
 {
-    interface IKoopa
+    interface IEnemy
     {
         void Draw();
         void Update();
+        void MoveLeft();
+        void MoveRight();
+
     }
 }
