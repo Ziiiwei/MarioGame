@@ -18,7 +18,7 @@ namespace Sprint2
         private Vector2 location;
         private IMario mario;
 
-        public SmallMario(rows, columns, Texture2D texture, Vector2 Location)
+        public SmallMario(int rows, int columns, Texture2D texture, Vector2 Location)
         {
             Rows = Rows;
             Columns = Columns;
@@ -81,7 +81,7 @@ namespace Sprint2
         }
         public void Upgrade()
         {
-            mario.marioState = new SuperMario(mario, int rows, int columns, Texture2D texture, Vector2 Location);
+            mario.marioState = new SuperMario(mario, Rows, Columns, Texture, location);
         }
     }
 }

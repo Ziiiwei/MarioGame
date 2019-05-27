@@ -6,10 +6,8 @@ using System.Threading.Tasks;
 
 namespace Sprint2.Interfaces
 {
-    interface IMario
+    interface IMario : ISprite
     {
-        void Draw();
-        void Update();
         void Jump();
         void MovingRight();
         void MovingLeft();
@@ -18,6 +16,7 @@ namespace Sprint2.Interfaces
         void CrouchRight();
         void CrouchLeft();
         void TakeDamage();
+        void Upgrade();
 
 
     }

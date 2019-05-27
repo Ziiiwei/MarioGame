@@ -76,11 +76,11 @@ namespace Sprint2.Interfaces
         }
         public void TakeDamage()
         {
-            mario.marioState = new SmallMario(mario ,int rows, int columns, Texture2D texture, Vector2 Location);
+            mario.marioState = new SmallMario(mario, Rows, Columns, Texture, location);
         }
         public void Upgrade()
         {
-            mario.marioState = new FireMario(mario, int rows, int columns, Texture2D texture, Vector2 Location);
+            mario.marioState = new FireMario(mario, Rows, Columns, Texture, location);
         }
     }
 }

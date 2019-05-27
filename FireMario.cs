@@ -64,7 +64,7 @@ namespace Sprint2
         }
         public void TakeDamage()
         {
-            mario.marioState = new SuperMario(mario, int rows, int columns, Texture2D texture, Vector2 Location);
+            mario.marioState = new SuperMario(mario, Rows, Columns, Texture, location);
         }
         public void Upgrade()
         {
