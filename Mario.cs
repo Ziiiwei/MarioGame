@@ -16,62 +16,63 @@ namespace Sprint2
         public int currentFrame;
         public int totalFrames;
         public Vector2 location;
-        public IMarioState marioState;
+        // public IMarioState marioState;
         
         public Mario(int rows, int columns, Texture2D texture, Vector2 Location)
         {
-            Rows = Rows;
+           /* Rows = Rows;
             Columns = Columns;
             Texture = texture;
             currentFrame = 0;
             totalFrames = Rows * Columns;
             location = Location;
             marioState = new SmallMario(this, rows, columns, texture, Location);
+            */
         }
         public void Draw(SpriteBatch spriteBatch)
         {
-            marioState.Draw();
+            //marioState.Draw();
         }
         public void Update()
         {
-            marioState.Update();
+           // marioState.Update();
         }
         public void Jump()
         {
-            marioState.Jump();
+            //marioState.Jump();
         }
         public void MovingRight()
         {
-            marioState.MovingRight();
+            //marioState.MovingRight();
         }
         public void MovingLeft()
         {
-            marioState.MovingLeft();
+            //marioState.MovingLeft();
         }
         public void FacingLeft()
         {
-            marioState.FacingLeft();
+            //marioState.FacingLeft();
         }
         public void FacingRight()
         {
-            marioState.FacingRight();
+            //marioState.FacingRight();
         }
 
         public void CrouchRight()
         {
-            marioState.CrouchRight();
+            //marioState.CrouchRight();
         }
         public void CrouchLeft()
         {
-            marioState.CrouchLeft();
+            //marioState.CrouchLeft();
         }
         public void TakeDamage()
         {
-            marioState.TakeDamage();
+            //marioState.TakeDamage();
         }
         public void Upgrade()
         {
-            marioState.Upgrade();
+            //marioState.Upgrade();
         }
     }
 }
