@@ -17,13 +17,13 @@ namespace Sprint2
         private int currentFrame;
         private int totalFrames;
 
-        public Pipe(rows, columns, Texture2D pipeTexture, Vector2 pipeLocation)
+        public Pipe(int rows, int columns, Texture2D pipeTexture, Vector2 pipeLocation)
         {
             texture = pipeTexture;
             location = pipeLocation;
-            Rows = Rows;
-            Columns = Columns;
-            totalFrames = Rows * Columns;
+            Rows = rows;
+            Columns = columns;
+            totalFrames = rows * columns;
         }
 
         public void Update()
@@ -33,7 +33,7 @@ namespace Sprint2
                 currentFrame = 0;
         }
 
-        public void Draw()
+        public void Draw(SpriteBatch spriteBatch)
         {
             int width = texture.Width / Columns;
             int height = texture.Height / Rows;
@@ -44,7 +44,7 @@ namespace Sprint2
             Rectangle destinationRectangle = new Rectangle((int)location.X, (int)location.Y, width, height);
 
 
-            spriteBatch.Draw(Texture, destinationRectangle, sourceRectangle, Color.White);
+            spriteBatch.Draw(texture, destinationRectangle, sourceRectangle, Color.White);
 
         }
         
