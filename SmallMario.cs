@@ -18,7 +18,7 @@ namespace Sprint2
         private Vector2 location;
         private IMario mario;
 
-        public SmallMario(int rows, int columns, Texture2D texture, Vector2 Location)
+        public SmallMario(IMario Mario, int rows, int columns, Texture2D texture, Vector2 Location)
         {
             Rows = Rows;
             Columns = Columns;
@@ -26,6 +26,7 @@ namespace Sprint2
             currentFrame = 0;
             totalFrames = Rows * Columns;
             location = Location;
+            mario = Mario;
         }
         public void Draw()
         {

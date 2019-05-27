@@ -16,7 +16,7 @@ namespace Sprint2.Interfaces
         private Vector2 location;
         private IMario mario;
         
-        public SuperMario(Mario, int rows, int columns, Texture2D texture, Vector2 Location)
+        public SuperMario(IMario Mario, int rows, int columns, Texture2D texture, Vector2 Location)
         {
             mario = Mario;
             Rows = Rows;
