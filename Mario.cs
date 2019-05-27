@@ -16,7 +16,7 @@ namespace Sprint2
         public int currentFrame;
         public int totalFrames;
         public Vector2 location;
-        private IMarioState marioState;
+        public IMarioState marioState;
         
         public Mario(int rows, int columns, Texture2D texture, Vector2 Location)
         {
@@ -26,48 +26,52 @@ namespace Sprint2
             currentFrame = 0;
             totalFrames = Rows * Columns;
             location = Location;
-            //marioState = new SmallMario();
+            marioState = new SmallMario(this, rows, columns, texture, Location);
         }
         public void Draw()
         {
-
+            marioState.Draw();
         }
         public void Update()
         {
-            
+            marioState.Update();
         }
         public void Jump()
         {
-            //marioState.Jump();
+            marioState.Jump();
         }
         public void MovingRight()
         {
-            
+            marioState.MovingRight();
         }
         public void MovingLeft()
         {
-            
+            marioState.MovingLeft();
         }
         public void FacingLeft()
         {
-
+            marioState.FacingLeft();
         }
         public void FacingRight()
         {
-
+            marioState.FacingRight();
         }
 
         public void CrouchRight()
         {
-            //marioState.CrouchRight();
+            marioState.CrouchRight();
         }
         public void CrouchLeft()
         {
-            //marioState.CrouchLeft();
+            marioState.CrouchLeft();
         }
         public void TakeDamage()
         {
             marioState.TakeDamage();
+        }
+        public void Upgrade()
+        {
+            marioState.Upgrade();
         }
     }
 }

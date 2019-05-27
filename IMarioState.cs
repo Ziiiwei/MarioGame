@@ -18,5 +18,6 @@ namespace Sprint2
         void CrouchRight();
         void CrouchLeft();
         void TakeDamage();
+        void Upgrade();
     }
 }

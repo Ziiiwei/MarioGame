@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Sprint2
 {
-    public class FireMario : IMario
+    public class FireMario : IMarioState
     {
         private Texture2D Texture { get; set; }
         private int Rows { get; set; }
@@ -14,8 +14,8 @@ namespace Sprint2
         private int currentFrame;
         private int totalFrames;
         private Vector2 location;
-        private IMarioState marioState;
-        
+        private IMario mario;
+
         public FireMario(int rows, int columns, Texture2D texture, Vector2 Location)
         {
             Rows = Rows;
@@ -24,7 +24,6 @@ namespace Sprint2
             currentFrame = 0;
             totalFrames = Rows * Columns;
             location = Location;
-            marioState = new SmallMario();
         }
         public void Draw()
         {
@@ -65,7 +64,11 @@ namespace Sprint2
         }
         public void TakeDamage()
         {
-            
+            mario.marioState = new SuperMario(mario, int rows, int columns, Texture2D texture, Vector2 Location);
+        }
+        public void Upgrade()
+        {
+            // cannot upgrade further
         }
     }
 }
