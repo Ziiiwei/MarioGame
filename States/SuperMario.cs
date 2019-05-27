@@ -36,7 +36,7 @@ namespace Sprint2.Interfaces
         }
         public void Jump()
         {
-            marioState.Jump();
+            
         }
         public void MovingRight()
         {
@@ -57,15 +57,32 @@ namespace Sprint2.Interfaces
 
         public void CrouchRight()
         {
-            marioState.CrouchRight();
+
         }
         public void CrouchLeft()
         {
-            marioState.CrouchLeft();
+
         }
         public void TakeDamage()
         {
             
         }
+    }
+    public class SmallMario : IMarioState
+    {
+        IMario mario;
+        public SmallMario(IMario mario)
+        {
+        }
+    }
+    public class SuperMario : IMarioState
+    {
+        IMario mario;
+        public SuperMario(IMario mario)
+    }
+    public class FireMario : IMarioState
+    {
+        IMario mario;
+        public FireMario(IMario mario)
     }
 }
