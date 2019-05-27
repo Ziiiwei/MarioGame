@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Sprint2.Interfaces
 {
-    interface Interface1
+    interface IMobileEnemy
     {
         void MoveLeft();
         void MoveRight();
