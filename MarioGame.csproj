@@ -52,6 +52,7 @@
     <Compile Include="Interfaces\IItem.cs" />
     <Compile Include="Interfaces\IKoopaState.cs" />
     <Compile Include="Interfaces\IMario.cs" />
+    <Compile Include="SpriteFactory.cs" />
     <Compile Include="Interfaces\IMobieEnermy.cs" />
     <Compile Include="Mario.cs" />
     <Compile Include="Sprites\AnimatedNotMoving1.cs" />

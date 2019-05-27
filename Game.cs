@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Sprint2.Commands;
 using System.Collections.Generic;
+using Microsoft.Xna.Framework.Content;
 
 namespace Sprint2
 {
@@ -14,15 +15,12 @@ namespace Sprint2
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         List<IController> controllers;
-        ISprite sprite;
-        List<Texture2D> textures;
 
         public Game()
         {
             graphics = new GraphicsDeviceManager(this);
             controllers = new List<IController>();
             Content.RootDirectory = "Content";
-            textures = new List<Texture2D>();
         }
 
         /// <summary>
@@ -36,6 +34,7 @@ namespace Sprint2
             base.Initialize();
             controllers.Add(new Keyboard1(this));
             controllers.Add(new Gamepad1(this));
+            
         }
 
         /// <summary>
@@ -43,14 +42,11 @@ namespace Sprint2
         /// all of your content.
         /// </summary>
         protected override void LoadContent()
-        {
-            // Create a new SpriteBatch, which can be used to draw textures.
+        {   
             spriteBatch = new SpriteBatch(GraphicsDevice);
-            textures.Add(Content.Load<Texture2D>("SonicDead"));
-            textures.Add(Content.Load<Texture2D>("SonicRoll"));
-
-
-
+            // TODO: Create texture file on disk and iteratively load all of these textures
+            //content.Load<Texture2D>("Content");
+            SpriteFactory.SetGameInstance(this);
         }
 
         /// <summary>
@@ -73,14 +69,6 @@ namespace Sprint2
             {
                 c.Update();
             }
-
-            // Need to create null sprite.
-            if (sprite != null)
-            {
-                sprite.Update();
-            }
-
-            base.Update(gameTime);
         }
 
         /// <summary>
@@ -90,12 +78,8 @@ namespace Sprint2
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.Azure);
-
             spriteBatch.Begin();
-            if (sprite != null)
-            {
-                sprite.Draw(spriteBatch);
-            }
+            // TODO: Add world update here.
             spriteBatch.End();
 
             base.Draw(gameTime);
