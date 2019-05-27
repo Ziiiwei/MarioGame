@@ -46,7 +46,7 @@ namespace Sprint2
             spriteBatch = new SpriteBatch(GraphicsDevice);
             // TODO: Create texture file on disk and iteratively load all of these textures
             //content.Load<Texture2D>("Content");
-            SpriteFactory.SetGameInstance(this);
+            
         }
 
         /// <summary>

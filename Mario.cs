@@ -28,7 +28,7 @@ namespace Sprint2
             location = Location;
             //marioState = new SmallMario();
         }
-        public void Draw()
+        public void Draw(SpriteBatch spriteBatch)
         {
 
         }
