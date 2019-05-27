@@ -3,20 +3,22 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
-namespace Sprint2.Interfaces
+using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework;
+using Sprint2.Interfaces;
+namespace Sprint2
 {
     public class Mario : IMario
     {
-        private Texture2D Texture { get; set; }
-        private int Rows { get; set; }
-        private int Columns { get; set; }
-        private int currentFrame;
-        private int totalFrames;
-        private Vector2 location;
+        public Texture2D Texture { get; set; }
+        public int Rows { get; set; }
+        public int Columns { get; set; }
+        public int currentFrame;
+        public int totalFrames;
+        public Vector2 location;
         private IMarioState marioState;
         
-        public Mario(rows, columns, Texture2D texture, Vector2 Location)
+        public Mario(int rows, int columns, Texture2D texture, Vector2 Location)
         {
             Rows = Rows;
             Columns = Columns;
@@ -24,7 +26,7 @@ namespace Sprint2.Interfaces
             currentFrame = 0;
             totalFrames = Rows * Columns;
             location = Location;
-            marioState = new SmallMario();
+            //marioState = new SmallMario();
         }
         public void Draw()
         {
@@ -36,7 +38,7 @@ namespace Sprint2.Interfaces
         }
         public void Jump()
         {
-            marioState.Jump();
+            //marioState.Jump();
         }
         public void MovingRight()
         {
@@ -57,15 +59,15 @@ namespace Sprint2.Interfaces
 
         public void CrouchRight()
         {
-            marioState.CrouchRight();
+            //marioState.CrouchRight();
         }
         public void CrouchLeft()
         {
-            marioState.CrouchLeft();
+            //marioState.CrouchLeft();
         }
         public void TakeDamage()
         {
-            
+            marioState.TakeDamage();
         }
     }
 }

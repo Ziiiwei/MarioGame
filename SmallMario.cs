@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Sprint2.Interfaces
+namespace Sprint2
 {
-    public class Mario : IMario
+    public class SmallMario : IMario
     {
         private Texture2D Texture { get; set; }
         private int Rows { get; set; }
@@ -16,7 +16,7 @@ namespace Sprint2.Interfaces
         private Vector2 location;
         private IMarioState marioState;
         
-        public Mario(rows, columns, Texture2D texture, Vector2 Location)
+        public SmallMario(rows, columns, Texture2D texture, Vector2 Location)
         {
             Rows = Rows;
             Columns = Columns;
@@ -67,22 +67,5 @@ namespace Sprint2.Interfaces
         {
             
         }
-    }
-    public class SmallMario : IMarioState
-    {
-        IMario mario;
-        public SmallMario(IMario mario)
-        {
-        }
-    }
-    public class SuperMario : IMarioState
-    {
-        IMario mario;
-        public SuperMario(IMario mario)
-    }
-    public class FireMario : IMarioState
-    {
-        IMario mario;
-        public FireMario(IMario mario)
     }
 }
