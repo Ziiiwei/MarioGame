@@ -59,7 +59,10 @@
     <Compile Include="Commands\QuitGame.cs" />
     <Compile Include="Commands\ICommand.cs" />
     <Compile Include="Controllers\IController.cs" />
+    <Compile Include="Sprites\Coin.cs" />
+    <Compile Include="Sprites\FireFlower.cs" />
     <Compile Include="Sprites\Goomba.cs" />
+    <Compile Include="Sprites\GreenMushroom.cs" />
     <Compile Include="Sprites\ISprite.cs" />
     <Compile Include="Sprites\Koopa.cs" />
     <Compile Include="Sprites\MovingAnimated1.cs" />
@@ -71,6 +74,8 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Sprites\Pipe.cs" />
+    <Compile Include="Sprites\RedMushroom.cs" />
+    <Compile Include="Sprites\Star.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="MonoGame.Framework">
