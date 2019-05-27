@@ -38,7 +38,15 @@ namespace Sprint2.Interfaces
 
         }
 
-        public void Crouch()
+        public void CrouchRight()
+        {
+
+        }
+        public void CrouchLeft()
+        {
+
+        }
+        public void TakeDamage()
         {
 
         }

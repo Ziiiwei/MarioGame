@@ -10,9 +10,7 @@ namespace Sprint2.Interfaces
     {
         void Draw();
         void Update();
-        void MovesYDirection();
-        bool ItemDestroyed();
-        String ItemName();
+ 
 
     }
 }
