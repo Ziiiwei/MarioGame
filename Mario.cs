@@ -6,74 +6,64 @@ using System.Threading.Tasks;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
 using Sprint2.Interfaces;
+using Sprint2.Sprites;
 namespace Sprint2
 {
-    public class Mario : IMario
+    public abstract class Mario : IMario
     {
-        private Texture2D Texture { get; set; }
-        private int Rows { get; set; }
-        private int Columns { get; set; }
-        private int currentFrame;
-        private int totalFrames;
+        private ISprite sprite;
         private Vector2 location;
-        // private IMarioState marioState;
 
 
-        public Mario(int rows, int columns, Texture2D texture, Vector2 Location)
+        public Mario(ISprite Sprite, Vector2 position)
         {
-           /* Rows = Rows;
-            Columns = Columns;
-            Texture = texture;
-            currentFrame = 0;
-            totalFrames = Rows * Columns;
-            location = Location;
-            marioState = new SmallMario(this, rows, columns, texture, Location);
-            */
+            sprite = Sprite;
+            location = position;
         }
         public void Draw(SpriteBatch spriteBatch)
         {
-            //marioState.Draw();
+            sprite.Draw(spriteBatch);
         }
         public void Update()
         {
-           // marioState.Update();
+            sprite.Update();
         }
         public void Jump()
         {
-            //marioState.Jump();
+            sprite = SpriteFactory.CreateMario(location);
         }
         public void MovingRight()
         {
-            //marioState.MovingRight();
+            sprite = SpriteFactory.CreateMario(location);
         }
         public void MovingLeft()
         {
-            //marioState.MovingLeft();
+            sprite = SpriteFactory.CreateMario(location);
         }
         public void FacingLeft()
         {
-            //marioState.FacingLeft();
+            sprite = SpriteFactory.CreateMario(location);
         }
         public void FacingRight()
         {
-            //marioState.FacingRight();
+            sprite = SpriteFactory.CreateMario(location);
         }
 
         public void CrouchRight()
         {
-            //marioState.CrouchRight();
+            sprite = SpriteFactory.CreateMario(location);
         }
         public void CrouchLeft()
         {
-            //marioState.CrouchLeft();
+            sprite = SpriteFactory.CreateMario(location);
         }
         public void TakeDamage()
         {
-            //marioState.TakeDamage();
+            sprite = SpriteFactory.CreateMario(location);
         }
         public void Upgrade()
         {
-            //marioState.Upgrade();
+            sprite = SpriteFactory.CreateMario(location);
         }
     }
 }

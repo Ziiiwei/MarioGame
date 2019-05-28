@@ -8,9 +8,6 @@ namespace Sprint2
 {
     interface IMarioState
     {
-        void FireMario();
-        void BigMario();
-        void SmallMario();
         void TakeDamage();
         void Update();
     }
