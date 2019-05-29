@@ -12,7 +12,7 @@ namespace Sprint2
     {
         public LevelLoader(World world)
         {
-            world.Mario = new Mario(new Vector2(200, 200));
+            world.Mario = new Mario(new Vector2(400, 200));
         }
     }
 }
