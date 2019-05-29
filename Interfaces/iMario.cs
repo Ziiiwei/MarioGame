@@ -8,7 +8,8 @@ namespace Sprint2.Interfaces
 {
     interface IMario : ISprite
     {
-        void Jump();
+        void JumpLeft();
+        void JumpRight();
         void MovingRight();
         void MovingLeft();
         void FacingRight();
