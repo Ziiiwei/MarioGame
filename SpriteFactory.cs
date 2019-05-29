@@ -41,6 +41,12 @@ namespace Sprint2
             textures.Add(gameInstance.Content.Load<Texture2D>("MarioJumpRight"));
             textures.Add(gameInstance.Content.Load<Texture2D>("MarioWalkingLeft"));
             textures.Add(gameInstance.Content.Load<Texture2D>("MarioWalkingRight"));
+            textures.Add(gameInstance.Content.Load<Texture2D>("Coin"));
+            textures.Add(gameInstance.Content.Load<Texture2D>("Star"));
+            textures.Add(gameInstance.Content.Load<Texture2D>("GreenShroom"));
+            textures.Add(gameInstance.Content.Load<Texture2D>("RedShroom"));
+            textures.Add(gameInstance.Content.Load<Texture2D>("Flower"));
+
         }
 
         public ISprite CreateLeftStandingMario()
@@ -72,6 +78,34 @@ namespace Sprint2
         {
             return new Sprite(textures[5], 1, 3, 3);
         }
+
+        public ISprite CreateCoin()
+        {
+            return new Sprite(textures[6], 1, 3, 3);
+        }
+        public ISprite CreateStar()
+        {
+            return new Sprite(textures[7], 1, 4, 4);
+        }
+
+        public ISprite CreateGreenShroom()
+        {
+            return new Sprite(textures[8], 1, 1, 1);
+        }
+
+        public ISprite CreateRedShroom()
+        {
+            return new Sprite(textures[9], 1, 1, 1);
+        }
+
+        public ISprite CreateFlower()
+        {
+            return new Sprite(textures[10], 1, 4, 4);
+        }
+
+
+
+
 
     }
 }
