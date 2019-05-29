@@ -11,22 +11,24 @@ namespace Sprint2
     {
         public void Crouch(IMario mario)
         {
-            throw new NotImplementedException();
+            mario.Sprite = SpriteFactory.Instance.CreateLeftCrouchingMario();
+            mario.SetState(new LeftFacingCrouchingMarioState());
         }
 
         public void Jump(IMario mario)
         {
-            throw new NotImplementedException();
+            mario.Sprite = SpriteFactory.Instance.CreateLeftJumpingMario();
+            mario.SetState(new LeftJumpingMarioState());
         }
 
         public void MoveLeft(IMario mario)
         {
-            throw new NotImplementedException();
+            // Do nothing
         }
 
         public void MoveRight(IMario mario)
         {
-            throw new NotImplementedException();
+            mario.SetState(new RightFacingWalkingMarioState());
         }
 
         public void Update(IMario mario)
