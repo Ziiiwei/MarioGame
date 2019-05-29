@@ -7,10 +7,9 @@ using System.Threading.Tasks;
 
 namespace Sprint2
 {
-    interface ISprite
+    public interface IGameObject
     {
-        void Draw(SpriteBatch spriteBatch);
         void Update();
-
+        void Draw(SpriteBatch spriteBatch);
     }
 }

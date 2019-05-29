@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Xna.Framework.Input;
-using Sprint2.Commands;
 
 namespace Sprint2
 {
@@ -13,14 +12,15 @@ namespace Sprint2
         private Dictionary<Keys, ICommand> keyCommands;
         private List<Keys> previouslyPressed;
 
-        public Keyboard1(Game game)
+        public Keyboard1(MarioGame game, World world)
         {
             keyCommands = new Dictionary<Keys, ICommand>();
             keyCommands.Add(Keys.Q, new QuitGame(game));
-            keyCommands.Add(Keys.W, new Display(game));
-            keyCommands.Add(Keys.E, new Animate(game));
-            keyCommands.Add(Keys.R, new Move(game));
-            keyCommands.Add(Keys.T, new MoveAndAnimate(game));
+            keyCommands.Add(Keys.W, new MarioJumpCommand(world.Mario));
+            keyCommands.Add(Keys.S, new MarioCrouchCommand(world.Mario));
+            keyCommands.Add(Keys.A, new MarioMoveLeftCommand(world.Mario));
+            keyCommands.Add(Keys.D, new MarioMoveRightCommand(world.Mario));
+
             previouslyPressed = new List<Keys>();
         }
 

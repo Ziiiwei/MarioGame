@@ -9,11 +9,11 @@ using Microsoft.Xna.Framework.Content;
 
 namespace Sprint2
 {
-    sealed class SpriteFactory
+    public sealed class SpriteFactory
     {
         private static readonly SpriteFactory instance = new SpriteFactory();
-        private static Texture2D marioTexture;
-        private Game gameInstance;
+        private List<Texture2D> textures;
+        private MarioGame gameInstance;
 
         static SpriteFactory()
         {
@@ -21,8 +21,7 @@ namespace Sprint2
 
         private SpriteFactory()
         {
-            gameInstance.Content.Load<Texture2D>("SonicRoll");
-            gameInstance.Content.Load<Texture2D>("SonicDead");
+            textures = new List<Texture2D>();
         }
 
         public static SpriteFactory Instance
@@ -33,30 +32,46 @@ namespace Sprint2
             }
         }
 
-        public static void SetGameInstance(Game game)
+        public void SetGameInstance(MarioGame game)
         {
-            SpriteFactory.Instance.gameInstance = game;
+            gameInstance = game;
+            textures.Add(gameInstance.Content.Load<Texture2D>("MarioFacingLeft"));
+            textures.Add(gameInstance.Content.Load<Texture2D>("MarioFacingRight"));
+            textures.Add(gameInstance.Content.Load<Texture2D>("MarioJumpLeft"));
+            textures.Add(gameInstance.Content.Load<Texture2D>("MarioJumpRight"));
+            textures.Add(gameInstance.Content.Load<Texture2D>("MarioWalkingLeft"));
+            textures.Add(gameInstance.Content.Load<Texture2D>("MarioWalkingRight"));
         }
 
-        public ISprite CreateGoomba(Vector2 positionOnScreen)
+        public ISprite CreateLeftStandingMario()
         {
-            return null;
+            return new Sprite(textures[0], 1, 1, 1);
         }
 
-        public static ISprite CreateKoopa(Vector2 positionOnScreen)
+        public ISprite CreateRightStandingMario()
         {
-            return null;
+            return new Sprite(textures[1], 1, 1, 1);
         }
 
-        public static ISprite CreateMario(Vector2 positionOnScreen)
+        public ISprite CreateLeftJumpingMario()
         {
-            return new Mario(5, 1, marioTexture, positionOnScreen);
+            return new Sprite(textures[2], 1, 1, 1);
         }
 
-        public static ISprite CreatePipe(Vector2 positionOnScreen)
+        public ISprite CreateRightJumpingMario()
         {
-            return null;
+            return new Sprite(textures[3], 1, 1, 1);
         }
-        
+
+        public ISprite CreateLeftWalkingMario()
+        {
+            return new Sprite(textures[4], 1, 3, 3);
+        }
+
+        public ISprite CreateRightWalkingMario()
+        {
+            return new Sprite(textures[5], 1, 3, 3);
+        }
+
     }
 }

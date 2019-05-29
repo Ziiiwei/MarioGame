@@ -1,27 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Sprint2.Interfaces
+﻿namespace Sprint2
 {
-    interface IMario : ISprite
+    public interface IMario : IGameObject
     {
-        void JumpLeft();
-        void JumpRight();
-        void MovingRight();
-        void MovingLeft();
-        void FacingRight();
-        void FacingLeft();
-        void CrouchRight();
-        void CrouchLeft();
-        
-
+        ISprite Sprite { get; set; }
+        void Jump();
+        void MoveRight();
+        void MoveLeft();
+        void Crouch();
+        void TakeDamage();
+        void Upgrade();
+        void SetState(IMarioState newState);
 
     }
 }
-
-
-
-

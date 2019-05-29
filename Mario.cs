@@ -5,69 +5,69 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
-using Sprint2.Interfaces;
+
 namespace Sprint2
 {
     public class Mario : IMario
     {
-        private ISprite sprite;
-        private Vector2 location;
-
-
-        public Mario(Vector2 position)
+        public ISprite Sprite { get; set; }
+        private IMarioState state;
+        private Vector2 positionOnScreen;
+        
+        public Mario(Vector2 positionOnScreen)
         {
-            sprite = SpriteFactory.CreateMario(position);
-            location = position;
+            Sprite = SpriteFactory.Instance.CreateRightStandingMario();
+            state = new RightFacingStandingMarioState();
+            this.positionOnScreen = positionOnScreen;
         }
+
         public void Draw(SpriteBatch spriteBatch)
         {
-            sprite.Draw(spriteBatch);
+            var spriteTextureAndRectangle = Sprite.GetSprite();
+
+            spriteBatch.Draw(texture: spriteTextureAndRectangle.Item1, position: positionOnScreen, 
+                sourceRectangle: spriteTextureAndRectangle.Item2);
+
         }
+
         public void Update()
         {
-            sprite.Update();
-        }
-        public void JumpLeft()
-        {
-            sprite = SpriteFactory.CreateMario(location);
-        }
-        public void JumpRight()
-        {
-            sprite = SpriteFactory.CreateMario(location);
-        }
-        public void MovingRight()
-        {
-            sprite = SpriteFactory.CreateMario(location);
-        }
-        public void MovingLeft()
-        {
-            sprite = SpriteFactory.CreateMario(location);
-        }
-        public void FacingLeft()
-        {
-            sprite = SpriteFactory.CreateMario(location);
-        }
-        public void FacingRight()
-        {
-            sprite = SpriteFactory.CreateMario(location);
+            Sprite.Update();
         }
 
-        public void CrouchRight()
+        public void Jump()
         {
-
+            state.Jump(this);
         }
-        public void CrouchLeft()
+
+        public void MoveRight()
         {
-
+            state.MoveRight(this);
         }
+
+        public void MoveLeft()
+        {
+            state.MoveLeft(this);
+        }
+
+        public void Crouch()
+        {
+            state.Crouch(this);
+        }
+
         public void TakeDamage()
         {
-            sprite = SpriteFactory.CreateMario(location);
+            throw new NotImplementedException();
         }
+
         public void Upgrade()
         {
-            sprite = SpriteFactory.CreateMario(location);
+            throw new NotImplementedException();
         }
-        
+
+        public void SetState(IMarioState newState)
+        {
+            this.state = newState;
+        }
     }
 }

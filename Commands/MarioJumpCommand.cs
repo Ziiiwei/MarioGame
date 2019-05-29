@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Sprint2;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,16 +7,16 @@ using System.Threading.Tasks;
 
 namespace Sprint2
 {
-    class QuitGame : ICommand
+    class MarioJumpCommand : ICommand
     {
-        private MarioGame game;
-        public QuitGame(MarioGame thisGame)
+        IMario mario;
+        public MarioJumpCommand(IMario mario)
         {
-            game = thisGame;
+            this.mario = mario;
         }
         public void Execute()
         {
-            game.Exit();
+            mario.Jump();
         }
     }
 }

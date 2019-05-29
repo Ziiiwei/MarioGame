@@ -4,18 +4,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Sprint2.Commands
+namespace Sprint2
 {
-    class Animate : ICommand
+    class MarioCrouchCommand : ICommand
     {
-        private Game game;
-        public Animate(Game myGame)
+        IMario mario;
+        public MarioCrouchCommand(IMario mario)
         {
-            game = myGame;
+            this.mario = mario;
         }
-
         public void Execute()
         {
+            mario.Crouch();
         }
     }
 }

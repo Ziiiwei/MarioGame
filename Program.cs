@@ -14,7 +14,7 @@ namespace Sprint2
         [STAThread]
         static void Main()
         {
-            using (var game = new Game())
+            using (var game = new MarioGame())
                 game.Run();
             //To run on mac, a mannul inculsion of Monogame.framwork from nuget is needed
         }
