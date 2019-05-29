@@ -27,8 +27,8 @@ namespace Sprint2
 
         public void MoveRight(IMario mario)
         {
-            mario.Sprite = SpriteFactory.Instance.CreateRightStandingMario();
-            mario.SetState(new RightFacingStandingMarioState());
+            mario.Sprite = SpriteFactory.Instance.CreateLeftStandingMario();
+            mario.SetState(new LeftFacingStandingMarioState());
         }
 
         public void Update(IMario mario)
