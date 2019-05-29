@@ -30,7 +30,7 @@ namespace Sprint2
 
         public void MoveRight(IMario mario)
         {
-            mario.Sprite = SpriteFactory.Instance.CreateRightJumpingMario();
+            mario.Sprite = SpriteFactory.Instance.CreateRightWalkingMario();
             mario.SetState(new RightFacingWalkingMarioState());
         }
 
