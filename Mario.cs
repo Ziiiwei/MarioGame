@@ -6,18 +6,17 @@ using System.Threading.Tasks;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
 using Sprint2.Interfaces;
-using Sprint2.Sprites;
 namespace Sprint2
 {
-    public abstract class Mario : IMario
+    public class Mario : IMario
     {
         private ISprite sprite;
         private Vector2 location;
 
 
-        public Mario(ISprite Sprite, Vector2 position)
+        public Mario(Vector2 position)
         {
-            sprite = Sprite;
+            sprite = SpriteFactory.CreateMario(position);
             location = position;
         }
         public void Draw(SpriteBatch spriteBatch)
