@@ -5,74 +5,69 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
-using Sprint2.Interfaces;
+
 namespace Sprint2
 {
     public class Mario : IMario
     {
-        public Texture2D Texture { get; set; }
-        public int Rows { get; set; }
-        public int Columns { get; set; }
-        public int currentFrame;
-        public int totalFrames;
-        public Vector2 location;
-        // public IMarioState marioState;
+        public ISprite Sprite { get; set; }
+        private IMarioState state;
+        private Vector2 positionOnScreen;
         
-        public Mario(int rows, int columns, Texture2D texture, Vector2 Location)
+        public Mario(Vector2 positionOnScreen)
         {
-           /* Rows = Rows;
-            Columns = Columns;
-            Texture = texture;
-            currentFrame = 0;
-            totalFrames = Rows * Columns;
-            location = Location;
-            marioState = new SmallMario(this, rows, columns, texture, Location);
-            */
-        }
-        public void Draw(SpriteBatch spriteBatch)
-        {
-            //marioState.Draw();
-        }
-        public void Update()
-        {
-           // marioState.Update();
-        }
-        public void Jump()
-        {
-            //marioState.Jump();
-        }
-        public void MovingRight()
-        {
-            //marioState.MovingRight();
-        }
-        public void MovingLeft()
-        {
-            //marioState.MovingLeft();
-        }
-        public void FacingLeft()
-        {
-            //marioState.FacingLeft();
-        }
-        public void FacingRight()
-        {
-            //marioState.FacingRight();
+            Sprite = SpriteFactory.Instance.CreateRightStandingMario();
+            state = new RightFacingStandingMarioState();
+            this.positionOnScreen = positionOnScreen;
         }
 
-        public void CrouchRight()
+        public void Draw(SpriteBatch spriteBatch)
         {
-            //marioState.CrouchRight();
+            var spriteTextureAndRectangle = Sprite.GetSprite();
+
+            spriteBatch.Draw(texture: spriteTextureAndRectangle.Item1, position: positionOnScreen, 
+                sourceRectangle: spriteTextureAndRectangle.Item2);
+
         }
-        public void CrouchLeft()
+
+        public void Update()
         {
-            //marioState.CrouchLeft();
+            Sprite.Update();
         }
+
+        public void Jump()
+        {
+            state.Jump(this);
+        }
+
+        public void MoveRight()
+        {
+            state.MoveRight(this);
+        }
+
+        public void MoveLeft()
+        {
+            state.MoveLeft(this);
+        }
+
+        public void Crouch()
+        {
+            state.Crouch(this);
+        }
+
         public void TakeDamage()
         {
-            //marioState.TakeDamage();
+            throw new NotImplementedException();
         }
+
         public void Upgrade()
         {
-            //marioState.Upgrade();
+            throw new NotImplementedException();
+        }
+
+        public void SetState(IMarioState newState)
+        {
+            this.state = newState;
         }
     }
 }

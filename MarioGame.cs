@@ -1,7 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
-using Sprint2.Commands;
 using System.Collections.Generic;
 using Microsoft.Xna.Framework.Content;
 
@@ -10,13 +9,16 @@ namespace Sprint2
     /// <summary>
     /// This is the main type for your game.
     /// </summary>
-    public class Game : Microsoft.Xna.Framework.Game
+    public class MarioGame : Game
     {
-        GraphicsDeviceManager graphics;
-        SpriteBatch spriteBatch;
-        List<IController> controllers;
+        private GraphicsDeviceManager graphics;
+        public SpriteBatch TheSpriteBatch { get; private set; }
+        private List<IController> controllers;
+        public World TheWorld { get; private set; }
+        // Make LevelLoader a singleton.
+        private LevelLoader levelLoader;
 
-        public Game()
+        public MarioGame()
         {
             graphics = new GraphicsDeviceManager(this);
             controllers = new List<IController>();
@@ -32,21 +34,21 @@ namespace Sprint2
         protected override void Initialize()
         {
             base.Initialize();
-            controllers.Add(new Keyboard1(this));
+            SpriteFactory.Instance.SetGameInstance(this);
+            TheWorld = new World(this);
+            levelLoader = new LevelLoader(TheWorld);
+            controllers.Add(new Keyboard1(this, TheWorld));
             controllers.Add(new Gamepad1(this));
             
         }
-
+        
         /// <summary>
         /// LoadContent will be called once per game and is the place to load
         /// all of your content.
         /// </summary>
         protected override void LoadContent()
         {   
-            spriteBatch = new SpriteBatch(GraphicsDevice);
-            // TODO: Create texture file on disk and iteratively load all of these textures
-            //content.Load<Texture2D>("Content");
-            
+            TheSpriteBatch = new SpriteBatch(GraphicsDevice);
         }
 
         /// <summary>
@@ -69,6 +71,9 @@ namespace Sprint2
             {
                 c.Update();
             }
+
+            TheWorld.UpdateWorld();
+            base.Update(gameTime);
         }
 
         /// <summary>
@@ -78,10 +83,9 @@ namespace Sprint2
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.Azure);
-            spriteBatch.Begin();
-            // TODO: Add world update here.
-            spriteBatch.End();
-
+            TheSpriteBatch.Begin();
+            TheWorld.DrawWorld();
+            TheSpriteBatch.End();
             base.Draw(gameTime);
         }
     }

@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace Sprint2
 {
-    interface IMarioState
+    public interface IMarioState
     {
-        void FireMario();
-        void BigMario();
-        void SmallMario();
-        void TakeDamage();
-        void Update();
+        void Jump(IMario mario);
+        void Crouch(IMario mario);
+        void MoveRight(IMario mario);
+        void MoveLeft(IMario mario);
+        void Update(IMario mario);
     }
 }

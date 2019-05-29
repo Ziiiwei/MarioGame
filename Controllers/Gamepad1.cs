@@ -5,8 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
-using Sprint2.Commands;
-
+/* WHOLE CLASS NEEDS TO BE ADJUSTED */
 namespace Sprint2
 {
     class Gamepad1: IController
@@ -15,15 +14,11 @@ namespace Sprint2
         private GamePadState previousState;
         private Dictionary<Buttons, ICommand> buttonCommands;
 
-        public Gamepad1(Game game)
+        public Gamepad1(MarioGame game)
         {
             buttonCommands = new Dictionary<Buttons, ICommand>();
 
             buttonCommands.Add(Buttons.Start, new QuitGame(game));
-            buttonCommands.Add(Buttons.A, new Display(game));
-            buttonCommands.Add(Buttons.B, new Animate(game));
-            buttonCommands.Add(Buttons.X, new Move(game));
-            buttonCommands.Add(Buttons.Y, new MoveAndAnimate(game));
             previousState = new GamePadState();
         }
 
