@@ -70,6 +70,8 @@
     <Compile Include="States\LeftFacingCrouchingMarioState.cs" />
     <Compile Include="States\LeftFacingStandingMarioState.cs" />
     <Compile Include="States\LeftFacingWalkingMarioState.cs" />
+    <Compile Include="States\LeftJumpingMarioState - Copy.cs" />
+    <Compile Include="States\RightJumpingMarioState.cs" />
     <Compile Include="States\RightFacingCrouchingMarioState.cs" />
     <Compile Include="States\RightFacingStandingMarioState.cs" />
     <Compile Include="States\RightFacingWalkingMarioState.cs" />
