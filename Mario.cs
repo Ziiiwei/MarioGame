@@ -27,7 +27,11 @@ namespace Sprint2
         {
             sprite.Update();
         }
-        public void Jump()
+        public void JumpLeft()
+        {
+            sprite = SpriteFactory.CreateMario(location);
+        }
+        public void JumpRight()
         {
             sprite = SpriteFactory.CreateMario(location);
         }
@@ -50,11 +54,11 @@ namespace Sprint2
 
         public void CrouchRight()
         {
-            sprite = SpriteFactory.CreateMario(location);
+
         }
         public void CrouchLeft()
         {
-            sprite = SpriteFactory.CreateMario(location);
+
         }
         public void TakeDamage()
         {
@@ -64,5 +68,6 @@ namespace Sprint2
         {
             sprite = SpriteFactory.CreateMario(location);
         }
+        
     }
 }
