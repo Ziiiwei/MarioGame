@@ -48,19 +48,9 @@ namespace Sprint2
             return new Sprite(textures[0], 1, 1, 1);
         }
 
-        public ISprite CreateLeftCrouchingMario()
-        {
-            return new Sprite(textures[0], 1, 1, 1);
-        }
-
         public ISprite CreateRightStandingMario()
         {
             return new Sprite(textures[1], 1, 1, 1);
-        }
-
-        public ISprite CreateRightCrouchingMario()
-        {
-            return new Sprite(textures[0], 1, 1, 1);
         }
 
         public ISprite CreateLeftJumpingMario()
