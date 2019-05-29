@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using Sprint2;
 
 namespace Sprint2
 {
-    class LeftFacingCrouchingMarioState : IMarioState
+    class RightJumpingMarioState : IMarioState
     {
         public void Crouch(IMario mario)
         {
@@ -16,19 +16,16 @@ namespace Sprint2
 
         public void Jump(IMario mario)
         {
-            mario.Sprite = SpriteFactory.Instance.CreateLeftStandingMario();
             mario.SetState(new LeftFacingStandingMarioState());
         }
 
         public void MoveLeft(IMario mario)
         {
-            mario.Sprite = SpriteFactory.Instance.CreateLeftWalkingMario();
             mario.SetState(new LeftFacingWalkingMarioState());
         }
 
         public void MoveRight(IMario mario)
         {
-            mario.Sprite = SpriteFactory.Instance.CreateRightWalkingMario();
             mario.SetState(new RightFacingWalkingMarioState());
         }
 
