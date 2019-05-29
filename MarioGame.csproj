@@ -50,12 +50,10 @@
     <Compile Include="Interfaces\IMarioState.cs" />
     <Compile Include="Interfaces\IBlock.cs" />
     <Compile Include="Interfaces\IGoombaState.cs" />
-    <Compile Include="Interfaces\IItem.cs" />
     <Compile Include="Interfaces\IKoopaState.cs" />
     <Compile Include="Interfaces\IMario.cs" />
     <Compile Include="LevelLoader.cs" />
     <Compile Include="SpriteFactory.cs" />
-    <Compile Include="Interfaces\IMobieEnermy.cs" />
     <Compile Include="Mario.cs" />
     <Compile Include="Commands\QuitGame.cs" />
     <Compile Include="Commands\ICommand.cs" />
