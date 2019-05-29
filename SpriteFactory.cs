@@ -45,32 +45,32 @@ namespace Sprint2
 
         public ISprite CreateLeftStandingMario()
         {
-            return new Sprite(textures[0], 1, 3, 3);
+            return new Sprite(textures[0], 1, 1, 1);
         }
 
         public ISprite CreateLeftCrouchingMario()
         {
-            return new Sprite(textures[0], 1, 3, 3);
+            return new Sprite(textures[0], 1, 1, 1);
         }
 
         public ISprite CreateRightStandingMario()
         {
-            return new Sprite(textures[1], 1, 3, 3);
+            return new Sprite(textures[1], 1, 1, 1);
         }
 
         public ISprite CreateRightCrouchingMario()
         {
-            return new Sprite(textures[0], 1, 3, 3);
+            return new Sprite(textures[0], 1, 1, 1);
         }
 
         public ISprite CreateLeftJumpingMario()
         {
-            return new Sprite(textures[2], 1, 3, 3);
+            return new Sprite(textures[2], 1, 1, 1);
         }
 
         public ISprite CreateRightJumpingMario()
         {
-            return new Sprite(textures[3], 1, 3, 3);
+            return new Sprite(textures[3], 1, 1, 1);
         }
 
         public ISprite CreateLeftWalkingMario()
