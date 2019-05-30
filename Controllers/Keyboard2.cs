@@ -20,6 +20,8 @@ namespace Sprint2
 
             keyCommands.Add(Keys.A, new GoombaChangeDirection(goomba));
             keyCommands.Add(Keys.D, new GoombaChangeDirection(goomba));
+            keyCommands.Add(Keys.S, new GoombaGetStomped(goomba));
+     
 
             previouslyPressed = new List<Keys>();
         }

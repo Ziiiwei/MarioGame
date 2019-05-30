@@ -63,6 +63,7 @@
     <Compile Include="Interfaces\IGoombaState.cs" />
     <Compile Include="Interfaces\IKoopaState.cs" />
     <Compile Include="Interfaces\IMario.cs" />
+    <Compile Include="Pipe.cs" />
     <Compile Include="State\LeftFacingCrouchingMarioState.cs" />
     <Compile Include="State\LeftFacingStandingMarioState.cs" />
     <Compile Include="State\LeftFacingWalkingMarioState.cs" />
@@ -110,11 +111,10 @@
     <MonoGameContentReference Include="Content\Content.mgcb" />
     <None Include="app.config" />
     <None Include="app.manifest" />
+    <None Include="Code Reviews\KeithChin.md" />
     <None Include="README.md" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Code Reviews\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\MonoGame\v3.0\MonoGame.Content.Builder.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
