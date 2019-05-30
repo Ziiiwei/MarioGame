@@ -83,6 +83,8 @@ namespace Sprint2
             textures.Add(gameInstance.Content.Load<Texture2D>("KoopaShell"));
             textures.Add(gameInstance.Content.Load<Texture2D>("KoopaFlipped"));
             textures.Add(gameInstance.Content.Load<Texture2D>("BrickBlock"));
+            textures.Add(gameInstance.Content.Load<Texture2D>("FloorBlock"));
+            textures.Add(gameInstance.Content.Load<Texture2D>("MetalBlock"));
 
 
 
@@ -189,6 +191,15 @@ namespace Sprint2
             return new Sprite(textures[12], 1, 1, 1);
         }
 
+        public ISprite CreateFloorBlock()
+        {
+            return new Sprite(textures[13], 1, 1, 1);
+        }
+
+        public ISprite CreateMetalBlock()
+        {
+            return new Sprite(textures[14], 1, 1, 1);
+        }
 
 
 

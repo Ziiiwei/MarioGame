@@ -44,8 +44,10 @@
   <ItemGroup>
     <Compile Include="Bloacks\BrickBlock.cs" />
     <Compile Include="Bloacks\BrickBlockNormalState.cs" />
+    <Compile Include="Bloacks\FloorBlock.cs" />
     <Compile Include="Bloacks\IBlocks.cs" />
     <Compile Include="Bloacks\IBlockState.cs" />
+    <Compile Include="Bloacks\MetalBlock.cs" />
     <Compile Include="Coin.cs" />
     <Compile Include="Commands\GoombaChangeDirection.cs" />
     <Compile Include="Commands\GoombaGetStomped.cs" />
