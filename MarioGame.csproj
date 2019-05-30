@@ -126,6 +126,7 @@
     <None Include="app.config" />
     <None Include="app.manifest" />
     <None Include="Code Reviews\KeithChin.md" />
+    <None Include="Code Reviews\MatthewHarrow.md" />
     <None Include="Code Reviews\RayanHamza.md" />
     <None Include="README.md" />
   </ItemGroup>
