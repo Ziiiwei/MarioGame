@@ -85,6 +85,7 @@ namespace Sprint2
             textures.Add(gameInstance.Content.Load<Texture2D>("BrickBlock"));
             textures.Add(gameInstance.Content.Load<Texture2D>("FloorBlock"));
             textures.Add(gameInstance.Content.Load<Texture2D>("MetalBlock"));
+            textures.Add(gameInstance.Content.Load<Texture2D>("CoinBlock"));
 
 
 
@@ -199,6 +200,10 @@ namespace Sprint2
         public ISprite CreateMetalBlock()
         {
             return new Sprite(textures[14], 1, 1, 1);
+        }
+        public ISprite CreateCoinBlock()
+        {
+            return new SpriteZ(textures[15], 5, 0);
         }
 
 

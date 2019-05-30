@@ -44,6 +44,11 @@
   <ItemGroup>
     <Compile Include="Bloacks\BrickBlock.cs" />
     <Compile Include="Bloacks\BrickBlockNormalState.cs" />
+    <Compile Include="Bloacks\CoinBlock.cs" />
+    <Compile Include="Bloacks\CoinBlockStateFew.cs" />
+    <Compile Include="Bloacks\CoinBlockStateSome.cs" />
+    <Compile Include="Bloacks\CoinBlockStateMany.cs" />
+    <Compile Include="Bloacks\CoinBlockStateNone.cs.cs" />
     <Compile Include="Bloacks\FloorBlock.cs" />
     <Compile Include="Bloacks\IBlocks.cs" />
     <Compile Include="Bloacks\IBlockState.cs" />
@@ -51,6 +56,7 @@
     <Compile Include="Coin.cs" />
     <Compile Include="Commands\GoombaChangeDirection.cs" />
     <Compile Include="Commands\GoombaGetStomped.cs" />
+    <Compile Include="Commands\HitBlock.cs" />
     <Compile Include="Commands\MakeMarioBig.cs" />
     <Compile Include="Commands\MakeMarioFire.cs" />
     <Compile Include="Commands\MakeMarioSmall.cs" />
@@ -80,6 +86,7 @@
     <Compile Include="Koopa\Koopa.cs" />
     <Compile Include="Koopa\KoopaStompedCommand.cs" />
     <Compile Include="Pipe.cs" />
+    <Compile Include="Sprites\SpriteZ.cs" />
     <Compile Include="State\LeftFacingCrouchingMarioState.cs" />
     <Compile Include="State\LeftFacingStandingMarioState.cs" />
     <Compile Include="State\LeftFacingWalkingMarioState.cs" />

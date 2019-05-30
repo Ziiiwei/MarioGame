@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Sprint2
 {
-    interface IBlocks : IGameObject
+    public interface IBlocks : IGameObject
     {
         void MarioHitBlock();
 

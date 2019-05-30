@@ -9,8 +9,8 @@ namespace Sprint2
 {
     public interface IGameObject
     {
-       
         void Update();
         void Draw(SpriteBatch spriteBatch);
     }
 }
+ 

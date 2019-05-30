@@ -13,6 +13,7 @@ namespace Sprint2
         public LevelLoader(World world)
         {
             world.Mario = new Mario(new Vector2(300, 200));
+
             world.AddGameObject(new FireFlower(new Vector2(125, 100)));
             world.AddGameObject(new Coin(new Vector2(175, 100)));
             world.AddGameObject(new RedMushroom(new Vector2(225, 100)));
@@ -22,6 +23,8 @@ namespace Sprint2
             world.AddGameObject(new BrickBlock(new Vector2(375, 100)));
             world.AddGameObject(new FloorBlock(new Vector2(425, 100)));
             world.AddGameObject(new MetalBlock(new Vector2(475, 100)));
+
+            world.AddBlocks(new CoinBlock(new Vector2(525, 100)));
 
         }
     }

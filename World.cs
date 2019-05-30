@@ -9,7 +9,9 @@ namespace Sprint2
 {
     public class World
     {
-        private List<IGameObject> objectsInWorld;
+        public List<IGameObject> objectsInWorld;
+
+        public List<IBlocks> blocksInWorld;
         public IMario Mario { get; set; }
         public Goomba TheGoomba { get; set; }
         public Koopa TheKoopa { get; set; }
@@ -19,6 +21,7 @@ namespace Sprint2
         {
             this.game = game;
             objectsInWorld = new List<IGameObject>();
+            blocksInWorld = new List<IBlocks>();
             Mario = new Mario(new Vector2(200, 200));
             TheGoomba = new Goomba(new Vector2(300, 300));
             TheKoopa = new Koopa(new Vector2(300, 400));
@@ -29,11 +32,21 @@ namespace Sprint2
             objectsInWorld.Add(gameObject);
         }
 
+        public void AddBlocks(IBlocks block)
+        {
+            blocksInWorld.Add(block);
+        }
+
         public void UpdateWorld()
         {
             foreach (IGameObject gameObject in objectsInWorld)
             {
                 gameObject.Update();
+            }
+
+            foreach (IBlocks block in blocksInWorld)
+            {
+                block.Update();
             }
             Mario.Update();
             TheGoomba.Update();
@@ -46,6 +59,11 @@ namespace Sprint2
             foreach (IGameObject gameObject in objectsInWorld)
             {
                 gameObject.Draw(game.TheSpriteBatch);
+            }
+
+            foreach (IBlocks block in blocksInWorld)
+            {
+                block.Draw(game.TheSpriteBatch);
             }
             Mario.Draw(game.TheSpriteBatch);
             TheGoomba.Draw(game.TheSpriteBatch);

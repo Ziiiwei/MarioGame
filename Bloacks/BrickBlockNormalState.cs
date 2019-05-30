@@ -17,6 +17,9 @@ namespace Sprint2
             throw new NotImplementedException();
         }
 
-   
+        public void Update()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -8,7 +8,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Sprint2
 {
-    class Sprite : ISprite
+    class SpriteZ : ISprite
     {
         private Texture2D texture;
         private int columns;
@@ -18,11 +18,12 @@ namespace Sprint2
         private readonly int delayBound = 5;
         private int delayCounter = 0;
 
-        public Sprite(Texture2D texture, int rows, int columns, int totalFrames)
+        public SpriteZ(Texture2D texture, int columns, int initialFrame)
         {
             this.texture = texture;
             this.columns = columns;
-            this.totalFrames = totalFrames;
+            this.currentFrame = initialFrame;
+            this.totalFrames = columns;
 
             int width = texture.Width / columns;
             int height = texture.Height;
@@ -59,15 +60,14 @@ namespace Sprint2
             return texture;
         }
 
+        public Rectangle GetRectangle()
+        {
+            return rectangles[currentFrame];
+        }
 
         public int FrameCount()
         {
             return totalFrames;
-        }
-
-        public Rectangle GetRectangle()
-        {
-            return rectangles[currentFrame];
         }
     }
 }
