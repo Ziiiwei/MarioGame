@@ -153,7 +153,7 @@ namespace Sprint2
 
         public ISprite CreatePipe()
         {
-            return new Sprite(textures[13], 1, 1, 1);
+            return new Sprite(textures[7], 1, 1, 1);
         }
 
 
