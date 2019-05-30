@@ -11,7 +11,7 @@ namespace Sprint2
     {
         private List<IGameObject> objectsInWorld;
         public IMario Mario { get; set; }
-        private Goomba TheGoomba { get; set; }
+        public Goomba TheGoomba { get; set; }
         private MarioGame game;
 
         public World(MarioGame game)
@@ -19,7 +19,7 @@ namespace Sprint2
             this.game = game;
             objectsInWorld = new List<IGameObject>();
             Mario = new Mario(new Vector2(200, 200));
-            TheGoomba = new Goomba(new Vector2(200, 300));
+            TheGoomba = new Goomba(new Vector2(300, 300));
         }
 
         public void AddGameObject(IGameObject gameObject)

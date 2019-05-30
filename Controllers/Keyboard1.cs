@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Xna.Framework.Input;
+using Sprint2.Commands;
 
 namespace Sprint2
 {
@@ -20,6 +21,9 @@ namespace Sprint2
             keyCommands.Add(Keys.S, new MarioCrouchCommand(world.Mario));
             keyCommands.Add(Keys.A, new MarioMoveLeftCommand(world.Mario));
             keyCommands.Add(Keys.D, new MarioMoveRightCommand(world.Mario));
+
+
+
 
             previouslyPressed = new List<Keys>();
         }

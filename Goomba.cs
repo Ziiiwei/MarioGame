@@ -10,7 +10,7 @@ using Microsoft.Xna.Framework;
 
 namespace Sprint2
 {
-    class Goomba : IGameObject
+    public class Goomba : IGameObject
     {
         public ISprite Sprite { get; set; }
         private IGoombaState state;

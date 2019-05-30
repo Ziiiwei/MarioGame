@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Sprint2.Interfaces
 {
-    interface IGoombaState
+    public interface IGoombaState
     {
         void ChangeDirection();
         void BeStomped();
