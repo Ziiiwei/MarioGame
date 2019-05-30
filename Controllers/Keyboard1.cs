@@ -26,8 +26,6 @@ namespace Sprint2
             keyCommands.Add(Keys.I, new MakeMarioFire(world.Mario));
 
 
-
-
             previouslyPressed = new List<Keys>();
         }
 

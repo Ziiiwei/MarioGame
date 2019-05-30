@@ -16,8 +16,7 @@ namespace Sprint2
         }
         public void Execute()
         {
-            //mario.PowerUpState = new MarioSuperState();
-            mario.PowerUp();
+            mario.PowerUpState = new MarioSuperState();
         }
     }
 }
