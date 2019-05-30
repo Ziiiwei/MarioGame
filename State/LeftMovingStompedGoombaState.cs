@@ -24,7 +24,7 @@ namespace Sprint2.GoombaState
 
         public void ChangeDirection()
         {
-            goomba.SetState(new RightMovingStompedGoombaState(goomba));
+            goomba.SetState(new RightMovingGoombaState(goomba));
         }
 
         public void IsDead()
