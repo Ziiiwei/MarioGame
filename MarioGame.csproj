@@ -50,6 +50,7 @@
     <Compile Include="FireFlower.cs" />
     <Compile Include="GreenMushroom.cs" />
     <Compile Include="Interfaces\IGameObject.cs" />
+    <Compile Include="Interfaces\IMarioPowerUpState.cs" />
     <Compile Include="Interfaces\IMarioState.cs" />
     <Compile Include="Interfaces\IBlock.cs" />
     <Compile Include="Interfaces\IGoombaState.cs" />
@@ -70,14 +71,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Sprites\Sprite.cs" />
     <Compile Include="Star.cs" />
-    <Compile Include="States\LeftFacingCrouchingMarioState.cs" />
-    <Compile Include="States\LeftFacingStandingMarioState.cs" />
-    <Compile Include="States\LeftFacingWalkingMarioState.cs" />
-    <Compile Include="States\LeftJumpingMarioState.cs" />
-    <Compile Include="States\RightJumpingMarioState.cs" />
-    <Compile Include="States\RightFacingCrouchingMarioState.cs" />
-    <Compile Include="States\RightFacingStandingMarioState.cs" />
-    <Compile Include="States\RightFacingWalkingMarioState.cs" />
+    <Compile Include="States\MarioDeadState.cs" />
+    <Compile Include="States\MarioFireState.cs" />
+    <Compile Include="States\MarioSmallState.cs" />
+    <Compile Include="States\MarioSuperState.cs" />
     <Compile Include="World.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -12,6 +12,7 @@ namespace Sprint2
     {
         public ISprite Sprite { get; set; }
         private IMarioState state;
+        public IMarioPowerUpState PowerUpState { get; set; }
         private Vector2 positionOnScreen;
         
         public Mario(Vector2 positionOnScreen)
@@ -55,14 +56,14 @@ namespace Sprint2
             state.Crouch(this);
         }
 
-        public void TakeDamage()
+        public void PowerDown()
         {
-            throw new NotImplementedException();
+            PowerUpState.PowerDown(this);
         }
 
-        public void Upgrade()
+        public void PowerUp()
         {
-            throw new NotImplementedException();
+            PowerUpState.PowerUp(this);
         }
 
         public void SetState(IMarioState newState)
