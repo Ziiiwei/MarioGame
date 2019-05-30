@@ -45,6 +45,9 @@
     <Compile Include="Coin.cs" />
     <Compile Include="Commands\GoombaChangeDirection.cs" />
     <Compile Include="Commands\GoombaGetStomped.cs" />
+    <Compile Include="Commands\MakeMarioBig.cs" />
+    <Compile Include="Commands\MakeMarioFire.cs" />
+    <Compile Include="Commands\MakeMarioSmall.cs" />
     <Compile Include="Commands\MarioCrouchCommand.cs" />
     <Compile Include="Commands\MarioJumpCommand.cs" />
     <Compile Include="Commands\MarioMoveLeftCommand.cs" />

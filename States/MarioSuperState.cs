@@ -10,12 +10,12 @@ namespace Sprint2
     {
         public void PowerDown(IMario mario)
         {
-            throw new NotImplementedException();
+            mario.PowerUpState = new MarioSmallState();
         }
 
         public void PowerUp(IMario mario)
         {
-            throw new NotImplementedException();
+            mario.PowerUpState = new MarioFireState();
         }
     }
 }

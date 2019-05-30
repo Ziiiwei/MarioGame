@@ -17,7 +17,8 @@ namespace Sprint2
         
         public Mario(Vector2 positionOnScreen)
         {
-            Sprite = SpriteFactory.Instance.CreateRightStandingMario();
+            PowerUpState = new MarioSmallState();
+            Sprite = SpriteFactory.Instance.CreateRightStandingMario(PowerUpState);
             state = new RightFacingStandingMarioState();
             this.positionOnScreen = positionOnScreen;
         }

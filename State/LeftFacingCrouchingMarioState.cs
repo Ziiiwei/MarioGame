@@ -16,19 +16,19 @@ namespace Sprint2
 
         public void Jump(IMario mario)
         {
-            mario.Sprite = SpriteFactory.Instance.CreateLeftStandingMario();
+            mario.Sprite = SpriteFactory.Instance.CreateLeftStandingMario(mario.PowerUpState);
             mario.SetState(new LeftFacingStandingMarioState());
         }
 
         public void MoveLeft(IMario mario)
         {
-            mario.Sprite = SpriteFactory.Instance.CreateLeftWalkingMario();
+            mario.Sprite = SpriteFactory.Instance.CreateLeftWalkingMario(mario.PowerUpState);
             mario.SetState(new LeftFacingWalkingMarioState());
         }
 
         public void MoveRight(IMario mario)
         {
-            mario.Sprite = SpriteFactory.Instance.CreateRightWalkingMario();
+            mario.Sprite = SpriteFactory.Instance.CreateRightWalkingMario(mario.PowerUpState);
             mario.SetState(new RightFacingWalkingMarioState());
         }
 

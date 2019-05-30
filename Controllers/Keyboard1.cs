@@ -20,6 +20,9 @@ namespace Sprint2
             keyCommands.Add(Keys.S, new MarioCrouchCommand(world.Mario));
             keyCommands.Add(Keys.A, new MarioMoveLeftCommand(world.Mario));
             keyCommands.Add(Keys.D, new MarioMoveRightCommand(world.Mario));
+            keyCommands.Add(Keys.Y, new MakeMarioSmall(world.Mario));
+            keyCommands.Add(Keys.U, new MakeMarioBig(world.Mario));
+            keyCommands.Add(Keys.I, new MakeMarioFire(world.Mario));
 
             previouslyPressed = new List<Keys>();
         }
@@ -43,5 +46,4 @@ namespace Sprint2
         }
 
     }
-    //test commit
 }

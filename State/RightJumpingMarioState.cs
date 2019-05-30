@@ -11,7 +11,7 @@ namespace Sprint2
     {
         public void Crouch(IMario mario)
         {
-            mario.Sprite = SpriteFactory.Instance.CreateRightStandingMario();
+            mario.Sprite = SpriteFactory.Instance.CreateRightStandingMario(mario.PowerUpState);
             mario.SetState(new RightFacingStandingMarioState());
         }
 
