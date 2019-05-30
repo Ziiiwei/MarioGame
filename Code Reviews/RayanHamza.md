@@ -21,7 +21,12 @@
 			   for the long run as well, rest assured, it will be addressed sometime in the 
 			   future.
 
-**File Name**:  ???.cs
+**File Name**:  Goomba.cs
 **Author of File**: Ziwei Jin
 **Number of mins** : 5
 **Comments** : The code Ziwei wrote gets the job done and is easy to read and understand.
+			   Ziwei was able to utilize the state pattern and signify all changes of state 
+			   through the state itself, which was a good demonstration of abstraction. 
+			   Overall, it is not too different from the rest of the code, and shares the
+			   concerns addressed with the coin class above. Still good code that gets the
+			   job done.
