@@ -82,6 +82,8 @@ namespace Sprint2
             textures.Add(gameInstance.Content.Load<Texture2D>("KoopaRight"));
             textures.Add(gameInstance.Content.Load<Texture2D>("KoopaShell"));
             textures.Add(gameInstance.Content.Load<Texture2D>("KoopaFlipped"));
+            textures.Add(gameInstance.Content.Load<Texture2D>("BrickBlock"));
+
 
 
 
@@ -173,14 +175,19 @@ namespace Sprint2
 
         public ISprite CreateKoopaStomped()
         {
-            return new Sprite(textures[10], 1, 1, 1);
+            return new Sprite(textures[10], 1, 2, 2);
         }
 
         public ISprite CreateKoopaFlipped()
         {
-            return new Sprite(textures[11], 1, 1, 1);
+            return new Sprite(textures[11], 1, 2, 2);
+
         }
 
+        public ISprite CreateBrickBlock()
+        {
+            return new Sprite(textures[12], 1, 1, 1);
+        }
 
 
 

@@ -19,6 +19,7 @@ namespace Sprint2
             world.AddGameObject(new GreenMushroom(new Vector2(275, 100)));
             world.AddGameObject(new Star(new Vector2(325, 100)));
             world.AddGameObject(new Pipe(new Vector2(375, 150)));
+            world.AddGameObject(new BrickBlock(new Vector2(372, 100)));
 
         }
     }
