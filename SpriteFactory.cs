@@ -78,6 +78,12 @@ namespace Sprint2
             textures.Add(gameInstance.Content.Load<Texture2D>("Goomba"));
             textures.Add(gameInstance.Content.Load<Texture2D>("GoombaStomped"));
             textures.Add(gameInstance.Content.Load<Texture2D>("Pipe"));
+            textures.Add(gameInstance.Content.Load<Texture2D>("KoopaLeft"));
+            textures.Add(gameInstance.Content.Load<Texture2D>("KoopaRight"));
+            textures.Add(gameInstance.Content.Load<Texture2D>("KoopaShell"));
+            textures.Add(gameInstance.Content.Load<Texture2D>("KoopaFlipped"));
+
+
 
         }
 
@@ -155,6 +161,26 @@ namespace Sprint2
         {
             return new Sprite(textures[7], 1, 1, 1);
         }
+        public ISprite CreateKoopaLeft()
+        {
+            return new Sprite(textures[8], 1, 2, 2);
+        }
+
+        public ISprite CreateKoopaRight()
+        {
+            return new Sprite(textures[9], 1, 2, 2);
+        }
+
+        public ISprite CreateKoopaStomped()
+        {
+            return new Sprite(textures[10], 1, 1, 1);
+        }
+
+        public ISprite CreateKoopaFlipped()
+        {
+            return new Sprite(textures[11], 1, 1, 1);
+        }
+
 
 
 

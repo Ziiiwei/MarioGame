@@ -52,6 +52,7 @@
     <Compile Include="Commands\MarioJumpCommand.cs" />
     <Compile Include="Commands\MarioMoveLeftCommand.cs" />
     <Compile Include="Commands\MarioMoveRightCommand.cs" />
+    <Compile Include="Controllers\Keyboard3.cs" />
     <Compile Include="Controllers\Keyboard2.cs" />
     <Compile Include="FireFlower.cs" />
     <Compile Include="Goomba.cs" />
@@ -63,6 +64,15 @@
     <Compile Include="Interfaces\IGoombaState.cs" />
     <Compile Include="Interfaces\IKoopaState.cs" />
     <Compile Include="Interfaces\IMario.cs" />
+    <Compile Include="Koopa\KoopaChangeDirectionCommand.cs" />
+    <Compile Include="Koopa\KoopaFlipCommand.cs" />
+    <Compile Include="Koopa\KoopaFlipedState.cs" />
+    <Compile Include="Koopa\KoopaLeftStompedState.cs" />
+    <Compile Include="Koopa\KoopaRightStompedState.cs" />
+    <Compile Include="Koopa\KoopaMovingLeftState.cs" />
+    <Compile Include="Koopa\KoopaMovingRightState.cs" />
+    <Compile Include="Koopa\Koopa.cs" />
+    <Compile Include="Koopa\KoopaStompedCommand.cs" />
     <Compile Include="Pipe.cs" />
     <Compile Include="State\LeftFacingCrouchingMarioState.cs" />
     <Compile Include="State\LeftFacingStandingMarioState.cs" />

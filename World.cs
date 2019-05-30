@@ -12,6 +12,7 @@ namespace Sprint2
         private List<IGameObject> objectsInWorld;
         public IMario Mario { get; set; }
         public Goomba TheGoomba { get; set; }
+        public Koopa TheKoopa { get; set; }
         private MarioGame game;
 
         public World(MarioGame game)
@@ -20,6 +21,7 @@ namespace Sprint2
             objectsInWorld = new List<IGameObject>();
             Mario = new Mario(new Vector2(200, 200));
             TheGoomba = new Goomba(new Vector2(300, 300));
+            TheKoopa = new Koopa(new Vector2(300, 400));
         }
 
         public void AddGameObject(IGameObject gameObject)
@@ -35,6 +37,7 @@ namespace Sprint2
             }
             Mario.Update();
             TheGoomba.Update();
+            TheKoopa.Update();
         }
 
         [Obsolete]
@@ -46,6 +49,7 @@ namespace Sprint2
             }
             Mario.Draw(game.TheSpriteBatch);
             TheGoomba.Draw(game.TheSpriteBatch);
+            TheKoopa.Draw(game.TheSpriteBatch);
 
 
         }

@@ -40,6 +40,7 @@ namespace Sprint2
             levelLoader = new LevelLoader(TheWorld);
             controllers.Add(new Keyboard1(this, TheWorld));
             controllers.Add(new Keyboard2(this, TheWorld.TheGoomba));
+            controllers.Add(new Keyboard3(this, TheWorld.TheKoopa));
 
             controllers.Add(new Gamepad1(this));
             

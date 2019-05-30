@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Sprint2.Interfaces
 {
-    interface IKoopaState
+    public interface IKoopaState
     {
         void IsFlipped();
         void ChangeDirection();
