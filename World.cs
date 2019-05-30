@@ -22,9 +22,8 @@ namespace Sprint2
             this.game = game;
             objectsInWorld = new List<IGameObject>();
             blocksInWorld = new List<IBlocks>();
-            Mario = new Mario(new Vector2(200, 200));
-            TheGoomba = new Goomba(new Vector2(300, 300));
-            TheKoopa = new Koopa(new Vector2(300, 400));
+            
+           
         }
 
         public void AddGameObject(IGameObject gameObject)

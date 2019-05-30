@@ -13,6 +13,8 @@ namespace Sprint2
         public LevelLoader(World world)
         {
             world.Mario = new Mario(new Vector2(300, 200));
+            world.TheGoomba = new Goomba(new Vector2(300, 300));
+            world.TheKoopa = new Koopa(new Vector2(300, 400));
 
             world.AddGameObject(new FireFlower(new Vector2(125, 100)));
             world.AddGameObject(new Coin(new Vector2(175, 100)));
