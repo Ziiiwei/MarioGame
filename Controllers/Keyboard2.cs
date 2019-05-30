@@ -8,23 +8,20 @@ using Sprint2.Commands;
 
 namespace Sprint2
 {
-    class Keyboard1 : IController
+    class Keyboard2 : IController
     {
         private Dictionary<Keys, ICommand> keyCommands;
         private List<Keys> previouslyPressed;
 
-        public Keyboard1(MarioGame game, World world)
+        public Keyboard2(MarioGame game, Goomba goomba)
         {
             keyCommands = new Dictionary<Keys, ICommand>();
             keyCommands.Add(Keys.Q, new QuitGame(game));
-            keyCommands.Add(Keys.W, new MarioJumpCommand(world.Mario));
-            keyCommands.Add(Keys.S, new MarioCrouchCommand(world.Mario));
-            keyCommands.Add(Keys.A, new MarioMoveLeftCommand(world.Mario));
-            keyCommands.Add(Keys.D, new MarioMoveRightCommand(world.Mario));
-            keyCommands.Add(Keys.Y, new MakeMarioSmall(world.Mario));
-            keyCommands.Add(Keys.U, new MakeMarioBig(world.Mario));
-            keyCommands.Add(Keys.I, new MakeMarioFire(world.Mario));
 
+            keyCommands.Add(Keys.A, new GoombaChangeDirection(goomba));
+            keyCommands.Add(Keys.D, new GoombaChangeDirection(goomba));
+            keyCommands.Add(Keys.S, new GoombaGetStomped(goomba));
+     
 
             previouslyPressed = new List<Keys>();
         }
@@ -48,4 +45,5 @@ namespace Sprint2
         }
 
     }
+    //test commit
 }

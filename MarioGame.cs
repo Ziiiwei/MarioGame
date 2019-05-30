@@ -14,7 +14,8 @@ namespace Sprint2
         private GraphicsDeviceManager graphics;
         public SpriteBatch TheSpriteBatch { get; private set; }
         private List<IController> controllers;
-        public World TheWorld { get; private set; }
+        public World TheWorld { get; set; }
+    
         // Make LevelLoader a singleton.
         private LevelLoader levelLoader;
 
@@ -38,6 +39,8 @@ namespace Sprint2
             TheWorld = new World(this);
             levelLoader = new LevelLoader(TheWorld);
             controllers.Add(new Keyboard1(this, TheWorld));
+            controllers.Add(new Keyboard2(this, TheWorld.TheGoomba));
+
             controllers.Add(new Gamepad1(this));
             
         }
