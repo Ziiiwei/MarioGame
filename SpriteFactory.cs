@@ -48,6 +48,7 @@ namespace Sprint2
             textures.Add(gameInstance.Content.Load<Texture2D>("Flower"));
             textures.Add(gameInstance.Content.Load<Texture2D>("Goomba"));
             textures.Add(gameInstance.Content.Load<Texture2D>("GoombaStomped"));
+            textures.Add(gameInstance.Content.Load<Texture2D>("Pipe"));
 
         }
 
@@ -113,6 +114,11 @@ namespace Sprint2
         public ISprite CreateStompedGoomba()
         {
             return new Sprite(textures[12], 1, 1, 1);
+        }
+
+        public ISprite CreatePipe()
+        {
+            return new Sprite(textures[13], 1, 1, 1);
         }
 
 

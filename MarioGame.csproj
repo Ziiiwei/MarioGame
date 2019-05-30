@@ -59,6 +59,7 @@
     <Compile Include="Interfaces\IGoombaState.cs" />
     <Compile Include="Interfaces\IKoopaState.cs" />
     <Compile Include="Interfaces\IMario.cs" />
+    <Compile Include="Pipe.cs" />
     <Compile Include="State\LeftFacingCrouchingMarioState.cs" />
     <Compile Include="State\LeftFacingStandingMarioState.cs" />
     <Compile Include="State\LeftFacingWalkingMarioState.cs" />
