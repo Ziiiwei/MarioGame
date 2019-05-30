@@ -61,7 +61,7 @@ namespace Sprint2
         /// </summary>
         protected override void UnloadContent()
         {
-            // Content.Unload();
+            Content.Unload();
         }
 
         /// <summary>
@@ -91,6 +91,12 @@ namespace Sprint2
             TheWorld.DrawWorld();
             TheSpriteBatch.End();
             base.Draw(gameTime);
+        }
+
+        public void Reset()
+        {
+            controllers = new List<IController>();
+            Initialize();
         }
     }
 }
