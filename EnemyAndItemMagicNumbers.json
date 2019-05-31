@@ -6,7 +6,7 @@
   "Sprint2.Flower": "Flower",
   "Sprint2.Pipe": "Pipe",
   "Sprint2.BrickBlock": "BrickBlock",
-  "Sprint2.BrickBlock": "FloorBlock",
-  "Sprint2.BrickBlock": "MetalBlock",
-  "Sprint2.BrickBlock": "CoinBlock"
+  "Sprint2.FloorBlock": "FloorBlock",
+  "Sprint2.MetalBlock": "MetalBlock",
+  "Sprint2.CoinBlock": "CoinBlock"
 }

@@ -8,13 +8,13 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Sprint2
 {
-    public class RedMushroom : IGameObject
+    public class Flower : IGameObject
     {
         public ISprite Sprite { get; set; }
         private Vector2 positionOnScreen;
 
 
-        public RedMushroom(Vector2 positionOnScreen)
+        public Flower(Vector2 positionOnScreen)
         {
             Sprite = SpriteFactory.Instance.GetSprite(this);
             this.positionOnScreen = positionOnScreen;
@@ -29,7 +29,7 @@ namespace Sprint2
 
         public void Update()
         {
-            
+
         }
     }
 }

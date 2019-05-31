@@ -67,9 +67,9 @@
     <Compile Include="Commands\Reset.cs" />
     <Compile Include="Controllers\Keyboard3.cs" />
     <Compile Include="Controllers\Keyboard2.cs" />
-    <Compile Include="FireFlower.cs" />
+    <Compile Include="Flower.cs" />
     <Compile Include="Goomba.cs" />
-    <Compile Include="GreenMushroom.cs" />
+    <Compile Include="GreenShroom.cs" />
     <Compile Include="Interfaces\IEnemyState.cs" />
     <Compile Include="Interfaces\IGameObject.cs" />
     <Compile Include="Interfaces\IMarioPowerUpState.cs" />
@@ -96,7 +96,7 @@
     <Compile Include="State\LeftMovingGoombaState.cs" />
     <Compile Include="State\LeftMovingStompedGoombaState.cs" />
     <Compile Include="LevelLoader.cs" />
-    <Compile Include="RedMushroom.cs" />
+    <Compile Include="RedShroom.cs" />
     <Compile Include="State\RightCrouchingMarioState.cs" />
     <Compile Include="State\RightStandingMarioState.cs" />
     <Compile Include="State\RightWalkingMarioState.cs" />

@@ -61,9 +61,14 @@ namespace Sprint2
             var frameCounts = javaScriptSerializer.Deserialize<Dictionary<String, int>>(reader.ReadToEnd());
             spriteFrameCounts = new Dictionary<Type, int>();
 
+           
             foreach (KeyValuePair<String, int> framesForState in frameCounts)
             {
-                spriteFrameCounts.Add(Type.GetType(framesForState.Key), framesForState.Value);
+                if (Type.GetType(framesForState.Key) != null)
+                {
+                    spriteFrameCounts.Add(Type.GetType(framesForState.Key), framesForState.Value);
+                }
+                
             }
 
             reader = File.OpenText(enemyAndItemSpriteMagicNumbers);
@@ -105,11 +110,11 @@ namespace Sprint2
             if (spriteAssignments.ContainsKey(gameObject.GetType()))
             {
                 var texture = spriteAssignments[gameObject.GetType()];
-                return new Sprite(texture, 1, 1, 1);
+                return new Sprite(texture, spriteFrameCounts[gameObject.GetType()]);
             }
             else
             {
-                return new Sprite(gameInstance.Content.Load<Texture2D>("missing"), 1, 1, 1);
+                return new Sprite(gameInstance.Content.Load<Texture2D>("missing"), 1);
             }
            
         }
@@ -118,14 +123,14 @@ namespace Sprint2
         {
             var texture = spritesWithStateAssignments[(marioState.GetType(), powerUpState.GetType())];
             var frames = spriteFrameCounts[marioState.GetType()];
-            return new Sprite(texture, 1, frames, frames);
+            return new Sprite(texture,  frames);
         }
 
         public ISprite GetSprite(IEnemyState enemyState)
         {
             var texture = spriteAssignments[enemyState.GetType()];
             var frames = spriteFrameCounts[enemyState.GetType()];
-            return new Sprite(texture, 1, frames, frames);
+            return new Sprite(texture, frames);
         }
 
 

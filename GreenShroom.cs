@@ -8,13 +8,13 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Sprint2
 {
-    public class FireFlower : IGameObject
+    public class GreenShroom : IGameObject
     {
         public ISprite Sprite { get; set; }
         private Vector2 positionOnScreen;
 
 
-        public FireFlower(Vector2 positionOnScreen)
+        public GreenShroom(Vector2 positionOnScreen)
         {
             Sprite = SpriteFactory.Instance.GetSprite(this);
             this.positionOnScreen = positionOnScreen;
