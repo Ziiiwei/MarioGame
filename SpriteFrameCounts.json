@@ -1,0 +1,10 @@
+{
+  "Sprint2.LeftFacingCrouchingMarioState": 1,
+  "Sprint2.LeftFacingStandingMarioState": 1,
+  "Sprint2.LeftFacingWalkingMarioState": 3,
+  "Sprint2.LeftJumpingMarioState": 1,
+  "Sprint2.RightFacingCrouchingMarioState": 1,
+  "Sprint2.RightFacingStandingMarioState": 1,
+  "Sprint2.RightFacingWalkingMarioState": 3,
+  "Sprint2.RightJumpingMarioState": 1
+}

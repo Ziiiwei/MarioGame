@@ -66,5 +66,10 @@ namespace Sprint2
         {
             PowerUpState.PowerUp(this);
         }
+
+        public void UpdateArt()
+        {
+            Sprite = SpriteFactory.Instance.GetSprite(State, PowerUpState);
+        }
     }
 }

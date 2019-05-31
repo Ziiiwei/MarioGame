@@ -12,6 +12,5 @@ namespace Sprint2
         void Crouch(IMario mario);
         void MoveRight(IMario mario);
         void MoveLeft(IMario mario);
-        void Update(IMario mario);
     }
 }

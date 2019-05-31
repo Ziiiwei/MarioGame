@@ -17,6 +17,7 @@ namespace Sprint2
         public void Execute()
         {
             mario.PowerUpState = new MarioSmallState();
+            mario.UpdateArt();
 
         }
     }

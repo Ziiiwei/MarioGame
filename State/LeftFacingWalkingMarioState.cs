@@ -16,8 +16,8 @@ namespace Sprint2
 
         public void Jump(IMario mario)
         {
-            mario.Sprite = SpriteFactory.Instance.GetSprite(mario.State, mario.PowerUpState);
             mario.State = new LeftJumpingMarioState();
+            mario.UpdateArt();
         }
 
         public void MoveLeft(IMario mario)
@@ -27,8 +27,8 @@ namespace Sprint2
 
         public void MoveRight(IMario mario)
         {
-            mario.Sprite = SpriteFactory.Instance.GetSprite(mario.State, mario.PowerUpState);
             mario.State = new LeftFacingStandingMarioState();
+            mario.UpdateArt();
         }
 
         public void Update(IMario mario)

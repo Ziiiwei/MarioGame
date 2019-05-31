@@ -141,6 +141,9 @@
     <None Include="Code Reviews\MatthewHarrow.md" />
     <None Include="Code Reviews\ZiweiJin.md" />
     <None Include="Code Reviews\RayanHamza.md" />
+    <None Include="SpriteFrameCounts.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="SpriteMagicNumbers.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
