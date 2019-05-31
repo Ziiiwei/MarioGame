@@ -18,10 +18,9 @@ namespace Sprint2
         private readonly int delayBound = 5;
         private int delayCounter = 0;
 
-        public Sprite(Texture2D texture, int rows, int columns, int totalFrames)
+        public Sprite(Texture2D texture, int totalFrames)
         {
             this.texture = texture;
-            this.columns = columns;
             this.totalFrames = totalFrames;
 
             int width = texture.Width / columns;

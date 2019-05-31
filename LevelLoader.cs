@@ -14,10 +14,10 @@ namespace Sprint2
         {
             world.Mario = new Mario(new Vector2(300, 200));
 
-            world.AddGameObject(new FireFlower(new Vector2(125, 100)));
+            world.AddGameObject(new Flower(new Vector2(125, 100)));
             world.AddGameObject(new Coin(new Vector2(175, 100)));
-            world.AddGameObject(new RedMushroom(new Vector2(225, 100)));
-            world.AddGameObject(new GreenMushroom(new Vector2(275, 100)));
+            world.AddGameObject(new RedShroom(new Vector2(225, 100)));
+            world.AddGameObject(new GreenShroom(new Vector2(275, 100)));
             world.AddGameObject(new Star(new Vector2(325, 100)));
             world.AddGameObject(new Pipe(new Vector2(375, 150)));
             world.AddGameObject(new BrickBlock(new Vector2(375, 100)));
