@@ -1,4 +1,6 @@
-﻿namespace Sprint2
+﻿using Gamespace.Sprites;
+
+namespace Gamespace
 {
     public interface IMario : IGameObject
     {
