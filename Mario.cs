@@ -17,7 +17,7 @@ namespace Sprint2
         
         public Mario(Vector2 positionOnScreen)
         {
-            State = new RightFacingStandingMarioState();
+            State = new RightStandingMarioState();
             PowerUpState = new MarioSmallState();
             Sprite = SpriteFactory.Instance.GetSprite(State, PowerUpState);
             this.positionOnScreen = positionOnScreen;

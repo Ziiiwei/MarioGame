@@ -1,15 +1,15 @@
 {
-  "Sprint2.LeftFacingStandingMarioState": {
+  "Sprint2.LeftStandingMarioState": {
     "Sprint2.MarioSmallState": "MarioFacingLeft",
     "Sprint2.MarioSuperState": "SuperMario/SMFacingLeft",
     "Sprint2.MarioFireState": "FireMario/FMFacingLeft"
   },
-  "Sprint2.LeftFacingCrouchingMarioState": {
+  "Sprint2.LeftCrouchingMarioState": {
     "Sprint2.MarioSmallState": "MarioFacingLeft",
     "Sprint2.MarioSuperState": "SuperMario/SMCrouchLeft",
     "Sprint2.MarioFireState": "FireMario/FMCrouchLeft"
   },
-  "Sprint2.LeftFacingWalkingMarioState": {
+  "Sprint2.LeftWalkingMarioState": {
     "Sprint2.MarioSmallState": "MarioWalkingLeft",
     "Sprint2.MarioSuperState": "SuperMario/SMWalkingLeft",
     "Sprint2.MarioFireState": "FireMario/FMRunLeft"
@@ -19,17 +19,17 @@
     "Sprint2.MarioSuperState": "SuperMario/SMJumpLeft",
     "Sprint2.MarioFireState": "FireMario/FMJumpLeft"
   },
-  "Sprint2.RightFacingStandingMarioState": {
+  "Sprint2.RightStandingMarioState": {
     "Sprint2.MarioSmallState": "MarioFacingRight",
     "Sprint2.MarioSuperState": "SuperMario/SMFacingRight",
     "Sprint2.MarioFireState": "FireMario/FMFaceRight"
   },
-  "Sprint2.RightFacingCrouchingMarioState": {
+  "Sprint2.RightCrouchingMarioState": {
     "Sprint2.MarioSmallState": "MarioFacingRight",
     "Sprint2.MarioSuperState": "SuperMario/SMCrouchRight",
     "Sprint2.MarioFireState": "FireMario/FMCrouchRight"
   },
-  "Sprint2.RightFacingWalkingMarioState": {
+  "Sprint2.RightWalkingMarioState": {
     "Sprint2.MarioSmallState": "MarioWalkingRight",
     "Sprint2.MarioSuperState": "SuperMario/SMWalkingRight",
     "Sprint2.MarioFireState": "FireMario/FMRunRight"

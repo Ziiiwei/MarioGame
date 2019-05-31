@@ -3,34 +3,32 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Sprint2;
-using Sprint2.Interfaces;
+
 
 namespace Sprint2
 {
-    class LeftFacingStandingMarioState : IMarioState
+    class LeftCrouchingMarioState : IMarioState
     {
-
         public void Crouch(IMario mario)
         {
-            // Nothing to do here...
+            // Do nothing.
         }
 
         public void Jump(IMario mario)
         {
-            mario.State = new LeftJumpingMarioState();
+            mario.State = new LeftStandingMarioState();
             mario.UpdateArt();
         }
 
         public void MoveLeft(IMario mario)
         {
-            mario.State = new LeftFacingWalkingMarioState();
+            mario.State = new LeftWalkingMarioState();
             mario.UpdateArt();
         }
 
         public void MoveRight(IMario mario)
         {
-            mario.State = new RightFacingStandingMarioState();
+            mario.State = new RightWalkingMarioState();
             mario.UpdateArt();
         }
     }

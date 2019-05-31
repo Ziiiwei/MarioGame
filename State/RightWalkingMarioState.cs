@@ -1,35 +1,34 @@
-﻿using System;
+﻿using Sprint2;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-
 namespace Sprint2
 {
-    class LeftFacingCrouchingMarioState : IMarioState
+    class RightWalkingMarioState : IMarioState
     {
         public void Crouch(IMario mario)
         {
-            // Do nothing.
+            // Do nothing
         }
 
         public void Jump(IMario mario)
         {
-            mario.State = new LeftFacingStandingMarioState();
+            mario.State = new RightJumpingMarioState();
             mario.UpdateArt();
         }
 
         public void MoveLeft(IMario mario)
         {
-            mario.State = new LeftFacingWalkingMarioState();
+            mario.State = new RightStandingMarioState();
             mario.UpdateArt();
         }
 
         public void MoveRight(IMario mario)
         {
-            mario.State = new RightFacingWalkingMarioState();
-            mario.UpdateArt();
+            // Do nothing
         }
     }
 }

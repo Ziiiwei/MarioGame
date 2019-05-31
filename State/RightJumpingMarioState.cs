@@ -11,7 +11,7 @@ namespace Sprint2
     {
         public void Crouch(IMario mario)
         {
-            mario.State = new RightFacingStandingMarioState();
+            mario.State = new RightStandingMarioState();
             mario.UpdateArt();
         }
 
