@@ -1,12 +1,20 @@
 {
-  "Sprint2.Coin": "Coin",
-  "Sprint2.Star": "Star",
-  "Sprint2.GreenShroom": "GreenShroom",
-  "Sprint2.RedShroom": "RedShroom",
-  "Sprint2.Flower": "Flower",
-  "Sprint2.Pipe": "Pipe",
-  "Sprint2.BrickBlock": "BrickBlock",
-  "Sprint2.FloorBlock": "FloorBlock",
-  "Sprint2.MetalBlock": "MetalBlock",
-  "Sprint2.CoinBlock": "CoinBlock"
+  "Gamespace.Items.Coin": "Coin",
+  "Gamespace.Items.Star": "Star",
+  "Gamespace.Items.GreenShroom": "GreenShroom",
+  "Gamespace.Items.RedShroom": "RedShroom",
+  "Gamespace.Items.Flower": "Flower",
+  "Gamespace.Items.Pipe": "Pipe",
+  "Gamespace.Blocks.BrickBlock": "BrickBlock",
+  "Gamespace.Blocks.FloorBlock": "FloorBlock",
+  "Gamespace.Blocks.MetalBlock": "MetalBlock",
+  "Gamespace.Blocks.CoinBlock": "CoinBlock",
+  "Gamespace.Koopas.KoopaFlipedState": "KoopaFlipped",
+  "Gamespace.Koopas.KoopaMovingLeftState": "KoopaLeft",
+  "Gamespace.Koopas.KoopaMovingRightState": "KoopaRight",
+  "Gamespace.Goombas.Goomba": "Goomba"
 }
+
+
+
+

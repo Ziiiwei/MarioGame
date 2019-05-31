@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Sprint2.Interfaces;
+using Gamespace.Interfaces;
 
-namespace Sprint2
+namespace Gamespace.Koopas
 {
     class KoopaMovingLeftState : IKoopaState
     {
@@ -18,7 +18,7 @@ namespace Sprint2
 
         public void BeStomped()
         {
-            koopa.SetState(new KoopaLeftStompedState(koopa));
+            koopa.SetState(new KoopaFlippedState(koopa));
             koopa.UpdateArt();
         }
 
@@ -35,7 +35,7 @@ namespace Sprint2
 
         public void IsFlipped()
         {
-            koopa.SetState(new KoopaFlipedState(koopa));
+            koopa.SetState(new KoopaFlippedState(koopa));
             koopa.UpdateArt();
         }
     }

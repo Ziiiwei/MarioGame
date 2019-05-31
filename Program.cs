@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Sprint2
+namespace Gamespace
 {
 #if WINDOWS || LINUX
     /// <summary>

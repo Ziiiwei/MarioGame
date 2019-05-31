@@ -3,8 +3,9 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using System.Collections.Generic;
 using Microsoft.Xna.Framework.Content;
+using Gamespace.Controllers;
 
-namespace Sprint2
+namespace Gamespace
 {
     /// <summary>
     /// This is the main type for your game.
@@ -39,8 +40,7 @@ namespace Sprint2
             TheWorld = new World(this);
             levelLoader = new LevelLoader(TheWorld);
             controllers.Add(new Keyboard1(this, TheWorld));
-            controllers.Add(new Keyboard2(this, TheWorld.TheGoomba));
-            controllers.Add(new Keyboard3(this, TheWorld.TheKoopa));
+
 
             controllers.Add(new Gamepad1(this));
             

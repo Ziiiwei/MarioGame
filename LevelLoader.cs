@@ -1,12 +1,14 @@
-﻿using Sprint2;
+﻿using Gamespace;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
+using Gamespace.Items;
+using Gamespace.Blocks;
 
-namespace Sprint2
+namespace Gamespace
 {
     class LevelLoader
     {
@@ -23,8 +25,7 @@ namespace Sprint2
             world.AddGameObject(new BrickBlock(new Vector2(375, 100)));
             world.AddGameObject(new FloorBlock(new Vector2(425, 100)));
             world.AddGameObject(new MetalBlock(new Vector2(475, 100)));
-
-            world.AddBlocks(new CoinBlock(new Vector2(525, 100)));
+            world.AddGameObject(new CoinBlock(new Vector2(525, 100)));
 
         }
     }

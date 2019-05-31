@@ -5,8 +5,10 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
+using Gamespace.Sprites;
+using Gamespace.States;
 
-namespace Sprint2
+namespace Gamespace
 {
     public class Mario : IMario
     {

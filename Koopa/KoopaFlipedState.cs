@@ -3,22 +3,22 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Sprint2.Interfaces;
+using Gamespace.Interfaces;
 
-namespace Sprint2
+namespace Gamespace.Koopas
 {
-    class KoopaFlipedState : IKoopaState
+    class KoopaFlippedState : IKoopaState
     {
         private Koopa koopa;
 
-        public KoopaFlipedState(Koopa koopa)
+        public KoopaFlippedState(Koopa koopa)
         {
             this.koopa = koopa;
         }
 
         public void BeStomped()
         {
-            koopa.SetState(new KoopaLeftStompedState(koopa));
+            koopa.SetState(new KoopaFlippedState(koopa));
             koopa.UpdateArt();
         }
 

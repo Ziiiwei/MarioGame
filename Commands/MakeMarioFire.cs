@@ -1,11 +1,12 @@
-﻿using Sprint2;
+﻿using Gamespace;
+using Gamespace.States;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Sprint2
+namespace Gamespace.Commands
 {
     class MakeMarioFire : ICommand
     {

@@ -1,10 +1,11 @@
-﻿using System;
+﻿using Gamespace.Commands;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Sprint2
+namespace Gamespace.Koopas
 {
     class KoopaFlipCommand : ICommand
     {

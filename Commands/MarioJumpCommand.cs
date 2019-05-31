@@ -1,11 +1,11 @@
-﻿using Sprint2;
+﻿using Gamespace;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Sprint2
+namespace Gamespace.Commands
 {
     class MarioJumpCommand : ICommand
     {

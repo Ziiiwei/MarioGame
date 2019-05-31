@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 
-namespace Sprint2
+namespace Gamespace.Controllers
 {
     interface IController
     {

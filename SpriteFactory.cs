@@ -8,8 +8,9 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Content;
 using System.IO;
 using System.Web.Script.Serialization;
+using Gamespace.Sprites;
 
-namespace Sprint2
+namespace Gamespace
 {
     public sealed class SpriteFactory
     {
@@ -122,7 +123,12 @@ namespace Sprint2
         public ISprite GetSprite(IMarioState marioState, IMarioPowerUpState powerUpState)
         {
             var texture = spritesWithStateAssignments[(marioState.GetType(), powerUpState.GetType())];
-            var frames = spriteFrameCounts[marioState.GetType()];
+            var frames = 1;
+            if (spriteFrameCounts.ContainsKey(marioState.GetType()))
+            {
+                frames = spriteFrameCounts[marioState.GetType()];
+            }
+            
             return new Sprite(texture,  frames);
         }
 

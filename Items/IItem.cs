@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace Sprint2
+namespace Gamespace.Items
 {
     interface IItem
     {

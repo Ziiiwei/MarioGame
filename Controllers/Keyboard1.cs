@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Xna.Framework.Input;
-using Sprint2.Commands;
+using Gamespace.Commands;
 
-namespace Sprint2
+namespace Gamespace.Controllers
 {
     class Keyboard1 : IController
     {
@@ -24,7 +24,7 @@ namespace Sprint2
             keyCommands.Add(Keys.Y, new MakeMarioSmall(world.Mario));
             keyCommands.Add(Keys.U, new MakeMarioBig(world.Mario));
             keyCommands.Add(Keys.I, new MakeMarioFire(world.Mario));
-            keyCommands.Add(Keys.C, new HitBlock(world.blocksInWorld[0]));
+            //keyCommands.Add(Keys.C, new HitBlock(world.blocksInWorld[0]));
             keyCommands.Add(Keys.R, new Reset(game));
 
 

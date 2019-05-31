@@ -3,31 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Gamespace.Sprites;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
 
-namespace Sprint2
+namespace Gamespace.Items
 {
-    class Coin : IItem
+    class Coin : AbstractGameObject
     {
-        private ISprite sprite;
-        private Vector2 location;
-
-        public Coin(ISprite Sprite, Vector2 Location)
+        public Coin(Vector2 positionOnScreen) : base(positionOnScreen)
         {
-            sprite = Sprite;
-            location = Location;
-        }
 
-        public void Draw(SpriteBatch spriteBatch)
-        {
-            sprite.Draw(spriteBatch);
-        }
-
-        public void Update()
-        {
-          
         }
     }
 }

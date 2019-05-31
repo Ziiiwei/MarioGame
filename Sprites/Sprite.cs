@@ -3,15 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Gamespace.Sprites;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace Sprint2
+namespace Gamespace
 {
     class Sprite : ISprite
     {
         private Texture2D texture;
-        private int columns;
         private int totalFrames;
         private int currentFrame;
         private List<Rectangle> rectangles;
@@ -23,7 +23,7 @@ namespace Sprint2
             this.texture = texture;
             this.totalFrames = totalFrames;
 
-            int width = texture.Width / columns;
+            int width = texture.Width / totalFrames;
             int height = texture.Height;
 
             rectangles = new List<Rectangle>();
