@@ -7,6 +7,7 @@
   "Gamespace.States.RightStandingMarioState": 1,
   "Gamespace.States.RightWalkingMarioState": 3,
   "Gamespace.States.RightJumpingMarioState": 1,
+  "Gamespace.States.MarioDeadState": 1,
   "Gamespace.Items.Coin": 3,
   "Gamespace.Items.Star": 4,
   "Gamespace.Items.GreenShroom": 1,

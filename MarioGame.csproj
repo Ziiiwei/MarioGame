@@ -54,6 +54,7 @@
     <Compile Include="Blocks\IBlockState.cs" />
     <Compile Include="Blocks\MetalBlock.cs" />
     <Compile Include="Commands\MakeMarioBig.cs" />
+    <Compile Include="Commands\MakeMarioDead.cs" />
     <Compile Include="Commands\MakeMarioFire.cs" />
     <Compile Include="Commands\MakeMarioSmall.cs" />
     <Compile Include="Commands\MarioCrouchCommand.cs" />
