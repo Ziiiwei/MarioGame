@@ -64,6 +64,7 @@
     <Compile Include="Commands\MarioJumpCommand.cs" />
     <Compile Include="Commands\MarioMoveLeftCommand.cs" />
     <Compile Include="Commands\MarioMoveRightCommand.cs" />
+    <Compile Include="Commands\Reset.cs" />
     <Compile Include="Controllers\Keyboard3.cs" />
     <Compile Include="Controllers\Keyboard2.cs" />
     <Compile Include="FireFlower.cs" />

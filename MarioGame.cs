@@ -92,5 +92,11 @@ namespace Sprint2
             TheSpriteBatch.End();
             base.Draw(gameTime);
         }
+
+        public void Reset()
+        {
+            controllers = new List<IController>();
+            Initialize();
+        }
     }
 }
