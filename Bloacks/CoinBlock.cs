@@ -17,7 +17,7 @@ namespace Sprint2
         public CoinBlock(Vector2 positionOnScreen)
         {
             this.State = new CoinBlockStateMany(this);
-            Sprite = SpriteFactory.Instance.GetSprite("CoinBlock");
+            Sprite = SpriteFactory.Instance.GetSprite(this);
             this.positionOnScreen = positionOnScreen;
         }
 

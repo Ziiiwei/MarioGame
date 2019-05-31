@@ -14,15 +14,17 @@ namespace Sprint2
     public sealed class SpriteFactory
     {
         private static readonly SpriteFactory instance = new SpriteFactory();
-        private static readonly String magicNumbersFileLocation;
+        private static readonly String marioSpriteMagicNumbers = "MarioSpriteMagicNumbers.json";
+        private static readonly String enemyAndItemSpriteMagicNumbers = "EnemyAndItemMagicNumbers.json";
+        private static readonly String spriteFrameCountFileLocation = "SpriteFrameCounts.json";
         private MarioGame gameInstance;
         private Dictionary<(Type, Type), Texture2D> spritesWithStateAssignments;
         private Dictionary<Type, int> spriteFrameCounts;
-        private Dictionary<String, Texture2D> spriteAssignments;
+        private Dictionary<Type, Texture2D> spriteAssignments;
 
         static SpriteFactory()
         {
-    }
+        }
 
         private SpriteFactory()
         {
@@ -40,7 +42,7 @@ namespace Sprint2
         {
             gameInstance = game;
 
-            StreamReader reader = File.OpenText(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"SpriteMagicNumbers.json"));
+            StreamReader reader = File.OpenText(marioSpriteMagicNumbers);
             JavaScriptSerializer javaScriptSerializer = new JavaScriptSerializer();
             var magicNumbers = javaScriptSerializer.Deserialize<Dictionary<String, Dictionary<String, String>>>(reader.ReadToEnd());
             spritesWithStateAssignments = new Dictionary<(Type, Type), Texture2D>();
@@ -55,7 +57,7 @@ namespace Sprint2
                 }
             }
 
-            reader = File.OpenText(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"SpriteFrameCounts.json"));
+            reader = File.OpenText(spriteFrameCountFileLocation);
             var frameCounts = javaScriptSerializer.Deserialize<Dictionary<String, int>>(reader.ReadToEnd());
             spriteFrameCounts = new Dictionary<Type, int>();
 
@@ -64,8 +66,19 @@ namespace Sprint2
                 spriteFrameCounts.Add(Type.GetType(framesForState.Key), framesForState.Value);
             }
 
+            reader = File.OpenText(enemyAndItemSpriteMagicNumbers);
+            var assignmentsFromFile = javaScriptSerializer.Deserialize<Dictionary<String, String>>(reader.ReadToEnd());
+            spriteAssignments = new Dictionary<Type, Texture2D>();
 
-            spriteAssignments = new Dictionary<String, Texture2D>();
+            foreach (KeyValuePair<String, String> entry in assignmentsFromFile)
+            {
+                if (Type.GetType(entry.Key) == null)
+                {
+                    continue;
+                }
+                var texture = gameInstance.Content.Load<Texture2D>(entry.Value);
+                spriteAssignments.Add(Type.GetType(entry.Key), texture);
+            }
 
             /*
             textures.Add(gameInstance.Content.Load<Texture2D>("Coin"));
@@ -87,9 +100,18 @@ namespace Sprint2
             */
         }
 
-        public ISprite GetSprite(String sprite)
+        public ISprite GetSprite(IGameObject gameObject)
         {
-            return new Sprite(gameInstance.Content.Load<Texture2D>("Coin"), 1, 1, 1);
+            if (spriteAssignments.ContainsKey(gameObject.GetType()))
+            {
+                var texture = spriteAssignments[gameObject.GetType()];
+                return new Sprite(texture, 1, 1, 1);
+            }
+            else
+            {
+                return new Sprite(gameInstance.Content.Load<Texture2D>("missing"), 1, 1, 1);
+            }
+           
         }
 
         public ISprite GetSprite(IMarioState marioState, IMarioPowerUpState powerUpState)
@@ -98,6 +120,8 @@ namespace Sprint2
             var frames = spriteFrameCounts[marioState.GetType()];
             return new Sprite(texture, 1, frames, frames);
         }
+
+
        
 
 

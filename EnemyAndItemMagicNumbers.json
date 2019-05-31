@@ -1,0 +1,12 @@
+{
+  "Sprint2.Coin": "Coin",
+  "Sprint2.Star": "Star",
+  "Sprint2.GreenShroom": "GreenShroom",
+  "Sprint2.RedShroom": "RedShroom",
+  "Sprint2.Flower": "Flower",
+  "Sprint2.Pipe": "Pipe",
+  "Sprint2.BrickBlock": "BrickBlock",
+  "Sprint2.BrickBlock": "FloorBlock",
+  "Sprint2.BrickBlock": "MetalBlock",
+  "Sprint2.BrickBlock": "CoinBlock"
+}

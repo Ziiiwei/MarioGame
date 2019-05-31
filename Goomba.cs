@@ -18,7 +18,7 @@ namespace Sprint2
 
         public Goomba (Vector2 positionOnScreen)
         {
-            Sprite = SpriteFactory.Instance.GetSprite("Goomba");
+            Sprite = SpriteFactory.Instance.GetSprite(this);
             state = new RightMovingGoombaState(this);
             this.positionOnScreen = positionOnScreen;
         }
@@ -58,6 +58,10 @@ namespace Sprint2
 
         }
 
+        public void UpdateArt()
+        {
+            Sprite = SpriteFactory.Instance.GetSprite(this);
+        }
 
     }
 }

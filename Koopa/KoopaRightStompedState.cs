@@ -14,7 +14,6 @@ namespace Sprint2
         public KoopaRightStompedState(Koopa koopa)
         {
             this.koopa = koopa;
-            this.koopa.Sprite = SpriteFactory.Instance.GetSprite("KoopaStomped");
         }
 
         public void BeStomped()
@@ -25,6 +24,7 @@ namespace Sprint2
         public void ChangeDirection()
         {
             koopa.SetState(new KoopaMovingLeftState(koopa));
+            koopa.UpdateArt();
         }
 
         public void IsDead()
@@ -35,6 +35,7 @@ namespace Sprint2
         public void IsFlipped()
         {
             koopa.SetState(new KoopaFlipedState(koopa));
+            koopa.UpdateArt();
         }
     }
 }

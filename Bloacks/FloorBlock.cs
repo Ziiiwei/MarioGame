@@ -15,7 +15,7 @@ namespace Sprint2
 
         public FloorBlock(Vector2 positionOnScreen)
         {
-            Sprite = SpriteFactory.Instance.GetSprite("FloorBlock");
+            Sprite = SpriteFactory.Instance.GetSprite(this);
             this.positionOnScreen = positionOnScreen;
         }
 

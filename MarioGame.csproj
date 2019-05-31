@@ -144,10 +144,13 @@
     <None Include="SpriteFrameCounts.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="SpriteMagicNumbers.json">
+    <None Include="MarioSpriteMagicNumbers.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="README.md" />
+    <None Include="EnemyAndItemMagicNumbers.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

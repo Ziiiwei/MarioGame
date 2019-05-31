@@ -11,5 +11,6 @@
         void Crouch();
         void PowerDown();
         void PowerUp();
+        void UpdateArt();
     }
 }

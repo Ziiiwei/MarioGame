@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Sprint2.Interfaces
 {
-    interface IBlock
+    interface IBlock : IGameObject
     {
         void Draw();
         void Update();

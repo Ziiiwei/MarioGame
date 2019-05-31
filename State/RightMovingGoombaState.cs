@@ -14,12 +14,12 @@ namespace Sprint2.GoombaState
         public RightMovingGoombaState(Goomba goomba)
         {
             this.goomba = goomba;
-            this.goomba.Sprite = SpriteFactory.Instance.GetSprite("Goomba");
         }
 
         public void BeStomped()
         {
             goomba.SetState(new RightMovingStompedGoombaState(goomba));
+            goomba.UpdateArt();
         }
 
         public void ChangeDirection()

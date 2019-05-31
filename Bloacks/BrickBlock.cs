@@ -15,7 +15,7 @@ namespace Sprint2
 
         public BrickBlock(Vector2 positionOnScreen)
         {
-            Sprite = SpriteFactory.Instance.GetSprite("BrickBlock");
+            Sprite = SpriteFactory.Instance.GetSprite(this);
             this.positionOnScreen = positionOnScreen;
         }
 

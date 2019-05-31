@@ -14,17 +14,18 @@ namespace Sprint2
         public KoopaMovingRightState(Koopa koopa)
         {
             this.koopa = koopa;
-            this.koopa.Sprite = SpriteFactory.Instance.GetSprite("KoopaRight");
         }
 
         public void BeStomped()
         {
             koopa.SetState(new KoopaRightStompedState(koopa));
+            koopa.UpdateArt();
         }
 
         public void ChangeDirection()
         {
             koopa.SetState(new KoopaMovingLeftState(koopa));
+            koopa.UpdateArt();
         }
 
         public void IsDead()

@@ -12,13 +12,13 @@ namespace Sprint2
     public class Koopa : IGameObject
     {
         public ISprite Sprite { get; set; }
-        private IKoopaState state;
+        private IKoopaState state { get; set; }
         private Vector2 positionOnScreen;
 
         public Koopa(Vector2 positionOnScreen)
         {
-            Sprite = SpriteFactory.Instance.GetSprite("KoopaRight");
             state = new KoopaMovingLeftState(this);
+            Sprite = SpriteFactory.Instance.GetSprite(this);
             this.positionOnScreen = positionOnScreen;
         }
 
@@ -60,6 +60,11 @@ namespace Sprint2
             spriteBatch.Draw(texture: spriteTextureAndRectangle.Item1, position: positionOnScreen,
                 sourceRectangle: spriteTextureAndRectangle.Item2);
 
+        }
+
+        public void UpdateArt()
+        {
+            Sprite = SpriteFactory.Instance.GetSprite(this);
         }
 
 
