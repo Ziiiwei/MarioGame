@@ -16,7 +16,7 @@ namespace Sprint2
 
         public Pipe(Vector2 positionOnScreen)
         {
-            Sprite = SpriteFactory.Instance.CreatePipe();
+            Sprite = SpriteFactory.Instance.GetSprite("Pipe");
             this.positionOnScreen = positionOnScreen;
         }
         public void Draw(SpriteBatch spriteBatch)

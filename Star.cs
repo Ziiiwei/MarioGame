@@ -16,7 +16,7 @@ namespace Sprint2
 
         public Star(Vector2 positionOnScreen)
         {
-            Sprite = SpriteFactory.Instance.CreateStar();
+            Sprite = SpriteFactory.Instance.GetSprite("Star");
             this.positionOnScreen = positionOnScreen;
         }
         public void Draw(SpriteBatch spriteBatch)

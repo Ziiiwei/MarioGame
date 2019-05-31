@@ -11,15 +11,15 @@ namespace Sprint2
     public class Mario : IMario
     {
         public ISprite Sprite { get; set; }
-        private IMarioState state;
+        public IMarioState State { get; set; }
         public IMarioPowerUpState PowerUpState { get; set; }
         private Vector2 positionOnScreen;
         
         public Mario(Vector2 positionOnScreen)
         {
+            State = new RightFacingStandingMarioState();
             PowerUpState = new MarioSmallState();
-            Sprite = SpriteFactory.Instance.CreateRightStandingMario(PowerUpState);
-            state = new RightFacingStandingMarioState();
+            Sprite = SpriteFactory.Instance.GetSprite(State, PowerUpState);
             this.positionOnScreen = positionOnScreen;
         }
 
@@ -39,22 +39,22 @@ namespace Sprint2
 
         public void Jump()
         {
-            state.Jump(this);
+            State.Jump(this);
         }
 
         public void MoveRight()
         {
-            state.MoveRight(this);
+            State.MoveRight(this);
         }
 
         public void MoveLeft()
         {
-            state.MoveLeft(this);
+            State.MoveLeft(this);
         }
 
         public void Crouch()
         {
-            state.Crouch(this);
+            State.Crouch(this);
         }
 
         public void PowerDown()
@@ -65,11 +65,6 @@ namespace Sprint2
         public void PowerUp()
         {
             PowerUpState.PowerUp(this);
-        }
-
-        public void SetState(IMarioState newState)
-        {
-            this.state = newState;
         }
     }
 }

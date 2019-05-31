@@ -14,7 +14,7 @@ namespace Sprint2.GoombaState
         public LeftMovingStompedGoombaState(Goomba goomba)
         {
             this.goomba = goomba;
-            this.goomba.Sprite = SpriteFactory.Instance.CreateStompedGoomba();
+            this.goomba.Sprite = SpriteFactory.Instance.GetSprite("StompedGoomba");
         }
 
         public void BeStomped()

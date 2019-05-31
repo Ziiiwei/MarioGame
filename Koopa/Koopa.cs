@@ -17,7 +17,7 @@ namespace Sprint2
 
         public Koopa(Vector2 positionOnScreen)
         {
-            Sprite = SpriteFactory.Instance.CreateKoopaRight();
+            Sprite = SpriteFactory.Instance.GetSprite("KoopaRight");
             state = new KoopaMovingLeftState(this);
             this.positionOnScreen = positionOnScreen;
         }

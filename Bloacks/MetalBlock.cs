@@ -15,7 +15,7 @@ namespace Sprint2
 
         public MetalBlock(Vector2 positionOnScreen)
         {
-            Sprite = SpriteFactory.Instance.CreateMetalBlock();
+            Sprite = SpriteFactory.Instance.GetSprite("MetalBlock");
             this.positionOnScreen = positionOnScreen;
         }
 

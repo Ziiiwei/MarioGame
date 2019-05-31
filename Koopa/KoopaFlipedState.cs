@@ -14,7 +14,7 @@ namespace Sprint2
         public KoopaFlipedState(Koopa koopa)
         {
             this.koopa = koopa;
-            this.koopa.Sprite = SpriteFactory.Instance.CreateKoopaFlipped();
+            this.koopa.Sprite = SpriteFactory.Instance.GetSprite("KoopaFlipped");
         }
 
         public void BeStomped()

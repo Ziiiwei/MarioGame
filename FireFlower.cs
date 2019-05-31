@@ -16,7 +16,7 @@ namespace Sprint2
 
         public FireFlower(Vector2 positionOnScreen)
         {
-            Sprite = SpriteFactory.Instance.CreateFlower();
+            Sprite = SpriteFactory.Instance.GetSprite("Flower");
             this.positionOnScreen = positionOnScreen;
         }
         public void Draw(SpriteBatch spriteBatch)

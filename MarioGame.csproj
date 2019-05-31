@@ -125,19 +125,25 @@
       <HintPath>$(MonoGameInstallDirectory)\MonoGame\v3.0\Assemblies\Windows\MonoGame.Framework.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Icon.ico" />
   </ItemGroup>
   <ItemGroup>
-    <MonoGameContentReference Include="Content\Content.mgcb" />
+    <MonoGameContentReference Include="Content\Content.mgcb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </MonoGameContentReference>
     <None Include="app.config" />
     <None Include="app.manifest" />
     <None Include="Code Reviews\KeithChin.md" />
     <None Include="Code Reviews\MatthewHarrow.md" />
     <None Include="Code Reviews\ZiweiJin.md" />
     <None Include="Code Reviews\RayanHamza.md" />
+    <None Include="SpriteMagicNumbers.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="README.md" />
   </ItemGroup>
   <ItemGroup />

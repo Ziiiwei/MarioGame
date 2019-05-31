@@ -14,7 +14,7 @@ namespace Sprint2
         public KoopaMovingLeftState(Koopa koopa)
         {
             this.koopa = koopa;
-            this.koopa.Sprite = SpriteFactory.Instance.CreateKoopaLeft();
+            this.koopa.Sprite = SpriteFactory.Instance.GetSprite("KoopaLeft");
         }
 
         public void BeStomped()

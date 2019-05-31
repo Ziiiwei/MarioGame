@@ -16,7 +16,7 @@ namespace Sprint2
 
         public GreenMushroom(Vector2 positionOnScreen)
         {
-            Sprite = SpriteFactory.Instance.CreateGreenShroom();
+            Sprite = SpriteFactory.Instance.GetSprite("GreenShroom");
             this.positionOnScreen = positionOnScreen;
         }
         public void Draw(SpriteBatch spriteBatch)

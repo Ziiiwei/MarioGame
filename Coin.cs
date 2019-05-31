@@ -16,7 +16,7 @@ namespace Sprint2
 
         public Coin(Vector2 positionOnScreen)
         {
-            Sprite = SpriteFactory.Instance.CreateCoin();
+            Sprite = SpriteFactory.Instance.GetSprite("Coin");
             this.positionOnScreen = positionOnScreen;
         }
         public void Draw(SpriteBatch spriteBatch)
