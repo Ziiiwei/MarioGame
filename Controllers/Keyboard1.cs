@@ -24,6 +24,7 @@ namespace Gamespace.Controllers
             keyCommands.Add(Keys.Y, new MakeMarioSmall(world.Mario));
             keyCommands.Add(Keys.U, new MakeMarioBig(world.Mario));
             keyCommands.Add(Keys.I, new MakeMarioFire(world.Mario));
+            keyCommands.Add(Keys.O, new MakeMarioDead(world.Mario));
             //keyCommands.Add(Keys.C, new HitBlock(world.blocksInWorld[0]));
             keyCommands.Add(Keys.R, new Reset(game));
 

@@ -6,18 +6,27 @@ using System.Threading.Tasks;
 
 namespace Gamespace.States
 {
-    class MarioDeadState : IMarioPowerUpState
+    class MarioDeadState : IMarioState
     {
-        public void PowerDown(IMario mario)
+        public void Crouch(IMario mario)
         {
-            // Do nothing.
+            
         }
 
-        public void PowerUp(IMario mario)
+        public void Jump(IMario mario)
         {
-            // Do nothing.
+            
         }
 
+        public void MoveLeft(IMario mario)
+        {
+            
+        }
+
+        public void MoveRight(IMario mario)
+        {
+            
+        }
     }
 }
 
