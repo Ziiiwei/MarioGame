@@ -121,8 +121,15 @@ namespace Sprint2
             return new Sprite(texture, 1, frames, frames);
         }
 
+        public ISprite GetSprite(IEnemyState enemyState)
+        {
+            var texture = spriteAssignments[enemyState.GetType()];
+            var frames = spriteFrameCounts[enemyState.GetType()];
+            return new Sprite(texture, 1, frames, frames);
+        }
 
-       
+
+
 
 
 

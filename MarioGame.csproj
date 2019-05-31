@@ -69,6 +69,7 @@
     <Compile Include="FireFlower.cs" />
     <Compile Include="Goomba.cs" />
     <Compile Include="GreenMushroom.cs" />
+    <Compile Include="Interfaces\IEnemyState.cs" />
     <Compile Include="Interfaces\IGameObject.cs" />
     <Compile Include="Interfaces\IMarioPowerUpState.cs" />
     <Compile Include="Interfaces\IMarioState.cs" />
