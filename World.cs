@@ -15,6 +15,10 @@ namespace Gamespace
 
         public IMario Mario { get; set; }
 
+        public IGameObject Block1 { get; set; }
+        public IGameObject Block2 { get; set; }
+        public IGameObject Block3 { get; set; }
+
         private MarioGame game;
 
         public World(MarioGame game)
