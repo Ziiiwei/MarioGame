@@ -8,7 +8,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Gamespace.Blocks
 {
-    class Block : AbstractGameStatefulObject<IBlockState>
+    public class Block : AbstractGameStatefulObject<IBlockState>
     {
         private IBlockState State;
 
@@ -24,11 +24,11 @@ namespace Gamespace.Blocks
             State.MarioHitBlock();
             State.block = this;
         }
-        public new void SetState(IBlockState newState)
+        public override void SetState(IBlockState newState)
         {
             State = newState;
             this.Sprite = SpriteFactory.Instance.GetSprite(newState);
-            this.Draw()
+      
         }
 
       

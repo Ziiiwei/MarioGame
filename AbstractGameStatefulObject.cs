@@ -17,7 +17,7 @@ namespace Gamespace
             
         }
        
-        public void SetState(T state)
+        public virtual void SetState(T state)
         {
             this.state = state; 
         }

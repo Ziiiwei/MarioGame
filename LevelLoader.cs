@@ -22,10 +22,14 @@ namespace Gamespace
             world.AddGameObject(new GreenShroom(new Vector2(275, 100)));
             world.AddGameObject(new Star(new Vector2(325, 100)));
             world.AddGameObject(new Pipe(new Vector2(375, 150)));
-            world.AddGameObject(new Block(new BrickBlockState(),new Vector2(375, 100)));
-            world.AddGameObject(new Block(new HiddenBlockState(),new Vector2(425, 100)));
+
+         
             world.AddGameObject(new Block(new UsedBlockState(), new Vector2(475, 100)));
-            world.AddGameObject(new Block(new QuestionBlockState(), new Vector2(525, 100)));
+           
+
+            world.Block1 = new Block(new BrickBlockState(), new Vector2(375, 100));
+            world.Block2 = new Block(new HiddenBlockState(), new Vector2(425, 100));
+            world.Block3 = new Block(new QuestionBlockState(), new Vector2(525, 100));
 
         }
     }
