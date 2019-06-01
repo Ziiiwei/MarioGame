@@ -54,6 +54,7 @@
     <Compile Include="Blocks\UsedBlockState.cs" />
     <Compile Include="Commands\HitBlock.cs" />
     <Compile Include="Commands\MakeMarioBig.cs" />
+    <Compile Include="Commands\MakeMarioDead.cs" />
     <Compile Include="Commands\MakeMarioFire.cs" />
     <Compile Include="Commands\MakeMarioSmall.cs" />
     <Compile Include="Commands\MarioCrouchCommand.cs" />
@@ -134,6 +135,9 @@
     <None Include="Code Reviews\MatthewHarrow.md" />
     <None Include="Code Reviews\ZiweiJin.md" />
     <None Include="Code Reviews\RayanHamza.md" />
+    <None Include="RefactoredCodeReviews\MatthewHarrow.md" />
+    <None Include="RefactoredCodeReviews\KeithChin.md" />
+    <None Include="RefactoredCodeReviews\RayanHamza.md" />
     <None Include="SpriteFrameCounts.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

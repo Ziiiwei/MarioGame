@@ -112,7 +112,13 @@ namespace Gamespace
             if (spriteAssignments.ContainsKey(gameObject.GetType()))
             {
                 var texture = spriteAssignments[gameObject.GetType()];
-                return new Sprite(texture, spriteFrameCounts[gameObject.GetType()]);
+                int frameCount = 1;
+
+                if (spriteFrameCounts.ContainsKey(gameObject.GetType()))
+                {
+                    frameCount = spriteFrameCounts[gameObject.GetType()];
+                }
+                return new Sprite(texture, frameCount);
             }
             else
             {
