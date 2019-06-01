@@ -1,5 +1,5 @@
 ﻿### Code Readiblity Review
-**Author** : Keith Lou Jian Chin (chin.204)
+**Author** : Rayan Hamza
 **Date**   : 31th May 2019
 **Sprint** : 2 (Refactored)
 
@@ -17,7 +17,7 @@
 **Author of File**: Keith Chin
 **Number of mins** : 2
 **Comments** : The flower class was made into an extremely short class thanks to the abstract
-			   game object, so Kieth did not have to write many lines of code, the fact that 
+			   game object, so Keith did not have to write many lines of code, the fact that 
 			   he had to write anything at all in this file, as well as the other items, is 
 			   yet again, a clear indicator of heavy shotgun surgery.
 
