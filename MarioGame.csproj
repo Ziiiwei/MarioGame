@@ -42,17 +42,17 @@
     <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="AbstractGameStatefulObject.cs" />
     <Compile Include="AbstractGameObject.cs" />
-    <Compile Include="Blocks\BrickBlock.cs" />
-    <Compile Include="Blocks\BrickBlockNormalState.cs" />
-    <Compile Include="Blocks\CoinBlock.cs" />
-    <Compile Include="Blocks\CoinBlockStateFew.cs" />
-    <Compile Include="Blocks\CoinBlockStateSome.cs" />
-    <Compile Include="Blocks\CoinBlockStateMany.cs" />
-    <Compile Include="Blocks\CoinBlockStateNone.cs.cs" />
+    <Compile Include="Blocks\BrickBlockState.cs" />
     <Compile Include="Blocks\FloorBlock.cs" />
+    <Compile Include="Blocks\HiddenBlockState.cs" />
     <Compile Include="Blocks\IBlockState.cs" />
     <Compile Include="Blocks\MetalBlock.cs" />
+    <Compile Include="Blocks\QuestionBlockState.cs" />
+    <Compile Include="Blocks\Block.cs" />
+    <Compile Include="Blocks\UsedBlockState.cs" />
+    <Compile Include="Commands\HitBlock.cs" />
     <Compile Include="Commands\MakeMarioBig.cs" />
     <Compile Include="Commands\MakeMarioFire.cs" />
     <Compile Include="Commands\MakeMarioSmall.cs" />
@@ -69,7 +69,6 @@
     <Compile Include="Interfaces\IGameObject.cs" />
     <Compile Include="Interfaces\IMarioPowerUpState.cs" />
     <Compile Include="Interfaces\IMarioState.cs" />
-    <Compile Include="Blocks\IBlock.cs" />
     <Compile Include="Goomba\IGoombaState.cs" />
     <Compile Include="Items\IItem.cs" />
     <Compile Include="Items\Star.cs" />

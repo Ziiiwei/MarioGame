@@ -5,14 +5,21 @@
   "Gamespace.Items.RedShroom": "RedShroom",
   "Gamespace.Items.Flower": "Flower",
   "Gamespace.Items.Pipe": "Pipe",
-  "Gamespace.Blocks.BrickBlock": "BrickBlock",
   "Gamespace.Blocks.FloorBlock": "FloorBlock",
+  
+  
   "Gamespace.Blocks.MetalBlock": "MetalBlock",
   "Gamespace.Blocks.CoinBlock": "CoinBlock",
   "Gamespace.Koopas.KoopaFlipedState": "KoopaFlipped",
   "Gamespace.Koopas.KoopaMovingLeftState": "KoopaLeft",
   "Gamespace.Koopas.KoopaMovingRightState": "KoopaRight",
-  "Gamespace.Goombas.Goomba": "Goomba"
+  "Gamespace.Goombas.Goomba": "Goomba",
+
+  "Gamespace.Blocks.UsedBlockState" : "UsedBlock",
+  "Gamespace.Blocks.QuestionBlockState": "QuestionBlock",
+  "Gamespace.Blocks.BrickBlockState": "BrickBlock",
+  "Gamespace.Blocks.HiddenBlockState" : "HiddenBlock"
+
 }
 
 

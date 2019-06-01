@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Xna.Framework.Input;
 using Gamespace.Commands;
+using Gamespace.Blocks;
 
 namespace Gamespace.Controllers
 {
@@ -24,7 +25,9 @@ namespace Gamespace.Controllers
             keyCommands.Add(Keys.Y, new MakeMarioSmall(world.Mario));
             keyCommands.Add(Keys.U, new MakeMarioBig(world.Mario));
             keyCommands.Add(Keys.I, new MakeMarioFire(world.Mario));
-            //keyCommands.Add(Keys.C, new HitBlock(world.blocksInWorld[0]));
+            keyCommands.Add(Keys.Z, new HitBlock((Block)world.objectsInWorld[6]));
+            keyCommands.Add(Keys.X, new HitBlock((Block)world.objectsInWorld[7]));
+            keyCommands.Add(Keys.C, new HitBlock((Block)world.objectsInWorld[9]));
             keyCommands.Add(Keys.R, new Reset(game));
 
 

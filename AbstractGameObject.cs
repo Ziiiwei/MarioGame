@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Gamespace
 {
-    class AbstractGameObject : IGameObject
+    public class AbstractGameObject : IGameObject
     {
         public ISprite Sprite { get; set; }
         private Vector2 positionOnScreen;
@@ -22,15 +22,16 @@ namespace Gamespace
         }
         public void Draw(SpriteBatch spriteBatch)
         {
-            var spriteTextureAndRectangle = Sprite.GetSprite();
 
-            spriteBatch.Draw(texture: spriteTextureAndRectangle.Item1, position: positionOnScreen,
-                sourceRectangle: spriteTextureAndRectangle.Item2);
+            spriteBatch.Draw(texture: Sprite.GetTexture(), position: positionOnScreen,
+                sourceRectangle: Sprite.GetRectangle(), color: Color.White);
         }
 
         public void Update()
         {
             Sprite.Update();
         }
+
+      
     }
 }

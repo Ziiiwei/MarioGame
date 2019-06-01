@@ -13,8 +13,8 @@
   "Gamespace.Items.RedShroom": 1,
   "Gamespace.Items.Flower": 4,
   "Gamespace.Items.Pipe": 1,
-  "Gamespace.Blocks.BrickBlock": 1,
-  "Gamespace.Blocks.FloorBlock": 1,
-  "Gamespace.Blocks.MetalBlock": 1,
-  "Gamespace.Blocks.CoinBlock": 5
+  "Gamespace.Blocks.QuestionBlockState" : 1,
+  "Gamespace.Blocks.HiddenBlockState" : 1,
+  "Gamespace.Blocks.UsedBlockState" : 1,
+  "Gamespace.Blocks.BrickBlockState" : 1
 }

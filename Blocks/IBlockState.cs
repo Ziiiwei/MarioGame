@@ -9,8 +9,11 @@ namespace Gamespace.Blocks
 {
     public interface IBlockState
     {
+        AbstractGameStatefulObject<IBlockState> block { get; set; }
+
         void MarioHitBlock();
 
         void Update();
+
     }
 }

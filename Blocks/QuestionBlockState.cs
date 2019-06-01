@@ -3,23 +3,25 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Microsoft.Xna.Framework.Graphics;
 
 namespace Gamespace.Blocks
 {
-    class BrickBlockNormalState : IBlockState
+    class QuestionBlockState : IBlockState
     {
-   
+        public AbstractGameStatefulObject<IBlockState> block { get; set; }
 
- 
+        public QuestionBlockState() { }
+        
+
         public void MarioHitBlock()
         {
-            throw new NotImplementedException();
+            block.SetState(new UsedBlockState());
         }
 
         public void Update()
         {
             throw new NotImplementedException();
         }
+
     }
 }

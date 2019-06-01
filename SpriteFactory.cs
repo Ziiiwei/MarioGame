@@ -9,6 +9,7 @@ using Microsoft.Xna.Framework.Content;
 using System.IO;
 using System.Web.Script.Serialization;
 using Gamespace.Sprites;
+using Gamespace.Blocks;
 
 namespace Gamespace
 {
@@ -132,10 +133,10 @@ namespace Gamespace
             return new Sprite(texture,  frames);
         }
 
-        public ISprite GetSprite(IEnemyState enemyState)
+        public ISprite GetSprite(IBlockState blockState)
         {
-            var texture = spriteAssignments[enemyState.GetType()];
-            var frames = spriteFrameCounts[enemyState.GetType()];
+            var texture = spriteAssignments[blockState.GetType()];
+            var frames = spriteFrameCounts[blockState.GetType()];
             return new Sprite(texture, frames);
         }
 

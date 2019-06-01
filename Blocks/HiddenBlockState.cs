@@ -6,23 +6,22 @@ using System.Threading.Tasks;
 
 namespace Gamespace.Blocks
 {
-    class CoinBlockStateNone : IBlockState
+    class HiddenBlockState : IBlockState
     {
-        private CoinBlock coinBlock;
+        public AbstractGameStatefulObject<IBlockState> block { get; set; }
 
-        public CoinBlockStateNone(CoinBlock coinBlock)
-        {
-            this.coinBlock = coinBlock;
+        public HiddenBlockState()
+        {   
         }
 
         public void MarioHitBlock()
         {
-            // DO nothing
+            block.SetState(new UsedBlockState());
         }
 
         public void Update()
         {
-            coinBlock.Sprite.Update(3);
+            throw new NotImplementedException();
         }
     }
 }
