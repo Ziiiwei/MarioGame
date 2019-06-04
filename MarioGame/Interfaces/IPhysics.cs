@@ -22,5 +22,6 @@ namespace Gamespace
         void SpeedUp();
         void SlowDown();
         void Stop();
+        void Update();
     }
 }
