@@ -36,83 +36,83 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>Icon.ico</ApplicationIcon>
+    <ApplicationIcon>MarioGame\Icon.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationManifest>app.manifest</ApplicationManifest>
+    <ApplicationManifest>MarioGame\app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="AbstractGameStatefulObject.cs" />
-    <Compile Include="AbstractGameObject.cs" />
-    <Compile Include="Blocks\BrickBlockState.cs" />
-    <Compile Include="Blocks\FloorBlock.cs" />
-    <Compile Include="Blocks\HiddenBlockState.cs" />
-    <Compile Include="Blocks\IBlockState.cs" />
-    <Compile Include="Blocks\MetalBlock.cs" />
-    <Compile Include="Blocks\QuestionBlockState.cs" />
-    <Compile Include="Blocks\Block.cs" />
-    <Compile Include="Blocks\UsedBlockState.cs" />
-    <Compile Include="Commands\HitBlock.cs" />
-    <Compile Include="Commands\MakeMarioBig.cs" />
-    <Compile Include="Commands\MakeMarioDead.cs" />
-    <Compile Include="Commands\MakeMarioFire.cs" />
-    <Compile Include="Commands\MakeMarioSmall.cs" />
-    <Compile Include="Commands\MarioCrouchCommand.cs" />
-    <Compile Include="Commands\MarioJumpCommand.cs" />
-    <Compile Include="Commands\MarioMoveLeftCommand.cs" />
-    <Compile Include="Commands\MarioMoveRightCommand.cs" />
-    <Compile Include="Commands\Reset.cs" />
-    <Compile Include="Items\Coin.cs" />
-    <Compile Include="Items\Flower.cs" />
-    <Compile Include="Goomba\Goomba.cs" />
-    <Compile Include="Items\GreenShroom.cs" />
-    <Compile Include="Interfaces\IEnemyState.cs" />
-    <Compile Include="Interfaces\IGameObject.cs" />
-    <Compile Include="Interfaces\IMarioPowerUpState.cs" />
-    <Compile Include="Interfaces\IMarioState.cs" />
-    <Compile Include="Goomba\IGoombaState.cs" />
-    <Compile Include="Items\IItem.cs" />
-    <Compile Include="Items\Star.cs" />
-    <Compile Include="Koopa\IKoopaState.cs" />
-    <Compile Include="Interfaces\IMario.cs" />
-    <Compile Include="Koopa\KoopaChangeDirectionCommand.cs" />
-    <Compile Include="Koopa\KoopaFlipCommand.cs" />
-    <Compile Include="Koopa\KoopaFlipedState.cs" />
-    <Compile Include="Koopa\KoopaMovingLeftState.cs" />
-    <Compile Include="Koopa\KoopaMovingRightState.cs" />
-    <Compile Include="Koopa\Koopa.cs" />
-    <Compile Include="Items\Pipe.cs" />
-    <Compile Include="States\LeftCrouchingMarioState.cs" />
-    <Compile Include="States\LeftStandingMarioState.cs" />
-    <Compile Include="States\LeftWalkingMarioState.cs" />
-    <Compile Include="States\LeftJumpingMarioState.cs" />
-    <Compile Include="Goomba\LeftMovingGoombaState.cs" />
-    <Compile Include="Goomba\LeftMovingStompedGoombaState.cs" />
-    <Compile Include="LevelLoader.cs" />
-    <Compile Include="Items\RedShroom.cs" />
-    <Compile Include="States\RightCrouchingMarioState.cs" />
-    <Compile Include="States\RightStandingMarioState.cs" />
-    <Compile Include="States\RightWalkingMarioState.cs" />
-    <Compile Include="States\RightJumpingMarioState.cs" />
-    <Compile Include="Goomba\RightMovingGoombaState.cs" />
-    <Compile Include="Goomba\RightMovingStompedGoombaState.cs" />
-    <Compile Include="SpriteFactory.cs" />
-    <Compile Include="Mario.cs" />
-    <Compile Include="Commands\QuitGame.cs" />
-    <Compile Include="Commands\ICommand.cs" />
-    <Compile Include="Controllers\IController.cs" />
-    <Compile Include="Sprites\ISprite.cs" />
-    <Compile Include="Controllers\Keyboard1.cs" />
-    <Compile Include="Controllers\Gamepad1.cs" />
-    <Compile Include="MarioGame.cs" />
-    <Compile Include="Program.cs" />
+    <Compile Include="MarioGame\AbstractGameStatefulObject.cs" />
+    <Compile Include="MarioGame\AbstractGameObject.cs" />
+    <Compile Include="MarioGame\Blocks\BrickBlockState.cs" />
+    <Compile Include="MarioGame\Blocks\FloorBlock.cs" />
+    <Compile Include="MarioGame\Blocks\HiddenBlockState.cs" />
+    <Compile Include="MarioGame\Blocks\IBlockState.cs" />
+    <Compile Include="MarioGame\Blocks\MetalBlock.cs" />
+    <Compile Include="MarioGame\Blocks\QuestionBlockState.cs" />
+    <Compile Include="MarioGame\Blocks\Block.cs" />
+    <Compile Include="MarioGame\Blocks\UsedBlockState.cs" />
+    <Compile Include="MarioGame\Commands\HitBlock.cs" />
+    <Compile Include="MarioGame\Commands\MakeMarioBig.cs" />
+    <Compile Include="MarioGame\Commands\MakeMarioDead.cs" />
+    <Compile Include="MarioGame\Commands\MakeMarioFire.cs" />
+    <Compile Include="MarioGame\Commands\MakeMarioSmall.cs" />
+    <Compile Include="MarioGame\Commands\MarioCrouchCommand.cs" />
+    <Compile Include="MarioGame\Commands\MarioJumpCommand.cs" />
+    <Compile Include="MarioGame\Commands\MarioMoveLeftCommand.cs" />
+    <Compile Include="MarioGame\Commands\MarioMoveRightCommand.cs" />
+    <Compile Include="MarioGame\Commands\Reset.cs" />
+    <Compile Include="MarioGame\Items\Coin.cs" />
+    <Compile Include="MarioGame\Items\Flower.cs" />
+    <Compile Include="MarioGame\Goomba\Goomba.cs" />
+    <Compile Include="MarioGame\Items\GreenShroom.cs" />
+    <Compile Include="MarioGame\Interfaces\IEnemyState.cs" />
+    <Compile Include="MarioGame\Interfaces\IGameObject.cs" />
+    <Compile Include="MarioGame\Interfaces\IMarioPowerUpState.cs" />
+    <Compile Include="MarioGame\Interfaces\IMarioState.cs" />
+    <Compile Include="MarioGame\Goomba\IGoombaState.cs" />
+    <Compile Include="MarioGame\Items\IItem.cs" />
+    <Compile Include="MarioGame\Items\Star.cs" />
+    <Compile Include="MarioGame\Koopa\IKoopaState.cs" />
+    <Compile Include="MarioGame\Interfaces\IMario.cs" />
+    <Compile Include="MarioGame\Koopa\KoopaChangeDirectionCommand.cs" />
+    <Compile Include="MarioGame\Koopa\KoopaFlipCommand.cs" />
+    <Compile Include="MarioGame\Koopa\KoopaFlipedState.cs" />
+    <Compile Include="MarioGame\Koopa\KoopaMovingLeftState.cs" />
+    <Compile Include="MarioGame\Koopa\KoopaMovingRightState.cs" />
+    <Compile Include="MarioGame\Koopa\Koopa.cs" />
+    <Compile Include="MarioGame\Items\Pipe.cs" />
+    <Compile Include="MarioGame\States\LeftCrouchingMarioState.cs" />
+    <Compile Include="MarioGame\States\LeftStandingMarioState.cs" />
+    <Compile Include="MarioGame\States\LeftWalkingMarioState.cs" />
+    <Compile Include="MarioGame\States\LeftJumpingMarioState.cs" />
+    <Compile Include="MarioGame\Goomba\LeftMovingGoombaState.cs" />
+    <Compile Include="MarioGame\Goomba\LeftMovingStompedGoombaState.cs" />
+    <Compile Include="MarioGame\LevelLoader.cs" />
+    <Compile Include="MarioGame\Items\RedShroom.cs" />
+    <Compile Include="MarioGame\States\RightCrouchingMarioState.cs" />
+    <Compile Include="MarioGame\States\RightStandingMarioState.cs" />
+    <Compile Include="MarioGame\States\RightWalkingMarioState.cs" />
+    <Compile Include="MarioGame\States\RightJumpingMarioState.cs" />
+    <Compile Include="MarioGame\Goomba\RightMovingGoombaState.cs" />
+    <Compile Include="MarioGame\Goomba\RightMovingStompedGoombaState.cs" />
+    <Compile Include="MarioGame\SpriteFactory.cs" />
+    <Compile Include="MarioGame\Mario.cs" />
+    <Compile Include="MarioGame\Commands\QuitGame.cs" />
+    <Compile Include="MarioGame\Commands\ICommand.cs" />
+    <Compile Include="MarioGame\Controllers\IController.cs" />
+    <Compile Include="MarioGame\Sprites\ISprite.cs" />
+    <Compile Include="MarioGame\Controllers\Keyboard1.cs" />
+    <Compile Include="MarioGame\Controllers\Gamepad1.cs" />
+    <Compile Include="MarioGame\MarioGame.cs" />
+    <Compile Include="MarioGame\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Sprites\Sprite.cs" />
-    <Compile Include="States\MarioDeadState.cs" />
-    <Compile Include="States\MarioFireState.cs" />
-    <Compile Include="States\MarioSmallState.cs" />
-    <Compile Include="States\MarioSuperState.cs" />
-    <Compile Include="World.cs" />
+    <Compile Include="MarioGame\Sprites\Sprite.cs" />
+    <Compile Include="MarioGame\States\MarioDeadState.cs" />
+    <Compile Include="MarioGame\States\MarioFireState.cs" />
+    <Compile Include="MarioGame\States\MarioSmallState.cs" />
+    <Compile Include="MarioGame\States\MarioSuperState.cs" />
+    <Compile Include="MarioGame\World.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="MonoGame.Framework">
@@ -123,30 +123,30 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Icon.ico" />
+    <Content Include="MarioGame\Icon.ico" />
   </ItemGroup>
   <ItemGroup>
-    <MonoGameContentReference Include="Content\Content.mgcb">
+    <MonoGameContentReference Include="MarioGame\Content\Content.mgcb">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </MonoGameContentReference>
-    <None Include="app.config" />
-    <None Include="app.manifest" />
-    <None Include="Code Reviews\KeithChin.md" />
-    <None Include="Code Reviews\MatthewHarrow.md" />
-    <None Include="Code Reviews\ZiweiJin.md" />
-    <None Include="Code Reviews\RayanHamza.md" />
-    <None Include="RefactoredCodeReviews\ZiweiJin.md" />
-    <None Include="RefactoredCodeReviews\MatthewHarrow.md" />
-    <None Include="RefactoredCodeReviews\KeithChin.md" />
-    <None Include="RefactoredCodeReviews\RayanHamza.md" />
-    <None Include="SpriteFrameCounts.json">
+    <None Include="MarioGame\app.config" />
+    <None Include="MarioGame\app.manifest" />
+    <None Include="MarioGame\Code Reviews\KeithChin.md" />
+    <None Include="MarioGame\Code Reviews\MatthewHarrow.md" />
+    <None Include="MarioGame\Code Reviews\ZiweiJin.md" />
+    <None Include="MarioGame\Code Reviews\RayanHamza.md" />
+    <None Include="MarioGame\RefactoredCodeReviews\ZiweiJin.md" />
+    <None Include="MarioGame\RefactoredCodeReviews\MatthewHarrow.md" />
+    <None Include="MarioGame\RefactoredCodeReviews\KeithChin.md" />
+    <None Include="MarioGame\RefactoredCodeReviews\RayanHamza.md" />
+    <None Include="MarioGame\SpriteFrameCounts.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="MarioSpriteMagicNumbers.json">
+    <None Include="MarioGame\MarioSpriteMagicNumbers.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="README.md" />
-    <None Include="EnemyAndItemMagicNumbers.json">
+    <None Include="MarioGame\EnemyAndItemMagicNumbers.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
