@@ -15,7 +15,7 @@ namespace Gamespace
         public ISprite Sprite { get; set; }
         public IMarioState State { get; set; }
         public IMarioPowerUpState PowerUpState { get; set; }
-        //private Vector2 positionOnScreen;
+        private Vector2 positionOnScreen;
         private IPhysics physics;
         public Mario(Vector2 positionOnScreen)
         {
