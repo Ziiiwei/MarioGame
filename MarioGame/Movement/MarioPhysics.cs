@@ -14,27 +14,25 @@ namespace Gamespace.Movement
         private Vector2 Position { get; set; }
         private Vector2 Velocity { get; set; }
         private int Acceleration{ get; set; }
-        public MarioPhysics(Vector2 position, Vector2 velocity, int acceleration)
+        public MarioPhysics()
         {
-            Position = position;
-            Velocity = velocity;
-            Acceleration = acceleration;
+
         }
         public void MoveLeft()
         {
-
+            Position.X -= Velocity.X;
         }
         public void MoveRight()
         {
-
+            Position += Velocity.X;
         }
         public void FreeFall()
         {
-
+            Position.Y -= Velocity.Y;
         }
         public void Jump()
         {
-
+            Position.Y += Velocity.Y;
         }
         public void SpeedUp()
         {
