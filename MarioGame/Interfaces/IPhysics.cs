@@ -10,10 +10,10 @@ namespace Gamespace
 {
     public interface IPhysics
     {
-        Vector2 position { get; set; }
+        /*Vector2 position { get; set; }
         Vector2 velocity { get; set; }
 
-        int acceleration { get; set; }
+        int acceleration { get; set; }*/
 
         void MoveLeft();
         void MoveRight();
