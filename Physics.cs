@@ -71,10 +71,11 @@ namespace Gamespace
 
         public void Update()
         {
-            if (velocity.X != (velocity.X/Math.Abs(velocity.X))*maxSpeed_pf)
+            if (Math.Abs(velocity.X) < maxSpeed_pf || Math.Abs(velocity.X+acceleration.X)< maxSpeed_pf)
             {
                 velocity.X += acceleration.X;
             }
+
             velocity.Y += acceleration.Y;
 
             position.X += velocity.X;
