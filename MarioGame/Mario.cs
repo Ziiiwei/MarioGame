@@ -15,43 +15,48 @@ namespace Gamespace
         public ISprite Sprite { get; set; }
         public IMarioState State { get; set; }
         public IMarioPowerUpState PowerUpState { get; set; }
+        public IPhysics Physics { get; set; }
+
         private Vector2 positionOnScreen;
-        private IPhysics physics;
         public Mario(Vector2 positionOnScreen)
         {
             State = new RightStandingMarioState();
             PowerUpState = new MarioSmallState();
             Sprite = SpriteFactory.Instance.GetSprite(State, PowerUpState);
-            this.positionOnScreen = positionOnScreen;
+            Physics = new Physics(this, positionOnScreen, 60, 60, 60);
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
             var spriteTextureAndRectangle = Sprite.GetSprite();
 
-            spriteBatch.Draw(texture: spriteTextureAndRectangle.Item1, position: positionOnScreen, 
-                sourceRectangle: spriteTextureAndRectangle.Item2);
+            spriteBatch.Draw(texture: Sprite.GetTexture(), position: Physics.GetPosition(), 
+                sourceRectangle:Sprite.GetRectangle(),color : Color.White);
 
         }
 
         public void Update()
         {
             Sprite.Update();
+            Physics.Update();
         }
 
         public void Jump()
         {
             State.Jump(this);
+            Physics.Jump();
         }
 
         public void MoveRight()
         {
             State.MoveRight(this);
+            Physics.MoveRight();
         }
 
         public void MoveLeft()
         {
             State.MoveLeft(this);
+            Physics.MoveLeft();
         }
 
         public void Crouch()

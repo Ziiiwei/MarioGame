@@ -8,6 +8,7 @@ namespace Gamespace
         ISprite Sprite { get; set; }
         IMarioState State { get; set; }
         IMarioPowerUpState PowerUpState { get; set; }
+        IPhysics Physics { get; set; }
         void Jump();
         void MoveRight();
         void MoveLeft();
