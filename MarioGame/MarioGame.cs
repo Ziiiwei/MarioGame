@@ -20,6 +20,8 @@ namespace Gamespace
         // Make LevelLoader a singleton.
         private LevelLoader levelLoader;
 
+        private float frameRate = 0; //help the animation and detaction rate
+        private SpriteFont font; //used to pirnt the framerate
         public MarioGame()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -53,6 +55,8 @@ namespace Gamespace
         protected override void LoadContent()
         {   
             TheSpriteBatch = new SpriteBatch(GraphicsDevice);
+
+            font = Content.Load<SpriteFont>("Arial");
         }
 
         /// <summary>
@@ -87,8 +91,10 @@ namespace Gamespace
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
+            frameRate = 1 / (float)gameTime.ElapsedGameTime.TotalSeconds;
             TheSpriteBatch.Begin();
             TheWorld.DrawWorld();
+            TheSpriteBatch.DrawString(font, "Frame_Rate "+frameRate, new Vector2(0, 0), Color.Red);
             TheSpriteBatch.End();
             base.Draw(gameTime);
         }
