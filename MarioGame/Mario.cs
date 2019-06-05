@@ -23,7 +23,7 @@ namespace Gamespace
             State = new RightStandingMarioState();
             PowerUpState = new MarioSmallState();
             Sprite = SpriteFactory.Instance.GetSprite(State, PowerUpState);
-            Physics = new Physics(this, positionOnScreen, 60, 60, 60);
+            Physics = new Physics(this, positionOnScreen, 150, 150, 60);
         }
 
         public void Draw(SpriteBatch spriteBatch)

@@ -14,12 +14,13 @@ namespace Gamespace
         public Vector2 acceleration;
         public IGameObject gameObject { get; set; }
 
-        public int DefaultAcceleration { get; set; } //default acceleration for left and right move
+        //default acceleration for left and right move
 
         private int maxSpeed_pf; //pix per frame
         private int jumpSpeed_pf; //pix per frame
         public const int G = 1; //the G of the marioward 
-        public const float DefaultAccelerationTime = (float)0.5;
+        public const int A = 1;
+        // public const float DefaultAccelerationTime = (float)0.5;
 
 
         public Physics(IGameObject gameObject,Vector2 position, int maxspeed, int jumpspeed,int framerate)
@@ -29,7 +30,7 @@ namespace Gamespace
 
             maxSpeed_pf = maxspeed / framerate;
             jumpSpeed_pf = jumpspeed / framerate;
-            DefaultAcceleration = (int)(maxspeed / (framerate*DefaultAccelerationTime));
+          
 
             this.Stop();
         }
@@ -47,13 +48,13 @@ namespace Gamespace
         public void MoveLeft()
         {
             velocity.X = 0;
-            acceleration.X = -DefaultAcceleration;
+            acceleration.X = -A;
         }
 
         public void MoveRight()
         {
             velocity.X = 0;
-            acceleration.X = -DefaultAcceleration;
+            acceleration.X = A;
         }
 
         public void SlowDown()
