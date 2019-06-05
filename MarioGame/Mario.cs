@@ -7,6 +7,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
 using Gamespace.Sprites;
 using Gamespace.States;
+using Gamespace.Movement;
 
 namespace Gamespace
 {
@@ -16,13 +17,14 @@ namespace Gamespace
         public IMarioState State { get; set; }
         public IMarioPowerUpState PowerUpState { get; set; }
         private Vector2 positionOnScreen;
-        private IPhysics physics;
+        private IPhysics Physics;
         public Mario(Vector2 positionOnScreen)
         {
             State = new RightStandingMarioState();
             PowerUpState = new MarioSmallState();
             Sprite = SpriteFactory.Instance.GetSprite(State, PowerUpState);
             this.positionOnScreen = positionOnScreen;
+            Physics = new MarioPhysics();
         }
 
         public void Draw(SpriteBatch spriteBatch)
@@ -42,16 +44,19 @@ namespace Gamespace
         public void Jump()
         {
             State.Jump(this);
+            Physics.Jump();
         }
 
         public void MoveRight()
         {
             State.MoveRight(this);
+            Physics.MoveRight();
         }
 
         public void MoveLeft()
         {
             State.MoveLeft(this);
+            Physics.MoveLeft();
         }
 
         public void Crouch()

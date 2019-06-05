@@ -11,9 +11,9 @@ namespace Gamespace.Movement
 {
     class MarioPhysics : IPhysics
     {
-        private Vector2 Position { get; set; }
-        private Vector2 Velocity { get; set; }
-        private int Acceleration{ get; set; }
+        public Vector2 Position { get; set; }
+        public Vector2 Velocity { get; set; }
+        public int Acceleration{ get; set; }
         public MarioPhysics()
         {
 
