@@ -25,6 +25,10 @@ namespace Gamespace
         public MarioGame()
         {
             graphics = new GraphicsDeviceManager(this);
+
+            graphics.PreferredBackBufferWidth = 1500;  // set this value to the desired width of your window
+            graphics.PreferredBackBufferHeight = 900;   // set this value to the desired height of your window
+            graphics.ApplyChanges();
             controllers = new List<IController>();
             Content.RootDirectory = "Content";
         }
@@ -92,7 +96,7 @@ namespace Gamespace
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
             frameRate = 1 / (float)gameTime.ElapsedGameTime.TotalSeconds;
-            TheSpriteBatch.Begin();
+            TheSpriteBatch.Begin(SpriteSortMode.Immediate, null, null, null, null, null,Matrix.CreateScale(2.0f));
             TheWorld.DrawWorld();
             TheSpriteBatch.DrawString(font, "Frame_Rate "+frameRate, new Vector2(0, 0), Color.Red);
             TheSpriteBatch.End();

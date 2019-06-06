@@ -19,7 +19,7 @@ namespace Gamespace
         private float maxSpeed_pf = 3f; //pix per frame
         private float jumpSpeed_pf = 3f; //pix per frame
         public const float G = 0.2f; //the G of the marioward 
-        public const float A = 0.1f; //
+        public const float A = 0.1f; //horizontal sccelaration
         // public const float DefaultAccelerationTime = (float)0.5;
 
 
