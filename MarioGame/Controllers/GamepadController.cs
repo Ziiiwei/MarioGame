@@ -9,13 +9,13 @@ using Microsoft.Xna.Framework.Input;
 /* WHOLE CLASS NEEDS TO BE ADJUSTED */
 namespace Gamespace.Controllers
 {
-    class Gamepad1: IController
+    class GamepadController: IController
     {
         private GamePadState gamePadState;
         private GamePadState previousState;
         private Dictionary<Buttons, ICommand> buttonCommands;
 
-        public Gamepad1(MarioGame game)
+        public GamepadController(MarioGame game)
         {
             buttonCommands = new Dictionary<Buttons, ICommand>();
 

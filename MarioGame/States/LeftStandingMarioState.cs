@@ -34,5 +34,6 @@ namespace Gamespace.States
             mario.State = new RightStandingMarioState();
             mario.UpdateArt();
         }
+
     }
 }

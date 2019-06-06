@@ -9,12 +9,12 @@ using Gamespace.Blocks;
 
 namespace Gamespace.Controllers
 {
-    class Keyboard1 : IController
+    class KeyboardController : IController
     {
         private Dictionary<Keys, ICommand> keyCommands;
         private List<Keys> previouslyPressed;
 
-        public Keyboard1(MarioGame game, World world)
+        public KeyboardController(MarioGame game, World world)
         {
             keyCommands = new Dictionary<Keys, ICommand>();
             keyCommands.Add(Keys.Q, new QuitGame(game));
@@ -29,9 +29,9 @@ namespace Gamespace.Controllers
             keyCommands.Add(Keys.Y, new MakeMarioSmall(world.Mario));
             keyCommands.Add(Keys.U, new MakeMarioBig(world.Mario));
             keyCommands.Add(Keys.I, new MakeMarioFire(world.Mario));
-            keyCommands.Add(Keys.Z, new HitBlock(world.Block1));
-            keyCommands.Add(Keys.X, new HitBlock(world.Block2));
-            keyCommands.Add(Keys.C, new HitBlock(world.Block3)); 
+            keyCommands.Add(Keys.Z, new HitBlock(world.QuestionBlock));
+            keyCommands.Add(Keys.X, new HitBlock(world.BrickBlock));
+            keyCommands.Add(Keys.C, new HitBlock(world.HiddenBlock)); 
             keyCommands.Add(Keys.R, new Reset(game));
 
 

@@ -29,5 +29,10 @@ namespace Gamespace.States
         {
             //nothing to do here...
         }
+        public void Dead(IMario mario)
+        {
+            mario.State = new MarioDeadState();
+            mario.UpdateArt();
+        }
     }
 }

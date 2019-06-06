@@ -12,5 +12,6 @@ namespace Gamespace.States
         void Crouch(IMario mario);
         void MoveRight(IMario mario);
         void MoveLeft(IMario mario);
+
     }
 }

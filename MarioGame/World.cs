@@ -16,9 +16,9 @@ namespace Gamespace
 
         public IMario Mario { get; set; }
 
-        public Block Block1 { get; set; }
-        public Block Block2 { get; set; }
-        public Block Block3 { get; set; }
+        public Block HiddenBlock { get; set; }
+        public Block BrickBlock { get; set; }
+        public Block QuestionBlock { get; set; }
 
         private MarioGame game;
 
@@ -41,9 +41,9 @@ namespace Gamespace
                 gameObject.Update();
             }
             Mario.Update();
-            Block1.Update();
-            Block2.Update();
-            Block3.Update();
+            HiddenBlock.Update();
+            BrickBlock.Update();
+            QuestionBlock.Update();
         }
 
         [Obsolete]
@@ -55,9 +55,9 @@ namespace Gamespace
             }
 
             Mario.Draw(game.TheSpriteBatch);
-            Block1.Draw(game.TheSpriteBatch);
-            Block2.Draw(game.TheSpriteBatch);
-            Block3.Draw(game.TheSpriteBatch);
+            HiddenBlock.Draw(game.TheSpriteBatch);
+            BrickBlock.Draw(game.TheSpriteBatch);
+            QuestionBlock.Draw(game.TheSpriteBatch);
 
         }
     }

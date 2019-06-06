@@ -15,5 +15,6 @@ namespace Gamespace
         void PowerDown();
         void PowerUp();
         void UpdateArt();
+
     }
 }

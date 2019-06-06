@@ -27,9 +27,9 @@ namespace Gamespace
             world.AddGameObject(new Block(new UsedBlockState(), new Vector2(475, 100)));
            
 
-            world.Block1 = new Block(new BrickBlockState(), new Vector2(375, 100));
-            world.Block2 = new Block(new HiddenBlockState(), new Vector2(425, 100));
-            world.Block3 = new Block(new QuestionBlockState(), new Vector2(525, 100));
+            world.BrickBlock = new Block(new BrickBlockState(), new Vector2(375, 100));
+            world.HiddenBlock = new Block(new HiddenBlockState(), new Vector2(425, 100));
+            world.QuestionBlock = new Block(new QuestionBlockState(), new Vector2(525, 100));
 
         }
     }
