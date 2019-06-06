@@ -106,8 +106,11 @@ namespace Gamespace
             
             velocity.X = MinimumMagnitude(velocity.X + acceleration.X, directionX * maxSpeed_pf);
             velocity.Y = MinimumMagnitude(velocity.Y + acceleration.Y, directionY * maxSpeed_pf);
+
             
             position.X += velocity.X;
+            
+            
             position.Y += velocity.Y;
 
             if (acceleration.X != 0)
@@ -116,6 +119,15 @@ namespace Gamespace
             if (acceleration.Y != 0)
                 acceleration.Y += (-1 * directionY) * G;
 
+            if (position.X <= 0)
+                position.X = 750;
+            else if (position.X >= 750)
+                position.X = 0;
+
+            if (position.Y >= 450)
+                position.Y = 0;
+            else if (position.Y <= 0)
+                position.Y = 450;
         }
 
         public Vector2 GetPosition()
