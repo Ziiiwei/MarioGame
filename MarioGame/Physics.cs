@@ -45,12 +45,16 @@ namespace Gamespace
         public void MoveLeft()
         {
             acceleration.X = -A;
+            if (position.X == 0)
+                position.X = 1499;
         }
 
         public void MoveRight()
         {
             
             acceleration.X = A;
+            if (position.X == 1499)
+                position.X = 0;
         }
 
         public void SlowDown()

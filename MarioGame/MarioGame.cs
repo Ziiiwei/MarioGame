@@ -98,7 +98,7 @@ namespace Gamespace
             frameRate = 1 / (float)gameTime.ElapsedGameTime.TotalSeconds;
             TheSpriteBatch.Begin(SpriteSortMode.Immediate, null, null, null, null, null,Matrix.CreateScale(2.0f));
             TheWorld.DrawWorld();
-            TheSpriteBatch.DrawString(font, "Frame_Rate "+frameRate, new Vector2(0, 0), Color.Red);
+            TheSpriteBatch.DrawString(font, "FPS "+frameRate, new Vector2(0, 0), Color.Red);
             TheSpriteBatch.End();
             base.Draw(gameTime);
         }
