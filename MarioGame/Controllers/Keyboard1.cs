@@ -11,30 +11,33 @@ namespace Gamespace.Controllers
 {
     class Keyboard1 : IController
     {
-        private Dictionary<Keys, ICommand> keyCommands;
-        private List<Keys> previouslyPressed;
+        private Dictionary<String, ICommand> keyCommands;
+        private Keys[] previouslyPressed;
+        private List<String> commandToExcute;
 
         public Keyboard1(MarioGame game, World world)
         {
-            keyCommands = new Dictionary<Keys, ICommand>();
-            keyCommands.Add(Keys.Q, new QuitGame(game));
-            keyCommands.Add(Keys.W, new MarioJumpCommand(world.Mario));
-            keyCommands.Add(Keys.S, new MarioCrouchCommand(world.Mario));
-            keyCommands.Add(Keys.A, new MarioMoveLeftCommand(world.Mario));
-            keyCommands.Add(Keys.D, new MarioMoveRightCommand(world.Mario));
-            keyCommands.Add(Keys.Up, new MarioJumpCommand(world.Mario));
-            keyCommands.Add(Keys.Down, new MarioCrouchCommand(world.Mario));
-            keyCommands.Add(Keys.Left, new MarioMoveLeftCommand(world.Mario));
-            keyCommands.Add(Keys.Right, new MarioMoveRightCommand(world.Mario));
-            keyCommands.Add(Keys.Y, new MakeMarioSmall(world.Mario));
-            keyCommands.Add(Keys.U, new MakeMarioBig(world.Mario));
-            keyCommands.Add(Keys.I, new MakeMarioFire(world.Mario));
-            keyCommands.Add(Keys.Z, new HitBlock(world.Block1));
-            keyCommands.Add(Keys.X, new HitBlock(world.Block2));
-            keyCommands.Add(Keys.C, new HitBlock(world.Block3)); 
-            keyCommands.Add(Keys.R, new Reset(game));
+            keyCommands = new Dictionary<String, ICommand>();
+            keyCommands.Add("Q", new QuitGame(game));
+            keyCommands.Add("W_Click", new MarioJumpCommand(world.Mario));
+            keyCommands.Add("S_Click", new MarioCrouchCommand(world.Mario));
+            keyCommands.Add("A_Click", new MarioMoveLeftCommand(world.Mario));
+            keyCommands.Add("D_Click", new MarioMoveRightCommand(world.Mario));
+            keyCommands.Add("UP_Click", new MarioJumpCommand(world.Mario));
+            keyCommands.Add("Down_Click", new MarioCrouchCommand(world.Mario));
+            keyCommands.Add("Left_Click", new MarioMoveLeftCommand(world.Mario));
+            keyCommands.Add("Right_Click", new MarioMoveRightCommand(world.Mario));
+            keyCommands.Add("Y_Click", new MakeMarioSmall(world.Mario));
+            keyCommands.Add("U_Click", new MakeMarioBig(world.Mario));
+            keyCommands.Add("I_Click", new MakeMarioFire(world.Mario));
+            keyCommands.Add("Z_Click", new HitBlock(world.Block1));
+            keyCommands.Add("X_Click", new HitBlock(world.Block2));
+            keyCommands.Add("C_Click", new HitBlock(world.Block3)); 
+            keyCommands.Add("R_Click", new Reset(game));
  
-            previouslyPressed = new List<Keys>();
+
+            commandToExcute = new List<String>();
+            previouslyPressed = new Keys[0];
         }
 
         public void Update()
@@ -43,18 +46,39 @@ namespace Gamespace.Controllers
 
             foreach (Keys key in pressed)
             {
-
-                if(keyCommands.ContainsKey(key) )
+                if (previouslyPressed.Contains(key))
                 {
-                    keyCommands[key].Execute();
+                    commandToExcute.Add(key.ToString() + "_Hold");
+                } else
+                {
+                    commandToExcute.Add(key.ToString() + "_Click");
                 }
 
             }
-            previouslyPressed.Clear();
-            foreach(Keys key in pressed)
+
+           
+            
+                foreach (Keys key in previouslyPressed)
+                {
+                    if (!pressed.Contains(key))
+                    {
+                        commandToExcute.Add(key.ToString() + "_Release");
+                    }
+                }
+            
+
+            foreach(String s in commandToExcute)
             {
-                previouslyPressed.Add(key);
+                if (keyCommands.ContainsKey(s))
+                {
+                    keyCommands[s].Execute();
+                }
             }
+
+
+            previouslyPressed = pressed;
+
+            
         }
 
     }
