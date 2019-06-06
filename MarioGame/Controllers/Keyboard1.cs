@@ -18,7 +18,7 @@ namespace Gamespace.Controllers
         public Keyboard1(MarioGame game, World world)
         {
             keyCommands = new Dictionary<String, ICommand>();
-            keyCommands.Add("Q.Click", new QuitGame(game));
+            keyCommands.Add("Q_Click", new QuitGame(game));
 
             keyCommands.Add("W_Release", new MarioCrouchCommand(world.Mario));
             keyCommands.Add("W_Click", new MarioJumpCommand(world.Mario));
@@ -40,6 +40,7 @@ namespace Gamespace.Controllers
             keyCommands.Add("Down_Click", new MarioCrouchCommand(world.Mario));
             keyCommands.Add("Left_Click", new MarioMoveLeftCommand(world.Mario));
             keyCommands.Add("Right_Click", new MarioMoveRightCommand(world.Mario));
+
             keyCommands.Add("Y_Click", new MakeMarioSmall(world.Mario));
             keyCommands.Add("U_Click", new MakeMarioBig(world.Mario));
             keyCommands.Add("I_Click", new MakeMarioFire(world.Mario));
