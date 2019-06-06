@@ -44,7 +44,7 @@ namespace Gamespace
         public void Jump()
         {
             State.Jump(this);
-            Physics.Jump();
+            Physics.MoveUp();
         }
 
         public void MoveRight()

@@ -41,6 +41,11 @@ namespace Gamespace
             acceleration.Y = -A;
         }
 
+        public void MoveUp()
+        {
+            acceleration.Y = -A;
+        }
+
         public void MoveLeft()
         {
             acceleration.X = -A;

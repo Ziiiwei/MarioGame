@@ -14,6 +14,7 @@ namespace Gamespace
         void MoveLeft();
         void MoveRight();
         void MoveDown();
+        void MoveUp();
         void FreeFall();
         void Jump();
         void SpeedUp();
