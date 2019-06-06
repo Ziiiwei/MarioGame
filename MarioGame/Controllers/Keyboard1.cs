@@ -19,7 +19,8 @@ namespace Gamespace.Controllers
         {
             keyCommands = new Dictionary<String, ICommand>();
             keyCommands.Add("Q", new QuitGame(game));
-            keyCommands.Add("W_Click", new MarioJumpCommand(world.Mario));
+            keyCommands.Add("W_Release", new MarioJumpCommand(world.Mario));
+            keyCommands.Add("W_Hold", new MarioCrouchCommand(world.Mario));
             keyCommands.Add("S_Click", new MarioCrouchCommand(world.Mario));
             keyCommands.Add("A_Click", new MarioMoveLeftCommand(world.Mario));
             keyCommands.Add("D_Click", new MarioMoveRightCommand(world.Mario));
@@ -56,15 +57,14 @@ namespace Gamespace.Controllers
 
             }
 
-           
-            
-                foreach (Keys key in previouslyPressed)
+
+            foreach (Keys key in previouslyPressed)
+            {
+                if (!pressed.Contains(key))
                 {
-                    if (!pressed.Contains(key))
-                    {
-                        commandToExcute.Add(key.ToString() + "_Release");
-                    }
+                    commandToExcute.Add(key.ToString() + "_Release");
                 }
+            }
             
 
             foreach(String s in commandToExcute)
@@ -75,7 +75,7 @@ namespace Gamespace.Controllers
                 }
             }
 
-
+            commandToExcute.Clear();
             previouslyPressed = pressed;
 
             
