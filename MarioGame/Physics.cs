@@ -18,6 +18,7 @@ namespace Gamespace
 
         private float maxSpeed_pf = 2f; //pix per frame
         private float jumpSpeed_pf = 3f; //pix per frame
+        // Invariant: G < A
         public const float G = 0.2f; //the G of the marioward 
         public const float A = 0.8f; //
         // public const float DefaultAccelerationTime = (float)0.5;
@@ -105,10 +106,10 @@ namespace Gamespace
             position.Y += velocity.Y;
 
             if (acceleration.X != 0)
-                acceleration.X += (-1 * directionX) * 0.3f;
+                acceleration.X += (-1 * directionX) * G;
 
             if (acceleration.Y != 0)
-                acceleration.Y += (-1 * directionY) * 0.3f;
+                acceleration.Y += (-1 * directionY) * G;
 
         }
 
