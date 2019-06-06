@@ -1,5 +1,6 @@
 ﻿using Gamespace.Sprites;
 using Gamespace.States;
+using Microsoft.Xna.Framework;
 
 namespace Gamespace
 {
@@ -7,6 +8,7 @@ namespace Gamespace
     {
         ISprite Sprite { get; set; }
         IMarioState State { get; set; }
+        Vector2 PositionOnScreen { get; }
         IMarioPowerUpState PowerUpState { get; set; }
         IPhysics Physics { get; set; }
         void Jump();

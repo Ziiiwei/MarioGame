@@ -17,20 +17,22 @@ namespace Gamespace
         private List<Rectangle> rectangles;
         private readonly int delayBound = 5;
         private int delayCounter = 0;
+        public int Width { get; }
+        public int Height { get; }
 
         public Sprite(Texture2D texture, int totalFrames)
         {
             this.texture = texture;
             this.totalFrames = totalFrames;
 
-            int width = texture.Width / totalFrames;
-            int height = texture.Height;
+            Width = texture.Width / totalFrames;
+            Height = texture.Height;
 
             rectangles = new List<Rectangle>();
 
             for (int i = 0; i < totalFrames; i++)
             {
-                rectangles.Add(new Rectangle(width * i, 0, width, height));
+                rectangles.Add(new Rectangle(Width * i, 0, Width, Height));
             }
 
         }

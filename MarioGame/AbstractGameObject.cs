@@ -12,18 +12,18 @@ namespace Gamespace
     public class AbstractGameObject : IGameObject
     {
         public ISprite Sprite { get; set; }
-        private Vector2 positionOnScreen;
+        public Vector2 PositionOnScreen { get; }
 
 
         public AbstractGameObject(Vector2 positionOnScreen)
         {
             Sprite = SpriteFactory.Instance.GetSprite(this);
-            this.positionOnScreen = positionOnScreen;
+            this.PositionOnScreen = positionOnScreen;
         }
         public void Draw(SpriteBatch spriteBatch)
         {
 
-            spriteBatch.Draw(texture: Sprite.GetTexture(), position: positionOnScreen,
+            spriteBatch.Draw(texture: Sprite.GetTexture(), position: PositionOnScreen,
                 sourceRectangle: Sprite.GetRectangle(), color: Color.White);
         }
 
@@ -32,6 +32,10 @@ namespace Gamespace
             Sprite.Update();
         }
 
-      
+        public Rectangle GetCollisionBoundary()
+        {
+            return new Rectangle((int)PositionOnScreen.X, (int)PositionOnScreen.Y, Sprite.Width, Sprite.Height);
+        }
+
     }
 }

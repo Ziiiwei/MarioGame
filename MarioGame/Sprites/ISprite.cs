@@ -16,5 +16,7 @@ namespace Gamespace.Sprites
         Texture2D GetTexture();
         Rectangle GetRectangle();//return corrent frame
         int FrameCount();
+        int Width { get; }
+        int Height { get; }
     }
 }

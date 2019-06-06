@@ -42,6 +42,7 @@
     <ApplicationManifest>MarioGame\app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="CollisionHandler.cs" />
     <Compile Include="MarioGame\AbstractGameStatefulObject.cs" />
     <Compile Include="MarioGame\AbstractGameObject.cs" />
     <Compile Include="MarioGame\Blocks\BrickBlockState.cs" />
