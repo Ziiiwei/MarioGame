@@ -16,10 +16,10 @@ namespace Gamespace
 
         //default acceleration for left and right move
 
-        private float maxSpeed_pf = 3f; //pix per frame
+        private float maxSpeed_pf = 2f; //pix per frame
         private float jumpSpeed_pf = 3f; //pix per frame
         public const float G = 0.2f; //the G of the marioward 
-        public const float A = 0.1f; //
+        public const float A = 0.8f; //
         // public const float DefaultAccelerationTime = (float)0.5;
 
 
@@ -27,9 +27,8 @@ namespace Gamespace
         {
             this.gameObject = gameObject;
             this.position = position;
-          
-
-            this.Stop();
+            acceleration = new Vector2(0, 0);
+            velocity = new Vector2(0, 0);
         }
         public void FreeFall()
         {
@@ -38,8 +37,7 @@ namespace Gamespace
 
         public void Jump()
         {
-            velocity.Y = (float)-jumpSpeed_pf;
-            acceleration.Y = G;
+            acceleration.Y = -A;
         }
 
         public void MoveLeft()
@@ -51,6 +49,11 @@ namespace Gamespace
         {
             
             acceleration.X = A;
+        }
+
+        public void MoveDown()
+        {
+            acceleration.Y = A;
         }
 
         public void SlowDown()
@@ -65,18 +68,39 @@ namespace Gamespace
 
         public void Stop()
         {
-            velocity = new Vector2(0, 0);
-            acceleration = new Vector2(0, 0);
+            acceleration.X *= -1;
+            acceleration.Y *= -1;
         }
 
         public void Update()
         {
-            if (velocity.X != (velocity.X/Math.Abs(velocity.X))*maxSpeed_pf)
+            if (!(velocity.X == 0) && Math.Sign(velocity.X) != Math.Sign(velocity.X + acceleration.X))
             {
-                velocity.X += acceleration.X;
+                velocity.X = 0;
+                acceleration.X = 0;
             }
-            velocity.Y += acceleration.Y;
 
+            if (!(velocity.Y == 0) && Math.Sign(velocity.Y) != Math.Sign(velocity.Y + acceleration.Y))
+            {
+                velocity.Y = 0;
+                acceleration.Y = 0;
+            }
+
+            int directionX = 1;
+            int directionY = 1;
+
+            if (velocity.X < 0)
+            {
+                directionX = -1;
+            }
+            if (velocity.Y < 0)
+            {
+                directionY = -1;
+            }
+            
+            velocity.X = MinimumMagnitude(velocity.X + acceleration.X, directionX * maxSpeed_pf);
+            velocity.Y = MinimumMagnitude(velocity.Y + acceleration.Y, directionY * maxSpeed_pf);
+            
             position.X += velocity.X;
             position.Y += velocity.Y;
 
@@ -85,6 +109,12 @@ namespace Gamespace
         public Vector2 GetPosition()
         {
             return position;
+        }
+
+        /* Will return the signed integer which has the least magnitude */
+        private float MinimumMagnitude(float a, float b)
+        {
+            return Math.Abs(a) < Math.Abs(b) ? a : b;
         }
     }
 }

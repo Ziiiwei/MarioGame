@@ -33,8 +33,7 @@ namespace Gamespace.Controllers
             keyCommands.Add(Keys.X, new HitBlock(world.Block2));
             keyCommands.Add(Keys.C, new HitBlock(world.Block3)); 
             keyCommands.Add(Keys.R, new Reset(game));
-
-
+ 
             previouslyPressed = new List<Keys>();
         }
 

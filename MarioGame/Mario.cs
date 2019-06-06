@@ -62,6 +62,7 @@ namespace Gamespace
         public void Crouch()
         {
             State.Crouch(this);
+            Physics.MoveDown();
         }
 
         public void PowerDown()

@@ -13,6 +13,7 @@ namespace Gamespace
         Vector2 GetPosition();
         void MoveLeft();
         void MoveRight();
+        void MoveDown();
         void FreeFall();
         void Jump();
         void SpeedUp();
