@@ -20,7 +20,8 @@ namespace Gamespace.Controllers
             keyCommands = new Dictionary<String, ICommand>();
             keyCommands.Add("Q", new QuitGame(game));
             keyCommands.Add("W_Release", new MarioJumpCommand(world.Mario));
-            keyCommands.Add("W_Hold", new MarioCrouchCommand(world.Mario));
+            keyCommands.Add("S_Hold", new MarioCrouchCommand(world.Mario));
+            keyCommands.Add("S_Release", new MarioJumpCommand(world.Mario));
             keyCommands.Add("S_Click", new MarioCrouchCommand(world.Mario));
             keyCommands.Add("A_Click", new MarioMoveLeftCommand(world.Mario));
             keyCommands.Add("D_Click", new MarioMoveRightCommand(world.Mario));
