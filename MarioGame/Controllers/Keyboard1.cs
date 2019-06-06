@@ -43,10 +43,13 @@ namespace Gamespace.Controllers
 
             foreach (Keys key in pressed)
             {
+                /*
                 if(keyCommands.ContainsKey(key) && !previouslyPressed.Contains(key))
                 {
                     keyCommands[key].Execute();
                 }
+                */
+                keyCommands[key].Execute();
             }
             previouslyPressed.Clear();
             foreach(Keys key in pressed)

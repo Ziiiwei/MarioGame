@@ -104,6 +104,12 @@ namespace Gamespace
             position.X += velocity.X;
             position.Y += velocity.Y;
 
+            if (acceleration.X != 0)
+                acceleration.X += (-1 * directionX) * 0.3f;
+
+            if (acceleration.Y != 0)
+                acceleration.Y += (-1 * directionY) * 0.3f;
+
         }
 
         public Vector2 GetPosition()
