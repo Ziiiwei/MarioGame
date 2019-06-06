@@ -18,13 +18,24 @@ namespace Gamespace.Controllers
         public Keyboard1(MarioGame game, World world)
         {
             keyCommands = new Dictionary<String, ICommand>();
-            keyCommands.Add("Q", new QuitGame(game));
-            keyCommands.Add("W_Release", new MarioJumpCommand(world.Mario));
+            keyCommands.Add("Q.Click", new QuitGame(game));
+
+            keyCommands.Add("W_Release", new MarioCrouchCommand(world.Mario));
+            keyCommands.Add("W_Click", new MarioJumpCommand(world.Mario));
+            keyCommands.Add("W_Hold", new MarioJumpCommand(world.Mario));
+
             keyCommands.Add("S_Hold", new MarioCrouchCommand(world.Mario));
             keyCommands.Add("S_Release", new MarioJumpCommand(world.Mario));
             keyCommands.Add("S_Click", new MarioCrouchCommand(world.Mario));
+
             keyCommands.Add("A_Click", new MarioMoveLeftCommand(world.Mario));
+            keyCommands.Add("A_Hold", new MarioMoveLeftCommand(world.Mario));
+            keyCommands.Add("A_Release", new MarioMoveRightCommand(world.Mario));
+
             keyCommands.Add("D_Click", new MarioMoveRightCommand(world.Mario));
+            keyCommands.Add("D_Hold", new MarioMoveRightCommand(world.Mario));
+            keyCommands.Add("D_Release", new MarioMoveLeftCommand(world.Mario));
+
             keyCommands.Add("UP_Click", new MarioJumpCommand(world.Mario));
             keyCommands.Add("Down_Click", new MarioCrouchCommand(world.Mario));
             keyCommands.Add("Left_Click", new MarioMoveLeftCommand(world.Mario));
