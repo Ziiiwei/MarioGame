@@ -20,8 +20,6 @@ namespace Gamespace
         public IMarioPowerUpState PowerUpState { get ; set ; }
         public IPhysics Physics { get ; set ; }
 
-        int Timer = 1000;
-
         public void CollideDown(Rectangle collisionArea)
         {
             throw new NotImplementedException();
