@@ -143,7 +143,7 @@
     <None Include="MarioGame\Code Reviews\MatthewHarrow.md" />
     <None Include="MarioGame\Code Reviews\ZiweiJin.md" />
     <None Include="MarioGame\Code Reviews\RayanHamza.md" />
-    <None Include="MarioGame\Data\GameObjectCommands.json" />
+    <None Include="MarioGame\Data\CollisionActions.json" />
     <None Include="MarioGame\RefactoredCodeReviews\ZiweiJin.md" />
     <None Include="MarioGame\RefactoredCodeReviews\MatthewHarrow.md" />
     <None Include="MarioGame\RefactoredCodeReviews\KeithChin.md" />
