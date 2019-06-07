@@ -45,14 +45,14 @@ namespace Gamespace
             SpriteFactory.Instance.SetGameInstance(this);
             TheWorld = new World(this);
             levelLoader = new LevelLoader(TheWorld);
-            controllers.Add(new Keyboard1(this, TheWorld));
+            controllers.Add(new KeyboardController(this, TheWorld));
 
 
             controllers.Add(new Gamepad1(this));
             
         }
-        
-        /// <summary>
+                /// <summary>
+
         /// LoadContent will be called once per game and is the place to load
         /// all of your content.
         /// </summary>

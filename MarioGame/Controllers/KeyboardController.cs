@@ -9,13 +9,13 @@ using Gamespace.Blocks;
 
 namespace Gamespace.Controllers
 {
-    class Keyboard1 : IController
+    class KeyboardController : IController
     {
         private Dictionary<String, ICommand> keyCommands;
         private Keys[] previouslyPressed;
         private List<String> commandToExcute;
 
-        public Keyboard1(MarioGame game, World world)
+        public KeyboardController(MarioGame game, World world)
         {
             // we are going to data drive this, users can customize controls in games.
             keyCommands = new Dictionary<String, ICommand>();

@@ -108,7 +108,7 @@
     <Compile Include="MarioGame\Commands\ICommand.cs" />
     <Compile Include="MarioGame\Controllers\IController.cs" />
     <Compile Include="MarioGame\Sprites\ISprite.cs" />
-    <Compile Include="MarioGame\Controllers\Keyboard1.cs" />
+    <Compile Include="MarioGame\Controllers\KeyboardController.cs" />
     <Compile Include="MarioGame\Controllers\Gamepad1.cs" />
     <Compile Include="MarioGame\MarioGame.cs" />
     <Compile Include="MarioGame\Program.cs" />
@@ -142,6 +142,7 @@
     <None Include="MarioGame\Code Reviews\MatthewHarrow.md" />
     <None Include="MarioGame\Code Reviews\ZiweiJin.md" />
     <None Include="MarioGame\Code Reviews\RayanHamza.md" />
+    <None Include="MarioGame\Data\GameObjectCommands.json" />
     <None Include="MarioGame\RefactoredCodeReviews\ZiweiJin.md" />
     <None Include="MarioGame\RefactoredCodeReviews\MatthewHarrow.md" />
     <None Include="MarioGame\RefactoredCodeReviews\KeithChin.md" />
