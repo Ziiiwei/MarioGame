@@ -142,6 +142,9 @@
     <None Include="MarioGame\Code Reviews\MatthewHarrow.md" />
     <None Include="MarioGame\Code Reviews\ZiweiJin.md" />
     <None Include="MarioGame\Code Reviews\RayanHamza.md" />
+    <None Include="MarioGame\Data\StuffInGame.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="MarioGame\Data\GameObjectCommands.json" />
     <None Include="MarioGame\RefactoredCodeReviews\ZiweiJin.md" />
     <None Include="MarioGame\RefactoredCodeReviews\MatthewHarrow.md" />

@@ -1,0 +1,38 @@
+{
+  "Mario" : {
+  	  "PositionOnScreen": ["175","100"]
+  }
+
+  "Flower" : {
+  	  "PositionOnScreen": ["125","100"]
+  }
+
+  "Coin" : {
+  	  "PositionOnScreen": ["175","100"]
+  }
+
+  "RedShroom" : {
+  	  "PositionOnScreen": ["225","100"]
+  }
+
+  "GreenShroom" : {
+  	  "PositionOnScreen": ["275","100"]
+  }
+
+  "Star" : {
+  	  "PositionOnScreen": ["325","100"]
+  }
+
+  "Pipe" : {
+  	  "PositionOnScreen": ["375","150"]
+  }
+
+  "Block" : {
+  	  "PositionOnScreen": ["175","100"]
+  }
+
+}
+
+
+
+

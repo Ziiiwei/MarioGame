@@ -3,22 +3,22 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
+using System.Web.Script.Serialization;
 
 namespace Gamespace
 {
-    class Parser
+    static class Parser
     {
-        public Parser()
-        {
+        private static readonly string path1 = "MarioGame/Data/StuffInGame.json";
+        
 
-        }
-
-        public Mario ParseMario()
+        public static Mario ParseMario()
         {
             return null;
         }
 
-        public List<IGameObject> ParseObjects()
+        public static List<IGameObject> ParseObjects()
         {
             return null;
         }
