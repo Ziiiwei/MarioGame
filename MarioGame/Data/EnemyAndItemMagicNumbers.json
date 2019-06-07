@@ -15,10 +15,10 @@
   "Gamespace.Koopas.KoopaMovingRightState": "KoopaRight",
   "Gamespace.Goombas.Goomba": "Goomba",
 
-  "Gamespace.Blocks.UsedBlockState" : "UsedBlock",
-  "Gamespace.Blocks.QuestionBlockState": "QuestionBlock",
-  "Gamespace.Blocks.BrickBlockState": "BrickBlock",
-  "Gamespace.Blocks.HiddenBlockState" : "HiddenBlock"
+  "Gamespace.Blocks.UsedBlock" : "UsedBlock",
+  "Gamespace.Blocks.QuestionBlock": "QuestionBlock",
+  "Gamespace.Blocks.BrickBlock": "BrickBlock",
+  "Gamespace.Blocks.HiddenBlock" : "HiddenBlock"
 
 }
 

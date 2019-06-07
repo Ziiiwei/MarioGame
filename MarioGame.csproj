@@ -45,14 +45,15 @@
     <Compile Include="MarioGame\Collision\CollisionHandler.cs" />
     <Compile Include="MarioGame\AbstractGameStatefulObject.cs" />
     <Compile Include="MarioGame\AbstractGameObject.cs" />
-    <Compile Include="MarioGame\Blocks\BrickBlockState.cs" />
+    <Compile Include="MarioGame\Blocks\BrickBlock.cs" />
     <Compile Include="MarioGame\Blocks\FloorBlock.cs" />
-    <Compile Include="MarioGame\Blocks\HiddenBlockState.cs" />
-    <Compile Include="MarioGame\Blocks\IBlockState.cs" />
+    <Compile Include="MarioGame\Blocks\HiddenBlock.cs" />
+    <Compile Include="MarioGame\Blocks\IBlock.cs" />
     <Compile Include="MarioGame\Blocks\MetalBlock.cs" />
-    <Compile Include="MarioGame\Blocks\QuestionBlockState.cs" />
+    <Compile Include="MarioGame\Blocks\QuestionBlock.cs" />
     <Compile Include="MarioGame\Blocks\Block.cs" />
-    <Compile Include="MarioGame\Blocks\UsedBlockState.cs" />
+    <Compile Include="MarioGame\Blocks\UsedBlock.cs" />
+    <Compile Include="MarioGame\Collision\CollisionManager.cs" />
     <Compile Include="MarioGame\Commands\HitBlock.cs" />
     <Compile Include="MarioGame\Commands\MakeMarioBig.cs" />
     <Compile Include="MarioGame\Commands\MakeMarioDead.cs" />
@@ -142,10 +143,7 @@
     <None Include="MarioGame\Code Reviews\MatthewHarrow.md" />
     <None Include="MarioGame\Code Reviews\ZiweiJin.md" />
     <None Include="MarioGame\Code Reviews\RayanHamza.md" />
-    <None Include="MarioGame\Data\StuffInGame.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="MarioGame\Data\GameObjectCommands.json" />
+    <None Include="MarioGame\Data\CollisionActions.json" />
     <None Include="MarioGame\RefactoredCodeReviews\ZiweiJin.md" />
     <None Include="MarioGame\RefactoredCodeReviews\MatthewHarrow.md" />
     <None Include="MarioGame\RefactoredCodeReviews\KeithChin.md" />
