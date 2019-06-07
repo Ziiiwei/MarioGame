@@ -11,8 +11,7 @@ namespace Gamespace.Items
 {
     class Star : AbstractGameObject
     {
-        private ISprite sprite;
-        private Vector2 location;
+
 
         public Star(Vector2 positionOnScreen) : base (positionOnScreen) 
         {
