@@ -74,16 +74,18 @@ namespace Gamespace
             //nothing yet
         }
 
-        public void HorizontalStop()
+        public void HorizontalStop(Rectangle collisionArea)
         {
             // probably have to (pos.x - intersection rectangle)
-            position.X = previousPosition.X;
+            position.X = position.X - collisionArea.Width;
+            //position.X = previousPosition.X;
 
         }
 
-        public void VerticalStop()
+        public void VerticalStop(Rectangle collisionArea)
         {
-            position.Y = previousPosition.Y;
+            position.Y = position.Y - collisionArea.Height;
+            //position.Y = previousPosition.Y;
         }
 
         public void Update()

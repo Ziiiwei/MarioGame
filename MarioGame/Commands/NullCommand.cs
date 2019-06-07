@@ -9,7 +9,7 @@ namespace Gamespace.Commands
 {
     class NullCommand : ICommand
     {
-        public NullCommand(object oa)
+        public NullCommand(params object[] oa)
         {
 
         }

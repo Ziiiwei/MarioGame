@@ -37,5 +37,13 @@ namespace Gamespace
             return new Rectangle((int)PositionOnScreen.X, (int)PositionOnScreen.Y, Sprite.Width, Sprite.Height);
         }
 
+        public Vector2 GetCenter()
+        {
+            float height = Sprite.Height / 2;
+            float width = Sprite.Width / 2;
+
+            return new Vector2(PositionOnScreen.X + width, PositionOnScreen.Y + height);
+        }
+
     }
 }

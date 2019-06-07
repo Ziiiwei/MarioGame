@@ -46,6 +46,7 @@ namespace Gamespace
             Block1.Update();
             Block2.Update();
             Block3.Update();
+            /* The instigator is the first object, then target */
             collisionHandler.HandleCollision(Mario, Block1);
         }
 

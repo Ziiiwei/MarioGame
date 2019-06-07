@@ -45,24 +45,25 @@ namespace Gamespace
         }
         */
 
-        public void HandleCollision(IGameObject obj1, IGameObject obj2)
+        public void HandleCollision(IGameObject mover, IGameObject target)
         {
-            if (DetectCollision(obj1, obj2) == (Side.None, Side.None))
+            if (DetectCollision(mover, target).Item1 == Side.None)
             {
                 return;
             }
 
-            (Side, Side) collisionDirections = DetectCollision(obj1, obj2);
-            Tuple<Type, Type, Side> key = new Tuple<Type, Type, Side>(obj1.GetType(),
-                obj2.GetType(), collisionDirections.Item1);
+            (Side, Rectangle) directionAndArea = DetectCollision(mover, target);
+
+            Tuple<Type, Type, Side> key = new Tuple<Type, Type, Side>(mover.GetType(),
+                target.GetType(), directionAndArea.Item1);
 
             if (collisionActions.ContainsKey(key))
             {
                 Type object1Type = collisionActions[key].Item1;
                 Type object2Type = collisionActions[key].Item2;
 
-                ICommand collisionMember1 = (ICommand)Activator.CreateInstance(object1Type, obj1);
-                ICommand collisionMember2 = (ICommand)Activator.CreateInstance(object2Type, obj2);
+                ICommand collisionMember1 = (ICommand)Activator.CreateInstance(object1Type, mover, directionAndArea.Item2);
+                ICommand collisionMember2 = (ICommand)Activator.CreateInstance(object2Type, target, directionAndArea.Item2);
 
                 collisionMember1.Execute();
                 collisionMember2.Execute();
@@ -71,39 +72,42 @@ namespace Gamespace
 
         }
 
-        private (Side, Side) DetectCollision(IGameObject obj1, IGameObject obj2)
+        /* Collision direction is target relative 
+         * Example: Mario hits top of the block, so that is a top collision.
+         */
+        private (Side, Rectangle) DetectCollision(IGameObject mover, IGameObject target)
         {
-            if (!obj1.GetCollisionBoundary().Intersects(obj2.GetCollisionBoundary()))
+            if (!mover.GetCollisionBoundary().Intersects(target.GetCollisionBoundary()))
             {
-                return (Side.None, Side.None);
+                return (Side.None, new Rectangle(0, 0, 0, 0));
             }
 
-            Rectangle collisionArea = Rectangle.Intersect(obj1.GetCollisionBoundary(),
-                obj2.GetCollisionBoundary());
+            Rectangle collisionArea = Rectangle.Intersect(mover.GetCollisionBoundary(),
+                target.GetCollisionBoundary());
 
             bool horizontalCollision = (collisionArea.Height > collisionArea.Width);
 
             if (horizontalCollision)
             {
                 // Try using center
-                if (obj1.PositionOnScreen.X < obj2.PositionOnScreen.X)
+                if (mover.GetCenter().X < target.GetCenter().X)
                 {
-                    return (Side.Right, Side.Left);
+                    return (Side.Right, collisionArea);
                 }
                 else
                 {
-                    return (Side.Left, Side.Right);
+                    return (Side.Left, collisionArea);
                 }
             }
             else
             {
-                if (obj1.PositionOnScreen.Y < obj2.PositionOnScreen.Y)
+                if (mover.GetCenter().Y < target.GetCenter().Y)
                 {
-                    return (Side.Down, Side.Up);
+                    return (Side.Down, collisionArea);
                 }
                 else
                 {
-                    return (Side.Up, Side.Down);
+                    return (Side.Up, collisionArea);
                 }
             }
 

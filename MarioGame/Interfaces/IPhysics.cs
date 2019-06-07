@@ -20,7 +20,7 @@ namespace Gamespace
         void SpeedUp();
         void SlowDown();
         void Update();
-        void HorizontalStop();
-        void VerticalStop();
+        void HorizontalStop(Rectangle collisionArea);
+        void VerticalStop(Rectangle collisionArea);
     }
 }
