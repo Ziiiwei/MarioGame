@@ -59,6 +59,7 @@
     <Compile Include="MarioGame\Commands\MakeMarioDead.cs" />
     <Compile Include="MarioGame\Commands\MakeMarioFire.cs" />
     <Compile Include="MarioGame\Commands\MakeMarioSmall.cs" />
+    <Compile Include="MarioGame\Commands\MakeMarioStar.cs" />
     <Compile Include="MarioGame\Commands\MarioCrouchCommand.cs" />
     <Compile Include="MarioGame\Commands\MarioJumpCommand.cs" />
     <Compile Include="MarioGame\Commands\MarioMoveLeftCommand.cs" />
