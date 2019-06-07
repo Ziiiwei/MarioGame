@@ -55,13 +55,13 @@ namespace Gamespace
 
 
             collisionActions.Add(new Tuple<Type, Type, Side>(typeof(Mario), typeof(Star), Side.Up),
-                new Tuple<Type, Type>(typeof(MakeMarioBig), typeof(NullCommand)));
+                new Tuple<Type, Type>(typeof(MakeMarioStar), typeof(NullCommand)));
             collisionActions.Add(new Tuple<Type, Type, Side>(typeof(Mario), typeof(Star), Side.Down),
-                new Tuple<Type, Type>(typeof(MakeMarioBig), typeof(NullCommand)));
+                new Tuple<Type, Type>(typeof(MakeMarioStar), typeof(NullCommand)));
             collisionActions.Add(new Tuple<Type, Type, Side>(typeof(Mario), typeof(Star), Side.Left),
-                new Tuple<Type, Type>(typeof(MakeMarioBig), typeof(NullCommand)));
+                new Tuple<Type, Type>(typeof(MakeMarioStar), typeof(NullCommand)));
             collisionActions.Add(new Tuple<Type, Type, Side>(typeof(Mario), typeof(Star), Side.Right),
-                new Tuple<Type, Type>(typeof(MakeMarioBig), typeof(NullCommand)));
+                new Tuple<Type, Type>(typeof(MakeMarioStar), typeof(NullCommand)));
 
 
         }
