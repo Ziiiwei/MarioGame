@@ -35,34 +35,6 @@ namespace Gamespace
             collisionActions.Add(new Tuple<Type, Type, Side>(typeof(Mario), typeof(Block), Side.Right),
                 new Tuple<Type, Type>(typeof(PushMarioRight), typeof(NullCommand)));
 
-            collisionActions.Add(new Tuple<Type, Type, Side>(typeof(Mario), typeof(Flower), Side.Up),
-                new Tuple<Type, Type>(typeof(MakeMarioFire), typeof(NullCommand)));
-            collisionActions.Add(new Tuple<Type, Type, Side>(typeof(Mario), typeof(Flower), Side.Down),
-                new Tuple<Type, Type>(typeof(MakeMarioFire), typeof(NullCommand)));
-            collisionActions.Add(new Tuple<Type, Type, Side>(typeof(Mario), typeof(Flower), Side.Left),
-                new Tuple<Type, Type>(typeof(MakeMarioFire), typeof(NullCommand)));
-            collisionActions.Add(new Tuple<Type, Type, Side>(typeof(Mario), typeof(Flower), Side.Right),
-                new Tuple<Type, Type>(typeof(MakeMarioFire), typeof(NullCommand)));
-
-            collisionActions.Add(new Tuple<Type, Type, Side>(typeof(Mario), typeof(RedShroom), Side.Up),
-                new Tuple<Type, Type>(typeof(MakeMarioBig), typeof(NullCommand)));
-            collisionActions.Add(new Tuple<Type, Type, Side>(typeof(Mario), typeof(RedShroom), Side.Down),
-                new Tuple<Type, Type>(typeof(MakeMarioBig), typeof(NullCommand)));
-            collisionActions.Add(new Tuple<Type, Type, Side>(typeof(Mario), typeof(RedShroom), Side.Left),
-                new Tuple<Type, Type>(typeof(MakeMarioBig), typeof(NullCommand)));
-            collisionActions.Add(new Tuple<Type, Type, Side>(typeof(Mario), typeof(RedShroom), Side.Right),
-                new Tuple<Type, Type>(typeof(MakeMarioBig), typeof(NullCommand)));
-
-
-            collisionActions.Add(new Tuple<Type, Type, Side>(typeof(Mario), typeof(Star), Side.Up),
-                new Tuple<Type, Type>(typeof(MakeMarioStar), typeof(NullCommand)));
-            collisionActions.Add(new Tuple<Type, Type, Side>(typeof(Mario), typeof(Star), Side.Down),
-                new Tuple<Type, Type>(typeof(MakeMarioStar), typeof(NullCommand)));
-            collisionActions.Add(new Tuple<Type, Type, Side>(typeof(Mario), typeof(Star), Side.Left),
-                new Tuple<Type, Type>(typeof(MakeMarioStar), typeof(NullCommand)));
-            collisionActions.Add(new Tuple<Type, Type, Side>(typeof(Mario), typeof(Star), Side.Right),
-                new Tuple<Type, Type>(typeof(MakeMarioStar), typeof(NullCommand)));
-
 
         }
         /*
