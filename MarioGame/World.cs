@@ -21,12 +21,13 @@ namespace Gamespace
         public Block Block3 { get; set; }
 
         private MarioGame game;
+        private CollisionHandler collisionHandler;
 
         public World(MarioGame game)
         {
             this.game = game;
             objectsInWorld = new List<IGameObject>();
-            Mario = new Mario(new Vector2(200, 200));
+            collisionHandler = new CollisionHandler();
         }
 
         public void AddGameObject(IGameObject gameObject)
@@ -44,6 +45,7 @@ namespace Gamespace
             Block1.Update();
             Block2.Update();
             Block3.Update();
+            collisionHandler.HandleCollision(Mario, Block1);
         }
 
         [Obsolete]
@@ -58,7 +60,6 @@ namespace Gamespace
             Block1.Draw(game.TheSpriteBatch);
             Block2.Draw(game.TheSpriteBatch);
             Block3.Draw(game.TheSpriteBatch);
-
         }
     }
 }

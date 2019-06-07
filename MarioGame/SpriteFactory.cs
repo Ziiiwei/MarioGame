@@ -87,25 +87,6 @@ namespace Gamespace
                 var texture = gameInstance.Content.Load<Texture2D>(entry.Value);
                 spriteAssignments.Add(Type.GetType(entry.Key), texture);
             }
-
-            /*
-            textures.Add(gameInstance.Content.Load<Texture2D>("Coin"));
-            textures.Add(gameInstance.Content.Load<Texture2D>("Star"));
-            textures.Add(gameInstance.Content.Load<Texture2D>("GreenShroom"));
-            textures.Add(gameInstance.Content.Load<Texture2D>("RedShroom"));
-            textures.Add(gameInstance.Content.Load<Texture2D>("Flower"));
-            textures.Add(gameInstance.Content.Load<Texture2D>("Goomba"));
-            textures.Add(gameInstance.Content.Load<Texture2D>("GoombaStomped"));
-            textures.Add(gameInstance.Content.Load<Texture2D>("Pipe"));
-            textures.Add(gameInstance.Content.Load<Texture2D>("KoopaLeft"));
-            textures.Add(gameInstance.Content.Load<Texture2D>("KoopaRight"));
-            textures.Add(gameInstance.Content.Load<Texture2D>("KoopaShell"));
-            textures.Add(gameInstance.Content.Load<Texture2D>("KoopaFlipped"));
-            textures.Add(gameInstance.Content.Load<Texture2D>("BrickBlock"));
-            textures.Add(gameInstance.Content.Load<Texture2D>("FloorBlock"));
-            textures.Add(gameInstance.Content.Load<Texture2D>("MetalBlock"));
-            textures.Add(gameInstance.Content.Load<Texture2D>("CoinBlock"));
-            */
         }
 
         public ISprite GetSprite(IGameObject gameObject)

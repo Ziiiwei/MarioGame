@@ -5,23 +5,30 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Gamespace.Commands;
+using Gamespace.Goombas;
+using Gamespace.Blocks;
 
 namespace Gamespace
 {
     class CollisionHandler
     {
-        private Dictionary<Tuple<IGameObject, IGameObject, Side>, (ICommand, ICommand)> collisionActions;
-        private static readonly CollisionHandler instance = new CollisionHandler();
+        /* Side is relative to the first IGameObject in the tuple */
+        private Dictionary<Tuple<Type, Type, Side>, Tuple<Type, Type>> collisionActions;
+        //private static readonly CollisionHandler instance = new CollisionHandler();
         enum Side : int { None, Up, Down, Left, Right };
 
         static CollisionHandler()
         {
         }
 
-        private CollisionHandler()
+        public CollisionHandler()
         {
-        }
+            collisionActions = new Dictionary<Tuple<Type, Type, Side>, Tuple<Type, Type>>();
+            collisionActions.Add(new Tuple<Type, Type, Side>(typeof(Mario), typeof(Block), Side.Up),
+                new Tuple<Type, Type>(typeof(MakeMarioBig), typeof(NullCommand)));
 
+        }
+        /*
         public static CollisionHandler Instance
         {
             get
@@ -29,6 +36,7 @@ namespace Gamespace
                 return instance;
             }
         }
+        */
 
         public void HandleCollision(IGameObject obj1, IGameObject obj2)
         {
@@ -36,7 +44,22 @@ namespace Gamespace
             {
                 return;
             }
-            
+
+            (Side, Side) collisionDirections = DetectCollision(obj1, obj2);
+            Tuple<Type, Type, Side> key = new Tuple<Type, Type, Side>(obj1.GetType(),
+                obj2.GetType(), collisionDirections.Item1);
+
+            if (collisionActions.ContainsKey(key))
+            {
+                Type object1Type = collisionActions[key].Item1;
+                Type object2Type = collisionActions[key].Item2;
+
+                ICommand collisionMember1 = (ICommand)Activator.CreateInstance(object1Type, obj1);
+                ICommand collisionMember2 = (ICommand)Activator.CreateInstance(object2Type, obj2);
+
+                collisionMember1.Execute();
+                collisionMember2.Execute();
+            }
 
 
         }

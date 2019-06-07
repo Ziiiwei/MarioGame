@@ -17,7 +17,7 @@ namespace Gamespace
         public IMarioPowerUpState PowerUpState { get; set; }
         public IPhysics Physics { get; set; }
 
-        public Vector2 PositionOnScreen { get; }
+        public Vector2 PositionOnScreen { get; private set; }
         public Mario(Vector2 positionOnScreen)
         {
             State = new RightStandingMarioState();
@@ -39,6 +39,7 @@ namespace Gamespace
         {
             Sprite.Update();
             Physics.Update();
+            PositionOnScreen = Physics.GetPosition();
         }
 
         public void Jump()
