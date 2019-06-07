@@ -66,6 +66,7 @@
     <Compile Include="MarioGame\Commands\PushMarioHorizontally.cs" />
     <Compile Include="MarioGame\Commands\PushMarioVertically.cs" />
     <Compile Include="MarioGame\Commands\Reset.cs" />
+    <Compile Include="MarioGame\Data\Parser.cs" />
     <Compile Include="MarioGame\Interfaces\IPhysics.cs" />
     <Compile Include="MarioGame\Items\Coin.cs" />
     <Compile Include="MarioGame\Items\Flower.cs" />
