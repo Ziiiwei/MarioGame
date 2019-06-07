@@ -10,16 +10,22 @@ namespace Gamespace
 {
     static class Parser
     {
-        private static readonly string path1 = "MarioGame/Data/StuffInGame.json";
+        private static readonly String StuffInGame = "MarioGame/Data/StuffInGame.json";
         
 
         public static Mario ParseMario()
         {
-            return null;
+            StreamReader reader = File.OpenText(StuffInGame);
+            JavaScriptSerializer javaScriptSerializer = new JavaScriptSerializer();
+            var Mario = javaScriptSerializer.Deserialize<Mario>(reader.ReadToEnd());
+            return Mario;
         }
 
         public static List<IGameObject> ParseObjects()
         {
+            StreamReader reader = File.OpenText(StuffInGame);
+            JavaScriptSerializer javaScriptSerializer = new JavaScriptSerializer();
+            var magicNumbers = javaScriptSerializer.Deserialize<IGameObject>(reader.ReadLine());
             return null;
         }
     }
