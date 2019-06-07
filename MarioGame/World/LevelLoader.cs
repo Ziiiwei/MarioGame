@@ -16,16 +16,16 @@ namespace Gamespace
         {
             //world.Mario = new Mario(new Vector2(300, 200));
             world.Mario = new Mario(new Vector2(175, 100));
-            world.AddGameObject(new Flower(new Vector2(125, 100)));
+            world.AddGameObject(/*Parser.ParseObjects()[0]*/new Flower(new Vector2(125, 100)));
             world.AddGameObject(new Coin(new Vector2(175, 100)));
             world.AddGameObject(new RedShroom(new Vector2(225, 100)));
             world.AddGameObject(new GreenShroom(new Vector2(275, 100)));
             world.AddGameObject(new Star(new Vector2(325, 100)));
             world.AddGameObject(new Pipe(new Vector2(375, 150)));
-            world.AddGameObject(new Block(new UsedBlockState(), new Vector2(475, 100)));
-            world.Block1 = new Block(new BrickBlockState(), new Vector2(375, 100));
-            world.Block2 = new Block(new HiddenBlockState(), new Vector2(425, 100));
-            world.Block3 = new Block(new QuestionBlockState(), new Vector2(525, 100));
+            world.AddGameObject(new Block(new UsedBlock(), new Vector2(475, 100)));
+            world.Block1 = new Block(new BrickBlock(), new Vector2(375, 100));
+            world.Block2 = new Block(new HiddenBlock(), new Vector2(425, 100));
+            world.Block3 = new Block(new QuestionBlock(), new Vector2(525, 100));
 
         }
     }

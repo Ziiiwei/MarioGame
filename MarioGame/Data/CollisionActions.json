@@ -1,0 +1,366 @@
+﻿[
+  {
+    "Obj1": "Mario",
+    "Obj2": "BrickBlock",
+    "Side": "Bottom",
+    "Command1": "MoveMarioDown",
+    "Command2": "BumpBlock"
+  },
+  {
+    "Obj1": "Mario",
+    "Obj2": "BrickBlock",
+    "Side": "Top",
+    "Command1": null,
+    "Command2": null
+  },
+  {
+    "Obj1": "Mario",
+    "Obj2": "BrickBlock",
+    "Side": "Left",
+    "Command1": "MoveMarioLeft",
+    "Command2": null
+  },
+  {
+    "Obj1": "Mario",
+    "Obj2": "BrickBlock",
+    "Side": "Right",
+    "Command1": "MoveMarioRight",
+    "Command2": null
+  },
+  {
+    "Obj1": "Mario",
+    "Obj2": "Goomba",
+    "Side": "Bottom",
+    "Command1": "MarioTakesDamage",
+    "Command2": null
+  },
+  {
+    "Obj1": "Mario",
+    "Obj2": "Goomba",
+    "Side": "Top",
+    "Command1": null,
+    "Command2": "BeStomped"
+  },
+  {
+    "Obj1": "Mario",
+    "Obj2": "Goomba",
+    "Side": "Left",
+    "Command1": "MarioTakesDamage",
+    "Command2": null
+  },
+  {
+    "Obj1": "Mario",
+    "Obj2": "Goomba",
+    "Side": "Right",
+    "Command1": "MarioTakesDamage",
+    "Command2": null
+  },
+  {
+    "Obj1": "Mario",
+    "Obj2": "HiddenBlock",
+    "Side": "Left",
+    "Command1": "MoveMarioLeft",
+    "Command2": null
+  },
+  {
+    "Obj1": "Mario",
+    "Obj2": "HiddenBlock",
+    "Side": "Right",
+    "Command1": "MoveMarioRight",
+    "Command2": null
+  },
+  {
+    "Obj1": "Mario",
+    "Obj2": "HiddenBlock",
+    "Side": "Top",
+    "Command1": null,
+    "Command2": null
+  },
+  {
+    "Obj1": "Mario",
+    "Obj2": "HiddenBlock",
+    "Side": "Bottom",
+    "Command1": "MoveMarioDown",
+    "Command2": null
+  },
+  {
+    "Obj1": "Mario",
+    "Obj2": "QuestionBlock",
+    "Side": "Top",
+    "Command1": null,
+    "Command2": null
+  },
+  {
+    "Obj1": "Mario",
+    "Obj2": "QuestionBlock",
+    "Side": "Bottom",
+    "Command1": "MoveMarioDown",
+    "Command2": "HitBlock"
+  },
+  {
+    "Obj1": "Mario",
+    "Obj2": "QuestionBlock",
+    "Side": "Left",
+    "Command1": "MoveMarioLeft",
+    "Command2": null
+  },
+  {
+    "Obj1": "Mario",
+    "Obj2": "QuestionBlock",
+    "Side": "Right",
+    "Command1": "MoveMarioRight",
+    "Command2": null
+  },
+  {
+    "Obj1": "Mario",
+    "Obj2": "Koopa",
+    "Side": "Top",
+    "Command1": "MoveMarioRight",
+    "Command2": "BeStomped"
+  },
+  {
+    "Obj1": "Mario",
+    "Obj2": "Koopa",
+    "Side": "Bottom",
+    "Command1": "MarioTakesDamage",
+    "Command2": null
+  },
+  {
+    "Obj1": "Mario",
+    "Obj2": "Koopa",
+    "Side": "Left",
+    "Command1": "MarioTakesDamage",
+    "Command2": null
+  },
+  {
+    "Obj1": "Mario",
+    "Obj2": "Koopa",
+    "Side": "Right",
+    "Command1": "MarioTakesDamage",
+    "Command2": null
+  },
+  {
+    "Obj1": "Mario",
+    "Obj2": "KoopaFlipped",
+    "Side": "Top",
+    "Command1": "MoveMarioRight",
+    "Command2": "MoveKoopaRight"
+  },
+  {
+    "Obj1": "Mario",
+    "Obj2": "KoopaFlipped",
+    "Side": "Bottom",
+    "Command1": "MoveMarioDown",
+    "Command2": "MoveKoopaUp"
+  },
+  {
+    "Obj1": "Mario",
+    "Obj2": "KoopaFlipped",
+    "Side": "Left",
+    "Command1": null,
+    "Command2": "MoveKoopaLeft"
+  },
+  {
+    "Obj1": "Mario",
+    "Obj2": "KoopaFlipped",
+    "Side": "Right",
+    "Command1": null,
+    "Command2": "MoveKoopaRight"
+  },
+  {
+    "Obj1": "Mario",
+    "Obj2": "Star",
+    "Side": "Top",
+    "Command1": "MakeMarioStar",
+    "Command2": "UpdateArt"
+  },
+  {
+    "Obj1": "Mario",
+    "Obj2": "Star",
+    "Side": "Bottom",
+    "Command1": "MakeMarioStar",
+    "Command2": "UpdateArt"
+  },
+  {
+    "Obj1": "Mario",
+    "Obj2": "Star",
+    "Side": "Left",
+    "Command1": "MakeMarioStar",
+    "Command2": "UpdateArt"
+  },
+  {
+    "Obj1": "Mario",
+    "Obj2": "Star",
+    "Side": "Right",
+    "Command1": "MakeMarioStar",
+    "Command2": "UpdateArt"
+  },
+  {
+    "Obj1": "Mario",
+    "Obj2": "RedShroom",
+    "Side": "Top",
+    "Command1": "MakeMarioBig",
+    "Command2": "UpdateArt"
+  },
+  {
+    "Obj1": "Mario",
+    "Obj2": "RedShroom",
+    "Side": "Bottom",
+    "Command1": "MakeMarioBig",
+    "Command2": "UpdateArt"
+  },
+  {
+    "Obj1": "Mario",
+    "Obj2": "RedShroom",
+    "Side": "Left",
+    "Command1": "MakeMarioBig",
+    "Command2": "UpdateArt"
+  },
+  {
+    "Obj1": "Mario",
+    "Obj2": "RedShroom",
+    "Side": "Right",
+    "Command1": "MakeMarioBig",
+    "Command2": "UpdateArt"
+  },
+  {
+    "Obj1": "Mario",
+    "Obj2": "GreenShroom",
+    "Side": "Top",
+    "Command1": null,
+    "Command2": "UpdateArt"
+  },
+  {
+    "Obj1": "Mario",
+    "Obj2": "GreenShroom",
+    "Side": "Bottom",
+    "Command1": null,
+    "Command2": "UpdateArt"
+  },
+  {
+    "Obj1": "Mario",
+    "Obj2": "GreenShroom",
+    "Side": "Left",
+    "Command1": null,
+    "Command2": "UpdateArt"
+  },
+  {
+    "Obj1": "Mario",
+    "Obj2": "GreenShroom",
+    "Side": "Right",
+    "Command1": null,
+    "Command2": "UpdateArt"
+  },
+  {
+    "Obj1": "Mario",
+    "Obj2": "Flower",
+    "Side": "Top",
+    "Command1": "MakeMarioFire",
+    "Command2": "UpdateArt"
+  },
+  {
+    "Obj1": "Mario",
+    "Obj2": "Flower",
+    "Side": "Bottom",
+    "Command1": "MakeMarioFire",
+    "Command2": "UpdateArt"
+  },
+  {
+    "Obj1": "Mario",
+    "Obj2": "Flower",
+    "Side": "Left",
+    "Command1": "MakeMarioFire",
+    "Command2": "UpdateArt"
+  },
+  {
+    "Obj1": "Mario",
+    "Obj2": "Flower",
+    "Side": "Right",
+    "Command1": "MakeMarioFire",
+    "Command2": "UpdateArt"
+  },
+  {
+    "Obj1": "Mario",
+    "Obj2": "Coin",
+    "Side": "Top",
+    "Command1": null,
+    "Command2": "UpdateArt"
+  },
+  {
+    "Obj1": "Mario",
+    "Obj2": "Coin",
+    "Side": "Bottom",
+    "Command1": null,
+    "Command2": "UpdateArt"
+  },
+  {
+    "Obj1": "Mario",
+    "Obj2": "Coin",
+    "Side": "Left",
+    "Command1": null,
+    "Command2": "UpdateArt"
+  },
+  {
+    "Obj1": "Mario",
+    "Obj2": "Coin",
+    "Side": "Right",
+    "Command1": null,
+    "Command2": "UpdateArt"
+  },
+  {
+    "Obj1": "Mario",
+    "Obj2": "MetalBlock",
+    "Side": "Top",
+    "Command1": null,
+    "Command2": null
+  },
+  {
+    "Obj1": "Mario",
+    "Obj2": "MetalBlock",
+    "Side": "Bottom",
+    "Command1": null,
+    "Command2": null
+  },
+  {
+    "Obj1": "Mario",
+    "Obj2": "MetalBlock",
+    "Side": "Left",
+    "Command1": null,
+    "Command2": null
+  },
+  {
+    "Obj1": "Mario",
+    "Obj2": "MetalBlock",
+    "Side": "Right",
+    "Command1": null,
+    "Command2": null
+  },
+  {
+    "Obj1": "Mario",
+    "Obj2": "FloorBlock",
+    "Side": "Top",
+    "Command1": null,
+    "Command2": null
+  },
+  {
+    "Obj1": "Mario",
+    "Obj2": "FloorBlock",
+    "Side": "Bottom",
+    "Command1": null,
+    "Command2": null
+  },
+  {
+    "Obj1": "Mario",
+    "Obj2": "FloorBlock",
+    "Side": "Left",
+    "Command1": null,
+    "Command2": null
+  },
+  {
+    "Obj1": "Mario",
+    "Obj2": "FloorBlock",
+    "Side": "Right",
+    "Command1": null,
+    "Command2": null
+  }
+]

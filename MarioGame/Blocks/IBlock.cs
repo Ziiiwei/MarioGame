@@ -7,9 +7,9 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Gamespace.Blocks
 {
-    public interface IBlockState
+    public interface IBlock
     {
-        AbstractGameStatefulObject<IBlockState> block { get; set; }
+        AbstractGameStatefulObject<IBlock> block { get; set; }
 
         void MarioHitBlock();
 
