@@ -17,6 +17,7 @@ namespace Gamespace.Controllers
 
         public Keyboard1(MarioGame game, World world)
         {
+            // we are going to data drive this, users can customize controls in games.
             keyCommands = new Dictionary<String, ICommand>();
             keyCommands.Add("Q_Click", new QuitGame(game));
 
@@ -36,10 +37,21 @@ namespace Gamespace.Controllers
             keyCommands.Add("D_Hold", new MarioMoveRightCommand(world.Mario));
             keyCommands.Add("D_Release", new MarioMoveLeftCommand(world.Mario));
 
-            keyCommands.Add("UP_Click", new MarioJumpCommand(world.Mario));
+            keyCommands.Add("Up_Release", new MarioCrouchCommand(world.Mario));
+            keyCommands.Add("Up_Click", new MarioJumpCommand(world.Mario));
+            keyCommands.Add("Up_Hold", new MarioJumpCommand(world.Mario));
+
             keyCommands.Add("Down_Click", new MarioCrouchCommand(world.Mario));
+            keyCommands.Add("Down_Hold", new MarioCrouchCommand(world.Mario));
+            keyCommands.Add("Down_Release", new MarioJumpCommand(world.Mario));
+
             keyCommands.Add("Left_Click", new MarioMoveLeftCommand(world.Mario));
+            keyCommands.Add("Left_Hold", new MarioMoveLeftCommand(world.Mario));
+            keyCommands.Add("Left_Release", new MarioMoveRightCommand(world.Mario));
+
             keyCommands.Add("Right_Click", new MarioMoveRightCommand(world.Mario));
+            keyCommands.Add("Right_Hold", new MarioMoveRightCommand(world.Mario));
+            keyCommands.Add("Right_Release", new MarioMoveLeftCommand(world.Mario));
 
             keyCommands.Add("Y_Click", new MakeMarioSmall(world.Mario));
             keyCommands.Add("U_Click", new MakeMarioBig(world.Mario));

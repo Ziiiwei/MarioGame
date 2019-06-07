@@ -17,9 +17,9 @@ namespace Gamespace
     public sealed class SpriteFactory
     {
         private static readonly SpriteFactory instance = new SpriteFactory();
-        private static readonly String marioSpriteMagicNumbers = "MarioGame/MarioSpriteMagicNumbers.json";
-        private static readonly String enemyAndItemSpriteMagicNumbers = "MarioGame/EnemyAndItemMagicNumbers.json";
-        private static readonly String spriteFrameCountFileLocation = "MarioGame/SpriteFrameCounts.json";
+        private static readonly String marioSpriteMagicNumbers = "MarioGame/Data/MarioSpriteMagicNumbers.json";
+        private static readonly String enemyAndItemSpriteMagicNumbers = "MarioGame/Data/EnemyAndItemMagicNumbers.json";
+        private static readonly String spriteFrameCountFileLocation = "MarioGame/Data/SpriteFrameCounts.json";
         private MarioGame gameInstance;
         private Dictionary<(Type, Type), Texture2D> spritesWithStateAssignments;
         private Dictionary<Type, int> spriteFrameCounts;
