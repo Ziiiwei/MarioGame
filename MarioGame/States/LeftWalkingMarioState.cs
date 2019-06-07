@@ -33,7 +33,7 @@ namespace Gamespace.States
 
         public void Update(IMario mario)
         {
-            throw new NotImplementedException();
+            // Do nothing
         }
     }
 }

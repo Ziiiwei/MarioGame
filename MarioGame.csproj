@@ -98,6 +98,7 @@
     <Compile Include="MarioGame\States\LeftJumpingMarioState.cs" />
     <Compile Include="MarioGame\Goomba\LeftMovingGoombaState.cs" />
     <Compile Include="MarioGame\Goomba\LeftMovingStompedGoombaState.cs" />
+    <Compile Include="MarioGame\States\StarMarioState.cs" />
     <Compile Include="MarioGame\World\LevelLoader.cs" />
     <Compile Include="MarioGame\Items\RedShroom.cs" />
     <Compile Include="MarioGame\States\RightCrouchingMarioState.cs" />
