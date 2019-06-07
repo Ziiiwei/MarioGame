@@ -7,16 +7,31 @@ using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
 using Gamespace.Items;
 using Gamespace.Blocks;
+using System.IO;
+using System.Web.Script.Serialization;
 
 namespace Gamespace
 {
+    class JsonGameObject
+    {
+        public String T { get; set; }
+        public int X { get; set; }
+        public int Y { get; set; }
+    }
+
+    class JsonGameObjectRoot
+    {
+        public List<JsonGameObject> gameObjects;
+    }
     class LevelLoader
     {
+        private readonly String levelFilePath = "MarioGame/Data/Level1.json";
         public LevelLoader(World world)
         {
-            //world.Mario = new Mario(new Vector2(300, 200));
+            /*
+            world.Mario = new Mario(new Vector2(300, 200));
             world.Mario = new Mario(new Vector2(175, 100));
-            world.AddGameObject(/*Parser.ParseObjects()[0]*/new Flower(new Vector2(125, 100)));
+            new Flower(new Vector2(125, 100)));
             world.AddGameObject(new Coin(new Vector2(175, 100)));
             world.AddGameObject(new RedShroom(new Vector2(225, 100)));
             world.AddGameObject(new GreenShroom(new Vector2(275, 100)));
@@ -26,6 +41,25 @@ namespace Gamespace
             world.Block1 = new Block(new BrickBlock(), new Vector2(375, 100));
             world.Block2 = new Block(new HiddenBlock(), new Vector2(425, 100));
             world.Block3 = new Block(new QuestionBlock(), new Vector2(525, 100));
+            */
+
+            StreamReader reader = File.OpenText(levelFilePath);
+            JavaScriptSerializer javaScriptSerializer = new JavaScriptSerializer();
+            var magicNumbers = javaScriptSerializer.Deserialize<JsonGameObjectRoot>(reader.ReadToEnd());
+
+            foreach (JsonGameObject jgo in magicNumbers.gameObjects)
+            {
+                Type t = Type.GetType(jgo.T);
+                int x = jgo.X;
+                int y = jgo.Y;
+
+                world.AddGameObject((IGameObject) Activator.CreateInstance(t, new Vector2(x, y)));
+            }
+
+
+
+
+
 
         }
     }

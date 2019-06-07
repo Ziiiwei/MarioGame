@@ -1,4 +1,5 @@
-﻿
+﻿/* Idea for JSON layout taken from https://stackoverflow.com/questions/16339167/how-do-i-deserialize-a-complex-json-object-in-c-sharp-net
+ * and from comments Dean made in class */
 using Gamespace.Blocks;
 using Microsoft.Xna.Framework;
 using System;
@@ -13,13 +14,7 @@ namespace Gamespace
     public class World
     {
         public List<IGameObject> objectsInWorld;
-
         public IMario Mario { get; set; }
-
-        public Block Block1 { get; set; }
-        public Block Block2 { get; set; }
-        public Block Block3 { get; set; }
-
         private MarioGame game;
         private CollisionHandler collisionHandler;
 
@@ -32,7 +27,14 @@ namespace Gamespace
 
         public void AddGameObject(IGameObject gameObject)
         {
-            objectsInWorld.Add(gameObject);
+            if (gameObject.GetType() == typeof(Mario))
+            {
+                Mario = (Mario) gameObject;
+            }
+            else
+            {
+                objectsInWorld.Add(gameObject);
+            }
         }
 
         public void UpdateWorld()
@@ -43,11 +45,12 @@ namespace Gamespace
             }
             
             Mario.Update();
-            Block1.Update();
-            Block2.Update();
-            Block3.Update();
+            
             /* The instigator is the first object, then target */
-            collisionHandler.HandleCollision(Mario, Block1);
+            foreach (IGameObject obj in objectsInWorld)
+            {
+                collisionHandler.HandleCollision(Mario, obj);
+            }
         }
 
         [Obsolete]
@@ -59,9 +62,6 @@ namespace Gamespace
             }
 
             Mario.Draw(game.TheSpriteBatch);
-            Block1.Draw(game.TheSpriteBatch);
-            Block2.Draw(game.TheSpriteBatch);
-            Block3.Draw(game.TheSpriteBatch);
         }
     }
 }

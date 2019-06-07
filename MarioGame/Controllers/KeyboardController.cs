@@ -56,9 +56,6 @@ namespace Gamespace.Controllers
             keyCommands.Add("Y_Click", new MakeMarioSmall(world.Mario));
             keyCommands.Add("U_Click", new MakeMarioBig(world.Mario));
             keyCommands.Add("I_Click", new MakeMarioFire(world.Mario));
-            keyCommands.Add("Z_Click", new HitBlock(world.Block1));
-            keyCommands.Add("X_Click", new HitBlock(world.Block2));
-            keyCommands.Add("C_Click", new HitBlock(world.Block3)); 
             keyCommands.Add("R_Click", new Reset(game));
  
 

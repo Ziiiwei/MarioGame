@@ -1,0 +1,13 @@
+﻿{
+	"gameObjects":
+		[
+			{T:"Gamespace.Mario", X:250, Y:250},
+			{T:"Gamespace.Items.Flower", X:125, Y:100},
+			{T:"Gamespace.Items.Pipe", X:200, Y:250},
+			{T:"Gamespace.Items.Coin", X:175, Y:100},
+			{T:"Gamespace.Items.RedShroom", X:225, Y:100},
+			{T:"Gamespace.Items.GreenShroom", X:275, Y:100},
+			{T:"Gamespace.Items.Star", X:325, Y:100}
+
+		]
+}
