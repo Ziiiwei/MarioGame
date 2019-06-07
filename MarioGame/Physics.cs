@@ -76,6 +76,7 @@ namespace Gamespace
 
         public void HorizontalStop()
         {
+            // probably have to (pos.x - intersection rectangle)
             position.X = previousPosition.X;
 
         }
