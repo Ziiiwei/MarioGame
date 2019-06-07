@@ -85,6 +85,7 @@ namespace Gamespace
 
             if (horizontalCollision)
             {
+                // Try using center
                 if (obj1.PositionOnScreen.X < obj2.PositionOnScreen.X)
                 {
                     return (Side.Right, Side.Left);
