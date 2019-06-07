@@ -27,7 +27,8 @@ namespace Gamespace.States
 
         public void MoveRight(IMario mario)
         {
-            // Do nothing.
+            mario.State = new RightJumpingMarioState();
+            mario.UpdateArt();
         }
     }
 }

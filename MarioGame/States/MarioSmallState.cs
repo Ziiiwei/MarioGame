@@ -10,9 +10,7 @@ namespace Gamespace.States
     {
         public void PowerDown(IMario mario)
         {
-            // This is for the future. For this build, this functionality is not needed,
-            // and will be rectified in Sprint3.
-            //mario.PowerUpState = new MarioDeadState();
+            mario.State = new MarioDeadState();
         }
 
         public void PowerUp(IMario mario)
