@@ -59,6 +59,7 @@
     <Compile Include="MarioGame\Commands\MakeMarioDead.cs" />
     <Compile Include="MarioGame\Commands\MakeMarioFire.cs" />
     <Compile Include="MarioGame\Commands\MakeMarioSmall.cs" />
+    <Compile Include="MarioGame\Commands\MakeMarioStar.cs" />
     <Compile Include="MarioGame\Commands\MarioCrouchCommand.cs" />
     <Compile Include="MarioGame\Commands\MarioJumpCommand.cs" />
     <Compile Include="MarioGame\Commands\MarioMoveLeftCommand.cs" />
@@ -91,12 +92,14 @@
     <Compile Include="MarioGame\Koopa\KoopaMovingRightState.cs" />
     <Compile Include="MarioGame\Koopa\Koopa.cs" />
     <Compile Include="MarioGame\Items\Pipe.cs" />
+    <Compile Include="MarioGame\StarMario.cs" />
     <Compile Include="MarioGame\States\LeftCrouchingMarioState.cs" />
     <Compile Include="MarioGame\States\LeftStandingMarioState.cs" />
     <Compile Include="MarioGame\States\LeftWalkingMarioState.cs" />
     <Compile Include="MarioGame\States\LeftJumpingMarioState.cs" />
     <Compile Include="MarioGame\Goomba\LeftMovingGoombaState.cs" />
     <Compile Include="MarioGame\Goomba\LeftMovingStompedGoombaState.cs" />
+    <Compile Include="MarioGame\States\StarMarioState.cs" />
     <Compile Include="MarioGame\World\LevelLoader.cs" />
     <Compile Include="MarioGame\Items\RedShroom.cs" />
     <Compile Include="MarioGame\States\RightCrouchingMarioState.cs" />
