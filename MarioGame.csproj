@@ -151,9 +151,6 @@
     <None Include="MarioGame\Data\Level1.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="MarioGame\Data\StuffInGame.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
     <None Include="MarioGame\Data\CollisionActions.json" />
     <None Include="MarioGame\RefactoredCodeReviews\ZiweiJin.md" />
     <None Include="MarioGame\RefactoredCodeReviews\MatthewHarrow.md" />
