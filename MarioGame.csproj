@@ -91,6 +91,7 @@
     <Compile Include="MarioGame\Koopa\KoopaMovingRightState.cs" />
     <Compile Include="MarioGame\Koopa\Koopa.cs" />
     <Compile Include="MarioGame\Items\Pipe.cs" />
+    <Compile Include="MarioGame\StarMario.cs" />
     <Compile Include="MarioGame\States\LeftCrouchingMarioState.cs" />
     <Compile Include="MarioGame\States\LeftStandingMarioState.cs" />
     <Compile Include="MarioGame\States\LeftWalkingMarioState.cs" />
