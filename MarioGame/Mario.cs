@@ -87,14 +87,23 @@ namespace Gamespace
             return new Rectangle((int)PositionOnScreen.X, (int)PositionOnScreen.Y, Sprite.Width, Sprite.Height);
         }
 
-        public void CollideHorizontally(Rectangle collisionArea)
+        public void CollideLeft(Rectangle collisionArea)
         {
-            Physics.HorizontalStop(collisionArea);
+            Physics.LeftStop(collisionArea);
         }
 
-        public void CollideVertically(Rectangle collisionArea)
+        public void CollideRight(Rectangle collisionArea)
         {
-            Physics.VerticalStop(collisionArea);
+            Physics.RightStop(collisionArea);
+        }
+
+        public void CollideUp(Rectangle collisionArea)
+        {
+            Physics.UpStop(collisionArea);
+        }
+        public void CollideDown(Rectangle collisionArea)
+        {
+            Physics.DownStop(collisionArea);
         }
 
         public Vector2 GetCenter()

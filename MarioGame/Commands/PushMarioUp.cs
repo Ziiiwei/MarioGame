@@ -9,18 +9,18 @@ using System.Threading.Tasks;
 
 namespace Gamespace.Commands
 {
-    class PushMarioHorizontally : ICommand
+    class PushMarioUp : ICommand
     {
         IMario mario;
         Rectangle collisionArea;
-        public PushMarioHorizontally(IMario mario, Rectangle collisionArea)
+        public PushMarioUp(IMario mario, Rectangle collisionArea)
         {
             this.mario = mario;
             this.collisionArea = collisionArea;
         }
         public void Execute()
         {
-            mario.CollideHorizontally(collisionArea);
+            mario.CollideUp(collisionArea);
         }
     }
 }

@@ -18,7 +18,10 @@ namespace Gamespace
         void PowerDown();
         void PowerUp();
         void UpdateArt();
-        void CollideHorizontally(Rectangle collisionArea);
-        void CollideVertically(Rectangle collisionArea);
+        void CollideLeft(Rectangle collisionArea);
+        void CollideRight(Rectangle collisionArea);
+        void CollideUp(Rectangle collisionArea);
+        void CollideDown(Rectangle collisionArea);
     }
+
 }

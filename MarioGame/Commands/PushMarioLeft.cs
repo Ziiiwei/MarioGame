@@ -1,4 +1,6 @@
-﻿using Microsoft.Xna.Framework;
+﻿using Gamespace;
+using Gamespace.Commands;
+using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,18 +9,18 @@ using System.Threading.Tasks;
 
 namespace Gamespace.Commands
 {
-    class PushMarioVertically : ICommand
+    class PushMarioLeft : ICommand
     {
-        private IMario mario;
+        IMario mario;
         Rectangle collisionArea;
-        public PushMarioVertically(IMario mario, Rectangle collisionArea)
+        public PushMarioLeft(IMario mario, Rectangle collisionArea)
         {
             this.mario = mario;
             this.collisionArea = collisionArea;
         }
         public void Execute()
         {
-            mario.CollideVertically(collisionArea);
+            mario.CollideLeft(collisionArea);
         }
     }
 }
