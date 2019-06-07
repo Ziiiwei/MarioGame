@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.Xna.Framework;
 using System.IO;
 using System.Web.Script.Serialization;
 
@@ -13,11 +14,11 @@ namespace Gamespace
         private static readonly String StuffInGame = "MarioGame/Data/StuffInGame.json";
         
 
-        public static Mario ParseMario()
+        public static Vector2 ParseMario()
         {
             StreamReader reader = File.OpenText(StuffInGame);
             JavaScriptSerializer javaScriptSerializer = new JavaScriptSerializer();
-            var Mario = javaScriptSerializer.Deserialize<Mario>(reader.ReadToEnd());
+            var Mario = javaScriptSerializer.Deserialize<Vector2>(reader.ReadToEnd());
             return Mario;
         }
 
@@ -25,8 +26,8 @@ namespace Gamespace
         {
             StreamReader reader = File.OpenText(StuffInGame);
             JavaScriptSerializer javaScriptSerializer = new JavaScriptSerializer();
-            var magicNumbers = javaScriptSerializer.Deserialize<IGameObject>(reader.ReadLine());
-            return null;
+            var Objects = javaScriptSerializer.Deserialize<List<IGameObject>>(reader.ReadLine());
+            return Objects;
         }
     }
 }

@@ -15,8 +15,8 @@ namespace Gamespace
         public LevelLoader(World world)
         {
             //world.Mario = new Mario(new Vector2(300, 200));
-            world.Mario = /*Parser.ParseMario();*/new Mario(new Vector2(175, 100));
-            world.AddGameObject(new Flower(new Vector2(125, 100)));
+            world.Mario = new Mario(new Vector2(175, 100));
+            world.AddGameObject(/*Parser.ParseObjects()[0]*/new Flower(new Vector2(125, 100)));
             world.AddGameObject(new Coin(new Vector2(175, 100)));
             world.AddGameObject(new RedShroom(new Vector2(225, 100)));
             world.AddGameObject(new GreenShroom(new Vector2(275, 100)));

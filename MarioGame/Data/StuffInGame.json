@@ -1,6 +1,7 @@
 ﻿{
-  "Mario":{
-    "PositionOnScreen": ["175","100"]
-  },
+
+  "Flower"{
+    "PositionOnScreen":(125,100)
+  }
   
 }
