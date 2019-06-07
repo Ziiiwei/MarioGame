@@ -13,6 +13,13 @@ namespace Gamespace
     public class StarMario : IMario
     {
         private IMario decoratedMario;
+        public ISprite Sprite { get ; set ; }
+        public IMarioState State { get ; set ; }
+
+        public Vector2 PositionOnScreen { get; private set; }
+
+        public IMarioPowerUpState PowerUpState { get ; set ; }
+        public IPhysics Physics { get ; set ; }
 
         public StarMario(IMario mario)
         {
@@ -21,7 +28,7 @@ namespace Gamespace
 
         public void CollideDown(Rectangle collisionArea)
         {
-            decoratedMario.CollideDown(collisionArea);
+            throw new NotImplementedException();
         }
 
         public void CollideLeft(Rectangle collisionArea)
