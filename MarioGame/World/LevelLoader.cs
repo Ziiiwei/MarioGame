@@ -17,6 +17,7 @@ namespace Gamespace
         public String T { get; set; }
         public int X { get; set; }
         public int Y { get; set; }
+        public String State { get; set; }
     }
 
     class JsonGameObjectRoot
@@ -52,8 +53,18 @@ namespace Gamespace
                 Type t = Type.GetType(jgo.T);
                 int x = jgo.X;
                 int y = jgo.Y;
+                Type state = Type.GetType(jgo.State);
 
-                world.AddGameObject((IGameObject) Activator.CreateInstance(t, new Vector2(x, y)));
+                if (state != null)
+                {
+                    var stateInstance = Activator.CreateInstance(state);
+                    world.AddGameObject((IGameObject)Activator.CreateInstance(t, stateInstance, new Vector2(x, y)));
+                }
+                else
+                {
+                    world.AddGameObject((IGameObject)Activator.CreateInstance(t, new Vector2(x, y)));
+                }
+                
             }
 
 

@@ -1,13 +1,15 @@
 ﻿{
 	"gameObjects":
 		[
-			{T:"Gamespace.Mario", X:250, Y:250},
-			{T:"Gamespace.Items.Flower", X:125, Y:100},
-			{T:"Gamespace.Items.Pipe", X:200, Y:250},
-			{T:"Gamespace.Items.Coin", X:175, Y:100},
-			{T:"Gamespace.Items.RedShroom", X:225, Y:100},
-			{T:"Gamespace.Items.GreenShroom", X:275, Y:100},
-			{T:"Gamespace.Items.Star", X:325, Y:100}
-
+			{T:"Gamespace.Mario", X:250, Y:250, State:"null"},
+			{T:"Gamespace.Items.Flower", X:125, Y:100, State:"null"},
+			{T:"Gamespace.Items.Pipe", X:200, Y:250, State:"null"},
+			{T:"Gamespace.Items.Coin", X:175, Y:100, State:"null"},
+			{T:"Gamespace.Items.RedShroom", X:225, Y:100, State:"null"},
+			{T:"Gamespace.Items.GreenShroom", X:275, Y:100, State:"null"},
+			{T:"Gamespace.Items.Star", X:325, Y:100, State:"null"},
+			{T:"Gamespace.Blocks.Block", X:375, Y:100, State:"Gamespace.Blocks.BrickBlock"},
+			{T:"Gamespace.Blocks.Block", X:425, Y:100, State:"Gamespace.Blocks.HiddenBlock"},
+			{T:"Gamespace.Blocks.Block", X:475, Y:100, State:"Gamespace.Blocks.QuestionBlock"}
 		]
 }
