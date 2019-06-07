@@ -3,8 +3,8 @@
     "Obj1": "Mario",
     "Obj2": "BrickBlock",
     "Side": "Bottom",
-    "Command1": "MoveMarioDown",
-    "Command2": "BumpBlock"
+    "Command1": "PushMarioDown",
+    "Command2": "HitBlock"
   },
   {
     "Obj1": "Mario",
@@ -17,21 +17,21 @@
     "Obj1": "Mario",
     "Obj2": "BrickBlock",
     "Side": "Left",
-    "Command1": "MoveMarioLeft",
+    "Command1": "PushMarioLeft",
     "Command2": null
   },
   {
     "Obj1": "Mario",
     "Obj2": "BrickBlock",
     "Side": "Right",
-    "Command1": "MoveMarioRight",
+    "Command1": "PushMarioRight",
     "Command2": null
   },
   {
     "Obj1": "Mario",
     "Obj2": "Goomba",
     "Side": "Bottom",
-    "Command1": "MarioTakesDamage",
+    "Command1": "MakeMarioDead",
     "Command2": null
   },
   {
@@ -45,28 +45,28 @@
     "Obj1": "Mario",
     "Obj2": "Goomba",
     "Side": "Left",
-    "Command1": "MarioTakesDamage",
+    "Command1": "MakeMarioDead",
     "Command2": null
   },
   {
     "Obj1": "Mario",
     "Obj2": "Goomba",
     "Side": "Right",
-    "Command1": "MarioTakesDamage",
+    "Command1": "MakeMarioDead",
     "Command2": null
   },
   {
     "Obj1": "Mario",
     "Obj2": "HiddenBlock",
     "Side": "Left",
-    "Command1": "MoveMarioLeft",
+    "Command1": "PushMarioLeft",
     "Command2": null
   },
   {
     "Obj1": "Mario",
     "Obj2": "HiddenBlock",
     "Side": "Right",
-    "Command1": "MoveMarioRight",
+    "Command1": "PushMarioRight",
     "Command2": null
   },
   {
@@ -80,7 +80,7 @@
     "Obj1": "Mario",
     "Obj2": "HiddenBlock",
     "Side": "Bottom",
-    "Command1": "MoveMarioDown",
+    "Command1": "PushMarioDown",
     "Command2": null
   },
   {
@@ -94,85 +94,85 @@
     "Obj1": "Mario",
     "Obj2": "QuestionBlock",
     "Side": "Bottom",
-    "Command1": "MoveMarioDown",
+    "Command1": "PushMarioDown",
     "Command2": "HitBlock"
   },
   {
     "Obj1": "Mario",
     "Obj2": "QuestionBlock",
     "Side": "Left",
-    "Command1": "MoveMarioLeft",
+    "Command1": "PushMarioLeft",
     "Command2": null
   },
   {
     "Obj1": "Mario",
     "Obj2": "QuestionBlock",
     "Side": "Right",
-    "Command1": "MoveMarioRight",
+    "Command1": "PushMarioRight",
     "Command2": null
   },
   {
     "Obj1": "Mario",
     "Obj2": "Koopa",
     "Side": "Top",
-    "Command1": "MoveMarioRight",
+    "Command1": "MarioMoveRightCommand",
     "Command2": "BeStomped"
   },
   {
     "Obj1": "Mario",
     "Obj2": "Koopa",
     "Side": "Bottom",
-    "Command1": "MarioTakesDamage",
+    "Command1": "MakeMarioDead",
     "Command2": null
   },
   {
     "Obj1": "Mario",
     "Obj2": "Koopa",
     "Side": "Left",
-    "Command1": "MarioTakesDamage",
+    "Command1": "MakeMarioDead",
     "Command2": null
   },
   {
     "Obj1": "Mario",
     "Obj2": "Koopa",
     "Side": "Right",
-    "Command1": "MarioTakesDamage",
+    "Command1": "MakeMarioDead",
     "Command2": null
   },
   {
     "Obj1": "Mario",
     "Obj2": "KoopaFlipped",
     "Side": "Top",
-    "Command1": "MoveMarioRight",
-    "Command2": "MoveKoopaRight"
+    "Command1": "MarioMoveRightCommand",
+    "Command2": null
   },
   {
     "Obj1": "Mario",
     "Obj2": "KoopaFlipped",
     "Side": "Bottom",
     "Command1": "MoveMarioDown",
-    "Command2": "MoveKoopaUp"
+    "Command2": null
   },
   {
     "Obj1": "Mario",
     "Obj2": "KoopaFlipped",
     "Side": "Left",
     "Command1": null,
-    "Command2": "MoveKoopaLeft"
+    "Command2": null
   },
   {
     "Obj1": "Mario",
     "Obj2": "KoopaFlipped",
     "Side": "Right",
     "Command1": null,
-    "Command2": "MoveKoopaRight"
+    "Command2": null
   },
   {
     "Obj1": "Mario",
     "Obj2": "Star",
     "Side": "Top",
     "Command1": "MakeMarioStar",
-    "Command2": "UpdateArt"
+    "Command2": null
   },
   {
     "Obj1": "Mario",
