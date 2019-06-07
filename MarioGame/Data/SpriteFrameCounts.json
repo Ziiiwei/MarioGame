@@ -14,8 +14,8 @@
   "Gamespace.Items.RedShroom": 1,
   "Gamespace.Items.Flower": 4,
   "Gamespace.Items.Pipe": 1,
-  "Gamespace.Blocks.QuestionBlockState" : 1,
-  "Gamespace.Blocks.HiddenBlockState" : 1,
-  "Gamespace.Blocks.UsedBlockState" : 1,
-  "Gamespace.Blocks.BrickBlockState" : 1
+  "Gamespace.Blocks.QuestionBlock" : 1,
+  "Gamespace.Blocks.HiddenBlock" : 1,
+  "Gamespace.Blocks.UsedBlock" : 1,
+  "Gamespace.Blocks.BrickBlock" : 1
 }

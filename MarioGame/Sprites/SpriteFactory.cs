@@ -121,7 +121,7 @@ namespace Gamespace
             return new Sprite(texture,  frames);
         }
 
-        public ISprite GetSprite(IBlockState blockState)
+        public ISprite GetSprite(IBlock blockState)
         {
             var texture = spriteAssignments[blockState.GetType()];
             var frames = spriteFrameCounts[blockState.GetType()];
