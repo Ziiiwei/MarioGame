@@ -1,5 +1,4 @@
-﻿using Gamespace.Commands;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,15 +6,16 @@ using System.Threading.Tasks;
 
 namespace Gamespace.Commands
 {
-    class NullCommand : ICommand
+    class PushMarioVertically : ICommand
     {
-        public NullCommand(object oa)
+        private IMario mario;
+        public PushMarioVertically(IMario mario)
         {
-
+            this.mario = mario;
         }
         public void Execute()
         {
-            // Do nothing.
+            mario.CollideVertically();
         }
     }
 }

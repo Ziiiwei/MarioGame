@@ -9,6 +9,7 @@ namespace Gamespace
 {
     public class Physics : IPhysics
     {
+        private Vector2 previousPosition;
         public Vector2 position;
         public Vector2 velocity;
         public Vector2 acceleration;
@@ -28,6 +29,7 @@ namespace Gamespace
         {
             this.gameObject = gameObject;
             this.position = position;
+            previousPosition = position;
             acceleration = new Vector2(0, 0);
             velocity = new Vector2(0, 0);
         }
@@ -72,10 +74,15 @@ namespace Gamespace
             //nothing yet
         }
 
-        public void Stop()
+        public void HorizontalStop()
         {
-            acceleration.X *= -1;
-            acceleration.Y *= -1;
+            position.X = previousPosition.X;
+
+        }
+
+        public void VerticalStop()
+        {
+            position.Y = previousPosition.Y;
         }
 
         public void Update()
@@ -107,11 +114,10 @@ namespace Gamespace
             velocity.X = MinimumMagnitude(velocity.X + acceleration.X, directionX * maxSpeed_pf);
             velocity.Y = MinimumMagnitude(velocity.Y + acceleration.Y, directionY * maxSpeed_pf);
 
-            
-            position.X += velocity.X;
-            
-            
-            position.Y += velocity.Y;
+            previousPosition.X = position.X;
+            previousPosition.Y = position.Y;
+            position.X += (int) velocity.X;
+            position.Y += (int) velocity.Y;
 
             if (acceleration.X != 0)
                 acceleration.X += (-1 * directionX) * G;

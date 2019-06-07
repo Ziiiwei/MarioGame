@@ -41,6 +41,7 @@ namespace Gamespace
             {
                 gameObject.Update();
             }
+            
             Mario.Update();
             Block1.Update();
             Block2.Update();

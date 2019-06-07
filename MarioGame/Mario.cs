@@ -40,6 +40,7 @@ namespace Gamespace
             Sprite.Update();
             Physics.Update();
             PositionOnScreen = Physics.GetPosition();
+              
         }
 
         public void Jump()
@@ -84,6 +85,16 @@ namespace Gamespace
         public Rectangle GetCollisionBoundary()
         {
             return new Rectangle((int)PositionOnScreen.X, (int)PositionOnScreen.Y, Sprite.Width, Sprite.Height);
+        }
+
+        public void CollideHorizontally()
+        {
+            Physics.HorizontalStop();
+        }
+
+        public void CollideVertically()
+        {
+            Physics.VerticalStop();
         }
 
     }

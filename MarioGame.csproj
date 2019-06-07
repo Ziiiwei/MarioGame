@@ -63,6 +63,8 @@
     <Compile Include="MarioGame\Commands\MarioMoveLeftCommand.cs" />
     <Compile Include="MarioGame\Commands\MarioMoveRightCommand.cs" />
     <Compile Include="MarioGame\Commands\NullCommand.cs" />
+    <Compile Include="MarioGame\Commands\PushMarioHorizontally.cs" />
+    <Compile Include="MarioGame\Commands\PushMarioVertically.cs" />
     <Compile Include="MarioGame\Commands\Reset.cs" />
     <Compile Include="MarioGame\Interfaces\IPhysics.cs" />
     <Compile Include="MarioGame\Items\Coin.cs" />

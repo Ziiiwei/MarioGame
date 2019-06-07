@@ -24,8 +24,15 @@ namespace Gamespace
         public CollisionHandler()
         {
             collisionActions = new Dictionary<Tuple<Type, Type, Side>, Tuple<Type, Type>>();
+
             collisionActions.Add(new Tuple<Type, Type, Side>(typeof(Mario), typeof(Block), Side.Up),
-                new Tuple<Type, Type>(typeof(MakeMarioBig), typeof(NullCommand)));
+                new Tuple<Type, Type>(typeof(PushMarioVertically), typeof(NullCommand)));
+            collisionActions.Add(new Tuple<Type, Type, Side>(typeof(Mario), typeof(Block), Side.Down),
+                new Tuple<Type, Type>(typeof(PushMarioVertically), typeof(NullCommand)));
+            collisionActions.Add(new Tuple<Type, Type, Side>(typeof(Mario), typeof(Block), Side.Left),
+                new Tuple<Type, Type>(typeof(PushMarioHorizontally), typeof(NullCommand)));
+            collisionActions.Add(new Tuple<Type, Type, Side>(typeof(Mario), typeof(Block), Side.Right),
+                new Tuple<Type, Type>(typeof(PushMarioHorizontally), typeof(NullCommand)));
 
         }
         /*

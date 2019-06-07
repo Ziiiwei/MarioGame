@@ -19,7 +19,8 @@ namespace Gamespace
         void Jump();
         void SpeedUp();
         void SlowDown();
-        void Stop();
         void Update();
+        void HorizontalStop();
+        void VerticalStop();
     }
 }
