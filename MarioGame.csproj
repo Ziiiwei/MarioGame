@@ -54,7 +54,10 @@
     <Compile Include="MarioGame\Blocks\Block.cs" />
     <Compile Include="MarioGame\Blocks\UsedBlock.cs" />
     <Compile Include="MarioGame\Collision\CollisionManager.cs" />
-    <Compile Include="MarioGame\Commands\HitBlock.cs" />
+    <Compile Include="MarioGame\Commands\HitFlower.cs" />
+    <Compile Include="MarioGame\Commands\HitShroom.cs" />
+    <Compile Include="MarioGame\Commands\HitStar.cs" />
+    <Compile Include="MarioGame\Commands\MakeItemDisappear.cs" />
     <Compile Include="MarioGame\Commands\MakeMarioBig.cs" />
     <Compile Include="MarioGame\Commands\MakeMarioDead.cs" />
     <Compile Include="MarioGame\Commands\MakeMarioFire.cs" />

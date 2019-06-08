@@ -11,7 +11,7 @@ namespace Gamespace.Commands
     {
         public NullCommand(params object[] oa)
         {
-
+            
         }
         public void Execute()
         {
