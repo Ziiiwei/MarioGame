@@ -150,7 +150,7 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Cloud1.gif
+/build:Cloud1.gif;Cloud1.png
 
 #begin Cloud2.gif
 /importer:TextureImporter
@@ -162,7 +162,7 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Cloud2.gif
+/build:Cloud2.gif;Cloud2.png
 
 #begin Cloud3.gif
 /importer:TextureImporter
@@ -174,7 +174,7 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Cloud3.gif
+/build:Cloud3.gif;Cloud3.png
 
 #begin Coin.png
 /importer:TextureImporter
@@ -582,7 +582,7 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:SmallHill.gif
+/build:SmallHill.gif;SmallHill.png
 
 #begin Star.png
 /importer:TextureImporter

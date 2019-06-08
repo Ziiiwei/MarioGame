@@ -102,6 +102,10 @@
     <Compile Include="MarioGame\Goomba\LeftMovingGoombaState.cs" />
     <Compile Include="MarioGame\Goomba\LeftMovingStompedGoombaState.cs" />
     <Compile Include="MarioGame\States\StarMarioState.cs" />
+    <Compile Include="MarioGame\World\BigCloud.cs" />
+    <Compile Include="MarioGame\World\BigHill.cs" />
+    <Compile Include="MarioGame\World\SmallHill.cs" />
+    <Compile Include="MarioGame\World\SmallCloud.cs" />
     <Compile Include="MarioGame\World\LevelLoader.cs" />
     <Compile Include="MarioGame\Items\RedShroom.cs" />
     <Compile Include="MarioGame\States\RightCrouchingMarioState.cs" />
