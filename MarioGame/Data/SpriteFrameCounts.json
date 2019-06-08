@@ -17,5 +17,7 @@
   "Gamespace.Blocks.QuestionBlock" : 1,
   "Gamespace.Blocks.HiddenBlock" : 1,
   "Gamespace.Blocks.UsedBlock" : 1,
-  "Gamespace.Blocks.BrickBlock" : 1
+  "Gamespace.Blocks.BrickBlock" : 1,
+  "Gamespace.Goombas.Goomba" : 2,
+  "Gamespace.Koopas.Koopa" : 2
 }

@@ -15,6 +15,7 @@ namespace Gamespace.Goombas
         public Goomba (Vector2 positionOnScreen) : base(positionOnScreen)
         {
             state = new RightMovingGoombaState(this);
+        
         }
 
         public void BeStomped()

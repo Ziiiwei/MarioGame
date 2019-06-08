@@ -1,6 +1,11 @@
 ﻿{
 	"gameObjects":
 		[
+			{T:"Gamespace.BigCloud", X:150, Y:50, State:"null"},
+			{T:"Gamespace.SmallCloud", X:450, Y:50, State:"null"},
+			{T:"Gamespace.BigHill", X:150, Y:350, State:"null"},
+			{T:"Gamespace.SmallHill", X:350, Y:350, State:"null"},
+			{T:"Gamespace.Mario", X:250, Y:250, State:"null"},
 			{T:"Gamespace.Mario", X:250, Y:250, State:"null"},
 			{T:"Gamespace.Items.Flower", X:125, Y:100, State:"null"},
 			{T:"Gamespace.Items.Pipe", X:200, Y:250, State:"null"},
@@ -10,6 +15,8 @@
 			{T:"Gamespace.Items.Star", X:325, Y:100, State:"null"},
 			{T:"Gamespace.Blocks.Block", X:375, Y:100, State:"Gamespace.Blocks.BrickBlock"},
 			{T:"Gamespace.Blocks.Block", X:425, Y:100, State:"Gamespace.Blocks.HiddenBlock"},
-			{T:"Gamespace.Blocks.Block", X:475, Y:100, State:"Gamespace.Blocks.QuestionBlock"}
+			{T:"Gamespace.Blocks.Block", X:475, Y:100, State:"Gamespace.Blocks.QuestionBlock"},
+			{T:"Gamespace.Goombas.Goomba", X:425, Y:200, State:"null"},
+			{T:"Gamespace.Koopas.Koopa", X:475, Y:200, State:"null"}
 		]
 }
