@@ -83,10 +83,6 @@ namespace Gamespace
             collisionActions.Add(new Tuple<Type, Type, Side>(typeof(Mario), typeof(GreenShroom), Side.Right),
                 new Tuple<Type, Type>(typeof(PushMarioDown), typeof(MakeItemDisappear)));
 
-
-
-
-
         }
         /*
         public static CollisionHandler Instance
