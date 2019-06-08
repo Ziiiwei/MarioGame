@@ -21,8 +21,8 @@ namespace Gamespace
         private float jumpSpeed_pf = 3f; //pix per frame
         // Invariant: G < A
         public const float G = 0.2f; //the G of the marioward 
-        public const float A = 0.8f; //
-        // public const float DefaultAccelerationTime = (float)0.5;
+        public const float A = 0.8f; //the default movement A
+       
 
 
         public Physics(IGameObject gameObject,Vector2 position)

@@ -73,13 +73,11 @@
     <Compile Include="MarioGame\Commands\PushMarioLeft.cs" />
     <Compile Include="MarioGame\Commands\PushMarioUp.cs" />
     <Compile Include="MarioGame\Commands\Reset.cs" />
-    <Compile Include="MarioGame\Data\Parser.cs" />
     <Compile Include="MarioGame\Interfaces\IPhysics.cs" />
     <Compile Include="MarioGame\Items\Coin.cs" />
     <Compile Include="MarioGame\Items\Flower.cs" />
     <Compile Include="MarioGame\Goomba\Goomba.cs" />
     <Compile Include="MarioGame\Items\GreenShroom.cs" />
-    <Compile Include="MarioGame\Interfaces\IEnemyState.cs" />
     <Compile Include="MarioGame\Interfaces\IGameObject.cs" />
     <Compile Include="MarioGame\Interfaces\IMarioPowerUpState.cs" />
     <Compile Include="MarioGame\Interfaces\IMarioState.cs" />
@@ -158,10 +156,6 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="MarioGame\Data\CollisionActions.json" />
-    <None Include="MarioGame\RefactoredCodeReviews\ZiweiJin.md" />
-    <None Include="MarioGame\RefactoredCodeReviews\MatthewHarrow.md" />
-    <None Include="MarioGame\RefactoredCodeReviews\KeithChin.md" />
-    <None Include="MarioGame\RefactoredCodeReviews\RayanHamza.md" />
     <None Include="MarioGame\Data\SpriteFrameCounts.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

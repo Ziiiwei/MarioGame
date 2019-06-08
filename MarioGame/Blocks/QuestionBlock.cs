@@ -20,7 +20,7 @@ namespace Gamespace.Blocks
 
         public void Update()
         {
-            throw new NotImplementedException();
+            // do nothing
         }
 
     }

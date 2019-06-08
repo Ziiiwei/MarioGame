@@ -17,7 +17,7 @@ namespace Gamespace.Controllers
 
         public KeyboardController(MarioGame game)
         {
-            // we are going to data drive this, users can customize controls in games.
+
             keyCommands = new Dictionary<String, ICommand>();
             keyCommands.Add("Q_Click", new QuitGame(game));
 

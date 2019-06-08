@@ -12,14 +12,12 @@ namespace Gamespace.Commands
     {
         private Block block;
 
-        //private IGameObject obj;
-        //private Rectangle r;
+ 
 
         public HitBlock(Block block, Rectangle r)
         {
             this.block = block;
-           // this.obj = obj;
-            // this.r = r;
+        
         }
 
         public void Execute()
