@@ -45,10 +45,6 @@ namespace Gamespace
                 currentFrame = (currentFrame + 1) % totalFrames;
             }
         }
-        public void Update(int f)
-        {
-            currentFrame = f;
-        }
 
         public Tuple<Texture2D, Rectangle> GetSprite()
         {

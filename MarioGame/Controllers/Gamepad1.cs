@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Gamespace.Commands;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
-/* WHOLE CLASS NEEDS TO BE ADJUSTED */
+
 namespace Gamespace.Controllers
 {
     class Gamepad1: IController

@@ -16,7 +16,7 @@ namespace Gamespace
     {
         /* Side is relative to the first IGameObject in the tuple */
         private Dictionary<Tuple<Type, Type, Side>, Tuple<Type, Type>> collisionActions;
-        //private static readonly CollisionHandler instance = new CollisionHandler();
+        
         enum Side : int { None, Up, Down, Left, Right };
 
         static CollisionHandler()
@@ -105,15 +105,7 @@ namespace Gamespace
 
 
         }
-        /*
-        public static CollisionHandler Instance
-        {
-            get
-            {
-                return instance;
-            }
-        }
-        */
+        
 
         public void HandleCollision(IGameObject mover, IGameObject target)
         {
@@ -159,7 +151,7 @@ namespace Gamespace
 
             if (horizontalCollision)
             {
-                // Try using center
+                
                 if (mover.GetCenter().X < target.GetCenter().X)
                 {
                     return (Side.Right, collisionArea);
