@@ -13,7 +13,9 @@
   "Gamespace.Koopas.KoopaFlipedState": "KoopaFlipped",
   "Gamespace.Koopas.KoopaMovingLeftState": "KoopaLeft",
   "Gamespace.Koopas.KoopaMovingRightState": "KoopaRight",
+  "Gamespace.Koopas.Koopa" : "KoopaRight",
   "Gamespace.Goombas.Goomba": "Goomba",
+ 
 
   "Gamespace.Blocks.UsedBlock" : "UsedBlock",
   "Gamespace.Blocks.QuestionBlock": "QuestionBlock",

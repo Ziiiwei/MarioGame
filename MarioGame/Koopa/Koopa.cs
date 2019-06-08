@@ -17,6 +17,7 @@ namespace Gamespace.Koopas
         public Koopa(Vector2 positionOnScreen) : base(positionOnScreen)
         {
             state = new KoopaMovingLeftState(this);
+   
         }
 
         public void BeStomped()
