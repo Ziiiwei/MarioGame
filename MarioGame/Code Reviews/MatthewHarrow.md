@@ -1,34 +1,29 @@
 ﻿
 ### Code Readiblity Review
-**Author** : Matthew Harrow (harrow.13)
-**Date**   : 29th May 2019
-**Sprint** : 2
+Author : Matthew Harrow (harrow.13)
+Date   : 7th June 2019
+Sprint : 3
+Name   : Ziwei Jin
+File   : Physics.cs
+Minutes: 12
 
+Coupling - medium
+- The class depends on a rectangle passed in that represents the collision area. This locks in
+the implementation for collision detection. It makes sense that physics is involved with collision
+detection, but any changes in collision detection will result in changes in the Physics class.
+- The Update method includes code that implements wrap-around, but it is defined with magic numbers,
+so any screen size changes breaks this.
+- The public IGameObject doesn't appear to need to be open to set.
 
-**Class Name**: Pipe
-**Author of class**: Keith Lou Jian Chin
-**Number of mins** : 5
-**Comments** : The Pipe class is very simlar to most other IGameObject implenting classes.
-			   By examining the class instance variables, it is clear that a game object
-			   is the a section of a texture and a location on screen. The constructor is
-			   simple and doesn't require parameters that aren't essential. One issue is 
-			   The Draw() method. The parameters in the Draw call are very difficult to read
-			   and the use of tuple leads to ambiguity due to having to reference Item1
-			   and Item2.
+Cohesion - medium (of concern)
+-The wrap-around implementation being in physics and not being implemented in something relation to
+collision is not cohesive. 
+- The public methods are all relevant to events related to Physics, but it is unclear
+how FreeFall() may come into use.
 
+Readability:
+- The constants are curiously named and violate convention. A and G should be lowercase. G may get 
+a pass because of its relation with gravity, but maybe not because it doesn't equal 9.8. The variable
+A certainly needs a new name.
 
-**Class Name**:  Keyboard2
-**Author of class**: Ziwei Jin
-**Number of mins** : 5
-**Comments** : This class almost identical to Keyboard1 and Keyboard3.
-			   While the code in the class is very readable, the class is mostly duplicated code with
-			   the difference being magic numbers that determine state. This is a good indication that 
-			   the class could be generalized and data driven.
-
-
-**Class Name**:  IBlock
-**Author of class**: Rayan Hamza
-**Number of mins** : 5
-**Comments** : IBlock doesn't implement IGameObject, which contains Draw and Update, and would allow for instantiation in
-			   the LevelLoader class. Otherwise the methods are essential and the focus of the interface
-			   is concise. 
+Additional notes: It says I authored the file, but it is Ziwei's creation, except I changed login in update.
