@@ -15,47 +15,47 @@ namespace Gamespace.Controllers
         private Keys[] previouslyPressed;
         private List<String> commandToExcute;
 
-        public KeyboardController(MarioGame game, World world)
+        public KeyboardController(MarioGame game)
         {
             // we are going to data drive this, users can customize controls in games.
             keyCommands = new Dictionary<String, ICommand>();
             keyCommands.Add("Q_Click", new QuitGame(game));
 
-            keyCommands.Add("W_Release", new MarioCrouchCommand(world.Mario));
-            keyCommands.Add("W_Click", new MarioJumpCommand(world.Mario));
-            keyCommands.Add("W_Hold", new MarioJumpCommand(world.Mario));
+            keyCommands.Add("W_Release", new MarioCrouchCommand(World.Instance.Mario));
+            keyCommands.Add("W_Click", new MarioJumpCommand(World.Instance.Mario));
+            keyCommands.Add("W_Hold", new MarioJumpCommand(World.Instance.Mario));
 
-            keyCommands.Add("S_Hold", new MarioCrouchCommand(world.Mario));
-            keyCommands.Add("S_Release", new MarioJumpCommand(world.Mario));
-            keyCommands.Add("S_Click", new MarioCrouchCommand(world.Mario));
+            keyCommands.Add("S_Hold", new MarioCrouchCommand(World.Instance.Mario));
+            keyCommands.Add("S_Release", new MarioJumpCommand(World.Instance.Mario));
+            keyCommands.Add("S_Click", new MarioCrouchCommand(World.Instance.Mario));
 
-            keyCommands.Add("A_Click", new MarioMoveLeftCommand(world.Mario));
-            keyCommands.Add("A_Hold", new MarioMoveLeftCommand(world.Mario));
-            keyCommands.Add("A_Release", new MarioMoveRightCommand(world.Mario));
+            keyCommands.Add("A_Click", new MarioMoveLeftCommand(World.Instance.Mario));
+            keyCommands.Add("A_Hold", new MarioMoveLeftCommand(World.Instance.Mario));
+            keyCommands.Add("A_Release", new MarioMoveRightCommand(World.Instance.Mario));
 
-            keyCommands.Add("D_Click", new MarioMoveRightCommand(world.Mario));
-            keyCommands.Add("D_Hold", new MarioMoveRightCommand(world.Mario));
-            keyCommands.Add("D_Release", new MarioMoveLeftCommand(world.Mario));
+            keyCommands.Add("D_Click", new MarioMoveRightCommand(World.Instance.Mario));
+            keyCommands.Add("D_Hold", new MarioMoveRightCommand(World.Instance.Mario));
+            keyCommands.Add("D_Release", new MarioMoveLeftCommand(World.Instance.Mario));
 
-            keyCommands.Add("Up_Release", new MarioCrouchCommand(world.Mario));
-            keyCommands.Add("Up_Click", new MarioJumpCommand(world.Mario));
-            keyCommands.Add("Up_Hold", new MarioJumpCommand(world.Mario));
+            keyCommands.Add("Up_Release", new MarioCrouchCommand(World.Instance.Mario));
+            keyCommands.Add("Up_Click", new MarioJumpCommand(World.Instance.Mario));
+            keyCommands.Add("Up_Hold", new MarioJumpCommand(World.Instance.Mario));
 
-            keyCommands.Add("Down_Click", new MarioCrouchCommand(world.Mario));
-            keyCommands.Add("Down_Hold", new MarioCrouchCommand(world.Mario));
-            keyCommands.Add("Down_Release", new MarioJumpCommand(world.Mario));
+            keyCommands.Add("Down_Click", new MarioCrouchCommand(World.Instance.Mario));
+            keyCommands.Add("Down_Hold", new MarioCrouchCommand(World.Instance.Mario));
+            keyCommands.Add("Down_Release", new MarioJumpCommand(World.Instance.Mario));
 
-            keyCommands.Add("Left_Click", new MarioMoveLeftCommand(world.Mario));
-            keyCommands.Add("Left_Hold", new MarioMoveLeftCommand(world.Mario));
-            keyCommands.Add("Left_Release", new MarioMoveRightCommand(world.Mario));
+            keyCommands.Add("Left_Click", new MarioMoveLeftCommand(World.Instance.Mario));
+            keyCommands.Add("Left_Hold", new MarioMoveLeftCommand(World.Instance.Mario));
+            keyCommands.Add("Left_Release", new MarioMoveRightCommand(World.Instance.Mario));
 
-            keyCommands.Add("Right_Click", new MarioMoveRightCommand(world.Mario));
-            keyCommands.Add("Right_Hold", new MarioMoveRightCommand(world.Mario));
-            keyCommands.Add("Right_Release", new MarioMoveLeftCommand(world.Mario));
+            keyCommands.Add("Right_Click", new MarioMoveRightCommand(World.Instance.Mario));
+            keyCommands.Add("Right_Hold", new MarioMoveRightCommand(World.Instance.Mario));
+            keyCommands.Add("Right_Release", new MarioMoveLeftCommand(World.Instance.Mario));
 
-            keyCommands.Add("Y_Click", new MakeMarioSmall(world.Mario));
-            keyCommands.Add("U_Click", new MakeMarioBig(world.Mario));
-            keyCommands.Add("I_Click", new MakeMarioFire(world.Mario));
+            keyCommands.Add("Y_Click", new MakeMarioSmall(World.Instance.Mario));
+            keyCommands.Add("U_Click", new MakeMarioBig(World.Instance.Mario));
+            keyCommands.Add("I_Click", new MakeMarioFire(World.Instance.Mario));
             keyCommands.Add("R_Click", new Reset(game));
  
 

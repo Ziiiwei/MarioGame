@@ -14,8 +14,8 @@ namespace Gamespace
         [STAThread]
         static void Main()
         {
-            using (var game = new MarioGame())
-                game.Run();
+
+            MarioGame.Instance.Run();
             //To run on mac, a mannul inculsion of Monogame.framwork from nuget is needed
         }
     }

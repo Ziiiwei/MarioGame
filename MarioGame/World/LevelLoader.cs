@@ -60,12 +60,12 @@ namespace Gamespace
                 {
                     var stateInstance = Activator.CreateInstance(state);
                     var go = (IGameObject)Activator.CreateInstance(t, stateInstance, new Vector2(x, y));
-                    world.AddGameObject(go.Uid, go);
+                    World.Instance.AddGameObject(go.Uid, go);
                 }
                 else
                 {
                     var go = (IGameObject)Activator.CreateInstance(t, new Vector2(x, y));
-                    world.AddGameObject(go.Uid, go);
+                    World.Instance.AddGameObject(go.Uid, go);
                 }
                 
             }
