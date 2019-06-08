@@ -1,32 +1,36 @@
 ﻿### Code Readiblity Review
-**Author** : Keith Lou Jian Chin (chin.204)
-**Date**   : 29th May 2019
-**Sprint** : 2
+Author: Rayan Hamza
+Date: 6/7/19
+Sprint: 3
+Name: Ziwei Jin
+File: Physics.cs
+Minutes: 7
 
-**File Name**:  Sprite.cs
-**Author of File**: Matthew Harrow
-**Number of mins** : 5
-**Comments** : The Sprite class is coherent in that its only purpose is to update the sprite,
-			   It was easy to read and understand. The "too many parameters" code smell can
-			   come to mind, since the sprites are all on one row, Columns and totalFrames are
-			   essentially the same thing, doubling the magic number content.
+Coupling: not too high
+-Physics interacts with game objects, mainly Mario and the enemies
+-The information that is taken from other classes involve the motion of the
+game objects, i.e. their position, and updates it based on factors of 
+acceleration and velocity.
 
-**File Name**:  Coin.cs
-**Author of File**: Keith Chin
-**Number of mins** : 5
-**Comments** : The coin barely does anything, and that is certainly shown in the code, it is
-			   the length I expected it to be. The code was not complex and easy to read, if
-			   there is a problem, it may have something to do with the sprite being public,
-			   but I would not be sure yet, on whether this was for speed or this was something
-			   for the long run as well, rest assured, it will be addressed sometime in the 
-			   future.
+Cohesion: Pretty high
+- This class focuses entirely on the movement of sprites, but it handles 
+multiple kinds of movement, though I guess movement itself is a purpose.
+-The Update does way too much here, but it was done in a compressed time
+interval, and is something that is on the list to refactor.
 
-**File Name**:  Goomba.cs
-**Author of File**: Ziwei Jin
-**Number of mins** : 5
-**Comments** : The code Ziwei wrote gets the job done and is easy to read and understand.
-			   Ziwei was able to utilize the state pattern and signify all changes of state 
-			   through the state itself, which was a good demonstration of abstraction. 
-			   Overall, it is not too different from the rest of the code, and shares the
-			   concerns addressed with the coin class above. Still good code that gets the
-			   job done.
+Complexity: Getting there
+-As I said, long update
+-The update contains many conditionals, which increase the class' cyclomatic
+complexity.
+-We deal with the position and the previous position, which I believe is 
+for the future, in case we want to track sliding facing the other way.
+
+Additional Notes:
+- Most other methods are one line long, which is really good and easy to 
+understand
+- some methods are empty, so that might be something to address with the 
+virtual keyword or something along those lines.
+-There are some magic numbers used for the acceleration, gravity, and 
+velocity, I'm sure those are planned to be data drived in the future.
+-He knows the Conditional one line operator "statement? (if true):(if false)"
+which is pretty neat.
