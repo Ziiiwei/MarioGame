@@ -20,6 +20,10 @@ HandleCollision.
 Complexity: Moderately High
 - Complexity is an issue for the CollisionHandler class since the constructor is constantly adding collisionActions
 to the dictionary.
-
+- For instance, the constant addition will cause additive complexity.
+- However, we have acknowledge this problem by creating a separate class that adds each collision action. This will be 
+implemented in a future sprint.
 
 Additional Notes:
+Overall, the collision handler class works as intended, however, it still suffers from high complexity and smaller issues of 
+cohesion and coupling. We have addressed this problem and our goal was to have this working for the initial implementation.
