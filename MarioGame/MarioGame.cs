@@ -116,8 +116,10 @@ namespace Gamespace
 
         public void Reset()
         {
+
             controllers = new List<IController>();
             Initialize();
+        
         }
     }
 }

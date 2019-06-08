@@ -86,5 +86,14 @@ namespace Gamespace
         {
             objectsToRemove.Add(uid);
         }
+
+        public void RemoveAllFromWorld()
+        {
+            objectsToRemove.Clear();
+            foreach (int i in objectsInWorld.Keys)
+            {
+                objectsToRemove.Add(i);
+            }
+        }
     }
 }

@@ -53,7 +53,6 @@
     <Compile Include="MarioGame\Blocks\QuestionBlock.cs" />
     <Compile Include="MarioGame\Blocks\Block.cs" />
     <Compile Include="MarioGame\Blocks\UsedBlock.cs" />
-    <Compile Include="MarioGame\Collision\CollisionManager.cs" />
     <Compile Include="MarioGame\Commands\HitBlock.cs" />
     <Compile Include="MarioGame\Commands\HitFlower.cs" />
     <Compile Include="MarioGame\Commands\HitShroom.cs" />
