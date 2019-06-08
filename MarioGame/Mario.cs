@@ -12,6 +12,7 @@ namespace Gamespace
 {
     public class Mario : IMario
     {
+        public int Uid { get; }
         public ISprite Sprite { get; set; }
         public IMarioState State { get; set; }
         public IMarioPowerUpState PowerUpState { get; set; }
@@ -24,6 +25,7 @@ namespace Gamespace
             PowerUpState = new MarioSmallState();
             Sprite = SpriteFactory.Instance.GetSprite(State, PowerUpState);
             Physics = new Physics(this, positionOnScreen);
+            Uid = -1;
         }
 
         public void Draw(SpriteBatch spriteBatch)

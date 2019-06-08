@@ -10,6 +10,7 @@ namespace Gamespace
 {
     public interface IGameObject
     {
+        int Uid { get; }
         void Update();
         void Draw(SpriteBatch spriteBatch);
         Vector2 PositionOnScreen { get; }

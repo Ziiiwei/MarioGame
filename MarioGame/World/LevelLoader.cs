@@ -14,6 +14,7 @@ namespace Gamespace
 {
     class JsonGameObject
     {
+        public int Uid { get; set; }
         public String T { get; set; }
         public int X { get; set; }
         public int Y { get; set; }
@@ -58,20 +59,16 @@ namespace Gamespace
                 if (state != null)
                 {
                     var stateInstance = Activator.CreateInstance(state);
-                    world.AddGameObject((IGameObject)Activator.CreateInstance(t, stateInstance, new Vector2(x, y)));
+                    var go = (IGameObject)Activator.CreateInstance(t, stateInstance, new Vector2(x, y));
+                    world.AddGameObject(go.Uid, go);
                 }
                 else
                 {
-                    world.AddGameObject((IGameObject)Activator.CreateInstance(t, new Vector2(x, y)));
+                    var go = (IGameObject)Activator.CreateInstance(t, new Vector2(x, y));
+                    world.AddGameObject(go.Uid, go);
                 }
                 
             }
-
-
-
-
-
-
         }
     }
 }

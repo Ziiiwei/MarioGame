@@ -13,7 +13,7 @@ namespace Gamespace
 {
     public class World
     {
-        public List<IGameObject> objectsInWorld;
+        public Dictionary<int, IGameObject> objectsInWorld;
         public IMario Mario { get; set; }
         private MarioGame game;
         private CollisionHandler collisionHandler;
@@ -21,11 +21,11 @@ namespace Gamespace
         public World(MarioGame game)
         {
             this.game = game;
-            objectsInWorld = new List<IGameObject>();
+            objectsInWorld = new Dictionary<int, IGameObject>();
             collisionHandler = new CollisionHandler();
         }
 
-        public void AddGameObject(IGameObject gameObject)
+        public void AddGameObject(int uid, IGameObject gameObject)
         {
             if (gameObject.GetType() == typeof(Mario))
             {
@@ -33,13 +33,13 @@ namespace Gamespace
             }
             else
             {
-                objectsInWorld.Add(gameObject);
+                objectsInWorld.Add(uid, gameObject);
             }
         }
 
         public void UpdateWorld()
         {
-            foreach (IGameObject gameObject in objectsInWorld)
+            foreach (IGameObject gameObject in objectsInWorld.Values)
             {
                 gameObject.Update();
             }
@@ -47,7 +47,7 @@ namespace Gamespace
             Mario.Update();
             
             /* The instigator is the first object, then target */
-            foreach (IGameObject obj in objectsInWorld)
+            foreach (IGameObject obj in objectsInWorld.Values)
             {
                 collisionHandler.HandleCollision(Mario, obj);
             }
@@ -56,12 +56,17 @@ namespace Gamespace
         [Obsolete]
         public void DrawWorld()
         {
-            foreach (IGameObject gameObject in objectsInWorld)
+            foreach (IGameObject gameObject in objectsInWorld.Values)
             {
                 gameObject.Draw(game.TheSpriteBatch);
             }
 
             Mario.Draw(game.TheSpriteBatch);
+        }
+
+        public void RemoveFromWorld(int uid)
+        {
+            objectsInWorld.Remove(uid);
         }
     }
 }

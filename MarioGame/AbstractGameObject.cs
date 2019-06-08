@@ -11,6 +11,8 @@ namespace Gamespace
 {
     public class AbstractGameObject : IGameObject
     {
+        private static int counter = 0;
+        public int Uid { get; }
         public ISprite Sprite { get; set; }
         public Vector2 PositionOnScreen { get; }
 
@@ -19,6 +21,8 @@ namespace Gamespace
         {
             Sprite = SpriteFactory.Instance.GetSprite(this);
             this.PositionOnScreen = positionOnScreen;
+            Uid = counter;
+            counter++;
         }
         public void Draw(SpriteBatch spriteBatch)
         {
