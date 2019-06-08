@@ -15,12 +15,14 @@ namespace Gamespace
     {
         private static readonly World instance = new World();
         public Dictionary<int, IGameObject> objectsInWorld;
+        private List<int> objectsToRemove;
         public IMario Mario { get; set; }
         private CollisionHandler collisionHandler;
 
         private World()
         {
             objectsInWorld = new Dictionary<int, IGameObject>();
+            objectsToRemove = new List<int>();
             collisionHandler = new CollisionHandler();
         }
 
@@ -49,6 +51,11 @@ namespace Gamespace
 
         public void UpdateWorld()
         {
+            foreach (int i in objectsToRemove)
+            {
+                objectsInWorld.Remove(i);
+            }
+
             foreach (IGameObject gameObject in objectsInWorld.Values)
             {
                 gameObject.Update();
@@ -57,6 +64,7 @@ namespace Gamespace
             Mario.Update();
             
             /* The instigator is the first object, then target */
+
             foreach (IGameObject obj in objectsInWorld.Values)
             {
                 collisionHandler.HandleCollision(Mario, obj);
@@ -76,7 +84,7 @@ namespace Gamespace
 
         public void RemoveFromWorld(int uid)
         {
-            objectsInWorld.Remove(uid);
+            objectsToRemove.Add(uid);
         }
     }
 }

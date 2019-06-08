@@ -51,13 +51,38 @@ namespace Gamespace
             collisionActions.Add(new Tuple<Type, Type, Side>(typeof(Mario), typeof(RedShroom), Side.Up),
                 new Tuple<Type, Type>(typeof(HitShroom), typeof(MakeItemDisappear)));
             collisionActions.Add(new Tuple<Type, Type, Side>(typeof(Mario), typeof(Star), Side.Up),
-                new Tuple<Type, Type>(typeof(HitShroom), typeof(MakeItemDisappear)));
+                new Tuple<Type, Type>(typeof(HitStar), typeof(MakeItemDisappear)));
             collisionActions.Add(new Tuple<Type, Type, Side>(typeof(Mario), typeof(Star), Side.Down),
-                new Tuple<Type, Type>(typeof(HitShroom), typeof(MakeItemDisappear)));
+                new Tuple<Type, Type>(typeof(HitStar), typeof(MakeItemDisappear)));
             collisionActions.Add(new Tuple<Type, Type, Side>(typeof(Mario), typeof(Star), Side.Left),
-                new Tuple<Type, Type>(typeof(HitShroom), typeof(MakeItemDisappear)));
+                new Tuple<Type, Type>(typeof(HitStar), typeof(MakeItemDisappear)));
             collisionActions.Add(new Tuple<Type, Type, Side>(typeof(Mario), typeof(Star), Side.Right),
-                new Tuple<Type, Type>(typeof(HitShroom), typeof(MakeItemDisappear)));
+                new Tuple<Type, Type>(typeof(HitStar), typeof(MakeItemDisappear)));
+            collisionActions.Add(new Tuple<Type, Type, Side>(typeof(Mario), typeof(Pipe), Side.Right),
+                new Tuple<Type, Type>(typeof(PushMarioRight), typeof(NullCommand)));
+            collisionActions.Add(new Tuple<Type, Type, Side>(typeof(Mario), typeof(Pipe), Side.Left),
+                new Tuple<Type, Type>(typeof(PushMarioLeft), typeof(NullCommand)));
+            collisionActions.Add(new Tuple<Type, Type, Side>(typeof(Mario), typeof(Pipe), Side.Up),
+                new Tuple<Type, Type>(typeof(PushMarioUp), typeof(NullCommand)));
+            collisionActions.Add(new Tuple<Type, Type, Side>(typeof(Mario), typeof(Pipe), Side.Down),
+                new Tuple<Type, Type>(typeof(PushMarioDown), typeof(NullCommand)));
+            collisionActions.Add(new Tuple<Type, Type, Side>(typeof(Mario), typeof(Coin), Side.Down),
+                new Tuple<Type, Type>(typeof(PushMarioDown), typeof(MakeItemDisappear)));
+            collisionActions.Add(new Tuple<Type, Type, Side>(typeof(Mario), typeof(Coin), Side.Up),
+                new Tuple<Type, Type>(typeof(PushMarioDown), typeof(MakeItemDisappear)));
+            collisionActions.Add(new Tuple<Type, Type, Side>(typeof(Mario), typeof(Coin), Side.Left),
+                new Tuple<Type, Type>(typeof(PushMarioDown), typeof(MakeItemDisappear)));
+            collisionActions.Add(new Tuple<Type, Type, Side>(typeof(Mario), typeof(Coin), Side.Right),
+                new Tuple<Type, Type>(typeof(PushMarioDown), typeof(MakeItemDisappear)));
+            collisionActions.Add(new Tuple<Type, Type, Side>(typeof(Mario), typeof(GreenShroom), Side.Down),
+            new Tuple<Type, Type>(typeof(PushMarioDown), typeof(MakeItemDisappear)));
+            collisionActions.Add(new Tuple<Type, Type, Side>(typeof(Mario), typeof(GreenShroom), Side.Up),
+                new Tuple<Type, Type>(typeof(PushMarioDown), typeof(MakeItemDisappear)));
+            collisionActions.Add(new Tuple<Type, Type, Side>(typeof(Mario), typeof(GreenShroom), Side.Left),
+                new Tuple<Type, Type>(typeof(PushMarioDown), typeof(MakeItemDisappear)));
+            collisionActions.Add(new Tuple<Type, Type, Side>(typeof(Mario), typeof(GreenShroom), Side.Right),
+                new Tuple<Type, Type>(typeof(PushMarioDown), typeof(MakeItemDisappear)));
+
 
 
 

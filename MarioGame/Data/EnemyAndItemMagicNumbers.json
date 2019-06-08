@@ -20,7 +20,12 @@
   "Gamespace.Blocks.UsedBlock" : "UsedBlock",
   "Gamespace.Blocks.QuestionBlock": "QuestionBlock",
   "Gamespace.Blocks.BrickBlock": "BrickBlock",
-  "Gamespace.Blocks.HiddenBlock" : "HiddenBlock"
+  "Gamespace.Blocks.HiddenBlock" : "HiddenBlock",
+
+  "Gamespace.BigCloud" : "Cloud2",
+  "Gamespace.SmallCloud" : "Cloud1",
+  "Gamespace.BigHill" : "BigHill",
+  "Gamespace.SmallHill" : "SmallHill"
 
 }
 
