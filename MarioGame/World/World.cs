@@ -13,18 +13,28 @@ namespace Gamespace
 {
     public class World
     {
+        private static readonly World instance = new World();
         public Dictionary<int, IGameObject> objectsInWorld;
         public IMario Mario { get; set; }
-        private MarioGame game;
         private CollisionHandler collisionHandler;
 
-        public World(MarioGame game)
+        private World()
         {
-            this.game = game;
             objectsInWorld = new Dictionary<int, IGameObject>();
             collisionHandler = new CollisionHandler();
         }
 
+        static World()
+        {
+        }
+
+        public static World Instance
+        {
+            get
+            {
+                return instance;
+            }
+        }
         public void AddGameObject(int uid, IGameObject gameObject)
         {
             if (gameObject.GetType() == typeof(Mario))
@@ -58,10 +68,10 @@ namespace Gamespace
         {
             foreach (IGameObject gameObject in objectsInWorld.Values)
             {
-                gameObject.Draw(game.TheSpriteBatch);
+                gameObject.Draw(MarioGame.Instance.TheSpriteBatch);
             }
 
-            Mario.Draw(game.TheSpriteBatch);
+            Mario.Draw(MarioGame.Instance.TheSpriteBatch);
         }
 
         public void RemoveFromWorld(int uid)

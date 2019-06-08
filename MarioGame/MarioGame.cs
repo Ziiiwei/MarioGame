@@ -12,17 +12,21 @@ namespace Gamespace
     /// </summary>
     public class MarioGame : Game
     {
+        private static readonly MarioGame instance = new MarioGame();
         private GraphicsDeviceManager graphics;
         public SpriteBatch TheSpriteBatch { get; private set; }
         private List<IController> controllers;
-        public World TheWorld { get; set; }
     
         // Make LevelLoader a singleton.
         private LevelLoader levelLoader;
 
         private float frameRate = 0; //help the animation and detaction rate
         private SpriteFont font; //used to pirnt the framerate
-        public MarioGame()
+
+        static MarioGame()
+        {
+        }
+        private MarioGame()
         {
             graphics = new GraphicsDeviceManager(this);
 
@@ -31,6 +35,14 @@ namespace Gamespace
             graphics.ApplyChanges();
             controllers = new List<IController>();
             Content.RootDirectory = "Content";
+        }
+
+        public static MarioGame Instance
+        {
+            get
+            {
+                return instance;
+            }
         }
 
         /// <summary>
@@ -43,9 +55,8 @@ namespace Gamespace
         {
             base.Initialize();
             SpriteFactory.Instance.SetGameInstance(this);
-            TheWorld = new World(this);
-            levelLoader = new LevelLoader(TheWorld);
-            controllers.Add(new KeyboardController(this, TheWorld));
+            levelLoader = new LevelLoader(World.Instance);
+            controllers.Add(new KeyboardController(this));
 
 
             controllers.Add(new Gamepad1(this));
@@ -84,7 +95,7 @@ namespace Gamespace
                 c.Update();
             }
 
-            TheWorld.UpdateWorld();
+            World.Instance.UpdateWorld();
             base.Update(gameTime);
         }
 
@@ -97,7 +108,7 @@ namespace Gamespace
             GraphicsDevice.Clear(Color.CornflowerBlue);
             frameRate = 1 / (float)gameTime.ElapsedGameTime.TotalSeconds;
             TheSpriteBatch.Begin(SpriteSortMode.Immediate, null, null, null, null, null, Matrix.CreateScale(2.0f));
-            TheWorld.DrawWorld();
+            World.Instance.DrawWorld();
             TheSpriteBatch.DrawString(font, "FPS "+frameRate, new Vector2(0, 0), Color.Red);
             TheSpriteBatch.End();
             base.Draw(gameTime);
