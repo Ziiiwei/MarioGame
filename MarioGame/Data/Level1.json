@@ -10,6 +10,8 @@
 			{T:"Gamespace.Items.Star", X:325, Y:100, State:"null"},
 			{T:"Gamespace.Blocks.Block", X:375, Y:100, State:"Gamespace.Blocks.BrickBlock"},
 			{T:"Gamespace.Blocks.Block", X:425, Y:100, State:"Gamespace.Blocks.HiddenBlock"},
-			{T:"Gamespace.Blocks.Block", X:475, Y:100, State:"Gamespace.Blocks.QuestionBlock"}
+			{T:"Gamespace.Blocks.Block", X:475, Y:100, State:"Gamespace.Blocks.QuestionBlock"},
+			{T:"Gamespace.Goombas.Goomba", X:425, Y:200, State:"null"},
+			{T:"Gamespace.Koopas.Koopa", X:475, Y:200, State:"null"}
 		]
 }
