@@ -3,48 +3,61 @@
     "Gamespace.States.MarioSmallState": "MarioFacingLeft",
     "Gamespace.States.MarioSuperState": "SuperMario/SMFacingLeft",
     "Gamespace.States.MarioFireState": "FireMario/FMFacingLeft",
-	"Gamespace.States.StarMarioState": "Big/StandingLeft"
+    "Gamespace.States.StarMarioState": "Big/StandingLeft",
+    "Gamespace.States.MarioDeadState": "MarioDead"
   },
   "Gamespace.States.LeftCrouchingMarioState": {
     "Gamespace.States.MarioSmallState": "MarioFacingLeft",
     "Gamespace.States.MarioSuperState": "SuperMario/SMCrouchLeft",
     "Gamespace.States.MarioFireState": "FireMario/FMCrouchLeft",
-	"Gamespace.States.StarMarioState": "Big/CrouchingLeft"
+    "Gamespace.States.StarMarioState": "Big/CrouchingLeft",
+    "Gamespace.States.MarioDeadState": "MarioDead"
   },
   "Gamespace.States.LeftWalkingMarioState": {
     "Gamespace.States.MarioSmallState": "MarioWalkingLeft",
     "Gamespace.States.MarioSuperState": "SuperMario/SMWalkingLeft",
     "Gamespace.States.MarioFireState": "FireMario/FMRunLeft",
-	"Gamespace.States.StarMarioState": "Big/RunningLeft"
+    "Gamespace.States.StarMarioState": "Big/RunningLeft",
+    "Gamespace.States.MarioDeadState": "MarioDead"
   },
   "Gamespace.States.LeftJumpingMarioState": {
     "Gamespace.States.MarioSmallState": "MarioJumpLeft",
     "Gamespace.States.MarioSuperState": "SuperMario/SMJumpLeft",
     "Gamespace.States.MarioFireState": "FireMario/FMJumpLeft",
-	"Gamespace.States.StarMarioState": "Big/JumpingLeft"
+    "Gamespace.States.StarMarioState": "Big/JumpingLeft",
+    "Gamespace.States.MarioDeadState": "MarioDead"
   },
   "Gamespace.States.RightStandingMarioState": {
     "Gamespace.States.MarioSmallState": "MarioFacingRight",
     "Gamespace.States.MarioSuperState": "SuperMario/SMFacingRight",
     "Gamespace.States.MarioFireState": "FireMario/FMFaceRight",
-	"Gamespace.States.StarMarioState": "Big/StandingRight"
+    "Gamespace.States.StarMarioState": "Big/StandingRight"
   },
   "Gamespace.States.RightCrouchingMarioState": {
     "Gamespace.States.MarioSmallState": "MarioFacingRight",
     "Gamespace.States.MarioSuperState": "SuperMario/SMCrouchRight",
     "Gamespace.States.MarioFireState": "FireMario/FMCrouchRight",
-	"Gamespace.States.StarMarioState": "Big/CrouchingRight"
+    "Gamespace.States.StarMarioState": "Big/CrouchingRight",
+    "Gamespace.States.MarioDeadState": "MarioDead"
   },
   "Gamespace.States.RightWalkingMarioState": {
     "Gamespace.States.MarioSmallState": "MarioWalkingRight",
     "Gamespace.States.MarioSuperState": "SuperMario/SMWalkingRight",
     "Gamespace.States.MarioFireState": "FireMario/FMRunRight",
-	"Gamespace.States.StarMarioState": "Big/RunningRight"
+    "Gamespace.States.StarMarioState": "Big/RunningRight"
   },
   "Gamespace.States.RightJumpingMarioState": {
     "Gamespace.States.MarioSmallState": "MarioJumpRight",
     "Gamespace.States.MarioSuperState": "SuperMario/SMJumpRight",
     "Gamespace.States.MarioFireState": "FireMario/FMJumpRight",
-	"Gamespace.States.StarMarioState": "Big/JumpingRight"
+    "Gamespace.States.StarMarioState": "Big/JumpingRight",
+    "Gamespace.States.MarioDeadState": "MarioDead"
+  },
+  "Gamespace.States.MarioDeadState": {
+    "Gamespace.States.MarioSmallState": "MarioDead",
+    "Gamespace.States.MarioSuperState": "MarioDead",
+    "Gamespace.States.MarioFireState": "MarioDead",
+    "Gamespace.States.StarMarioState": "MarioDead",
+    "Gamespace.States.RightJumpingMarioState": "MarioDead"
   }
 }

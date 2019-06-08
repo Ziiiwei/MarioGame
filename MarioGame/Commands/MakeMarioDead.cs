@@ -6,13 +6,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.Xna.Framework;
 
 namespace Gamespace.Commands
 {
     class MakeMarioDead : ICommand
     {
-        private IMario mario;
-        public MakeMarioDead(IMario mario)
+        IMario mario;
+        public MakeMarioDead(IMario mario, Rectangle r)
         {
             this.mario = mario;
         }
@@ -20,7 +21,7 @@ namespace Gamespace.Commands
         public void Execute()
         {
             mario.State = new MarioDeadState();
-            mario.Sprite = SpriteFactory.Instance.GetSprite(mario);
+            mario.UpdateArt();
         }
     }
 }
