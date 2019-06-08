@@ -1,4 +1,4 @@
 ﻿# Sprint 2 README
 ## Project Description
 
-Displays multiple sprites on screen and animates them based on certain commands.
+Displays Mario as well as the items available in the mario game.
