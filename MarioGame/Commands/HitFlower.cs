@@ -7,10 +7,12 @@ using Microsoft.Xna.Framework;
 using Gamespace.States;
 
 
+
 namespace Gamespace.Commands
 {
     class HitFlower : ICommand
     {
+
         IMario mario;
         Rectangle collisionArea;
 
