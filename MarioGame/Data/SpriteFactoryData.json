@@ -42,7 +42,7 @@
 			{Name:"Goomba", State:"RightMovingGoombaState", PowerUpState:"", TexturePath:"Goomba", FrameCount:2, FrameDelay:3},
 			{Name:"Goomba", State:"StompedGoombaState", PowerUpState:"", TexturePath:"GoombaStomped", FrameCount:1, FrameDelay:3},
 			
-			{Name:"Coin", State:"", PowerUpState:"", TexturePath:"Coin", FrameCount:3, FrameDelay:5},
+			{Name:"Coin", State:"", PowerUpState:"", TexturePath:"Coin", FrameCount:3, FrameDelay:9},
 			{Name:"Star", State:"", PowerUpState:"", TexturePath:"Star", FrameCount:4, FrameDelay:5},
 			{Name:"GreenShroom", State:"", PowerUpState:"", TexturePath:"GreenShroom", FrameCount:1, FrameDelay:3},
 			{Name:"RedShroom", State:"", PowerUpState:"", TexturePath:"RedShroom", FrameCount:1, FrameDelay:3},
