@@ -128,7 +128,9 @@
     <Compile Include="MarioGame\MarioGame.cs" />
     <Compile Include="MarioGame\Program.cs" />
     <Compile Include="MarioGame\Physics\Physics.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
     <Compile Include="MarioGame\Sprites\Sprite.cs" />
     <Compile Include="MarioGame\States\MarioDeadState.cs" />
     <Compile Include="MarioGame\States\MarioFireState.cs" />
