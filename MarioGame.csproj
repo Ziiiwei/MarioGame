@@ -42,6 +42,7 @@
     <ApplicationManifest>MarioGame\app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="MarioGame\StarMario.cs" />
     <Compile Include="MarioGame\Blocks\BrickBlock.cs" />
     <Compile Include="MarioGame\Blocks\FloorBlock.cs" />
     <Compile Include="MarioGame\Blocks\HiddenBlock.cs" />
