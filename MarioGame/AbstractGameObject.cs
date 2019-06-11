@@ -34,7 +34,7 @@ namespace Gamespace
         {
 
             spriteBatch.Draw(texture: Sprite.GetTexture(), position: PositionOnScreen,
-                sourceRectangle: Sprite.GetRectangle(), color: Color.White);
+                sourceRectangle: Sprite.GetRectangle(), color: Color.Red);
         }
 
         public void Update()
