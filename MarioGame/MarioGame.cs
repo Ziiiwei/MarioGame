@@ -29,10 +29,11 @@ namespace Gamespace
         private MarioGame()
         {
             graphics = new GraphicsDeviceManager(this);
-
+            /*
             graphics.PreferredBackBufferWidth = 1500;  // set this value to the desired width of your window
             graphics.PreferredBackBufferHeight = 900;   // set this value to the desired height of your window
             graphics.ApplyChanges();
+            */
             controllers = new List<IController>();
             Content.RootDirectory = "Content";
         }
