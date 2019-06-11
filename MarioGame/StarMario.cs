@@ -20,7 +20,7 @@ namespace Gamespace
         public IMarioPowerUpState PreviousPowerUpState;
         public IPhysics Physics { get; set; }
         public IMario mario;
-        int timer = 600;
+        int timer = 1000;
 
         public StarMario(IMario mario)
         {
