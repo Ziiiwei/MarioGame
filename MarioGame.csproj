@@ -42,26 +42,26 @@
     <ApplicationManifest>MarioGame\app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="MarioGame\Collision\CollisionHandler.cs" />
-    <Compile Include="MarioGame\AbstractGameStatefulObject.cs" />
-    <Compile Include="MarioGame\AbstractGameObject.cs" />
     <Compile Include="MarioGame\Blocks\BrickBlock.cs" />
     <Compile Include="MarioGame\Blocks\FloorBlock.cs" />
     <Compile Include="MarioGame\Blocks\HiddenBlock.cs" />
-    <Compile Include="MarioGame\Blocks\IBlock.cs" />
     <Compile Include="MarioGame\Blocks\MetalBlock.cs" />
     <Compile Include="MarioGame\Blocks\QuestionBlock.cs" />
-    <Compile Include="MarioGame\Blocks\Block.cs" />
     <Compile Include="MarioGame\Blocks\UsedBlock.cs" />
+    <Compile Include="MarioGame\Collision\CollisionData.cs" />
+    <Compile Include="MarioGame\Collision\CollisionHandler.cs" />
+    <Compile Include="MarioGame\AbstractGameStatefulObject.cs" />
+    <Compile Include="MarioGame\AbstractGameObject.cs" />
+    <Compile Include="MarioGame\Blocks\Block.cs" />
+    <Compile Include="MarioGame\Commands\ConsumeItem.cs" />
     <Compile Include="MarioGame\Commands\HitBlock.cs" />
+    <Compile Include="MarioGame\Commands\EnemyHitsMario.cs" />
+    <Compile Include="MarioGame\Commands\MarioHitsEnemy.cs" />
     <Compile Include="MarioGame\Commands\HitFlower.cs" />
     <Compile Include="MarioGame\Commands\HitShroom.cs" />
     <Compile Include="MarioGame\Commands\HitStar.cs" />
     <Compile Include="MarioGame\Commands\MakeItemDisappear.cs" />
-    <Compile Include="MarioGame\Commands\MakeMarioBig.cs" />
-    <Compile Include="MarioGame\Commands\MakeMarioDead.cs" />
     <Compile Include="MarioGame\Commands\MakeMarioFire.cs" />
-    <Compile Include="MarioGame\Commands\MakeMarioSmall.cs" />
     <Compile Include="MarioGame\Commands\MakeMarioStar.cs" />
     <Compile Include="MarioGame\Commands\MarioCrouchCommand.cs" />
     <Compile Include="MarioGame\Commands\MarioJumpCommand.cs" />
@@ -73,6 +73,8 @@
     <Compile Include="MarioGame\Commands\PushMarioLeft.cs" />
     <Compile Include="MarioGame\Commands\PushMarioUp.cs" />
     <Compile Include="MarioGame\Commands\Reset.cs" />
+    <Compile Include="MarioGame\Data\JsonParser.cs" />
+    <Compile Include="MarioGame\Interfaces\IEnemy.cs" />
     <Compile Include="MarioGame\Interfaces\IPhysics.cs" />
     <Compile Include="MarioGame\Items\Coin.cs" />
     <Compile Include="MarioGame\Items\Flower.cs" />
@@ -87,7 +89,7 @@
     <Compile Include="MarioGame\Koopa\IKoopaState.cs" />
     <Compile Include="MarioGame\Interfaces\IMario.cs" />
     <Compile Include="MarioGame\Koopa\KoopaChangeDirectionCommand.cs" />
-    <Compile Include="MarioGame\Koopa\KoopaFlipCommand.cs" />
+    <Compile Include="MarioGame\Commands\KoopaFlipCommand.cs" />
     <Compile Include="MarioGame\Koopa\KoopaFlipedState.cs" />
     <Compile Include="MarioGame\Koopa\KoopaMovingLeftState.cs" />
     <Compile Include="MarioGame\Koopa\KoopaMovingRightState.cs" />
@@ -98,7 +100,6 @@
     <Compile Include="MarioGame\States\LeftWalkingMarioState.cs" />
     <Compile Include="MarioGame\States\LeftJumpingMarioState.cs" />
     <Compile Include="MarioGame\Goomba\LeftMovingGoombaState.cs" />
-    <Compile Include="MarioGame\Goomba\LeftMovingStompedGoombaState.cs" />
     <Compile Include="MarioGame\States\StarMarioState.cs" />
     <Compile Include="MarioGame\World\BigCloud.cs" />
     <Compile Include="MarioGame\World\BigHill.cs" />
@@ -111,7 +112,7 @@
     <Compile Include="MarioGame\States\RightWalkingMarioState.cs" />
     <Compile Include="MarioGame\States\RightJumpingMarioState.cs" />
     <Compile Include="MarioGame\Goomba\RightMovingGoombaState.cs" />
-    <Compile Include="MarioGame\Goomba\RightMovingStompedGoombaState.cs" />
+    <Compile Include="MarioGame\Goomba\StompedGoombaState.cs" />
     <Compile Include="MarioGame\Sprites\SpriteFactory.cs" />
     <Compile Include="MarioGame\Mario.cs" />
     <Compile Include="MarioGame\Commands\QuitGame.cs" />
@@ -155,17 +156,13 @@
     <None Include="MarioGame\Data\Level1.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="MarioGame\Data\CollisionActions.json" />
-    <None Include="MarioGame\Data\SpriteFrameCounts.json">
+    <None Include="MarioGame\Data\CollisionActions.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="MarioGame\Data\MarioSpriteMagicNumbers.json">
+    <None Include="MarioGame\Data\SpriteFactoryData.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="README.md" />
-    <None Include="MarioGame\Data\EnemyAndItemMagicNumbers.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

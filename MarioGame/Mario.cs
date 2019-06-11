@@ -21,9 +21,9 @@ namespace Gamespace
         public Vector2 PositionOnScreen { get; private set; }
         public Mario(Vector2 positionOnScreen)
         {
-            State = new RightStandingMarioState();
+            State = new RightStandingMarioState(this);
             PowerUpState = new MarioSmallState();
-            Sprite = SpriteFactory.Instance.GetSprite(State, PowerUpState);
+            Sprite = SpriteFactory.Instance.GetSprite(this.GetType().Name, State.GetType().Name, PowerUpState.GetType().Name);
             Physics = new Physics(this, positionOnScreen);
             Uid = -1;
         }
@@ -47,41 +47,43 @@ namespace Gamespace
 
         public void Jump()
         {
-            State.Jump(this);
+            State.Jump();
             Physics.MoveUp();
         }
 
         public void MoveRight()
         {
-            State.MoveRight(this);
+            State.MoveRight();
             Physics.MoveRight();
         }
 
         public void MoveLeft()
         {
-            State.MoveLeft(this);
+            State.MoveLeft();
             Physics.MoveLeft();
         }
 
         public void Crouch()
         {
-            State.Crouch(this);
+            State.Crouch();
             Physics.MoveDown();
         }
 
         public void PowerDown()
         {
             PowerUpState.PowerDown(this);
+            UpdateArt();
         }
 
         public void PowerUp()
         {
             PowerUpState.PowerUp(this);
+            UpdateArt();
         }
 
         public void UpdateArt()
         {
-            Sprite = SpriteFactory.Instance.GetSprite(State, PowerUpState);
+            Sprite = SpriteFactory.Instance.GetSprite(this.GetType().Name, State.GetType().Name, PowerUpState.GetType().Name);
         }
 
         public Rectangle GetCollisionBoundary()

@@ -15,12 +15,14 @@ namespace Gamespace
         private int totalFrames;
         private int currentFrame;
         private List<Rectangle> rectangles;
-        private readonly int delayBound = 5;
+
+        private readonly int delayBound;
+
         private int delayCounter = 0;
         public int Width { get; }
         public int Height { get; }
 
-        public Sprite(Texture2D texture, int totalFrames)
+        public Sprite(Texture2D texture, int totalFrames, int delayBound)
         {
             this.texture = texture;
             this.totalFrames = totalFrames;
@@ -34,6 +36,8 @@ namespace Gamespace
             {
                 rectangles.Add(new Rectangle(Width * i, 0, Width, Height));
             }
+
+            this.delayBound = delayBound;
 
         }
         public void Update()

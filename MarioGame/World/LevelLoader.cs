@@ -12,49 +12,15 @@ using System.Web.Script.Serialization;
 
 namespace Gamespace
 {
-    class JsonGameObject
+    internal class LevelLoader
     {
-        public int Uid { get; set; }
-        public String T { get; set; }
-        public int X { get; set; }
-        public int Y { get; set; }
-        public String State { get; set; }
-    }
-
-    class JsonGameObjectRoot
-    {
-        public List<JsonGameObject> gameObjects;
-    }
-    class LevelLoader
-    {
-        private readonly String levelFilePath = "MarioGame/Data/Level1.json";
         public LevelLoader(World world)
         {
-            
+            var gameObjects = JsonParser.Instance.ParseLevelFile();
 
-            StreamReader reader = File.OpenText(levelFilePath);
-            JavaScriptSerializer javaScriptSerializer = new JavaScriptSerializer();
-            var magicNumbers = javaScriptSerializer.Deserialize<JsonGameObjectRoot>(reader.ReadToEnd());
-
-            foreach (JsonGameObject jgo in magicNumbers.gameObjects)
+            foreach (Tuple<int, IGameObject> entry in gameObjects)
             {
-                Type t = Type.GetType(jgo.T);
-                int x = jgo.X;
-                int y = jgo.Y;
-                Type state = Type.GetType(jgo.State);
-
-                if (state != null)
-                {
-                    var stateInstance = Activator.CreateInstance(state);
-                    var go = (IGameObject)Activator.CreateInstance(t, stateInstance, new Vector2(x, y));
-                    World.Instance.AddGameObject(go.Uid, go);
-                }
-                else
-                {
-                    var go = (IGameObject)Activator.CreateInstance(t, new Vector2(x, y));
-                    World.Instance.AddGameObject(go.Uid, go);
-                }
-                
+                World.Instance.AddGameObject(entry.Item1, entry.Item2);
             }
         }
     }

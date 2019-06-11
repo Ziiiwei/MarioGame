@@ -54,7 +54,6 @@ namespace Gamespace
         protected override void Initialize()
         {
             base.Initialize();
-            SpriteFactory.Instance.SetGameInstance(this);
             levelLoader = new LevelLoader(World.Instance);
             controllers.Add(new KeyboardController(this));
 

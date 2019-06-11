@@ -9,23 +9,30 @@ namespace Gamespace.States
 {
     class RightCrouchingMarioState : IMarioState
     {
-        public void Crouch(IMario mario)
+        private IMario mario;
+
+        public RightCrouchingMarioState(IMario mario)
+        {
+            this.mario = mario;
+        }
+
+        public void Crouch()
         {
             // Do nothing.
         }
 
-        public void Jump(IMario mario)
+        public void Jump()
         {
-            mario.State = new LeftStandingMarioState();
+            mario.State = new LeftStandingMarioState(mario);
             mario.UpdateArt();
         }
 
-        public void MoveLeft(IMario mario)
+        public void MoveLeft()
         {
             // nothing to do here...
         }
 
-        public void MoveRight(IMario mario)
+        public void MoveRight()
         {
             // nothing to do here...
         }

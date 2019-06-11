@@ -11,12 +11,12 @@ namespace Gamespace.Commands
     class HitShroom : ICommand
     {
         IMario mario;
-        Rectangle collisionArea;
+        CollisionData collisionData;
 
-        public HitShroom(IMario mario, Rectangle collisionArea)
+        public HitShroom(IMario mario, CollisionData collisionData)
         {
             this.mario = mario;
-            this.collisionArea = collisionArea;
+            this.collisionData = collisionData;
         }
 
         public void Execute()

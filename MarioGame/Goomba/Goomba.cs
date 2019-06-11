@@ -7,40 +7,35 @@ using Gamespace.Sprites;
 
 namespace Gamespace.Goombas
 {
-    public class Goomba : AbstractGameObject
+    public class Goomba : AbstractGameStatefulObject<IGoombaState>, IEnemy
     {
-        private IGoombaState state;
-
+        protected int StompTimer { get; set; }
+        protected int StompTimerBound { get; }
 
         public Goomba (Vector2 positionOnScreen) : base(positionOnScreen)
         {
-            state = new RightMovingGoombaState(this);
-        
+            State = new LeftMovingGoombaState(this);
+            SetSprite();
         }
 
         public void BeStomped()
         {
-            state.BeStomped();
+            State.BeStomped();
         }
 
         public void ChangeDirection()
         {
-            state.ChangeDirection();
+            State.ChangeDirection();
         }
 
         public void IsDead()
         {
-            state.IsDead();
-        }
-
-        public void SetState(IGoombaState newState)
-        {
-            this.state = newState;
+            State.IsDead();
         }
 
         public void UpdateArt()
         {
-            Sprite = SpriteFactory.Instance.GetSprite(this);
+            Sprite = SpriteFactory.Instance.GetSprite(this.GetType().Name, State.GetType().Name, "");
         }
 
     }

@@ -18,13 +18,13 @@ namespace Gamespace.Goombas
 
         public void BeStomped()
         {
-            goomba.SetState(new RightMovingStompedGoombaState(goomba));
+            goomba.State = new StompedGoombaState(goomba);
             goomba.UpdateArt();
         }
 
         public void ChangeDirection()
         {
-            goomba.SetState(new LeftMovingGoombaState(goomba));
+            goomba.State = new LeftMovingGoombaState(goomba);
         }
 
         public void IsDead()

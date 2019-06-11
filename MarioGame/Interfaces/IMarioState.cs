@@ -8,9 +8,9 @@ namespace Gamespace.States
 {
     public interface IMarioState
     {
-        void Jump(IMario mario);
-        void Crouch(IMario mario);
-        void MoveRight(IMario mario);
-        void MoveLeft(IMario mario);
+        void Jump();
+        void Crouch();
+        void MoveRight();
+        void MoveLeft();
     }
 }

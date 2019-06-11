@@ -11,12 +11,12 @@ namespace Gamespace.Commands
     class MakeItemDisappear : ICommand
     {
         private IGameObject obj;
-        private Rectangle r;
+        private CollisionData collisionData;
 
-        public MakeItemDisappear(IGameObject obj, Rectangle r)
+        public MakeItemDisappear(IGameObject obj, CollisionData collisionData)
         {
             this.obj = obj;
-            this.r = r;
+            this.collisionData = collisionData;
         }
         public void Execute()
         {

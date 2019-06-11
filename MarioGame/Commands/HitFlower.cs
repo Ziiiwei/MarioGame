@@ -14,12 +14,12 @@ namespace Gamespace.Commands
     {
 
         IMario mario;
-        Rectangle collisionArea;
+        CollisionData collisionData;
 
-        public HitFlower(IMario mario, Rectangle collisionArea)
+        public HitFlower(IMario mario, CollisionData collisionData)
         {
             this.mario = mario;
-            this.collisionArea = collisionArea;
+            this.collisionData = collisionData;
         }
         
         public void Execute()

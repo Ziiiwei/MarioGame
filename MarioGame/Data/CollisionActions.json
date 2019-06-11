@@ -1,366 +1,340 @@
-﻿[
+﻿{ "Entries":
+[
   {
-    "Obj1": "Mario",
-    "Obj2": "BrickBlock",
-    "Side": "Bottom",
-    "Command1": "MoveMarioDown",
-    "Command2": "BumpBlock"
+    "Mover": "Gamespace.Mario",
+    "Target": "Gamespace.Blocks.BrickBlock",
+    "Side": "Down",
+    "Command1": "Gamespace.Commands.PushMarioDown",
+    "Command2": "Gamespace.Commands.NullCommand"
   },
   {
-    "Obj1": "Mario",
-    "Obj2": "BrickBlock",
-    "Side": "Top",
-    "Command1": null,
-    "Command2": null
+    "Mover": "Gamespace.Mario",
+    "Target": "Gamespace.Blocks.BrickBlock",
+    "Side": "Up",
+    "Command1": "Gamespace.Commands.PushMarioUp",
+    "Command2": "Gamespace.Commands.NullCommand"
   },
   {
-    "Obj1": "Mario",
-    "Obj2": "BrickBlock",
+    "Mover": "Gamespace.Mario",
+    "Target": "Gamespace.Blocks.BrickBlock",
     "Side": "Left",
-    "Command1": "MoveMarioLeft",
-    "Command2": null
+    "Command1": "Gamespace.Commands.PushMarioLeft",
+    "Command2": "Gamespace.Commands.NullCommand"
   },
   {
-    "Obj1": "Mario",
-    "Obj2": "BrickBlock",
+    "Mover": "Gamespace.Mario",
+    "Target": "Gamespace.Blocks.BrickBlock",
     "Side": "Right",
-    "Command1": "MoveMarioRight",
-    "Command2": null
+    "Command1": "Gamespace.Commands.PushMarioRight",
+    "Command2": "Gamespace.Commands.NullCommand"
   },
   {
-    "Obj1": "Mario",
-    "Obj2": "Goomba",
-    "Side": "Bottom",
-    "Command1": "MarioTakesDamage",
-    "Command2": null
+    "Mover": "Gamespace.Mario",
+    "Target": "Gamespace.Goombas.Goomba",
+    "Side": "Down",
+    "Command1": "Gamespace.Commands.NullCommand",
+    "Command2": "Gamespace.Commands.MarioHitsEnemy"
   },
   {
-    "Obj1": "Mario",
-    "Obj2": "Goomba",
-    "Side": "Top",
-    "Command1": null,
-    "Command2": "BeStomped"
+    "Mover": "Gamespace.Mario",
+    "Target": "Gamespace.Goombas.Goomba",
+    "Side": "Up",
+    "Command1": "Gamespace.Commands.EnemyHitsMario",
+    "Command2": "Gamespace.Commands.NullCommand"
   },
   {
-    "Obj1": "Mario",
-    "Obj2": "Goomba",
+    "Mover": "Gamespace.Mario",
+    "Target": "Gamespace.Goombas.Goomba",
     "Side": "Left",
-    "Command1": "MarioTakesDamage",
-    "Command2": null
+    "Command1": "Gamespace.Commands.EnemyHitsMario",
+    "Command2": "Gamespace.Commands.NullCommand"
   },
   {
-    "Obj1": "Mario",
-    "Obj2": "Goomba",
+    "Mover": "Gamespace.Mario",
+    "Target": "Gamespace.Goombas.Goomba",
     "Side": "Right",
-    "Command1": "MarioTakesDamage",
-    "Command2": null
+    "Command1": "Gamespace.Commands.EnemyHitsMario",
+    "Command2": "Gamespace.Commands.NullCommand"
   },
   {
-    "Obj1": "Mario",
-    "Obj2": "HiddenBlock",
+    "Mover": "Gamespace.Mario",
+    "Target": "Gamespace.Blocks.HiddenBlock",
     "Side": "Left",
-    "Command1": "MoveMarioLeft",
-    "Command2": null
+    "Command1": "Gamespace.Commands.MoveMarioLeft",
+    "Command2": "Gamespace.Commands.NullCommand"
   },
   {
-    "Obj1": "Mario",
-    "Obj2": "HiddenBlock",
+    "Mover": "Gamespace.Mario",
+    "Target": "Gamespace.Blocks.HiddenBlock",
     "Side": "Right",
-    "Command1": "MoveMarioRight",
-    "Command2": null
+    "Command1": "Gamespace.Commands.MoveMarioRight",
+    "Command2": "Gamespace.Commands.NullCommand"
   },
   {
-    "Obj1": "Mario",
-    "Obj2": "HiddenBlock",
-    "Side": "Top",
-    "Command1": null,
-    "Command2": null
+    "Mover": "Gamespace.Mario",
+    "Target": "Gamespace.Blocks.HiddenBlock",
+    "Side": "Up",
+    "Command1": "Gamespace.Commands.NullCommand",
+    "Command2": "Gamespace.Commands.NullCommand"
   },
   {
-    "Obj1": "Mario",
-    "Obj2": "HiddenBlock",
-    "Side": "Bottom",
-    "Command1": "MoveMarioDown",
-    "Command2": null
+    "Mover": "Gamespace.Mario",
+    "Target": "Gamespace.Blocks.HiddenBlock",
+    "Side": "Down",
+    "Command1": "Gamespace.Commands.MoveMarioDown",
+    "Command2": "Gamespace.Commands.NullCommand"
   },
   {
-    "Obj1": "Mario",
-    "Obj2": "QuestionBlock",
-    "Side": "Top",
-    "Command1": null,
-    "Command2": null
+    "Mover": "Gamespace.Mario",
+    "Target": "Gamespace.Blocks.QuestionBlock",
+    "Side": "Up",
+    "Command1": "Gamespace.Commands.NullCommand",
+    "Command2": "Gamespace.Commands.NullCommand"
   },
   {
-    "Obj1": "Mario",
-    "Obj2": "QuestionBlock",
-    "Side": "Bottom",
-    "Command1": "MoveMarioDown",
-    "Command2": "HitBlock"
+    "Mover": "Gamespace.Mario",
+    "Target": "Gamespace.Blocks.QuestionBlock",
+    "Side": "Down",
+    "Command1": "Gamespace.Commands.MoveMarioDown",
+    "Command2": "Gamespace.Commands.HitBlock"
   },
   {
-    "Obj1": "Mario",
-    "Obj2": "QuestionBlock",
+    "Mover": "Gamespace.Mario",
+    "Target": "Gamespace.Blocks.QuestionBlock",
     "Side": "Left",
-    "Command1": "MoveMarioLeft",
-    "Command2": null
+    "Command1": "Gamespace.Commands.MoveMarioLeft",
+    "Command2": "Gamespace.Commands.NullCommand"
   },
   {
-    "Obj1": "Mario",
-    "Obj2": "QuestionBlock",
+    "Mover": "Gamespace.Mario",
+    "Target": "Gamespace.Blocks.QuestionBlock",
     "Side": "Right",
-    "Command1": "MoveMarioRight",
-    "Command2": null
+    "Command1": "Gamespace.Commands.MoveMarioRight",
+    "Command2": "Gamespace.Commands.NullCommand"
   },
   {
-    "Obj1": "Mario",
-    "Obj2": "Koopa",
-    "Side": "Top",
-    "Command1": "MoveMarioRight",
-    "Command2": "BeStomped"
+    "Mover": "Gamespace.Mario",
+    "Target": "Gamespace.Koopas.Koopa",
+    "Side": "Up",
+    "Command1": "Gamespace.Commands.NullCommand",
+    "Command2": "Gamespace.Commands.MarioHitsEnemy"
   },
   {
-    "Obj1": "Mario",
-    "Obj2": "Koopa",
-    "Side": "Bottom",
-    "Command1": "MarioTakesDamage",
-    "Command2": null
+    "Mover": "Gamespace.Mario",
+    "Target": "Gamespace.Koopas.Koopa",
+    "Side": "Down",
+    "Command1": "Gamespace.Commands.EnemyHitsMario",
+    "Command2": "Gamespace.Commands.NullCommand"
   },
   {
-    "Obj1": "Mario",
-    "Obj2": "Koopa",
+    "Mover": "Gamespace.Mario",
+    "Target": "Gamespace.Koopas.Koopa",
     "Side": "Left",
-    "Command1": "MarioTakesDamage",
-    "Command2": null
+    "Command1": "Gamespace.Commands.EnemyHitsMario",
+    "Command2": "Gamespace.Commands.NullCommand"
   },
   {
-    "Obj1": "Mario",
-    "Obj2": "Koopa",
+    "Mover": "Gamespace.Mario",
+    "Target": "Gamespace.Koopas.Koopa",
     "Side": "Right",
-    "Command1": "MarioTakesDamage",
-    "Command2": null
+    "Command1": "Gamespace.Commands.EnemyHitsMario",
+    "Command2": "Gamespace.Commands.NullCommand"
   },
   {
-    "Obj1": "Mario",
-    "Obj2": "KoopaFlipped",
-    "Side": "Top",
-    "Command1": "MoveMarioRight",
-    "Command2": "MoveKoopaRight"
+    "Mover": "Gamespace.Mario",
+    "Target": "Gamespace.Items.Star",
+    "Side": "Up",
+    "Command1": "Gamespace.Commands.MakeMarioStar",
+    "Command2": "Gamespace.Commands.ConsumeItem"
   },
   {
-    "Obj1": "Mario",
-    "Obj2": "KoopaFlipped",
-    "Side": "Bottom",
-    "Command1": "MoveMarioDown",
-    "Command2": "MoveKoopaUp"
+    "Mover": "Gamespace.Mario",
+    "Target": "Gamespace.Items.Star",
+    "Side": "Down",
+    "Command1": "Gamespace.Commands.MakeMarioStar",
+    "Command2": "Gamespace.Commands.ConsumeItem"
   },
   {
-    "Obj1": "Mario",
-    "Obj2": "KoopaFlipped",
+    "Mover": "Gamespace.Mario",
+    "Target": "Gamespace.Items.Star",
     "Side": "Left",
-    "Command1": null,
-    "Command2": "MoveKoopaLeft"
+    "Command1": "Gamespace.Commands.MakeMarioStar",
+    "Command2": "Gamespace.Commands.ConsumeItem"
   },
   {
-    "Obj1": "Mario",
-    "Obj2": "KoopaFlipped",
+    "Mover": "Gamespace.Mario",
+    "Target": "Gamespace.Items.Star",
     "Side": "Right",
-    "Command1": null,
-    "Command2": "MoveKoopaRight"
+    "Command1": "Gamespace.Commands.MakeMarioStar",
+    "Command2": "Gamespace.Commands.ConsumeItem"
   },
   {
-    "Obj1": "Mario",
-    "Obj2": "Star",
-    "Side": "Top",
-    "Command1": "MakeMarioStar",
-    "Command2": "UpdateArt"
+    "Mover": "Gamespace.Mario",
+    "Target": "Gamespace.Items.RedShroom",
+    "Side": "Up",
+    "Command1": "Gamespace.Commands.HitShroom",
+    "Command2": "Gamespace.Commands.ConsumeItem"
   },
   {
-    "Obj1": "Mario",
-    "Obj2": "Star",
-    "Side": "Bottom",
-    "Command1": "MakeMarioStar",
-    "Command2": "UpdateArt"
+    "Mover": "Gamespace.Mario",
+    "Target": "Gamespace.Items.RedShroom",
+    "Side": "Down",
+    "Command1": "Gamespace.Commands.HitShroom",
+    "Command2": "Gamespace.Commands.ConsumeItem"
   },
   {
-    "Obj1": "Mario",
-    "Obj2": "Star",
+    "Mover": "Gamespace.Mario",
+    "Target": "Gamespace.Items.RedShroom",
     "Side": "Left",
-    "Command1": "MakeMarioStar",
-    "Command2": "UpdateArt"
+    "Command1": "Gamespace.Commands.HitShroom",
+    "Command2": "Gamespace.Commands.ConsumeItem"
   },
   {
-    "Obj1": "Mario",
-    "Obj2": "Star",
+    "Mover": "Gamespace.Mario",
+    "Target": "Gamespace.Items.RedShroom",
     "Side": "Right",
-    "Command1": "MakeMarioStar",
-    "Command2": "UpdateArt"
+    "Command1": "Gamespace.Commands.HitShroom",
+    "Command2": "Gamespace.Commands.ConsumeItem"
   },
   {
-    "Obj1": "Mario",
-    "Obj2": "RedShroom",
-    "Side": "Top",
-    "Command1": "MakeMarioBig",
-    "Command2": "UpdateArt"
+    "Mover": "Gamespace.Mario",
+    "Target": "Gamespace.Items.GreenShroom",
+    "Side": "Up",
+    "Command1": "Gamespace.Commands.NullCommand",
+    "Command2": "Gamespace.Commands.ConsumeItem"
   },
   {
-    "Obj1": "Mario",
-    "Obj2": "RedShroom",
-    "Side": "Bottom",
-    "Command1": "MakeMarioBig",
-    "Command2": "UpdateArt"
+    "Mover": "Gamespace.Mario",
+    "Target": "Gamespace.Items.GreenShroom",
+    "Side": "Down",
+    "Command1": "Gamespace.Commands.NullCommand",
+    "Command2": "Gamespace.Commands.ConsumeItem"
   },
   {
-    "Obj1": "Mario",
-    "Obj2": "RedShroom",
+    "Mover": "Gamespace.Mario",
+    "Target": "Gamespace.Items.GreenShroom",
     "Side": "Left",
-    "Command1": "MakeMarioBig",
-    "Command2": "UpdateArt"
+    "Command1": "Gamespace.Commands.NullCommand",
+    "Command2": "Gamespace.Commands.ConsumeItem"
   },
   {
-    "Obj1": "Mario",
-    "Obj2": "RedShroom",
+    "Mover": "Gamespace.Mario",
+    "Target": "Gamespace.Items.GreenShroom",
     "Side": "Right",
-    "Command1": "MakeMarioBig",
-    "Command2": "UpdateArt"
+    "Command1": "Gamespace.Commands.NullCommand",
+    "Command2": "Gamespace.Commands.ConsumeItem"
   },
   {
-    "Obj1": "Mario",
-    "Obj2": "GreenShroom",
-    "Side": "Top",
-    "Command1": null,
-    "Command2": "UpdateArt"
+    "Mover": "Gamespace.Mario",
+    "Target": "Gamespace.Items.Flower",
+    "Side": "Up",
+    "Command1": "Gamespace.Commands.MakeMarioFire",
+    "Command2": "Gamespace.Commands.ConsumeItem"
   },
   {
-    "Obj1": "Mario",
-    "Obj2": "GreenShroom",
-    "Side": "Bottom",
-    "Command1": null,
-    "Command2": "UpdateArt"
+    "Mover": "Gamespace.Mario",
+    "Target": "Gamespace.Items.Flower",
+    "Side": "Down",
+    "Command1": "Gamespace.Commands.MakeMarioFire",
+    "Command2": "Gamespace.Commands.ConsumeItem"
   },
   {
-    "Obj1": "Mario",
-    "Obj2": "GreenShroom",
+    "Mover": "Gamespace.Mario",
+    "Target": "Gamespace.Items.Flower",
     "Side": "Left",
-    "Command1": null,
-    "Command2": "UpdateArt"
+    "Command1": "Gamespace.Commands.MakeMarioFire",
+    "Command2": "Gamespace.Commands.ConsumeItem"
   },
   {
-    "Obj1": "Mario",
-    "Obj2": "GreenShroom",
+    "Mover": "Gamespace.Mario",
+    "Target": "Gamespace.Items.Flower",
     "Side": "Right",
-    "Command1": null,
-    "Command2": "UpdateArt"
+    "Command1": "Gamespace.Commands.MakeMarioFire",
+    "Command2": "Gamespace.Commands.ConsumeItem"
   },
   {
-    "Obj1": "Mario",
-    "Obj2": "Flower",
-    "Side": "Top",
-    "Command1": "MakeMarioFire",
-    "Command2": "UpdateArt"
+    "Mover": "Gamespace.Mario",
+    "Target": "Gamespace.Items.Coin",
+    "Side": "Up",
+    "Command1": "Gamespace.Commands.NullCommand",
+    "Command2": "Gamespace.Commands.ConsumeItem"
   },
   {
-    "Obj1": "Mario",
-    "Obj2": "Flower",
-    "Side": "Bottom",
-    "Command1": "MakeMarioFire",
-    "Command2": "UpdateArt"
+    "Mover": "Gamespace.Mario",
+    "Target": "Gamespace.Items.Coin",
+    "Side": "Down",
+    "Command1": "Gamespace.Commands.NullCommand",
+    "Command2": "Gamespace.Commands.ConsumeItem"
   },
   {
-    "Obj1": "Mario",
-    "Obj2": "Flower",
+    "Mover": "Gamespace.Mario",
+    "Target": "Gamespace.Items.Coin",
     "Side": "Left",
-    "Command1": "MakeMarioFire",
-    "Command2": "UpdateArt"
+    "Command1": "Gamespace.Commands.NullCommand",
+    "Command2": "Gamespace.Commands.ConsumeItem"
   },
   {
-    "Obj1": "Mario",
-    "Obj2": "Flower",
+    "Mover": "Gamespace.Mario",
+    "Target": "Gamespace.Items.Coin",
     "Side": "Right",
-    "Command1": "MakeMarioFire",
-    "Command2": "UpdateArt"
+    "Command1": "Gamespace.Commands.NullCommand",
+    "Command2": "Gamespace.Commands.ConsumeItem"
   },
   {
-    "Obj1": "Mario",
-    "Obj2": "Coin",
-    "Side": "Top",
-    "Command1": null,
-    "Command2": "UpdateArt"
+    "Mover": "Gamespace.Mario",
+    "Target": "Gamespace.Blocks.MetalBlock",
+    "Side": "Up",
+    "Command1": "Gamespace.Commands.PushMarioUp",
+    "Command2": "Gamespace.Commands.NullCommand"
   },
   {
-    "Obj1": "Mario",
-    "Obj2": "Coin",
-    "Side": "Bottom",
-    "Command1": null,
-    "Command2": "UpdateArt"
+    "Mover": "Gamespace.Mario",
+    "Target": "Gamespace.Blocks.MetalBlock",
+    "Side": "Down",
+    "Command1": "Gamespace.Commands.PushMarioDown",
+    "Command2": "Gamespace.Commands.NullCommand"
   },
   {
-    "Obj1": "Mario",
-    "Obj2": "Coin",
+    "Mover": "Gamespace.Mario",
+    "Target": "Gamespace.Blocks.MetalBlock",
     "Side": "Left",
-    "Command1": null,
-    "Command2": "UpdateArt"
+    "Command1": "Gamespace.Commands.PushMarioLeft",
+    "Command2": "Gamespace.Commands.NullCommand"
   },
   {
-    "Obj1": "Mario",
-    "Obj2": "Coin",
+    "Mover": "Gamespace.Mario",
+    "Target": "Gamespace.Blocks.MetalBlock",
     "Side": "Right",
-    "Command1": null,
-    "Command2": "UpdateArt"
+    "Command1": "Gamespace.Commands.PushMarioRight",
+    "Command2": "Gamespace.Commands.NullCommand"
   },
   {
-    "Obj1": "Mario",
-    "Obj2": "MetalBlock",
-    "Side": "Top",
-    "Command1": null,
-    "Command2": null
+    "Mover": "Gamespace.Mario",
+    "Target": "Gamespace.Blocks.FloorBlock",
+    "Side": "Up",
+    "Command1": "Gamespace.Commands.NullCommand",
+    "Command2": "Gamespace.Commands.NullCommand"
   },
   {
-    "Obj1": "Mario",
-    "Obj2": "MetalBlock",
-    "Side": "Bottom",
-    "Command1": null,
-    "Command2": null
+    "Mover": "Gamespace.Mario",
+    "Target": "Gamespace.Blocks.FloorBlock",
+    "Side": "Down",
+    "Command1": "Gamespace.Commands.NullCommand",
+    "Command2": "Gamespace.Commands.NullCommand"
   },
   {
-    "Obj1": "Mario",
-    "Obj2": "MetalBlock",
+    "Mover": "Gamespace.Mario",
+    "Target": "Gamespace.Blocks.FloorBlock",
     "Side": "Left",
-    "Command1": null,
-    "Command2": null
+    "Command1": "Gamespace.Commands.NullCommand",
+    "Command2": "Gamespace.Commands.NullCommand"
   },
   {
-    "Obj1": "Mario",
-    "Obj2": "MetalBlock",
+    "Mover": "Gamespace.Mario",
+    "Target": "Gamespace.Blocks.FloorBlock",
     "Side": "Right",
-    "Command1": null,
-    "Command2": null
-  },
-  {
-    "Obj1": "Mario",
-    "Obj2": "FloorBlock",
-    "Side": "Top",
-    "Command1": null,
-    "Command2": null
-  },
-  {
-    "Obj1": "Mario",
-    "Obj2": "FloorBlock",
-    "Side": "Bottom",
-    "Command1": null,
-    "Command2": null
-  },
-  {
-    "Obj1": "Mario",
-    "Obj2": "FloorBlock",
-    "Side": "Left",
-    "Command1": null,
-    "Command2": null
-  },
-  {
-    "Obj1": "Mario",
-    "Obj2": "FloorBlock",
-    "Side": "Right",
-    "Command1": null,
-    "Command2": null
+    "Command1": "Gamespace.Commands.NullCommand",
+    "Command2": "Gamespace.Commands.NullCommand"
   }
 ]
+}

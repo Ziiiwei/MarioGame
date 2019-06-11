@@ -4,14 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Sprint0.Interfaces
+namespace Gamespace
 {
     interface IEnemy
     {
-        void Draw();
-        void Update();
-        void MoveLeft();
-        void MoveRight();
-
+        void BeStomped();
     }
 }

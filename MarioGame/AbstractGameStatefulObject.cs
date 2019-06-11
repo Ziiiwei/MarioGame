@@ -12,14 +12,20 @@ namespace Gamespace
     public class AbstractGameStatefulObject<T> : AbstractGameObject
     {
 
-        private T state;
-        public AbstractGameStatefulObject(Vector2 positionOnScreen) : base(positionOnScreen) {
-            
-        }
-       
-        public virtual void SetState(T state)
+        public T State { get; set; }
+        public AbstractGameStatefulObject(Vector2 positionOnScreen) : base()
         {
-            this.state = state; 
+            this.PositionOnScreen = positionOnScreen;
+        }
+
+        protected new void SetSprite()
+        {
+            Sprite = SpriteFactory.Instance.GetSprite(this.GetType().Name, State.GetType().Name, "");
+        }
+
+        internal new void Update()
+        {
+            SetSprite();
         }
     }
 }

@@ -8,22 +8,29 @@ namespace Gamespace.States
 {
     class MarioDeadState : IMarioState
     {
-        public void Crouch(IMario mario)
+        private IMario mario;
+
+        public MarioDeadState(IMario mario)
+        {
+            this.mario = mario;
+        }
+
+        public void Crouch()
         {
             
         }
 
-        public void Jump(IMario mario)
+        public void Jump()
         {
             
         }
 
-        public void MoveLeft(IMario mario)
+        public void MoveLeft()
         {
             
         }
 
-        public void MoveRight(IMario mario)
+        public void MoveRight()
         {
             
         }

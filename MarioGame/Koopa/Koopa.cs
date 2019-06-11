@@ -10,44 +10,43 @@ using Gamespace.Sprites;
 
 namespace Gamespace.Koopas
 {
-    class Koopa : AbstractGameObject
+    class Koopa : AbstractGameStatefulObject<IKoopaState>, IEnemy
     {
-        private IKoopaState state { get; set; }
-
         public Koopa(Vector2 positionOnScreen) : base(positionOnScreen)
         {
-            state = new KoopaMovingLeftState(this);
+            State = new KoopaMovingLeftState(this);
+            SetSprite();
    
         }
 
         public void BeStomped()
         {
-            state.BeStomped();
+            State.BeStomped();
         }
 
         public void ChangeDirection()
         {
-            state.ChangeDirection();
+            State.ChangeDirection();
         }
 
         public void IsDead()
         {
-            state.IsDead();
+            State.IsDead();
         }
 
         public void IsFlipped()
         {
-            state.IsFlipped();
+            State.IsFlipped();
         }
 
         public void SetState(IKoopaState newState)
         {
-            this.state = newState;
+            this.State = newState;
         }
 
         public void UpdateArt()
         {
-            Sprite = SpriteFactory.Instance.GetSprite(this);
+            Sprite = SpriteFactory.Instance.GetSprite(this.GetType().Name, State.GetType().Name, "");
         }
 
 

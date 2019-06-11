@@ -3,17 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Microsoft.Xna.Framework;
-using Gamespace.States;
 
 namespace Gamespace.Commands
 {
-    class HitStar : ICommand
+    internal class EnemyHitsMario : ICommand
     {
-        IMario mario;
-        CollisionData collisionData;
-
-        public HitStar(IMario mario, CollisionData collisionData)
+        private IMario mario;
+        private CollisionData collisionData;
+        
+        public EnemyHitsMario(IMario mario, CollisionData collisionData)
         {
             this.mario = mario;
             this.collisionData = collisionData;
@@ -21,8 +19,8 @@ namespace Gamespace.Commands
 
         public void Execute()
         {
-            mario.PowerUpState = new StarMarioState();
-            mario.UpdateArt();
+            mario.PowerDown();
         }
+
     }
 }

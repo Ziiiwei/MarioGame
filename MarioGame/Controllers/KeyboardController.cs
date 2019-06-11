@@ -53,9 +53,6 @@ namespace Gamespace.Controllers
             keyCommands.Add("Right_Hold", new MarioMoveRightCommand(World.Instance.Mario));
             keyCommands.Add("Right_Release", new MarioMoveLeftCommand(World.Instance.Mario));
 
-            keyCommands.Add("Y_Click", new MakeMarioSmall(World.Instance.Mario));
-            keyCommands.Add("U_Click", new MakeMarioBig(World.Instance.Mario));
-            keyCommands.Add("I_Click", new MakeMarioFire(World.Instance.Mario));
             keyCommands.Add("R_Click", new Reset(game));
  
 

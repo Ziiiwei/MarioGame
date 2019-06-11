@@ -14,17 +14,16 @@ namespace Gamespace
 {
     class CollisionHandler
     {
-        /* Side is relative to the first IGameObject in the tuple */
+        /* Side is relative to the second IGameObject in the tuple */
         private Dictionary<Tuple<Type, Type, Side>, Tuple<Type, Type>> collisionActions;
-        
-        enum Side : int { None, Up, Down, Left, Right };
-
+        public enum Side : int { None, Up, Down, Left, Right };
         static CollisionHandler()
         {
         }
 
         public CollisionHandler()
         {
+            /*
             collisionActions = new Dictionary<Tuple<Type, Type, Side>, Tuple<Type, Type>>();
 
             collisionActions.Add(new Tuple<Type, Type, Side>(typeof(Mario), typeof(Block), Side.Up),
@@ -85,24 +84,24 @@ namespace Gamespace
             collisionActions.Add(new Tuple<Type, Type, Side>(typeof(Mario), typeof(GreenShroom), Side.Right),
                 new Tuple<Type, Type>(typeof(PushMarioRight), typeof(MakeItemDisappear)));
             collisionActions.Add(new Tuple<Type, Type, Side>(typeof(Mario), typeof(Goomba), Side.Down),
-           new Tuple<Type, Type>(typeof(PushMarioUp), typeof(MakeItemDisappear)));
+           new Tuple<Type, Type>(typeof(NullCommand), typeof(MarioHitsEnemy)));
             collisionActions.Add(new Tuple<Type, Type, Side>(typeof(Mario), typeof(Goomba), Side.Up),
-                new Tuple<Type, Type>(typeof(MakeMarioDead), typeof(NullCommand)));
+                new Tuple<Type, Type>(typeof(NullCommand), typeof(MarioHitsEnemy)));
             collisionActions.Add(new Tuple<Type, Type, Side>(typeof(Mario), typeof(Goomba), Side.Left),
-                new Tuple<Type, Type>(typeof(MakeMarioDead), typeof(NullCommand)));
+                new Tuple<Type, Type>(typeof(EnemyHitsMario), typeof(NullCommand)));
             collisionActions.Add(new Tuple<Type, Type, Side>(typeof(Mario), typeof(Goomba), Side.Right),
-                new Tuple<Type, Type>(typeof(MakeMarioDead), typeof(NullCommand)));
+                new Tuple<Type, Type>(typeof(EnemyHitsMario), typeof(NullCommand)));
             collisionActions.Add(new Tuple<Type, Type, Side>(typeof(Mario), typeof(Koopa), Side.Down),
            new Tuple<Type, Type>(typeof(PushMarioUp), typeof(MakeItemDisappear)));
             collisionActions.Add(new Tuple<Type, Type, Side>(typeof(Mario), typeof(Koopa), Side.Up),
-                new Tuple<Type, Type>(typeof(MakeMarioDead), typeof(NullCommand)));
+                new Tuple<Type, Type>(typeof(EnemyHitsMario), typeof(NullCommand)));
             collisionActions.Add(new Tuple<Type, Type, Side>(typeof(Mario), typeof(Koopa), Side.Left),
-                new Tuple<Type, Type>(typeof(MakeMarioDead), typeof(NullCommand)));
+                new Tuple<Type, Type>(typeof(EnemyHitsMario), typeof(NullCommand)));
             collisionActions.Add(new Tuple<Type, Type, Side>(typeof(Mario), typeof(Koopa), Side.Right),
-                new Tuple<Type, Type>(typeof(MakeMarioDead), typeof(NullCommand)));
+                new Tuple<Type, Type>(typeof(EnemyHitsMario), typeof(NullCommand)));
+            */
 
-
-
+            collisionActions = JsonParser.Instance.ParseCollisionFile();
 
         }
         
@@ -124,13 +123,14 @@ namespace Gamespace
                 Type object1Type = collisionActions[key].Item1;
                 Type object2Type = collisionActions[key].Item2;
 
-                ICommand collisionMember1 = (ICommand)Activator.CreateInstance(object1Type, mover, directionAndArea.Item2);
-                ICommand collisionMember2 = (ICommand)Activator.CreateInstance(object2Type, target, directionAndArea.Item2);
+                Rectangle collisionArea = directionAndArea.Item2;
+
+                ICommand collisionMember1 = (ICommand) Activator.CreateInstance(object1Type, mover, new CollisionData(collisionArea));
+                ICommand collisionMember2 = (ICommand) Activator.CreateInstance(object2Type, target, new CollisionData(collisionArea));
 
                 collisionMember1.Execute();
                 collisionMember2.Execute();
             }
-
 
         }
 

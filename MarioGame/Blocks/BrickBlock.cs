@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Gamespace;
+using Gamespace.Blocks;
+using Microsoft.Xna.Framework;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,23 +9,14 @@ using System.Threading.Tasks;
 
 namespace Gamespace.Blocks
 {
-    class BrickBlock : IBlock
+    internal class BrickBlock : AbstractGameObject
     {
-        public AbstractGameStatefulObject<IBlock> block { get; set; }
-
-        public BrickBlock()
+        public BrickBlock(Vector2 positionOnScreen) : base(positionOnScreen)
         {
-            
         }
 
         public void MarioHitBlock()
         {
-            block.SetState(new HiddenBlock());
-        }
-
-        public void Update()
-        {
-            throw new NotImplementedException();
         }
     }
 }

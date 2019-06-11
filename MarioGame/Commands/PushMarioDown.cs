@@ -12,15 +12,17 @@ namespace Gamespace.Commands
     class PushMarioDown : ICommand
     {
         IMario mario;
-        Rectangle collisionArea;
-        public PushMarioDown(IMario mario, Rectangle collisionArea)
+        CollisionData collisionData;
+
+        public PushMarioDown(IMario mario, CollisionData collisionData)
         {
             this.mario = mario;
-            this.collisionArea = collisionArea;
+            this.collisionData = collisionData;
         }
+
         public void Execute()
         {
-            mario.CollideDown(collisionArea);
+            mario.CollideDown(collisionData.CollisionArea);
         }
     }
 }

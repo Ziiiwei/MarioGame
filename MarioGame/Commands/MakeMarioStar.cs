@@ -10,7 +10,7 @@ namespace Gamespace.Commands
     class MakeMarioStar : ICommand
     {
         IMario mario;
-        public MakeMarioStar(IMario mario)
+        public MakeMarioStar(IMario mario, CollisionData collisionData)
         {
             this.mario = mario;
         }

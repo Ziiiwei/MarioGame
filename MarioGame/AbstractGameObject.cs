@@ -11,15 +11,21 @@ namespace Gamespace
 {
     public class AbstractGameObject : IGameObject
     {
-        private static int counter = 0;
-        public int Uid { get; }
-        public ISprite Sprite { get; set; }
-        public Vector2 PositionOnScreen { get; }
+        protected static int counter = 0;
+        public int Uid { get; protected set; }
+        public ISprite Sprite { get; protected set; }
+        public Vector2 PositionOnScreen { get; protected set; }
 
+
+        public AbstractGameObject()
+        {
+            Uid = counter;
+            counter++;
+        }
 
         public AbstractGameObject(Vector2 positionOnScreen)
         {
-            Sprite = SpriteFactory.Instance.GetSprite(this);
+            SetSprite();
             this.PositionOnScreen = positionOnScreen;
             Uid = counter;
             counter++;
@@ -47,6 +53,11 @@ namespace Gamespace
             float width = Sprite.Width / 2;
 
             return new Vector2(PositionOnScreen.X + width, PositionOnScreen.Y + height);
+        }
+
+        protected virtual void SetSprite()
+        {
+            Sprite = SpriteFactory.Instance.GetSprite(this.GetType().Name, "", "");
         }
 
     }
