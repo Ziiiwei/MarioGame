@@ -16,5 +16,11 @@ namespace Gamespace.Items
         public Coin(Vector2 positionOnScreen) : base(positionOnScreen)
         {
         }
+
+
+        public void Consume()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

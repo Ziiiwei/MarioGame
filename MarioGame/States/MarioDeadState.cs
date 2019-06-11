@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Gamespace.States
 {
-    class MarioDeadState : IMarioState
+    class MarioDeadState :IMarioState
     {
         private IMario mario;
 

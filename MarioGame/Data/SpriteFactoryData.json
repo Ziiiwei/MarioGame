@@ -38,8 +38,8 @@
 			{Name:"Mario", State:"MarioDeadState", PowerUpState:"MarioFireState", TexturePath:"MarioDead", FrameCount:1, FrameDelay:3},
 			{Name:"Mario", State:"MarioDeadState", PowerUpState:"StarMarioState", TexturePath:"MarioDead", FrameCount:1, FrameDelay:3},
 			
-			{Name:"Goomba", State:"LeftMovingGoombaState", PowerUpState:"", TexturePath:"Goomba", FrameCount:2, FrameDelay:3},
-			{Name:"Goomba", State:"RightMovingGoombaState", PowerUpState:"", TexturePath:"Goomba", FrameCount:2, FrameDelay:3},
+			{Name:"Goomba", State:"LeftMovingGoombaState", PowerUpState:"", TexturePath:"Goomba", FrameCount:2, FrameDelay:8},
+			{Name:"Goomba", State:"RightMovingGoombaState", PowerUpState:"", TexturePath:"Goomba", FrameCount:2, FrameDelay:8},
 			{Name:"Goomba", State:"StompedGoombaState", PowerUpState:"", TexturePath:"GoombaStomped", FrameCount:1, FrameDelay:3},
 			
 			{Name:"Coin", State:"", PowerUpState:"", TexturePath:"Coin", FrameCount:3, FrameDelay:9},
