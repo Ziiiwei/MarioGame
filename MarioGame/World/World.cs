@@ -87,13 +87,11 @@ namespace Gamespace
             objectsToRemove.Add(uid);
         }
 
-        public void RemoveAllFromWorld()
+        // Thanks Kirby!
+        public void ClearWorld()
         {
-            objectsToRemove.Clear();
-            foreach (int i in objectsInWorld.Keys)
-            {
-                objectsToRemove.Add(i);
-            }
+            this.objectsInWorld.Clear();
+            this.objectsToRemove.Clear();
         }
     }
 }

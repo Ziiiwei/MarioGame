@@ -10,18 +10,22 @@ using Gamespace.States;
 
 namespace Gamespace
 {
-    public class StarMario : Mario
+    public class StarMario : IMario
     {
-        public IMario mario;
+        public int Uid { get; }
+        public ISprite Sprite { get; set; }
         public IMarioState State { get; set; }
+        public Vector2 PositionOnScreen { get; }
         public IMarioPowerUpState PowerUpState { get; set; }
-
-        public IMarioPowerUpState PreviousPowerUpState { get; set; }
-        int timer = 1000;
+        public IMarioPowerUpState PreviousPowerUpState;
+        public IPhysics Physics { get; set; }
+        public IMario mario;
+        int timer = 600;
 
         public StarMario(IMario mario)
         {
             this.mario = mario;
+            this.PreviousPowerUpState = this.mario.PowerUpStatere;
             this.mario.PowerUpState = new StarMarioState();
         }
         
@@ -38,6 +42,7 @@ namespace Gamespace
             if (timer == 0)
             {
                 this.mario.PowerUpState = this.PreviousPowerUpState;
+                this.mario.UpdateArt();
                 World.Instance.Mario = this.mario;
             }
             this.mario.Update();

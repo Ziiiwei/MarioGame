@@ -116,7 +116,7 @@ namespace Gamespace
 
         public void Reset()
         {
-
+            World.Instance.ClearWorld();
             controllers = new List<IController>();
             Initialize();
         
