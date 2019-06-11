@@ -13,7 +13,6 @@ namespace Gamespace.States
         public MarioDeadState(IMario mario)
         {
             this.mario = mario;
-            this.mario.Physics = null;
         }
 
         public void Crouch()
