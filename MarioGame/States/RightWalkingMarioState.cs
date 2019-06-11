@@ -15,27 +15,15 @@ namespace Gamespace.States
         {
             this.mario = mario;
         }
-
-        public void Crouch()
-        {
-            // Do nothing
-        }
-
-        public void Jump()
+        public override void Jump()
         {
             mario.State = new RightJumpingMarioState(mario);
             mario.UpdateArt();
         }
-
-        public void MoveLeft()
+        public override void MoveLeft()
         {
             mario.State = new RightStandingMarioState(mario);
             mario.UpdateArt();
-        }
-
-        public void MoveRight()
-        {
-            // Do nothing
         }
     }
 }

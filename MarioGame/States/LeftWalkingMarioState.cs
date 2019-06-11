@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Gamespace.States
 {
-    class LeftWalkingMarioState : IMarioState
+    class LeftWalkingMarioState : MovingMarioState
     {
         private IMario mario;
 
@@ -15,31 +15,17 @@ namespace Gamespace.States
         {
             this.mario = mario;
         }
-        public void Crouch()
-        {
-            // Nothing to do here...
-        }
 
-        public void Jump()
+        public override void Jump()
         {
             mario.State = new LeftJumpingMarioState(mario);
             mario.UpdateArt();
         }
 
-        public void MoveLeft()
-        {
-            // Do nothing
-        }
-
-        public void MoveRight()
+        public override void MoveRight()
         {
             mario.State = new LeftStandingMarioState(mario);
             mario.UpdateArt();
-        }
-
-        public void Update()
-        {
-            // Do nothing
         }
     }
 }

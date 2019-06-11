@@ -98,6 +98,7 @@
     <Compile Include="MarioGame\Koopa\KoopaMovingRightState.cs" />
     <Compile Include="MarioGame\Koopa\Koopa.cs" />
     <Compile Include="MarioGame\Items\Pipe.cs" />
+    <Compile Include="MarioGame\States\MovingMarioState.cs" />
     <Compile Include="MarioGame\States\LeftCrouchingMarioState.cs" />
     <Compile Include="MarioGame\States\LeftStandingMarioState.cs" />
     <Compile Include="MarioGame\States\LeftWalkingMarioState.cs" />
@@ -169,7 +170,11 @@
     </None>
     <None Include="README.md" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="MarioGame\Enemies\" />
+    <Folder Include="MarioGame\GameObjects\" />
+    <Folder Include="MarioGame\Mario\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\MonoGame\v3.0\MonoGame.Content.Builder.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

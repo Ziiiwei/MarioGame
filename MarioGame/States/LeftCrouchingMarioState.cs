@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Gamespace.States
 {
-    class LeftCrouchingMarioState : IMarioState
+    class LeftCrouchingMarioState : MovingMarioState
     {
         private IMario mario;
 
@@ -16,25 +16,10 @@ namespace Gamespace.States
             this.mario = mario;
         }
 
-        public void Crouch()
-        {
-            // Do nothing.
-        }
-
-        public void Jump()
+        public override void Jump()
         {
             mario.State = new LeftStandingMarioState(mario);
             mario.UpdateArt();
-        }
-
-        public void MoveLeft()
-        {
-            //Nothing to do here...
-        }
-
-        public void MoveRight()
-        {
-            //nothing to do here...
         }
     }
 }
