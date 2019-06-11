@@ -25,7 +25,7 @@ namespace Gamespace
         public StarMario(IMario mario)
         {
             this.mario = mario;
-            this.PreviousPowerUpState = this.mario.PowerUpStatere;
+            this.PreviousPowerUpState = this.mario.PowerUpState;
             this.mario.PowerUpState = new StarMarioState();
         }
         
