@@ -2,6 +2,7 @@
  * and from comments Dean made in class */
 using Gamespace.Blocks;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -71,15 +72,14 @@ namespace Gamespace
             }
         }
 
-        [Obsolete]
-        public void DrawWorld()
+        public void DrawWorld(SpriteBatch spriteBatch)
         {
             foreach (IGameObject gameObject in objectsInWorld.Values)
             {
-                gameObject.Draw(MarioGame.Instance.TheSpriteBatch);
+                gameObject.Draw(spriteBatch);
             }
 
-            Mario.Draw(MarioGame.Instance.TheSpriteBatch);
+            Mario.Draw(spriteBatch);
         }
 
         public void RemoveFromWorld(int uid)

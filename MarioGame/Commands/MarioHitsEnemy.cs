@@ -9,10 +9,10 @@ namespace Gamespace.Commands
 {
     class MarioHitsEnemy : ICommand
     {
-        private IGameObject enemy;
+        private IEnemy enemy;
         private CollisionData collisionData;
 
-        public MarioHitsEnemy(IGameObject enemy, CollisionData collisionData)
+        public MarioHitsEnemy(IEnemy enemy, CollisionData collisionData)
         {
             this.enemy = enemy;
             this.collisionData = collisionData;
@@ -20,8 +20,7 @@ namespace Gamespace.Commands
 
         public void Execute()
         {
-            var enemyCast = (IEnemy)enemy;
-            enemyCast.BeStomped();
+            enemy.BeStomped();
         }
     }
 }

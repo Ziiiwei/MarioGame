@@ -14,7 +14,7 @@ namespace Gamespace
     {
         private static readonly MarioGame instance = new MarioGame();
         private GraphicsDeviceManager graphics;
-        public SpriteBatch TheSpriteBatch { get; private set; }
+        public SpriteBatch spriteBatch;
         private List<IController> controllers;
     
         // Make LevelLoader a singleton.
@@ -69,7 +69,7 @@ namespace Gamespace
         /// </summary>
         protected override void LoadContent()
         {   
-            TheSpriteBatch = new SpriteBatch(GraphicsDevice);
+            spriteBatch = new SpriteBatch(GraphicsDevice);
 
             font = Content.Load<SpriteFont>("Arial");
         }
@@ -107,10 +107,10 @@ namespace Gamespace
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
             frameRate = 1 / (float)gameTime.ElapsedGameTime.TotalSeconds;
-            TheSpriteBatch.Begin(SpriteSortMode.Immediate, null, null, null, null, null, Matrix.CreateScale(2.0f));
-            World.Instance.DrawWorld();
-            TheSpriteBatch.DrawString(font, "FPS "+frameRate, new Vector2(0, 0), Color.Red);
-            TheSpriteBatch.End();
+            spriteBatch.Begin(SpriteSortMode.Immediate, null, null, null, null, null, Matrix.CreateScale(2.0f));
+            World.Instance.DrawWorld(spriteBatch);
+            spriteBatch.DrawString(font, "FPS "+frameRate, new Vector2(0, 0), Color.Red);
+            spriteBatch.End();
             base.Draw(gameTime);
         }
 
