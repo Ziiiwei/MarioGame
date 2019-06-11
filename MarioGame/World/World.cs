@@ -76,10 +76,10 @@ namespace Gamespace
         {
             foreach (IGameObject gameObject in objectsInWorld.Values)
             {
-                gameObject.Draw(MarioGame.Instance.TheSpriteBatch);
+                gameObject.Draw(MarioGame.Instance.SpriteBatch);
             }
 
-            Mario.Draw(MarioGame.Instance.TheSpriteBatch);
+            Mario.Draw(MarioGame.Instance.SpriteBatch);
         }
 
         public void RemoveFromWorld(int uid)

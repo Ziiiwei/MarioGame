@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Gamespace.States
 {
-    class RightWalkingMarioState : IMarioState
+    class RightWalkingMarioState : MovingMarioState
     {
         private IMario mario;
 
