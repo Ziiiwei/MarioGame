@@ -136,14 +136,14 @@ namespace Gamespace
                 acceleration.Y += (-1 * directionY) * G;
 
             if (position.X <= 0)
-                position.X = 750;
-            else if (position.X >= 750)
+                position.X = 375;
+            else if (position.X >= 375)
                 position.X = 0;
 
-            if (position.Y >= 450)
+            if (position.Y >= 225)
                 position.Y = 0;
             else if (position.Y <= 0)
-                position.Y = 450;
+                position.Y = 225;
         }
 
         public Vector2 GetPosition()
