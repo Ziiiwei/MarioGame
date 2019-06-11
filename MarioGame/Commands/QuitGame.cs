@@ -9,9 +9,9 @@ namespace Gamespace.Commands
     class QuitGame : ICommand
     {
         private MarioGame game;
-        public QuitGame(MarioGame thisGame)
+        public QuitGame(MarioGame Game)
         {
-            game = thisGame;
+            game = Game;
         }
         public void Execute()
         {

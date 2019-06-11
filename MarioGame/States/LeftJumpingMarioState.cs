@@ -7,7 +7,7 @@ using Gamespace;
 
 namespace Gamespace.States
 {
-    class LeftJumpingMarioState : IMarioState
+    class LeftJumpingMarioState : MovingMarioState
     {
         private IMario mario;
 
@@ -15,23 +15,12 @@ namespace Gamespace.States
         {
             this.mario = mario;
         }
-        public void Crouch()
+        public override void Crouch()
         {
             mario.State = new LeftStandingMarioState(mario);
             mario.UpdateArt();
         }
-
-        public void Jump()
-        {
-            // Do nothing.
-        }
-
-        public void MoveLeft()
-        {
-            // Do nothing.
-        }
-
-        public void MoveRight()
+        public override void MoveRight()
         {
             mario.State = new RightJumpingMarioState(mario);
             mario.UpdateArt();
