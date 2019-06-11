@@ -10,7 +10,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Gamespace.Items
 {
-    class Coin : AbstractGameObject, IItem
+    class Coin : AbstractGameObject/*, IItem*/
     {
 
         public Coin(Vector2 positionOnScreen) : base(positionOnScreen)
