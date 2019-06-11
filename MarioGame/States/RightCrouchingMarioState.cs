@@ -17,7 +17,7 @@ namespace Gamespace.States
         }
         public override void Jump()
         {
-            mario.State = new LeftStandingMarioState(mario);
+            mario.State = new RightStandingMarioState(mario);
             mario.UpdateArt();
         }
     }

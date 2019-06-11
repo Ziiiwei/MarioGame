@@ -42,6 +42,7 @@
     <ApplicationManifest>MarioGame\app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="MarioGame\Physics\MarioWorldConstant.cs" />
     <Compile Include="MarioGame\Collision\CollisionResponder.cs" />
     <Compile Include="MarioGame\Commands\EnemyHitHorizontally.cs" />
     <Compile Include="MarioGame\Commands\MarioPowerUp.cs" />
