@@ -11,7 +11,7 @@ namespace Gamespace.States
     {
         private IMario mario;
 
-        public RightStandingMarioState(IMario mario)
+        public RightStandingMarioState(IMario mario) : base(mario)
         {
             this.mario = mario; 
         }

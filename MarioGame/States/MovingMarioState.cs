@@ -8,9 +8,15 @@ namespace Gamespace.States
 {
     internal abstract class MovingMarioState : IMarioState
     {
-         public virtual void Crouch() { }
-         public virtual void Jump() { }
-         public virtual void MoveLeft() { }
-         public virtual void MoveRight() { }
+        private IMario mario;
+
+        protected MovingMarioState(IMario mario)
+        {
+            this.mario = mario;
+        }
+        public virtual void Crouch() { }
+        public virtual void Jump() { }
+        public virtual void MoveLeft() { }
+        public virtual void MoveRight() { }
     }
 }

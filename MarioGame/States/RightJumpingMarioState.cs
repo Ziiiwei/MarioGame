@@ -11,17 +11,17 @@ namespace Gamespace.States
     {
         private IMario mario;
 
-        public RightJumpingMarioState(IMario mario)
+        public RightJumpingMarioState(IMario mario) : base(mario)
         {
             this.mario = mario;
         }
 
-        public void Crouch()
+        public override void Crouch()
         {
             mario.State = new RightStandingMarioState(mario);
             mario.UpdateArt();
         }
-        public void MoveLeft()
+        public override void MoveLeft()
         {
             mario.State = new LeftJumpingMarioState(mario);
             mario.UpdateArt();
