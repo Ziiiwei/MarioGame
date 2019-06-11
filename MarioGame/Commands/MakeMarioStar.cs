@@ -16,7 +16,7 @@ namespace Gamespace.Commands
         }
         public void Execute()
         {
-            mario.PowerUpState = new StarMarioState();
+            mario = new StarMario(mario);
             mario.UpdateArt();
         }
     }
