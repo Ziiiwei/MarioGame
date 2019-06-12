@@ -10,7 +10,7 @@ using Gamespace.Sprites;
 
 namespace Gamespace.Koopas
 {
-    class Koopa : AbstractGameStatefulObject<IKoopaState>, IEnemy
+    class Koopa : AbstractGameStatefulObject<IEnemyState>, IEnemy
     {
         public Koopa(Vector2 positionOnScreen) : base(positionOnScreen)
         {
@@ -19,29 +19,14 @@ namespace Gamespace.Koopas
    
         }
 
-        public void BeStomped()
-        {
-            State.BeStomped();
-        }
-
         public void ChangeDirection()
         {
             State.ChangeDirection();
         }
 
-        public void IsDead()
+        public void TakeDamage()
         {
-            State.IsDead();
-        }
-
-        public void IsFlipped()
-        {
-            State.IsFlipped();
-        }
-
-        public void SetState(IKoopaState newState)
-        {
-            this.State = newState;
+            State.TakeDamage();
         }
 
         public void UpdateArt()

@@ -7,7 +7,7 @@ using Gamespace.Sprites;
 
 namespace Gamespace.Goombas
 {
-    public class Goomba : AbstractGameStatefulObject<IGoombaState>, IEnemy
+    internal class Goomba : AbstractGameStatefulObject<IEnemyState>, IEnemy
     {
         protected int StompTimer { get; set; }
         protected int StompTimerBound { get; }
@@ -18,19 +18,9 @@ namespace Gamespace.Goombas
             SetSprite();
         }
 
-        public void BeStomped()
-        {
-            State.BeStomped();
-        }
-
         public void ChangeDirection()
         {
             State.ChangeDirection();
-        }
-
-        public void IsDead()
-        {
-            State.IsDead();
         }
 
         public void UpdateArt()
@@ -38,5 +28,9 @@ namespace Gamespace.Goombas
             Sprite = SpriteFactory.Instance.GetSprite(this.GetType().Name, State.GetType().Name, "");
         }
 
+        public void TakeDamage()
+        {
+            State = new StompedGoombaState(this);
+        }
     }
 }

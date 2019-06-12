@@ -42,9 +42,10 @@
     <ApplicationManifest>MarioGame\app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="MarioGame\Collision\CollisionResponder.cs" />
+    <Compile Include="MarioGame\Blocks\IBlock.cs" />
     <Compile Include="MarioGame\Commands\EnemyHitHorizontally.cs" />
     <Compile Include="MarioGame\Commands\MarioPowerUp.cs" />
+    <Compile Include="MarioGame\Interfaces\IEnemyState.cs" />
     <Compile Include="MarioGame\StarMario.cs" />
     <Compile Include="MarioGame\Blocks\BrickBlock.cs" />
     <Compile Include="MarioGame\Blocks\FloorBlock.cs" />

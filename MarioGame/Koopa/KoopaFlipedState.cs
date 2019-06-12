@@ -7,7 +7,7 @@ using Gamespace.Interfaces;
 
 namespace Gamespace.Koopas
 {
-    class KoopaFlippedState : IKoopaState
+    class KoopaFlippedState : IEnemyState
     {
         private Koopa koopa;
 
@@ -16,25 +16,14 @@ namespace Gamespace.Koopas
             this.koopa = koopa;
         }
 
-        public void BeStomped()
-        {
-            koopa.SetState(new KoopaFlippedState(koopa));
-            koopa.UpdateArt();
-        }
-
         public void ChangeDirection()
         {
-            //do nothing
+            // do nothing
         }
 
-        public void IsDead()
+        public void TakeDamage()
         {
-            //do nothing
-        }
-
-        public void IsFlipped()
-        {
-            //do nothing
+            // do nothing
         }
     }
 }
