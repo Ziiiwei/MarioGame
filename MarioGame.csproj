@@ -126,7 +126,7 @@
     <Compile Include="MarioGame\Controllers\IController.cs" />
     <Compile Include="MarioGame\Sprites\ISprite.cs" />
     <Compile Include="MarioGame\Controllers\KeyboardController.cs" />
-    <Compile Include="MarioGame\Controllers\Gamepad1.cs" />
+    <Compile Include="MarioGame\Controllers\GamepadController.cs" />
     <Compile Include="MarioGame\MarioGame.cs" />
     <Compile Include="MarioGame\Program.cs" />
     <Compile Include="MarioGame\Physics\Physics.cs" />
