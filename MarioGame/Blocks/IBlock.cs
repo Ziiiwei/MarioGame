@@ -8,5 +8,8 @@ namespace Gamespace.Blocks
 {
     interface IBlock
     {
+        void Bump();
+
+        void Destroy();
     }
 }

@@ -7,16 +7,17 @@ using System.Threading.Tasks;
 
 namespace Gamespace.Blocks
 {
-    class HiddenBlock : AbstractGameObject
+    class HiddenBlock : Block
     {
         public HiddenBlock(Vector2 positionOnScreen) : base(positionOnScreen)
         {
 
         }
 
-        public void MarioHitBlock()
+        public override void MarioHitBlock()
         {
-
+            World.Instance.RemoveFromWorld(this.Uid);
         }
+
     }
 }
