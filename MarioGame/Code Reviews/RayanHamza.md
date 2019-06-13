@@ -1,36 +1,44 @@
 ﻿### Code Readiblity Review
 Author: Rayan Hamza
-Date: 6/7/19
+Date: 6/13/19
 Sprint: 3
-Name: Ziwei Jin
-File: Physics.cs
+Name: Matt Harrow
+File: CollisionHandler.cs
 Minutes: 7
 
-Coupling: not too high
--Physics interacts with game objects, mainly Mario and the enemies
--The information that is taken from other classes involve the motion of the
-game objects, i.e. their position, and updates it based on factors of 
-acceleration and velocity.
+Coupling: nothing dangerous
+-Does not depend on much, the only thing it interacts with is data,
+which should correspond to files, but is not specific enough to be
+considered high coupling.
 
-Cohesion: Pretty high
-- This class focuses entirely on the movement of sprites, but it handles 
-multiple kinds of movement, though I guess movement itself is a purpose.
--The Update does way too much here, but it was done in a compressed time
-interval, and is something that is on the list to refactor.
+Cohesion: It does one thing, but that thing is kind of big
+- The class, as the name suggests, is designed to handle collision. It
+used to also respond to collision, but that has been fixed with the 
+collision responder object. There are some conditions for collisions,
+like whether they are horizontal, from the top, or from the bottom,
+that could be broken down, but only if there is a major reason to do
+so.
 
-Complexity: Getting there
--As I said, long update
--The update contains many conditionals, which increase the class' cyclomatic
-complexity.
--We deal with the position and the previous position, which I believe is 
-for the future, in case we want to track sliding facing the other way.
+Complexity: Cyclomatic complexity apparent
+-There are four conditional blocks in the code, the last one being nested,
+for a total of 5.
+-Save for the second condition, the other conditions do not have many lines
+in them, so this cyclomatic complexity may not be so threatening in the 
+long run.
+-The type type side system was made to keep collisions as abstractions,
+not relying on hard types, but instead leaving that to the data files,
+so this class should not have trouble handling mario vs anything, 
+enemies vs anything, and items vs anything.
 
 Additional Notes:
-- Most other methods are one line long, which is really good and easy to 
-understand
-- some methods are empty, so that might be something to address with the 
-virtual keyword or something along those lines.
--There are some magic numbers used for the acceleration, gravity, and 
-velocity, I'm sure those are planned to be data drived in the future.
--He knows the Conditional one line operator "statement? (if true):(if false)"
-which is pretty neat.
+- The collision handler's job is split into 2 parts, handling the 
+collision, and detecting the collision to handle, this may harm
+elements of cohesion, but I figured something like this is implied.
+- I do not like the parameters on the command objects, as that means
+all command objects cannot be treated the same way; some pass in the 
+game, some pass in mario, and now some pass in an object and a 
+rectangle.
+- i don't know if the SOftware department at OSU is just pedantic,
+but are multiple returns really a bad thing? It seems like an 
+effective way for quick termination, and gives us a lower average
+case  code runtime.
