@@ -1,10 +1,10 @@
-﻿### Code Readiblity Review
+﻿### Code Maintainability Review
 Author: Keith Chin
-Date: 6/7/19
+Date: 6/13/19
 Sprint: 3
 Name: Matthew Harrow 
 File: CollisionHandler.cs
-Minutes: 12
+Minutes: 15
 
 Coupling: Moderate
 - CollisionHandler is coupled with IGameObject as the handling and receiving collision methods

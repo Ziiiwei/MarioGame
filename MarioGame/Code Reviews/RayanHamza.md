@@ -1,4 +1,4 @@
-﻿### Code Readiblity Review
+﻿### Code Maintainability Review
 Author: Rayan Hamza
 Date: 6/13/19
 Sprint: 3
