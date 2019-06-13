@@ -1,0 +1,11 @@
+﻿{ "Entries":
+[
+  {
+    "Mover": "Gamespace.States.MarioSuperState",
+    "Target": "Gamespace.Blocks.BrickBlock",
+    "Side": "Up",
+    "Command1": "Gamespace.Commands.PushMarioUp",
+    "Command2": "Gamespace.Commands.BumpBlock"
+  }
+]
+}
