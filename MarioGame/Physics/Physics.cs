@@ -5,11 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
 
-namespace Gamespace 
+namespace Gamespace
 {
     public class Physics : IPhysics
     {
-        private Vector2 previousPosition;
+
         public Vector2 position;
         public Vector2 velocity;
         public Vector2 acceleration;
@@ -17,19 +17,19 @@ namespace Gamespace
 
         //default acceleration for left and right move
 
-        private float maxSpeed_pf = 2f; //pix per frame
-        private float jumpSpeed_pf = 3f; //pix per frame
+        private float maxSpeed_pf = MarioWorldConstant.MARIO_MAX_V; //pix per frame
+        private float jumpSpeed_pf = MarioWorldConstant.MARIO_JUMP_V; //pix per frame
         // Invariant: G < A
-        public const float G = 0.2f; //the G of the marioward 
-        public const float A = 0.8f; //the default movement A
-       
+        public const float G = MarioWorldConstant.G; //the G of the marioward 
+        public const float A = MarioWorldConstant.MARIO_A; //the default movement A
 
 
-        public Physics(IGameObject gameObject,Vector2 position)
+
+        public Physics(IGameObject gameObject, Vector2 position)
         {
             this.gameObject = gameObject;
             this.position = position;
-            previousPosition = position;
+
             acceleration = new Vector2(0, 0);
             velocity = new Vector2(0, 0);
         }
@@ -55,7 +55,7 @@ namespace Gamespace
 
         public void MoveRight()
         {
-            
+
             acceleration.X = A;
         }
 
@@ -97,17 +97,7 @@ namespace Gamespace
 
         public void Update()
         {
-            if (!(velocity.X == 0) && Math.Sign(velocity.X) != Math.Sign(velocity.X + acceleration.X))
-            {
-                velocity.X = 0;
-                acceleration.X = 0;
-            }
 
-            if (!(velocity.Y == 0) && Math.Sign(velocity.Y) != Math.Sign(velocity.Y + acceleration.Y))
-            {
-                velocity.Y = 0;
-                acceleration.Y = 0;
-            }
 
             int directionX = 1;
             int directionY = 1;
@@ -120,14 +110,26 @@ namespace Gamespace
             {
                 directionY = -1;
             }
-            
+
             velocity.X = MinimumMagnitude(velocity.X + acceleration.X, directionX * maxSpeed_pf);
             velocity.Y = MinimumMagnitude(velocity.Y + acceleration.Y, directionY * maxSpeed_pf);
 
-            previousPosition.X = position.X;
-            previousPosition.Y = position.Y;
-            position.X += (int) velocity.X;
-            position.Y += (int) velocity.Y;
+
+            position.X += (int)velocity.X;
+            position.Y += (int)velocity.Y;
+
+
+            if (!(velocity.X == 0) && Math.Sign(velocity.X) != Math.Sign(velocity.X + acceleration.X))
+            {
+                velocity.X = 0;
+                acceleration.X = 0;
+            }
+
+            if (!(velocity.Y == 0) && Math.Sign(velocity.Y) != Math.Sign(velocity.Y + acceleration.Y))
+            {
+                velocity.Y = 0;
+                acceleration.Y = 0;
+            }
 
             if (acceleration.X != 0)
                 acceleration.X += (-1 * directionX) * G;
@@ -135,15 +137,7 @@ namespace Gamespace
             if (acceleration.Y != 0)
                 acceleration.Y += (-1 * directionY) * G;
 
-            if (position.X <= 0)
-                position.X = 375;
-            else if (position.X >= 375)
-                position.X = 0;
-
-            if (position.Y >= 225)
-                position.Y = 0;
-            else if (position.Y <= 0)
-                position.Y = 225;
+            loop();
         }
 
         public Vector2 GetPosition()
@@ -155,6 +149,20 @@ namespace Gamespace
         private float MinimumMagnitude(float a, float b)
         {
             return Math.Abs(a) < Math.Abs(b) ? a : b;
+        }
+
+        private void loop()
+        {
+
+            if (position.X <= 0)
+                position.X = MarioWorldConstant.GAME_WINDOW_WIDTH / MarioWorldConstant.SCALE;
+            else if (position.X >= MarioWorldConstant.GAME_WINDOW_WIDTH / MarioWorldConstant.SCALE)
+                position.X = 0;
+
+            if (position.Y >= MarioWorldConstant.GAME_WINDOW_HEIGHT / MarioWorldConstant.SCALE)
+                position.Y = 0;
+            else if (position.Y <= 0)
+                position.Y = MarioWorldConstant.GAME_WINDOW_HEIGHT / MarioWorldConstant.SCALE;
         }
     }
 }
