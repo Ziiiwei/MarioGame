@@ -29,7 +29,7 @@ namespace Gamespace
         {
             this.gameObject = gameObject;
             this.position = position;
-            previousPosition = position;
+        
             acceleration = new Vector2(0, 0);
             velocity = new Vector2(0, 0);
         }
