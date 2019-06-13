@@ -20,7 +20,7 @@ namespace Gamespace
 
             foreach (Tuple<int, IGameObject> entry in gameObjects)
             {
-                World.Instance.AddGameObject(entry.Item1, entry.Item2);
+                World.Instance.AddGameObject(entry.Item2);
             }
         }
     }

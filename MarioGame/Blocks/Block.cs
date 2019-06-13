@@ -17,7 +17,7 @@ namespace Gamespace.Blocks
 
         public virtual void Bump()
         {
-            
+            //do nothing
         }
 
         public virtual void Destroy()

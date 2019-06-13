@@ -16,6 +16,7 @@ namespace Gamespace
     {
         private static readonly World instance = new World();
         public Dictionary<int, IGameObject> objectsInWorld;
+        private List<IGameObject> objectsToAdd;
         private List<int> objectsToRemove;
         public IMario Mario { get; set; }
         private CollisionHandler collisionHandler;
@@ -23,6 +24,7 @@ namespace Gamespace
         private World()
         {
             objectsInWorld = new Dictionary<int, IGameObject>();
+            objectsToAdd = new List<IGameObject>();
             objectsToRemove = new List<int>();
             collisionHandler = new CollisionHandler();
         }
@@ -38,7 +40,7 @@ namespace Gamespace
                 return instance;
             }
         }
-        public void AddGameObject(int uid, IGameObject gameObject)
+        public void AddGameObject(IGameObject gameObject)
         {
             if (gameObject.GetType() == typeof(Mario))
             {
@@ -46,16 +48,24 @@ namespace Gamespace
             }
             else
             {
-                objectsInWorld.Add(uid, gameObject);
+                objectsToAdd.Add(gameObject);
             }
         }
 
         public void UpdateWorld()
         {
+            foreach (IGameObject gameObject in objectsToAdd)
+            {
+                objectsInWorld.Add(gameObject.Uid, gameObject);
+            }
+
             foreach (int i in objectsToRemove)
             {
                 objectsInWorld.Remove(i);
             }
+
+            objectsToAdd.Clear();
+            objectsToRemove.Clear();
 
             foreach (IGameObject gameObject in objectsInWorld.Values)
             {
@@ -86,6 +96,8 @@ namespace Gamespace
         {
             objectsToRemove.Add(uid);
         }
+
+
 
         // Thanks Kirby!
         public void ClearWorld()

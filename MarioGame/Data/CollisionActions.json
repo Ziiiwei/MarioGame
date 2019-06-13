@@ -60,56 +60,56 @@
       "Mover": "Gamespace.Mario",
       "Target": "Gamespace.Blocks.HiddenBlock",
       "Side": "Left",
-      "Command1": "Gamespace.Commands.MoveMarioLeft",
+      "Command1": "Gamespace.Commands.PushMarioLeft",
       "Command2": "Gamespace.Commands.NullCommand"
     },
     {
       "Mover": "Gamespace.Mario",
       "Target": "Gamespace.Blocks.HiddenBlock",
       "Side": "Right",
-      "Command1": "Gamespace.Commands.MoveMarioRight",
+      "Command1": "Gamespace.Commands.PushMarioRight",
       "Command2": "Gamespace.Commands.NullCommand"
     },
     {
       "Mover": "Gamespace.Mario",
       "Target": "Gamespace.Blocks.HiddenBlock",
       "Side": "Up",
-      "Command1": "Gamespace.Commands.NullCommand",
-      "Command2": "Gamespace.Commands.NullCommand"
+      "Command1": "Gamespace.Commands.PushMarioUp",
+      "Command2": "Gamespace.Commands.HitBlock"
     },
     {
       "Mover": "Gamespace.Mario",
       "Target": "Gamespace.Blocks.HiddenBlock",
       "Side": "Down",
-      "Command1": "Gamespace.Commands.MoveMarioDown",
+      "Command1": "Gamespace.Commands.PushMarioDown",
       "Command2": "Gamespace.Commands.NullCommand"
     },
     {
       "Mover": "Gamespace.Mario",
       "Target": "Gamespace.Blocks.QuestionBlock",
       "Side": "Up",
-      "Command1": "Gamespace.Commands.NullCommand",
+      "Command1": "Gamespace.Commands.PushMarioUp",
       "Command2": "Gamespace.Commands.NullCommand"
     },
     {
       "Mover": "Gamespace.Mario",
       "Target": "Gamespace.Blocks.QuestionBlock",
       "Side": "Down",
-      "Command1": "Gamespace.Commands.MoveMarioDown",
+      "Command1": "Gamespace.Commands.PushMarioDown",
       "Command2": "Gamespace.Commands.HitBlock"
     },
     {
       "Mover": "Gamespace.Mario",
       "Target": "Gamespace.Blocks.QuestionBlock",
       "Side": "Left",
-      "Command1": "Gamespace.Commands.MoveMarioLeft",
+      "Command1": "Gamespace.Commands.PushMarioLeft",
       "Command2": "Gamespace.Commands.NullCommand"
     },
     {
       "Mover": "Gamespace.Mario",
       "Target": "Gamespace.Blocks.QuestionBlock",
       "Side": "Right",
-      "Command1": "Gamespace.Commands.MoveMarioRight",
+      "Command1": "Gamespace.Commands.PushMarioRight",
       "Command2": "Gamespace.Commands.NullCommand"
     },
     {

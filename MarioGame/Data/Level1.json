@@ -1,19 +1,100 @@
 ﻿{
-	"gameObjects":
-		[
-			{T:"Gamespace.BigCloud", X:150, Y:50, State:"null"},
-			{T:"Gamespace.SmallCloud", X:50, Y:50, State:"null"},
-			{T:"Gamespace.BigHill", X:150, Y:200, State:"null"},
-			{T:"Gamespace.SmallHill", X:350, Y:200, State:"null"},
-			{T:"Gamespace.Mario", X:50, Y:150, State:"null"},
-			{T:"Gamespace.Items.Flower", X:50, Y:100, State:"null"},
-			{T:"Gamespace.Items.Pipe", X:200, Y:150, State:"null"},
-			{T:"Gamespace.Items.Coin", X:100, Y:100, State:"null"},
-			{T:"Gamespace.Items.RedShroom", X:150, Y:100, State:"null"},
-			{T:"Gamespace.Items.GreenShroom", X:200, Y:100, State:"null"},
-			{T:"Gamespace.Items.Star", X:250, Y:100, State:"null"},
-			{T:"Gamespace.Blocks.BrickBlock", X:300, Y:100, State:"null"},
-			{T:"Gamespace.Goombas.Goomba", X:100, Y:200, State:"null"},
-			{T:"Gamespace.Koopas.Koopa", X:200, Y:200, State:"null"}
-		]
+  "gameObjects": [
+    {
+      "T": "Gamespace.BigCloud",
+      "X": 150,
+      "Y": 50,
+      "State": "null"
+    },
+    {
+      "T": "Gamespace.SmallCloud",
+      "X": 50,
+      "Y": 50,
+      "State": "null"
+    },
+    {
+      "T": "Gamespace.BigHill",
+      "X": 150,
+      "Y": 200,
+      "State": "null"
+    },
+    {
+      "T": "Gamespace.SmallHill",
+      "X": 350,
+      "Y": 200,
+      "State": "null"
+    },
+    {
+      "T": "Gamespace.Mario",
+      "X": 50,
+      "Y": 150,
+      "State": "null"
+    },
+    {
+      "T": "Gamespace.Items.Flower",
+      "X": 50,
+      "Y": 100,
+      "State": "null"
+    },
+    {
+      "T": "Gamespace.Items.Pipe",
+      "X": 200,
+      "Y": 150,
+      "State": "null"
+    },
+    {
+      "T": "Gamespace.Items.Coin",
+      "X": 100,
+      "Y": 100,
+      "State": "null"
+    },
+    {
+      "T": "Gamespace.Items.RedShroom",
+      "X": 150,
+      "Y": 100,
+      "State": "null"
+    },
+    {
+      "T": "Gamespace.Items.GreenShroom",
+      "X": 200,
+      "Y": 100,
+      "State": "null"
+    },
+    {
+      "T": "Gamespace.Items.Star",
+      "X": 250,
+      "Y": 100,
+      "State": "null"
+    },
+    {
+      "T": "Gamespace.Blocks.BrickBlock",
+      "X": 300,
+      "Y": 100,
+      "State": "null"
+    },
+    {
+      "T": "Gamespace.Goombas.Goomba",
+      "X": 100,
+      "Y": 200,
+      "State": "null"
+    },
+    {
+      "T": "Gamespace.Koopas.Koopa",
+      "X": 200,
+      "Y": 200,
+      "State": "null"
+    },
+    {
+      "T": "Gamespace.Blocks.QuestionBlock",
+      "X": 330,
+      "Y": 100,
+      "State": "null"
+    },
+    {
+      "T": "Gamespace.Blocks.HiddenBlock",
+      "X": 360,
+      "Y": 100,
+      "State": "null"
+    }
+  ]
 }

@@ -17,6 +17,8 @@ namespace Gamespace.Blocks
         public override void MarioHitBlock()
         {
             World.Instance.RemoveFromWorld(this.Uid);
+            UsedBlock usedBlock = new UsedBlock(PositionOnScreen);
+            World.Instance.AddGameObject(usedBlock);
         }
 
     }
