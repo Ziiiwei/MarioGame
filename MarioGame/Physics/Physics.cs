@@ -15,6 +15,7 @@ namespace Gamespace
         public Vector2 acceleration;
         public IGameObject gameObject { get; set; }
 
+
         //default acceleration for left and right move
 
         private float maxSpeed_pf = MarioWorldConstant.MARIO_MAX_V; //pix per frame
@@ -99,45 +100,16 @@ namespace Gamespace
         {
 
 
-            int directionX = 1;
-            int directionY = 1;
 
-            if (velocity.X < 0)
-            {
-                directionX = -1;
-            }
-            if (velocity.Y < 0)
-            {
-                directionY = -1;
-            }
-
-            velocity.X = MinimumMagnitude(velocity.X + acceleration.X, directionX * maxSpeed_pf);
-            velocity.Y = MinimumMagnitude(velocity.Y + acceleration.Y, directionY * maxSpeed_pf);
+            velocity.X = MinimumMagnitude(velocity.X + acceleration.X, Math.Sign(acceleration.X) * maxSpeed_pf);
+            velocity.Y = MinimumMagnitude(velocity.Y + acceleration.Y, Math.Sign(acceleration.Y) * maxSpeed_pf);
 
 
-            position.X += (int)velocity.X;
-            position.Y += (int)velocity.Y;
+            position.X += (int)Math.Ceiling(velocity.X);
+            position.Y += (int)Math.Ceiling(velocity.Y);
 
 
-            if (!(velocity.X == 0) && Math.Sign(velocity.X) != Math.Sign(velocity.X + acceleration.X))
-            {
-                velocity.X = 0;
-                acceleration.X = 0;
-            }
-
-            if (!(velocity.Y == 0) && Math.Sign(velocity.Y) != Math.Sign(velocity.Y + acceleration.Y))
-            {
-                velocity.Y = 0;
-                acceleration.Y = 0;
-            }
-
-            if (acceleration.X != 0)
-                acceleration.X += (-1 * directionX) * G;
-
-            if (acceleration.Y != 0)
-                acceleration.Y += (-1 * directionY) * G;
-
-            loop();
+            Loop();
         }
 
         public Vector2 GetPosition()
@@ -151,7 +123,7 @@ namespace Gamespace
             return Math.Abs(a) < Math.Abs(b) ? a : b;
         }
 
-        private void loop()
+        private void Loop()
         {
 
             if (position.X <= 0)
@@ -164,5 +136,27 @@ namespace Gamespace
             else if (position.Y <= 0)
                 position.Y = MarioWorldConstant.GAME_WINDOW_HEIGHT / MarioWorldConstant.SCALE;
         }
+        public void Stop()
+        {
+            if (velocity.X != 0 && Math.Sign(velocity.X) != Math.Sign(velocity.X + acceleration.X))
+            {
+                velocity.X = 0;
+                acceleration.X = 0;
+            }
+
+            if (velocity.Y != 0 && Math.Sign(velocity.Y) != Math.Sign(velocity.Y + acceleration.Y))
+            {
+                velocity.Y = 0;
+                acceleration.Y = 0;
+            }
+
+            if (acceleration.X != 0)
+                acceleration.X += (-Math.Sign(velocity.X)) * G;
+
+            if (acceleration.Y != 0)
+                acceleration.Y += (-Math.Sign(velocity.Y)) * G;
+        }
     }
+
+    
 }

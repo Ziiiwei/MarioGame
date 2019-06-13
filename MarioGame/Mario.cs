@@ -19,6 +19,10 @@ namespace Gamespace
         public IPhysics Physics { get; set; }
 
         public Vector2 PositionOnScreen { get; private set; }
+
+        private delegate void PhysicUpdate();
+        private PhysicUpdate physicUpdate;
+
         public Mario(Vector2 positionOnScreen)
         {
             State = new RightStandingMarioState(this);
@@ -26,7 +30,12 @@ namespace Gamespace
             Sprite = SpriteFactory.Instance.GetSprite(this.GetType().Name, State.GetType().Name, PowerUpState.GetType().Name);
             Physics = new Physics(this, positionOnScreen);
             Uid = -1;
-        }
+
+            physicUpdate = () => {
+                Physics.Update();
+                Physics.Stop();
+                };
+    }
 
         public void Draw(SpriteBatch spriteBatch)
         {
@@ -40,7 +49,7 @@ namespace Gamespace
         public void Update()
         {
             Sprite.Update();
-            Physics.Update();
+            physicUpdate();
             PositionOnScreen = Physics.GetPosition();
               
         }

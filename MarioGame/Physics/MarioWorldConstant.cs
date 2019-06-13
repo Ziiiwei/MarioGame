@@ -8,7 +8,7 @@ namespace Gamespace
 {
     public static class MarioWorldConstant
     {
-        public const float G = 0.2f;
+        public const float G = 0.3f;
         public const float MARIO_A = 0.3f;
         public const float MARIO_MAX_V = 2f;
         public const float MARIO_JUMP_V = 3f;
