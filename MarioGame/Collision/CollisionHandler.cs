@@ -23,11 +23,8 @@ namespace Gamespace
 
         public CollisionHandler()
         {
-           
-             collisionActions = JsonParser.Instance.ParseCollisionFile();
-
+            collisionActions = JsonParser.Instance.ParseCollisionFile();
         }
-        
 
         public void HandleCollision(IGameObject mover, IGameObject target)
         {

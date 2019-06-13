@@ -4,9 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Gamespace
+namespace Gamespace.Interfaces
 {
-    class CollisionResponder
+    interface IEnemyState
     {
+        void TakeDamage();
+        void ChangeDirection();
     }
 }

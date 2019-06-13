@@ -42,10 +42,12 @@
     <ApplicationManifest>MarioGame\app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="MarioGame\Blocks\IBlock.cs" />
     <Compile Include="MarioGame\Physics\MarioWorldConstant.cs" />
     <Compile Include="MarioGame\Collision\CollisionResponder.cs" />
     <Compile Include="MarioGame\Commands\EnemyHitHorizontally.cs" />
     <Compile Include="MarioGame\Commands\MarioPowerUp.cs" />
+    <Compile Include="MarioGame\Interfaces\IEnemyState.cs" />
     <Compile Include="MarioGame\StarMario.cs" />
     <Compile Include="MarioGame\Blocks\BrickBlock.cs" />
     <Compile Include="MarioGame\Blocks\FloorBlock.cs" />
@@ -99,7 +101,7 @@
     <Compile Include="MarioGame\Koopa\KoopaMovingLeftState.cs" />
     <Compile Include="MarioGame\Koopa\KoopaMovingRightState.cs" />
     <Compile Include="MarioGame\Koopa\Koopa.cs" />
-    <Compile Include="MarioGame\Items\Pipe.cs" />
+    <Compile Include="MarioGame\Blocks\Pipe.cs" />
     <Compile Include="MarioGame\States\MovingMarioState.cs" />
     <Compile Include="MarioGame\States\LeftCrouchingMarioState.cs" />
     <Compile Include="MarioGame\States\LeftStandingMarioState.cs" />
@@ -126,7 +128,7 @@
     <Compile Include="MarioGame\Controllers\IController.cs" />
     <Compile Include="MarioGame\Sprites\ISprite.cs" />
     <Compile Include="MarioGame\Controllers\KeyboardController.cs" />
-    <Compile Include="MarioGame\Controllers\Gamepad1.cs" />
+    <Compile Include="MarioGame\Controllers\GamepadController.cs" />
     <Compile Include="MarioGame\MarioGame.cs" />
     <Compile Include="MarioGame\Program.cs" />
     <Compile Include="MarioGame\Physics\Physics.cs" />

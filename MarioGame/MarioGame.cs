@@ -57,9 +57,7 @@ namespace Gamespace
             base.Initialize();
             levelLoader = new LevelLoader(World.Instance);
             controllers.Add(new KeyboardController(this));
-
-
-            controllers.Add(new Gamepad1(this));
+            controllers.Add(new GamepadController(this));
             
         }
                 /// <summary>

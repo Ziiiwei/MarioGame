@@ -1,4 +1,5 @@
 ﻿using Gamespace.Commands;
+using Gamespace.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,7 +21,7 @@ namespace Gamespace.Commands
 
         public void Execute()
         {
-            enemy.BeStomped();
+            enemy.TakeDamage();
         }
     }
 }

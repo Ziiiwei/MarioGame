@@ -7,7 +7,7 @@ using Gamespace.Interfaces;
 
 namespace Gamespace.Goombas
 {
-    class RightMovingGoombaState : IGoombaState
+    class RightMovingGoombaState : IEnemyState
     {
         private Goomba goomba;
 
@@ -16,20 +16,14 @@ namespace Gamespace.Goombas
             this.goomba = goomba;
         }
 
-        public void BeStomped()
-        {
-            goomba.State = new StompedGoombaState(goomba);
-            goomba.UpdateArt();
-        }
-
         public void ChangeDirection()
         {
             goomba.State = new LeftMovingGoombaState(goomba);
         }
 
-        public void IsDead()
+        public void TakeDamage()
         {
-            // do nothing
+            goomba.State = new StompedGoombaState(goomba);
         }
     }
 }

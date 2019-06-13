@@ -4,11 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Gamespace.Interfaces
+namespace Gamespace.Blocks
 {
-    interface IEnemy
+    interface IBlock
     {
-        void ChangeDirection();
-        void TakeDamage();
     }
 }
