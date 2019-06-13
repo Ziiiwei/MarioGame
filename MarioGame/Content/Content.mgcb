@@ -116,7 +116,7 @@
 /processorParam:TextureFormat=Color
 /build:Big/StandingRight.png
 
-#begin BigHill.gif
+#begin BigHill.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -126,7 +126,7 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:BigHill.gif
+/build:BigHill.png
 
 #begin BrickBlock.png
 /importer:TextureImporter
@@ -140,7 +140,7 @@
 /processorParam:TextureFormat=Color
 /build:BrickBlock.png
 
-#begin Cloud1.gif
+#begin Cloud1.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -150,9 +150,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Cloud1.gif;Cloud1.png
+/build:Cloud1.png
 
-#begin Cloud2.gif
+#begin Cloud2.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -162,9 +162,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Cloud2.gif;Cloud2.png
+/build:Cloud2.png
 
-#begin Cloud3.gif
+#begin Cloud3.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -174,7 +174,7 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Cloud3.gif;Cloud3.png
+/build:Cloud3.png
 
 #begin Coin.png
 /importer:TextureImporter
@@ -572,7 +572,7 @@
 /processorParam:TextureFormat=Color
 /build:RedShroom.png
 
-#begin SmallHill.gif
+#begin SmallHill.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -582,7 +582,7 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:SmallHill.gif;SmallHill.png
+/build:SmallHill.png
 
 #begin Star.png
 /importer:TextureImporter
