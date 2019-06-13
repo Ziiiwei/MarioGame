@@ -9,7 +9,6 @@ namespace Gamespace
         int Uid { get; }
         ISprite Sprite { get; set; }
         IMarioState State { get; set; }
-        Vector2 PositionOnScreen { get; }
         IMarioPowerUpState PowerUpState { get; set; }
         IPhysics Physics { get; set; }
         void Jump();

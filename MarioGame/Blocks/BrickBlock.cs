@@ -10,14 +10,15 @@ using System.Threading.Tasks;
 
 namespace Gamespace.Blocks
 {
-    internal class BrickBlock : AbstractGameObject
+    internal class BrickBlock : Block
     {
         public BrickBlock(Vector2 positionOnScreen) : base(positionOnScreen)
         {
         }
 
-        public void MarioHitBlock()
+        public override void Destroy()
         {
+            World.Instance.RemoveFromWorld(this.Uid);
         }
     }
 }

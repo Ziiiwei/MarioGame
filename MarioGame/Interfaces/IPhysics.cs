@@ -20,6 +20,8 @@ namespace Gamespace
         void SpeedUp();
         void SlowDown();
         void Update();
+
+        void Stop();
         void LeftStop(Rectangle collisionArea);
         void RightStop(Rectangle collisionArea);
         void UpStop(Rectangle collisionArea);

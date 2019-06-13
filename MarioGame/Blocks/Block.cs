@@ -8,18 +8,27 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Gamespace.Blocks
 {
-    public class Block : AbstractGameObject
+    public class Block : AbstractGameObject, IBlock
     {
 
         public Block(Vector2 positionOnScreen) : base(positionOnScreen)
         {
-            SetSprite();
+        }
+
+        public virtual void Bump()
+        {
             
         }
 
-        public void MarioHitBlock()
+        public virtual void Destroy()
         {
+            //do nothing
+        }
 
+        public virtual void MarioHitBlock()
+        {
+            Bump();
+            Destroy();
         }
       
     }

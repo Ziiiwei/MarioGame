@@ -7,16 +7,12 @@ using System.Threading.Tasks;
 
 namespace Gamespace.Blocks
 {
-    class UsedBlock : AbstractGameObject
+    class UsedBlock : Block
     {
         public UsedBlock(Vector2 positionOnScreen) : base(positionOnScreen)
         {
 
         }
 
-        public void MarioHitBlock()
-        {
-
-        }
     }
 }
