@@ -6,7 +6,6 @@ namespace Gamespace
 {
     public interface IMario : IGameObject
     {
-        int Uid { get; }
         ISprite Sprite { get; set; }
         IMarioState State { get; set; }
         IMarioPowerUpState PowerUpState { get; set; }

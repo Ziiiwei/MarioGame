@@ -11,11 +11,9 @@ namespace Gamespace.Sprites
     public interface ISprite
     {
         void Update();
-       
+        void Draw(SpriteBatch spriteBatch, Vector2 positionOnScreen);
         Tuple<Texture2D, Rectangle> GetSprite();
-        Texture2D GetTexture();
-        Rectangle GetRectangle();//return corrent frame
-        int FrameCount();
+        Rectangle GetRectangle();
         int Width { get; }
         int Height { get; }
     }

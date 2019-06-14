@@ -29,7 +29,6 @@ namespace Gamespace
             this.mario.PowerUpState = new StarMarioState();
         }
         
-
         public void Draw(SpriteBatch spriteBatch)
         {
             mario.Draw(spriteBatch);

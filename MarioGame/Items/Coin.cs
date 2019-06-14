@@ -17,15 +17,6 @@ namespace Gamespace.Items
         {
         }
 
-        public void Draw(SpriteBatch spriteBatch)
-        {
-
-        }
-        public void Update()
-        {
-
-        }
-
         public void Consume()
         {
 

@@ -17,9 +17,9 @@ namespace Gamespace
     public class JsonParser
     {
         private static readonly JsonParser instance = new JsonParser();
-        private readonly String collisionActionsPath = "MarioGame/Data/CollisionActions.json";
-        private readonly String statefulCollisionActionsPath = "MarioGame/Data/StatefulCollisionActions.json";
-        private readonly String levelObjectsPath = "MarioGame/Data/Level1.json";
+        private readonly string collisionActionsPath = "MarioGame/Data/CollisionActions.json";
+        private readonly string statefulCollisionActionsPath = "MarioGame/Data/StatefulCollisionActions.json";
+        private readonly string levelObjectsPath = "MarioGame/Data/Level1.json";
 
         static JsonParser()
         {
@@ -39,11 +39,11 @@ namespace Gamespace
 
         protected class CollisionDeserializedObject
         {
-            public String Mover { get; set; }
-            public String Target { get; set; }
-            public String Side { get; set; }
-            public String Command1 { get; set; }
-            public String Command2 { get; set; }
+            public string Mover { get; set; }
+            public string Target { get; set; }
+            public string Side { get; set; }
+            public string Command1 { get; set; }
+            public string Command2 { get; set; }
         }
 
         protected class CollisionDeserializedObjectRoot
@@ -84,10 +84,10 @@ namespace Gamespace
         protected class LevelDeserializedObject
         {
             public int Uid { get; set; }
-            public String T { get; set; }
+            public string T { get; set; }
             public int X { get; set; }
             public int Y { get; set; }
-            public String State { get; set; }
+            public string State { get; set; }
         }
 
         protected class LevelDeserializedObjectRoot

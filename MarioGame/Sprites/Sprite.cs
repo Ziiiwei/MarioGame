@@ -40,6 +40,11 @@ namespace Gamespace
             this.delayBound = delayBound;
 
         }
+
+        public void Draw(SpriteBatch spriteBatch, Vector2 positionOnScreen)
+        {
+            spriteBatch.Draw(texture, positionOnScreen, rectangles[currentFrame], color: Color.White);
+        }
         public void Update()
         {
             delayCounter += 1;
@@ -53,17 +58,6 @@ namespace Gamespace
         public Tuple<Texture2D, Rectangle> GetSprite()
         {
             return new Tuple<Texture2D, Rectangle>(texture, rectangles[currentFrame]);
-        }
-
-        public Texture2D GetTexture()
-        {
-            return texture;
-        }
-
-
-        public int FrameCount()
-        {
-            return totalFrames;
         }
 
         public Rectangle GetRectangle()

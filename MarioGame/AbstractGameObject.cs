@@ -33,8 +33,7 @@ namespace Gamespace
         public void Draw(SpriteBatch spriteBatch)
         {
 
-            spriteBatch.Draw(texture: Sprite.GetTexture(), position: PositionOnScreen,
-                sourceRectangle: Sprite.GetRectangle(), color: Color.White);
+            Sprite.Draw(spriteBatch, PositionOnScreen);
         }
 
         public void Update()

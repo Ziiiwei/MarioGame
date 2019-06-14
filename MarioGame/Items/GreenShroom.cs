@@ -11,9 +11,6 @@ namespace Gamespace.Items
 {
     class GreenShroom : AbstractGameObject
     {
-        private ISprite sprite;
-        private Vector2 location;
-
         public GreenShroom(Vector2 positionOnScreen) : base(positionOnScreen)
         {
 

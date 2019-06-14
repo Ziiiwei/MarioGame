@@ -11,14 +11,14 @@ namespace Gamespace.Controllers
 {
     class KeyboardController : IController
     {
-        private Dictionary<String, ICommand> keyCommands;
+        private Dictionary<string, ICommand> keyCommands;
         private Keys[] previouslyPressed;
-        private List<String> commandToExcute;
+        private List<string> commandToExcute;
 
         public KeyboardController(MarioGame game)
         {
 
-            keyCommands = new Dictionary<String, ICommand>();
+            keyCommands = new Dictionary<string, ICommand>();
             keyCommands.Add("Q_Click", new QuitGame(game));
 
             keyCommands.Add("W_Release", new MarioCrouchCommand(World.Instance.Mario));
@@ -56,7 +56,7 @@ namespace Gamespace.Controllers
             keyCommands.Add("R_Click", new Reset(game));
  
 
-            commandToExcute = new List<String>();
+            commandToExcute = new List<string>();
             previouslyPressed = new Keys[0];
         }
 
