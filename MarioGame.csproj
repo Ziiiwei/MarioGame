@@ -43,6 +43,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="MarioGame\Blocks\IBlock.cs" />
+    <Compile Include="MarioGame\Collision\TypeTranslator.cs" />
     <Compile Include="MarioGame\Commands\EnemyHitHorizontally.cs" />
     <Compile Include="MarioGame\Commands\MarioPowerUp.cs" />
     <Compile Include="MarioGame\Interfaces\IEnemyState.cs" />
@@ -169,6 +170,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="MarioGame\Data\SpriteFactoryData.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="MarioGame\Data\StatefulCollisionActions.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="README.md" />

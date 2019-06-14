@@ -1,0 +1,25 @@
+﻿{
+  "Entries": [
+     {
+      "Mover": "Gamespace.States.MarioSmallState",
+      "Target": "Gamespace.Blocks.BrickBlock",
+      "Side": "Up",
+      "Command1": "Gamespace.Commands.PushMarioUp",
+      "Command2": "Gamespace.Commands.NullCommand"
+    },
+	{
+      "Mover": "Gamespace.States.MarioSuperState",
+      "Target": "Gamespace.Blocks.BrickBlock",
+      "Side": "Up",
+      "Command1": "Gamespace.Commands.NullCommand",
+      "Command2": "Gamespace.Commands.HitBlock"
+    },
+	{
+      "Mover": "Gamespace.States.MarioFireState",
+      "Target": "Gamespace.Blocks.BrickBlock",
+      "Side": "Up",
+      "Command1": "Gamespace.Commands.NullCommand",
+      "Command2": "Gamespace.Commands.HitBlock"
+    }
+	]
+}

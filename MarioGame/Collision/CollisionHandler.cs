@@ -9,13 +9,16 @@ using Gamespace.Goombas;
 using Gamespace.Blocks;
 using Gamespace.Items;
 using Gamespace.Koopas;
+using Gamespace.Collision;
 
 namespace Gamespace
 {
     class CollisionHandler
     {
         /* Side is relative to the second IGameObject in the tuple */
-        private Dictionary<Tuple<Type, Type, Side>, Tuple<Type, Type>> collisionActions;
+        private Dictionary<Tuple<Type, Type, Side>, (Type, Type)> collisionActions;
+        private Dictionary<(Type, Type), Func<IGameObject, IGameObject, (Type, Type)>> translator;
+        private Dictionary<Tuple<Type, Type, Side>, (Type, Type)> statefulCollisionActions;
         public enum Side : int { None, Up, Down, Left, Right };
         static CollisionHandler()
         {
@@ -24,6 +27,9 @@ namespace Gamespace
         public CollisionHandler()
         {
             collisionActions = JsonParser.Instance.ParseCollisionFile();
+            translator = new Dictionary<(Type, Type), Func<IGameObject, IGameObject, (Type, Type)>>();
+            translator.Add((typeof(Mario), typeof(BrickBlock)), new Func<IGameObject, IGameObject, (Type, Type)>(TypeTranslator.MarioBlockTranslator));
+            statefulCollisionActions = JsonParser.Instance.ParseCollisionStatefulFile();
         }
 
         public void HandleCollision(IGameObject mover, IGameObject target)
@@ -34,22 +40,34 @@ namespace Gamespace
             }
 
             (Side, Rectangle) directionAndArea = DetectCollision(mover, target);
+            Side side = directionAndArea.Item1;
+            Rectangle collisionArea = directionAndArea.Item2;
 
             Tuple<Type, Type, Side> key = new Tuple<Type, Type, Side>(mover.GetType(),
-                target.GetType(), directionAndArea.Item1);
+            target.GetType(), directionAndArea.Item1);
 
-            if (collisionActions.ContainsKey(key))
+            Action<Dictionary<Tuple<Type, Type, Side>, (Type, Type)>> launchCommand = (actions) =>
             {
-                Type object1Type = collisionActions[key].Item1;
-                Type object2Type = collisionActions[key].Item2;
+                Type object1Type = actions[key].Item1;
+                Type object2Type = actions[key].Item2;
 
-                Rectangle collisionArea = directionAndArea.Item2;
-
-                ICommand collisionMember1 = (ICommand) Activator.CreateInstance(object1Type, mover, new CollisionData(collisionArea));
-                ICommand collisionMember2 = (ICommand) Activator.CreateInstance(object2Type, target, new CollisionData(collisionArea));
+                ICommand collisionMember1 = (ICommand)Activator.CreateInstance(object1Type, mover, new CollisionData(collisionArea));
+                ICommand collisionMember2 = (ICommand)Activator.CreateInstance(object2Type, target, new CollisionData(collisionArea));
 
                 collisionMember1.Execute();
                 collisionMember2.Execute();
+            };
+
+            if (collisionActions.ContainsKey(key))
+            {
+                launchCommand(collisionActions);
+            }
+            else if (translator.ContainsKey((mover.GetType(), target.GetType())))
+            {
+                Delegate translatorValue = translator[(mover.GetType(), target.GetType())];
+                (Type, Type) statefulActionsKey = ((Type, Type)) translatorValue.DynamicInvoke(mover, target);
+                key = new Tuple<Type, Type, Side>(statefulActionsKey.Item1, statefulActionsKey.Item2, side);
+                launchCommand(statefulCollisionActions);
             }
 
         }

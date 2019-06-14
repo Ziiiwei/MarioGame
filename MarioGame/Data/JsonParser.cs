@@ -18,6 +18,7 @@ namespace Gamespace
     {
         private static readonly JsonParser instance = new JsonParser();
         private readonly String collisionActionsPath = "MarioGame/Data/CollisionActions.json";
+        private readonly String statefulCollisionActionsPath = "MarioGame/Data/StatefulCollisionActions.json";
         private readonly String levelObjectsPath = "MarioGame/Data/Level1.json";
 
         static JsonParser()
@@ -49,14 +50,14 @@ namespace Gamespace
         {
             public List<CollisionDeserializedObject> Entries { get; set; }
         }
-        internal Dictionary<Tuple<Type, Type, CollisionHandler.Side>, Tuple<Type, Type>> ParseCollisionFile()
+        private Dictionary<Tuple<Type, Type, CollisionHandler.Side>, (Type, Type)> ParseCollisionFile(string path)
         {
-            StreamReader reader = File.OpenText(collisionActionsPath);
+            StreamReader reader = File.OpenText(path);
             JavaScriptSerializer javaScriptSerializer = new JavaScriptSerializer();
             var magicNumbers = javaScriptSerializer.Deserialize<CollisionDeserializedObjectRoot>(reader.ReadToEnd());
             reader.Close();
 
-            var collisionActions = new Dictionary<Tuple<Type, Type, CollisionHandler.Side>, Tuple<Type, Type>>();
+            var collisionActions = new Dictionary<Tuple<Type, Type, CollisionHandler.Side>, (Type, Type)>();
 
             foreach (var cdo in magicNumbers.Entries)
             {
@@ -64,10 +65,20 @@ namespace Gamespace
                 Type obj2 = Type.GetType(cdo.Target);
                 CollisionHandler.Side Side = (CollisionHandler.Side) Enum.Parse(typeof(CollisionHandler.Side), cdo.Side);
                 var key = new Tuple<Type, Type, CollisionHandler.Side>(obj1, obj2, Side);
-                var value = new Tuple<Type, Type>(Type.GetType(cdo.Command1), Type.GetType(cdo.Command2));
+                var value = (Type.GetType(cdo.Command1), Type.GetType(cdo.Command2));
                 collisionActions.Add(key, value);
             }
             return collisionActions;
+        }
+
+        internal Dictionary<Tuple<Type, Type, CollisionHandler.Side>, (Type, Type)> ParseCollisionFile()
+        {
+            return ParseCollisionFile(collisionActionsPath);
+        }
+
+        internal Dictionary<Tuple<Type, Type, CollisionHandler.Side>, (Type, Type)> ParseCollisionStatefulFile()
+        {
+            return ParseCollisionFile(statefulCollisionActionsPath);
         }
 
         protected class LevelDeserializedObject

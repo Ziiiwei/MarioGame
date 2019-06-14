@@ -1,19 +1,41 @@
 ﻿{
   "Entries": [
-    {
+     {
       "Mover": "Gamespace.Mario",
-      "Target": "Gamespace.Blocks.BrickBlock",
+      "Target": "Gamespace.Blocks.UsedBlock",
       "Side": "Down",
       "Command1": "Gamespace.Commands.PushMarioDown",
       "Command2": "Gamespace.Commands.NullCommand"
     },
     {
       "Mover": "Gamespace.Mario",
-      "Target": "Gamespace.Blocks.BrickBlock",
+      "Target": "Gamespace.Blocks.UsedBlock",
       "Side": "Up",
       "Command1": "Gamespace.Commands.PushMarioUp",
-      "Command2": "Gamespace.Commands.HitBlock"
+      "Command2": "Gamespace.Commands.NullCommand"
     },
+    {
+      "Mover": "Gamespace.Mario",
+      "Target": "Gamespace.Blocks.UsedBlock",
+      "Side": "Left",
+      "Command1": "Gamespace.Commands.PushMarioLeft",
+      "Command2": "Gamespace.Commands.NullCommand"
+    },
+    {
+      "Mover": "Gamespace.Mario",
+      "Target": "Gamespace.Blocks.UsedBlock",
+      "Side": "Right",
+      "Command1": "Gamespace.Commands.PushMarioRight",
+      "Command2": "Gamespace.Commands.NullCommand"
+    },
+	{
+      "Mover": "Gamespace.Mario",
+      "Target": "Gamespace.Blocks.BrickBlock",
+      "Side": "Down",
+      "Command1": "Gamespace.Commands.PushMarioDown",
+      "Command2": "Gamespace.Commands.NullCommand"
+    },
+
     {
       "Mover": "Gamespace.Mario",
       "Target": "Gamespace.Blocks.BrickBlock",
