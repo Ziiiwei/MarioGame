@@ -15,11 +15,8 @@ namespace Gamespace
         public Vector2 acceleration;
         public IGameObject gameObject { get; set; }
 
-
         //default acceleration for left and right move
-
         private float maxSpeed_pf = MarioWorldConstant.MARIO_MAX_V; //pix per frame
-        private float jumpSpeed_pf = MarioWorldConstant.MARIO_JUMP_V; //pix per frame
         // Invariant: G < A
         public const float G = MarioWorldConstant.G; //the G of the marioward 
         public const float A = MarioWorldConstant.MARIO_A; //the default movement A
@@ -130,7 +127,7 @@ namespace Gamespace
                 position.Y = 0;
             else if (position.Y <= 0)
                 position.Y = MarioWorldConstant.GAME_WINDOW_HEIGHT / MarioWorldConstant.SCALE;
-        }
+        } 
         public void Stop()
         {
             if (velocity.X != 0 && Math.Sign(velocity.X) != Math.Sign(velocity.X + acceleration.X))
