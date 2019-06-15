@@ -23,9 +23,5 @@ namespace Gamespace
             Sprite = SpriteFactory.Instance.GetSprite(this.GetType().Name, State.GetType().Name, "");
         }
 
-        internal new void Update()
-        {
-            SetSprite();
-        }
     }
 }

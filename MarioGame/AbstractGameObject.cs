@@ -36,7 +36,7 @@ namespace Gamespace
             Sprite.Draw(spriteBatch, PositionOnScreen);
         }
 
-        public void Update()
+        public virtual void Update()
         {
             Sprite.Update();
         }
@@ -54,7 +54,7 @@ namespace Gamespace
             return new Vector2(PositionOnScreen.X + width, PositionOnScreen.Y + height);
         }
 
-        protected virtual void SetSprite()
+        protected void SetSprite()
         {
             Sprite = SpriteFactory.Instance.GetSprite(this.GetType().Name, "", "");
         }

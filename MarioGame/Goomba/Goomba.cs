@@ -9,8 +9,8 @@ namespace Gamespace.Goombas
 {
     internal class Goomba : AbstractGameStatefulObject<IEnemyState>, IEnemy
     {
-        protected int StompTimer { get; set; }
-        protected int StompTimerBound { get; }
+        private int stompTimer = 0;
+        private readonly int stompTimerBound = 20;
 
         public Goomba (Vector2 positionOnScreen) : base(positionOnScreen)
         {
@@ -31,6 +31,23 @@ namespace Gamespace.Goombas
         public void TakeDamage()
         {
             State = new StompedGoombaState(this);
+        }
+
+        public override void Update()
+        {
+            if (State.GetType() == typeof(StompedGoombaState))
+            {
+                if (stompTimer == stompTimerBound)
+                {
+                    World.Instance.RemoveFromWorld(Uid);
+                    return;
+                }
+                else
+                {
+                    stompTimer++;
+                }
+            }
+            Sprite.Update();
         }
     }
 }
