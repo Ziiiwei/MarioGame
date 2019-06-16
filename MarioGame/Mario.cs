@@ -33,9 +33,10 @@ namespace Gamespace
 
             
             physicUpdate = () => {
+                Physics.FreeFall();
                 Physics.Update();
                 Physics.Stop();
-                };
+            };
             
     }
 
