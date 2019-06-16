@@ -64,21 +64,25 @@ namespace Gamespace
         public virtual void CollideLeft(Rectangle collisionArea)
         {
             GameObjectPhysics.LeftStop(collisionArea);
+            PositionOnScreen = GameObjectPhysics.GetPosition();
         }
 
         public virtual void CollideRight(Rectangle collisionArea)
         {
             GameObjectPhysics.RightStop(collisionArea);
+            PositionOnScreen = GameObjectPhysics.GetPosition();
         }
 
         public virtual void CollideUp(Rectangle collisionArea)
         {
             GameObjectPhysics.UpStop(collisionArea);
+            PositionOnScreen = GameObjectPhysics.GetPosition();
         }
 
         public virtual void CollideDown(Rectangle collisionArea)
         {
             GameObjectPhysics.DownStop(collisionArea);
+            PositionOnScreen = GameObjectPhysics.GetPosition();
         }
     }
 }

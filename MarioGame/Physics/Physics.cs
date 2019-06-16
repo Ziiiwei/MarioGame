@@ -95,15 +95,16 @@ namespace Gamespace
 
         public void Update()
         {
+            FreeFall();
+
             velocity.X = MinimumMagnitude(velocity.X + acceleration.X, Math.Sign(acceleration.X) * maxSpeed_pf);
             velocity.Y = MinimumMagnitude(velocity.Y + acceleration.Y, Math.Sign(acceleration.Y) * maxSpeed_pf);
 
             position.X += (int)Math.Ceiling(velocity.X);
             position.Y += (int)Math.Ceiling(velocity.Y);
 
-            //FreeFall();
             Loop();
-            //Stop();
+            Stop();
         }
 
         public Vector2 GetPosition()

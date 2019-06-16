@@ -48,8 +48,8 @@ namespace Gamespace
         public void Update()
         {
             Sprite.Update();
-            physicUpdate();
-            //Physics.Update();
+            //physicUpdate();
+            Physics.Update();
             PositionOnScreen = Physics.GetPosition();
               
         }
@@ -103,20 +103,24 @@ namespace Gamespace
         public void CollideLeft(Rectangle collisionArea)
         {
             Physics.LeftStop(collisionArea);
+            PositionOnScreen = Physics.GetPosition();
         }
 
         public void CollideRight(Rectangle collisionArea)
         {
             Physics.RightStop(collisionArea);
+            PositionOnScreen = Physics.GetPosition();
         }
 
         public void CollideUp(Rectangle collisionArea)
         {
             Physics.UpStop(collisionArea);
+            PositionOnScreen = Physics.GetPosition();
         }
         public void CollideDown(Rectangle collisionArea)
         {
             Physics.DownStop(collisionArea);
+            PositionOnScreen = Physics.GetPosition();
         }
 
         public Vector2 GetCenter()

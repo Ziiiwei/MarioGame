@@ -18,13 +18,13 @@ namespace Gamespace
     {
         private static readonly World instance = new World();
         public Dictionary<int, IGameObject> objectsInWorld;
-        private List<IGameObject> objectsToAdd;
-        private List<int> objectsToRemove;
-        private List<IGameObject> collisionMovers;
-        private List<IGameObject> collisionReceivers;
-        private List<Type> collisionMoverClassifier;
+        private readonly List<IGameObject> objectsToAdd;
+        private readonly List<int> objectsToRemove;
+        private readonly List<IGameObject> collisionMovers;
+        private readonly List<IGameObject> collisionReceivers;
+        private readonly List<Type> collisionMoverClassifier;
         public IMario Mario { get; set; }
-        private CollisionHandler collisionHandler;
+        private readonly CollisionHandler collisionHandler;
 
         private World()
         {
@@ -34,9 +34,11 @@ namespace Gamespace
             collisionMovers = new List<IGameObject>();
             collisionReceivers = new List<IGameObject>();
 
-            collisionMoverClassifier = new List<Type>();
-            collisionMoverClassifier.Add(typeof(IMario));
-            collisionMoverClassifier.Add(typeof(Goomba));
+            collisionMoverClassifier = new List<Type>
+            {
+                typeof(Mario),
+                typeof(Goomba)
+            };
 
             collisionHandler = new CollisionHandler();
         }
@@ -84,6 +86,10 @@ namespace Gamespace
                 {
                     collisionMovers.Remove(objectsInWorld[i]);
                 }
+                else
+                {
+                    collisionReceivers.Remove(objectsInWorld[i]);
+                }
                 objectsInWorld.Remove(i);
             }
 
@@ -101,7 +107,15 @@ namespace Gamespace
 
             foreach (IGameObject mover in collisionMovers)
             {
-                foreach (IGameObject receiver in objectsInWorld.Values)
+                foreach (IGameObject otherMover in collisionMovers)
+                {
+                    if (mover != otherMover)
+                    {
+                        collisionHandler.HandleCollision(mover, otherMover);
+                    }
+                }
+                
+                foreach (IGameObject receiver in collisionReceivers)
                 {
                     collisionHandler.HandleCollision(mover, receiver);
                 }
@@ -127,7 +141,10 @@ namespace Gamespace
         public void ClearWorld()
         {
             this.objectsInWorld.Clear();
+            this.objectsToAdd.Clear();
             this.objectsToRemove.Clear();
+            this.collisionMovers.Clear();
+            this.collisionReceivers.Clear();
         }
     }
 }
