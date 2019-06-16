@@ -14,6 +14,7 @@ namespace Gamespace.Goombas
         public StompedGoombaState(Goomba goomba)
         {
             this.goomba = goomba;
+            this.goomba.GameObjectPhysics.Stop();
             goomba.UpdateArt();
         }
 

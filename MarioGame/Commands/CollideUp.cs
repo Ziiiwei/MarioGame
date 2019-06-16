@@ -1,5 +1,6 @@
 ﻿using Gamespace;
 using Gamespace.Commands;
+using Gamespace.Interfaces;
 using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
@@ -9,20 +10,20 @@ using System.Threading.Tasks;
 
 namespace Gamespace.Commands
 {
-    class PushMarioUp : ICommand
+    class CollideUp : ICommand
     {
-        IMario mario;
+        ICollidable collidable;
         CollisionData collisionData;
 
-        public PushMarioUp(IMario mario, CollisionData collisionData)
+        public CollideUp(ICollidable collidable, CollisionData collisionData)
         {
-            this.mario = mario;
+            this.collidable = collidable;
             this.collisionData = collisionData;
         }
 
         public void Execute()
         {
-            mario.CollideUp(collisionData.CollisionArea);
+            collidable.CollideUp(collisionData.CollisionArea);
         }
     }
 }

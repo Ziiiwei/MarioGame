@@ -4,7 +4,7 @@
       "Mover": "Gamespace.States.MarioSmallState",
       "Target": "Gamespace.Blocks.BrickBlock",
       "Side": "Up",
-      "Command1": "Gamespace.Commands.PushMarioUp",
+      "Command1": "Gamespace.Commands.CollideUp",
       "Command2": "Gamespace.Commands.NullCommand"
     },
 	{

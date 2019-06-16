@@ -16,9 +16,10 @@ namespace Gamespace
         public AbstractGameStatefulObject(Vector2 positionOnScreen) : base()
         {
             this.PositionOnScreen = positionOnScreen;
+            GameObjectPhysics = new Physics(this, PositionOnScreen);
         }
 
-        protected new void SetSprite()
+        protected override void SetSprite()
         {
             Sprite = SpriteFactory.Instance.GetSprite(this.GetType().Name, State.GetType().Name, "");
         }

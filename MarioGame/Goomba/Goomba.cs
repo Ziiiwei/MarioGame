@@ -48,6 +48,30 @@ namespace Gamespace.Goombas
                 }
             }
             Sprite.Update();
+
+            // This can be reworked by adding this CONSTANT ACCEL functionality into Physics.
+            if (State.GetType() == typeof(LeftMovingGoombaState))
+            {
+                GameObjectPhysics.MoveLeft();
+            }
+            else if (State.GetType() == typeof(RightMovingGoombaState))
+            {
+                GameObjectPhysics.MoveRight();
+            }
+            GameObjectPhysics.Update();
+            PositionOnScreen = GameObjectPhysics.GetPosition();
+        }
+
+        public override void CollideLeft(Rectangle collisionArea)
+        {
+            base.CollideLeft(collisionArea);
+            ChangeDirection();
+        }
+
+        public override void CollideRight(Rectangle collisionArea)
+        {
+            base.CollideRight(collisionArea);
+            ChangeDirection();
         }
     }
 }

@@ -7,17 +7,17 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
 using Gamespace.Sprites;
 using Gamespace.States;
+using Gamespace.Interfaces;
 
 namespace Gamespace
 {
-    public class Mario : IMario
+    public class Mario : IMario, ICollidable
     {
         public int Uid { get; }
         public ISprite Sprite { get; set; }
         public IMarioState State { get; set; }
         public IMarioPowerUpState PowerUpState { get; set; }
         public IPhysics Physics { get; set; }
-
         public Vector2 PositionOnScreen { get; private set; }
 
         private delegate void PhysicUpdate();
@@ -31,10 +31,12 @@ namespace Gamespace
             Physics = new Physics(this, positionOnScreen);
             Uid = -1;
 
+            
             physicUpdate = () => {
                 Physics.Update();
                 Physics.Stop();
                 };
+            
     }
 
         public void Draw(SpriteBatch spriteBatch)
@@ -46,6 +48,7 @@ namespace Gamespace
         {
             Sprite.Update();
             physicUpdate();
+            //Physics.Update();
             PositionOnScreen = Physics.GetPosition();
               
         }

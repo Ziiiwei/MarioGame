@@ -1,6 +1,8 @@
 ﻿/* Idea for JSON layout taken from https://stackoverflow.com/questions/16339167/how-do-i-deserialize-a-complex-json-object-in-c-sharp-net
  * and from comments Dean made in class */
 using Gamespace.Blocks;
+using Gamespace.Goombas;
+using Gamespace.Interfaces;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
@@ -18,6 +20,9 @@ namespace Gamespace
         public Dictionary<int, IGameObject> objectsInWorld;
         private List<IGameObject> objectsToAdd;
         private List<int> objectsToRemove;
+        private List<IGameObject> collisionMovers;
+        private List<IGameObject> collisionReceivers;
+        private List<Type> collisionMoverClassifier;
         public IMario Mario { get; set; }
         private CollisionHandler collisionHandler;
 
@@ -26,6 +31,13 @@ namespace Gamespace
             objectsInWorld = new Dictionary<int, IGameObject>();
             objectsToAdd = new List<IGameObject>();
             objectsToRemove = new List<int>();
+            collisionMovers = new List<IGameObject>();
+            collisionReceivers = new List<IGameObject>();
+
+            collisionMoverClassifier = new List<Type>();
+            collisionMoverClassifier.Add(typeof(IMario));
+            collisionMoverClassifier.Add(typeof(Goomba));
+
             collisionHandler = new CollisionHandler();
         }
 
@@ -45,11 +57,18 @@ namespace Gamespace
             if (gameObject.GetType() == typeof(Mario))
             {
                 Mario = (Mario) gameObject;
+                collisionMovers.Add(gameObject);
+
+            }
+            else if (collisionMoverClassifier.Contains(gameObject.GetType()))
+            {
+                collisionMovers.Add(gameObject);
             }
             else
             {
-                objectsToAdd.Add(gameObject);
+                collisionReceivers.Add(gameObject);
             }
+            objectsToAdd.Add(gameObject);
         }
 
         public void UpdateWorld()
@@ -61,24 +80,31 @@ namespace Gamespace
 
             foreach (int i in objectsToRemove)
             {
+                if (collisionMovers.Contains(objectsInWorld[i]))
+                {
+                    collisionMovers.Remove(objectsInWorld[i]);
+                }
                 objectsInWorld.Remove(i);
             }
 
             objectsToAdd.Clear();
             objectsToRemove.Clear();
 
+            //Mario.Update();
+
+            /* The instigator is the first object, then target. */
+
             foreach (IGameObject gameObject in objectsInWorld.Values)
             {
                 gameObject.Update();
             }
-            
-            Mario.Update();
-            
-            /* The instigator is the first object, then target */
 
-            foreach (IGameObject obj in objectsInWorld.Values)
+            foreach (IGameObject mover in collisionMovers)
             {
-                collisionHandler.HandleCollision(Mario, obj);
+                foreach (IGameObject receiver in objectsInWorld.Values)
+                {
+                    collisionHandler.HandleCollision(mover, receiver);
+                }
             }
         }
 
@@ -89,15 +115,13 @@ namespace Gamespace
                 gameObject.Draw(spriteBatch);
             }
 
-            Mario.Draw(spriteBatch);
+            //Mario.Draw(spriteBatch);
         }
 
         public void RemoveFromWorld(int uid)
         {
             objectsToRemove.Add(uid);
         }
-
-
 
         // Thanks Kirby!
         public void ClearWorld()

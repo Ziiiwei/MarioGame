@@ -101,7 +101,9 @@ namespace Gamespace
             position.X += (int)Math.Ceiling(velocity.X);
             position.Y += (int)Math.Ceiling(velocity.Y);
 
+            //FreeFall();
             Loop();
+            //Stop();
         }
 
         public Vector2 GetPosition()

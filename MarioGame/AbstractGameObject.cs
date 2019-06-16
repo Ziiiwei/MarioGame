@@ -1,4 +1,5 @@
-﻿using Gamespace.Sprites;
+﻿using Gamespace.Interfaces;
+using Gamespace.Sprites;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
@@ -9,13 +10,13 @@ using System.Threading.Tasks;
 
 namespace Gamespace
 {
-    public class AbstractGameObject : IGameObject
+    public class AbstractGameObject : IGameObject, ICollidable
     {
         protected static int counter = 0;
         public int Uid { get; protected set; }
         public ISprite Sprite { get; protected set; }
         public Vector2 PositionOnScreen { get; protected set; }
-
+        public IPhysics GameObjectPhysics { get; protected set; }
 
         public AbstractGameObject()
         {
@@ -29,6 +30,7 @@ namespace Gamespace
             this.PositionOnScreen = positionOnScreen;
             Uid = counter;
             counter++;
+            GameObjectPhysics = new Physics(this, positionOnScreen); 
         }
         public void Draw(SpriteBatch spriteBatch)
         {
@@ -54,10 +56,29 @@ namespace Gamespace
             return new Vector2(PositionOnScreen.X + width, PositionOnScreen.Y + height);
         }
 
-        protected void SetSprite()
+        protected virtual void SetSprite()
         {
             Sprite = SpriteFactory.Instance.GetSprite(this.GetType().Name, "", "");
         }
 
+        public virtual void CollideLeft(Rectangle collisionArea)
+        {
+            GameObjectPhysics.LeftStop(collisionArea);
+        }
+
+        public virtual void CollideRight(Rectangle collisionArea)
+        {
+            GameObjectPhysics.RightStop(collisionArea);
+        }
+
+        public virtual void CollideUp(Rectangle collisionArea)
+        {
+            GameObjectPhysics.UpStop(collisionArea);
+        }
+
+        public virtual void CollideDown(Rectangle collisionArea)
+        {
+            GameObjectPhysics.DownStop(collisionArea);
+        }
     }
 }

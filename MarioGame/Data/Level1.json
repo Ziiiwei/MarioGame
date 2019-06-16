@@ -27,7 +27,7 @@
     {
       "T": "Gamespace.Mario",
       "X": 50,
-      "Y": 150,
+      "Y": 175,
       "State": "null"
     },
     {
@@ -74,8 +74,8 @@
     },
     {
       "T": "Gamespace.Goombas.Goomba",
-      "X": 100,
-      "Y": 200,
+      "X": 37,
+      "Y": 150,
       "State": "null"
     },
     {
@@ -95,6 +95,91 @@
       "X": 360,
       "Y": 100,
       "State": "null"
+    },    
+	{
+      "T": "Gamespace.Blocks.FloorBlock",
+      "X": 0,
+      "Y": 175,
+      "State": "null"
+    },
+		{
+      "T": "Gamespace.Blocks.FloorBlock",
+      "X": 16,
+      "Y": 175,
+      "State": "null"
+    },
+		{
+      "T": "Gamespace.Blocks.FloorBlock",
+      "X": 32,
+      "Y": 175,
+      "State": "null"
+    },
+		{
+      "T": "Gamespace.Blocks.FloorBlock",
+      "X": 48,
+      "Y": 175,
+      "State": "null"
+    },
+	{
+      "T": "Gamespace.Blocks.FloorBlock",
+      "X": 64,
+      "Y": 175,
+      "State": "null"
+    },
+	{
+      "T": "Gamespace.Blocks.FloorBlock",
+      "X": 80,
+      "Y": 175,
+      "State": "null"
+    },
+	{
+      "T": "Gamespace.Blocks.FloorBlock",
+      "X": 96,
+      "Y": 175,
+      "State": "null"
+    },
+	{
+      "T": "Gamespace.Blocks.FloorBlock",
+      "X": 112,
+      "Y": 175,
+      "State": "null"
+    },
+	{
+      "T": "Gamespace.Blocks.FloorBlock",
+      "X": 128,
+      "Y": 175,
+      "State": "null"
+    },
+	{
+      "T": "Gamespace.Blocks.FloorBlock",
+      "X": 144,
+      "Y": 175,
+      "State": "null"
+    },
+	{
+      "T": "Gamespace.Blocks.FloorBlock",
+      "X": 160,
+      "Y": 175,
+      "State": "null"
+    },
+	{
+      "T": "Gamespace.Blocks.FloorBlock",
+      "X": 176,
+      "Y": 175,
+      "State": "null"
+    },
+	{
+      "T": "Gamespace.Blocks.FloorBlock",
+      "X": 0,
+      "Y": 159,
+      "State": "null"
+    },
+	{
+      "T": "Gamespace.Blocks.FloorBlock",
+      "X": 100,
+      "Y": 159,
+      "State": "null"
     }
+
   ]
 }
