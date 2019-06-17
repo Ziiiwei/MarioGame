@@ -48,6 +48,7 @@
     <Compile Include="MarioGame\Commands\MarioPowerUp.cs" />
     <Compile Include="MarioGame\Interfaces\ICollidable.cs" />
     <Compile Include="MarioGame\Interfaces\IEnemyState.cs" />
+    <Compile Include="MarioGame\Mario.cs" />
     <Compile Include="MarioGame\Physics\MarioWorldConstant.cs" />
     <Compile Include="MarioGame\StarMario.cs" />
     <Compile Include="MarioGame\Blocks\BrickBlock.cs" />
@@ -123,7 +124,7 @@
     <Compile Include="MarioGame\Goomba\RightMovingGoombaState.cs" />
     <Compile Include="MarioGame\Goomba\StompedGoombaState.cs" />
     <Compile Include="MarioGame\Sprites\SpriteFactory.cs" />
-    <Compile Include="MarioGame\Mario.cs" />
+    <Compile Include="MarioGame\MarioOLDReference.cs" />
     <Compile Include="MarioGame\Commands\QuitGame.cs" />
     <Compile Include="MarioGame\Commands\ICommand.cs" />
     <Compile Include="MarioGame\Controllers\IController.cs" />

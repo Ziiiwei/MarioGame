@@ -19,8 +19,8 @@ namespace Gamespace
         private float maxSpeed_pf = MarioWorldConstant.MARIO_MAX_V; //pix per frame
         // Invariant: G < A
         public const float G = MarioWorldConstant.G; //the G of the marioward 
-        public const float A = MarioWorldConstant.MARIO_A; //the default movement A
-
+        public const float JUMP_A = MarioWorldConstant.MARIO_JUMP_A; //the default movement A
+        public const float HORIZONTAL_A = MarioWorldConstant.MARIO_HORIZONTAL_A;
 
 
         public Physics(IGameObject gameObject, Vector2 position)
@@ -33,33 +33,33 @@ namespace Gamespace
         }
         public void FreeFall()
         {
-            acceleration.Y = G;
+            acceleration.Y +=  G;
         }
 
         public void Jump()
         {
-            acceleration.Y = -A;
+            acceleration.Y += -JUMP_A;
         }
 
         public void MoveUp()
         {
-            acceleration.Y = -A;
+            acceleration.Y = -JUMP_A;
         }
 
         public void MoveLeft()
         {
-            acceleration.X = -A;
+            acceleration.X = -HORIZONTAL_A;
         }
 
         public void MoveRight()
         {
 
-            acceleration.X = A;
+            acceleration.X = HORIZONTAL_A;
         }
 
         public void MoveDown()
         {
-            acceleration.Y = A;
+            acceleration.Y = JUMP_A;
         }
 
         public void SlowDown()
@@ -95,8 +95,6 @@ namespace Gamespace
 
         public void Update()
         {
-            FreeFall();
-
             velocity.X = MinimumMagnitude(velocity.X + acceleration.X, Math.Sign(acceleration.X) * maxSpeed_pf);
             velocity.Y = MinimumMagnitude(velocity.Y + acceleration.Y, Math.Sign(acceleration.Y) * maxSpeed_pf);
 
@@ -105,6 +103,7 @@ namespace Gamespace
 
             Loop();
             Stop();
+            FreeFall();
         }
 
         public Vector2 GetPosition()
