@@ -43,6 +43,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="MarioGame\Blocks\IBlock.cs" />
+    <Compile Include="MarioGame\Camera.cs" />
     <Compile Include="MarioGame\Collision\TypeTranslator.cs" />
     <Compile Include="MarioGame\Commands\EnemyHitHorizontally.cs" />
     <Compile Include="MarioGame\Commands\MarioPowerUp.cs" />

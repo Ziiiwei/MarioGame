@@ -16,6 +16,14 @@ namespace Gamespace
         private GraphicsDeviceManager graphics;
         public SpriteBatch spriteBatch;
         private List<IController> controllers;
+
+        private Camera camera;
+
+        // Get screen height and width for camera
+        public static int ScreenHeight;
+
+        public static int ScreenWidth;
+
     
         // Make LevelLoader a singleton.
         private LevelLoader levelLoader;
@@ -55,6 +63,8 @@ namespace Gamespace
         protected override void Initialize()
         {
             base.Initialize();
+            ScreenHeight = graphics.PreferredBackBufferHeight;
+            ScreenWidth = graphics.PreferredBackBufferWidth;
             levelLoader = new LevelLoader(World.Instance);
             controllers.Add(new KeyboardController(this));
             controllers.Add(new GamepadController(this));
@@ -68,6 +78,8 @@ namespace Gamespace
         protected override void LoadContent()
         {   
             spriteBatch = new SpriteBatch(GraphicsDevice);
+
+            camera = new Camera();
 
             font = Content.Load<SpriteFont>("Arial");
         }
