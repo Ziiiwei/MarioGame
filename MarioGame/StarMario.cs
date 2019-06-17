@@ -10,6 +10,7 @@ using Gamespace.States;
 
 namespace Gamespace
 {
+    /* This will be changed to implement AbstractGameObject soon. */
     public class StarMario : IMario
     {
         public int Uid { get; }

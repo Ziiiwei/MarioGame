@@ -10,21 +10,27 @@ namespace Gamespace
     public class Physics : IPhysics
     {
 
-        public Vector2 position;
-        public Vector2 velocity;
-        public Vector2 acceleration;
+        private Vector2 position;
+        private Vector2 velocity;
+        private Vector2 acceleration;
         public IGameObject gameObject { get; set; }
 
-        //default acceleration for left and right move
-        private float maxSpeed_pf = MarioWorldConstant.MARIO_MAX_V; //pix per frame
-        // Invariant: G < A
-        public const float G = MarioWorldConstant.G; //the G of the marioward 
-        public const float JUMP_A = MarioWorldConstant.MARIO_JUMP_A; //the default movement A
-        public const float HORIZONTAL_A = MarioWorldConstant.MARIO_HORIZONTAL_A;
+        private float GRAVITY;
+        private float FORCE_HORIZONTAL_AGAINST;
+        private float GAMEOBJECT_FORCE_UP;
+        private float GAMEOBJECT_FORCE_HORIZONTAL;
+        private float MAX_HORIZONTAL_V;
+        private float MAX_VERTICAL_V;
 
-
-        public Physics(IGameObject gameObject, Vector2 position)
+        internal Physics(IGameObject gameObject, Vector2 position, IPhysicsConstants constants)
         {
+            GRAVITY = constants.GRAVITY;
+            FORCE_HORIZONTAL_AGAINST = constants.FORCE_HORIZONTAL_AGAINST;
+            GAMEOBJECT_FORCE_UP = constants.GAMEOBJECT_FORCE_UP;
+            GAMEOBJECT_FORCE_HORIZONTAL = constants.GAMEOBJECT_FORCE_HORIZONTAL;
+            MAX_HORIZONTAL_V = constants.MAX_HORIZONTAL_V;
+            MAX_VERTICAL_V = constants.MAX_VERTICAL_V;
+
             this.gameObject = gameObject;
             this.position = position;
 
@@ -33,33 +39,33 @@ namespace Gamespace
         }
         public void FreeFall()
         {
-            acceleration.Y +=  G;
+            acceleration.Y = GRAVITY;
         }
 
         public void Jump()
         {
-            acceleration.Y += -JUMP_A;
+            acceleration.Y = -GAMEOBJECT_FORCE_UP;
         }
 
         public void MoveUp()
         {
-            acceleration.Y = -JUMP_A;
+            // Depricated
         }
 
         public void MoveLeft()
         {
-            acceleration.X = -HORIZONTAL_A;
+            acceleration.X = -GAMEOBJECT_FORCE_HORIZONTAL;
         }
 
         public void MoveRight()
         {
 
-            acceleration.X = HORIZONTAL_A;
+            acceleration.X = GAMEOBJECT_FORCE_HORIZONTAL;
         }
 
         public void MoveDown()
         {
-            acceleration.Y = JUMP_A;
+            // Depricated
         }
 
         public void SlowDown()
@@ -95,8 +101,8 @@ namespace Gamespace
 
         public void Update()
         {
-            velocity.X = MinimumMagnitude(velocity.X + acceleration.X, Math.Sign(acceleration.X) * maxSpeed_pf);
-            velocity.Y = MinimumMagnitude(velocity.Y + acceleration.Y, Math.Sign(acceleration.Y) * maxSpeed_pf);
+            velocity.X = MinimumMagnitude(velocity.X + acceleration.X, Math.Sign(acceleration.X) * MAX_HORIZONTAL_V);
+            velocity.Y = MinimumMagnitude(velocity.Y + acceleration.Y, Math.Sign(acceleration.Y) * MAX_VERTICAL_V);
 
             position.X += (int)Math.Ceiling(velocity.X);
             position.Y += (int)Math.Ceiling(velocity.Y);
@@ -119,16 +125,17 @@ namespace Gamespace
 
         private void Loop()
         {
-
+            
             if (position.X <= 0)
-                position.X = MarioWorldConstant.GAME_WINDOW_WIDTH / MarioWorldConstant.SCALE;
-            else if (position.X >= MarioWorldConstant.GAME_WINDOW_WIDTH / MarioWorldConstant.SCALE)
+                position.X = 400;
+            else if (position.X >= 400)
                 position.X = 0;
 
-            if (position.Y >= MarioWorldConstant.GAME_WINDOW_HEIGHT / MarioWorldConstant.SCALE)
+            if (position.Y >= 240)
                 position.Y = 0;
             else if (position.Y <= 0)
-                position.Y = MarioWorldConstant.GAME_WINDOW_HEIGHT / MarioWorldConstant.SCALE;
+                position.Y = 240;
+                
         } 
         public void Stop()
         {
@@ -145,10 +152,10 @@ namespace Gamespace
             }
 
             if (acceleration.X != 0)
-                acceleration.X += (-Math.Sign(velocity.X)) * G;
+                acceleration.X += (-Math.Sign(velocity.X)) * FORCE_HORIZONTAL_AGAINST;
 
             if (acceleration.Y != 0)
-                acceleration.Y += (-Math.Sign(velocity.Y)) * G;
+                acceleration.Y += (-Math.Sign(velocity.Y)) * GRAVITY;
         }
     }
 

@@ -8,6 +8,7 @@ namespace Gamespace.Interfaces
 {
     interface IEnemy
     {
+        IEnemyState State { get; }
         void ChangeDirection();
         void TakeDamage();
     }

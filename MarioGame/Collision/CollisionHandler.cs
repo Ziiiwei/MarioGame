@@ -29,6 +29,7 @@ namespace Gamespace
             collisionActions = JsonParser.Instance.ParseCollisionFile();
             translator = new Dictionary<(Type, Type), Func<IGameObject, IGameObject, (Type, Type)>>();
             translator.Add((typeof(Mario), typeof(BrickBlock)), new Func<IGameObject, IGameObject, (Type, Type)>(TypeTranslator.MarioBlockTranslator));
+            translator.Add((typeof(Mario), typeof(Goomba)), new Func<IGameObject, IGameObject, (Type, Type)>(TypeTranslator.MarioGoombaTranslator));
             statefulCollisionActions = JsonParser.Instance.ParseCollisionStatefulFile();
         }
 

@@ -49,7 +49,9 @@
     <Compile Include="MarioGame\Interfaces\ICollidable.cs" />
     <Compile Include="MarioGame\Interfaces\IEnemyState.cs" />
     <Compile Include="MarioGame\Mario.cs" />
-    <Compile Include="MarioGame\Physics\MarioWorldConstant.cs" />
+    <Compile Include="MarioGame\Physics\IPhysicsConstants.cs" />
+    <Compile Include="MarioGame\Physics\PhysicsConstants.cs" />
+    <Compile Include="MarioGame\Physics\PhysicsFactory.cs" />
     <Compile Include="MarioGame\StarMario.cs" />
     <Compile Include="MarioGame\Blocks\BrickBlock.cs" />
     <Compile Include="MarioGame\Blocks\FloorBlock.cs" />

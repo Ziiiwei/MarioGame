@@ -30,7 +30,8 @@ namespace Gamespace
             this.PositionOnScreen = positionOnScreen;
             Uid = counter;
             counter++;
-            GameObjectPhysics = new Physics(this, positionOnScreen); 
+            //GameObjectPhysics = new Physics(this, positionOnScreen); 
+            GameObjectPhysics = PhysicsFactory.Instance.GetPhysics(this, positionOnScreen);
         }
         public void Draw(SpriteBatch spriteBatch)
         {

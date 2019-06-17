@@ -30,7 +30,8 @@ namespace Gamespace.Goombas
 
         public void TakeDamage()
         {
-            State = new StompedGoombaState(this);
+            State.TakeDamage();
+            UpdateArt();
         }
 
         public override void Update()
