@@ -49,7 +49,7 @@ namespace Gamespace
 
         public void MoveUp()
         {
-            // Depricated
+            // Deprecated.
         }
 
         public void MoveLeft()
@@ -152,10 +152,10 @@ namespace Gamespace
             }
 
             if (acceleration.X != 0)
-                acceleration.X += (-Math.Sign(velocity.X)) * FORCE_HORIZONTAL_AGAINST;
+                velocity.X += (-Math.Sign(velocity.X)) * FORCE_HORIZONTAL_AGAINST;
 
             if (acceleration.Y != 0)
-                acceleration.Y += (-Math.Sign(velocity.Y)) * GRAVITY;
+                velocity.Y += (-Math.Sign(velocity.Y)) * GRAVITY;
         }
     }
 

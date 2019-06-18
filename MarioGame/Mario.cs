@@ -36,7 +36,7 @@ namespace Gamespace
         public void Jump()
         {
             State.Jump();
-            GameObjectPhysics.MoveUp();
+            GameObjectPhysics.Jump();
         }
 
         public void MoveLeft()
