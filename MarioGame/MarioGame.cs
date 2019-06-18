@@ -66,6 +66,7 @@ namespace Gamespace
             ScreenHeight = graphics.PreferredBackBufferHeight;
             ScreenWidth = graphics.PreferredBackBufferWidth;
             levelLoader = new LevelLoader(World.Instance);
+            camera = new Camera(new Point());
             controllers.Add(new KeyboardController(this));
             controllers.Add(new GamepadController(this));
             
@@ -78,9 +79,6 @@ namespace Gamespace
         protected override void LoadContent()
         {   
             spriteBatch = new SpriteBatch(GraphicsDevice);
-
-            camera = new Camera();
-
             font = Content.Load<SpriteFont>("Arial");
         }
 
@@ -106,6 +104,7 @@ namespace Gamespace
             }
 
             World.Instance.UpdateWorld();
+            camera.Follow( (Sprite) World.Instance.Mario.Sprite);
             base.Update(gameTime);
         }
 

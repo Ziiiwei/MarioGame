@@ -9,9 +9,14 @@ using Gamespace.Sprites;
 
 namespace Gamespace
 {
-    public class Camera
+    internal class Camera
     {
         public Matrix Transform { get; private set; }
+
+        public Camera(Point location)
+        {
+            Transform = Matrix.CreateTranslation(new Vector3(location.X, location.Y, 0));
+        }
         
         public void Follow(Sprite target)
         {

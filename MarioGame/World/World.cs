@@ -58,7 +58,7 @@ namespace Gamespace
         {
             if (gameObject.GetType() == typeof(Mario))
             {
-                Mario = (Mario) gameObject;
+                Mario = (Mario)gameObject;
                 collisionMovers.Add(gameObject);
 
             }
@@ -114,7 +114,7 @@ namespace Gamespace
                         collisionHandler.HandleCollision(mover, otherMover);
                     }
                 }
-                
+
                 foreach (IGameObject receiver in collisionReceivers)
                 {
                     collisionHandler.HandleCollision(mover, receiver);
