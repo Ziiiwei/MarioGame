@@ -47,6 +47,7 @@
     <Compile Include="MarioGame\Collision\TypeTranslator.cs" />
     <Compile Include="MarioGame\Commands\EnemyHitHorizontally.cs" />
     <Compile Include="MarioGame\Commands\MarioPowerUp.cs" />
+    <Compile Include="MarioGame\Data\CSVtoJSON.cs" />
     <Compile Include="MarioGame\Interfaces\ICollidable.cs" />
     <Compile Include="MarioGame\Interfaces\IEnemyState.cs" />
     <Compile Include="MarioGame\Mario.cs" />
