@@ -10,6 +10,7 @@ using Gamespace.Blocks;
 using Gamespace.Items;
 using Gamespace.Koopas;
 using Gamespace.Collision;
+using Gamespace.Interfaces;
 
 namespace Gamespace
 {
@@ -28,8 +29,10 @@ namespace Gamespace
         {
             collisionActions = JsonParser.Instance.ParseCollisionFile();
             translator = new Dictionary<(Type, Type), Func<IGameObject, IGameObject, (Type, Type)>>();
+            /* This will become data driven */
             translator.Add((typeof(Mario), typeof(BrickBlock)), new Func<IGameObject, IGameObject, (Type, Type)>(TypeTranslator.MarioBlockTranslator));
             translator.Add((typeof(Mario), typeof(Goomba)), new Func<IGameObject, IGameObject, (Type, Type)>(TypeTranslator.MarioGoombaTranslator));
+            translator.Add((typeof(Mario), typeof(Koopa)), new Func<IGameObject, IGameObject, (Type, Type)>(TypeTranslator.MarioKoopaTranslator));
             statefulCollisionActions = JsonParser.Instance.ParseCollisionStatefulFile();
         }
 
@@ -69,6 +72,22 @@ namespace Gamespace
                 (Type, Type) statefulActionsKey = ((Type, Type)) translatorValue.DynamicInvoke(mover, target);
                 key = new Tuple<Type, Type, Side>(statefulActionsKey.Item1, statefulActionsKey.Item2, side);
                 launchCommand(statefulCollisionActions);
+            }
+            else
+            {
+                /* This is known to be messy and will be cleaned up later. */
+                /* TODO: Consider a collision list where items collide with nothing */
+                ICommand defaultCommand = new CollideUp((ICollidable)mover, new CollisionData(collisionArea));
+
+                if (side is Side.Down)
+                    defaultCommand = new CollideDown((ICollidable)mover, new CollisionData(collisionArea));
+                if (side is Side.Left)
+                    defaultCommand = new CollideLeft((ICollidable)mover, new CollisionData(collisionArea));
+                if (side is Side.Right)
+                    defaultCommand = new CollideRight((ICollidable)mover, new CollisionData(collisionArea));
+
+                defaultCommand.Execute();
+
             }
 
         }

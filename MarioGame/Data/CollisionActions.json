@@ -122,20 +122,6 @@
     },
     {
       "Mover": "Gamespace.Mario",
-      "Target": "Gamespace.Koopas.Koopa",
-      "Side": "Left",
-      "Command1": "Gamespace.Commands.EnemyHitsMario",
-      "Command2": "Gamespace.Commands.NullCommand"
-    },
-    {
-      "Mover": "Gamespace.Mario",
-      "Target": "Gamespace.Koopas.Koopa",
-      "Side": "Right",
-      "Command1": "Gamespace.Commands.EnemyHitsMario",
-      "Command2": "Gamespace.Commands.NullCommand"
-    },
-    {
-      "Mover": "Gamespace.Mario",
       "Target": "Gamespace.Items.Star",
       "Side": "Up",
       "Command1": "Gamespace.Commands.MakeMarioStar",

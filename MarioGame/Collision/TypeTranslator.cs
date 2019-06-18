@@ -26,7 +26,12 @@ namespace Gamespace.Collision
         {
             IEnemy goombaCast = (IEnemy)receiver;
             return (mover.GetType(), goombaCast.State.GetType());
+        }
 
+        internal static (Type, Type) MarioKoopaTranslator(IGameObject mover, IGameObject receiver)
+        {
+            IEnemy koopaCast = (IEnemy)receiver;
+            return (mover.GetType(), koopaCast.State.GetType());
         }
     }
 }

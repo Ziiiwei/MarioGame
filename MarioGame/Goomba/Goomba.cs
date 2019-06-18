@@ -74,5 +74,15 @@ namespace Gamespace.Goombas
             base.CollideRight(collisionArea);
             ChangeDirection();
         }
+
+        public void SlideLeft()
+        {
+            // Do nothing
+        }
+
+        public void SlideRight()
+        {
+            // Do nothing
+        }
     }
 }

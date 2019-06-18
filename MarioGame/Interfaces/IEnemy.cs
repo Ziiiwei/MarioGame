@@ -11,5 +11,7 @@ namespace Gamespace.Interfaces
         IEnemyState State { get; }
         void ChangeDirection();
         void TakeDamage();
+        void SlideLeft();
+        void SlideRight();
     }
 }

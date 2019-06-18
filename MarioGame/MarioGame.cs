@@ -88,9 +88,9 @@ namespace Gamespace
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
-            foreach( IController c in controllers)
+            foreach( IController controller in controllers)
             {
-                c.Update();
+                controller.Update();
             }
 
             World.Instance.UpdateWorld();
@@ -116,8 +116,10 @@ namespace Gamespace
         {
             World.Instance.ClearWorld();
             controllers = new List<IController>();
+            // TODO : This needs to go away.
             Initialize();
-        
+
+
         }
     }
 }

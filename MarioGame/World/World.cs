@@ -3,6 +3,7 @@
 using Gamespace.Blocks;
 using Gamespace.Goombas;
 using Gamespace.Interfaces;
+using Gamespace.Koopas;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
@@ -37,7 +38,8 @@ namespace Gamespace
             collisionMoverClassifier = new List<Type>
             {
                 typeof(Mario),
-                typeof(Goomba)
+                typeof(Goomba),
+                typeof(Koopa)
             };
 
             collisionHandler = new CollisionHandler();

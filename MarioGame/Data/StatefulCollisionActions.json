@@ -104,6 +104,48 @@
       "Side": "Right",
       "Command1": "Gamespace.Commands.EnemyHitsMario",
       "Command2": "Gamespace.Commands.NullCommand"
+    },
+    {
+      "Mover": "Gamespace.Mario",
+      "Target": "Gamespace.Koopas.KoopaFlippedState",
+      "Side": "Left",
+      "Command1": "Gamespace.Commands.NullCommand",
+      "Command2": "Gamespace.Commands.SlideEnemyRight"
+    },
+    {
+      "Mover": "Gamespace.Mario",
+      "Target": "Gamespace.Koopas.KoopaFlippedState",
+      "Side": "Right",
+      "Command1": "Gamespace.Commands.NullCommand",
+      "Command2": "Gamespace.Commands.SlideEnemyLeft"
+    },
+	{
+      "Mover": "Gamespace.Mario",
+      "Target": "Gamespace.Koopas.KoopaMovingLeftState",
+      "Side": "Left",
+      "Command1": "Gamespace.Commands.EnemyHitsMario",
+      "Command2": "Gamespace.Commands.NullCommand"
+    },
+    {
+      "Mover": "Gamespace.Mario",
+      "Target": "Gamespace.Koopas.KoopaMovingLeftState",
+      "Side": "Right",
+      "Command1": "Gamespace.Commands.EnemyHitsMario",
+      "Command2": "Gamespace.Commands.NullCommand"
+    },
+	    {
+      "Mover": "Gamespace.Mario",
+      "Target": "Gamespace.Koopas.KoopaMovingRightState",
+      "Side": "Left",
+      "Command1": "Gamespace.Commands.EnemyHitsMario",
+      "Command2": "Gamespace.Commands.NullCommand"
+    },
+    {
+      "Mover": "Gamespace.Mario",
+      "Target": "Gamespace.Koopas.KoopaMovingRightState",
+      "Side": "Right",
+      "Command1": "Gamespace.Commands.EnemyHitsMario",
+      "Command2": "Gamespace.Commands.NullCommand"
     }
 	]
 }
