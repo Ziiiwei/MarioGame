@@ -23,12 +23,12 @@ namespace Gamespace
             Transform = Matrix.CreateTranslation(new Vector3(-location.X, -location.Y, 0));
         }
 
-        /*
-        public void Follow(Sprite target)
+        
+        public void Follow(ISprite target)
         {
             Matrix position = Matrix.CreateTranslation(
-                -target.Position.X - (target.Rectangle.Width / 2),
-                -target.Position.Y - (target.Rectangle.Height / 2),
+                -target.Position.X - (target.GetRectangle().Width / 2),
+                -target.Position.Y - (target.GetRectangle().Height / 2),
                 0);
             Matrix offset = Matrix.CreateTranslation(
                     MarioGame.ScreenWidth / 2,
@@ -36,7 +36,28 @@ namespace Gamespace
                     0);
             Transform = position * offset;
         }
-        */
+
+        //should the camera call movement methods to translate the matrix.
+        public void MoveLeft()
+        {
+           
+        }
+
+        public void MoveRight()
+        {
+
+        }
+
+        public void MoveUp()
+        {
+
+        }
+
+        public void MoveDown()
+        {
+
+        }
+        
 
 
 

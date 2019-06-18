@@ -102,9 +102,8 @@ namespace Gamespace
             {
                 c.Update();
             }
-
+            
             World.Instance.UpdateWorld();
-            //camera.Follow( (Sprite) World.Instance.Mario.Sprite);
             base.Update(gameTime);
         }
 
@@ -118,6 +117,7 @@ namespace Gamespace
             frameRate = 1 / (float)gameTime.ElapsedGameTime.TotalSeconds;
             spriteBatch.Begin(SpriteSortMode.Immediate, null, null, null, null, null, Matrix.CreateScale(2.0f));
             World.Instance.DrawWorld(spriteBatch);
+            //camera.Follow(World.Instance.Mario.Sprite);
             spriteBatch.DrawString(font, "FPS "+frameRate, new Vector2(0, 0), Color.Red);
             spriteBatch.End();
             base.Draw(gameTime);
