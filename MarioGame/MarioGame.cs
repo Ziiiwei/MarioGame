@@ -104,7 +104,7 @@ namespace Gamespace
             }
 
             World.Instance.UpdateWorld();
-            camera.Follow( (Sprite) World.Instance.Mario.Sprite);
+            //camera.Follow( (Sprite) World.Instance.Mario.Sprite);
             base.Update(gameTime);
         }
 
