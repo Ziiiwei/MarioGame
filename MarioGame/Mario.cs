@@ -31,8 +31,7 @@ namespace Gamespace
         }
         public void Crouch()
         {
-            State.Crouch();
-           
+            State.Crouch();    
         }
 
         public void Jump()

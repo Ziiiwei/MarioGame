@@ -10,9 +10,15 @@ namespace Gamespace
     /// <summary>
     /// This is the main type for your game.
     /// </summary>
+
+   
     public class MarioGame : Game
     {
         private static readonly MarioGame instance = new MarioGame();
+        public const int WINDOW_WIDTH = 1600;
+        public const int WINDOW_HEIGHT = 960;
+        public const float SCALE = 1f;
+
         private GraphicsDeviceManager graphics;
         public SpriteBatch spriteBatch;
         private List<IController> controllers;
@@ -30,8 +36,8 @@ namespace Gamespace
         {
             graphics = new GraphicsDeviceManager(this);
             
-            graphics.PreferredBackBufferWidth = 1500;  // set this value to the desired width of your window
-            graphics.PreferredBackBufferHeight = 900;   // set this value to the desired height of your window
+            graphics.PreferredBackBufferWidth = WINDOW_WIDTH;  // set this value to the desired width of your window
+            graphics.PreferredBackBufferHeight = WINDOW_HEIGHT;   // set this value to the desired height of your window
             graphics.ApplyChanges();
           
             controllers = new List<IController>();
@@ -105,7 +111,7 @@ namespace Gamespace
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
             frameRate = 1 / (float)gameTime.ElapsedGameTime.TotalSeconds;
-            spriteBatch.Begin(SpriteSortMode.Immediate, null, null, null, null, null, Matrix.CreateScale(2.0f));
+            spriteBatch.Begin(SpriteSortMode.Immediate, null, null, null, null, null, Matrix.CreateScale(1.0f));
             World.Instance.DrawWorld(spriteBatch);
             spriteBatch.DrawString(font, "FPS "+frameRate, new Vector2(0, 0), Color.Red);
             spriteBatch.End();

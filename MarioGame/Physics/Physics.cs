@@ -93,7 +93,7 @@ namespace Gamespace
         {
             position.X = position.X + collisionArea.Width;
             velocity.X = 0;
-           // acceleration.X = 0;
+            acceleration.X = 0;
 
         }
 
@@ -101,7 +101,7 @@ namespace Gamespace
         {
             position.X = position.X - collisionArea.Width;
             velocity.X = 0;
-          //  acceleration.X = 0;
+            acceleration.X = 0;
 
         }
 
@@ -147,14 +147,14 @@ namespace Gamespace
         {
             
             if (position.X <= 0)
-                position.X = 400;
-            else if (position.X >= 400)
+                position.X = MarioGame.WINDOW_WIDTH/MarioGame.SCALE;
+            else if (position.X >= MarioGame.WINDOW_WIDTH / MarioGame.SCALE)
                 position.X = 0;
 
-            if (position.Y >= 240)
+            if (position.Y >= MarioGame.WINDOW_HEIGHT / MarioGame.SCALE)
                 position.Y = 0;
             else if (position.Y <= 0)
-                position.Y = 240;
+                position.Y = MarioGame.WINDOW_HEIGHT / MarioGame.SCALE;
                 
         } 
         public void FrictionStop(Side side)
@@ -167,7 +167,7 @@ namespace Gamespace
                     acceleration.X = 0;
                 }
                 if (velocity.X != 0)
-                    acceleration.X += (-Math.Sign(velocity.X)) * FRICTION;
+                    acceleration.X = (-Math.Sign(velocity.X)) * FRICTION;
             }
 
             if (side == Side.Up || side == Side.Down || side == Side.None)
@@ -179,7 +179,7 @@ namespace Gamespace
                         acceleration.Y = 0;
                 }
                 if (velocity.Y != 0)
-                        acceleration.Y += (-Math.Sign(velocity.Y)) * FRICTION;
+                        acceleration.Y = (-Math.Sign(velocity.Y)) * FRICTION;
                 
             }
         }

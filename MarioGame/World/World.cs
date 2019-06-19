@@ -133,7 +133,7 @@ namespace Gamespace
                 gameObject.Draw(spriteBatch);
             }
 
-            //Mario.Draw(spriteBatch);
+      
         }
 
         public void RemoveFromWorld(int uid)
