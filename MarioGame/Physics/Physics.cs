@@ -15,6 +15,10 @@ namespace Gamespace
         private Vector2 acceleration;
         public IGameObject gameObject { get; set; }
 
+        public Vector2 Position { get; }
+
+        public Vector2 Velocity { get; }
+
         private readonly float G;
         private readonly float A;
 
@@ -135,6 +139,11 @@ namespace Gamespace
         public Vector2 GetPosition()
         {
             return position;
+        }
+
+        public Vector2 GetVelocity()
+        {
+            return velocity;
         }
 
         /* Will return the signed integer which has the least magnitude */

@@ -46,7 +46,7 @@ namespace Gamespace
 
         public Rectangle GetCollisionBoundary()
         {
-            return new Rectangle((int)PositionOnScreen.X, (int)PositionOnScreen.Y, Sprite.Width, Sprite.Height);
+            return new Rectangle((int)GameObjectPhysics.GetPosition().X, (int)GameObjectPhysics.GetPosition().Y, Sprite.Width, Sprite.Height);
         }
 
         public Vector2 GetCenter()

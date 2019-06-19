@@ -106,7 +106,12 @@ namespace Gamespace
             Rectangle collisionArea = Rectangle.Intersect(mover.GetCollisionBoundary(),
                 target.GetCollisionBoundary());
 
-            bool horizontalCollision = (collisionArea.Height > collisionArea.Width);
+
+
+           // bool horizontalCollision = ((int)mover.GameObjectPhysics.GetVelocity().X < collisionArea.Width);
+
+
+              bool  horizontalCollision = (collisionArea.Height > collisionArea.Width);
 
             if (horizontalCollision)
             {
