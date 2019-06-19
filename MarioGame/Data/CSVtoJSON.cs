@@ -30,36 +30,49 @@ namespace Gamespace
             int _X = 0;
             int _Y = 0;
             int row = 0;
+            var JsonList = new List<CSVObject>();
             String name = "";
 
+            String path = "MarioGame/Data/level1objects.json";
 
-            for(int i = 0; i < data.GetLength(0); i++)
+            using (Stream stream = File.Open(path, FileMode.Create))
             {
-                for(int j = 0; j < 10; j++)
+                
+                for (int i = 0; i < data.GetLength(0); i++)
                 {
-
-                    // The first column is the row number
-                    if(j == 0)
+                    for (int j = 0; j < 10; j++)
                     {
-                        row = Int32.Parse(data[i][j]);
-                    }
 
-                    /* If the array location is not empty, grab the name
-                    *  calculat the X and Y coordinates, and serialize as 
-                    *  a JSON object.
-                    */   
-                    else if(!(data[i][j] == ""))
-                    {
-                        name = data[i][j];
-                        _X = (i * 16);
-                        _Y = (j * 16);
-                        CSVObject obj = new CSVObject(name, _X, _Y);
-                        string output = JsonConvert.SerializeObject(obj);
-                        Console.WriteLine(output);
+                        // The first column is the row number
+                        if (j == 0)
+                        {
+                            row = Int32.Parse(data[i][j]);
+                        }
+
+                        /* If the array location is not empty, grab the name
+                        *  calculat the X and Y coordinates, and serialize as 
+                        *  a JSON object.
+                        */
+                        else if (!(data[i][j] == ""))
+                        {
+                            name = data[i][j];
+                            _X = (i * 32);
+                            _Y = (j * 32);
+                            CSVObject obj = new CSVObject(name, _X, _Y);
+                            string output = JsonConvert.SerializeObject(obj);
+                            JsonList.Add(obj);
+
+                        }
+
                     }
-            
                 }
             }
+            using (StreamWriter file = File.CreateText(@"MarioGame/Data/level1objects.json"))
+            {
+                JsonSerializer serializer = new JsonSerializer();
+                serializer.Serialize(file, JsonList);
+            }
+
         }
     }
 }
