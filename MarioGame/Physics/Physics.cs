@@ -166,20 +166,20 @@ namespace Gamespace
                     velocity.X = 0;
                     acceleration.X = 0;
                 }
-                if (acceleration.X != 0)
-                    velocity.X += (-Math.Sign(velocity.X)) * FRICTION;
+                if (velocity.X != 0)
+                    acceleration.X += (-Math.Sign(velocity.X)) * FRICTION;
             }
 
             if (side == Side.Up || side == Side.Down || side == Side.None)
             {
 
                 if (velocity.Y != 0 && Math.Sign(velocity.Y) != Math.Sign(velocity.Y + acceleration.Y))
-                    {
+                {
                         velocity.Y = 0;
                         acceleration.Y = 0;
-                    }
-                if (acceleration.Y != 0)
-                        velocity.Y += (-Math.Sign(velocity.Y)) * FRICTION;
+                }
+                if (velocity.Y != 0)
+                        acceleration.Y += (-Math.Sign(velocity.Y)) * FRICTION;
                 
             }
         }
