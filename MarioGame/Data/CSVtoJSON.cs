@@ -18,25 +18,33 @@ namespace Gamespace
         {
 
         }
-        public static void convert() {
+        public static void convert()
+        {
             string[] lines = System.IO.File.ReadAllLines(@"MarioGame/Data/level1example.csv");
             StringBuilder sb = new StringBuilder();
             using (var p = ChoCSVReader.LoadLines(lines)
-            
+
             .WithFirstLineHeader(true)
             )
             {
                 Console.WriteLine(p.ToString());
                 using (var w = new ChoJSONWriter(sb))
-                    w.Write(p); 
+                    w.Write(p);
             }
 
             // Write string of json format into a specific json file
             System.IO.StreamWriter file = new System.IO.StreamWriter(@"C:\Users\KC\Desktop\MarioGame\MarioGame\MarioGame\Data\level1example.json");
             file.WriteLine(sb.ToString());
 
+            Console.WriteLine(sb);
+        }
 
-           
+
+        protected class DeserializedObject
+        {
+
+
+   
         }
     }
 }
