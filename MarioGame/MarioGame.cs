@@ -66,7 +66,7 @@ namespace Gamespace
             ScreenHeight = graphics.PreferredBackBufferHeight;
             ScreenWidth = graphics.PreferredBackBufferWidth;
             levelLoader = new LevelLoader(World.Instance);
-            camera = new Camera(new Point());
+            camera = new Camera();
             controllers.Add(new KeyboardController(this));
             controllers.Add(new GamepadController(this));
             
@@ -102,9 +102,10 @@ namespace Gamespace
             {
                 c.Update();
             }
-            
             World.Instance.UpdateWorld();
+            camera.Update();
             base.Update(gameTime);
+            
         }
 
         /// <summary>
@@ -115,9 +116,9 @@ namespace Gamespace
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
             frameRate = 1 / (float)gameTime.ElapsedGameTime.TotalSeconds;
-            spriteBatch.Begin(SpriteSortMode.Immediate, transformMatrix: Matrix.CreateScale(2.0f));
-            World.Instance.DrawWorld(spriteBatch);
             //camera.Follow(World.Instance.Mario.Sprite);
+            spriteBatch.Begin(SpriteSortMode.Immediate, transformMatrix: camera.Transform * Matrix.CreateScale(2.0f));
+            World.Instance.DrawWorld(spriteBatch);
             spriteBatch.DrawString(font, "FPS "+frameRate, new Vector2(0, 0), Color.Red);
             spriteBatch.End();
             base.Draw(gameTime);

@@ -23,39 +23,11 @@ namespace Gamespace
             Transform = Matrix.CreateTranslation(new Vector3(-location.X, -location.Y, 0));
         }
 
-        
-        public void Follow(ISprite target)
+        public void Update()
         {
-            Matrix position = Matrix.CreateTranslation(
-                -target.Position.X - (target.GetRectangle().Width / 2),
-                -target.Position.Y - (target.GetRectangle().Height / 2),
-                0);
-            Matrix offset = Matrix.CreateTranslation(
-                    MarioGame.ScreenWidth / 2,
-                    MarioGame.ScreenHeight / 2,
-                    0);
-            Transform = position * offset;
-        }
-
-        //should the camera call movement methods to translate the matrix.
-        public void MoveLeft()
-        {
-           
-        }
-
-        public void MoveRight()
-        {
-
-        }
-
-        public void MoveUp()
-        {
-
-        }
-
-        public void MoveDown()
-        {
-
+            Vector2 center = new Vector2(World.Instance.Mario.GetCenter().X - MarioGame.ScreenWidth / 4, 
+                World.Instance.Mario.GetCenter().Y - MarioGame.ScreenHeight / 4);
+            Transform = Matrix.CreateTranslation(-center.X, -center.Y, 0);
         }
         
 
