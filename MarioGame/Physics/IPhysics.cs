@@ -8,24 +8,19 @@ using Microsoft.Xna.Framework;
 
 namespace Gamespace
 {
-    public interface IPhysics
+    internal interface IPhysics
     {
-        Vector2 GetPosition();
-        void MoveLeft();
-        void MoveRight();
-        void MoveDown();
-        void MoveUp();
-        void FreeFall();
-        void Jump();
-        void SpeedUp();
-        void SlowDown();
-        void Update();
 
-        void Stop();
+        Vector2 GetPosition();
         void LeftStop(Rectangle collisionArea);
         void RightStop(Rectangle collisionArea);
         void UpStop(Rectangle collisionArea);
         void DownStop(Rectangle collisionArea);
+        void MoveMaxSpeed(Side side);
+        void JumpMaxSpeed(Side side);
+        void Update();
+        void Stop(Side side);
+        void FrictionStop(Side side);
 
     }
 }

@@ -19,7 +19,7 @@ namespace Gamespace
         public Vector2 PositionOnScreen { get; }
         public IMarioPowerUpState PowerUpState { get; set; }
         public IMarioPowerUpState PreviousPowerUpState;
-        public IPhysics Physics { get; set; }
+        internal IPhysics Physics { get; set; }
         private IMario mario;
         int timer = 1000;
 

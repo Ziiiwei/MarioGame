@@ -14,6 +14,7 @@ using Gamespace.Interfaces;
 
 namespace Gamespace
 {
+    public enum Side : int { None, Up, Down, Left, Right };
     class CollisionHandler
     {
         /* Side is relative to the second IGameObject in the tuple */

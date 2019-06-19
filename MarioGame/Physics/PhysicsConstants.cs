@@ -10,36 +10,25 @@ namespace Gamespace
 {
     internal class PhysicsConstants
     {
-        /* There is a plan to data drive this thing */
-        private static readonly PhysicsConstants instance = new PhysicsConstants();
         Dictionary<Type, IPhysicsConstants> constantsAssignments;
         List<List<float>> constants;
         
-        static PhysicsConstants()
-        {
-        }
-
+        static PhysicsConstants() { }
         private PhysicsConstants()
         {
             constants = new List<List<float>>();
 
             constantsAssignments = new Dictionary<Type, IPhysicsConstants>();
 
-            List<float> marioDefinitions = new List<float> { 0.1f, 0.3f, 1.3f, 1.3f, 2.3f, 2.3f };
+            List<float> marioDefinitions = new List<float> { 1.5f, 1.2f, 2f, 3f, 0.5f };
             constantsAssignments.Add(typeof(Mario), new PhysicsConstantsDefinitons(marioDefinitions));
 
-            List<float> enemyDefinitions = new List<float> { 0.3f, 0.3f, 1.3f, 1.3f, 2.3f, 2.3f };
+            List<float> enemyDefinitions = new List<float> { 0.3f, 0.3f, 2f, 2f, 0.5f };
             constantsAssignments.Add(typeof(Goomba), new PhysicsConstantsDefinitons(enemyDefinitions));
             constantsAssignments.Add(typeof(Koopa), new PhysicsConstantsDefinitons(enemyDefinitions));
         }
 
-        internal static PhysicsConstants Instance
-        {
-            get
-            {
-                return instance;
-            }
-        }
+        internal static PhysicsConstants Instance { get; } = new PhysicsConstants();
 
         internal IPhysicsConstants GetConstants(Type t)
         {
@@ -47,29 +36,30 @@ namespace Gamespace
             {
                 return constantsAssignments[t];
             }
-            List<float> nullDefinitions = new List<float> { 0, 0, 0, 0, 0, 0 };
+            List<float> nullDefinitions = new List<float> { 0, 0, 0, 0, 0,};
             return new PhysicsConstantsDefinitons(nullDefinitions);
         }
 
         internal class PhysicsConstantsDefinitons : IPhysicsConstants
         {
-            public float GRAVITY { get; protected set; }
-            public float FORCE_HORIZONTAL_AGAINST { get; protected set; }
-            public float GAMEOBJECT_FORCE_UP { get; protected set; }
-            public float GAMEOBJECT_FORCE_HORIZONTAL { get; protected set; }
-            public float MAX_HORIZONTAL_V { get; protected set; }
-            public float MAX_VERTICAL_V { get; protected set; }
 
+            public float G { get; }
+            public float A { get; }
+            public float MAX_X_V { get; }
+            public float MAX_Y_V { get; }
+            public float FRICTION { get; }
             public PhysicsConstantsDefinitons(List<float> definitions)
             {
                 /* This nastyness will not be permanent */
-                GRAVITY = definitions[0];
-                FORCE_HORIZONTAL_AGAINST = definitions[1];
-                GAMEOBJECT_FORCE_UP = definitions[2];
-                GAMEOBJECT_FORCE_HORIZONTAL = definitions[3];
-                MAX_HORIZONTAL_V = definitions[4];
-                MAX_VERTICAL_V = definitions[5];
+                G = definitions[1];
+                A = definitions[0];
+                MAX_X_V = definitions[2];
+                MAX_Y_V = definitions[3];
+                FRICTION = definitions[4];
+             
             }
+
+            
         }
     }
 }

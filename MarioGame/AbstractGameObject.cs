@@ -16,7 +16,7 @@ namespace Gamespace
         public int Uid { get; protected set; }
         public ISprite Sprite { get; protected set; }
         public Vector2 PositionOnScreen { get; protected set; }
-        public IPhysics GameObjectPhysics { get; protected set; }
+        internal IPhysics GameObjectPhysics { get; set; }
 
         public AbstractGameObject()
         {

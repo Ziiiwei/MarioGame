@@ -98,7 +98,7 @@ namespace Gamespace
             objectsToAdd.Clear();
             objectsToRemove.Clear();
 
-            //Mario.Update();
+
 
             /* The instigator is the first object, then target. */
 
@@ -122,6 +122,8 @@ namespace Gamespace
                     collisionHandler.HandleCollision(mover, receiver);
                 }
             }
+
+           
         }
 
         public void DrawWorld(SpriteBatch spriteBatch)

@@ -9,8 +9,6 @@ namespace Gamespace
 {
     internal class PhysicsFactory
     {
-        private static readonly PhysicsFactory instance = new PhysicsFactory();
-
         static PhysicsFactory()
         {
         }
@@ -19,13 +17,7 @@ namespace Gamespace
         {
         }
 
-        internal static PhysicsFactory Instance
-        {
-            get
-            {
-                return instance;
-            }
-        }
+        internal static PhysicsFactory Instance { get; } = new PhysicsFactory();
 
         internal IPhysics GetPhysics(IGameObject gameObject, Vector2 positionOnScreen)
         {

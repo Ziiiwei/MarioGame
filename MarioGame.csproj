@@ -88,7 +88,7 @@
     <Compile Include="MarioGame\Commands\Reset.cs" />
     <Compile Include="MarioGame\Data\JsonParser.cs" />
     <Compile Include="MarioGame\Interfaces\IEnemy.cs" />
-    <Compile Include="MarioGame\Interfaces\IPhysics.cs" />
+    <Compile Include="MarioGame\Physics\IPhysics.cs" />
     <Compile Include="MarioGame\Items\Coin.cs" />
     <Compile Include="MarioGame\Items\Flower.cs" />
     <Compile Include="MarioGame\Goomba\Goomba.cs" />

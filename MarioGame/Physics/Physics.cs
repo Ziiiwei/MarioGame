@@ -15,21 +15,21 @@ namespace Gamespace
         private Vector2 acceleration;
         public IGameObject gameObject { get; set; }
 
-        private float GRAVITY;
-        private float FORCE_HORIZONTAL_AGAINST;
-        private float GAMEOBJECT_FORCE_UP;
-        private float GAMEOBJECT_FORCE_HORIZONTAL;
-        private float MAX_HORIZONTAL_V;
-        private float MAX_VERTICAL_V;
+        private readonly float G;
+        private readonly float A;
+
+        private readonly float MAX_X_V;
+        private readonly float MAX_Y_V;
+
+        private readonly float FRICTION;
 
         internal Physics(IGameObject gameObject, Vector2 position, IPhysicsConstants constants)
         {
-            GRAVITY = constants.GRAVITY;
-            FORCE_HORIZONTAL_AGAINST = constants.FORCE_HORIZONTAL_AGAINST;
-            GAMEOBJECT_FORCE_UP = constants.GAMEOBJECT_FORCE_UP;
-            GAMEOBJECT_FORCE_HORIZONTAL = constants.GAMEOBJECT_FORCE_HORIZONTAL;
-            MAX_HORIZONTAL_V = constants.MAX_HORIZONTAL_V;
-            MAX_VERTICAL_V = constants.MAX_VERTICAL_V;
+            G = constants.G;
+            A = constants.A;  
+            MAX_X_V = constants.MAX_X_V;
+            MAX_Y_V = constants.MAX_Y_V;
+            FRICTION = constants.FRICTION;
 
             this.gameObject = gameObject;
             this.position = position;
@@ -37,79 +37,99 @@ namespace Gamespace
             acceleration = new Vector2(0, 0);
             velocity = new Vector2(0, 0);
         }
-        public void FreeFall()
+        private void FreeFall()
         {
-            acceleration.Y = GRAVITY;
+            acceleration.Y = G;
         }
 
-        public void Jump()
+        public void MoveMaxSpeed(Side side)
         {
-            acceleration.Y = -GAMEOBJECT_FORCE_UP;
+            switch (side)
+            {
+                case Side.Up:
+                    acceleration.Y = -A;
+                    break;
+                case Side.Down:
+                    acceleration.Y = A;
+                    break;
+                case Side.Left:
+                    acceleration.X = -A;
+                    break;
+                case Side.Right:
+                    acceleration.X = A;
+                    break;
+                default:
+                    FrictionStop(Side.None);
+                    break;
+
+            }
         }
 
-        public void MoveUp()
+        public void JumpMaxSpeed(Side side)
         {
-            // Deprecated.
+            switch (side)
+            {
+                case Side.Up:
+                    velocity.Y = -MAX_Y_V;
+                    break;
+                case Side.Down:
+                    velocity.Y = MAX_Y_V;
+                    break;
+                case Side.Left:
+                    velocity.X = -MAX_X_V;
+                    break;
+                case Side.Right:
+                    velocity.X = MAX_X_V;
+                    break;
+                default:
+                    Stop(Side.None);
+                    break;
+
+            }
         }
 
-        public void MoveLeft()
-        {
-            acceleration.X = -GAMEOBJECT_FORCE_HORIZONTAL;
-        }
-
-        public void MoveRight()
-        {
-
-            acceleration.X = GAMEOBJECT_FORCE_HORIZONTAL;
-        }
-
-        public void MoveDown()
-        {
-            // Depricated
-        }
-
-        public void SlowDown()
-        {
-            //nothing yet
-        }
-
-        public void SpeedUp()
-        {
-            //nothing yet
-        }
 
         public void LeftStop(Rectangle collisionArea)
         {
             position.X = position.X + collisionArea.Width;
+            velocity.X = 0;
+           // acceleration.X = 0;
+
         }
 
         public void RightStop(Rectangle collisionArea)
         {
             position.X = position.X - collisionArea.Width;
+            velocity.X = 0;
+          //  acceleration.X = 0;
 
         }
 
         public void UpStop(Rectangle collisionArea)
         {
             position.Y = position.Y + collisionArea.Height;
+            velocity.Y = 0;
+            acceleration.Y = 0;
         }
 
         public void DownStop(Rectangle collisionArea)
         {
             position.Y = position.Y - collisionArea.Height;
+            velocity.Y = 0;
+            acceleration.Y = 0;
         }
 
         public void Update()
         {
-            velocity.X = MinimumMagnitude(velocity.X + acceleration.X, Math.Sign(acceleration.X) * MAX_HORIZONTAL_V);
-            velocity.Y = MinimumMagnitude(velocity.Y + acceleration.Y, Math.Sign(acceleration.Y) * MAX_VERTICAL_V);
+            FreeFall();
 
-            position.X += (int)Math.Ceiling(velocity.X);
-            position.Y += (int)Math.Ceiling(velocity.Y);
+            velocity.X = MinimumMagnitude(velocity.X + acceleration.X, Math.Sign(acceleration.X) * MAX_X_V);
+            velocity.Y = MinimumMagnitude(velocity.Y + acceleration.Y, Math.Sign(acceleration.Y) * MAX_Y_V);
+
+            position.X += velocity.X;
+            position.Y += velocity.Y;
 
             Loop();
-            Stop();
-            FreeFall();
         }
 
         public Vector2 GetPosition()
@@ -137,25 +157,46 @@ namespace Gamespace
                 position.Y = 240;
                 
         } 
-        public void Stop()
+        public void FrictionStop(Side side)
         {
-            if (velocity.X != 0 && Math.Sign(velocity.X) != Math.Sign(velocity.X + acceleration.X))
+            if (side == Side.Right || side == Side.Left || side == Side.None)
+            {
+                if (velocity.X != 0 && Math.Sign(velocity.X) != Math.Sign(velocity.X + acceleration.X))
+                {
+                    velocity.X = 0;
+                    acceleration.X = 0;
+                }
+                if (acceleration.X != 0)
+                    velocity.X += (-Math.Sign(velocity.X)) * FRICTION;
+            }
+
+            if (side == Side.Up || side == Side.Down || side == Side.None)
+            {
+
+                if (velocity.Y != 0 && Math.Sign(velocity.Y) != Math.Sign(velocity.Y + acceleration.Y))
+                    {
+                        velocity.Y = 0;
+                        acceleration.Y = 0;
+                    }
+                if (acceleration.Y != 0)
+                        velocity.Y += (-Math.Sign(velocity.Y)) * FRICTION;
+                
+            }
+        }
+
+        public void Stop(Side side)
+        {
+            if (side == Side.Right || side == Side.Left || side == Side.None)
             {
                 velocity.X = 0;
                 acceleration.X = 0;
             }
 
-            if (velocity.Y != 0 && Math.Sign(velocity.Y) != Math.Sign(velocity.Y + acceleration.Y))
+            if (side == Side.Up || side == Side.Down || side == Side.None)
             {
                 velocity.Y = 0;
                 acceleration.Y = 0;
             }
-
-            if (acceleration.X != 0)
-                velocity.X += (-Math.Sign(velocity.X)) * FORCE_HORIZONTAL_AGAINST;
-
-            if (acceleration.Y != 0)
-                velocity.Y += (-Math.Sign(velocity.Y)) * GRAVITY;
         }
     }
 

@@ -23,32 +23,34 @@ namespace Gamespace
 
         public override void Update()
         {
-            base.Update();
+            
             GameObjectPhysics.Update();
+            GameObjectPhysics.FrictionStop(Side.Right);
             PositionOnScreen = GameObjectPhysics.GetPosition();
+            base.Update();
         }
         public void Crouch()
         {
             State.Crouch();
-            GameObjectPhysics.MoveDown();
+           
         }
 
         public void Jump()
         {
             State.Jump();
-            GameObjectPhysics.Jump();
+            GameObjectPhysics.JumpMaxSpeed(Side.Up);
         }
 
         public void MoveLeft()
         {
             State.MoveLeft();
-            GameObjectPhysics.MoveLeft();
+            GameObjectPhysics.MoveMaxSpeed(Side.Left);
         }
 
         public void MoveRight()
         {
             State.MoveRight();
-            GameObjectPhysics.MoveRight();
+            GameObjectPhysics.MoveMaxSpeed(Side.Right);
         }
 
         public void PowerDown()

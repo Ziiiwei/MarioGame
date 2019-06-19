@@ -53,11 +53,11 @@ namespace Gamespace.Goombas
             // This can be reworked by adding this CONSTANT ACCEL functionality into Physics.
             if (State.GetType() == typeof(LeftMovingGoombaState))
             {
-                GameObjectPhysics.MoveLeft();
+                GameObjectPhysics.MoveMaxSpeed(Side.Left);
             }
             else if (State.GetType() == typeof(RightMovingGoombaState))
             {
-                GameObjectPhysics.MoveRight();
+                GameObjectPhysics.MoveMaxSpeed(Side.Right);
             }
             GameObjectPhysics.Update();
             PositionOnScreen = GameObjectPhysics.GetPosition();
