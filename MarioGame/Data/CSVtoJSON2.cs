@@ -33,24 +33,31 @@ namespace Gamespace
             String name = "";
 
 
-            for(int i = 0; i < data.GetLength(1); i++)
+            for(int i = 0; i < data.GetLength(0); i++)
             {
-                for(int j = 0; j < data.GetLength(0); j++)
+                for(int j = 0; j < 10; j++)
                 {
+
+                    // The first column is the row number
                     if(j == 0)
                     {
-                       // row = [i][j];
+                        row = Int32.Parse(data[i][j]);
                     }
-                    //if([i][j] = "")
-                    //{
 
-                    //}
-                    name = data[i][j];
-                    _X = (i * 16);
-                    _Y = (j * 16);
-                    CSVObject obj = new CSVObject(name, _X, _Y);
-                    string output = JsonConvert.SerializeObject(obj);
-                    Console.WriteLine(output);
+                    /* If the array location is not empty, grab the name
+                    *  calculat the X and Y coordinates, and serialize as 
+                    *  a JSON object.
+                    */   
+                    else if(!(data[i][j] == ""))
+                    {
+                        name = data[i][j];
+                        _X = (i * 16);
+                        _Y = (j * 16);
+                        CSVObject obj = new CSVObject(name, _X, _Y);
+                        string output = JsonConvert.SerializeObject(obj);
+                        Console.WriteLine(output);
+                    }
+            
                 }
             }
         }
