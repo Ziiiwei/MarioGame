@@ -103,7 +103,7 @@ namespace Gamespace
                 c.Update();
             }
             World.Instance.UpdateWorld();
-            camera.Update();
+            camera.Update(World.Instance.Mario.GetCenter());
             base.Update(gameTime);
             
         }
