@@ -26,17 +26,15 @@ namespace Gamespace
             offset = 0;
         }
 
-        public void Update()
+        public void Update(Vector2 position)
         {
-            if(World.Instance.Mario.PositionOnScreen.X >= Transform.Left.X + MarioGame.ScreenWidth / 4)
-                MoveRight();
+            if(position.X >= Transform.Left.X + MarioGame.ScreenWidth / 4 + offset)
+                MoveRight(position);
         }
 
-        public void MoveRight()
+        public void MoveRight(Vector2 position)
         {
-            Vector2 center = new Vector2(World.Instance.Mario.GetCenter().X - MarioGame.ScreenWidth / 4,
-                World.Instance.Mario.GetCenter().Y - MarioGame.ScreenHeight / 4);
-            Transform = Matrix.CreateTranslation(-center.X, 0/*-center.Y*/, 0);
+            Transform = Matrix.CreateTranslation(-position.X + MarioGame.ScreenWidth / 4, 0, 0);
             offset++;
         }
         
