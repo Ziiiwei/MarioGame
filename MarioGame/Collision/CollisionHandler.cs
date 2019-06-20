@@ -108,7 +108,7 @@ namespace Gamespace
 
 
 
-           // bool horizontalCollision = ((int)mover.GameObjectPhysics.GetVelocity().X < collisionArea.Width);
+             //bool horizontalCollision = ((int)mover.GameObjectPhysics.GetVelocity().X < collisionArea.Width);
 
 
               bool  horizontalCollision = (collisionArea.Height > collisionArea.Width);

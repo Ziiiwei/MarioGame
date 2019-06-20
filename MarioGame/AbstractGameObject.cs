@@ -46,7 +46,7 @@ namespace Gamespace
 
         public Rectangle GetCollisionBoundary()
         {
-            return new Rectangle((int)GameObjectPhysics.GetPosition().X, (int)GameObjectPhysics.GetPosition().Y, Sprite.Width, Sprite.Height);
+            return new Rectangle((int)GameObjectPhysics.Position.X, (int)GameObjectPhysics.Position.Y, Sprite.Width, Sprite.Height);
         }
 
         public Vector2 GetCenter()
@@ -65,25 +65,25 @@ namespace Gamespace
         public virtual void CollideLeft(Rectangle collisionArea)
         {
             GameObjectPhysics.LeftStop(collisionArea);
-            PositionOnScreen = GameObjectPhysics.GetPosition();
+            PositionOnScreen = GameObjectPhysics.Position;
         }
 
         public virtual void CollideRight(Rectangle collisionArea)
         {
             GameObjectPhysics.RightStop(collisionArea);
-            PositionOnScreen = GameObjectPhysics.GetPosition();
+            PositionOnScreen = GameObjectPhysics.Position;
         }
 
         public virtual void CollideUp(Rectangle collisionArea)
         {
             GameObjectPhysics.UpStop(collisionArea);
-            PositionOnScreen = GameObjectPhysics.GetPosition();
+            PositionOnScreen = GameObjectPhysics.Position;
         }
 
         public virtual void CollideDown(Rectangle collisionArea)
         {
             GameObjectPhysics.DownStop(collisionArea);
-            PositionOnScreen = GameObjectPhysics.GetPosition();
+            PositionOnScreen = GameObjectPhysics.Position;
         }
     }
 }

@@ -13,11 +13,11 @@ namespace Gamespace
         private Vector2 position;
         private Vector2 velocity;
         private Vector2 acceleration;
+        public Vector2 Position { get => position; }
+        public Vector2 Velocity { get => velocity; }
         public IGameObject gameObject { get; set; }
 
-        public Vector2 Position { get; }
-
-        public Vector2 Velocity { get; }
+    
 
         private readonly float G;
         private readonly float A;
