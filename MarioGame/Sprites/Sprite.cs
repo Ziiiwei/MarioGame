@@ -22,6 +22,8 @@ namespace Gamespace
         public int Width { get; }
         public int Height { get; }
 
+        public Vector2 Position { get; set;}
+
         public Sprite(Texture2D texture, int totalFrames, int delayBound)
         {
             this.texture = texture;
@@ -63,6 +65,11 @@ namespace Gamespace
         public Rectangle GetRectangle()
         {
             return rectangles[currentFrame];
+        }
+
+        public Rectangle Rectangle
+        {
+            get { return new Rectangle((int)Position.X, (int)Position.Y, texture.Width, texture.Height); }
         }
     }
 }

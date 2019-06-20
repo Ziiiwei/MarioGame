@@ -22,6 +22,14 @@ namespace Gamespace
         private GraphicsDeviceManager graphics;
         public SpriteBatch spriteBatch;
         private List<IController> controllers;
+
+        private Camera camera;
+
+        // Get screen height and width for camera
+        public static int ScreenHeight;
+
+        public static int ScreenWidth;
+
     
         // Make LevelLoader a singleton.
         private LevelLoader levelLoader;
@@ -61,7 +69,10 @@ namespace Gamespace
         protected override void Initialize()
         {
             base.Initialize();
+            ScreenHeight = graphics.PreferredBackBufferHeight;
+            ScreenWidth = graphics.PreferredBackBufferWidth;
             levelLoader = new LevelLoader(World.Instance);
+            camera = new Camera();
             controllers.Add(new KeyboardController(this));
             controllers.Add(new GamepadController(this));
             
@@ -74,7 +85,6 @@ namespace Gamespace
         protected override void LoadContent()
         {   
             spriteBatch = new SpriteBatch(GraphicsDevice);
-
             font = Content.Load<SpriteFont>("Arial");
         }
 
@@ -98,9 +108,10 @@ namespace Gamespace
             {
                 controller.Update();
             }
-
             World.Instance.UpdateWorld();
+            camera.Update(World.Instance.Mario.GetCenter());
             base.Update(gameTime);
+            
         }
 
         /// <summary>
@@ -112,6 +123,8 @@ namespace Gamespace
             GraphicsDevice.Clear(Color.CornflowerBlue);
             frameRate = 1 / (float)gameTime.ElapsedGameTime.TotalSeconds;
             spriteBatch.Begin(SpriteSortMode.Immediate, null, null, null, null, null, Matrix.CreateScale(1.0f));
+            //camera.Follow(World.Instance.Mario.Sprite);
+            spriteBatch.Begin(SpriteSortMode.Immediate, transformMatrix: camera.Transform * Matrix.CreateScale(2.0f));
             World.Instance.DrawWorld(spriteBatch);
             spriteBatch.DrawString(font, "FPS "+frameRate, new Vector2(0, 0), Color.Red);
             spriteBatch.End();

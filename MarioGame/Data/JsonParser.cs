@@ -23,6 +23,7 @@ namespace Gamespace
 
         static JsonParser()
         {
+
         }
 
         private JsonParser()
