@@ -1,6 +1,20 @@
 ﻿{
   "Entries": [
      {
+      "Mover": "Gamespace.Goombas.Goomba",
+      "Target": "Gamespace.Blocks.BlockIsBumpedState",
+      "Side": "Down",
+      "Command1": "Gamespace.Commands.MarioHitsEnemy",
+      "Command2": "Gamespace.Commands.NullCommand"
+    },
+	{
+      "Mover": "Gamespace.Goombas.Koopa",
+      "Target": "Gamespace.Blocks.BlockIsBumpedState",
+      "Side": "Down",
+      "Command1": "Gamespace.Commands.MarioHitsEnemy",
+      "Command2": "Gamespace.Commands.NullCommand"
+    },
+	 {
       "Mover": "Gamespace.States.MarioSmallState",
       "Target": "Gamespace.Blocks.BrickBlock",
       "Side": "Up",

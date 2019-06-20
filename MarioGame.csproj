@@ -42,6 +42,9 @@
     <ApplicationManifest>MarioGame\app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="MarioGame\Blocks\Bump States\BlockIsBumpedState.cs" />
+    <Compile Include="MarioGame\Blocks\Bump States\BlockIsNotBumpedState.cs" />
+    <Compile Include="MarioGame\Blocks\Bump States\IBlockBumpState.cs" />
     <Compile Include="MarioGame\Blocks\IBlock.cs" />
     <Compile Include="MarioGame\Blocks\IBumpable.cs" />
     <Compile Include="MarioGame\Blocks\IDestroyable.cs" />

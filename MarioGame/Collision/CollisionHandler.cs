@@ -35,6 +35,8 @@ namespace Gamespace
             translator.Add((typeof(Mario), typeof(BrickBlock)), new Func<IGameObject, IGameObject, (Type, Type)>(TypeTranslator.MarioBlockTranslator));
             translator.Add((typeof(Mario), typeof(Goomba)), new Func<IGameObject, IGameObject, (Type, Type)>(TypeTranslator.MarioGoombaTranslator));
             translator.Add((typeof(Mario), typeof(Koopa)), new Func<IGameObject, IGameObject, (Type, Type)>(TypeTranslator.MarioKoopaTranslator));
+            translator.Add((typeof(Goomba), typeof(BrickBlock)), new Func<IGameObject, IGameObject, (Type, Type)>(TypeTranslator.BumpableBlockEnemyTranslator));
+            translator.Add((typeof(Koopa), typeof(BrickBlock)), new Func<IGameObject, IGameObject, (Type, Type)>(TypeTranslator.BumpableBlockEnemyTranslator));
             statefulCollisionActions = JsonParser.Instance.ParseCollisionStatefulFile();
         }
 

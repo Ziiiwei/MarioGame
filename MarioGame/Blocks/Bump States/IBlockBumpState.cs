@@ -1,15 +1,13 @@
-﻿using Gamespace.Blocks;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Gamespace
+namespace Gamespace.Blocks
 {
-    internal interface IBumpable
+    internal interface IBlockBumpState
     {
-        IBlockBumpState State { get; set; }
         void Bump();
     }
 }

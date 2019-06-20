@@ -33,5 +33,13 @@ namespace Gamespace.Collision
             IEnemy koopaCast = (IEnemy)receiver;
             return (mover.GetType(), koopaCast.State.GetType());
         }
+
+        internal static (Type, Type) BumpableBlockEnemyTranslator(IGameObject mover, IGameObject receiver)
+        {
+            IEnemy enemyCast = (IEnemy)mover;
+            IBumpable block = (IBumpable)receiver;
+            
+            return (enemyCast.GetType(), block.State.GetType());
+        }
     }
 }

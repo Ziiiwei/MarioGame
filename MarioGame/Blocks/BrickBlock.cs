@@ -10,21 +10,22 @@ using System.Threading.Tasks;
 
 namespace Gamespace.Blocks
 {
-    internal class BrickBlock : AbstractGameObject, IBumpable, IDestroyable
+    internal class BrickBlock : AbstractGameStatefulObject<IBlockBumpState>, IBumpable, IDestroyable
     {
         private static int[] bumpOffsets = { 0, 1, 2, 3, -1, -2, -3 };
         private int bumpCounter = -1;
-        private bool isBumped = false;
 
         public BrickBlock(Vector2 positionOnScreen) : base(positionOnScreen)
         {
+            State = new BlockIsNotBumpedState(this);
+            SetSprite();
         }
 
         public void Bump()
         {
-            if (!isBumped)
+            if (State.GetType() == typeof(BlockIsNotBumpedState))
             {
-                isBumped = true;
+                State = new BlockIsBumpedState(this);
                 bumpCounter = 0;
             }
         }
@@ -37,7 +38,7 @@ namespace Gamespace.Blocks
         public override void Update()
         {
             base.Update();
-            if (isBumped)
+            if (State.GetType() == typeof(BlockIsBumpedState))
             {
                 positionOnScreen.Y -= bumpOffsets[bumpCounter];
                 bumpCounter = (bumpCounter + 1) % bumpOffsets.Length;
@@ -45,9 +46,14 @@ namespace Gamespace.Blocks
             
             if (bumpCounter == 0)
             {
-                isBumped = false;
+                State = new BlockIsNotBumpedState(this);
             }
 
+        }
+
+        protected override void SetSprite()
+        {
+            Sprite = SpriteFactory.Instance.GetSprite(this.GetType().Name, "", "");
         }
     }
 }
