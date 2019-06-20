@@ -15,8 +15,8 @@ namespace Gamespace
     public class MarioGame : Game
     {
         private static readonly MarioGame instance = new MarioGame();
-        public const int WINDOW_WIDTH = 1600;
-        public const int WINDOW_HEIGHT = 960;
+        public const int WINDOW_WIDTH = 800;
+        public const int WINDOW_HEIGHT = 480;
         public const float SCALE = 1f;
 
         private GraphicsDeviceManager graphics;
@@ -24,13 +24,6 @@ namespace Gamespace
         private List<IController> controllers;
 
         private Camera camera;
-
-        // Get screen height and width for camera
-        public static int ScreenHeight;
-
-        public static int ScreenWidth;
-
-    
         // Make LevelLoader a singleton.
         private LevelLoader levelLoader;
 
@@ -69,8 +62,6 @@ namespace Gamespace
         protected override void Initialize()
         {
             base.Initialize();
-            ScreenHeight = graphics.PreferredBackBufferHeight;
-            ScreenWidth = graphics.PreferredBackBufferWidth;
             levelLoader = new LevelLoader(World.Instance);
             camera = new Camera();
             controllers.Add(new KeyboardController(this));
@@ -123,7 +114,7 @@ namespace Gamespace
             GraphicsDevice.Clear(Color.CornflowerBlue);
             frameRate = 1 / (float)gameTime.ElapsedGameTime.TotalSeconds;
             //camera.Follow(World.Instance.Mario.Sprite);
-            spriteBatch.Begin(SpriteSortMode.Immediate, transformMatrix: camera.Transform * Matrix.CreateScale(1.0f));
+            spriteBatch.Begin(SpriteSortMode.Immediate, transformMatrix: camera.Transform * Matrix.CreateScale(SCALE));
             World.Instance.DrawWorld(spriteBatch);
             spriteBatch.DrawString(font, "FPS "+frameRate, new Vector2(0, 0), Color.Red);
             spriteBatch.End();

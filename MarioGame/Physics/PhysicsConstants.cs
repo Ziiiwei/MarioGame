@@ -20,10 +20,10 @@ namespace Gamespace
 
             constantsAssignments = new Dictionary<Type, IPhysicsConstants>();
 
-            List<float> marioDefinitions = new List<float> { 1f, 2f, 4f, 10f, 0.4f };
+            List<float> marioDefinitions = new List<float> { 1f, 2f, 4f, 10f, 1f };
             constantsAssignments.Add(typeof(Mario), new PhysicsConstantsDefinitons(marioDefinitions));
 
-            List<float> enemyDefinitions = new List<float> { 1.5f, 1f, 2f, 2f, 0.5f };
+            List<float> enemyDefinitions = new List<float> { 1.5f, 1f, 2f, 2f, 1f };
             constantsAssignments.Add(typeof(Goomba), new PhysicsConstantsDefinitons(enemyDefinitions));
             constantsAssignments.Add(typeof(Koopa), new PhysicsConstantsDefinitons(enemyDefinitions));
         }

@@ -28,7 +28,7 @@ namespace Gamespace
 
         public void Update(Vector2 position)
         {
-            if(position.X >= -Transform.M14 + MarioGame.ScreenWidth / 4 + offset)
+            if(position.X >= -Transform.M14 + MarioGame.WINDOW_WIDTH /(2*MarioGame.SCALE) + offset)
                 MoveRight(position);
         }
         
@@ -36,7 +36,7 @@ namespace Gamespace
 
         private void MoveRight(Vector2 position)
         {
-            Transform = Matrix.CreateTranslation(-position.X + MarioGame.ScreenWidth / 4, 0, 0);
+            Transform = Matrix.CreateTranslation(-position.X + MarioGame.WINDOW_WIDTH / (2 * MarioGame.SCALE), 0, 0);
             offset++;
         }
         
