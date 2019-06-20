@@ -18,9 +18,27 @@ namespace Gamespace
 
         }
         private const int UNIT = 32;
+        private static Dictionary<string, string> shortcuts;
+
         public static void ConvertCSVtoJSON()
         {
-            
+            shortcuts = new Dictionary<string, string>
+            {
+                {"BB", "Gamespace.Blocks.BrickBlock"},
+                {"MB", "Gamespace.Blocks.MetalBlock" },
+                {"FB", "Gamespace.Blocks.FloorBlock" },
+                {"UB", "Gamespace.Blocks.UsedBlock" },
+                {"HB", "Gamespace.Blocks.HiddenBlock" },
+                {"QB", "Gamespace.Blocks.QuestionBlock" },
+                {"P", "Gamespace.Items.Pipe" },
+                {"M", "Gamespace.Mario" },
+                {"G", "Gamespace.Goombas.Goomba" },
+                {"K", "Gamespace.Koopas.Koopa" },
+                {"S", "Gamespace.Items.Star" },
+                {"GS", "Gamespace.Items.GreenShroom" },
+                {"RS", "Gamespace.Items.RedShroom" }
+            };
+
             StreamReader sr = new StreamReader("MarioGame/Data/level1test.csv");
 
             String[][] data = File.ReadLines("MarioGame/Data/level1test.csv").Select(x => x.Split(',')).ToArray();
@@ -51,7 +69,7 @@ namespace Gamespace
                         _X = (j * UNIT);
                         _Y = (i * UNIT);
 
-                        CSVObject obj = new CSVObject(name, _X, _Y, state);
+                        CSVObject obj = new CSVObject(shortcuts[name], _X, _Y, state);
                         string output = JsonConvert.SerializeObject(obj);
                         JsonList.Add(obj);
                     }
