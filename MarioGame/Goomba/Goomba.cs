@@ -60,7 +60,7 @@ namespace Gamespace.Goombas
                 GameObjectPhysics.MoveMaxSpeed(Side.Right);
             }
             GameObjectPhysics.Update();
-            PositionOnScreen = GameObjectPhysics.GetPosition();
+            positionOnScreen = GameObjectPhysics.GetPosition();
         }
 
         public override void CollideLeft(Rectangle collisionArea)

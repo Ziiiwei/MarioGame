@@ -26,7 +26,7 @@ namespace Gamespace
             
             GameObjectPhysics.Update();
             GameObjectPhysics.FrictionStop(Side.Right);
-            PositionOnScreen = GameObjectPhysics.GetPosition();
+            positionOnScreen = GameObjectPhysics.GetPosition();
             base.Update();
         }
         public void Crouch()

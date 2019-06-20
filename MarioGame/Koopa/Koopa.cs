@@ -53,7 +53,7 @@ namespace Gamespace.Koopas
                 GameObjectPhysics.MoveMaxSpeed(Side.Right);
             }
             GameObjectPhysics.Update();
-            PositionOnScreen = GameObjectPhysics.GetPosition();
+            positionOnScreen = GameObjectPhysics.GetPosition();
         }
 
         public void UpdateArt()

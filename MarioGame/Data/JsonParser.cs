@@ -127,7 +127,8 @@ namespace Gamespace
                     go = (IGameObject)Activator.CreateInstance(t, new Vector2(x, y));
                 }
 
-                gameObjects.Add(new Tuple<int, IGameObject>(go.Uid, go));
+                World.Instance.AddGameObject(go);
+                //gameObjects.Add(new Tuple<int, IGameObject>(go.Uid, go));
             }
             return gameObjects;
         }

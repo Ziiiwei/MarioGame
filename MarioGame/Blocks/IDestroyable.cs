@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Sprint0.MarioGame.Blocks
+namespace Gamespace
 {
-    interface IDestroyable
+    internal interface IDestroyable
     {
         void Destroy();
     }

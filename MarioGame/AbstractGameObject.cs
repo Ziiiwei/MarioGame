@@ -15,7 +15,9 @@ namespace Gamespace
         protected static int counter = 0;
         public int Uid { get; protected set; }
         public ISprite Sprite { get; protected set; }
-        public Vector2 PositionOnScreen { get; protected set; }
+        protected Vector2 positionOnScreen;
+        public Vector2 PositionOnScreen  => positionOnScreen;
+
         internal IPhysics GameObjectPhysics { get; set; }
 
         public AbstractGameObject()
@@ -27,7 +29,7 @@ namespace Gamespace
         public AbstractGameObject(Vector2 positionOnScreen)
         {
             SetSprite();
-            this.PositionOnScreen = positionOnScreen;
+            this.positionOnScreen = positionOnScreen;
             Uid = counter;
             counter++;
             //GameObjectPhysics = new Physics(this, positionOnScreen); 
@@ -65,25 +67,25 @@ namespace Gamespace
         public virtual void CollideLeft(Rectangle collisionArea)
         {
             GameObjectPhysics.LeftStop(collisionArea);
-            PositionOnScreen = GameObjectPhysics.Position;
+            positionOnScreen = GameObjectPhysics.Position;
         }
 
         public virtual void CollideRight(Rectangle collisionArea)
         {
             GameObjectPhysics.RightStop(collisionArea);
-            PositionOnScreen = GameObjectPhysics.Position;
+            positionOnScreen = GameObjectPhysics.Position;
         }
 
         public virtual void CollideUp(Rectangle collisionArea)
         {
             GameObjectPhysics.UpStop(collisionArea);
-            PositionOnScreen = GameObjectPhysics.Position;
+            positionOnScreen = GameObjectPhysics.Position;
         }
 
         public virtual void CollideDown(Rectangle collisionArea)
         {
             GameObjectPhysics.DownStop(collisionArea);
-            PositionOnScreen = GameObjectPhysics.Position;
+            positionOnScreen = GameObjectPhysics.Position;
         }
     }
 }

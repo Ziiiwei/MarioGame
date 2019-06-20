@@ -10,9 +10,9 @@
     {
       "Mover": "Gamespace.Mario",
       "Target": "Gamespace.Blocks.QuestionBlock",
-      "Side": "Down",
-      "Command1": "Gamespace.Commands.CollideDown",
-      "Command2": "Gamespace.Commands.HitBlock"
+      "Side": "Up",
+      "Command1": "Gamespace.Commands.CollideUp",
+      "Command2": "Gamespace.Commands.DestroyBlock"
     },
     {
       "Mover": "Gamespace.Mario",

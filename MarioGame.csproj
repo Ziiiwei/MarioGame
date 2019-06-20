@@ -43,8 +43,12 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="MarioGame\Blocks\IBlock.cs" />
+    <Compile Include="MarioGame\Blocks\IBumpable.cs" />
+    <Compile Include="MarioGame\Blocks\IDestroyable.cs" />
     <Compile Include="MarioGame\Camera.cs" />
     <Compile Include="MarioGame\Collision\TypeTranslator.cs" />
+    <Compile Include="MarioGame\Commands\BumpBlock.cs" />
+    <Compile Include="MarioGame\Commands\DestroyBlock.cs" />
     <Compile Include="MarioGame\Commands\EnemyHitHorizontally.cs" />
     <Compile Include="MarioGame\Commands\MarioPowerUp.cs" />
     <Compile Include="MarioGame\Commands\SlideEnemyLeft.cs" />
@@ -68,9 +72,7 @@
     <Compile Include="MarioGame\Collision\CollisionHandler.cs" />
     <Compile Include="MarioGame\AbstractGameStatefulObject.cs" />
     <Compile Include="MarioGame\AbstractGameObject.cs" />
-    <Compile Include="MarioGame\Blocks\Block.cs" />
     <Compile Include="MarioGame\Commands\ConsumeItem.cs" />
-    <Compile Include="MarioGame\Commands\HitBlock.cs" />
     <Compile Include="MarioGame\Commands\EnemyHitsMario.cs" />
     <Compile Include="MarioGame\Commands\MarioHitsEnemy.cs" />
     <Compile Include="MarioGame\Commands\HitFlower.cs" />

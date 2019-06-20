@@ -61,17 +61,8 @@ namespace Gamespace
             if (gameObject.GetType() == typeof(Mario))
             {
                 Mario = (Mario)gameObject;
-                collisionMovers.Add(gameObject);
+            }
 
-            }
-            else if (collisionMoverClassifier.Contains(gameObject.GetType()))
-            {
-                collisionMovers.Add(gameObject);
-            }
-            else
-            {
-                collisionReceivers.Add(gameObject);
-            }
             objectsToAdd.Add(gameObject);
         }
 
@@ -79,6 +70,7 @@ namespace Gamespace
         {
             foreach (IGameObject gameObject in objectsToAdd)
             {
+                ClassifyNewObject(gameObject);
                 objectsInWorld.Add(gameObject.Uid, gameObject);
             }
 
@@ -97,8 +89,6 @@ namespace Gamespace
 
             objectsToAdd.Clear();
             objectsToRemove.Clear();
-
-
 
             /* The instigator is the first object, then target. */
 
@@ -149,6 +139,18 @@ namespace Gamespace
             this.objectsToRemove.Clear();
             this.collisionMovers.Clear();
             this.collisionReceivers.Clear();
+        }
+
+        private void ClassifyNewObject(IGameObject gameObject)
+        {
+            if (collisionMoverClassifier.Contains(gameObject.GetType()))
+            {
+                collisionMovers.Add(gameObject);
+            }
+            else
+            {
+                collisionReceivers.Add(gameObject);
+            }
         }
     }
 }

@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Gamespace.Blocks
+namespace Gamespace
 {
-    interface IBumpable
+    internal interface IBumpable
     {
         void Bump();
     }

@@ -7,12 +7,21 @@ using System.Threading.Tasks;
 
 namespace Gamespace.Blocks
 {
-    internal class UsedBlock : Block
+    internal class UsedBlock : AbstractGameObject, IBlock
     {
         public UsedBlock(Vector2 positionOnScreen) : base(positionOnScreen)
         {
 
         }
 
+        public void Bump()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Destroy()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -72,28 +72,39 @@ namespace Gamespace
             {
                 Delegate translatorValue = translator[(mover.GetType(), target.GetType())];
                 (Type, Type) statefulActionsKey = ((Type, Type)) translatorValue.DynamicInvoke(mover, target);
+
                 key = new Tuple<Type, Type, Side>(statefulActionsKey.Item1, statefulActionsKey.Item2, side);
-                launchCommand(statefulCollisionActions);
+                if (statefulCollisionActions.ContainsKey(key))
+                {
+                    launchCommand(statefulCollisionActions);
+                }
+                else
+                {
+                    ExecuteDefaultCollision(mover, target, collisionArea, side);
+                } 
             }
             else
             {
                 /* This is known to be messy and will be cleaned up later. */
                 /* TODO: Consider a collision list where items collide with nothing */
-                ICommand defaultCommand = new CollideUp((ICollidable)mover, new CollisionData(collisionArea));
-
-                if (side is Side.Down)
-                    defaultCommand = new CollideDown((ICollidable)mover, new CollisionData(collisionArea));
-                if (side is Side.Left)
-                    defaultCommand = new CollideLeft((ICollidable)mover, new CollisionData(collisionArea));
-                if (side is Side.Right)
-                    defaultCommand = new CollideRight((ICollidable)mover, new CollisionData(collisionArea));
-
-                defaultCommand.Execute();
-
+                ExecuteDefaultCollision(mover, target, collisionArea, side);
             }
 
         }
 
+        private void ExecuteDefaultCollision(IGameObject mover, IGameObject target, Rectangle collisionArea, Side side)
+        {
+            ICommand defaultCommand = new CollideUp((ICollidable)mover, new CollisionData(collisionArea));
+
+            if (side is Side.Down)
+                defaultCommand = new CollideDown((ICollidable)mover, new CollisionData(collisionArea));
+            if (side is Side.Left)
+                defaultCommand = new CollideLeft((ICollidable)mover, new CollisionData(collisionArea));
+            if (side is Side.Right)
+                defaultCommand = new CollideRight((ICollidable)mover, new CollisionData(collisionArea));
+
+            defaultCommand.Execute();
+        }
         /* Collision direction is target relative 
          * Example: Mario hits top of the block, so that is a top collision.
          */

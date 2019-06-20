@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Gamespace.Blocks
 {
-    class MetalBlock : Block
+    class MetalBlock : AbstractGameObject, IBlock
     {
         public MetalBlock(Vector2 positionOnScreen) : base(positionOnScreen)
         {

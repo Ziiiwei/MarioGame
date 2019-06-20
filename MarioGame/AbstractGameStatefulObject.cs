@@ -15,7 +15,7 @@ namespace Gamespace
         public T State { get; set; }
         public AbstractGameStatefulObject(Vector2 positionOnScreen) : base()
         {
-            this.PositionOnScreen = positionOnScreen;
+            this.positionOnScreen = positionOnScreen;
             GameObjectPhysics = PhysicsFactory.Instance.GetPhysics(this, positionOnScreen);
         }
 
