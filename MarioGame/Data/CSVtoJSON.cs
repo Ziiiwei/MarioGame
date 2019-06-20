@@ -17,7 +17,7 @@ namespace Gamespace
         {
 
         }
-        private const int UNIT = 16;
+        private const int UNIT = 32;
         public static void ConvertCSVtoJSON()
         {
             

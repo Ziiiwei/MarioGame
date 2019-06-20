@@ -122,9 +122,8 @@ namespace Gamespace
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
             frameRate = 1 / (float)gameTime.ElapsedGameTime.TotalSeconds;
-            spriteBatch.Begin(SpriteSortMode.Immediate, null, null, null, null, null, Matrix.CreateScale(1.0f));
             //camera.Follow(World.Instance.Mario.Sprite);
-            spriteBatch.Begin(SpriteSortMode.Immediate, transformMatrix: camera.Transform * Matrix.CreateScale(2.0f));
+            spriteBatch.Begin(SpriteSortMode.Immediate, transformMatrix: camera.Transform * Matrix.CreateScale(1.0f));
             World.Instance.DrawWorld(spriteBatch);
             spriteBatch.DrawString(font, "FPS "+frameRate, new Vector2(0, 0), Color.Red);
             spriteBatch.End();
