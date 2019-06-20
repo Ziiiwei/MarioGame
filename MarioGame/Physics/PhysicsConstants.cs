@@ -56,10 +56,7 @@ namespace Gamespace
                 MAX_X_V = definitions[2];
                 MAX_Y_V = definitions[3];
                 FRICTION = definitions[4];
-             
             }
-
-            
         }
     }
 }

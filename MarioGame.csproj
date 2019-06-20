@@ -104,7 +104,6 @@
     <Compile Include="MarioGame\Items\Star.cs" />
     <Compile Include="MarioGame\Koopa\IKoopaState.cs" />
     <Compile Include="MarioGame\Interfaces\IMario.cs" />
-    <Compile Include="MarioGame\Koopa\KoopaChangeDirectionCommand.cs" />
     <Compile Include="MarioGame\Commands\KoopaFlipCommand.cs" />
     <Compile Include="MarioGame\Koopa\KoopaFlippedState.cs" />
     <Compile Include="MarioGame\Koopa\KoopaMovingLeftState.cs" />

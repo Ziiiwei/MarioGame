@@ -1,69 +1,5 @@
 ﻿{
   "Entries": [
-     {
-      "Mover": "Gamespace.Mario",
-      "Target": "Gamespace.Blocks.UsedBlock",
-      "Side": "Down",
-      "Command1": "Gamespace.Commands.CollideDown",
-      "Command2": "Gamespace.Commands.NullCommand"
-    },
-    {
-      "Mover": "Gamespace.Mario",
-      "Target": "Gamespace.Blocks.UsedBlock",
-      "Side": "Up",
-      "Command1": "Gamespace.Commands.CollideUp",
-      "Command2": "Gamespace.Commands.NullCommand"
-    },
-    {
-      "Mover": "Gamespace.Mario",
-      "Target": "Gamespace.Blocks.UsedBlock",
-      "Side": "Left",
-      "Command1": "Gamespace.Commands.CollideLeft",
-      "Command2": "Gamespace.Commands.NullCommand"
-    },
-    {
-      "Mover": "Gamespace.Mario",
-      "Target": "Gamespace.Blocks.UsedBlock",
-      "Side": "Right",
-      "Command1": "Gamespace.Commands.CollideRight",
-      "Command2": "Gamespace.Commands.NullCommand"
-    },
-	{
-      "Mover": "Gamespace.Mario",
-      "Target": "Gamespace.Blocks.BrickBlock",
-      "Side": "Down",
-      "Command1": "Gamespace.Commands.CollideDown",
-      "Command2": "Gamespace.Commands.NullCommand"
-    },
-
-    {
-      "Mover": "Gamespace.Mario",
-      "Target": "Gamespace.Blocks.BrickBlock",
-      "Side": "Left",
-      "Command1": "Gamespace.Commands.CollideLeft",
-      "Command2": "Gamespace.Commands.NullCommand"
-    },
-    {
-      "Mover": "Gamespace.Mario",
-      "Target": "Gamespace.Blocks.BrickBlock",
-      "Side": "Right",
-      "Command1": "Gamespace.Commands.CollideRight",
-      "Command2": "Gamespace.Commands.NullCommand"
-    },
-    {
-      "Mover": "Gamespace.Mario",
-      "Target": "Gamespace.Blocks.HiddenBlock",
-      "Side": "Left",
-      "Command1": "Gamespace.Commands.CollideLeft",
-      "Command2": "Gamespace.Commands.NullCommand"
-    },
-    {
-      "Mover": "Gamespace.Mario",
-      "Target": "Gamespace.Blocks.HiddenBlock",
-      "Side": "Right",
-      "Command1": "Gamespace.Commands.CollideRight",
-      "Command2": "Gamespace.Commands.NullCommand"
-    },
     {
       "Mover": "Gamespace.Mario",
       "Target": "Gamespace.Blocks.HiddenBlock",
@@ -73,38 +9,10 @@
     },
     {
       "Mover": "Gamespace.Mario",
-      "Target": "Gamespace.Blocks.HiddenBlock",
-      "Side": "Down",
-      "Command1": "Gamespace.Commands.CollideDown",
-      "Command2": "Gamespace.Commands.NullCommand"
-    },
-    {
-      "Mover": "Gamespace.Mario",
-      "Target": "Gamespace.Blocks.QuestionBlock",
-      "Side": "Up",
-      "Command1": "Gamespace.Commands.CollideUp",
-      "Command2": "Gamespace.Commands.NullCommand"
-    },
-    {
-      "Mover": "Gamespace.Mario",
       "Target": "Gamespace.Blocks.QuestionBlock",
       "Side": "Down",
       "Command1": "Gamespace.Commands.CollideDown",
       "Command2": "Gamespace.Commands.HitBlock"
-    },
-    {
-      "Mover": "Gamespace.Mario",
-      "Target": "Gamespace.Blocks.QuestionBlock",
-      "Side": "Left",
-      "Command1": "Gamespace.Commands.CollideLeft",
-      "Command2": "Gamespace.Commands.NullCommand"
-    },
-    {
-      "Mover": "Gamespace.Mario",
-      "Target": "Gamespace.Blocks.QuestionBlock",
-      "Side": "Right",
-      "Command1": "Gamespace.Commands.CollideRight",
-      "Command2": "Gamespace.Commands.NullCommand"
     },
     {
       "Mover": "Gamespace.Mario",
@@ -261,146 +169,6 @@
       "Command2": "Gamespace.Commands.ConsumeItem"
     },
     {
-      "Mover": "Gamespace.Mario",
-      "Target": "Gamespace.Blocks.MetalBlock",
-      "Side": "Up",
-      "Command1": "Gamespace.Commands.CollideUp",
-      "Command2": "Gamespace.Commands.NullCommand"
-    },
-    {
-      "Mover": "Gamespace.Mario",
-      "Target": "Gamespace.Blocks.MetalBlock",
-      "Side": "Down",
-      "Command1": "Gamespace.Commands.CollideDown",
-      "Command2": "Gamespace.Commands.NullCommand"
-    },
-    {
-      "Mover": "Gamespace.Mario",
-      "Target": "Gamespace.Blocks.MetalBlock",
-      "Side": "Left",
-      "Command1": "Gamespace.Commands.CollideLeft",
-      "Command2": "Gamespace.Commands.NullCommand"
-    },
-    {
-      "Mover": "Gamespace.Mario",
-      "Target": "Gamespace.Blocks.MetalBlock",
-      "Side": "Right",
-      "Command1": "Gamespace.Commands.CollideRight",
-      "Command2": "Gamespace.Commands.NullCommand"
-    },
-    {
-      "Mover": "Gamespace.Mario",
-      "Target": "Gamespace.Blocks.FloorBlock",
-      "Side": "Up",
-      "Command1": "Gamespace.Commands.CollideUp",
-      "Command2": "Gamespace.Commands.NullCommand"
-    },
-    {
-      "Mover": "Gamespace.Mario",
-      "Target": "Gamespace.Blocks.FloorBlock",
-      "Side": "Down",
-      "Command1": "Gamespace.Commands.CollideDown",
-      "Command2": "Gamespace.Commands.NullCommand"
-    },
-    {
-      "Mover": "Gamespace.Mario",
-      "Target": "Gamespace.Blocks.FloorBlock",
-      "Side": "Left",
-      "Command1": "Gamespace.Commands.CollideLeft",
-      "Command2": "Gamespace.Commands.NullCommand"
-    },
-    {
-      "Mover": "Gamespace.Mario",
-      "Target": "Gamespace.Blocks.FloorBlock",
-      "Side": "Right",
-      "Command1": "Gamespace.Commands.CollideRight",
-      "Command2": "Gamespace.Commands.NullCommand"
-    },
-    {
-      "Mover": "Gamespace.Mario",
-      "Target": "Gamespace.Items.Pipe",
-      "Side": "Left",
-      "Command1": "Gamespace.Commands.CollideLeft",
-      "Command2": "Gamespace.Commands.NullCommand"
-    },
-    {
-      "Mover": "Gamespace.Mario",
-      "Target": "Gamespace.Items.Pipe",
-      "Side": "Right",
-      "Command1": "Gamespace.Commands.CollideRight",
-      "Command2": "Gamespace.Commands.NullCommand"
-    },
-    {
-      "Mover": "Gamespace.Mario",
-      "Target": "Gamespace.Items.Pipe",
-      "Side": "Up",
-      "Command1": "Gamespace.Commands.CollideUp",
-      "Command2": "Gamespace.Commands.NullCommand"
-    },
-    {
-      "Mover": "Gamespace.Mario",
-      "Target": "Gamespace.Items.Pipe",
-      "Side": "Down",
-      "Command1": "Gamespace.Commands.CollideDown",
-      "Command2": "Gamespace.Commands.NullCommand"
-    },
-    {
-      "Mover": "Gamespace.StarMario",
-      "Target": "Gamespace.Items.Pipe",
-      "Side": "Left",
-      "Command1": "Gamespace.Commands.CollideLeft",
-      "Command2": "Gamespace.Commands.NullCommand"
-    },
-    {
-      "Mover": "Gamespace.StarMario",
-      "Target": "Gamespace.Items.Pipe",
-      "Side": "Right",
-      "Command1": "Gamespace.Commands.CollideRight",
-      "Command2": "Gamespace.Commands.NullCommand"
-    },
-    {
-      "Mover": "Gamespace.StarMario",
-      "Target": "Gamespace.Items.Pipe",
-      "Side": "Up",
-      "Command1": "Gamespace.Commands.CollideUp",
-      "Command2": "Gamespace.Commands.NullCommand"
-    },
-    {
-      "Mover": "Gamespace.StarMario",
-      "Target": "Gamespace.Items.Pipe",
-      "Side": "Down",
-      "Command1": "Gamespace.Commands.CollideDown",
-      "Command2": "Gamespace.Commands.NullCommand"
-    },
-    {
-      "Mover": "Gamespace.StarMario",
-      "Target": "Gamespace.Blocks.BrickBlock",
-      "Side": "Right",
-      "Command1": "Gamespace.Commands.CollideRight",
-      "Command2": "Gamespace.Commands.NullCommand"
-    },
-    {
-      "Mover": "Gamespace.StarMario",
-      "Target": "Gamespace.Blocks.BrickBlock",
-      "Side": "Left",
-      "Command1": "Gamespace.Commands.CollideLeft",
-      "Command2": "Gamespace.Commands.NullCommand"
-    },
-    {
-      "Mover": "Gamespace.StarMario",
-      "Target": "Gamespace.Blocks.BrickBlock",
-      "Side": "Up",
-      "Command1": "Gamespace.Commands.CollideUp",
-      "Command2": "Gamespace.Commands.NullCommand"
-    },
-    {
-      "Mover": "Gamespace.StarMario",
-      "Target": "Gamespace.Blocks.BrickBlock",
-      "Side": "Down",
-      "Command1": "Gamespace.Commands.CollideDown",
-      "Command2": "Gamespace.Commands.NullCommand"
-    },
-    {
       "Mover": "Gamespace.StarMario",
       "Target": "Gamespace.Koopas.Koopa",
       "Side": "Down",
@@ -455,34 +223,6 @@
       "Side": "Right",
       "Command1": "Gamespace.Commands.NullCommand",
       "Command2": "Gamespace.Commands.MarioHitsEnemy"
-    },
-	     {
-      "Mover": "Gamespace.Goombas.Goomba",
-      "Target": "Gamespace.Blocks.FloorBlock",
-      "Side": "Down",
-      "Command1": "Gamespace.Commands.CollideDown",
-      "Command2": "Gamespace.Commands.NullCommand"
-    },
-    {
-      "Mover": "Gamespace.Goombas.Goomba",
-      "Target": "Gamespace.Blocks.FloorBlock",
-      "Side": "Up",
-      "Command1": "Gamespace.Commands.CollideUp",
-      "Command2": "Gamespace.Commands.NullCommand"
-    },
-    {
-      "Mover": "Gamespace.Goombas.Goomba",
-      "Target": "Gamespace.Blocks.FloorBlock",
-      "Side": "Left",
-      "Command1": "Gamespace.Commands.CollideLeft",
-      "Command2": "Gamespace.Commands.NullCommand"
-    },
-    {
-      "Mover": "Gamespace.Goombas.Goomba",
-      "Target": "Gamespace.Blocks.FloorBlock",
-      "Side": "Right",
-      "Command1": "Gamespace.Commands.CollideRight",
-      "Command2": "Gamespace.Commands.NullCommand"
     }
   ]
 }

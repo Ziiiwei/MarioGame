@@ -46,11 +46,11 @@ namespace Gamespace.Koopas
             // This can be reworked by adding this CONSTANT ACCEL functionality into Physics.
             if (State.GetType() == typeof(KoopaMovingLeftState))
             {
-                GameObjectPhysics.JumpMaxSpeed(Side.Left);
+                GameObjectPhysics.MoveMaxSpeed(Side.Left);
             }
             else if (State.GetType() == typeof(KoopaMovingRightState))
             {
-                GameObjectPhysics.JumpMaxSpeed(Side.Right);
+                GameObjectPhysics.MoveMaxSpeed(Side.Right);
             }
             GameObjectPhysics.Update();
             PositionOnScreen = GameObjectPhysics.GetPosition();
