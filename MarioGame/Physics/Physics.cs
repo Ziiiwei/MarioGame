@@ -119,11 +119,12 @@ namespace Gamespace
 
         private void Loop()
         {
-
+            /*
             if (position.X <= 0)
                 position.X = MarioWorldConstant.GAME_WINDOW_WIDTH / MarioWorldConstant.SCALE;
             else if (position.X >= MarioWorldConstant.GAME_WINDOW_WIDTH / MarioWorldConstant.SCALE)
                 position.X = 0;
+                */
 
             if (position.Y >= MarioWorldConstant.GAME_WINDOW_HEIGHT / MarioWorldConstant.SCALE)
                 position.Y = 0;

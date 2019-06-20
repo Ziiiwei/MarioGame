@@ -28,13 +28,13 @@ namespace Gamespace
 
         public void Update(Vector2 position)
         {
-            if(position.X >= Transform.Left.X + MarioGame.ScreenWidth / 4 + offset)
+            if(position.X >= -Transform.M14 + MarioGame.ScreenWidth / 4 + offset)
                 MoveRight(position);
         }
         
    
 
-        public void MoveRight(Vector2 position)
+        private void MoveRight(Vector2 position)
         {
             Transform = Matrix.CreateTranslation(-position.X + MarioGame.ScreenWidth / 4, 0, 0);
             offset++;
