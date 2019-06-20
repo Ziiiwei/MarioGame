@@ -31,6 +31,8 @@ namespace Gamespace
             if(position.X >= Transform.Left.X + MarioGame.ScreenWidth / 4 + offset)
                 MoveRight(position);
         }
+        
+   
 
         public void MoveRight(Vector2 position)
         {
