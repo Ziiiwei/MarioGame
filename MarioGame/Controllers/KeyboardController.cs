@@ -60,6 +60,13 @@ namespace Gamespace.Controllers
             previouslyPressed = new Keys[0];
         }
 
+        public void SwitchMapping()
+        {
+            keyCommands = new Dictionary<string, ICommand>();
+            keyCommands.Add("Q_Click", new QuitGame(MarioGame.Instance));
+            keyCommands.Add("R_Click", new Reset(MarioGame.Instance));
+        }
+
         public void Update()
         {
             Keys[] pressed = Keyboard.GetState().GetPressedKeys();
