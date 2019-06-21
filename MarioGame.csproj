@@ -218,6 +218,7 @@
     <None Include="MarioGame\Code Reviews\MatthewHarrow.md" />
     <None Include="MarioGame\Code Reviews\ZiweiJin.md" />
     <None Include="MarioGame\Code Reviews\RayanHamza.md" />
+    <None Include="MarioGame\Data\level1.csv" />
     <None Include="MarioGame\Data\Level1.json" />
     <None Include="MarioGame\Data\CollisionActions.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

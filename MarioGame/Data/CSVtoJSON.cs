@@ -39,12 +39,12 @@ namespace Gamespace
                 {"RS", "Gamespace.Items.RedShroom" }
             };
 
-            StreamReader sr = new StreamReader("MarioGame/Data/level1test.csv");
+            //StreamReader sr = new StreamReader("MarioGame/Data/level1.csv");
 
-            String[][] data = File.ReadLines("MarioGame/Data/level1test.csv").Select(x => x.Split(',')).ToArray();
+            String[][] data = File.ReadLines("MarioGame/Data/level1.csv").Select(x => x.Split(',')).ToArray();
             int _X = 0;
             int _Y = 0;
-            int row = 0;
+            //int row = 0;
             var JsonList = new List<CSVObject>();
             string name;
             string state = "null";
@@ -55,15 +55,15 @@ namespace Gamespace
                 {
 
                     // The first column is the row number
-                    if (j == 0)
-                    {
-                        row = Int32.Parse(data[i][j]);
-                    }
+                    //if (j == 0)
+                    //{
+                    //    row = Int32.Parse(data[i][j]);
+                    //}
                     /* If the array location is not empty, grab the name
                      *  calculat the X and Y coordinates, and serialize as 
                      *  a JSON object.
                      */
-                    else if (!(data[i][j] == ""))
+                    if (!(data[i][j] == ""))
                     {
                         name = data[i][j];
                         _X = (j * UNIT);
