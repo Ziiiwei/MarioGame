@@ -31,6 +31,7 @@ namespace Gamespace
                 {"HB", "Gamespace.Blocks.HiddenBlock" },
                 {"QB", "Gamespace.Blocks.QuestionBlock" },
                 {"P", "Gamespace.Items.Pipe" },
+                {"PE", "Gamespace.Items.PipeExtension" },
                 {"M", "Gamespace.Mario" },
                 {"G", "Gamespace.Goombas.Goomba" },
                 {"K", "Gamespace.Koopas.Koopa" },
