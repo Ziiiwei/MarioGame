@@ -39,12 +39,10 @@ namespace Gamespace
                 {"RS", "Gamespace.Items.RedShroom" }
             };
 
-            //StreamReader sr = new StreamReader("MarioGame/Data/level1.csv");
 
             String[][] data = File.ReadLines("MarioGame/Data/level1.csv").Select(x => x.Split(',')).ToArray();
             int _X = 0;
             int _Y = 0;
-            //int row = 0;
             var JsonList = new List<CSVObject>();
             string name;
             string state = "null";
