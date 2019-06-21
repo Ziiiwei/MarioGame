@@ -17,6 +17,7 @@ namespace Gamespace
         public ISprite Sprite { get; set; }
         public IMarioState State { get; set; }
         public Vector2 PositionOnScreen { get; }
+
         public IMarioPowerUpState PowerUpState { get; set; }
         public IMarioPowerUpState PreviousPowerUpState;
         internal IPhysics Physics { get; set; }

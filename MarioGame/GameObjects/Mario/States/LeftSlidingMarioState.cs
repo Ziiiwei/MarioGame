@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Gamespace;
+using Microsoft.Xna.Framework;
 
 namespace Gamespace.States
 {
@@ -13,7 +14,7 @@ namespace Gamespace.States
 
         public LeftSlidingMarioState(IMario mario) : base(mario)
         {
-            this.mario = mario; 
+            this.mario = mario;
         }
 
         public override void Jump()
@@ -22,19 +23,20 @@ namespace Gamespace.States
             mario.UpdateArt();
         }
 
-        // mario should resume movement here
+        // this is what depends on Mario's velocity
         public override void MoveLeft()
         {
-            mario.State = new LeftWalkingMarioState(mario);
+            // if mario did not move, make him stand
+
+            mario.State = new RightStandingMarioState(mario);
             mario.UpdateArt();
         }
 
-        // this is what depends on Mario's velocity
+        // mario should resume movement here
         public override void MoveRight()
         {
-            mario.State = new RightStandingMarioState(mario);
+            mario.State = new LeftWalkingMarioState(mario);
             mario.UpdateArt();
-            
         }
     }
 }

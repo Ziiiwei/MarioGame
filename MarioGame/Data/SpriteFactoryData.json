@@ -96,6 +96,38 @@
       "FrameCount": 3,
       "FrameDelay": 3
     },
+	{
+      "Name": "Mario",
+      "State": "RightSlidingMarioState",
+      "PowerUpState": "MarioSmallState",
+      "TexturePath": "MarioSlidingFromLeft",
+      "FrameCount": 1,
+      "FrameDelay": 3
+    },
+	{
+      "Name": "Mario",
+      "State": "RightSlidingMarioState",
+      "PowerUpState": "MarioSuperState",
+      "TexturePath": "SuperMario/BigMarioSlidingFromLeft",
+      "FrameCount": 1,
+      "FrameDelay": 3
+    },
+	{
+      "Name": "Mario",
+      "State": "RightSlidingMarioState",
+      "PowerUpState": "MarioFireState",
+      "TexturePath": "FireMario/FMSlidingFromLeft",
+      "FrameCount": 1,
+      "FrameDelay": 3
+    },
+	{
+      "Name": "Mario",
+      "State": "RightSlidingMarioState",
+      "PowerUpState": "MarioStarState",
+      "TexturePath": "SMSlidingFromLeft",
+      "FrameCount": 3,
+      "FrameDelay": 3
+    },
     {
       "Name": "Mario",
       "State": "LeftJumpingMarioState",
@@ -221,6 +253,38 @@
       "State": "RightWalkingMarioState",
       "PowerUpState": "StarMarioState",
       "TexturePath": "SMRunRight",
+      "FrameCount": 3,
+      "FrameDelay": 3
+    },
+	{
+      "Name": "Mario",
+      "State": "LeftSlidingMarioState",
+      "PowerUpState": "MarioSmallState",
+      "TexturePath": "MarioSlidingFromRight",
+      "FrameCount": 1,
+      "FrameDelay": 3
+    },
+	{
+      "Name": "Mario",
+      "State": "LeftSlidingMarioState",
+      "PowerUpState": "MarioSuperState",
+      "TexturePath": "SuperMario/BigMarioSlidingFromRight",
+      "FrameCount": 1,
+      "FrameDelay": 3
+    },
+	{
+      "Name": "Mario",
+      "State": "LeftSlidingMarioState",
+      "PowerUpState": "MarioFireState",
+      "TexturePath": "FireMario/FMSlidingFromRight",
+      "FrameCount": 1,
+      "FrameDelay": 3
+    },
+	{
+      "Name": "Mario",
+      "State": "LeftSlidingMarioState",
+      "PowerUpState": "MarioStarState",
+      "TexturePath": "SMSlidingFromRight",
       "FrameCount": 3,
       "FrameDelay": 3
     },

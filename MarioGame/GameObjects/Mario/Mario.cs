@@ -23,7 +23,6 @@ namespace Gamespace
 
         public override void Update()
         {
-            
             GameObjectPhysics.Update();
             GameObjectPhysics.FrictionStop(Side.Right);
             positionOnScreen = GameObjectPhysics.GetPosition();
