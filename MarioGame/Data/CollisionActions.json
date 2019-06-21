@@ -81,7 +81,7 @@
       "Mover": "Gamespace.Mario",
       "Target": "Gamespace.Koopas.Koopa",
       "Side": "Down",
-      "Command1": "Gamespace.Commands.NullCommand",
+      "Command1": "Gamespace.Commands.MarioJumpAfterEnemyHit",
       "Command2": "Gamespace.Commands.MarioHitsEnemy"
     },
     {
@@ -228,7 +228,7 @@
       "Mover": "Gamespace.StarMario",
       "Target": "Gamespace.Koopas.Koopa",
       "Side": "Down",
-      "Command1": "Gamespace.Commands.NullCommand",
+      "Command1": "Gamespace.Commands.MarioJumpAfterEnemyHit",
       "Command2": "Gamespace.Commands.MarioHitsEnemy"
     },
     {
@@ -256,7 +256,7 @@
       "Mover": "Gamespace.StarMario",
       "Target": "Gamespace.Goombas.Goomba",
       "Side": "Down",
-      "Command1": "Gamespace.Commands.NullCommand",
+      "Command1": "Gamespace.Commands.MarioJumpAfterEnemyHit",
       "Command2": "Gamespace.Commands.MarioHitsEnemy"
     },
     {

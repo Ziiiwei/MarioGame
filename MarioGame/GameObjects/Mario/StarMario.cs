@@ -114,5 +114,9 @@ namespace Gamespace
             return mario.GetCenter();
         }
 
+        public void Bounce()
+        {
+            Physics.JumpMaxSpeed(Side.Up);
+        }
     }
 }

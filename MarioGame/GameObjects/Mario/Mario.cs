@@ -73,5 +73,10 @@ namespace Gamespace
         {
             Sprite = SpriteFactory.Instance.GetSprite(this.GetType().Name, State.GetType().Name, PowerUpState.GetType().Name);
         }
+
+        public void Bounce()
+        {
+            GameObjectPhysics.JumpMaxSpeed(Side.Up);
+        }
     }
 }
