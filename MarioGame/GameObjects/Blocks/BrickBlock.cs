@@ -35,6 +35,7 @@ namespace Gamespace.Blocks
             if (bumpReward != null)
             {
                 World.Instance.AddGameObject((IGameObject)Activator.CreateInstance(bumpReward, positionOnScreen));
+                bumpReward = null;
             }
             else if (State.GetType() == typeof(BlockIsNotBumpedState))
             {

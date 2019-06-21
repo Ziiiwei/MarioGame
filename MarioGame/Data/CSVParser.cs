@@ -37,7 +37,9 @@ namespace Gamespace
                 {"K", "Gamespace.Koopas.Koopa" },
                 {"S", "Gamespace.Items.Star" },
                 {"GS", "Gamespace.Items.GreenShroom" },
-                {"RS", "Gamespace.Items.RedShroom" }
+                {"RS", "Gamespace.Items.RedShroom" },
+                {"F", "Gamespace.Items.Flower" },
+                {"C", "Gamespace.Items.Coin" }
             };
 
             String[][] data = File.ReadLines("MarioGame/Data/level1.csv").Select(x => x.Split(',')).ToArray();
