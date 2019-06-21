@@ -26,7 +26,7 @@ namespace Gamespace.States
         // this is what depends on Mario's velocity
         public override void MoveLeft()
         {
-            mario.State = new LeftWalkingMarioState(mario);
+            mario.State = new LeftStandingMarioState(mario);
             mario.UpdateArt();
         }
 
