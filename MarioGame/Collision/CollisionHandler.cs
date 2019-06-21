@@ -54,31 +54,20 @@ namespace Gamespace
             Tuple<Type, Type, Side> key = new Tuple<Type, Type, Side>(mover.GetType(),
             target.GetType(), directionAndArea.Item1);
 
-            Action<Dictionary<Tuple<Type, Type, Side>, (Type, Type)>> launchCommand = (actions) =>
-            {
-                Type object1Type = actions[key].Item1;
-                Type object2Type = actions[key].Item2;
-
-                ICommand collisionMember1 = (ICommand)Activator.CreateInstance(object1Type, mover, new CollisionData(collisionArea));
-                ICommand collisionMember2 = (ICommand)Activator.CreateInstance(object2Type, target, new CollisionData(collisionArea));
-
-                collisionMember1.Execute();
-                collisionMember2.Execute();
-            };
-
             if (collisionActions.ContainsKey(key))
             {
-                launchCommand(collisionActions);
+                ExecuteCommand(collisionActions, key, mover, target, collisionArea);
             }
             else if (translator.ContainsKey((mover.GetType(), target.GetType())))
             {
                 Delegate translatorValue = translator[(mover.GetType(), target.GetType())];
                 (Type, Type) statefulActionsKey = ((Type, Type)) translatorValue.DynamicInvoke(mover, target);
 
-                key = new Tuple<Type, Type, Side>(statefulActionsKey.Item1, statefulActionsKey.Item2, side);
-                if (statefulCollisionActions.ContainsKey(key))
+                var statefulKey = new Tuple<Type, Type, Side>(statefulActionsKey.Item1, statefulActionsKey.Item2, side);
+
+                if (statefulCollisionActions.ContainsKey(statefulKey))
                 {
-                    launchCommand(statefulCollisionActions);
+                    ExecuteCommand(statefulCollisionActions, statefulKey, mover, target, collisionArea);
                 }
                 else
                 {
@@ -92,6 +81,19 @@ namespace Gamespace
                 ExecuteDefaultCollision(mover, target, collisionArea, side);
             }
 
+        }
+
+        private void ExecuteCommand(Dictionary<Tuple<Type, Type, Side>, (Type, Type)> actions, Tuple<Type, Type, Side> key,
+                                    IGameObject mover, IGameObject target, Rectangle collisionArea)
+        {
+            Type object1Type = actions[key].Item1;
+            Type object2Type = actions[key].Item2;
+
+            ICommand collisionMember1 = (ICommand)Activator.CreateInstance(object1Type, mover, new CollisionData(collisionArea));
+            ICommand collisionMember2 = (ICommand)Activator.CreateInstance(object2Type, target, new CollisionData(collisionArea));
+
+            collisionMember1.Execute();
+            collisionMember2.Execute();
         }
 
         private void ExecuteDefaultCollision(IGameObject mover, IGameObject target, Rectangle collisionArea, Side side)
@@ -110,7 +112,7 @@ namespace Gamespace
         /* Collision direction is target relative 
          * Example: Mario hits top of the block, so that is a top collision.
          */
-        private (Side, Rectangle) DetectCollision(IGameObject mover, IGameObject target)
+        internal (Side, Rectangle) DetectCollision(IGameObject mover, IGameObject target)
         {
             if (!mover.GetCollisionBoundary().Intersects(target.GetCollisionBoundary()))
             {
@@ -120,10 +122,7 @@ namespace Gamespace
             Rectangle collisionArea = Rectangle.Intersect(mover.GetCollisionBoundary(),
                 target.GetCollisionBoundary());
 
-
-
              //bool horizontalCollision = ((int)mover.GameObjectPhysics.GetVelocity().X < collisionArea.Width);
-
 
               bool  horizontalCollision = (collisionArea.Height > collisionArea.Width);
 

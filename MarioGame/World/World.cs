@@ -24,6 +24,7 @@ namespace Gamespace
         private readonly List<IGameObject> collisionMovers;
         private readonly List<IGameObject> collisionReceivers;
         private readonly List<Type> collisionMoverClassifier;
+        private readonly Dictionary<Type, int> collisionPriorities;
         public IMario Mario { get; set; }
         private readonly CollisionHandler collisionHandler;
 
@@ -40,6 +41,13 @@ namespace Gamespace
                 typeof(Mario),
                 typeof(Goomba),
                 typeof(Koopa)
+            };
+
+            collisionPriorities = new Dictionary<Type, int>()
+            {
+                {typeof(Mario), 1},
+                {typeof(Goomba), 2},
+                {typeof(Koopa), 2},
             };
 
             collisionHandler = new CollisionHandler();
@@ -67,7 +75,7 @@ namespace Gamespace
         }
 
         public void UpdateWorld()
-        {
+        { 
             foreach (IGameObject gameObject in objectsToAdd)
             {
                 ClassifyNewObject(gameObject);
@@ -97,23 +105,58 @@ namespace Gamespace
                 gameObject.Update();
             }
 
+            var pendingCollisions = new Dictionary<IGameObject, List<(IGameObject, int)>>();
+
             foreach (IGameObject mover in collisionMovers)
             {
                 foreach (IGameObject otherMover in collisionMovers)
                 {
                     if (mover != otherMover)
                     {
-                        collisionHandler.HandleCollision(mover, otherMover);
+                        (CollisionHandler.Side, Rectangle) collisionData = collisionHandler.DetectCollision(mover, otherMover);
+
+                        if (collisionHandler.DetectCollision(mover, otherMover).Item1 != CollisionHandler.Side.None)
+                        {
+                            int collisionArea = collisionData.Item2.Height * collisionData.Item2.Width;
+                            AddPendingCollision(pendingCollisions, mover, otherMover, collisionArea);
+                        }
+                        
                     }
                 }
 
                 foreach (IGameObject receiver in collisionReceivers)
                 {
-                    collisionHandler.HandleCollision(mover, receiver);
-                }
-            }
+                    (CollisionHandler.Side, Rectangle) collisionData = collisionHandler.DetectCollision(mover, receiver);
 
-           
+                    if (collisionHandler.DetectCollision(mover, receiver).Item1 != CollisionHandler.Side.None)
+                    {
+                        int collisionArea = collisionData.Item2.Height * collisionData.Item2.Width;
+                        AddPendingCollision(pendingCollisions, mover, receiver, collisionArea);
+                    }
+                }
+
+                var pendingCollisionsObjectsList = new List<IGameObject>(pendingCollisions.Keys);
+                pendingCollisionsObjectsList.OrderBy<IGameObject, int>(GetCollisionPriority);
+
+                foreach (IGameObject pendingCollisionKey in pendingCollisionsObjectsList)
+                {
+                    pendingCollisions[pendingCollisionKey].OrderBy<(IGameObject, int), int>(GetCollisionArea);
+                }
+
+                for (int i = 0; i < pendingCollisionsObjectsList.Count; i++)
+                {
+                    List<(IGameObject, int)> pendingTargets = pendingCollisions[pendingCollisionsObjectsList[i]];
+
+                    for (int j = 0; j < pendingTargets.Count; j++)
+                    {
+                        collisionHandler.HandleCollision(pendingCollisionsObjectsList[i], pendingTargets[j].Item1);
+                    }
+                }
+
+                
+            }
+            
+
         }
 
         public void DrawWorld(SpriteBatch spriteBatch)
@@ -150,6 +193,36 @@ namespace Gamespace
             else
             {
                 collisionReceivers.Add(gameObject);
+            }
+        }
+
+        private int GetCollisionPriority(IGameObject gameObject)
+        {
+            if (collisionPriorities.ContainsKey(gameObject.GetType()))
+            {
+                return collisionPriorities[gameObject.GetType()];
+            }
+            else
+            {
+                return 3;
+            }
+        }
+
+        private int GetCollisionArea((IGameObject, int) objectAndArea)
+        {
+            return objectAndArea.Item2;
+        }
+
+        private void AddPendingCollision(Dictionary<IGameObject, List<(IGameObject, int)>> pendingCollisions, IGameObject mover, IGameObject target, int collisionArea)
+        {
+            if (!pendingCollisions.ContainsKey(mover))
+            {
+                List<(IGameObject, int)> collisionTargets = new List<(IGameObject, int)>() { (target, collisionArea) };
+                pendingCollisions.Add(mover, collisionTargets);
+            }
+            else
+            {
+                pendingCollisions[mover].Add((target, collisionArea));
             }
         }
     }
