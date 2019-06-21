@@ -1,4 +1,5 @@
 ﻿using Gamespace.Goombas;
+using Gamespace.Items;
 using Gamespace.Koopas;
 using System;
 using System.Collections.Generic;
@@ -13,7 +14,7 @@ namespace Gamespace
         Dictionary<Type, IPhysicsConstants> constantsAssignments;
         List<List<float>> constants;
         
-        static PhysicsConstants() { }
+        static PhysicsConstants() {}
         private PhysicsConstants()
         {
             constants = new List<List<float>>();
@@ -26,6 +27,9 @@ namespace Gamespace
             List<float> enemyDefinitions = new List<float> { 2.5f, 1f, 2f, 10f, 1f };
             constantsAssignments.Add(typeof(Goomba), new PhysicsConstantsDefinitons(enemyDefinitions));
             constantsAssignments.Add(typeof(Koopa), new PhysicsConstantsDefinitons(enemyDefinitions));
+
+            List<float> redShroomDefinitions = new List<float> { 0.5f, 0.5f, 0.5f, 0.5f, 0.5f };
+            constantsAssignments.Add(typeof(RedShroom), new PhysicsConstantsDefinitons(redShroomDefinitions));
         }
 
         internal static PhysicsConstants Instance { get; } = new PhysicsConstants();

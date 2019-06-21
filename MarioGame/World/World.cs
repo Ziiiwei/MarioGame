@@ -4,6 +4,7 @@
 using Gamespace.Blocks;
 using Gamespace.Goombas;
 using Gamespace.Interfaces;
+using Gamespace.Items;
 using Gamespace.Koopas;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -41,7 +42,8 @@ namespace Gamespace
             {
                 typeof(Mario),
                 typeof(Goomba),
-                typeof(Koopa)
+                typeof(Koopa),
+                typeof(RedShroom)
             };
 
             collisionPriorities = new Dictionary<Type, int>()

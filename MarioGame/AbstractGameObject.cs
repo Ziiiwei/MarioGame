@@ -19,7 +19,6 @@ namespace Gamespace
         public Vector2 PositionOnScreen  => positionOnScreen;
 
         internal IPhysics GameObjectPhysics { get; set; }
-
         public AbstractGameObject()
         {
             Uid = counter;

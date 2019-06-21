@@ -1,6 +1,7 @@
 ﻿
 using Gamespace;
 using Gamespace.Blocks;
+using Gamespace.Items;
 using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
@@ -14,16 +15,22 @@ namespace Gamespace.Blocks
     {
         private static int[] bumpOffsets = { 0, 1, 2, 3, -1, -2, -3 };
         private int bumpCounter = -1;
+        private Type bumpReward;
 
         public BrickBlock(Vector2 positionOnScreen) : base(positionOnScreen)
         {
             State = new BlockIsNotBumpedState(this);
             SetSprite();
+            bumpReward = typeof(RedShroom);
         }
 
         public void Bump()
         {
-            if (State.GetType() == typeof(BlockIsNotBumpedState))
+            if (bumpReward != null)
+            {
+                World.Instance.AddGameObject((IGameObject)Activator.CreateInstance(bumpReward, positionOnScreen));
+            }
+            else if (State.GetType() == typeof(BlockIsNotBumpedState))
             {
                 State = new BlockIsBumpedState(this);
                 bumpCounter = 0;

@@ -72,7 +72,5 @@ namespace Gamespace.Koopas
             base.CollideRight(collisionArea);
             ChangeDirection();
         }
-
-
     }
 }

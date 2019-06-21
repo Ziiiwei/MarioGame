@@ -60,6 +60,11 @@
     <Compile Include="MarioGame\Data\CSVtoJSON.cs" />
     <Compile Include="MarioGame\Interfaces\ICollidable.cs" />
     <Compile Include="MarioGame\Interfaces\IEnemyState.cs" />
+    <Compile Include="MarioGame\Items\IMovableItem.cs" />
+    <Compile Include="MarioGame\Items\RedShroomStates\IShroomState.cs" />
+    <Compile Include="MarioGame\Items\RedShroomStates\ShroomMovingLeftState.cs" />
+    <Compile Include="MarioGame\Items\RedShroomStates\ShroomMovingRightState.cs" />
+    <Compile Include="MarioGame\Items\RedShroomStates\ShroomMovingUpState.cs" />
     <Compile Include="MarioGame\Mario.cs" />
     <Compile Include="MarioGame\Physics\IPhysicsConstants.cs" />
     <Compile Include="MarioGame\Physics\PhysicsConstants.cs" />
