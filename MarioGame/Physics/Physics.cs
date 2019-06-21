@@ -154,7 +154,7 @@ namespace Gamespace
 
         private void Loop()
         {
-
+            /*
             if (position.X <= 0)
                 position.X = MarioGame.WINDOW_WIDTH/MarioGame.SCALE;
             else if (position.X >= MarioGame.WINDOW_WIDTH / MarioGame.SCALE)
