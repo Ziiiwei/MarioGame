@@ -30,6 +30,9 @@ namespace Gamespace
 
             List<float> redShroomDefinitions = new List<float> { 0.5f, 0.5f, 0.5f, 0.5f, 0.5f };
             constantsAssignments.Add(typeof(RedShroom), new PhysicsConstantsDefinitons(redShroomDefinitions));
+
+            List<float> starDefinitions = new List<float> { 0.0f, 0.0f, 0.0f, 0.0f, 0.0f };
+            constantsAssignments.Add(typeof(Star), new PhysicsConstantsDefinitons(redShroomDefinitions));
         }
 
         internal static PhysicsConstants Instance { get; } = new PhysicsConstants();

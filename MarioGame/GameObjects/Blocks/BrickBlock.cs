@@ -15,6 +15,7 @@ namespace Gamespace.Blocks
     {
         private static int[] bumpOffsets = { 0, 1, 2, 3, -1, -2, -3 };
         private int bumpCounter = -1;
+
         private Type bumpReward;
 
         public BrickBlock(Vector2 positionOnScreen, Type bumpReward) : base(positionOnScreen)
