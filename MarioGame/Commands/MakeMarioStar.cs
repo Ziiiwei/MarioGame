@@ -16,7 +16,7 @@ namespace Gamespace.Commands
         }
         public void Execute()
         {
-            World.Instance.Mario = new StarMario(mario);
+            this.mario = new StarMario(mario, mario.PositionOnScreen);
             mario.UpdateArt();
         }
     }

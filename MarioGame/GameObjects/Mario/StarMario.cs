@@ -11,7 +11,7 @@ using Gamespace.States;
 namespace Gamespace
 {
     /* This will be changed to implement AbstractGameObject soon. */
-    public class StarMario : IMario
+    public class StarMario : AbstractGameStatefulObject<IMarioState>, IMario
     {
         public int Uid { get; }
         public ISprite Sprite { get; set; }
@@ -26,7 +26,7 @@ namespace Gamespace
         private IMario mario;
         int timer = 1000;
 
-        public StarMario(IMario mario)
+        public StarMario(IMario mario, Vector2 positionOnScreen) : base(positionOnScreen)
         {
             this.mario = mario;
             this.PreviousPowerUpState = this.mario.PowerUpState;
