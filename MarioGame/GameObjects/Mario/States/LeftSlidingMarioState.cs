@@ -16,25 +16,20 @@ namespace Gamespace.States
             this.mario = mario; 
         }
 
-        public override void Crouch()
-        {
-            mario.State = new RightCrouchingMarioState(mario);
-            mario.UpdateArt();
-        }
-
         public override void Jump()
         { 
             mario.State = new RightJumpingMarioState(mario);
             mario.UpdateArt();
         }
 
-
+        // mario should resume movement here
         public override void MoveLeft()
         {
-            mario.State = new LeftStandingMarioState(mario);
+            mario.State = new LeftWalkingMarioState(mario);
             mario.UpdateArt();
         }
 
+        // this is what depends on Mario's velocity
         public override void MoveRight()
         {
             mario.State = new RightWalkingMarioState(mario);
