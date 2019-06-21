@@ -59,6 +59,7 @@
     <Compile Include="MarioGame\Data\CSVObject.cs" />
     <Compile Include="MarioGame\Data\CSVtoJSON.cs" />
     <Compile Include="MarioGame\Collision\ICollidable.cs" />
+    <Compile Include="MarioGame\GameObjects\Blocks\PipeExtension.cs" />
     <Compile Include="MarioGame\GameObjects\Enemies\IEnemyState.cs" />
     <Compile Include="MarioGame\GameObjects\Items\IMovableItem.cs" />
     <Compile Include="MarioGame\GameObjects\Items\RedShroomStates\IShroomState.cs" />
@@ -66,6 +67,8 @@
     <Compile Include="MarioGame\GameObjects\Items\RedShroomStates\ShroomMovingRightState.cs" />
     <Compile Include="MarioGame\GameObjects\Items\RedShroomStates\ShroomMovingUpState.cs" />
     <Compile Include="MarioGame\GameObjects\Mario\Mario.cs" />
+    <Compile Include="MarioGame\GameObjects\Mario\States\RightSlidingMarioState.cs" />
+    <Compile Include="MarioGame\GameObjects\Mario\States\LeftSlidingMarioState.cs" />
     <Compile Include="MarioGame\Physics\IPhysicsConstants.cs" />
     <Compile Include="MarioGame\Physics\PhysicsConstants.cs" />
     <Compile Include="MarioGame\Physics\PhysicsFactory.cs" />
