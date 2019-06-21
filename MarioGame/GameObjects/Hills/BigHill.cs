@@ -8,11 +8,11 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
 
-namespace Gamespace
+namespace Gamespace.Hills
 {
-    class BigCloud : AbstractGameObject
+    class BigHill : AbstractGameObject
     {
-        public BigCloud(Vector2 positionOnScreen) : base(positionOnScreen)
+        public BigHill(Vector2 positionOnScreen) : base(positionOnScreen)
         {
 
         }

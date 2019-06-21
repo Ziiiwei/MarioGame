@@ -46,7 +46,9 @@ namespace Gamespace
                 {"CA", "Gamespace.Castle.Castle" },
                 {"C1", "Gamespace.Clouds.Cloud1" },
                 {"C2", "Gamespace.Clouds.Cloud2" },
-                {"C3", "Gamespace.Clouds.Cloud3" }
+                {"C3", "Gamespace.Clouds.Cloud3" },
+                {"BH", "Gamespace.Hills.BigHill" },
+                {"SH", "Gamespace.Hills.SmallHill" }
 
             };
 
