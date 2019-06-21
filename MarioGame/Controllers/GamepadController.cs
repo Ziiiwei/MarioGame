@@ -22,6 +22,10 @@ namespace Gamespace.Controllers
             previousState = new GamePadState();
         }
 
+        public void SwitchMapping()
+        {
+
+        }
         public void Update()
         {
             gamePadState = GamePad.GetState(PlayerIndex.One);

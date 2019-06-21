@@ -10,5 +10,7 @@ namespace Gamespace.Controllers
     interface IController
     {
         void Update();
+
+        void SwitchMapping();
     }
 }
