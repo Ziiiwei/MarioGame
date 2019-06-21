@@ -37,6 +37,7 @@ namespace Gamespace
                 {"K", "Gamespace.Koopas.Koopa" },
                 {"C", "Gamespace.Items.Coin" },
                 {"S", "Gamespace.Items.Star" },
+                {"FF", "Gamespace.Items.Flower" },
                 {"GS", "Gamespace.Items.GreenShroom" },
                 {"RS", "Gamespace.Items.RedShroom" },
                 {"F", "Gamespace.FlagPole.Flag" },
