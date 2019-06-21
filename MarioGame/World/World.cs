@@ -1,5 +1,6 @@
 ﻿/* Idea for JSON layout taken from https://stackoverflow.com/questions/16339167/how-do-i-deserialize-a-complex-json-object-in-c-sharp-net
  * and from comments Dean made in class */
+ /* Help for using of OrderBy found here: https://stackoverflow.com/questions/188141/listt-orderby-alphabetical-order */
 using Gamespace.Blocks;
 using Gamespace.Goombas;
 using Gamespace.Interfaces;
@@ -47,7 +48,7 @@ namespace Gamespace
             {
                 {typeof(Mario), 1},
                 {typeof(Goomba), 2},
-                {typeof(Koopa), 2},
+                {typeof(Koopa), 3},
             };
 
             collisionHandler = new CollisionHandler();
@@ -134,29 +135,24 @@ namespace Gamespace
                         AddPendingCollision(pendingCollisions, mover, receiver, collisionArea);
                     }
                 }
-
-                var pendingCollisionsObjectsList = new List<IGameObject>(pendingCollisions.Keys);
-                pendingCollisionsObjectsList.OrderBy<IGameObject, int>(GetCollisionPriority);
-
-                foreach (IGameObject pendingCollisionKey in pendingCollisionsObjectsList)
-                {
-                    pendingCollisions[pendingCollisionKey].OrderBy<(IGameObject, int), int>(GetCollisionArea);
-                }
-
-                for (int i = 0; i < pendingCollisionsObjectsList.Count; i++)
-                {
-                    List<(IGameObject, int)> pendingTargets = pendingCollisions[pendingCollisionsObjectsList[i]];
-
-                    for (int j = 0; j < pendingTargets.Count; j++)
-                    {
-                        collisionHandler.HandleCollision(pendingCollisionsObjectsList[i], pendingTargets[j].Item1);
-                    }
-                }
-
-                
             }
-            
 
+            List<IGameObject> pendingCollisionsObjectsList = pendingCollisions.Keys.ToList().OrderBy(o => GetCollisionPriority(o)).ToList();
+
+            foreach (IGameObject pendingCollisionKey in pendingCollisionsObjectsList)
+            {
+                pendingCollisions[pendingCollisionKey] = pendingCollisions[pendingCollisionKey].OrderByDescending(ca => ca.Item2).ToList();
+            }
+
+            for (int i = 0; i < pendingCollisionsObjectsList.Count; i++)
+            {
+                List<(IGameObject, int)> pendingTargets = pendingCollisions[pendingCollisionsObjectsList[i]];
+
+                for (int j = 0; j < pendingTargets.Count; j++)
+                {
+                    collisionHandler.HandleCollision(pendingCollisionsObjectsList[i], pendingTargets[j].Item1);
+                }
+            }
         }
 
         public void DrawWorld(SpriteBatch spriteBatch)
@@ -204,13 +200,8 @@ namespace Gamespace
             }
             else
             {
-                return 3;
+                return 4;
             }
-        }
-
-        private int GetCollisionArea((IGameObject, int) objectAndArea)
-        {
-            return objectAndArea.Item2;
         }
 
         private void AddPendingCollision(Dictionary<IGameObject, List<(IGameObject, int)>> pendingCollisions, IGameObject mover, IGameObject target, int collisionArea)
