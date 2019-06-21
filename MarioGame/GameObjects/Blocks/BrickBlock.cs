@@ -17,11 +17,16 @@ namespace Gamespace.Blocks
         private int bumpCounter = -1;
         private Type bumpReward;
 
+        public BrickBlock(Vector2 positionOnScreen, Type bumpReward) : base(positionOnScreen)
+        {
+            State = new BlockIsNotBumpedState(this);
+            SetSprite();
+            this.bumpReward = bumpReward;
+        }
         public BrickBlock(Vector2 positionOnScreen) : base(positionOnScreen)
         {
             State = new BlockIsNotBumpedState(this);
             SetSprite();
-            bumpReward = typeof(RedShroom);
         }
 
         public void Bump()

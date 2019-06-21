@@ -11,9 +11,9 @@ using Newtonsoft.Json;
 
 namespace Gamespace
 {
-    public class CSVtoJSON
+    public class CSVParser
     {
-        static CSVtoJSON()
+        static CSVParser()
         {
 
         }
@@ -44,6 +44,7 @@ namespace Gamespace
             int _X = 0;
             int _Y = 0;
             var JsonList = new List<CSVObject>();
+            string pattern = @"\+";
             string name;
             string state = "null";
             string path = "MarioGame/Data/Level1.json";
@@ -63,11 +64,21 @@ namespace Gamespace
                      */
                     if (!(data[i][j] == ""))
                     {
-                        name = data[i][j];
+                        if (data[i][j].Contains("+"))
+                        {
+                            string[] elements = System.Text.RegularExpressions.Regex.Split(data[i][j],pattern);
+                            name = shortcuts[elements[0]];
+                            state = shortcuts[elements[1]];
+                        }
+                        else
+                        {
+                            name = shortcuts[data[i][j]];
+                            state = " null";
+                        }
                         _X = (j * UNIT);
                         _Y = (i * UNIT);
 
-                        CSVObject obj = new CSVObject(shortcuts[name], _X, _Y, state);
+                        CSVObject obj = new CSVObject(name, _X, _Y, state);
                         string output = JsonConvert.SerializeObject(obj);
                         JsonList.Add(obj);
                     }

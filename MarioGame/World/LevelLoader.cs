@@ -16,7 +16,7 @@ namespace Gamespace
     {
         public LevelLoader(World world)
         {
-            CSVtoJSON.ConvertCSVtoJSON();
+            CSVParser.ConvertCSVtoJSON();
             var gameObjects = JsonParser.Instance.ParseLevelFile();
 
             foreach (Tuple<int, IGameObject> entry in gameObjects)
