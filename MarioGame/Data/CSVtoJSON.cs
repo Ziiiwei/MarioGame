@@ -39,7 +39,6 @@ namespace Gamespace
                 {"RS", "Gamespace.Items.RedShroom" }
             };
 
-
             String[][] data = File.ReadLines("MarioGame/Data/level1.csv").Select(x => x.Split(',')).ToArray();
             int _X = 0;
             int _Y = 0;

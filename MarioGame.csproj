@@ -59,6 +59,7 @@
     <Compile Include="MarioGame\Data\CSVObject.cs" />
     <Compile Include="MarioGame\Data\CSVtoJSON.cs" />
     <Compile Include="MarioGame\Collision\ICollidable.cs" />
+    <Compile Include="MarioGame\GameObjects\Blocks\PipeExtension.cs" />
     <Compile Include="MarioGame\GameObjects\Enemies\IEnemyState.cs" />
     <Compile Include="MarioGame\GameObjects\Items\IMovableItem.cs" />
     <Compile Include="MarioGame\GameObjects\Items\RedShroomStates\IShroomState.cs" />
@@ -218,7 +219,9 @@
     <None Include="MarioGame\Code Reviews\MatthewHarrow.md" />
     <None Include="MarioGame\Code Reviews\ZiweiJin.md" />
     <None Include="MarioGame\Code Reviews\RayanHamza.md" />
-    <None Include="MarioGame\Data\level1.csv" />
+    <None Include="MarioGame\Data\level1.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="MarioGame\Data\Level1.json" />
     <None Include="MarioGame\Data\CollisionActions.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
