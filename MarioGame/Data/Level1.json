@@ -805,9 +805,9 @@
       "State": "null"
     },
     {
-      "Name": "Gamespace.Blocks.FloorBlock",
-      "X": 480,
-      "Y": 128,
+      "T": "Gamespace.Koopas.Koopa",
+      "X": 200,
+      "Y": 200,
       "State": "null"
     },
     {
