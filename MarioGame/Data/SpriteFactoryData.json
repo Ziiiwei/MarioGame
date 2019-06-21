@@ -96,7 +96,7 @@
       "FrameCount": 3,
       "FrameDelay": 3
     },
-	{
+    {
       "Name": "Mario",
       "State": "RightSlidingMarioState",
       "PowerUpState": "MarioSmallState",
@@ -104,7 +104,7 @@
       "FrameCount": 1,
       "FrameDelay": 3
     },
-	{
+    {
       "Name": "Mario",
       "State": "RightSlidingMarioState",
       "PowerUpState": "MarioSuperState",
@@ -112,7 +112,7 @@
       "FrameCount": 1,
       "FrameDelay": 3
     },
-	{
+    {
       "Name": "Mario",
       "State": "RightSlidingMarioState",
       "PowerUpState": "MarioFireState",
@@ -120,7 +120,7 @@
       "FrameCount": 1,
       "FrameDelay": 3
     },
-	{
+    {
       "Name": "Mario",
       "State": "RightSlidingMarioState",
       "PowerUpState": "MarioStarState",
@@ -256,7 +256,7 @@
       "FrameCount": 3,
       "FrameDelay": 3
     },
-	{
+    {
       "Name": "Mario",
       "State": "LeftSlidingMarioState",
       "PowerUpState": "MarioSmallState",
@@ -264,7 +264,7 @@
       "FrameCount": 1,
       "FrameDelay": 3
     },
-	{
+    {
       "Name": "Mario",
       "State": "LeftSlidingMarioState",
       "PowerUpState": "MarioSuperState",
@@ -272,7 +272,7 @@
       "FrameCount": 1,
       "FrameDelay": 3
     },
-	{
+    {
       "Name": "Mario",
       "State": "LeftSlidingMarioState",
       "PowerUpState": "MarioFireState",
@@ -280,7 +280,7 @@
       "FrameCount": 1,
       "FrameDelay": 3
     },
-	{
+    {
       "Name": "Mario",
       "State": "LeftSlidingMarioState",
       "PowerUpState": "MarioStarState",
@@ -516,9 +516,16 @@
       "FrameCount": 1,
       "FrameDelay": 3
     },
-
     {
-      "Name": "BigCloud",
+      "Name": "Cloud3",
+      "State": "",
+      "PowerUpState": "",
+      "TexturePath": "Cloud3",
+      "FrameCount": 1,
+      "FrameDelay": 3
+    },
+    {
+      "Name": "Cloud2",
       "State": "",
       "PowerUpState": "",
       "TexturePath": "Cloud2",
@@ -526,7 +533,7 @@
       "FrameDelay": 3
     },
     {
-      "Name": "SmallCloud",
+      "Name": "Cloud1",
       "State": "",
       "PowerUpState": "",
       "TexturePath": "Cloud1",
@@ -546,6 +553,38 @@
       "State": "",
       "PowerUpState": "",
       "TexturePath": "SmallHill",
+      "FrameCount": 1,
+      "FrameDelay": 3
+    },
+    {
+      "Name": "Flag",
+      "State": "",
+      "PowerUpState": "",
+      "TexturePath": "Flag",
+      "FrameCount": 1,
+      "FrameDelay": 3
+    },
+    {
+      "Name": "Flagpole",
+      "State": "",
+      "PowerUpState": "",
+      "TexturePath": "Flagpole",
+      "FrameCount": 1,
+      "FrameDelay": 3
+    },
+    {
+      "Name": "FlagPoleTop",
+      "State": "",
+      "PowerUpState": "",
+      "TexturePath": "FlagPoleTop",
+      "FrameCount": 1,
+      "FrameDelay": 3
+    },
+    {
+      "Name": "Castle",
+      "State": "",
+      "PowerUpState": "",
+      "TexturePath": "Castle",
       "FrameCount": 1,
       "FrameDelay": 3
     }

@@ -61,7 +61,14 @@
     <Compile Include="MarioGame\Data\CSVParser.cs" />
     <Compile Include="MarioGame\Collision\ICollidable.cs" />
     <Compile Include="MarioGame\GameObjects\Blocks\PipeExtension.cs" />
+    <Compile Include="MarioGame\GameObjects\Castle\Castle.cs" />
+    <Compile Include="MarioGame\GameObjects\Clouds\Cloud1.cs" />
+    <Compile Include="MarioGame\GameObjects\Clouds\Cloud2.cs" />
+    <Compile Include="MarioGame\GameObjects\Clouds\Cloud3.cs" />
     <Compile Include="MarioGame\GameObjects\Enemies\IEnemyState.cs" />
+    <Compile Include="MarioGame\GameObjects\Flag Pole\Flag.cs" />
+    <Compile Include="MarioGame\GameObjects\Flag Pole\Flagpole.cs" />
+    <Compile Include="MarioGame\GameObjects\Flag Pole\FlagPoleTop.cs" />
     <Compile Include="MarioGame\GameObjects\Items\IMovableItem.cs" />
     <Compile Include="MarioGame\GameObjects\Items\RedShroomStates\IShroomState.cs" />
     <Compile Include="MarioGame\GameObjects\Items\RedShroomStates\ShroomMovingLeftState.cs" />

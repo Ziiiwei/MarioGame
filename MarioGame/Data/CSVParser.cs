@@ -35,9 +35,18 @@ namespace Gamespace
                 {"M", "Gamespace.Mario" },
                 {"G", "Gamespace.Goombas.Goomba" },
                 {"K", "Gamespace.Koopas.Koopa" },
+                {"C", "Gamespace.Items.Coin" },
                 {"S", "Gamespace.Items.Star" },
                 {"GS", "Gamespace.Items.GreenShroom" },
-                {"RS", "Gamespace.Items.RedShroom" }
+                {"RS", "Gamespace.Items.RedShroom" },
+                {"F", "Gamespace.FlagPole.Flag" },
+                {"FP","Gamespace.FlagPole.Flagpole" },
+                {"FT", "Gamespace.FlagPole.FlagPoleTop" },
+                {"CA", "Gamespace.Castle.Castle" },
+                {"C1", "Gamespace.Clouds.Cloud1" },
+                {"C2", "Gamespace.Clouds.Cloud2" },
+                {"C3", "Gamespace.Clouds.Cloud3" }
+
             };
 
             String[][] data = File.ReadLines("MarioGame/Data/level1.csv").Select(x => x.Split(',')).ToArray();
