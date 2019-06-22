@@ -71,7 +71,7 @@ namespace Gamespace
                     //    row = Int32.Parse(data[i][j]);
                     //}
                     /* If the array location is not empty, grab the name
-                     *  calculat the X and Y coordinates, and serialize as 
+                     *  calculate the X and Y coordinates, and serialize as 
                      *  a JSON object.
                      */
                     if (!(data[i][j] == ""))

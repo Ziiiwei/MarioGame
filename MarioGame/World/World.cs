@@ -28,6 +28,7 @@ namespace Gamespace
         private readonly List<Type> collisionMoverClassifier;
         private readonly Dictionary<Type, int> collisionPriorities;
         public IMario Mario { get; set; }
+        public int end = 0;
         private readonly CollisionHandler collisionHandler;
 
         private World()
@@ -154,6 +155,11 @@ namespace Gamespace
                 {
                     collisionHandler.HandleCollision(pendingCollisionsObjectsList[i], pendingTargets[j].Item1);
                 }
+            }
+            if(end != 0)
+            {
+                end = 0;
+                MarioGame.Instance.Reset();
             }
         }
 

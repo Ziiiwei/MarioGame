@@ -39,7 +39,9 @@ namespace Gamespace
                     timer = 1000;
                 }
             }
-                base.Update();
+            if (positionOnScreen.Y >= 1000)
+                World.Instance.end = 1;
+            base.Update();
         }
         public void Crouch()
         {
