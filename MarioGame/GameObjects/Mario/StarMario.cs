@@ -125,5 +125,10 @@ namespace Gamespace
         {
             Physics.JumpMaxSpeed(Side.Up);
         }
+
+        public void Die()
+        {
+            // Star Mario cannot die.
+        }
     }
 }

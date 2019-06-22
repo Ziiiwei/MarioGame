@@ -100,5 +100,11 @@ namespace Gamespace
                 PowerUpState = new SmallStarMarioState();
             UpdateArt();
         }
+
+        public void Die()
+        {
+            GameObjectPhysics.JumpMaxSpeed(Side.Up);
+            World.Instance.MaskCollision(this);
+        }
     }
 }

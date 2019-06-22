@@ -14,6 +14,7 @@ namespace Gamespace.States
         {
             this.mario = mario;
             MarioGame.Instance.SwitchMapping();
+            mario.Die();
         }
 
         public void Crouch()

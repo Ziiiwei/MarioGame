@@ -218,5 +218,22 @@ namespace Gamespace
                 pendingCollisions[mover].Add((target, collisionArea));
             }
         }
+    
+        public void MaskCollision(IGameObject gameObject)
+        {
+            if (collisionMovers.Contains(gameObject))
+            {
+                collisionMovers.Remove(gameObject);
+            }
+            else
+            {
+                collisionReceivers.Remove(gameObject);
+            }
+        }
+
+        public void UnmaskCollision(IGameObject gameObject)
+        {
+            AddGameObject(gameObject);
+        }
     }
 }
