@@ -19,7 +19,7 @@ namespace Gamespace
         new Vector2 PositionOnScreen { get; }
 
         public  IMarioPowerUpState PowerUpState { get; set; }
-        public  IMarioPowerUpState PreviousPowerUpState;
+        public IMarioPowerUpState PreviousState { get; set; }
         internal IPhysics Physics { get; set; }
 
 
@@ -31,7 +31,7 @@ namespace Gamespace
             this.mario = mario;
             this.Uid = mario.Uid;
             this.State = mario.State;
-            this.PreviousPowerUpState = this.mario.PowerUpState;
+            this.PreviousState = this.mario.PowerUpState;
             this.mario.PowerUpState = new StarMarioState();
             /*
             if (false)
@@ -50,7 +50,7 @@ namespace Gamespace
             timer--;
             if (timer == 0)
             {
-                this.mario.PowerUpState = this.PreviousPowerUpState;
+                this.mario.PowerUpState = this.PreviousState;
                 this.mario.UpdateArt();
                 World.Instance.Mario = this.mario;
             }

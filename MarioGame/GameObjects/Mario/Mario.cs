@@ -12,7 +12,11 @@ namespace Gamespace
     internal class Mario : AbstractGameStatefulObject<IMarioState>, IMario
     {
         public IMarioPowerUpState PowerUpState { get; set; }
+
+        public IMarioPowerUpState PreviousState { get; set; }
         ISprite IMario.Sprite { get; set; }
+
+        int timer = 1000;
 
         public Mario(Vector2 positionOnScreen) : base(positionOnScreen)
         {
@@ -26,7 +30,16 @@ namespace Gamespace
             GameObjectPhysics.Update();
             GameObjectPhysics.FrictionStop(Side.Right);
             positionOnScreen = GameObjectPhysics.GetPosition();
-            base.Update();
+            if (PowerUpState.GetType() == typeof(StarMarioState) || PowerUpState.GetType() == typeof(SmallStarMarioState))
+            {
+                timer--;
+                if(timer == 0)
+                {
+                    PowerUpState = PreviousState;
+                    timer = 1000;
+                }
+            }
+                base.Update();
         }
         public void Crouch()
         {
@@ -59,6 +72,7 @@ namespace Gamespace
 
         public void PowerUp()
         {
+            PreviousState = PowerUpState;
             PowerUpState.PowerUp(this);
             UpdateArt();
         }
@@ -76,6 +90,15 @@ namespace Gamespace
         public void Bounce()
         {
             GameObjectPhysics.JumpMaxSpeed(Side.Up);
+        }
+
+        public void GoStar()
+        {
+            PreviousState = PowerUpState;
+            PowerUpState = new StarMarioState();
+            if (PreviousState.GetType() == typeof(MarioSmallState))
+                PowerUpState = new SmallStarMarioState();
+            UpdateArt();
         }
     }
 }
