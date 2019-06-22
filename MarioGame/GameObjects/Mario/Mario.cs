@@ -29,6 +29,10 @@ namespace Gamespace
         {
             GameObjectPhysics.Update();
             GameObjectPhysics.FrictionStop(Side.Right);
+            if (GameObjectPhysics.Position.X<0)
+            {
+                CollideLeft(new Rectangle(-(int)GameObjectPhysics.Position.X, 1, 1, 1));
+            }
             positionOnScreen = GameObjectPhysics.GetPosition();
             if (PowerUpState.GetType() == typeof(StarMarioState) || PowerUpState.GetType() == typeof(SmallStarMarioState))
             {
