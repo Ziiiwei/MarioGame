@@ -3,27 +3,29 @@ Author: Ziwei Jin
 Date: 6/7/19
 Sprint: 3
 Name: Matthew Harrow
-File: CollisionHandler.cs
+File: World.cs
 Minutes: 10
 
-Coupling: not too high
--It interact with objects in waod and also call commands act on world.cs 
--The information that is taken from other classes are just location and 
-rectangle size
+Coupling: Kinda High
+-world now decide the sequence of colisison handling, this happens only 
+because handling outside world without knoklege of other pending conlision
+is potentially buggy
+-But the solution is elegent by ranking out the priority of each collision
+case by its area and type, and only world is has approriate access to get these
+information.
+-And in future We would change name of the class to GameobjectManager
 
-Cohesion: Ok
--This class handle both collision detection, which could be seprated 
--The comand loading part could also happen in other place
+Cohesion: 
+-Still tight
+-Since the world is basically the gameobject manager, its natural for it 
+to do anything related to it
+
 
 Complexity: High
--It is expected that this class will be farily complex, but currently it
-is not possible for people other than creater to understand which part of 
-code is doing what
--The Collision comand data representation is too complicated
--Detection method is too long.
--4 different case could be handled in different method 
+-Collision Ranking and Masking would be preffered to be seprated out somewhere 
+else
 
 
 Additional Notes:
--Refacter gonna happen maily on this and physics to make their fucntion and 
-relation more transparent and intuitive 
+-potential waste of memory by keep the rank information in mutilple dictionary
+when it could be condenced in one.
