@@ -9,6 +9,7 @@ namespace Gamespace
         ISprite Sprite { get; set; }
         IMarioState State { get; set; }
         IMarioPowerUpState PowerUpState { get; set; }
+        IMarioPowerUpState PreviousState { get; set; }
 
         void Bounce();
         void Jump();
@@ -18,6 +19,7 @@ namespace Gamespace
         void PowerDown();
         void PowerUp();
         void UpdateArt();
+        void Die();
         void CollideLeft(Rectangle collisionArea);
         void CollideRight(Rectangle collisionArea);
         void CollideUp(Rectangle collisionArea);

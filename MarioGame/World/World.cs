@@ -28,6 +28,7 @@ namespace Gamespace
         private readonly List<Type> collisionMoverClassifier;
         private readonly Dictionary<Type, int> collisionPriorities;
         public IMario Mario { get; set; }
+        public int end = 0;
         private readonly CollisionHandler collisionHandler;
 
         private World()
@@ -155,6 +156,11 @@ namespace Gamespace
                     collisionHandler.HandleCollision(pendingCollisionsObjectsList[i], pendingTargets[j].Item1);
                 }
             }
+            if(end != 0)
+            {
+                end = 0;
+                MarioGame.Instance.Reset();
+            }
         }
 
         public void DrawWorld(SpriteBatch spriteBatch)
@@ -217,6 +223,23 @@ namespace Gamespace
             {
                 pendingCollisions[mover].Add((target, collisionArea));
             }
+        }
+    
+        public void MaskCollision(IGameObject gameObject)
+        {
+            if (collisionMovers.Contains(gameObject))
+            {
+                collisionMovers.Remove(gameObject);
+            }
+            else
+            {
+                collisionReceivers.Remove(gameObject);
+            }
+        }
+
+        public void UnmaskCollision(IGameObject gameObject)
+        {
+            AddGameObject(gameObject);
         }
     }
 }

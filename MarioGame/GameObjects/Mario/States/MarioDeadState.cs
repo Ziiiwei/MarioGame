@@ -13,7 +13,9 @@ namespace Gamespace.States
         public MarioDeadState(IMario mario)
         {
             this.mario = mario;
+            mario.UpdateArt();
             MarioGame.Instance.SwitchMapping();
+            mario.Die();
         }
 
         public void Crouch()

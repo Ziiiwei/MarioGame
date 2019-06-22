@@ -1,6 +1,6 @@
 ﻿{
   "Entries": [
-     {
+	 {
       "Mover": "Gamespace.Goombas.Goomba",
       "Target": "Gamespace.Blocks.BlockIsBumpedState",
       "Side": "Down",

@@ -17,6 +17,7 @@ namespace Gamespace
         public const int WINDOW_WIDTH = 800;
         public const int WINDOW_HEIGHT = 480;
         public const float SCALE = 1f;
+        private GameTime time;
 
         private GraphicsDeviceManager graphics;
         public SpriteBatch spriteBatch;
@@ -101,6 +102,7 @@ namespace Gamespace
             World.Instance.UpdateWorld();
             camera.Update(World.Instance.Mario.GetCenter());
             base.Update(gameTime);
+            time = gameTime;
             
         }
 
@@ -124,7 +126,6 @@ namespace Gamespace
         {
             foreach (IController controller in controllers)
                 controller.SwitchMapping();
-          
         }
 
         public void Reset()

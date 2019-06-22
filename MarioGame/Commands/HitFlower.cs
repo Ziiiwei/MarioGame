@@ -24,8 +24,7 @@ namespace Gamespace.Commands
         
         public void Execute()
         {
-            mario.PowerUpState = new MarioFireState();
-            mario.UpdateArt();
+            mario.PowerUpState.PowerUp(mario);
         }
     }
 }

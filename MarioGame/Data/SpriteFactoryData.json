@@ -24,6 +24,14 @@
       "FrameCount": 1,
       "FrameDelay": 3
     },
+	{
+      "Name": "Mario",
+      "State": "LeftStandingMarioState",
+      "PowerUpState": "SmallStarMarioState",
+      "TexturePath": "SSMStandLeft",
+      "FrameCount": 3,
+      "FrameDelay": 3
+    },
     {
       "Name": "Mario",
       "State": "LeftStandingMarioState",
@@ -56,6 +64,14 @@
       "FrameCount": 1,
       "FrameDelay": 3
     },
+	{
+      "Name": "Mario",
+      "State": "LeftCrouchingMarioState",
+      "PowerUpState": "SmallStarMarioState",
+      "TexturePath": "SSMStandLeft",
+      "FrameCount": 3,
+      "FrameDelay": 3
+    },
     {
       "Name": "Mario",
       "State": "LeftCrouchingMarioState",
@@ -85,6 +101,14 @@
       "State": "LeftWalkingMarioState",
       "PowerUpState": "MarioFireState",
       "TexturePath": "FireMario/FMRunLeft",
+      "FrameCount": 3,
+      "FrameDelay": 3
+    },
+	{
+      "Name": "Mario",
+      "State": "LeftWalkingMarioState",
+      "PowerUpState": "SmallStarMarioState",
+      "TexturePath": "SSMRunLeft",
       "FrameCount": 3,
       "FrameDelay": 3
     },
@@ -120,10 +144,18 @@
       "FrameCount": 1,
       "FrameDelay": 3
     },
+	{
+      "Name": "Mario",
+      "State": "RightSlidingMarioState",
+      "PowerUpState": "SmallStarMarioSState",
+      "TexturePath": "SSMSlidingFromLeft",
+      "FrameCount": 3,
+      "FrameDelay": 3
+    },
     {
       "Name": "Mario",
       "State": "RightSlidingMarioState",
-      "PowerUpState": "MarioStarState",
+      "PowerUpState": "StarMarioSState",
       "TexturePath": "SMSlidingFromLeft",
       "FrameCount": 3,
       "FrameDelay": 3
@@ -150,6 +182,14 @@
       "PowerUpState": "MarioFireState",
       "TexturePath": "FireMario/FMJumpLeft",
       "FrameCount": 1,
+      "FrameDelay": 3
+    },
+	{
+      "Name": "Mario",
+      "State": "LeftJumpingMarioState",
+      "PowerUpState": "SmallStarMarioState",
+      "TexturePath": "SSMJumpLeft",
+      "FrameCount": 3,
       "FrameDelay": 3
     },
     {
@@ -184,6 +224,14 @@
       "FrameCount": 1,
       "FrameDelay": 3
     },
+	{
+      "Name": "Mario",
+      "State": "RightStandingMarioState",
+      "PowerUpState": "SmallStarMarioState",
+      "TexturePath": "SSMStandRight",
+      "FrameCount": 3,
+      "FrameDelay": 3
+    },
     {
       "Name": "Mario",
       "State": "RightStandingMarioState",
@@ -216,6 +264,14 @@
       "FrameCount": 1,
       "FrameDelay": 3
     },
+	{
+      "Name": "Mario",
+      "State": "RightCrouchingMarioState",
+      "PowerUpState": "SmallStarMarioState",
+      "TexturePath": "SSMStandRight",
+      "FrameCount": 3,
+      "FrameDelay": 3
+    },
     {
       "Name": "Mario",
       "State": "RightCrouchingMarioState",
@@ -245,6 +301,14 @@
       "State": "RightWalkingMarioState",
       "PowerUpState": "MarioFireState",
       "TexturePath": "FireMario/FMRunRight",
+      "FrameCount": 3,
+      "FrameDelay": 3
+    },
+	{
+      "Name": "Mario",
+      "State": "RightWalkingMarioState",
+      "PowerUpState": "SmallStarMarioState",
+      "TexturePath": "SSMRunRight",
       "FrameCount": 3,
       "FrameDelay": 3
     },
@@ -280,6 +344,14 @@
       "FrameCount": 1,
       "FrameDelay": 3
     },
+	{
+      "Name": "Mario",
+      "State": "LeftSlidingMarioState",
+      "PowerUpState": "SmallMarioStarState",
+      "TexturePath": "SSMSlidingFromRight",
+      "FrameCount": 3,
+      "FrameDelay": 3
+    },
     {
       "Name": "Mario",
       "State": "LeftSlidingMarioState",
@@ -310,6 +382,14 @@
       "PowerUpState": "MarioFireState",
       "TexturePath": "FireMario/FMJumpRight",
       "FrameCount": 1,
+      "FrameDelay": 3
+    },
+	{
+      "Name": "Mario",
+      "State": "RightJumpingMarioState",
+      "PowerUpState": "SmallStarMarioState",
+      "TexturePath": "SSMJumpRight",
+      "FrameCount": 3,
       "FrameDelay": 3
     },
     {

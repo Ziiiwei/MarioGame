@@ -21,8 +21,7 @@ namespace Gamespace.Commands
 
         public void Execute()
         {
-            mario.PowerUpState = new StarMarioState();
-            mario.UpdateArt();
+            this.mario = new StarMario(this.mario, this.mario.PositionOnScreen);
         }
     }
 }

@@ -13,13 +13,13 @@ namespace Gamespace
     /* This will be changed to implement AbstractGameObject soon. */
     public class StarMario : AbstractGameStatefulObject<IMarioState>, IMario
     {
-        public int Uid { get; }
-        public ISprite Sprite { get; set; }
-        public IMarioState State { get; set; }
-        public Vector2 PositionOnScreen { get; }
+        public new int Uid { get; }
+        public new ISprite Sprite { get; set; }
+        new IMarioState State { get; set; }
+        new Vector2 PositionOnScreen { get; }
 
-        public IMarioPowerUpState PowerUpState { get; set; }
-        public IMarioPowerUpState PreviousPowerUpState;
+        public  IMarioPowerUpState PowerUpState { get; set; }
+        public IMarioPowerUpState PreviousState { get; set; }
         internal IPhysics Physics { get; set; }
 
 
@@ -29,22 +29,28 @@ namespace Gamespace
         public StarMario(IMario mario, Vector2 positionOnScreen) : base(positionOnScreen)
         {
             this.mario = mario;
-            this.PreviousPowerUpState = this.mario.PowerUpState;
+            this.Uid = mario.Uid;
+            this.State = mario.State;
+            this.PreviousState = this.mario.PowerUpState;
             this.mario.PowerUpState = new StarMarioState();
+            /*
+            if (false)
+                this.mario.PowerUpState = new SmallStarMarioState();
+                */
         }
         
-        public void Draw(SpriteBatch spriteBatch)
+        public new void Draw(SpriteBatch spriteBatch)
         {
             mario.Draw(spriteBatch);
 
         }
 
-        public void Update()
+        public new void Update()
         {
             timer--;
             if (timer == 0)
             {
-                this.mario.PowerUpState = this.PreviousPowerUpState;
+                this.mario.PowerUpState = this.PreviousState;
                 this.mario.UpdateArt();
                 World.Instance.Mario = this.mario;
             }
@@ -78,7 +84,7 @@ namespace Gamespace
 
         public void PowerUp()
         {
-            // We don't want star mario to power up
+            this.mario.PowerUpState.PowerUp(this.mario);
         }
 
         public void UpdateArt()
@@ -86,31 +92,31 @@ namespace Gamespace
             mario.UpdateArt();
         }
 
-        public Rectangle GetCollisionBoundary()
+        public new Rectangle GetCollisionBoundary()
         {
            return mario.GetCollisionBoundary();
         }
 
-        public void CollideLeft(Rectangle collisionArea)
+        public new void CollideLeft(Rectangle collisionArea)
         {
             mario.CollideLeft(collisionArea);
         }
 
-        public void CollideRight(Rectangle collisionArea)
+        public new void CollideRight(Rectangle collisionArea)
         {
             mario.CollideRight(collisionArea);
         }
 
-        public void CollideUp(Rectangle collisionArea)
+        public new void CollideUp(Rectangle collisionArea)
         {
             mario.CollideUp(collisionArea);
         }
-        public void CollideDown(Rectangle collisionArea)
+        public new void CollideDown(Rectangle collisionArea)
         {
             mario.CollideDown(collisionArea);
         }
 
-        public Vector2 GetCenter()
+        public new Vector2 GetCenter()
         {
             return mario.GetCenter();
         }
@@ -118,6 +124,11 @@ namespace Gamespace
         public void Bounce()
         {
             Physics.JumpMaxSpeed(Side.Up);
+        }
+
+        public void Die()
+        {
+            // Star Mario cannot die.
         }
     }
 }
