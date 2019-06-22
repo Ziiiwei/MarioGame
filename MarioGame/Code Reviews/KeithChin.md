@@ -1,29 +1,29 @@
-﻿### Code Maintainability Review
+﻿### Code Readibility Review
+
 Author: Keith Chin
-Date: 6/13/19
-Sprint: 3
+Date: 6/21/19
+Sprint: 4
 Name: Matthew Harrow 
-File: CollisionHandler.cs
+File: TypeTranslator.cs
 Minutes: 15
 
-Coupling: Moderate
-- CollisionHandler is coupled with IGameObject as the handling and receiving collision methods
-receive mover and target game objects for their respective parameter fields.
+Naming : Very readable
 
-Cohesion: Moderate
-- This class is not entirely cohesive because even though it deals with collision, it is not singling
-out its responsibility to multiple classes.
-- For example, DetectCollision and HandleCollision inside this class can be made into its own subclasses.
-- In this case, collision handler can be renamed collision manager, where it deals with DetectCollision and
-HandleCollision.
+- The variables used are context based, for example, marioCast is used in the MarioBlockTranslator
+while goombaCast is used in the MarioGoombaTranslator. These namings are helpful and create
+a distinction between each methods in the class.
 
-Complexity: Moderately High
-- Complexity is an issue for the CollisionHandler class since the constructor is constantly adding collisionActions
-to the dictionary.
-- For instance, the constant addition will cause additive complexity.
-- However, we have acknowledge this problem by creating a separate class that adds each collision action. This will be 
-implemented in a future sprint.
+Explaining the purpose : Decent
+
+- Although the code is good from a readibility point of view, it may be difficult to understand from
+an outsider point of view. 
+- Comments could be added to provide extra clarity on how each Type Translation works.
+- It would also be useful to get an idea of what is returned by the TypeTranslator class.
 
 Additional Notes:
-Overall, the collision handler class works as intended, however, it still suffers from high complexity and smaller issues of 
-cohesion and coupling. We have addressed this problem and our goal was to have this working for the initial implementation.
+
+- I think the class overall, is very readable in terms of the context of what it does. 
+- Adding some comments would have been useful to provide more information on what the methods do.
+- Overall, the class scores well in terms of readiblity.
+
+
