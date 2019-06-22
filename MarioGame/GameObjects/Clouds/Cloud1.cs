@@ -14,7 +14,7 @@ namespace Gamespace.Clouds
     {
         public Cloud1(Vector2 positionOnScreen) : base(positionOnScreen)
         {
-
+            
         }
     }
 }
