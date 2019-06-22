@@ -12,6 +12,8 @@ using Gamespace.Items;
 using Gamespace.Koopas;
 using Gamespace.Collision;
 using Gamespace.Interfaces;
+using Gamespace.Clouds;
+using Gamespace.Hills;
 
 namespace Gamespace
 {
@@ -22,6 +24,7 @@ namespace Gamespace
         private Dictionary<Tuple<Type, Type, Side>, (Type, Type)> collisionActions;
         private Dictionary<(Type, Type), Func<IGameObject, IGameObject, (Type, Type)>> translator;
         private Dictionary<Tuple<Type, Type, Side>, (Type, Type)> statefulCollisionActions;
+        private List<Type> collisionMasks;
         public enum Side : int { None, Up, Down, Left, Right };
         static CollisionHandler()
         {
@@ -38,6 +41,15 @@ namespace Gamespace
             translator.Add((typeof(Goomba), typeof(BrickBlock)), new Func<IGameObject, IGameObject, (Type, Type)>(TypeTranslator.BumpableBlockEnemyTranslator));
             translator.Add((typeof(Koopa), typeof(BrickBlock)), new Func<IGameObject, IGameObject, (Type, Type)>(TypeTranslator.BumpableBlockEnemyTranslator));
             statefulCollisionActions = JsonParser.Instance.ParseCollisionStatefulFile();
+
+            collisionMasks = new List<Type>()
+            {
+                typeof(Cloud1),
+                typeof(Cloud2),
+                typeof(Cloud3),
+                typeof(BigHill),
+                typeof(SmallHill)
+            };
         }
 
         public void HandleCollision(IGameObject mover, IGameObject target)
@@ -53,6 +65,11 @@ namespace Gamespace
 
             Tuple<Type, Type, Side> key = new Tuple<Type, Type, Side>(mover.GetType(),
             target.GetType(), directionAndArea.Item1);
+
+            if((collisionMasks.Contains(mover.GetType()) || collisionMasks.Contains(target.GetType())))
+            {
+                return;
+            }
 
             if (collisionActions.ContainsKey(key))
             {
