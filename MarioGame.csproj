@@ -43,6 +43,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="MarioGame\Commands\MarioJumpAfterEnemyHit.cs" />
+    <Compile Include="MarioGame\Controllers\PhysicsController.cs" />
     <Compile Include="MarioGame\GameObjects\Blocks\Bump States\BlockIsBumpedState.cs" />
     <Compile Include="MarioGame\GameObjects\Blocks\Bump States\BlockIsNotBumpedState.cs" />
     <Compile Include="MarioGame\GameObjects\Blocks\Bump States\IBlockBumpState.cs" />

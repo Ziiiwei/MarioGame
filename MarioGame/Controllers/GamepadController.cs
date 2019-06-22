@@ -22,6 +22,11 @@ namespace Gamespace.Controllers
             previousState = new GamePadState();
         }
 
+        public bool CommandOverRide(string comand)
+        {
+            return false;
+        }
+
         public void SwitchMapping()
         {
 
@@ -42,5 +47,6 @@ namespace Gamespace.Controllers
             }
             previousState = gamePadState;
         }
+      
     }
 }

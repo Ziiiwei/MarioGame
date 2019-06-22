@@ -14,6 +14,7 @@ namespace Gamespace.Controllers
         private Dictionary<string, ICommand> keyCommands;
         private Keys[] previouslyPressed;
         private List<string> commandToExcute;
+        private PhysicsController physicsOverride;
 
         public KeyboardController(MarioGame game)
         {
@@ -58,6 +59,12 @@ namespace Gamespace.Controllers
 
             commandToExcute = new List<string>();
             previouslyPressed = new Keys[0];
+            physicsOverride = new PhysicsController(game);
+        }
+
+        public bool CommandOverRide(string comand)
+        {
+            return false;
         }
 
         public void SwitchMapping()
@@ -95,9 +102,17 @@ namespace Gamespace.Controllers
 
             foreach(String s in commandToExcute)
             {
+
                 if (keyCommands.ContainsKey(s))
                 {
-                    keyCommands[s].Execute();
+                    if (physicsOverride.CommandOverRide(s))
+                    {
+                        physicsOverride.Update();
+                    }
+                    else
+                    {
+                        keyCommands[s].Execute();
+                    }
                 }
             }
 
@@ -106,6 +121,8 @@ namespace Gamespace.Controllers
 
             
         }
+
+       
 
     }
 }
