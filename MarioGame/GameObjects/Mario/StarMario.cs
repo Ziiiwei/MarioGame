@@ -11,7 +11,7 @@ using Gamespace.States;
 namespace Gamespace
 {
     /* This will be changed to implement AbstractGameObject soon. */
-    public class StarMario : AbstractGameStatefulObject<IMarioState>, IMario
+    public class StarMario : IMario
     {
         public int Uid { get; }
         public ISprite Sprite { get; set; }
@@ -26,10 +26,11 @@ namespace Gamespace
         private IMario mario;
         int timer = 1000;
 
-        public StarMario(IMario mario, Vector2 positionOnScreen) : base(positionOnScreen)
+        public StarMario(IMario mario)
         {
             this.mario = mario;
             this.Uid = mario.Uid;
+            this.State = mario.State;
             this.PreviousPowerUpState = this.mario.PowerUpState;
             this.mario.PowerUpState = new StarMarioState();
             if (false)
@@ -42,7 +43,7 @@ namespace Gamespace
 
         }
 
-        public override void Update()
+        public void Update()
         {
             timer--;
             if (timer == 0)
@@ -81,8 +82,7 @@ namespace Gamespace
 
         public void PowerUp()
         {
-            if (this.PowerUpState.Equals(new SmallStarMarioState()))
-                this.mario.PowerUpState = new StarMarioState();
+            this.mario.PowerUpState.PowerUp(this.mario);
         }
 
         public void UpdateArt()
