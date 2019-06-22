@@ -29,6 +29,10 @@ namespace Gamespace
         {
             GameObjectPhysics.Update();
             GameObjectPhysics.FrictionStop(Side.Right);
+            if (GameObjectPhysics.Position.X<0)
+            {
+                CollideLeft(new Rectangle(-(int)GameObjectPhysics.Position.X, 1, 1, 1));
+            }
             positionOnScreen = GameObjectPhysics.GetPosition();
             if (PowerUpState.GetType() == typeof(StarMarioState) || PowerUpState.GetType() == typeof(SmallStarMarioState))
             {
@@ -39,7 +43,9 @@ namespace Gamespace
                     timer = 1000;
                 }
             }
-                base.Update();
+            if (positionOnScreen.Y >= 1000)
+                World.Instance.end = 1;
+            base.Update();
         }
         public void Crouch()
         {

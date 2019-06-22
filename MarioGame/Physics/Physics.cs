@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
+using Gamespace.Controllers;
 
 namespace Gamespace
 {
@@ -13,8 +14,10 @@ namespace Gamespace
         private Vector2 position;
         private Vector2 velocity;
         private Vector2 acceleration;
+        private (PhysicalStatus, Side) objectPhysicalState;
         public Vector2 Position { get => position; }
         public Vector2 Velocity { get => velocity; }
+        public (PhysicalStatus, Side) ObjectPhysicalState { get => objectPhysicalState; }
         public IGameObject gameObject { get; set; }
 
     
@@ -40,6 +43,7 @@ namespace Gamespace
 
             acceleration = new Vector2(0, 0);
             velocity = new Vector2(0, 0);
+            DeterminePhysicalState();
         }
         private void FreeFall()
         {
@@ -98,6 +102,7 @@ namespace Gamespace
             position.X = position.X + collisionArea.Width;
             velocity.X = 0;
             acceleration.X = 0;
+            DeterminePhysicalState();
 
         }
 
@@ -106,6 +111,7 @@ namespace Gamespace
             position.X = position.X - collisionArea.Width;
             velocity.X = 0;
             acceleration.X = 0;
+            DeterminePhysicalState();
 
         }
 
@@ -114,6 +120,7 @@ namespace Gamespace
             position.Y = position.Y + collisionArea.Height;
             velocity.Y = 0;
             acceleration.Y = 0;
+            DeterminePhysicalState();
         }
 
         public void DownStop(Rectangle collisionArea)
@@ -121,6 +128,7 @@ namespace Gamespace
             position.Y = position.Y - collisionArea.Height;
             velocity.Y = 0;
             acceleration.Y = 0;
+            DeterminePhysicalState();
         }
 
         public void Update()
@@ -133,6 +141,7 @@ namespace Gamespace
             position.X += velocity.X;
             position.Y += velocity.Y;
 
+            DeterminePhysicalState();
             //Loop();
         }
 
@@ -167,6 +176,49 @@ namespace Gamespace
                 position.Y = MarioGame.WINDOW_HEIGHT / MarioGame.SCALE;
                 
         } 
+
+        //to check if the obj is in free fall or not
+        //if is free fall, then dir can be any
+        //if not dir can only be left and right
+        private void DeterminePhysicalState()
+        {
+            Side dir;
+            PhysicalStatus status;
+            if (acceleration.Y == G)
+            {
+                status = PhysicalStatus.Fall;
+                if (velocity.Y == 0)
+                {
+                    dir = Side.None;
+                }
+                else if (velocity.Y > 0)
+                {
+                    dir = Side.Up;
+                }
+                else
+                {
+                    dir = Side.Down;
+                }
+
+            } else
+            {
+                status = PhysicalStatus.Ground;
+                if (velocity.X == 0)
+                {
+                    dir = Side.None;
+                } else if(velocity.X>0)
+                {
+                    dir = Side.Right;
+                } else
+                {
+                    dir = Side.Left;
+                }
+
+                objectPhysicalState = (status, dir);
+            }
+
+            
+        }
         public void FrictionStop(Side side)
         {
             if (side == Side.Right || side == Side.Left || side == Side.None)

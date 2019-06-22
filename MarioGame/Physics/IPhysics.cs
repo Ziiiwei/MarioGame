@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
+using Gamespace.Controllers;
 
 namespace Gamespace
 {
@@ -12,7 +13,8 @@ namespace Gamespace
     {
         Vector2 Position { get; }
         Vector2 Velocity { get; }
-        Vector2 GetPosition();
+        (PhysicalStatus, Side) ObjectPhysicalState { get; }
+     Vector2 GetPosition();
         Vector2 GetVelocity();
         void LeftStop(Rectangle collisionArea);
         void RightStop(Rectangle collisionArea);
@@ -23,6 +25,8 @@ namespace Gamespace
         void Update();
         void Stop(Side side);
         void FrictionStop(Side side);
+
+     
 
     }
 }
