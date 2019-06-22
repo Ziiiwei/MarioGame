@@ -11,9 +11,9 @@ using Newtonsoft.Json;
 
 namespace Gamespace
 {
-    public class CSVtoJSON
+    public class CSVParser
     {
-        static CSVtoJSON()
+        static CSVParser()
         {
 
         }
@@ -31,21 +31,32 @@ namespace Gamespace
                 {"HB", "Gamespace.Blocks.HiddenBlock" },
                 {"QB", "Gamespace.Blocks.QuestionBlock" },
                 {"P", "Gamespace.Items.Pipe" },
+                {"PE", "Gamespace.Items.PipeExtension" },
                 {"M", "Gamespace.Mario" },
                 {"G", "Gamespace.Goombas.Goomba" },
                 {"K", "Gamespace.Koopas.Koopa" },
+                {"C", "Gamespace.Items.Coin" },
                 {"S", "Gamespace.Items.Star" },
+                {"FF", "Gamespace.Items.Flower" },
                 {"GS", "Gamespace.Items.GreenShroom" },
-                {"RS", "Gamespace.Items.RedShroom" }
-            };
+                {"RS", "Gamespace.Items.RedShroom" },
+                {"F", "Gamespace.FlagPole.Flag" },
+                {"FP","Gamespace.FlagPole.Flagpole" },
+                {"FT", "Gamespace.FlagPole.FlagPoleTop" },
+                {"CA", "Gamespace.Castle.Castle" },
+                {"C1", "Gamespace.Clouds.Cloud1" },
+                {"C2", "Gamespace.Clouds.Cloud2" },
+                {"C3", "Gamespace.Clouds.Cloud3" },
+                {"BH", "Gamespace.Hills.BigHill" },
+                {"SH", "Gamespace.Hills.SmallHill" }
 
-            //StreamReader sr = new StreamReader("MarioGame/Data/level1.csv");
+            };
 
             String[][] data = File.ReadLines("MarioGame/Data/level1.csv").Select(x => x.Split(',')).ToArray();
             int _X = 0;
             int _Y = 0;
-            //int row = 0;
             var JsonList = new List<CSVObject>();
+            string pattern = @"\+";
             string name;
             string state = "null";
             string path = "MarioGame/Data/Level1.json";
@@ -65,11 +76,21 @@ namespace Gamespace
                      */
                     if (!(data[i][j] == ""))
                     {
-                        name = data[i][j];
+                        if (data[i][j].Contains("+"))
+                        {
+                            string[] elements = System.Text.RegularExpressions.Regex.Split(data[i][j],pattern);
+                            name = shortcuts[elements[0]];
+                            state = shortcuts[elements[1]];
+                        }
+                        else
+                        {
+                            name = shortcuts[data[i][j]];
+                            state = " null";
+                        }
                         _X = (j * UNIT);
                         _Y = (i * UNIT);
 
-                        CSVObject obj = new CSVObject(shortcuts[name], _X, _Y, state);
+                        CSVObject obj = new CSVObject(name, _X, _Y, state);
                         string output = JsonConvert.SerializeObject(obj);
                         JsonList.Add(obj);
                     }

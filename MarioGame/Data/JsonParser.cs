@@ -115,12 +115,7 @@ namespace Gamespace
 
                 if (state != null)
                 {
-                    go = (AbstractGameStatefulObject<Object>)Activator.CreateInstance(t, new Vector2(x, y));
-                    AbstractGameStatefulObject<Object> statefulGameObject = (AbstractGameStatefulObject<Object>) go;
-
-                    statefulGameObject.State = state;
-                    
-
+                    go = (IGameObject)Activator.CreateInstance(t, new Vector2(x, y), state);
                 }
                 else
                 {
@@ -128,7 +123,6 @@ namespace Gamespace
                 }
 
                 World.Instance.AddGameObject(go);
-                //gameObjects.Add(new Tuple<int, IGameObject>(go.Uid, go));
             }
             return gameObjects;
         }

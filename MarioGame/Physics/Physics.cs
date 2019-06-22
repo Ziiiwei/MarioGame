@@ -133,7 +133,7 @@ namespace Gamespace
             position.X += velocity.X;
             position.Y += velocity.Y;
 
-            Loop();
+            //Loop();
         }
 
         public Vector2 GetPosition()

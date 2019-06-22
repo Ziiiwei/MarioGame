@@ -23,7 +23,6 @@ namespace Gamespace
 
         public override void Update()
         {
-            
             GameObjectPhysics.Update();
             GameObjectPhysics.FrictionStop(Side.Right);
             positionOnScreen = GameObjectPhysics.GetPosition();
@@ -72,6 +71,11 @@ namespace Gamespace
         protected override void SetSprite()
         {
             Sprite = SpriteFactory.Instance.GetSprite(this.GetType().Name, State.GetType().Name, PowerUpState.GetType().Name);
+        }
+
+        public void Bounce()
+        {
+            GameObjectPhysics.JumpMaxSpeed(Side.Up);
         }
     }
 }

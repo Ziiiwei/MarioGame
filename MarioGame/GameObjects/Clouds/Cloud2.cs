@@ -8,11 +8,11 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
 
-namespace Gamespace
+namespace Gamespace.Clouds
 {
-    class SmallCloud : AbstractGameObject
+    class Cloud2 : AbstractGameObject
     {
-        public SmallCloud(Vector2 positionOnScreen) : base(positionOnScreen)
+        public Cloud2(Vector2 positionOnScreen) : base(positionOnScreen)
         {
 
         }

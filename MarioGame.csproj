@@ -42,6 +42,7 @@
     <ApplicationManifest>MarioGame\app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="MarioGame\Commands\MarioJumpAfterEnemyHit.cs" />
     <Compile Include="MarioGame\GameObjects\Blocks\Bump States\BlockIsBumpedState.cs" />
     <Compile Include="MarioGame\GameObjects\Blocks\Bump States\BlockIsNotBumpedState.cs" />
     <Compile Include="MarioGame\GameObjects\Blocks\Bump States\IBlockBumpState.cs" />
@@ -57,15 +58,26 @@
     <Compile Include="MarioGame\Commands\SlideEnemyLeft.cs" />
     <Compile Include="MarioGame\Commands\SlideEnemyRight.cs" />
     <Compile Include="MarioGame\Data\CSVObject.cs" />
-    <Compile Include="MarioGame\Data\CSVtoJSON.cs" />
+    <Compile Include="MarioGame\Data\CSVParser.cs" />
     <Compile Include="MarioGame\Collision\ICollidable.cs" />
+    <Compile Include="MarioGame\GameObjects\Blocks\PipeExtension.cs" />
+    <Compile Include="MarioGame\GameObjects\Castle\Castle.cs" />
+    <Compile Include="MarioGame\GameObjects\Clouds\Cloud1.cs" />
+    <Compile Include="MarioGame\GameObjects\Clouds\Cloud2.cs" />
+    <Compile Include="MarioGame\GameObjects\Clouds\Cloud3.cs" />
     <Compile Include="MarioGame\GameObjects\Enemies\IEnemyState.cs" />
+    <Compile Include="MarioGame\GameObjects\Flag Pole\Flag.cs" />
+    <Compile Include="MarioGame\GameObjects\Flag Pole\Flagpole.cs" />
+    <Compile Include="MarioGame\GameObjects\Flag Pole\FlagPoleTop.cs" />
     <Compile Include="MarioGame\GameObjects\Items\IMovableItem.cs" />
     <Compile Include="MarioGame\GameObjects\Items\RedShroomStates\IShroomState.cs" />
     <Compile Include="MarioGame\GameObjects\Items\RedShroomStates\ShroomMovingLeftState.cs" />
     <Compile Include="MarioGame\GameObjects\Items\RedShroomStates\ShroomMovingRightState.cs" />
     <Compile Include="MarioGame\GameObjects\Items\RedShroomStates\ShroomMovingUpState.cs" />
+    <Compile Include="MarioGame\GameObjects\Mario\Fireball.cs" />
     <Compile Include="MarioGame\GameObjects\Mario\Mario.cs" />
+    <Compile Include="MarioGame\GameObjects\Mario\States\RightSlidingMarioState.cs" />
+    <Compile Include="MarioGame\GameObjects\Mario\States\LeftSlidingMarioState.cs" />
     <Compile Include="MarioGame\Physics\IPhysicsConstants.cs" />
     <Compile Include="MarioGame\Physics\PhysicsConstants.cs" />
     <Compile Include="MarioGame\Physics\PhysicsFactory.cs" />
@@ -127,10 +139,8 @@
     <Compile Include="MarioGame\GameObjects\Mario\States\LeftJumpingMarioState.cs" />
     <Compile Include="MarioGame\GameObjects\Enemies\Goomba\LeftMovingGoombaState.cs" />
     <Compile Include="MarioGame\GameObjects\Mario\States\StarMarioState.cs" />
-    <Compile Include="MarioGame\World\BigCloud.cs" />
-    <Compile Include="MarioGame\World\BigHill.cs" />
-    <Compile Include="MarioGame\World\SmallHill.cs" />
-    <Compile Include="MarioGame\World\SmallCloud.cs" />
+    <Compile Include="MarioGame\GameObjects\Hills\BigHill.cs" />
+    <Compile Include="MarioGame\GameObjects\Hills\SmallHill.cs" />
     <Compile Include="MarioGame\World\LevelLoader.cs" />
     <Compile Include="MarioGame\GameObjects\Items\RedShroom.cs" />
     <Compile Include="MarioGame\GameObjects\Mario\States\RightCrouchingMarioState.cs" />
@@ -222,6 +232,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="MarioGame\Data\Level1.json" />
+    <None Include="MarioGame\Data\level1.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="MarioGame\Data\CollisionActions.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

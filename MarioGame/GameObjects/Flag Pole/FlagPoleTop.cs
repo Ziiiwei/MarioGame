@@ -7,14 +7,14 @@ using Gamespace.Sprites;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
-
-namespace Gamespace
+namespace Gamespace.FlagPole
 {
-    class BigHill : AbstractGameObject
+    class FlagPoleTop : AbstractGameObject
     {
-        public BigHill(Vector2 positionOnScreen) : base(positionOnScreen)
+        public FlagPoleTop(Vector2 positionOnScreen) : base(positionOnScreen)
         {
 
         }
     }
+
 }

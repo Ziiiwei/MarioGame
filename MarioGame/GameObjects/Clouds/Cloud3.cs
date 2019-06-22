@@ -7,12 +7,11 @@ using Gamespace.Sprites;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
-
-namespace Gamespace
+namespace Gamespace.Clouds
 {
-    class BigCloud : AbstractGameObject
+    class Cloud3 : AbstractGameObject
     {
-        public BigCloud(Vector2 positionOnScreen) : base(positionOnScreen)
+        public Cloud3(Vector2 positionOnScreen) : base(positionOnScreen)
         {
 
         }

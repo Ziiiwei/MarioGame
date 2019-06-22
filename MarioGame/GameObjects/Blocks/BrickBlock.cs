@@ -15,13 +15,19 @@ namespace Gamespace.Blocks
     {
         private static int[] bumpOffsets = { 0, 1, 2, 3, -1, -2, -3 };
         private int bumpCounter = -1;
+
         private Type bumpReward;
 
+        public BrickBlock(Vector2 positionOnScreen, Type bumpReward) : base(positionOnScreen)
+        {
+            State = new BlockIsNotBumpedState(this);
+            SetSprite();
+            this.bumpReward = bumpReward;
+        }
         public BrickBlock(Vector2 positionOnScreen) : base(positionOnScreen)
         {
             State = new BlockIsNotBumpedState(this);
             SetSprite();
-            bumpReward = typeof(RedShroom);
         }
 
         public void Bump()
@@ -29,6 +35,7 @@ namespace Gamespace.Blocks
             if (bumpReward != null)
             {
                 World.Instance.AddGameObject((IGameObject)Activator.CreateInstance(bumpReward, positionOnScreen));
+                bumpReward = null;
             }
             else if (State.GetType() == typeof(BlockIsNotBumpedState))
             {

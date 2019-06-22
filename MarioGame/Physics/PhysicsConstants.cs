@@ -24,12 +24,15 @@ namespace Gamespace
             List<float> marioDefinitions = new List<float> { 1f, 2f, 4f, 10f, 1f };
             constantsAssignments.Add(typeof(Mario), new PhysicsConstantsDefinitons(marioDefinitions));
 
-            List<float> enemyDefinitions = new List<float> { 2.5f, 1f, 2f, 10f, 1f };
+            List<float> enemyDefinitions = new List<float> { 1f, 1f, 1f, 1f, 1f };
             constantsAssignments.Add(typeof(Goomba), new PhysicsConstantsDefinitons(enemyDefinitions));
             constantsAssignments.Add(typeof(Koopa), new PhysicsConstantsDefinitons(enemyDefinitions));
 
             List<float> redShroomDefinitions = new List<float> { 0.5f, 0.5f, 0.5f, 0.5f, 0.5f };
             constantsAssignments.Add(typeof(RedShroom), new PhysicsConstantsDefinitons(redShroomDefinitions));
+
+            List<float> starDefinitions = new List<float> { 0.0f, 0.0f, 0.0f, 0.0f, 0.0f };
+            constantsAssignments.Add(typeof(Star), new PhysicsConstantsDefinitons(redShroomDefinitions));
         }
 
         internal static PhysicsConstants Instance { get; } = new PhysicsConstants();

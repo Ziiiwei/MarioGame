@@ -4,7 +4,6 @@ using Microsoft.Xna.Framework.Input;
 using System.Collections.Generic;
 using Microsoft.Xna.Framework.Content;
 using Gamespace.Controllers;
-
 namespace Gamespace
 {
     /// <summary>
@@ -119,6 +118,13 @@ namespace Gamespace
             spriteBatch.DrawString(font, "FPS "+frameRate, new Vector2(0, 0), Color.Red);
             spriteBatch.End();
             base.Draw(gameTime);
+        }
+
+        public void SwitchMapping()
+        {
+            foreach (IController controller in controllers)
+                controller.SwitchMapping();
+          
         }
 
         public void Reset()

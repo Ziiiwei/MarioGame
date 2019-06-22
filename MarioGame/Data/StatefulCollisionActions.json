@@ -67,7 +67,7 @@
       "Mover": "Gamespace.Mario",
       "Target": "Gamespace.Goombas.LeftMovingGoombaState",
       "Side": "Down",
-      "Command1": "Gamespace.Commands.NullCommand",
+      "Command1": "Gamespace.Commands.MarioJumpAfterEnemyHit",
       "Command2": "Gamespace.Commands.MarioHitsEnemy"
     },
     {
@@ -95,7 +95,7 @@
       "Mover": "Gamespace.Mario",
       "Target": "Gamespace.Goombas.RightMovingGoombaState",
       "Side": "Down",
-      "Command1": "Gamespace.Commands.NullCommand",
+      "Command1": "Gamespace.Commands.MarioJumpAfterEnemyHit",
       "Command2": "Gamespace.Commands.MarioHitsEnemy"
     },
     {
