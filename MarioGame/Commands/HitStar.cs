@@ -21,7 +21,7 @@ namespace Gamespace.Commands
 
         public void Execute()
         {
-            this.mario = new StarMario(this.mario);
+            this.mario = new StarMario(this.mario, this.mario.PositionOnScreen);
         }
     }
 }

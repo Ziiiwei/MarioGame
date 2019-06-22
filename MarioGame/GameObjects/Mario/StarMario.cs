@@ -11,39 +11,41 @@ using Gamespace.States;
 namespace Gamespace
 {
     /* This will be changed to implement AbstractGameObject soon. */
-    public class StarMario : IMario
+    public class StarMario : AbstractGameStatefulObject<IMarioState>, IMario
     {
-        public int Uid { get; }
-        public ISprite Sprite { get; set; }
-        public IMarioState State { get; set; }
-        public Vector2 PositionOnScreen { get; }
+        public new int Uid { get; }
+        public new ISprite Sprite { get; set; }
+        new IMarioState State { get; set; }
+        new Vector2 PositionOnScreen { get; }
 
-        public IMarioPowerUpState PowerUpState { get; set; }
-        public IMarioPowerUpState PreviousPowerUpState;
+        public  IMarioPowerUpState PowerUpState { get; set; }
+        public  IMarioPowerUpState PreviousPowerUpState;
         internal IPhysics Physics { get; set; }
 
 
         private IMario mario;
         int timer = 1000;
 
-        public StarMario(IMario mario)
+        public StarMario(IMario mario, Vector2 positionOnScreen) : base(positionOnScreen)
         {
             this.mario = mario;
             this.Uid = mario.Uid;
             this.State = mario.State;
             this.PreviousPowerUpState = this.mario.PowerUpState;
             this.mario.PowerUpState = new StarMarioState();
+            /*
             if (false)
                 this.mario.PowerUpState = new SmallStarMarioState();
+                */
         }
         
-        public void Draw(SpriteBatch spriteBatch)
+        public new void Draw(SpriteBatch spriteBatch)
         {
             mario.Draw(spriteBatch);
 
         }
 
-        public void Update()
+        public new void Update()
         {
             timer--;
             if (timer == 0)
@@ -90,31 +92,31 @@ namespace Gamespace
             mario.UpdateArt();
         }
 
-        public Rectangle GetCollisionBoundary()
+        public new Rectangle GetCollisionBoundary()
         {
            return mario.GetCollisionBoundary();
         }
 
-        public void CollideLeft(Rectangle collisionArea)
+        public new void CollideLeft(Rectangle collisionArea)
         {
             mario.CollideLeft(collisionArea);
         }
 
-        public void CollideRight(Rectangle collisionArea)
+        public new void CollideRight(Rectangle collisionArea)
         {
             mario.CollideRight(collisionArea);
         }
 
-        public void CollideUp(Rectangle collisionArea)
+        public new void CollideUp(Rectangle collisionArea)
         {
             mario.CollideUp(collisionArea);
         }
-        public void CollideDown(Rectangle collisionArea)
+        public new void CollideDown(Rectangle collisionArea)
         {
             mario.CollideDown(collisionArea);
         }
 
-        public Vector2 GetCenter()
+        public new Vector2 GetCenter()
         {
             return mario.GetCenter();
         }
