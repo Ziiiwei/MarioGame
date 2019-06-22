@@ -29,8 +29,11 @@ namespace Gamespace
         public StarMario(IMario mario, Vector2 positionOnScreen) : base(positionOnScreen)
         {
             this.mario = mario;
+            this.Uid = mario.Uid;
             this.PreviousPowerUpState = this.mario.PowerUpState;
             this.mario.PowerUpState = new StarMarioState();
+            if (false)
+                this.mario.PowerUpState = new SmallStarMarioState();
         }
         
         public void Draw(SpriteBatch spriteBatch)
@@ -39,7 +42,7 @@ namespace Gamespace
 
         }
 
-        public void Update()
+        public override void Update()
         {
             timer--;
             if (timer == 0)
@@ -78,7 +81,8 @@ namespace Gamespace
 
         public void PowerUp()
         {
-            // We don't want star mario to power up
+            if (this.PowerUpState.Equals(new SmallStarMarioState()))
+                this.mario.PowerUpState = new StarMarioState();
         }
 
         public void UpdateArt()

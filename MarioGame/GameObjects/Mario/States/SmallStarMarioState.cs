@@ -15,7 +15,7 @@ namespace Gamespace.States
 
         public void PowerUp(IMario mario)
         {
-            // Do nothing
+            mario.PowerUpState = new StarMarioState();
         }
     }
 }
