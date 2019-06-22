@@ -78,6 +78,7 @@
     <Compile Include="MarioGame\GameObjects\Mario\Mario.cs" />
     <Compile Include="MarioGame\GameObjects\Mario\States\RightSlidingMarioState.cs" />
     <Compile Include="MarioGame\GameObjects\Mario\States\LeftSlidingMarioState.cs" />
+    <Compile Include="MarioGame\GameObjects\Mario\States\SmallStarMarioState.cs" />
     <Compile Include="MarioGame\Physics\IPhysicsConstants.cs" />
     <Compile Include="MarioGame\Physics\PhysicsConstants.cs" />
     <Compile Include="MarioGame\Physics\PhysicsFactory.cs" />
@@ -228,6 +229,10 @@
     <None Include="MarioGame\Code Reviews\MatthewHarrow.md" />
     <None Include="MarioGame\Code Reviews\ZiweiJin.md" />
     <None Include="MarioGame\Code Reviews\RayanHamza.md" />
+    <None Include="MarioGame\Data\level1.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="MarioGame\Data\Level1.json" />
     <None Include="MarioGame\Data\level1.csv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
