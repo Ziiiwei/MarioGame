@@ -64,16 +64,6 @@ namespace Gamespace
             {
                 for (int j = 0; j < data[i].Length; j++)
                 {
-
-                    // The first column is the row number
-                    //if (j == 0)
-                    //{
-                    //    row = Int32.Parse(data[i][j]);
-                    //}
-                    /* If the array location is not empty, grab the name
-                     *  calculate the X and Y coordinates, and serialize as 
-                     *  a JSON object.
-                     */
                     if (!(data[i][j] == ""))
                     {
                         if (data[i][j].Contains("+"))
