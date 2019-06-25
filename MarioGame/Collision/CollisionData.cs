@@ -9,7 +9,7 @@ namespace Gamespace
 {
     internal class CollisionData
     {
-        public Rectangle CollisionArea { get; private set; }
+        public Rectangle CollisionArea { get;  }
 
         public CollisionData(Rectangle collisionArea)
         {

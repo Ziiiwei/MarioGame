@@ -4,13 +4,15 @@ using Microsoft.Xna.Framework.Input;
 using System.Collections.Generic;
 using Microsoft.Xna.Framework.Content;
 using Gamespace.Controllers;
+using Microsoft.Xna.Framework.Media;
+
 namespace Gamespace
 {
+
     /// <summary>
     /// This is the main type for your game.
     /// </summary>
-
-   
+  
     public class MarioGame : Game
     {
         private static readonly MarioGame instance = new MarioGame();
@@ -18,6 +20,8 @@ namespace Gamespace
         public const int WINDOW_HEIGHT = 480;
         public const float SCALE = 1f;
         private GameTime time;
+
+        private Song song;
 
         private GraphicsDeviceManager graphics;
         public SpriteBatch spriteBatch;
@@ -77,6 +81,9 @@ namespace Gamespace
         {   
             spriteBatch = new SpriteBatch(GraphicsDevice);
             font = Content.Load<SpriteFont>("Arial");
+            song = Content.Load<Song>("Super Mario Bros");
+            MediaPlayer.Play(song);
+            MediaPlayer.Volume = 0.1f;
         }
 
         /// <summary>

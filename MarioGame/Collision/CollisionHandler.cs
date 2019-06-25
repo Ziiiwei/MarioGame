@@ -21,11 +21,11 @@ namespace Gamespace
     class CollisionHandler
     {
         /* Side is relative to the second IGameObject in the tuple */
-        private Dictionary<Tuple<Type, Type, Side>, (Type, Type)> collisionActions;
+        private readonly    Dictionary<Tuple<Type, Type, Side>, (Type, Type)> collisionActions;
         private Dictionary<(Type, Type), Func<IGameObject, IGameObject, (Type, Type)>> translator;
         private Dictionary<Tuple<Type, Type, Side>, (Type, Type)> statefulCollisionActions;
         private List<Type> collisionMasks;
-        public enum Side : int { None, Up, Down, Left, Right };
+        public enum Side  { None, Up, Down, Left, Right };
         static CollisionHandler()
         {
         }

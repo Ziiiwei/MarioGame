@@ -15,7 +15,7 @@ namespace Gamespace.Commands
         ICollidable collidable;
         CollisionData collisionData;
 
-        public CollideLeft(ICollidable collidable, CollisionData collisionData)
+        public CollideLeft(ICollidable collidable, CollisionData collisionData) 
         {
             this.collidable = collidable;
             this.collisionData = collisionData;
