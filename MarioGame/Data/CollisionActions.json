@@ -116,28 +116,28 @@
       "Mover": "Gamespace.Mario",
       "Target": "Gamespace.Items.RedShroom",
       "Side": "Up",
-      "Command1": "Gamespace.Commands.HitShroom",
+      "Command1": "Gamespace.Commands.MarioPowerUp",
       "Command2": "Gamespace.Commands.ConsumeItem"
     },
     {
       "Mover": "Gamespace.Mario",
       "Target": "Gamespace.Items.RedShroom",
       "Side": "Down",
-      "Command1": "Gamespace.Commands.HitShroom",
+      "Command1": "Gamespace.Commands.MarioPowerUp",
       "Command2": "Gamespace.Commands.ConsumeItem"
     },
     {
       "Mover": "Gamespace.Mario",
       "Target": "Gamespace.Items.RedShroom",
       "Side": "Left",
-      "Command1": "Gamespace.Commands.HitShroom",
+      "Command1": "Gamespace.Commands.MarioPowerUp",
       "Command2": "Gamespace.Commands.ConsumeItem"
     },
     {
       "Mover": "Gamespace.Mario",
       "Target": "Gamespace.Items.RedShroom",
       "Side": "Right",
-      "Command1": "Gamespace.Commands.HitShroom",
+      "Command1": "Gamespace.Commands.MarioPowerUp",
       "Command2": "Gamespace.Commands.ConsumeItem"
     },
     {

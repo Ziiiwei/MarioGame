@@ -12,12 +12,19 @@ namespace Gamespace.Controllers
     class KeyboardController : IController
     {
         private Dictionary<string, ICommand> keyCommands;
+        private Dictionary<string, ICommand> lockedKeyCommands;
+        private Dictionary<string, ICommand> currentBindings;
+        private Dictionary<string, Dictionary<string, ICommand>> bindingsSelector;
+
         private Keys[] previouslyPressed;
         private List<string> commandToExcute;
         private PhysicsController physicsOverride;
 
         public KeyboardController(MarioGame game)
         {
+            lockedKeyCommands = new Dictionary<string, ICommand>();
+            lockedKeyCommands.Add("Q_Click", new QuitGame(MarioGame.Instance));
+            lockedKeyCommands.Add("R_Click", new Reset(MarioGame.Instance));
 
             keyCommands = new Dictionary<string, ICommand>();
             keyCommands.Add("Q_Click", new QuitGame(game));
@@ -55,7 +62,14 @@ namespace Gamespace.Controllers
             keyCommands.Add("Right_Release", new MarioMoveLeftCommand(World.Instance.Mario));
 
             keyCommands.Add("R_Click", new Reset(game));
- 
+
+            currentBindings = keyCommands;
+
+            bindingsSelector = new Dictionary<string, Dictionary<string, ICommand>>()
+            {
+                {"alive", keyCommands },
+                {"dead", lockedKeyCommands }
+            };
 
             commandToExcute = new List<string>();
             previouslyPressed = new Keys[0];
@@ -67,11 +81,10 @@ namespace Gamespace.Controllers
             return false;
         }
 
-        public void SwitchMapping()
+
+        public void SwitchMapping(string bindings)
         {
-            keyCommands = new Dictionary<string, ICommand>();
-            keyCommands.Add("Q_Click", new QuitGame(MarioGame.Instance));
-            keyCommands.Add("R_Click", new Reset(MarioGame.Instance));
+            currentBindings = bindingsSelector[bindings];
         }
 
         public void Update()
@@ -103,7 +116,7 @@ namespace Gamespace.Controllers
             foreach(String s in commandToExcute)
             {
 
-                if (keyCommands.ContainsKey(s))
+                if (currentBindings.ContainsKey(s))
                 {
                     if (physicsOverride.CommandOverRide(s))
                     {
@@ -111,7 +124,7 @@ namespace Gamespace.Controllers
                     }
                     else
                     {
-                        keyCommands[s].Execute();
+                        currentBindings[s].Execute();
                     }
                 }
             }

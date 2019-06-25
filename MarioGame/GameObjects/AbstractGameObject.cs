@@ -18,7 +18,7 @@ namespace Gamespace
         protected Vector2 positionOnScreen;
         public Vector2 PositionOnScreen  => positionOnScreen;
 
-        internal IPhysics GameObjectPhysics { get; set; }
+        public IPhysics GameObjectPhysics { get; set; }
         public AbstractGameObject()
         {
             Uid = counter;
@@ -34,7 +34,7 @@ namespace Gamespace
             //GameObjectPhysics = new Physics(this, positionOnScreen); 
             GameObjectPhysics = PhysicsFactory.Instance.GetPhysics(this, positionOnScreen);
         }
-        public void Draw(SpriteBatch spriteBatch)
+        public virtual void Draw(SpriteBatch spriteBatch)
         {
 
             Sprite.Draw(spriteBatch, PositionOnScreen);
@@ -45,12 +45,12 @@ namespace Gamespace
             Sprite.Update();
         }
 
-        public Rectangle GetCollisionBoundary()
+        public virtual Rectangle GetCollisionBoundary()
         {
             return new Rectangle((int)GameObjectPhysics.Position.X, (int)GameObjectPhysics.Position.Y, Sprite.Width, Sprite.Height);
         }
 
-        public Vector2 GetCenter()
+        public virtual Vector2 GetCenter()
         {
             float height = Sprite.Height / 2;
             float width = Sprite.Width / 2;

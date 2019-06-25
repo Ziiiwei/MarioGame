@@ -6,15 +6,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Timers;
 
 namespace Gamespace
 {
     internal class Mario : AbstractGameStatefulObject<IMarioState>, IMario
     {
         public IMarioPowerUpState PowerUpState { get; set; }
-
         public IMarioPowerUpState PreviousState { get; set; }
         ISprite IMario.Sprite { get; set; }
+        private IPhysics physicsSnapshot;
 
         int timer = 1000;
 
@@ -79,8 +80,22 @@ namespace Gamespace
         public void PowerUp()
         {
             PreviousState = PowerUpState;
+
+            System.Timers.Timer timer = new System.Timers.Timer(1000);
+            Action<object, ElapsedEventArgs> onTimerElapsed = (o, e) =>
+            {
+                GameObjectPhysics = physicsSnapshot;
+                MarioGame.Instance.SwitchMapping("alive");
+            };
+            timer.Elapsed += new ElapsedEventHandler(onTimerElapsed);
+            timer.AutoReset = false;
+
+            physicsSnapshot = GameObjectPhysics;
+            MarioGame.Instance.SwitchMapping("dead");
+            GameObjectPhysics = PhysicsFactory.Instance.GetNullPhysics(positionOnScreen);
+            timer.Start();
+
             PowerUpState.PowerUp(this);
-            UpdateArt();
         }
 
         public void UpdateArt()

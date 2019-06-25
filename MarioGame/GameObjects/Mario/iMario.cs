@@ -10,6 +10,7 @@ namespace Gamespace
         IMarioState State { get; set; }
         IMarioPowerUpState PowerUpState { get; set; }
         IMarioPowerUpState PreviousState { get; set; }
+        IPhysics GameObjectPhysics { get; set; }
 
         void Bounce();
         void Jump();

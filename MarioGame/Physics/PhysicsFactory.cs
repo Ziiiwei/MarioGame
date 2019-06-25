@@ -24,5 +24,10 @@ namespace Gamespace
             return new Physics(gameObject, positionOnScreen, PhysicsConstants.Instance.GetConstants(gameObject.GetType()));
         }
 
+        internal IPhysics GetNullPhysics(Vector2 positionOnScreen)
+        {
+            IGameObject nullGameObject = new NullGameObject();
+            return new Physics(nullGameObject, positionOnScreen, PhysicsConstants.Instance.GetConstants(nullGameObject.GetType()));
+        }
     }
 }

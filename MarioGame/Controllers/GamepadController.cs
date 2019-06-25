@@ -27,10 +27,12 @@ namespace Gamespace.Controllers
             return false;
         }
 
-        public void SwitchMapping()
-        {
 
+        public void SwitchMapping(string bindings)
+        {
+            // Need to implement
         }
+
         public void Update()
         {
             gamePadState = GamePad.GetState(PlayerIndex.One);

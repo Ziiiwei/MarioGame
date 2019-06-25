@@ -1,6 +1,7 @@
 ﻿using Gamespace.Goombas;
 using Gamespace.Items;
 using Gamespace.Koopas;
+using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,6 +22,8 @@ namespace Gamespace
 
             constantsAssignments = new Dictionary<Type, IPhysicsConstants>();
 
+            List<float> zeroDefinitions = new List<float> { 0.0f, 0.0f, 0.0f, 0.0f, 0.0f };
+
             List<float> marioDefinitions = new List<float> { 1f, 2f, 4f, 10f, 1f };
             constantsAssignments.Add(typeof(Mario), new PhysicsConstantsDefinitons(marioDefinitions));
 
@@ -31,8 +34,9 @@ namespace Gamespace
             List<float> redShroomDefinitions = new List<float> { 0.5f, 0.5f, 0.5f, 0.5f, 0.5f };
             constantsAssignments.Add(typeof(RedShroom), new PhysicsConstantsDefinitons(redShroomDefinitions));
 
-            List<float> starDefinitions = new List<float> { 0.0f, 0.0f, 0.0f, 0.0f, 0.0f };
-            constantsAssignments.Add(typeof(Star), new PhysicsConstantsDefinitons(redShroomDefinitions));
+            constantsAssignments.Add(typeof(Star), new PhysicsConstantsDefinitons(zeroDefinitions));
+
+            constantsAssignments.Add(typeof(NullGameObject), new PhysicsConstantsDefinitons(zeroDefinitions));
         }
 
         internal static PhysicsConstants Instance { get; } = new PhysicsConstants();
@@ -45,6 +49,12 @@ namespace Gamespace
             }
             List<float> nullDefinitions = new List<float> { 0, 0, 0, 0, 0,};
             return new PhysicsConstantsDefinitons(nullDefinitions);
+        }
+
+        internal IPhysics GetNullPhysics()
+        {
+            IGameObject nullGameObject = new NullGameObject();
+            return new Physics(nullGameObject, new Vector2(0, 0), PhysicsConstants.Instance.GetConstants(nullGameObject.GetType()));
         }
 
         internal class PhysicsConstantsDefinitons : IPhysicsConstants

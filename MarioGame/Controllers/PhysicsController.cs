@@ -34,9 +34,9 @@ namespace Gamespace.Controllers
             return (obj.GameObjectPhysics.ObjectPhysicalState.Item1 == PhysicalStatus.Fall && !c);
         }
 
-        public void SwitchMapping()
+        public void SwitchMapping(string bindings)
         {
-            //nothing
+            // Nothing
         }
 
         public void Update()

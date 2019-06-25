@@ -122,10 +122,10 @@ namespace Gamespace
             base.Draw(gameTime);
         }
 
-        public void SwitchMapping()
+        public void SwitchMapping(string bindings)
         {
             foreach (IController controller in controllers)
-                controller.SwitchMapping();
+                controller.SwitchMapping(bindings);
         }
 
         public void Reset()

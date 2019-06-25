@@ -9,12 +9,12 @@ using Gamespace.Controllers;
 
 namespace Gamespace
 {
-    internal interface IPhysics
+    public interface IPhysics
     {
         Vector2 Position { get; }
         Vector2 Velocity { get; }
         (PhysicalStatus, Side) ObjectPhysicalState { get; }
-     Vector2 GetPosition();
+        Vector2 GetPosition();
         Vector2 GetVelocity();
         void LeftStop(Rectangle collisionArea);
         void RightStop(Rectangle collisionArea);

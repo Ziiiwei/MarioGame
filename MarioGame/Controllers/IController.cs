@@ -13,7 +13,7 @@ namespace Gamespace.Controllers
     {
         void Update();
 
-        void SwitchMapping();
+        void SwitchMapping(string bindings);
 
         bool CommandOverRide(string comand);
     }
