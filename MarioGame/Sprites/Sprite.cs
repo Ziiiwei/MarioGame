@@ -18,7 +18,7 @@ namespace Gamespace
 
         private readonly int delayBound;
 
-        private int delayCounter = 0;
+        private int delayCounter;
         public int Width { get; }
         public int Height { get; }
 

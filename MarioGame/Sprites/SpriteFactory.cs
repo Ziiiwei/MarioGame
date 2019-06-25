@@ -42,13 +42,7 @@ namespace Gamespace
 
         }
 
-        internal static SpriteFactory Instance
-        {
-            get
-            {
-                return instance;
-            }
-        }
+        internal static SpriteFactory Instance { get; } = new SpriteFactory();
 
         protected class SpriteData
         {

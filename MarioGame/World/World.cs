@@ -70,7 +70,7 @@ namespace Gamespace
         }
         public void AddGameObject(IGameObject gameObject)
         {
-            if (gameObject.GetType() == typeof(Mario))
+            if (gameObject is Mario)
             {
                 Mario = (Mario)gameObject;
             }

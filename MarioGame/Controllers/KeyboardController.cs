@@ -95,10 +95,10 @@ namespace Gamespace.Controllers
             {
                 if (previouslyPressed.Contains(key))
                 {
-                    commandToExcute.Add(key.ToString() + "_Hold");
+                    commandToExcute.Add(key + "_Hold");
                 } else
                 {
-                    commandToExcute.Add(key.ToString() + "_Click");
+                    commandToExcute.Add(key + "_Click");
                 }
 
             }
@@ -108,23 +108,23 @@ namespace Gamespace.Controllers
             {
                 if (!pressed.Contains(key))
                 {
-                    commandToExcute.Add(key.ToString() + "_Release");
+                    commandToExcute.Add(key + "_Release");
                 }
             }
             
 
-            foreach(String s in commandToExcute)
+            foreach(String str in commandToExcute)
             {
 
-                if (currentBindings.ContainsKey(s))
+                if (currentBindings.ContainsKey(str))
                 {
-                    if (physicsOverride.CommandOverRide(s))
+                    if (physicsOverride.CommandOverRide(str))
                     {
                         physicsOverride.Update();
                     }
                     else
                     {
-                        currentBindings[s].Execute();
+                        currentBindings[str].Execute();
                     }
                 }
             }

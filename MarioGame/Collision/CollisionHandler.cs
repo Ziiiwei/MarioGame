@@ -26,9 +26,6 @@ namespace Gamespace
         private Dictionary<Tuple<Type, Type, Side>, (Type, Type)> statefulCollisionActions;
         private List<Type> collisionMasks;
         public enum Side  { None, Up, Down, Left, Right };
-        static CollisionHandler()
-        {
-        }
 
         public CollisionHandler()
         {
