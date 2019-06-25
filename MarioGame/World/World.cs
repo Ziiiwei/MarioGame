@@ -20,7 +20,7 @@ namespace Gamespace
     public class World
     {
         private static readonly World instance = new World();
-        public Dictionary<int, IGameObject> objectsInWorld;
+        private Dictionary<int, IGameObject> objectsInWorld;
         private readonly List<IGameObject> objectsToAdd;
         private readonly List<int> objectsToRemove;
         private readonly List<IGameObject> collisionMovers;
