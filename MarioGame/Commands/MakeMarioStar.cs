@@ -9,14 +9,14 @@ namespace Gamespace.Commands
 {
     class MakeMarioStar : ICommand
     {
-        Mario mario;
+        IMario mario;
         public MakeMarioStar(IMario mario, CollisionData collisionData)
         {
             this.mario = (Mario) mario;
         }
         public void Execute()
         {
-            mario.GoStar();
+            this.mario = new StarMario(this.mario,this.mario.PositionOnScreen);
         }
     }
 }

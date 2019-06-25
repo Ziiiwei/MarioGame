@@ -17,8 +17,6 @@ namespace Gamespace
         ISprite IMario.Sprite { get; set; }
         private IPhysics physicsSnapshot;
 
-        int timer = 1000;
-
         public Mario(Vector2 positionOnScreen) : base(positionOnScreen)
         {
             State = new RightStandingMarioState(this);
@@ -35,15 +33,6 @@ namespace Gamespace
                 CollideLeft(new Rectangle(-(int)GameObjectPhysics.Position.X, 1, 1, 1));
             }
             positionOnScreen = GameObjectPhysics.GetPosition();
-            if (PowerUpState.GetType() == typeof(StarMarioState) || PowerUpState.GetType() == typeof(SmallStarMarioState))
-            {
-                timer--;
-                if(timer == 0)
-                {
-                    PowerUpState = PreviousState;
-                    timer = 1000;
-                }
-            }
             if (positionOnScreen.Y >= 1000)
                 World.Instance.end = 1;
             base.Update();

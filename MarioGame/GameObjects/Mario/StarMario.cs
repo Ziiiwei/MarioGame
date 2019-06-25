@@ -29,10 +29,6 @@ namespace Gamespace
         public StarMario(IMario mario, Vector2 positionOnScreen) : base(positionOnScreen)
         {
             this.mario = mario;
-            this.mario.PowerUpState = new StarMarioState();
-            if (this.mario.PowerUpState.GetType() == typeof(MarioSmallState))
-                this.mario.PowerUpState = new SmallStarMarioState();
-            this.mario.UpdateArt();
         }
         
         public new void Draw(SpriteBatch spriteBatch)
