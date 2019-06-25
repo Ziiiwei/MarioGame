@@ -15,9 +15,6 @@ namespace Gamespace
         public IMarioPowerUpState PowerUpState { get; set; }
         public IMarioPowerUpState PreviousState { get; set; }
         ISprite IMario.Sprite { get; set; }
-        private IPhysics physicsSnapshot;
-
-        int timer = 1000;
 
         public Mario(Vector2 positionOnScreen) : base(positionOnScreen)
         {
@@ -28,25 +25,12 @@ namespace Gamespace
 
         public override void Update()
         {
+            base.Update();
+
             GameObjectPhysics.Update();
             GameObjectPhysics.FrictionStop(Side.Right);
-            if (GameObjectPhysics.Position.X<0)
-            {
-                CollideLeft(new Rectangle(-(int)GameObjectPhysics.Position.X, 1, 1, 1));
-            }
-            positionOnScreen = GameObjectPhysics.GetPosition();
-            if (PowerUpState.GetType() == typeof(StarMarioState) || PowerUpState.GetType() == typeof(SmallStarMarioState))
-            {
-                timer--;
-                if(timer == 0)
-                {
-                    PowerUpState = PreviousState;
-                    timer = 1000;
-                }
-            }
-            if (positionOnScreen.Y >= 1000)
-                World.Instance.end = 1;
-            base.Update();
+
+            positionOnScreen = GameObjectPhysics.GetPosition();  
         }
         public void Crouch()
         {
@@ -79,22 +63,6 @@ namespace Gamespace
 
         public void PowerUp()
         {
-            PreviousState = PowerUpState;
-
-            System.Timers.Timer timer = new System.Timers.Timer(1000);
-            Action<object, ElapsedEventArgs> onTimerElapsed = (o, e) =>
-            {
-                GameObjectPhysics = physicsSnapshot;
-                MarioGame.Instance.SwitchMapping("alive");
-            };
-            timer.Elapsed += new ElapsedEventHandler(onTimerElapsed);
-            timer.AutoReset = false;
-
-            physicsSnapshot = GameObjectPhysics;
-            MarioGame.Instance.SwitchMapping("dead");
-            GameObjectPhysics = PhysicsFactory.Instance.GetNullPhysics(positionOnScreen);
-            timer.Start();
-
             PowerUpState.PowerUp(this);
         }
 
@@ -111,15 +79,6 @@ namespace Gamespace
         public void Bounce()
         {
             GameObjectPhysics.JumpMaxSpeed(Side.Up);
-        }
-
-        public void GoStar()
-        {
-            PreviousState = PowerUpState;
-            PowerUpState = new StarMarioState();
-            if (PreviousState.GetType() == typeof(MarioSmallState))
-                PowerUpState = new SmallStarMarioState();
-            UpdateArt();
         }
 
         public void Die()

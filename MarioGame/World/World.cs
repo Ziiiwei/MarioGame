@@ -28,7 +28,6 @@ namespace Gamespace
         private readonly List<Type> collisionMoverClassifier;
         private readonly Dictionary<Type, int> collisionPriorities;
         public IMario Mario { get; set; }
-        public int end = 0;
         private readonly CollisionHandler collisionHandler;
 
         private World()
@@ -111,10 +110,15 @@ namespace Gamespace
 
             var pendingCollisions = new Dictionary<IGameObject, List<(IGameObject, int)>>();
 
-            foreach (IGameObject mover in collisionMovers)
+            //foreach (IGameObject mover in collisionMovers)
+            for (int i = 0; i < collisionMovers.Count; i++)
             {
-                foreach (IGameObject otherMover in collisionMovers)
+                IGameObject mover = collisionMovers[i];
+                //foreach (IGameObject otherMover in collisionMovers)
+                for (int j = i+1; j < collisionMovers.Count; j++)
                 {
+                    IGameObject otherMover = collisionMovers[j];
+
                     if (mover != otherMover)
                     {
                         (CollisionHandler.Side, Rectangle) collisionData = collisionHandler.DetectCollision(mover, otherMover);
@@ -155,11 +159,6 @@ namespace Gamespace
                 {
                     collisionHandler.HandleCollision(pendingCollisionsObjectsList[i], pendingTargets[j].Item1);
                 }
-            }
-            if(end != 0)
-            {
-                end = 0;
-                MarioGame.Instance.Reset();
             }
         }
 
