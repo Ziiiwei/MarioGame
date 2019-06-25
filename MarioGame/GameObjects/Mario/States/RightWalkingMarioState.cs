@@ -10,8 +10,6 @@ namespace Gamespace.States
 {
     class RightWalkingMarioState : MovingMarioState
     {
-        private IMario mario;
-
         public RightWalkingMarioState(IMario mario) : base(mario)
         {
             this.mario = mario;

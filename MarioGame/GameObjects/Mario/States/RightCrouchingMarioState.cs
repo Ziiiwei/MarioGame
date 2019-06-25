@@ -9,7 +9,7 @@ namespace Gamespace.States
 {
     class RightCrouchingMarioState : MovingMarioState
     {
-        private IMario mario;
+
 
         public RightCrouchingMarioState(IMario mario) : base(mario)
         {
