@@ -10,8 +10,8 @@ namespace Gamespace.Commands
 {
     class HitShroom : ICommand
     {
-        IMario mario;
-        CollisionData collisionData;
+        private IMario mario;
+        private CollisionData collisionData;
 
         public HitShroom(IMario mario, CollisionData collisionData)
         {

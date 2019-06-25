@@ -9,7 +9,7 @@ namespace Gamespace.Commands
 {
     class SlideEnemyLeft : ICommand
     {
-        IEnemy enemy;
+        private IEnemy enemy;
         public SlideEnemyLeft(IEnemy enemy, CollisionData collisionData)
         {
             this.enemy = enemy;

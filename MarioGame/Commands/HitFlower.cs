@@ -13,8 +13,8 @@ namespace Gamespace.Commands
     class HitFlower : ICommand
     {
 
-        IMario mario;
-        CollisionData collisionData;
+        private IMario mario;
+        private CollisionData collisionData;
 
         public HitFlower(IMario mario, CollisionData collisionData)
         {

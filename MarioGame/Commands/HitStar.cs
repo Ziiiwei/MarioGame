@@ -10,8 +10,8 @@ namespace Gamespace.Commands
 {
     class HitStar : ICommand
     {
-        IMario mario;
-        CollisionData collisionData;
+        private IMario mario;
+        private CollisionData collisionData;
 
         public HitStar(IMario mario, CollisionData collisionData)
         {

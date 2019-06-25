@@ -12,8 +12,8 @@ namespace Gamespace.Commands
 {
     class CollideRight : ICommand
     {
-        ICollidable collidable;
-        CollisionData collisionData;
+        private ICollidable collidable;
+        private CollisionData collisionData;
 
         public CollideRight(ICollidable collidable, CollisionData collisionData)
         {

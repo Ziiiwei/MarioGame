@@ -54,7 +54,6 @@
     <Compile Include="MarioGame\Collision\TypeTranslator.cs" />
     <Compile Include="MarioGame\Commands\BumpBlock.cs" />
     <Compile Include="MarioGame\Commands\DestroyBlock.cs" />
-    <Compile Include="MarioGame\Commands\EnemyHitHorizontally.cs" />
     <Compile Include="MarioGame\Commands\MarioPowerUp.cs" />
     <Compile Include="MarioGame\Commands\SlideEnemyLeft.cs" />
     <Compile Include="MarioGame\Commands\SlideEnemyRight.cs" />

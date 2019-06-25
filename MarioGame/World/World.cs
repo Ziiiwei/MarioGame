@@ -181,11 +181,11 @@ namespace Gamespace
         // Thanks Kirby!
         public void ClearWorld()
         {
-            this.objectsInWorld.Clear();
-            this.objectsToAdd.Clear();
-            this.objectsToRemove.Clear();
-            this.collisionMovers.Clear();
-            this.collisionReceivers.Clear();
+            objectsInWorld.Clear();
+            objectsToAdd.Clear();
+            objectsToRemove.Clear();
+            collisionMovers.Clear();
+            collisionReceivers.Clear();
         }
 
         private void ClassifyNewObject(IGameObject gameObject)
