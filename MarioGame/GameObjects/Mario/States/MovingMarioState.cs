@@ -8,7 +8,7 @@ namespace Gamespace.States
 {
     internal abstract class MovingMarioState : IMarioState
     {
-        private IMario mario;
+        protected IMario mario;
 
         protected MovingMarioState(IMario mario)
         {

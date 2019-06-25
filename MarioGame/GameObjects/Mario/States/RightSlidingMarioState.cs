@@ -11,7 +11,7 @@ namespace Gamespace.States
 {
     class RightSlidingMarioState : MovingMarioState
     {
-        private IMario mario;
+
 
         public RightSlidingMarioState(IMario mario) : base(mario)
         {

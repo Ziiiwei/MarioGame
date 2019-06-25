@@ -10,7 +10,7 @@ namespace Gamespace.States
 {
     class LeftStandingMarioState : MovingMarioState
     {
-        private IMario mario;
+
 
         public LeftStandingMarioState(IMario mario) : base(mario)
         {
