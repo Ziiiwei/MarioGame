@@ -241,5 +241,16 @@ namespace Gamespace
         {
             AddGameObject(gameObject);
         }
+
+        public void Replace(IGameObject oldObject, IGameObject newObject)
+        {
+            /*This assertion helps with debugging the replace*/
+            System.Diagnostics.Debug.Assert(objectsInWorld.ContainsKey(oldObject.Uid));
+            /*This is mainly to manage decorators*/
+            if(objectsInWorld.ContainsKey(newObject.Uid))
+                RemoveFromWorld(newObject.Uid); /*They were In to begin with?*/
+            RemoveFromWorld(oldObject.Uid);
+            AddGameObject(newObject);
+        }
     }
 }
