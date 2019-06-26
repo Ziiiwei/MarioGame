@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Gamespace
 {
-    interface IPhysicsConstants
+    public interface IPhysicsConstants
     {
         float G { get; }
         float A { get; }

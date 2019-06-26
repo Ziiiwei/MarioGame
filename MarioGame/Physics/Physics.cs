@@ -11,10 +11,10 @@ namespace Gamespace
     public class Physics : IPhysics
     {
 
-        private Vector2 position;
-        private Vector2 velocity;
-        private Vector2 acceleration;
-        private (PhysicalStatus, Side) objectPhysicalState;
+        protected Vector2 position;
+        protected Vector2 velocity;
+        protected Vector2 acceleration;
+        protected (PhysicalStatus, Side) objectPhysicalState;
         public Vector2 Position { get => position; }
         public Vector2 Velocity { get => velocity; }
         public (PhysicalStatus, Side) ObjectPhysicalState { get => objectPhysicalState; }
@@ -23,15 +23,15 @@ namespace Gamespace
         protected Dictionary<Side, Action> moveMaxSpeedActions;
         protected Dictionary<Side, Action> jumpMaxSpeedActions;
 
-        private readonly float G;
-        private readonly float A;
+        protected readonly float G;
+        protected readonly float A;
 
-        private readonly float MAX_X_V;
-        private readonly float MAX_Y_V;
+        protected readonly float MAX_X_V;
+        protected readonly float MAX_Y_V;
 
         private readonly float FRICTION;
 
-        internal Physics(IGameObject gameObject, Vector2 position, IPhysicsConstants constants)
+        public Physics(IGameObject gameObject, Vector2 position, IPhysicsConstants constants)
         {
             G = constants.G;
             A = constants.A;  
@@ -124,7 +124,6 @@ namespace Gamespace
             position.Y += velocity.Y;
 
             DeterminePhysicalState();
-            //Loop();
         }
 
         public virtual Vector2 GetPosition()

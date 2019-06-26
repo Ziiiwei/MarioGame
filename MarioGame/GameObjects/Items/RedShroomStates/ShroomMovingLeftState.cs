@@ -12,6 +12,8 @@ namespace Gamespace.Items
         public ShroomMovingLeftState(RedShroom shroom)
         {
             this.shroom = shroom;
+            //shroom.GameObjectPhysics.Stop(Side.Left);
+            shroom.GameObjectPhysics.JumpMaxSpeed(Side.Left);
         }
         public void ChangeDirection()
         {
