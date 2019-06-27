@@ -11,7 +11,7 @@ namespace Gamespace.Blocks
     {
         public MetalBlock(Vector2 positionOnScreen) : base(positionOnScreen)
         {
-
+            
         }
 
     }
