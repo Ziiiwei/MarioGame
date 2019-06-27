@@ -9,20 +9,24 @@ namespace Gamespace.States
 {
     class LeftJumpingMarioState : MovingMarioState
     {
-        private IMario mario;
-
         public LeftJumpingMarioState(IMario mario) : base(mario)
         {
-            this.mario = mario;
         }
-        public override void Crouch()
+
+        public override void MoveLeft()
         {
-            mario.State = new LeftStandingMarioState(mario);
-            mario.UpdateArt();
+            mario.GameObjectPhysics.Move(Side.Left);
         }
         public override void MoveRight()
         {
             mario.State = new RightJumpingMarioState(mario);
+            mario.GameObjectPhysics.Move(Side.Right);
+            mario.UpdateArt();
+        }
+
+        public override void Land()
+        {
+            mario.State = new LeftStandingMarioState(mario);
             mario.UpdateArt();
         }
     }

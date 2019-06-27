@@ -26,7 +26,7 @@ namespace Gamespace.Controllers
 
             keyCommands = new Dictionary<Keys, ICommand>();
             keyCommands.Add(Keys.Q, new QuitGame(game));
-            keyCommands.Add(Keys.W, new MarioCrouchCommand(World.Instance.Mario));
+            keyCommands.Add(Keys.W, new MarioJumpCommand(World.Instance.Mario));
             keyCommands.Add(Keys.S, new MarioCrouchCommand(World.Instance.Mario));
             keyCommands.Add(Keys.A, new MarioMoveLeftCommand(World.Instance.Mario));
             keyCommands.Add(Keys.D, new MarioMoveRightCommand(World.Instance.Mario));
@@ -62,7 +62,7 @@ namespace Gamespace.Controllers
 
                 if (currentBindings.ContainsKey(key))
                 {
-                    MarioMovementController.Instance.GetCommand(key).Execute();
+                    currentBindings[key].Execute();
                 }
             }
 

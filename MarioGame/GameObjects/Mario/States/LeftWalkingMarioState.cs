@@ -10,8 +10,6 @@ namespace Gamespace.States
 {
     class LeftWalkingMarioState : MovingMarioState
     {
-        private IMario mario;
-
         public LeftWalkingMarioState(IMario mario) : base(mario)
         {
             this.mario = mario;
@@ -20,6 +18,7 @@ namespace Gamespace.States
         public override void Jump()
         {
             mario.State = new LeftJumpingMarioState(mario);
+            mario.GameObjectPhysics.MoveMaxSpeed(Side.Up);
             mario.UpdateArt();
         }
 
@@ -27,6 +26,21 @@ namespace Gamespace.States
         {
             mario.State = new LeftStandingMarioState(mario);
             mario.UpdateArt();
+        }
+
+        public override void MoveLeft()
+        {
+            mario.GameObjectPhysics.Move(Side.Left);
+        }
+
+        public override void FrictionStop()
+        {
+            mario.GameObjectPhysics.FrictionStop(Side.Left);
+            if (mario.GameObjectPhysics.Velocity.X == 0)
+            {
+                mario.State = new LeftStandingMarioState(mario);
+                mario.UpdateArt();
+            }
         }
     }
 }
