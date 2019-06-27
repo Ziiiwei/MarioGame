@@ -18,8 +18,6 @@ namespace Gamespace.Controllers
 
         public KeyboardController(MarioGame game)
         {
-            MarioMovementController.Instance.SetMarioUnderControl(World.Instance.Mario);
-
             lockedKeyCommands = new Dictionary<Keys, ICommand>();
             lockedKeyCommands.Add(Keys.Q, new QuitGame(MarioGame.Instance));
             lockedKeyCommands.Add(Keys.R, new Reset(MarioGame.Instance));
