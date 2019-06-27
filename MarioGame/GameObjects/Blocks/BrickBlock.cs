@@ -13,8 +13,8 @@ namespace Gamespace.Blocks
 {
     internal class BrickBlock : AbstractGameStatefulObject<IBlockBumpState>, IBumpable, IDestroyable
     {
-        private static int[] bumpOffsets = { 0, 1, 2, 3, -1, -2, -3 };
-        private int bumpCounter = -1;
+        //private static int[] bumpOffsets = { 0, 1, 2, 3, -1, -2, -3 };
+        //private int bumpCounter = -1;
 
         private Type bumpReward;
 
@@ -37,11 +37,8 @@ namespace Gamespace.Blocks
                 World.Instance.AddGameObject((IGameObject)Activator.CreateInstance(bumpReward, positionOnScreen));
                 bumpReward = null;
             }
-            else if (State.GetType() == typeof(BlockIsNotBumpedState))
-            {
-                State = new BlockIsBumpedState(this);
-                bumpCounter = 0;
-            }
+            State.Bump();
+            
         }
 
         public void Destroy()
@@ -52,17 +49,8 @@ namespace Gamespace.Blocks
         public override void Update()
         {
             base.Update();
-            if (State.GetType() == typeof(BlockIsBumpedState))
-            {
-                positionOnScreen.Y -= bumpOffsets[bumpCounter];
-                bumpCounter = (bumpCounter + 1) % bumpOffsets.Length;
-            }
-            
-            if (bumpCounter == 0)
-            {
-                State = new BlockIsNotBumpedState(this);
-            }
-
+            GameObjectPhysics.Update();
+            positionOnScreen = GameObjectPhysics.GetPosition();
         }
 
         protected override void SetSprite()

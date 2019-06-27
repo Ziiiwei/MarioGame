@@ -10,6 +10,7 @@ namespace Gamespace
     internal interface IBumpable
     {
         IBlockBumpState State { get; set; }
+        IPhysics GameObjectPhysics { get; }
         void Bump();
     }
 }

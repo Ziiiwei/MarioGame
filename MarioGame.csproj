@@ -81,6 +81,7 @@
     <Compile Include="MarioGame\GameObjects\Mario\States\LeftSlidingMarioState.cs" />
     <Compile Include="MarioGame\GameObjects\Mario\States\SmallStarMarioState.cs" />
     <Compile Include="MarioGame\GameObjects\NullGameObject.cs" />
+    <Compile Include="MarioGame\Physics\BumpableBlockPhysics.cs" />
     <Compile Include="MarioGame\Physics\IPhysicsConstants.cs" />
     <Compile Include="MarioGame\Physics\PhysicsConstants.cs" />
     <Compile Include="MarioGame\Physics\PhysicsFactory.cs" />

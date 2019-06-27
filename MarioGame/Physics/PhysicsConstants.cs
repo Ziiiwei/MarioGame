@@ -1,4 +1,5 @@
-﻿using Gamespace.Goombas;
+﻿using Gamespace.Blocks;
+using Gamespace.Goombas;
 using Gamespace.Items;
 using Gamespace.Koopas;
 using Microsoft.Xna.Framework;
@@ -24,15 +25,18 @@ namespace Gamespace
 
             List<float> zeroDefinitions = new List<float> { 0.0f, 0.0f, 0.0f, 0.0f, 0.0f };
 
-            List<float> marioDefinitions = new List<float> { 1f, 2f, 4f, 10f, 1f };
+            List<float> marioDefinitions = new List<float> { 2.5f, 0.5f, 5f, 6f, 1f };
             constantsAssignments.Add(typeof(Mario), new PhysicsConstantsDefinitons(marioDefinitions));
 
             List<float> enemyDefinitions = new List<float> { 1f, 1f, 0.8f, 1f, 1f };
             constantsAssignments.Add(typeof(Goomba), new PhysicsConstantsDefinitons(enemyDefinitions));
             constantsAssignments.Add(typeof(Koopa), new PhysicsConstantsDefinitons(enemyDefinitions));
 
-            List<float> redShroomDefinitions = new List<float> { 1f, 1f, 0.8f, 1f, 1f };
+            List<float> redShroomDefinitions = new List<float> { 3f, 3f, 3f, 3f, 3f };
             constantsAssignments.Add(typeof(RedShroom), new PhysicsConstantsDefinitons(redShroomDefinitions));
+
+            List<float> brickBlockDefinitions = new List<float> { 5.2f, 1.2f, 7f, 7f, 3.0f };
+            constantsAssignments.Add(typeof(BrickBlock), new PhysicsConstantsDefinitons(brickBlockDefinitions));
 
             constantsAssignments.Add(typeof(Star), new PhysicsConstantsDefinitons(zeroDefinitions));
 

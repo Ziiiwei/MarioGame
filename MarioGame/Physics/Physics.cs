@@ -21,7 +21,7 @@ namespace Gamespace
         public IGameObject gameObject { get; set; }
 
         protected Dictionary<Side, Action> moveMaxSpeedActions;
-        protected Dictionary<Side, Action> jumpMaxSpeedActions;
+        protected Dictionary<Side, Action> moveActions;
 
         protected readonly float G;
         protected readonly float A;
@@ -45,7 +45,7 @@ namespace Gamespace
             acceleration = new Vector2(0, 0);
             velocity = new Vector2(0, 0);
 
-            moveMaxSpeedActions = new Dictionary<Side, Action>()
+            moveActions = new Dictionary<Side, Action>()
             {
                 {Side.Up, new Action(() => acceleration.Y = -A)},
                 {Side.Down, new Action(() => acceleration.Y = A)},
@@ -53,7 +53,7 @@ namespace Gamespace
                 {Side.Right, new Action(() => acceleration.X = A)}
             };
 
-            jumpMaxSpeedActions = new Dictionary<Side, Action>()
+            moveMaxSpeedActions = new Dictionary<Side, Action>()
             {
                 {Side.Up, new Action(() => velocity.Y = -MAX_Y_V)},
                 {Side.Down, new Action(() => velocity.Y = MAX_Y_V)},
@@ -68,14 +68,14 @@ namespace Gamespace
             acceleration.Y = G;
         }
 
+        public virtual void Move(Side side)
+        {
+            moveActions[side].Invoke();
+        }
+
         public virtual void MoveMaxSpeed(Side side)
         {
             moveMaxSpeedActions[side].Invoke();
-        }
-
-        public virtual void JumpMaxSpeed(Side side)
-        {
-            jumpMaxSpeedActions[side].Invoke();
         }
 
 

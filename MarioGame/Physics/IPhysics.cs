@@ -20,8 +20,8 @@ namespace Gamespace
         void RightStop(Rectangle collisionArea);
         void UpStop(Rectangle collisionArea);
         void DownStop(Rectangle collisionArea);
+        void Move(Side side);
         void MoveMaxSpeed(Side side);
-        void JumpMaxSpeed(Side side);
         void Update();
         void Stop(Side side);
         void FrictionStop(Side side);

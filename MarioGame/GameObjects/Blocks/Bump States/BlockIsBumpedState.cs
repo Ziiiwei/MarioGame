@@ -16,6 +16,8 @@ namespace Gamespace.Blocks
         }
         public void Bump()
         {
+            block.GameObjectPhysics.MoveMaxSpeed(Side.Up);
+
         }
     }
 }

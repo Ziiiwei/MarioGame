@@ -40,19 +40,19 @@ namespace Gamespace
         public void Jump()
         {
             State.Jump();
-            GameObjectPhysics.JumpMaxSpeed(Side.Up);
+            GameObjectPhysics.MoveMaxSpeed(Side.Up);
         }
 
         public void MoveLeft()
         {
             State.MoveLeft();
-            GameObjectPhysics.MoveMaxSpeed(Side.Left);
+            GameObjectPhysics.Move(Side.Left);
         }
 
         public void MoveRight()
         {
             State.MoveRight();
-            GameObjectPhysics.MoveMaxSpeed(Side.Right);
+            GameObjectPhysics.Move(Side.Right);
         }
 
         public void PowerDown()
@@ -78,12 +78,12 @@ namespace Gamespace
 
         public void Bounce()
         {
-            GameObjectPhysics.JumpMaxSpeed(Side.Up);
+            GameObjectPhysics.MoveMaxSpeed(Side.Up);
         }
 
         public void Die()
         {
-            GameObjectPhysics.JumpMaxSpeed(Side.Up);
+            GameObjectPhysics.MoveMaxSpeed(Side.Up);
             World.Instance.MaskCollision(this);
         }
     }

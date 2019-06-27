@@ -123,7 +123,7 @@ namespace Gamespace
 
         public void Bounce()
         {
-            Physics.JumpMaxSpeed(Side.Up);
+            Physics.MoveMaxSpeed(Side.Up);
         }
 
         public void Die()

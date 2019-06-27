@@ -13,7 +13,7 @@ namespace Gamespace.Items
         {
             this.shroom = shroom;
             //shroom.GameObjectPhysics.Stop(Side.Left);
-            shroom.GameObjectPhysics.JumpMaxSpeed(Side.Left);
+            shroom.GameObjectPhysics.MoveMaxSpeed(Side.Left);
         }
         public void ChangeDirection()
         {
