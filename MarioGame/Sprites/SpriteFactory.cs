@@ -26,7 +26,7 @@ namespace Gamespace
 
         private SpriteFactory()
         {
-            StreamReader reader = File.OpenText("MarioGame/Data/SpriteFactoryData.json");
+            StreamReader reader = File.OpenText("MarioGame/Data/DataFiles/SpriteFactoryData.json");
             JavaScriptSerializer javaScriptSerializer = new JavaScriptSerializer();
             var magicNumbers = javaScriptSerializer.Deserialize<SpriteDataRoot>(reader.ReadToEnd());
             reader.Close();
@@ -42,13 +42,7 @@ namespace Gamespace
 
         }
 
-        internal static SpriteFactory Instance
-        {
-            get
-            {
-                return instance;
-            }
-        }
+        internal static SpriteFactory Instance { get; } = new SpriteFactory();
 
         protected class SpriteData
         {

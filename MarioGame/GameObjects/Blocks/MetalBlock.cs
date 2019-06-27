@@ -11,8 +11,16 @@ namespace Gamespace.Blocks
     {
         public MetalBlock(Vector2 positionOnScreen) : base(positionOnScreen)
         {
-
+            
+        }
+        public void Bump()
+        {
+            throw new NotImplementedException();
         }
 
+        public void Destroy()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

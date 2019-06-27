@@ -82,7 +82,7 @@ namespace Gamespace
 
         public virtual void LeftStop(Rectangle collisionArea)
         {
-            position.X = position.X + collisionArea.Width;
+            position.X += collisionArea.Width;
             velocity.X = 0;
             acceleration.X = 0;
             DeterminePhysicalState();
@@ -91,7 +91,7 @@ namespace Gamespace
 
         public virtual void RightStop(Rectangle collisionArea)
         {
-            position.X = position.X - collisionArea.Width;
+            position.X -= collisionArea.Width;
             velocity.X = 0;
             acceleration.X = 0;
             DeterminePhysicalState();
@@ -100,7 +100,7 @@ namespace Gamespace
 
         public virtual void UpStop(Rectangle collisionArea)
         {
-            position.Y = position.Y + collisionArea.Height;
+            position.Y += collisionArea.Height;
             velocity.Y = 0;
             acceleration.Y = 0;
             DeterminePhysicalState();
@@ -108,7 +108,7 @@ namespace Gamespace
 
         public virtual void DownStop(Rectangle collisionArea)
         {
-            position.Y = position.Y - collisionArea.Height;
+            position.Y -= collisionArea.Height;
             velocity.Y = 0;
             acceleration.Y = 0;
             DeterminePhysicalState();

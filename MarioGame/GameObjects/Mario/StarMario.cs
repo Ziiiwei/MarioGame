@@ -28,14 +28,6 @@ namespace Gamespace
         public StarMario(IMario mario, Vector2 positionOnScreen) : base(positionOnScreen)
         {
             this.mario = mario;
-            this.Uid = mario.Uid;
-            this.State = mario.State;
-            this.PreviousState = this.mario.PowerUpState;
-            this.mario.PowerUpState = new StarMarioState();
-            /*
-            if (false)
-                this.mario.PowerUpState = new SmallStarMarioState();
-                */
         }
         
         public new void Draw(SpriteBatch spriteBatch)
@@ -51,7 +43,7 @@ namespace Gamespace
             {
                 this.mario.PowerUpState = this.PreviousState;
                 this.mario.UpdateArt();
-                World.Instance.Mario = this.mario;
+                World.Instance.Replace(this, this.mario);
             }
             this.mario.Update();
         }

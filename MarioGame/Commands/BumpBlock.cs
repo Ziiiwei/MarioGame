@@ -9,7 +9,7 @@ namespace Gamespace.Commands
 {
     internal class BumpBlock : ICommand
     {
-        IBumpable block;
+        private IBumpable block;
         public BumpBlock(IBumpable block, CollisionData collisionData)
         {
             this.block = block;

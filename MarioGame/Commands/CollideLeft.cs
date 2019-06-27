@@ -12,10 +12,10 @@ namespace Gamespace.Commands
 {
     class CollideLeft : ICommand
     {
-        ICollidable collidable;
-        CollisionData collisionData;
+        private ICollidable collidable;
+        private CollisionData collisionData;
 
-        public CollideLeft(ICollidable collidable, CollisionData collisionData)
+        public CollideLeft(ICollidable collidable, CollisionData collisionData) 
         {
             this.collidable = collidable;
             this.collisionData = collisionData;

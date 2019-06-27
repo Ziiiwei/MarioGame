@@ -53,7 +53,6 @@
     <Compile Include="MarioGame\Collision\TypeTranslator.cs" />
     <Compile Include="MarioGame\Commands\BumpBlock.cs" />
     <Compile Include="MarioGame\Commands\DestroyBlock.cs" />
-    <Compile Include="MarioGame\Commands\EnemyHitHorizontally.cs" />
     <Compile Include="MarioGame\Commands\MarioPowerUp.cs" />
     <Compile Include="MarioGame\Commands\SlideEnemyLeft.cs" />
     <Compile Include="MarioGame\Commands\SlideEnemyRight.cs" />
@@ -101,7 +100,6 @@
     <Compile Include="MarioGame\Commands\HitFlower.cs" />
     <Compile Include="MarioGame\Commands\HitShroom.cs" />
     <Compile Include="MarioGame\Commands\HitStar.cs" />
-    <Compile Include="MarioGame\Commands\MakeItemDisappear.cs" />
     <Compile Include="MarioGame\Commands\MakeMarioFire.cs" />
     <Compile Include="MarioGame\Commands\MakeMarioStar.cs" />
     <Compile Include="MarioGame\Commands\MarioCrouchCommand.cs" />
@@ -232,25 +230,16 @@
     <None Include="MarioGame\Code Reviews\MatthewHarrow.md" />
     <None Include="MarioGame\Code Reviews\ZiweiJin.md" />
     <None Include="MarioGame\Code Reviews\RayanHamza.md" />
-    <None Include="MarioGame\Data\level1.csv">
+    <None Include="MarioGame\Data\DataFiles\CollisionActions.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="MarioGame\Data\level1.csv">
+    <None Include="MarioGame\Data\DataFiles\level1.csv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="MarioGame\Data\CollisionActions.json">
+    <None Include="MarioGame\Data\DataFiles\SpriteFactoryData.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="MarioGame\Data\level1example.csv">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="MarioGame\Data\level1test.csv">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="MarioGame\Data\SpriteFactoryData.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="MarioGame\Data\StatefulCollisionActions.json">
+    <None Include="MarioGame\Data\DataFiles\StatefulCollisionActions.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="packages.config" />

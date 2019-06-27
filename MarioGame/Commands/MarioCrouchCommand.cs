@@ -8,7 +8,7 @@ namespace Gamespace.Commands
 {
     class MarioCrouchCommand : ICommand
     {
-        IMario mario;
+        private IMario mario;
         public MarioCrouchCommand(IMario mario)
         {
             this.mario = mario;

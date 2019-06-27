@@ -992,6 +992,12 @@
 /processorParam:TextureFormat=Color
 /build:StarMario/SMStandRight.png;SMStandRight.png
 
+#begin Super Mario Bros.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:Super Mario Bros.mp3
+
 #begin SuperMario/BigMarioSlidingFromLeft.png
 /importer:TextureImporter
 /processor:TextureProcessor

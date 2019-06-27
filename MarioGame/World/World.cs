@@ -20,7 +20,7 @@ namespace Gamespace
     public class World
     {
         private static readonly World instance = new World();
-        public Dictionary<int, IGameObject> objectsInWorld;
+        private Dictionary<int, IGameObject> objectsInWorld;
         private readonly List<IGameObject> objectsToAdd;
         private readonly List<int> objectsToRemove;
         private readonly List<IGameObject> collisionMovers;
@@ -69,7 +69,7 @@ namespace Gamespace
         }
         public void AddGameObject(IGameObject gameObject)
         {
-            if (gameObject.GetType() == typeof(Mario))
+            if (gameObject is Mario)
             {
                 Mario = (Mario)gameObject;
             }
@@ -180,11 +180,11 @@ namespace Gamespace
         // Thanks Kirby!
         public void ClearWorld()
         {
-            this.objectsInWorld.Clear();
-            this.objectsToAdd.Clear();
-            this.objectsToRemove.Clear();
-            this.collisionMovers.Clear();
-            this.collisionReceivers.Clear();
+            objectsInWorld.Clear();
+            objectsToAdd.Clear();
+            objectsToRemove.Clear();
+            collisionMovers.Clear();
+            collisionReceivers.Clear();
         }
 
         private void ClassifyNewObject(IGameObject gameObject)
@@ -239,6 +239,17 @@ namespace Gamespace
         public void UnmaskCollision(IGameObject gameObject)
         {
             AddGameObject(gameObject);
+        }
+
+        public void Replace(IGameObject oldObject, IGameObject newObject)
+        {
+            /*This assertion helps with debugging the replace*/
+            System.Diagnostics.Debug.Assert(objectsInWorld.ContainsKey(oldObject.Uid));
+            /*This is mainly to manage decorators*/
+            if(objectsInWorld.ContainsKey(newObject.Uid))
+                RemoveFromWorld(newObject.Uid); /*They were In to begin with?*/
+            RemoveFromWorld(oldObject.Uid);
+            AddGameObject(newObject);
         }
     }
 }

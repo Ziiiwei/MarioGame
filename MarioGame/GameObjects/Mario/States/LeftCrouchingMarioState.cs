@@ -9,8 +9,8 @@ namespace Gamespace.States
 {
     class LeftCrouchingMarioState : MovingMarioState
     {
-        private IMario mario;
 
+  
         public LeftCrouchingMarioState(IMario mario) : base(mario)
         {
             this.mario = mario;

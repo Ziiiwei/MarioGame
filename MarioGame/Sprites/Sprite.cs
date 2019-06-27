@@ -18,7 +18,7 @@ namespace Gamespace
 
         private readonly int delayBound;
 
-        private int delayCounter = 0;
+        private int delayCounter;
         public int Width { get; }
         public int Height { get; }
 
@@ -45,7 +45,7 @@ namespace Gamespace
 
         public void Draw(SpriteBatch spriteBatch, Vector2 positionOnScreen)
         {
-            spriteBatch.Draw(texture, positionOnScreen, rectangles[currentFrame], color: Color.White);
+            spriteBatch.Draw(texture, positionOnScreen, rectangles[currentFrame], Color.White);
         }
         public void Update()
         {
