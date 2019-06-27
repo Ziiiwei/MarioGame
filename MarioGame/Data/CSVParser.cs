@@ -52,14 +52,14 @@ namespace Gamespace
 
             };
 
-            String[][] data = File.ReadLines("MarioGame/Data/level1.csv").Select(x => x.Split(',')).ToArray();
+            String[][] data = File.ReadLines("MarioGame/Data/DataFiles/level1.csv").Select(x => x.Split(',')).ToArray();
             int _X = 0;
             int _Y = 0;
             var JsonList = new List<CSVObject>();
             string pattern = @"\+";
             string name;
             string state = "null";
-            string path = "MarioGame/Data/Level1.json";
+            string path = "MarioGame/Data/DataFiles/Level1.json";
             for (int i = 0; i < data.Length; i++)
             {
                 for (int j = 0; j < data[i].Length; j++)

@@ -13,6 +13,14 @@ namespace Gamespace.Blocks
         {
             
         }
+        public void Bump()
+        {
+            throw new NotImplementedException();
+        }
 
+        public void Destroy()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -17,9 +17,9 @@ namespace Gamespace
     public class JsonParser
     {
         private static readonly JsonParser instance = new JsonParser();
-        private readonly string collisionActionsPath = "MarioGame/Data/CollisionActions.json";
-        private readonly string statefulCollisionActionsPath = "MarioGame/Data/StatefulCollisionActions.json";
-        private readonly string levelObjectsPath = "MarioGame/Data/Level1.json";
+        private readonly string collisionActionsPath = "MarioGame/Data/DataFiles/CollisionActions.json";
+        private readonly string statefulCollisionActionsPath = "MarioGame/Data/DataFiles/StatefulCollisionActions.json";
+        private readonly string levelObjectsPath = "MarioGame/Data/DataFiles/Level1.json";
 
         static JsonParser()
         {

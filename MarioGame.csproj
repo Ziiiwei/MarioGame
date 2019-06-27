@@ -230,14 +230,14 @@
     <None Include="MarioGame\Code Reviews\MatthewHarrow.md" />
     <None Include="MarioGame\Code Reviews\ZiweiJin.md" />
     <None Include="MarioGame\Code Reviews\RayanHamza.md" />
-    <None Include="MarioGame\Data\Data Files\CollisionActions.json">
+    <None Include="MarioGame\Data\DataFiles\CollisionActions.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="MarioGame\Data\Data Files\level1.csv" />
-    <None Include="MarioGame\Data\Data Files\SpriteFactoryData.json">
+    <None Include="MarioGame\Data\DataFiles\level1.csv" />
+    <None Include="MarioGame\Data\DataFiles\SpriteFactoryData.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="MarioGame\Data\Data Files\StatefulCollisionActions.json">
+    <None Include="MarioGame\Data\DataFiles\StatefulCollisionActions.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="packages.config" />
