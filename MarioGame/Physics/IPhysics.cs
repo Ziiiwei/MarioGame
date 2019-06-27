@@ -14,7 +14,6 @@ namespace Gamespace
         Vector2 Position { get; }
         Vector2 Velocity { get; }
         Vector2 Acceleration { get; }
-        (PhysicalStatus, Side) ObjectPhysicalState { get; }
         Vector2 GetPosition();
         Vector2 GetVelocity();
         void LeftStop(Rectangle collisionArea);

@@ -14,11 +14,9 @@ namespace Gamespace
         protected Vector2 position;
         protected Vector2 velocity;
         protected Vector2 acceleration;
-        protected (PhysicalStatus, Side) objectPhysicalState;
         public Vector2 Position { get => position; }
         public Vector2 Velocity { get => velocity; }
         public Vector2 Acceleration { get => acceleration; }
-        public (PhysicalStatus, Side) ObjectPhysicalState { get => objectPhysicalState; }
         public IGameObject gameObject { get; set; }
 
         protected Dictionary<Side, Action> moveMaxSpeedActions;
@@ -62,7 +60,6 @@ namespace Gamespace
                 {Side.Right, new Action(() => velocity.X = MAX_X_V)}
             };
 
-            DeterminePhysicalState();
         }
         protected virtual void FreeFall()
         {
@@ -85,7 +82,6 @@ namespace Gamespace
             position.X += collisionArea.Width;
             velocity.X = 0;
             acceleration.X = 0;
-            DeterminePhysicalState();
 
         }
 
@@ -94,7 +90,6 @@ namespace Gamespace
             position.X -= collisionArea.Width;
             velocity.X = 0;
             acceleration.X = 0;
-            DeterminePhysicalState();
 
         }
 
@@ -103,7 +98,6 @@ namespace Gamespace
             position.Y += collisionArea.Height;
             velocity.Y = 0;
             acceleration.Y = 0;
-            DeterminePhysicalState();
         }
 
         public virtual void DownStop(Rectangle collisionArea)
@@ -111,7 +105,6 @@ namespace Gamespace
             position.Y -= collisionArea.Height;
             velocity.Y = 0;
             acceleration.Y = 0;
-            DeterminePhysicalState();
         }
 
         public virtual void Update()
@@ -124,7 +117,6 @@ namespace Gamespace
             position.X += velocity.X;
             position.Y += velocity.Y;
 
-            DeterminePhysicalState();
         }
 
         public virtual Vector2 GetPosition()
@@ -143,48 +135,6 @@ namespace Gamespace
             return Math.Abs(a) < Math.Abs(b) ? a : b;
         }
 
-        //to check if the obj is in free fall or not
-        //if is free fall, then dir can be any
-        //if not dir can only be left and right
-        protected void DeterminePhysicalState()
-        {
-            Side dir;
-            PhysicalStatus status;
-            if (acceleration.Y == G)
-            {
-                status = PhysicalStatus.Fall;
-                if (velocity.Y == 0)
-                {
-                    dir = Side.None;
-                }
-                else if (velocity.Y > 0)
-                {
-                    dir = Side.Up;
-                }
-                else
-                {
-                    dir = Side.Down;
-                }
-
-            } else
-            {
-                status = PhysicalStatus.Ground;
-                if (velocity.X == 0)
-                {
-                    dir = Side.None;
-                } else if(velocity.X>0)
-                {
-                    dir = Side.Right;
-                } else
-                {
-                    dir = Side.Left;
-                }
-
-                objectPhysicalState = (status, dir);
-            }
-
-            
-        }
         public virtual void FrictionStop(Side side)
         {
             if (side == Side.Right || side == Side.Left || side == Side.None)
