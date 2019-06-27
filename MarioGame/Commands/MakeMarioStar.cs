@@ -16,7 +16,7 @@ namespace Gamespace.Commands
         }
         public void Execute()
         {
-            mario.GoStar();
+            // Need to change this.
         }
     }
 }

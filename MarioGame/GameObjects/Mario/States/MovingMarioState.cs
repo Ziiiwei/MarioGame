@@ -8,7 +8,7 @@ namespace Gamespace.States
 {
     internal abstract class MovingMarioState : IMarioState
     {
-        private IMario mario;
+        protected IMario mario;
 
         protected MovingMarioState(IMario mario)
         {
@@ -18,5 +18,7 @@ namespace Gamespace.States
         public virtual void Jump() { }
         public virtual void MoveLeft() { }
         public virtual void MoveRight() { }
+        public virtual void Land() { }
+        public virtual void FrictionStop() { }
     }
 }

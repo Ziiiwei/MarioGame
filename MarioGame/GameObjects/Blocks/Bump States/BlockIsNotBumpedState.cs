@@ -17,6 +17,7 @@ namespace Gamespace.Blocks
         public void Bump()
         {
             block.State = new BlockIsBumpedState(block);
+
         }
     }
 }

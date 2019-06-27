@@ -6,11 +6,9 @@ using System.Threading.Tasks;
 
 namespace Gamespace.States
 {
-    class MarioDeadState :IMarioState
+    class MarioDeadState :MovingMarioState
     {
-        private IMario mario;
-
-        public MarioDeadState(IMario mario)
+        public MarioDeadState(IMario mario) : base(mario)
         {
             this.mario = mario;
             mario.UpdateArt();
@@ -18,25 +16,7 @@ namespace Gamespace.States
             mario.Die();
         }
 
-        public void Crouch()
-        {
-            
-        }
-
-        public void Jump()
-        {
-            
-        }
-
-        public void MoveLeft()
-        {
-            
-        }
-
-        public void MoveRight()
-        {
-            
-        }
+ 
     }
 }
 

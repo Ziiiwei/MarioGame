@@ -11,69 +11,35 @@ namespace Gamespace.Controllers
 {
     class KeyboardController : IController
     {
-        private Dictionary<string, ICommand> keyCommands;
-        private Dictionary<string, ICommand> lockedKeyCommands;
-        private Dictionary<string, ICommand> currentBindings;
-        private Dictionary<string, Dictionary<string, ICommand>> bindingsSelector;
-
-        private Keys[] previouslyPressed;
-        private List<string> commandToExcute;
-        private PhysicsController physicsOverride;
+        private Dictionary<Keys, ICommand> keyCommands;
+        private Dictionary<Keys, ICommand> lockedKeyCommands;
+        private Dictionary<Keys, ICommand> currentBindings;
+        private Dictionary<string, Dictionary<Keys, ICommand>> bindingsSelector;
 
         public KeyboardController(MarioGame game)
         {
-            lockedKeyCommands = new Dictionary<string, ICommand>();
-            lockedKeyCommands.Add("Q_Click", new QuitGame(MarioGame.Instance));
-            lockedKeyCommands.Add("R_Click", new Reset(MarioGame.Instance));
+            MarioMovementController.Instance.SetMarioUnderControl(World.Instance.Mario);
 
-            keyCommands = new Dictionary<string, ICommand>();
-            keyCommands.Add("Q_Click", new QuitGame(game));
+            lockedKeyCommands = new Dictionary<Keys, ICommand>();
+            lockedKeyCommands.Add(Keys.Q, new QuitGame(MarioGame.Instance));
+            lockedKeyCommands.Add(Keys.R, new Reset(MarioGame.Instance));
 
-            keyCommands.Add("W_Release", new MarioCrouchCommand(World.Instance.Mario));
-            keyCommands.Add("W_Click", new MarioJumpCommand(World.Instance.Mario));
-            keyCommands.Add("W_Hold", new MarioJumpCommand(World.Instance.Mario));
-
-            keyCommands.Add("S_Hold", new MarioCrouchCommand(World.Instance.Mario));
-            keyCommands.Add("S_Release", new MarioJumpCommand(World.Instance.Mario));
-            keyCommands.Add("S_Click", new MarioCrouchCommand(World.Instance.Mario));
-
-            keyCommands.Add("A_Click", new MarioMoveLeftCommand(World.Instance.Mario));
-            keyCommands.Add("A_Hold", new MarioMoveLeftCommand(World.Instance.Mario));
-            keyCommands.Add("A_Release", new MarioMoveRightCommand(World.Instance.Mario));
-
-            keyCommands.Add("D_Click", new MarioMoveRightCommand(World.Instance.Mario));
-            keyCommands.Add("D_Hold", new MarioMoveRightCommand(World.Instance.Mario));
-            keyCommands.Add("D_Release", new MarioMoveLeftCommand(World.Instance.Mario));
-
-            keyCommands.Add("Up_Release", new MarioCrouchCommand(World.Instance.Mario));
-            keyCommands.Add("Up_Click", new MarioJumpCommand(World.Instance.Mario));
-            keyCommands.Add("Up_Hold", new MarioJumpCommand(World.Instance.Mario));
-
-            keyCommands.Add("Down_Click", new MarioCrouchCommand(World.Instance.Mario));
-            keyCommands.Add("Down_Hold", new MarioCrouchCommand(World.Instance.Mario));
-            keyCommands.Add("Down_Release", new MarioJumpCommand(World.Instance.Mario));
-
-            keyCommands.Add("Left_Click", new MarioMoveLeftCommand(World.Instance.Mario));
-            keyCommands.Add("Left_Hold", new MarioMoveLeftCommand(World.Instance.Mario));
-            keyCommands.Add("Left_Release", new MarioMoveRightCommand(World.Instance.Mario));
-
-            keyCommands.Add("Right_Click", new MarioMoveRightCommand(World.Instance.Mario));
-            keyCommands.Add("Right_Hold", new MarioMoveRightCommand(World.Instance.Mario));
-            keyCommands.Add("Right_Release", new MarioMoveLeftCommand(World.Instance.Mario));
-
-            keyCommands.Add("R_Click", new Reset(game));
+            keyCommands = new Dictionary<Keys, ICommand>();
+            keyCommands.Add(Keys.Q, new QuitGame(game));
+            keyCommands.Add(Keys.W, new MarioJumpCommand(World.Instance.Mario));
+            keyCommands.Add(Keys.S, new MarioCrouchCommand(World.Instance.Mario));
+            keyCommands.Add(Keys.A, new MarioMoveLeftCommand(World.Instance.Mario));
+            keyCommands.Add(Keys.D, new MarioMoveRightCommand(World.Instance.Mario));
+            keyCommands.Add(Keys.R, new Reset(game));
 
             currentBindings = keyCommands;
 
-            bindingsSelector = new Dictionary<string, Dictionary<string, ICommand>>()
+            bindingsSelector = new Dictionary<string, Dictionary<Keys, ICommand>>()
             {
                 {"alive", keyCommands },
                 {"dead", lockedKeyCommands }
             };
 
-            commandToExcute = new List<string>();
-            previouslyPressed = new Keys[0];
-            physicsOverride = new PhysicsController(game);
         }
 
         public bool CommandOverRide(string comand)
@@ -91,51 +57,15 @@ namespace Gamespace.Controllers
         {
             Keys[] pressed = Keyboard.GetState().GetPressedKeys();
 
-            foreach (Keys key in pressed)
-            {
-                if (previouslyPressed.Contains(key))
-                {
-                    commandToExcute.Add(key.ToString() + "_Hold");
-                } else
-                {
-                    commandToExcute.Add(key.ToString() + "_Click");
-                }
-
-            }
-
-
-            foreach (Keys key in previouslyPressed)
-            {
-                if (!pressed.Contains(key))
-                {
-                    commandToExcute.Add(key.ToString() + "_Release");
-                }
-            }
-            
-
-            foreach(String s in commandToExcute)
+            foreach(Keys key in pressed)
             {
 
-                if (currentBindings.ContainsKey(s))
+                if (currentBindings.ContainsKey(key))
                 {
-                    if (physicsOverride.CommandOverRide(s))
-                    {
-                        physicsOverride.Update();
-                    }
-                    else
-                    {
-                        currentBindings[s].Execute();
-                    }
+                    currentBindings[key].Execute();
                 }
             }
 
-            commandToExcute.Clear();
-            previouslyPressed = pressed;
-
-            
         }
-
-       
-
     }
 }

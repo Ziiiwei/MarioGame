@@ -11,26 +11,28 @@ namespace Gamespace
     public class Physics : IPhysics
     {
 
-        private Vector2 position;
-        private Vector2 velocity;
-        private Vector2 acceleration;
-        private (PhysicalStatus, Side) objectPhysicalState;
+        protected Vector2 position;
+        protected Vector2 velocity;
+        protected Vector2 acceleration;
+        protected (PhysicalStatus, Side) objectPhysicalState;
         public Vector2 Position { get => position; }
         public Vector2 Velocity { get => velocity; }
+        public Vector2 Acceleration { get => acceleration; }
         public (PhysicalStatus, Side) ObjectPhysicalState { get => objectPhysicalState; }
         public IGameObject gameObject { get; set; }
 
-    
+        protected Dictionary<Side, Action> moveMaxSpeedActions;
+        protected Dictionary<Side, Action> moveActions;
 
-        private readonly float G;
-        private readonly float A;
+        protected readonly float G;
+        protected readonly float A;
 
-        private readonly float MAX_X_V;
-        private readonly float MAX_Y_V;
+        protected readonly float MAX_X_V;
+        protected readonly float MAX_Y_V;
 
         private readonly float FRICTION;
 
-        internal Physics(IGameObject gameObject, Vector2 position, IPhysicsConstants constants)
+        public Physics(IGameObject gameObject, Vector2 position, IPhysicsConstants constants)
         {
             G = constants.G;
             A = constants.A;  
@@ -43,61 +45,42 @@ namespace Gamespace
 
             acceleration = new Vector2(0, 0);
             velocity = new Vector2(0, 0);
+
+            moveActions = new Dictionary<Side, Action>()
+            {
+                {Side.Up, new Action(() => acceleration.Y = -A)},
+                {Side.Down, new Action(() => acceleration.Y = A)},
+                {Side.Left, new Action(() => acceleration.X = -A)},
+                {Side.Right, new Action(() => acceleration.X = A)}
+            };
+
+            moveMaxSpeedActions = new Dictionary<Side, Action>()
+            {
+                {Side.Up, new Action(() => velocity.Y = -MAX_Y_V)},
+                {Side.Down, new Action(() => velocity.Y = MAX_Y_V)},
+                {Side.Left, new Action(() => velocity.X = -MAX_X_V)},
+                {Side.Right, new Action(() => velocity.X = MAX_X_V)}
+            };
+
             DeterminePhysicalState();
         }
-        private void FreeFall()
+        protected virtual void FreeFall()
         {
             acceleration.Y = G;
         }
 
-        public void MoveMaxSpeed(Side side)
+        public virtual void Move(Side side)
         {
-            switch (side)
-            {
-                case Side.Up:
-                    acceleration.Y = -A;
-                    break;
-                case Side.Down:
-                    acceleration.Y = A;
-                    break;
-                case Side.Left:
-                    acceleration.X = -A;
-                    break;
-                case Side.Right:
-                    acceleration.X = A;
-                    break;
-                default:
-                    FrictionStop(Side.None);
-                    break;
-
-            }
+            moveActions[side].Invoke();
         }
 
-        public void JumpMaxSpeed(Side side)
+        public virtual void MoveMaxSpeed(Side side)
         {
-            switch (side)
-            {
-                case Side.Up:
-                    velocity.Y = -MAX_Y_V;
-                    break;
-                case Side.Down:
-                    velocity.Y = MAX_Y_V;
-                    break;
-                case Side.Left:
-                    velocity.X = -MAX_X_V;
-                    break;
-                case Side.Right:
-                    velocity.X = MAX_X_V;
-                    break;
-                default:
-                    Stop(Side.None);
-                    break;
-
-            }
+            moveMaxSpeedActions[side].Invoke();
         }
 
 
-        public void LeftStop(Rectangle collisionArea)
+        public virtual void LeftStop(Rectangle collisionArea)
         {
             position.X = position.X + collisionArea.Width;
             velocity.X = 0;
@@ -106,7 +89,7 @@ namespace Gamespace
 
         }
 
-        public void RightStop(Rectangle collisionArea)
+        public virtual void RightStop(Rectangle collisionArea)
         {
             position.X = position.X - collisionArea.Width;
             velocity.X = 0;
@@ -115,7 +98,7 @@ namespace Gamespace
 
         }
 
-        public void UpStop(Rectangle collisionArea)
+        public virtual void UpStop(Rectangle collisionArea)
         {
             position.Y = position.Y + collisionArea.Height;
             velocity.Y = 0;
@@ -123,7 +106,7 @@ namespace Gamespace
             DeterminePhysicalState();
         }
 
-        public void DownStop(Rectangle collisionArea)
+        public virtual void DownStop(Rectangle collisionArea)
         {
             position.Y = position.Y - collisionArea.Height;
             velocity.Y = 0;
@@ -131,7 +114,7 @@ namespace Gamespace
             DeterminePhysicalState();
         }
 
-        public void Update()
+        public virtual void Update()
         {
             FreeFall();
 
@@ -142,45 +125,28 @@ namespace Gamespace
             position.Y += velocity.Y;
 
             DeterminePhysicalState();
-            //Loop();
         }
 
-        public Vector2 GetPosition()
+        public virtual Vector2 GetPosition()
         {
             return position;
         }
 
-        public Vector2 GetVelocity()
+        public virtual Vector2 GetVelocity()
         {
             return velocity;
         }
 
         /* Will return the signed integer which has the least magnitude */
-        private float MinimumMagnitude(float a, float b)
+        protected float MinimumMagnitude(float a, float b)
         {
             return Math.Abs(a) < Math.Abs(b) ? a : b;
         }
 
-        private void Loop()
-        {
-            /*
-            if (position.X <= 0)
-                position.X = MarioGame.WINDOW_WIDTH/MarioGame.SCALE;
-            else if (position.X >= MarioGame.WINDOW_WIDTH / MarioGame.SCALE)
-                position.X = 0;
-                */
-
-            if (position.Y >= MarioGame.WINDOW_HEIGHT / MarioGame.SCALE)
-                position.Y = 0;
-            else if (position.Y <= 0)
-                position.Y = MarioGame.WINDOW_HEIGHT / MarioGame.SCALE;
-                
-        } 
-
         //to check if the obj is in free fall or not
         //if is free fall, then dir can be any
         //if not dir can only be left and right
-        private void DeterminePhysicalState()
+        protected void DeterminePhysicalState()
         {
             Side dir;
             PhysicalStatus status;
@@ -219,7 +185,7 @@ namespace Gamespace
 
             
         }
-        public void FrictionStop(Side side)
+        public virtual void FrictionStop(Side side)
         {
             if (side == Side.Right || side == Side.Left || side == Side.None)
             {
@@ -246,7 +212,7 @@ namespace Gamespace
             }
         }
 
-        public void Stop(Side side)
+        public virtual void Stop(Side side)
         {
             if (side == Side.Right || side == Side.Left || side == Side.None)
             {

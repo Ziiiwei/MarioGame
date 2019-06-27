@@ -16,26 +16,28 @@ namespace Gamespace.States
         public RightSlidingMarioState(IMario mario) : base(mario)
         {
             this.mario = mario;
+            mario.GameObjectPhysics.Move(Side.Right);
         }
 
         public override void Jump()
         {
             mario.State = new LeftJumpingMarioState(mario);
+            mario.GameObjectPhysics.Move(Side.Up);
             mario.UpdateArt();
         }
 
-        // this is what depends on Mario's velocity
         public override void MoveLeft()
         {
             mario.State = new RightWalkingMarioState(mario);
+            mario.GameObjectPhysics.Move(Side.Left);
             mario.UpdateArt();
         }
 
-        // mario should resume movement here
         public override void MoveRight()
         {
 
             mario.State = new LeftStandingMarioState(mario);
+            mario.GameObjectPhysics.Move(Side.Right);
             mario.UpdateArt();
 
         }

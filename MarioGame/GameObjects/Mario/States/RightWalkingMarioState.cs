@@ -19,12 +19,28 @@ namespace Gamespace.States
         public override void Jump()
         {
             mario.State = new RightJumpingMarioState(mario);
-            mario.UpdateArt();
+            mario.GameObjectPhysics.MoveMaxSpeed(Side.Up);
         }
         public override void MoveLeft()
         {
             mario.State = new RightStandingMarioState(mario);
+            mario.GameObjectPhysics.Stop(Side.Left);
             mario.UpdateArt();
+        }
+
+        public override void MoveRight()
+        {
+            mario.GameObjectPhysics.Move(Side.Right);
+        }
+
+        public override void FrictionStop()
+        {
+            mario.GameObjectPhysics.FrictionStop(Side.Right);
+            if (mario.GameObjectPhysics.Velocity.X == 0)
+            {
+                mario.State = new RightStandingMarioState(mario);
+                mario.UpdateArt();
+            }
         }
     }
 }

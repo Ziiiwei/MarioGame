@@ -26,12 +26,12 @@ namespace Gamespace.Koopas
 
         public void SlideLeft()
         {
-            GameObjectPhysics.JumpMaxSpeed(Side.Left);
+            GameObjectPhysics.MoveMaxSpeed(Side.Left);
         }
 
         public void SlideRight()
         {
-            GameObjectPhysics.JumpMaxSpeed(Side.Right);
+            GameObjectPhysics.MoveMaxSpeed(Side.Right);
         }
 
         public void TakeDamage()
@@ -46,11 +46,11 @@ namespace Gamespace.Koopas
             // This can be reworked by adding this CONSTANT ACCEL functionality into Physics.
             if (State.GetType() == typeof(KoopaMovingLeftState))
             {
-                GameObjectPhysics.MoveMaxSpeed(Side.Left);
+                GameObjectPhysics.Move(Side.Left);
             }
             else if (State.GetType() == typeof(KoopaMovingRightState))
             {
-                GameObjectPhysics.MoveMaxSpeed(Side.Right);
+                GameObjectPhysics.Move(Side.Right);
             }
             GameObjectPhysics.Update();
             positionOnScreen = GameObjectPhysics.GetPosition();

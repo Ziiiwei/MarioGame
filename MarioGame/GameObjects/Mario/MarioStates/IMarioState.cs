@@ -12,5 +12,7 @@ namespace Gamespace.States
         void Crouch();
         void MoveRight();
         void MoveLeft();
+        void Land();
+        void FrictionStop();
     }
 }

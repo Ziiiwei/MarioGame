@@ -46,14 +46,6 @@ namespace Gamespace.Items
             }
             else
             {
-                if (State.GetType() == typeof(ShroomMovingLeftState))
-                {
-                    GameObjectPhysics.MoveMaxSpeed(Side.Left);
-                }
-                else if (State.GetType() == typeof(ShroomMovingRightState))
-                {
-                    GameObjectPhysics.MoveMaxSpeed(Side.Right);
-                }
                 GameObjectPhysics.Update();
                 positionOnScreen = GameObjectPhysics.GetPosition();
             }
