@@ -17,6 +17,7 @@ namespace Gamespace
         protected (PhysicalStatus, Side) objectPhysicalState;
         public Vector2 Position { get => position; }
         public Vector2 Velocity { get => velocity; }
+        public Vector2 Acceleration { get => acceleration; }
         public (PhysicalStatus, Side) ObjectPhysicalState { get => objectPhysicalState; }
         public IGameObject gameObject { get; set; }
 
