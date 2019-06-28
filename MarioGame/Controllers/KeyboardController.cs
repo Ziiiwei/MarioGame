@@ -40,12 +40,6 @@ namespace Gamespace.Controllers
 
         }
 
-        public bool CommandOverRide(string comand)
-        {
-            return false;
-        }
-
-
         public void SwitchMapping(string bindings)
         {
             currentBindings = bindingsSelector[bindings];

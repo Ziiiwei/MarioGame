@@ -152,7 +152,6 @@
     <Compile Include="MarioGame\GameObjects\Enemies\Goomba\RightMovingGoombaState.cs" />
     <Compile Include="MarioGame\GameObjects\Enemies\Goomba\StompedGoombaState.cs" />
     <Compile Include="MarioGame\Sprites\SpriteFactory.cs" />
-    <Compile Include="MarioGame\GameObjects\Mario\MarioOLDReference.cs" />
     <Compile Include="MarioGame\Commands\QuitGame.cs" />
     <Compile Include="MarioGame\Commands\ICommand.cs" />
     <Compile Include="MarioGame\Controllers\IController.cs" />
