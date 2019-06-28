@@ -25,7 +25,6 @@ Complexity: High
 -Collision Ranking and Masking would be preffered to be seprated out somewhere 
 else
 
-
 Additional Notes:
 -potential waste of memory by keep the rank information in mutilple dictionary
 when it could be condenced in one.
