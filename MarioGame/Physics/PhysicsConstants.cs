@@ -64,19 +64,18 @@ namespace Gamespace
         internal class PhysicsConstantsDefinitons : IPhysicsConstants
         {
 
-            public float G { get; }
-            public float A { get; }
-            public float MAX_X_V { get; }
-            public float MAX_Y_V { get; }
-            public float FRICTION { get; }
+            public float gravityConstant { get; }
+            public float accelConstant { get; }
+            public float max_X_V { get; }
+            public float max_Y_V { get; }
+            public float frictionConstant { get; }
             public PhysicsConstantsDefinitons(List<float> definitions)
             {
-                /* This nastyness will not be permanent */
-                G = definitions[1];
-                A = definitions[0];
-                MAX_X_V = definitions[2];
-                MAX_Y_V = definitions[3];
-                FRICTION = definitions[4];
+                gravityConstant = definitions[1];
+                accelConstant = definitions[0];
+                max_X_V = definitions[2];
+                max_Y_V = definitions[3];
+                frictionConstant = definitions[4];
             }
         }
     }

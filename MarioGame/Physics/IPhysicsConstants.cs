@@ -8,10 +8,10 @@ namespace Gamespace
 {
     public interface IPhysicsConstants
     {
-        float G { get; }
-        float A { get; }
-        float MAX_X_V { get; }
-        float MAX_Y_V { get; }
-        float FRICTION { get; }
+        float gravityConstant { get; }
+        float accelConstant { get; }
+        float max_X_V { get; }
+        float max_Y_V { get; }
+        float frictionConstant{ get; }
     }
 }

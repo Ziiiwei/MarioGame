@@ -97,10 +97,7 @@
     <Compile Include="MarioGame\Commands\ConsumeItem.cs" />
     <Compile Include="MarioGame\Commands\EnemyHitsMario.cs" />
     <Compile Include="MarioGame\Commands\MarioHitsEnemy.cs" />
-    <Compile Include="MarioGame\Commands\HitFlower.cs" />
-    <Compile Include="MarioGame\Commands\HitShroom.cs" />
     <Compile Include="MarioGame\Commands\HitStar.cs" />
-    <Compile Include="MarioGame\Commands\MakeMarioFire.cs" />
     <Compile Include="MarioGame\Commands\MakeMarioStar.cs" />
     <Compile Include="MarioGame\Commands\MarioCrouchCommand.cs" />
     <Compile Include="MarioGame\Commands\MarioJumpCommand.cs" />

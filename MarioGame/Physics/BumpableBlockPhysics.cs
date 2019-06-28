@@ -20,7 +20,7 @@ namespace Gamespace
         {
             FreeFall();
 
-            velocity.Y = MinimumMagnitude(velocity.Y + acceleration.Y, Math.Sign(acceleration.Y) * MAX_Y_V);
+            velocity.Y = MinimumMagnitude(velocity.Y + acceleration.Y, Math.Sign(acceleration.Y) * max_Y_V);
 
             float possiblePosition = position.Y + Velocity.Y;
             if ((int)possiblePosition > highWaterMark)

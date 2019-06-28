@@ -17,7 +17,7 @@ namespace Gamespace
         {
             FreeFall();
 
-            velocity.Y = MinimumMagnitude(velocity.Y + acceleration.Y, Math.Sign(acceleration.Y) * MAX_Y_V);
+            velocity.Y = MinimumMagnitude(velocity.Y + acceleration.Y, Math.Sign(acceleration.Y) * max_Y_V);
 
             position.X += velocity.X;
             position.Y += velocity.Y;

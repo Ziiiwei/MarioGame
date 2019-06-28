@@ -22,21 +22,21 @@ namespace Gamespace
         protected Dictionary<Side, Action> moveMaxSpeedActions;
         protected Dictionary<Side, Action> moveActions;
 
-        protected readonly float G;
-        protected readonly float A;
+        protected readonly float gravityConstant;
+        protected readonly float accelConstant;
 
-        protected readonly float MAX_X_V;
-        protected readonly float MAX_Y_V;
+        protected readonly float max_X_V;
+        protected readonly float max_Y_V;
 
         private readonly float FRICTION;
 
         public Physics(IGameObject gameObject, Vector2 position, IPhysicsConstants constants)
         {
-            G = constants.G;
-            A = constants.A;  
-            MAX_X_V = constants.MAX_X_V;
-            MAX_Y_V = constants.MAX_Y_V;
-            FRICTION = constants.FRICTION;
+            gravityConstant = constants.gravityConstant;
+            accelConstant = constants.accelConstant;  
+            max_X_V = constants.max_X_V;
+            max_Y_V = constants.max_Y_V;
+            FRICTION = constants.frictionConstant;
 
             this.gameObject = gameObject;
             this.position = position;
@@ -46,24 +46,24 @@ namespace Gamespace
 
             moveActions = new Dictionary<Side, Action>()
             {
-                {Side.Up, new Action(() => acceleration.Y = -A)},
-                {Side.Down, new Action(() => acceleration.Y = A)},
-                {Side.Left, new Action(() => acceleration.X = -A)},
-                {Side.Right, new Action(() => acceleration.X = A)}
+                {Side.Up, new Action(() => acceleration.Y = -accelConstant)},
+                {Side.Down, new Action(() => acceleration.Y = accelConstant)},
+                {Side.Left, new Action(() => acceleration.X = -accelConstant)},
+                {Side.Right, new Action(() => acceleration.X = accelConstant)}
             };
 
             moveMaxSpeedActions = new Dictionary<Side, Action>()
             {
-                {Side.Up, new Action(() => velocity.Y = -MAX_Y_V)},
-                {Side.Down, new Action(() => velocity.Y = MAX_Y_V)},
-                {Side.Left, new Action(() => velocity.X = -MAX_X_V)},
-                {Side.Right, new Action(() => velocity.X = MAX_X_V)}
+                {Side.Up, new Action(() => velocity.Y = -max_Y_V)},
+                {Side.Down, new Action(() => velocity.Y = max_Y_V)},
+                {Side.Left, new Action(() => velocity.X = -max_X_V)},
+                {Side.Right, new Action(() => velocity.X = max_X_V)}
             };
 
         }
         protected virtual void FreeFall()
         {
-            acceleration.Y = G;
+            acceleration.Y = gravityConstant;
         }
 
         public virtual void Move(Side side)
@@ -111,8 +111,8 @@ namespace Gamespace
         {
             FreeFall();
 
-            velocity.X = MinimumMagnitude(velocity.X + acceleration.X, Math.Sign(acceleration.X) * MAX_X_V);
-            velocity.Y = MinimumMagnitude(velocity.Y + acceleration.Y, Math.Sign(acceleration.Y) * MAX_Y_V);
+            velocity.X = MinimumMagnitude(velocity.X + acceleration.X, Math.Sign(acceleration.X) * max_X_V);
+            velocity.Y = MinimumMagnitude(velocity.Y + acceleration.Y, Math.Sign(acceleration.Y) * max_Y_V);
 
             position.X += velocity.X;
             position.Y += velocity.Y;
@@ -177,6 +177,4 @@ namespace Gamespace
             }
         }
     }
-
-    
 }
