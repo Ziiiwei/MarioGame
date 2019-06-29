@@ -1,30 +1,29 @@
 ﻿### Code Readiblity Review
 Author: Ziwei Jin
-Date: 6/7/19
+Date: 6/28/19
 Sprint: 3
-Name: Matthew Harrow
-File: World.cs
+Name: Mutiple team member
+File: Phyasics
 Minutes: 10
 
-Coupling: Kinda High
--world now decide the sequence of colisison handling, this happens only 
-because handling outside world without knoklege of other pending conlision
-is potentially buggy
--But the solution is elegent by ranking out the priority of each collision
-case by its area and type, and only world is has approriate access to get these
-information.
--And in future We would change name of the class to GameobjectManager
+-Physics got major rework and i like it.
+-It use to be messy, depending on tediuous length swich case
+-But not with new action dictionary all method excute in a clean fasion
+-To simplify the game world physics, we neglect the time factor and simply use
+frame as our world time minimum unit
+-All the change happens with the each frame update and sence proan to be affected by 
+the game peeformence.
+-So far we still haven't notice any situation as frame rate keep on steady 60fps
 
-Cohesion: 
--Still tight
--Since the world is basically the gameobject manager, its natural for it 
-to do anything related to it
+-Another potential change could be down in the future is to simplify the colision
+supporting part in physics. This is where it has high coupling with the colision handler
+and need to either move to a new seprate class or make it more genralized as a physics API
 
+-Another major improvement in the future is to parameterize physic in runing time such 
+that game could have more exciting game play such like changing moving speed, flying, dashing
+parkour etc.
 
-Complexity: High
--Collision Ranking and Masking would be preffered to be seprated out somewhere 
-else
+-New improved physics also detached it's coupling from keyboard in the past.
 
-Additional Notes:
--potential waste of memory by keep the rank information in mutilple dictionary
-when it could be condenced in one.
+Overall, as it's function is approaching to the desired fasion, the future plan would be in
+how to make it more genralized for more game object to utilizing
