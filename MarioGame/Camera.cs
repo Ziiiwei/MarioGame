@@ -12,9 +12,7 @@ namespace Gamespace
     internal class Camera
     {
         public Matrix Transform { get; private set; }
-        // keeps track of camera's left spot
         private Vector2 CameraPosition;
-        //we are going to need a lock method when we reach the end probably
 
         public Camera(Point location)
         {
