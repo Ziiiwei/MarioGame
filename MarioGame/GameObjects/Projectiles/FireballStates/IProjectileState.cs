@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Gamespace
+namespace Gamespace.Projectiles
 {
-    class Fireball
+    interface IProjectileState
     {
-
+        void ChangeDirection();
     }
 }

@@ -38,6 +38,9 @@ namespace Gamespace
             List<float> brickBlockDefinitions = new List<float> { 5.2f, 1.2f, 7f, 7f, 3.0f };
             constantsAssignments.Add(typeof(BrickBlock), new PhysicsConstantsDefinitons(brickBlockDefinitions));
 
+            List<float> fireballDefinitions = new List<float> { 3f, 3f, 3f, 3f, 3f };
+            constantsAssignments.Add(typeof(Fireball), new PhysicsConstantsDefinitons(fireballDefinitions));
+
             constantsAssignments.Add(typeof(Star), new PhysicsConstantsDefinitons(zeroDefinitions));
 
             constantsAssignments.Add(typeof(NullGameObject), new PhysicsConstantsDefinitons(zeroDefinitions));

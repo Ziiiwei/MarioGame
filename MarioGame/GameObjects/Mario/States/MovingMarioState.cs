@@ -20,5 +20,7 @@ namespace Gamespace.States
         public virtual void MoveRight() { }
         public virtual void Land() { }
         public virtual void FrictionStop() { }
+        public virtual void Fire() { }
+        
     }
 }

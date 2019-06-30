@@ -42,6 +42,7 @@
     <ApplicationManifest>MarioGame\app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="MarioGame\Commands\MarioFireCommand.cs" />
     <Compile Include="MarioGame\Commands\MarioJumpAfterEnemyHit.cs" />
     <Compile Include="MarioGame\GameObjects\Blocks\Bump States\BlockIsBumpedState.cs" />
     <Compile Include="MarioGame\GameObjects\Blocks\Bump States\BlockIsNotBumpedState.cs" />
@@ -73,13 +74,18 @@
     <Compile Include="MarioGame\GameObjects\Items\RedShroomStates\ShroomMovingLeftState.cs" />
     <Compile Include="MarioGame\GameObjects\Items\RedShroomStates\ShroomMovingRightState.cs" />
     <Compile Include="MarioGame\GameObjects\Items\RedShroomStates\ShroomMovingUpState.cs" />
-    <Compile Include="MarioGame\GameObjects\Mario\Fireball.cs" />
+    <Compile Include="MarioGame\GameObjects\Projectiles\Fireball.cs" />
+    <Compile Include="MarioGame\GameObjects\Projectiles\FireballStates\IProjectileState.cs" />
+    <Compile Include="MarioGame\GameObjects\Projectiles\FireballStates\LeftMovingProjectile.cs" />
+    <Compile Include="MarioGame\GameObjects\Projectiles\FireballStates\RightMovingProjectile.cs" />
+    <Compile Include="MarioGame\GameObjects\Projectiles\IProjectile.cs" />
     <Compile Include="MarioGame\GameObjects\Mario\Mario.cs" />
     <Compile Include="MarioGame\GameObjects\Mario\States\RightSlidingMarioState.cs" />
     <Compile Include="MarioGame\GameObjects\Mario\States\LeftSlidingMarioState.cs" />
     <Compile Include="MarioGame\GameObjects\Mario\States\SmallStarMarioState.cs" />
     <Compile Include="MarioGame\GameObjects\NullGameObject.cs" />
     <Compile Include="MarioGame\Physics\BumpableBlockPhysics.cs" />
+    <Compile Include="MarioGame\Physics\FireballPhysics.cs" />
     <Compile Include="MarioGame\Physics\IPhysicsConstants.cs" />
     <Compile Include="MarioGame\Physics\PhysicsConstants.cs" />
     <Compile Include="MarioGame\Physics\PhysicsFactory.cs" />

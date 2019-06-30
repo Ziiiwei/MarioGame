@@ -28,6 +28,7 @@ namespace Gamespace.Controllers
             keyCommands.Add(Keys.S, new MarioCrouchCommand(World.Instance.Mario));
             keyCommands.Add(Keys.A, new MarioMoveLeftCommand(World.Instance.Mario));
             keyCommands.Add(Keys.D, new MarioMoveRightCommand(World.Instance.Mario));
+            keyCommands.Add(Keys.Space, new MarioFireCommand(World.Instance.Mario));
             keyCommands.Add(Keys.R, new Reset(game));
 
             currentBindings = keyCommands;

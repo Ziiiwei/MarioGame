@@ -14,7 +14,6 @@ namespace Gamespace
     {
         public IMarioPowerUpState PowerUpState { get; set; }
         public IMarioPowerUpState PreviousState { get; set; }
-        ISprite IMario.Sprite { get; set; }
 
         public Mario(Vector2 positionOnScreen) : base(positionOnScreen)
         {
@@ -89,6 +88,11 @@ namespace Gamespace
         {
             base.CollideDown(collisionArea);
             State.Land();
+        }
+
+        public void Fire()
+        {
+            State.Fire();
         }
     }
 }

@@ -12,7 +12,6 @@ namespace Gamespace.States
     {
         public LeftWalkingMarioState(IMario mario) : base(mario)
         {
-            this.mario = mario;
         }
 
         public override void Jump()
@@ -41,6 +40,15 @@ namespace Gamespace.States
                 mario.State = new LeftStandingMarioState(mario);
                 mario.UpdateArt();
             }
+        }
+
+        public override void Fire()
+        {
+            Vector2 fireballPosition = new Vector2(mario.PositionOnScreen.X + mario.Sprite.Width,
+                mario.PositionOnScreen.Y + mario.Sprite.Height / 2);
+            IProjectile fireball = new Fireball(fireballPosition, Side.Left);
+            World.Instance.AddGameObject(fireball);
+            fireball.MoveLeft();
         }
     }
 }

@@ -121,5 +121,10 @@ namespace Gamespace
         {
             // Star Mario cannot die.
         }
+
+        public void Fire()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

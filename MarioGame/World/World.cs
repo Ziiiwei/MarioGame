@@ -43,7 +43,8 @@ namespace Gamespace
                 typeof(Mario),
                 typeof(Goomba),
                 typeof(Koopa),
-                typeof(RedShroom)
+                typeof(RedShroom),
+                typeof(Fireball)
             };
 
             collisionPriorities = new Dictionary<Type, int>()

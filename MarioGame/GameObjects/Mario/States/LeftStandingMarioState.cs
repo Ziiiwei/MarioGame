@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Gamespace;
 using Gamespace.Interfaces;
+using Microsoft.Xna.Framework;
 
 namespace Gamespace.States
 {
@@ -38,6 +39,16 @@ namespace Gamespace.States
         {
             mario.State = new RightStandingMarioState(mario);
             mario.UpdateArt();
+        }
+
+        public override void Fire()
+        {
+            Vector2 fireballPosition = new Vector2(mario.PositionOnScreen.X + mario.Sprite.Width, 
+                mario.PositionOnScreen.Y + mario.Sprite.Height/2);
+            IProjectile fireball = new Fireball(fireballPosition, Side.Left);
+            World.Instance.AddGameObject(fireball);
+            fireball.MoveLeft();
+
         }
     }
 }

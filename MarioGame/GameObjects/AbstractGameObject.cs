@@ -17,7 +17,6 @@ namespace Gamespace
         public ISprite Sprite { get; protected set; }
         protected Vector2 positionOnScreen;
         public Vector2 PositionOnScreen  => positionOnScreen;
-
         public IPhysics GameObjectPhysics { get; set; }
         public AbstractGameObject()
         {

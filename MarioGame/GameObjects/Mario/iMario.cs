@@ -6,7 +6,7 @@ namespace Gamespace
 {
     public interface IMario : IGameObject
     {
-        ISprite Sprite { get; set; }
+        ISprite Sprite { get; }
         IMarioState State { get; set; }
         IMarioPowerUpState PowerUpState { get; set; }
         IMarioPowerUpState PreviousState { get; set; }
@@ -19,6 +19,7 @@ namespace Gamespace
         void Crouch();
         void PowerDown();
         void PowerUp();
+        void Fire();
         void UpdateArt();
         void Die();
         void CollideLeft(Rectangle collisionArea);

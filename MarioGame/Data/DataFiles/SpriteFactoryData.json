@@ -667,6 +667,14 @@
       "TexturePath": "Castle",
       "FrameCount": 1,
       "FrameDelay": 3
+    },
+	{
+      "Name": "Fireball",
+      "State": "",
+      "PowerUpState": "",
+      "TexturePath": "fireball",
+      "FrameCount": 4,
+      "FrameDelay": 3
     }
   ]
 }
