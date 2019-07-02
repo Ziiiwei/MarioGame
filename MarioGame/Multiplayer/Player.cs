@@ -11,7 +11,7 @@ namespace Gamespace.Multiplayer
 {
     internal class Player : IPlayer
     {
-        public IGameObject GameObject { get; }
+        public IMario GameObject { get; }
         public IController Controller { get; }
         /* Need to make an interface for camera */
         public Camera Cam { get; }
@@ -19,7 +19,7 @@ namespace Gamespace.Multiplayer
         private static int playerCounter = 1;
         private int playerID;
 
-        public Player(IGameObject gameObject, Camera cam, SpriteBatch screen)
+        public Player(IMario gameObject, Camera cam, SpriteBatch screen)
         {
             GameObject = gameObject;
             Controller = new KeyboardController(this);
@@ -33,7 +33,7 @@ namespace Gamespace.Multiplayer
         {
             Controller.Update();
             GameObject.Update();
-            Cam.Update(GameObject.PositionOnScreen);
+            Cam.Update(GameObject);
         }
 
         public void DrawPlayersScreen()
