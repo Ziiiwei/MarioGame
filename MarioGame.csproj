@@ -138,6 +138,7 @@
     <Compile Include="MarioGame\GameObjects\Background\Hills\BigHill.cs" />
     <Compile Include="MarioGame\GameObjects\Background\Hills\SmallHill.cs" />
     <Compile Include="MarioGame\Physics\ShroomPhysics.cs" />
+    <Compile Include="MarioGame\Sounds\SoundFactory.cs" />
     <Compile Include="MarioGame\World\LevelLoader.cs" />
     <Compile Include="MarioGame\GameObjects\Items\RedShroom.cs" />
     <Compile Include="MarioGame\GameObjects\Mario\States\RightCrouchingMarioState.cs" />
