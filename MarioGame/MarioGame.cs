@@ -18,7 +18,7 @@ namespace Gamespace
     {
         private static readonly MarioGame instance = new MarioGame();
         public const int WINDOW_WIDTH = 800;
-        public const int WINDOW_HEIGHT = 480;
+        public const int WINDOW_HEIGHT = 480 * 2;
         public const float SCALE = 1f;
         private GameTime time;
 
@@ -68,8 +68,13 @@ namespace Gamespace
         {
             base.Initialize();
             IPlayer player1 = new Player(new Mario(new Vector2(200, 200)),
-                new Camera(), new SpriteBatch(GraphicsDevice));
+                new MultiplayerCamera(0), new SpriteBatch(GraphicsDevice));
             World.Instance.AddPlayer(player1);
+
+            IPlayer player2 = new Player(new Mario(new Vector2(300, 200)),
+                new MultiplayerCamera(1), new SpriteBatch(GraphicsDevice));
+            World.Instance.AddPlayer(player2);
+
             levelLoader = new LevelLoader(World.Instance);
             
         }

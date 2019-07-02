@@ -35,7 +35,6 @@ namespace Gamespace
         }
         public virtual void Draw(SpriteBatch spriteBatch)
         {
-
             Sprite.Draw(spriteBatch, PositionOnScreen);
         }
 

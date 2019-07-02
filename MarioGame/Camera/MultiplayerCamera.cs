@@ -1,25 +1,28 @@
-﻿using System;
+﻿using Microsoft.Xna.Framework;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework;
-using Gamespace.Sprites;
 
 namespace Gamespace
 {
-    internal class Camera
+    internal class MultiplayerCamera : ICamera
     {
         public Matrix Transform { get; private set; }
         private Vector2 CameraPosition;
+        private readonly int playerID;
 
-        public Camera(Point location)
+        public MultiplayerCamera(Point location)
         {
-            Transform = Matrix.CreateTranslation(new Vector3(-location.X, -location.Y, 0));
+            Transform = Matrix.CreateTranslation(new Vector3(-location.X, (MarioGame.WINDOW_HEIGHT/2) * playerID, 0));
             CameraPosition = new Vector2();
         }
-        public Camera() : this(Point.Zero) { }
+        public MultiplayerCamera(int playerID) : this(new Point(0, (MarioGame.WINDOW_HEIGHT / 2) * playerID))
+        {
+            this.playerID = playerID;
+        }
+
         public void LookAt(Point location)
         {
             Transform = Matrix.CreateTranslation(new Vector3(-location.X, -location.Y, 0));
@@ -30,21 +33,18 @@ namespace Gamespace
         {
             // now we just compare Mario's position with the Camera's left side plus half the screen
             //then we move the camera right, we may lock it here soon
-            if(position.X >= CameraPosition.X + MarioGame.WINDOW_WIDTH /(2*MarioGame.SCALE))
+            if (position.X >= CameraPosition.X + MarioGame.WINDOW_WIDTH / (2 * MarioGame.SCALE))
                 MoveRight(position);
         }
-        
-   
+
+
 
         private void MoveRight(Vector2 position)
         {
-            Transform = Matrix.CreateTranslation(-position.X + MarioGame.WINDOW_WIDTH / (2 * MarioGame.SCALE), 0, 0);
+            int y = (MarioGame.WINDOW_HEIGHT / 2) * playerID;
+            Transform = Matrix.CreateTranslation(-position.X + MarioGame.WINDOW_WIDTH / (2 * MarioGame.SCALE), y, 0);
             //always set the position equal to Mario's position minus half the screen to keep him at half or below.
             CameraPosition.X = position.X - MarioGame.WINDOW_WIDTH / (2 * MarioGame.SCALE);
         }
-        
-
-
-
     }
 }
