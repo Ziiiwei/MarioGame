@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using Microsoft.Xna.Framework.Content;
 using Gamespace.Controllers;
 using Microsoft.Xna.Framework.Media;
+using Gamespace.Multiplayer;
 
 namespace Gamespace
 {
@@ -32,7 +33,7 @@ namespace Gamespace
         private LevelLoader levelLoader;
 
         private float frameRate = 0; //help the animation and detaction rate
-        private SpriteFont font; //used to pirnt the framerate
+        private SpriteFont font; //used to print the framerate
 
         static MarioGame()
         {
@@ -66,10 +67,10 @@ namespace Gamespace
         protected override void Initialize()
         {
             base.Initialize();
+            IPlayer player1 = new Player(new Mario(new Vector2(200, 200)),
+                new Camera(), new SpriteBatch(GraphicsDevice));
+            World.Instance.AddPlayer(player1);
             levelLoader = new LevelLoader(World.Instance);
-            camera = new Camera();
-            controllers.Add(new KeyboardController(this));
-            controllers.Add(new GamepadController(this));
             
         }
                 /// <summary>
@@ -78,9 +79,11 @@ namespace Gamespace
         /// all of your content.
         /// </summary>
         protected override void LoadContent()
-        {   
+        {
+            /*
             spriteBatch = new SpriteBatch(GraphicsDevice);
             font = Content.Load<SpriteFont>("Arial");
+            */
             song = Content.Load<Song>("Super Mario Bros");
             MediaPlayer.Play(song);
             MediaPlayer.Volume = 0.1f;
@@ -102,12 +105,13 @@ namespace Gamespace
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
-            foreach( IController controller in controllers)
+            /*
+            foreach ( IController controller in controllers)
             {
                 controller.Update();
             }
+            */
             World.Instance.UpdateWorld();
-            camera.Update(World.Instance.Mario.GetCenter());
             base.Update(gameTime);
             time = gameTime;
             
@@ -119,13 +123,17 @@ namespace Gamespace
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
+            
             GraphicsDevice.Clear(Color.CornflowerBlue);
+            /*
             frameRate = 1 / (float)gameTime.ElapsedGameTime.TotalSeconds;
             //camera.Follow(World.Instance.Mario.Sprite);
             spriteBatch.Begin(SpriteSortMode.BackToFront, transformMatrix: camera.Transform * Matrix.CreateScale(SCALE), samplerState: SamplerState.PointClamp);
             World.Instance.DrawWorld(spriteBatch);
             spriteBatch.DrawString(font, "FPS "+frameRate, new Vector2(0, 0), Color.Red);
             spriteBatch.End();
+            */
+            World.Instance.DrawPlayers();
             base.Draw(gameTime);
         }
 

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.Xna.Framework.Input;
 using Gamespace.Commands;
 using Gamespace.Blocks;
+using Gamespace.Multiplayer;
 
 namespace Gamespace.Controllers
 {
@@ -15,21 +16,24 @@ namespace Gamespace.Controllers
         private Dictionary<Keys, ICommand> lockedKeyCommands;
         private Dictionary<Keys, ICommand> currentBindings;
         private Dictionary<string, Dictionary<Keys, ICommand>> bindingsSelector;
+        private IMario gameObject;
 
-        public KeyboardController(MarioGame game)
+        public KeyboardController(IPlayer player)
         {
+            /* exposes a weakness, FIX */
+            gameObject = (IMario) player.GameObject;
             lockedKeyCommands = new Dictionary<Keys, ICommand>();
             lockedKeyCommands.Add(Keys.Q, new QuitGame(MarioGame.Instance));
             lockedKeyCommands.Add(Keys.R, new Reset(MarioGame.Instance));
 
             keyCommands = new Dictionary<Keys, ICommand>();
-            keyCommands.Add(Keys.Q, new QuitGame(game));
-            keyCommands.Add(Keys.W, new MarioJumpCommand(World.Instance.Mario));
-            keyCommands.Add(Keys.S, new MarioCrouchCommand(World.Instance.Mario));
-            keyCommands.Add(Keys.A, new MarioMoveLeftCommand(World.Instance.Mario));
-            keyCommands.Add(Keys.D, new MarioMoveRightCommand(World.Instance.Mario));
-            keyCommands.Add(Keys.Space, new MarioFireCommand(World.Instance.Mario));
-            keyCommands.Add(Keys.R, new Reset(game));
+            keyCommands.Add(Keys.Q, new QuitGame(MarioGame.Instance));
+            keyCommands.Add(Keys.W, new MarioJumpCommand(gameObject));
+            keyCommands.Add(Keys.S, new MarioCrouchCommand(gameObject));
+            keyCommands.Add(Keys.A, new MarioMoveLeftCommand(gameObject));
+            keyCommands.Add(Keys.D, new MarioMoveRightCommand(gameObject));
+            keyCommands.Add(Keys.Space, new MarioFireCommand(gameObject));
+            keyCommands.Add(Keys.R, new Reset(MarioGame.Instance));
 
             currentBindings = keyCommands;
 

@@ -6,6 +6,7 @@ using Gamespace.Goombas;
 using Gamespace.Interfaces;
 using Gamespace.Items;
 using Gamespace.Koopas;
+using Gamespace.Multiplayer;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
@@ -28,6 +29,7 @@ namespace Gamespace
         private readonly List<Type> collisionMoverClassifier;
         private readonly Dictionary<Type, int> collisionPriorities;
         public IMario Mario { get; set; }
+        public List<IPlayer> players;
         private readonly CollisionHandler collisionHandler;
 
         private World()
@@ -55,6 +57,8 @@ namespace Gamespace
             };
 
             collisionHandler = new CollisionHandler();
+
+            players = new List<IPlayer>();
         }
 
         static World()
@@ -70,10 +74,12 @@ namespace Gamespace
         }
         public void AddGameObject(IGameObject gameObject)
         {
+            /*
             if (gameObject is Mario)
             {
                 Mario = (Mario)gameObject;
             }
+            */
 
             objectsToAdd.Add(gameObject);
         }
@@ -103,6 +109,11 @@ namespace Gamespace
             objectsToRemove.Clear();
 
             /* The instigator is the first object, then target. */
+
+            foreach (IPlayer player in players)
+            {
+                player.Update();
+            }
 
             foreach (IGameObject gameObject in objectsInWorld.Values)
             {
@@ -169,8 +180,6 @@ namespace Gamespace
             {
                 gameObject.Draw(spriteBatch);
             }
-
-
         }
 
         public void RemoveFromWorld(int uid)
@@ -251,6 +260,20 @@ namespace Gamespace
                 RemoveFromWorld(newObject.Uid); /*They were In to begin with?*/
             RemoveFromWorld(oldObject.Uid);
             AddGameObject(newObject);
+        }
+
+        public void AddPlayer(IPlayer player)
+        {
+            players.Add(player);
+            collisionMovers.Add(player.GameObject);
+        }
+
+        public void DrawPlayers()
+        {
+            foreach (IPlayer player in players)
+            {
+                player.DrawPlayersScreen();
+            }
         }
     }
 }
