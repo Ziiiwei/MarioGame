@@ -8,14 +8,13 @@ namespace Gamespace.Commands
 {
     class QuitGame : ICommand
     {
-        private MarioGame game;
-        public QuitGame(MarioGame Game)
+
+        public QuitGame(IGameObject obj)
         {
-            game = Game;
         }
         public void Execute()
         {
-            game.Exit();
+            MarioGame.Instance.Exit();
         }
     }
 }

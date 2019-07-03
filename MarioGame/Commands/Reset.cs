@@ -8,14 +8,12 @@ namespace Gamespace.Commands
 {
     class Reset : ICommand
     {
-        private MarioGame game;
-        public Reset(MarioGame Game)
+        public Reset(IGameObject obj)
         {
-            game = Game;
         }
         public void Execute()
         {
-            game.Reset();
+            MarioGame.Instance.Reset();
         }
     }
 }

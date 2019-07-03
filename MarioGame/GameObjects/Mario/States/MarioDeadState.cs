@@ -12,7 +12,6 @@ namespace Gamespace.States
         {
             this.mario = mario;
             mario.UpdateArt();
-            MarioGame.Instance.SwitchMapping("dead");
             mario.Die();
         }
 

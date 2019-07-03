@@ -8,6 +8,7 @@ namespace Gamespace.Multiplayer
 {
     public interface IPlayer
     {
+        int PlayerID { get; }
         IMario GameObject { get; }
         void Update();
         void DrawPlayersScreen();

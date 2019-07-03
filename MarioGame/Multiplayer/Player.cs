@@ -16,15 +16,15 @@ namespace Gamespace.Multiplayer
         public ICamera Cam { get; }
         public SpriteBatch Screen { get; }
         private static int playerCounter = 0;
-        private int playerID;
+        public int PlayerID { get; }
 
         public Player(IMario gameObject, ICamera cam, SpriteBatch screen)
         {
             GameObject = gameObject;
-            Controller = new KeyboardController(this);
-            Cam = cam;
-            playerID = playerCounter;
+            PlayerID = playerCounter;
             playerCounter++;
+            Cam = cam;
+            Controller = new KeyboardController(this);
             Screen = screen;
         }
 

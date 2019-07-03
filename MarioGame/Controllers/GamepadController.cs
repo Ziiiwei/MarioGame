@@ -17,9 +17,7 @@ namespace Gamespace.Controllers
 
         public GamepadController(MarioGame game)
         {
-            buttonCommands = new Dictionary<Buttons, ICommand>();
-            buttonCommands.Add(Buttons.Start, new QuitGame(game));
-            previousState = new GamePadState();
+
         }
 
         public bool CommandOverRide(string comand)
