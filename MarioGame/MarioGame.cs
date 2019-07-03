@@ -25,10 +25,8 @@ namespace Gamespace
         private Song song;
 
         private GraphicsDeviceManager graphics;
-        public SpriteBatch spriteBatch;
         private List<IController> controllers;
 
-        private Camera camera;
         // Make LevelLoader a singleton.
         private LevelLoader levelLoader;
 
@@ -67,6 +65,7 @@ namespace Gamespace
         protected override void Initialize()
         {
             base.Initialize();
+
             IPlayer player1 = new Player(new Mario(new Vector2(200, 200)),
                 new MultiplayerCamera(0), new SpriteBatch(GraphicsDevice));
             World.Instance.AddPlayer(player1);
@@ -110,12 +109,6 @@ namespace Gamespace
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
-            /*
-            foreach ( IController controller in controllers)
-            {
-                controller.Update();
-            }
-            */
             World.Instance.UpdateWorld();
             base.Update(gameTime);
             time = gameTime;
@@ -151,8 +144,7 @@ namespace Gamespace
         public void Reset()
         {
             World.Instance.ClearWorld();
-            controllers = new List<IController>();
-            // TODO : This needs to go away.
+
             Initialize();
 
 

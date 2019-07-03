@@ -21,8 +21,9 @@ namespace Gamespace
     public class World
     {
         private static readonly World instance = new World();
-        private Dictionary<int, IGameObject> objectsInWorld;
+        private readonly Dictionary<int, IGameObject> objectsInWorld;
         private readonly List<IGameObject> objectsToAdd;
+        private readonly List<IPlayer> playersToAdd;
         private readonly List<int> objectsToRemove;
         private readonly List<IGameObject> collisionMovers;
         private readonly List<IGameObject> collisionReceivers;
@@ -36,6 +37,7 @@ namespace Gamespace
         {
             objectsInWorld = new Dictionary<int, IGameObject>();
             objectsToAdd = new List<IGameObject>();
+            playersToAdd = new List<IPlayer>();
             objectsToRemove = new List<int>();
             collisionMovers = new List<IGameObject>();
             collisionReceivers = new List<IGameObject>();
@@ -74,18 +76,16 @@ namespace Gamespace
         }
         public void AddGameObject(IGameObject gameObject)
         {
-            /*
-            if (gameObject is Mario)
-            {
-                Mario = (Mario)gameObject;
-            }
-            */
-
             objectsToAdd.Add(gameObject);
         }
 
         public void UpdateWorld()
         {
+            foreach (IPlayer player in playersToAdd)
+            {
+                players.Add(player);
+            }
+
             foreach (IGameObject gameObject in objectsToAdd)
             {
                 ClassifyNewObject(gameObject);
@@ -107,6 +107,7 @@ namespace Gamespace
 
             objectsToAdd.Clear();
             objectsToRemove.Clear();
+            playersToAdd.Clear();
 
             /* The instigator is the first object, then target. */
 
@@ -195,6 +196,7 @@ namespace Gamespace
             objectsToRemove.Clear();
             collisionMovers.Clear();
             collisionReceivers.Clear();
+            players.Clear();
         }
 
         private void ClassifyNewObject(IGameObject gameObject)
@@ -264,7 +266,7 @@ namespace Gamespace
 
         public void AddPlayer(IPlayer player)
         {
-            players.Add(player);
+            playersToAdd.Add(player);
             collisionMovers.Add(player.GameObject);
         }
 

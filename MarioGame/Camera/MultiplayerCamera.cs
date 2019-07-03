@@ -15,18 +15,13 @@ namespace Gamespace
 
         public MultiplayerCamera(Point location)
         {
-            Transform = Matrix.CreateTranslation(new Vector3(-location.X, (MarioGame.WINDOW_HEIGHT/2) * playerID, 0));
+            Transform = Matrix.CreateTranslation(new Vector3(-location.X, -location.Y, 0));
             CameraPosition = new Vector2();
         }
+
         public MultiplayerCamera(int playerID) : this(new Point(0, (MarioGame.WINDOW_HEIGHT / 2) * playerID))
         {
             this.playerID = playerID;
-        }
-
-        public void LookAt(Point location)
-        {
-            Transform = Matrix.CreateTranslation(new Vector3(-location.X, -location.Y, 0));
-            CameraPosition = new Vector2();
         }
 
         public void Update(Vector2 position)

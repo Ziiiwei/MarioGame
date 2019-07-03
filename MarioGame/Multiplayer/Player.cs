@@ -13,13 +13,12 @@ namespace Gamespace.Multiplayer
     {
         public IMario GameObject { get; }
         public IController Controller { get; }
-        /* Need to make an interface for camera */
         public ICamera Cam { get; }
         public SpriteBatch Screen { get; }
         private static int playerCounter = 0;
         private int playerID;
 
-        public Player(IMario gameObject, Camera cam, SpriteBatch screen)
+        public Player(IMario gameObject, ICamera cam, SpriteBatch screen)
         {
             GameObject = gameObject;
             Controller = new KeyboardController(this);
@@ -33,7 +32,7 @@ namespace Gamespace.Multiplayer
         {
             Controller.Update();
             GameObject.Update();
-            Cam.Update(GameObject);
+            Cam.Update(GameObject.PositionOnScreen);
         }
 
         public void DrawPlayersScreen()
@@ -41,7 +40,6 @@ namespace Gamespace.Multiplayer
             Screen.Begin(SpriteSortMode.BackToFront, transformMatrix: Cam.Transform * Matrix.CreateScale(1), samplerState: SamplerState.PointClamp);
             World.Instance.DrawWorld(Screen);
             //spriteBatch.DrawString(font, "FPS " + frameRate, new Vector2(0, 0), Color.Red);
-            Vector2 offsets = new Vector2(MarioGame.WINDOW_WIDTH * playerID, MarioGame.WINDOW_HEIGHT * playerID);
             GameObject.Draw(Screen);
             Screen.End();
         }

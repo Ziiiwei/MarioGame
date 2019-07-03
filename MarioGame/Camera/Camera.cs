@@ -50,9 +50,10 @@ namespace Gamespace
             // The simplest way to do this is to  force the mario to collide left, magic numbers need to be removed
             gameObject.CollideLeft(new Rectangle((int)CameraPosition.X - 16,0,8,MarioGame.WINDOW_HEIGHT));
         }
-        
 
-
-
+        public void Update(Vector2 position)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
