@@ -9,15 +9,15 @@ namespace Gamespace.Commands
 {
     class ConsumeItem : ICommand
     {
-        private AbstractGameObject item;
+        private IItem item;
 
-        public ConsumeItem(AbstractGameObject item, CollisionData collisionData)
+        public ConsumeItem(IItem item, CollisionData collisionData)
         {
             this.item = item;
         }
         public void Execute()
         {
-            World.Instance.RemoveFromWorld(item.Uid);
+            item.Consume();
         }
     }
 }

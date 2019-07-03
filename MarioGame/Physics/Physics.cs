@@ -129,7 +129,6 @@ namespace Gamespace
             return velocity;
         }
 
-        /* Will return the signed integer which has the least magnitude */
         protected float MinimumMagnitude(float a, float b)
         {
             return Math.Abs(a) < Math.Abs(b) ? a : b;

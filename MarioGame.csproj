@@ -119,10 +119,8 @@
     <Compile Include="MarioGame\GameObjects\\IGameObject.cs" />
     <Compile Include="MarioGame\GameObjects\Mario\MarioStates\IMarioPowerUpState.cs" />
     <Compile Include="MarioGame\GameObjects\Mario\MarioStates\IMarioState.cs" />
-    <Compile Include="MarioGame\GameObjects\Enemies\Goomba\IGoombaState.cs" />
     <Compile Include="MarioGame\GameObjects\Items\IItem.cs" />
     <Compile Include="MarioGame\GameObjects\Items\Star.cs" />
-    <Compile Include="MarioGame\GameObjects\Enemies\Koopa\IKoopaState.cs" />
     <Compile Include="MarioGame\GameObjects\Mario\IMario.cs" />
     <Compile Include="MarioGame\Commands\KoopaFlipCommand.cs" />
     <Compile Include="MarioGame\GameObjects\Enemies\Koopa\KoopaFlippedState.cs" />
