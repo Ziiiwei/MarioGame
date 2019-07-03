@@ -31,7 +31,6 @@ namespace Gamespace.Multiplayer
         public void Update()
         {
             Controller.Update();
-            GameObject.Update();
             Cam.Update(GameObject.PositionOnScreen);
         }
 
@@ -40,7 +39,6 @@ namespace Gamespace.Multiplayer
             Screen.Begin(SpriteSortMode.BackToFront, transformMatrix: Cam.Transform * Matrix.CreateScale(1), samplerState: SamplerState.PointClamp);
             World.Instance.DrawWorld(Screen);
             //spriteBatch.DrawString(font, "FPS " + frameRate, new Vector2(0, 0), Color.Red);
-            GameObject.Draw(Screen);
             Screen.End();
         }
     }

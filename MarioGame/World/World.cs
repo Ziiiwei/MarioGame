@@ -267,7 +267,7 @@ namespace Gamespace
         public void AddPlayer(IPlayer player)
         {
             playersToAdd.Add(player);
-            collisionMovers.Add(player.GameObject);
+            AddGameObject(player.GameObject);
         }
 
         public void DrawPlayers()
