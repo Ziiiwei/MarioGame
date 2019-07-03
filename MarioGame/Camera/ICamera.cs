@@ -11,5 +11,8 @@ namespace Gamespace
     {
         Matrix Transform { get; }
         void Update(Vector2 position);
+
+        Vector2 Position();
+
     }
 }

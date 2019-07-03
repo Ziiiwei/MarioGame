@@ -55,5 +55,7 @@ namespace Gamespace
         {
             throw new NotImplementedException();
         }
+
+        public Vector2 Position() => CameraPosition;
     }
 }

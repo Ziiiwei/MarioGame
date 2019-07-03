@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Gamespace
 {
-    internal class MultiplayerCamera : ICamera
+    public  class MultiplayerCamera : ICamera
     {
         public Matrix Transform { get; private set; }
         private Vector2 CameraPosition;
@@ -41,5 +41,7 @@ namespace Gamespace
             //always set the position equal to Mario's position minus half the screen to keep him at half or below.
             CameraPosition.X = position.X - MarioGame.WINDOW_WIDTH / (2 * MarioGame.SCALE);
         }
+
+        public Vector2 Position() => CameraPosition;
     }
 }

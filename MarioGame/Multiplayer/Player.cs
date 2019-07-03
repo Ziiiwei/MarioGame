@@ -17,8 +17,10 @@ namespace Gamespace.Multiplayer
         public SpriteBatch Screen { get; }
         private static int playerCounter = 0;
         public int PlayerID { get; }
+        public int Score;
+        public SpriteFont font;
 
-        public Player(IMario gameObject, ICamera cam, SpriteBatch screen)
+        public Player(IMario gameObject, ICamera cam, SpriteBatch screen, SpriteFont spriteFont)
         {
             GameObject = gameObject;
             PlayerID = playerCounter;
@@ -26,6 +28,7 @@ namespace Gamespace.Multiplayer
             Cam = cam;
             Controller = new KeyboardController(this);
             Screen = screen;
+            font = spriteFont;
         }
 
         public void Update()
@@ -38,7 +41,8 @@ namespace Gamespace.Multiplayer
         {
             Screen.Begin(SpriteSortMode.BackToFront, transformMatrix: Cam.Transform * Matrix.CreateScale(1), samplerState: SamplerState.PointClamp);
             World.Instance.DrawWorld(Screen);
-            //spriteBatch.DrawString(font, "FPS " + frameRate, new Vector2(0, 0), Color.Red);
+            Screen.DrawString(font, "Score " + Score.ToString("D6"),new Vector2(Cam.Position().X + (MarioGame.WINDOW_WIDTH / 2),
+                0), Color.GhostWhite);
             Screen.End();
         }
     }

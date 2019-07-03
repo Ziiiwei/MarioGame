@@ -111,7 +111,7 @@ namespace Gamespace
 
             /* The instigator is the first object, then target. */
 
-            foreach (IPlayer player in players)
+            foreach (IPlayer player  in players)
             {
                 player.Update();
             }

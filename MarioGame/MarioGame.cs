@@ -67,11 +67,13 @@ namespace Gamespace
             base.Initialize();
 
             IPlayer player1 = new Player(new Mario(new Vector2(200, 200)),
-                new MultiplayerCamera(0), new SpriteBatch(GraphicsDevice));
+                new MultiplayerCamera(0), new SpriteBatch(GraphicsDevice),
+                font);
             World.Instance.AddPlayer(player1);
 
             IPlayer player2 = new Player(new Mario(new Vector2(300, 200)),
-                new MultiplayerCamera(1), new SpriteBatch(GraphicsDevice));
+                new MultiplayerCamera(1), new SpriteBatch(GraphicsDevice),
+                font);
             World.Instance.AddPlayer(player2);
 
             levelLoader = new LevelLoader(World.Instance);
@@ -86,8 +88,8 @@ namespace Gamespace
         {
             /*
             spriteBatch = new SpriteBatch(GraphicsDevice);
-            font = Content.Load<SpriteFont>("Arial");
             */
+            font = Content.Load<SpriteFont>("Arial");            
             song = Content.Load<Song>("Super Mario Bros");
             MediaPlayer.Play(song);
             MediaPlayer.Volume = 0.1f;
