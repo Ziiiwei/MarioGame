@@ -7,6 +7,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
 using Gamespace.Sprites;
 using Gamespace.States;
+using Gamespace.Projectiles;
 
 namespace Gamespace
 {
@@ -20,7 +21,7 @@ namespace Gamespace
         public  IMarioPowerUpState PowerUpState { get; set; }
         public IMarioPowerUpState PreviousState { get; set; }
         internal IPhysics Physics { get; set; }
-
+        public IFireable Projectiles { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
         private IMario mario;
         int timer = 1000;

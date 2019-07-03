@@ -6,16 +6,15 @@ using System.Threading.Tasks;
 
 namespace Gamespace.States
 {
-    class MarioDeadState :MovingMarioState
+    class MarioDeadState : MovingMarioState
     {
         public MarioDeadState(IMario mario) : base(mario)
         {
-            this.mario = mario;
             mario.UpdateArt();
             mario.Die();
         }
 
- 
+
     }
 }
 

@@ -6,16 +6,23 @@ using System.Threading.Tasks;
 
 namespace Gamespace.States
 {
-    class SmallStarMarioState : IMarioPowerUpState
+    class MarioSmallState : IMarioPowerUpState
     {
         public void PowerDown(IMario mario)
         {
-            // do nothing
+            mario.State = new MarioDeadState(mario);
+            mario.UpdateArt();
         }
 
         public void PowerUp(IMario mario)
         {
-            mario.PowerUpState = new StarMarioState();
+            mario.PowerUpState = new MarioSuperState();
+            mario.UpdateArt();
+        }
+
+        public void Fire(IMario mario)
+        {
+
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using Gamespace.Sprites;
+﻿using Gamespace.Projectiles;
+using Gamespace.Sprites;
 using Gamespace.States;
 using Microsoft.Xna.Framework;
 using System;
@@ -10,16 +11,19 @@ using System.Timers;
 
 namespace Gamespace
 {
-    internal class Mario : AbstractGameStatefulObject<IMarioState>, IMario
+    internal class Mario : AbstractGameStatefulObject<IMarioState>, IMario, IFireable
     {
         public IMarioPowerUpState PowerUpState { get; set; }
         public IMarioPowerUpState PreviousState { get; set; }
+        public IFireable Projectiles { get; set; }
+
 
         public Mario(Vector2 positionOnScreen) : base(positionOnScreen)
         {
             State = new RightStandingMarioState(this);
             PowerUpState = new MarioSmallState();
             SetSprite();
+            Projectiles = new ProjectileLauncher(this);
         }
 
         public override void Update()
@@ -92,7 +96,7 @@ namespace Gamespace
 
         public void Fire()
         {
-            State.Fire();
+            PowerUpState.Fire(this);
         }
     }
 }

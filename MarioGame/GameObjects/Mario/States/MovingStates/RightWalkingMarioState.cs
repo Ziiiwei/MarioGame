@@ -40,14 +40,5 @@ namespace Gamespace.States
                 mario.UpdateArt();
             }
         }
-
-        public override void Fire()
-        {
-            Vector2 fireballPosition = new Vector2(mario.PositionOnScreen.X + mario.Sprite.Width,
-                mario.PositionOnScreen.Y);
-            IProjectile fireball = new Fireball(fireballPosition, Side.Right);
-            World.Instance.AddGameObject(fireball);
-            fireball.MoveRight();
-        }
     }
 }

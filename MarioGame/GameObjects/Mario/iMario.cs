@@ -1,4 +1,5 @@
-﻿using Gamespace.Sprites;
+﻿using Gamespace.Projectiles;
+using Gamespace.Sprites;
 using Gamespace.States;
 using Microsoft.Xna.Framework;
 
@@ -11,6 +12,7 @@ namespace Gamespace
         IMarioPowerUpState PowerUpState { get; set; }
         IMarioPowerUpState PreviousState { get; set; }
         IPhysics GameObjectPhysics { get; set; }
+        IFireable Projectiles { get; set; }
 
         void Bounce();
         void Jump();

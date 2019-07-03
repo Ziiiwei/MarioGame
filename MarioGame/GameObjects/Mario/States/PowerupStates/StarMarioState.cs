@@ -17,5 +17,10 @@ namespace Gamespace.States
         {
             // Do nothing
         }
+
+        public void Fire(IMario mario)
+        {
+
+        }
     }
 }
