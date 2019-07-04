@@ -9,9 +9,9 @@ namespace Gamespace.Commands
     class Reset : ICommand
     {
         private MarioGame game;
-        public Reset(MarioGame thisGame)
+        public Reset(MarioGame Game)
         {
-            game = thisGame;
+            game = Game;
         }
         public void Execute()
         {

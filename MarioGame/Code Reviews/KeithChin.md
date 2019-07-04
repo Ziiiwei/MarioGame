@@ -1,29 +1,40 @@
-﻿### Code Readiblity Review
+﻿### Code Maintainability Review
 Author: Keith Chin
-Date: 6/7/19
-Sprint: 3
-Name: Matthew Harrow 
-File: CollisionHandler.cs
+Date: 6/28/19
+Sprint: 4
+Name: Matt Harrow
+File: BumpableBlockPhysics.cs
 Minutes: 12
 
 Coupling: Moderate
-- CollisionHandler is coupled with IGameObject as the handling and receiving collision methods
-receive mover and target game objects for their respective parameter fields.
 
-Cohesion: Moderate
-- This class is not entirely cohesive because even though it deals with collision, it is not singling
-out its responsibility to multiple classes.
-- For example, DetectCollision and HandleCollision inside this class can be made into its own subclasses.
-- In this case, collision handler can be renamed collision manager, where it deals with DetectCollision and
-HandleCollision.
+Coupling in this class exists with all the game objects in the world as well as its physics.
+Matt modified the Physics classes heavily and in our latest solution, we decided to separate
+the physics constants into its own class. This allows us to avoid coupling with the game itself
+as before this, all of the physics was derived from a single class. 
 
-Complexity: Moderately High
-- Complexity is an issue for the CollisionHandler class since the constructor is constantly adding collisionActions
-to the dictionary.
-- For instance, the constant addition will cause additive complexity.
-- However, we have acknowledge this problem by creating a separate class that adds each collision action. This will be 
-implemented in a future sprint.
+Cohesion: High
 
-Additional Notes:
-Overall, the collision handler class works as intended, however, it still suffers from high complexity and smaller issues of 
-cohesion and coupling. We have addressed this problem and our goal was to have this working for the initial implementation.
+The purpose of this class is to "bump" the block up, and return it to its original position.
+This separation of functionality from the main Physics class was seen as necessary, as the 
+block itself is not only bumped, but also any game object above it.
+
+Complexity: Moderate
+
+Without understanding how the physics works in our solution, this class can be a little tedious
+to read. Most of the complexity occurs in the Update() method, where calculations for the
+velocity and the possible position for the game object is obtained. Comments for this class
+will need to be added in the future to ensure that it is easier to maintain.
+
+Hypothetical change: 
+
+In future sprints, when more physics is added for the game, those classes will have to be moved 
+into a new folder. Perhaps a class called BlockPhysics can be created to envelope all of the
+different physics that can occur to the blocks and game objects.
+
+Additional notes:
+
+This class is important for making the blocks bump up and down. However, complexity may be an issue
+when maintaining in the future because of the lack of clarity in the code. Hypothetically, 
+a BlockPhysics class could be created to include this class and any other physics that involve blocks
+in the near future.

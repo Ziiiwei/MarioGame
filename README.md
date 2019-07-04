@@ -1,4 +1,6 @@
-﻿# Sprint 2 README
+﻿# Sprint 4 README
 ## Project Description
 
-Displays Mario as well as the items available in the mario game.
+Added every game object from World 1-1 into our solution. 
+Made enemies collide with block and each other.
+Added flag pole and castle.

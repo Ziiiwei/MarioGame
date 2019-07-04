@@ -1,29 +1,29 @@
 ﻿### Code Readiblity Review
 Author: Ziwei Jin
-Date: 6/7/19
+Date: 6/28/19
 Sprint: 3
-Name: Matthew Harrow
-File: CollisionHandler.cs
+Name: Mutiple team member
+File: Phyasics
 Minutes: 10
 
-Coupling: not too high
--It interact with objects in waod and also call commands act on world.cs 
--The information that is taken from other classes are just location and 
-rectangle size
+-Physics got major rework and i like it.
+-It use to be messy, depending on tediuous length swich case
+-But not with new action dictionary all method excute in a clean fasion
+-To simplify the game world physics, we neglect the time factor and simply use
+frame as our world time minimum unit
+-All the change happens with the each frame update and sence proan to be affected by 
+the game peeformence.
+-So far we still haven't notice any situation as frame rate keep on steady 60fps
 
-Cohesion: Ok
--This class handle both collision detection, which could be seprated 
--The comand loading part could also happen in other place
+-Another potential change could be down in the future is to simplify the colision
+supporting part in physics. This is where it has high coupling with the colision handler
+and need to either move to a new seprate class or make it more genralized as a physics API
 
-Complexity: High
--It is expected that this class will be farily complex, but currently it
-is not possible for people other than creater to understand which part of 
-code is doing what
--The Collision comand data representation is too complicated
--Detection method is too long.
--4 different case could be handled in different method 
+-Another major improvement in the future is to parameterize physic in runing time such 
+that game could have more exciting game play such like changing moving speed, flying, dashing
+parkour etc.
 
+-New improved physics also detached it's coupling from keyboard in the past.
 
-Additional Notes:
--Refacter gonna happen maily on this and physics to make their fucntion and 
-relation more transparent and intuitive 
+Overall, as it's function is approaching to the desired fasion, the future plan would be in
+how to make it more genralized for more game object to utilizing

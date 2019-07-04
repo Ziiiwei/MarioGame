@@ -11,19 +11,14 @@ using System.Web.Script.Serialization;
 using Gamespace.Sprites;
 using Gamespace.Blocks;
 using Gamespace.States;
+using Gamespace.Interfaces;
 
 namespace Gamespace
 {
-    public sealed class SpriteFactory
+    internal class SpriteFactory
     {
         private static readonly SpriteFactory instance = new SpriteFactory();
-        private static readonly String marioSpriteMagicNumbers = "MarioGame/Data/MarioSpriteMagicNumbers.json";
-        private static readonly String enemyAndItemSpriteMagicNumbers = "MarioGame/Data/EnemyAndItemMagicNumbers.json";
-        private static readonly String spriteFrameCountFileLocation = "MarioGame/Data/SpriteFrameCounts.json";
-        private MarioGame gameInstance;
-        private Dictionary<(Type, Type), Texture2D> spritesWithStateAssignments;
-        private Dictionary<Type, int> spriteFrameCounts;
-        private Dictionary<Type, Texture2D> spriteAssignments;
+        private Dictionary<Tuple<String, String, String>, SpriteData> spriteAssignments;
 
         static SpriteFactory()
         {
@@ -31,107 +26,46 @@ namespace Gamespace
 
         private SpriteFactory()
         {
-        }
-
-        public static SpriteFactory Instance
-        {
-            get
-            {
-                return instance;
-            }
-        }
-
-        public void SetGameInstance(MarioGame game)
-        {
-            gameInstance = game;
-
-            StreamReader reader = File.OpenText(marioSpriteMagicNumbers);
+            StreamReader reader = File.OpenText("MarioGame/Data/DataFiles/SpriteFactoryData.json");
             JavaScriptSerializer javaScriptSerializer = new JavaScriptSerializer();
-            var magicNumbers = javaScriptSerializer.Deserialize<Dictionary<String, Dictionary<String, String>>>(reader.ReadToEnd());
-            spritesWithStateAssignments = new Dictionary<(Type, Type), Texture2D>();
+            var magicNumbers = javaScriptSerializer.Deserialize<SpriteDataRoot>(reader.ReadToEnd());
+            reader.Close();
 
-            foreach (String movementState in magicNumbers.Keys)
+            spriteAssignments = new Dictionary<Tuple<string, string, string>, SpriteData>();
+
+            foreach (SpriteData entry in magicNumbers.Entries)
             {
-                foreach (KeyValuePair<String, String> powerUpStateAndTexture in magicNumbers[movementState])
-                {
-                    Texture2D texture = gameInstance.Content.Load<Texture2D>(powerUpStateAndTexture.Value);
-                    spritesWithStateAssignments.Add((Type.GetType(movementState), Type.GetType(powerUpStateAndTexture.Key)), texture);
-
-                }
+                var key = new Tuple<String, String, String>(entry.Name, entry.State, entry.PowerUpState);
+                entry.Texture = MarioGame.Instance.Content.Load<Texture2D>(entry.TexturePath);
+                spriteAssignments.Add(key, entry);
             }
 
-            reader = File.OpenText(spriteFrameCountFileLocation);
-            var frameCounts = javaScriptSerializer.Deserialize<Dictionary<String, int>>(reader.ReadToEnd());
-            spriteFrameCounts = new Dictionary<Type, int>();
-
-           
-            foreach (KeyValuePair<String, int> framesForState in frameCounts)
-            {
-                if (Type.GetType(framesForState.Key) != null)
-                {
-                    spriteFrameCounts.Add(Type.GetType(framesForState.Key), framesForState.Value);
-                }
-                
-            }
-
-            reader = File.OpenText(enemyAndItemSpriteMagicNumbers);
-            var assignmentsFromFile = javaScriptSerializer.Deserialize<Dictionary<String, String>>(reader.ReadToEnd());
-            spriteAssignments = new Dictionary<Type, Texture2D>();
-
-            foreach (KeyValuePair<String, String> entry in assignmentsFromFile)
-            {
-                if (Type.GetType(entry.Key) == null)
-                {
-                    continue;
-                }
-                var texture = gameInstance.Content.Load<Texture2D>(entry.Value);
-                spriteAssignments.Add(Type.GetType(entry.Key), texture);
-            }
         }
 
-        public ISprite GetSprite(IGameObject gameObject)
+        internal static SpriteFactory Instance { get; } = new SpriteFactory();
+
+        protected class SpriteData
         {
-            if (spriteAssignments.ContainsKey(gameObject.GetType()))
-            {
-                var texture = spriteAssignments[gameObject.GetType()];
-                int frameCount = 1;
-
-                if (spriteFrameCounts.ContainsKey(gameObject.GetType()))
-                {
-                    frameCount = spriteFrameCounts[gameObject.GetType()];
-                }
-                return new Sprite(texture, frameCount);
-            }
-            else
-            {
-                return new Sprite(gameInstance.Content.Load<Texture2D>("missing"), 1);
-            }
-           
+            public String Name { get; set; }
+            public String State { get; set; }
+            public String PowerUpState { get; set; }
+            public Texture2D Texture { get; set; }
+            public String TexturePath { get; set; }
+            public int FrameCount { get; set; }
+            public int FrameDelay { get; set; }
         }
 
-        public ISprite GetSprite(IMarioState marioState, IMarioPowerUpState powerUpState)
+        protected class SpriteDataRoot
         {
-            var texture = spritesWithStateAssignments[(marioState.GetType(), powerUpState.GetType())];
-            var frames = 1;
-            if (spriteFrameCounts.ContainsKey(marioState.GetType()))
-            {
-                frames = spriteFrameCounts[marioState.GetType()];
-            }
-            
-            return new Sprite(texture,  frames);
+            public List<SpriteData> Entries { get; set; }
         }
 
-        public ISprite GetSprite(IBlock blockState)
+      
+        public ISprite GetSprite(String gameObjectName, String state, String powerUpState)
         {
-            var texture = spriteAssignments[blockState.GetType()];
-            var frames = spriteFrameCounts[blockState.GetType()];
-            return new Sprite(texture, frames);
+            var key = new Tuple<String, String, String>(gameObjectName, state, powerUpState);
+            return new Sprite(spriteAssignments[key].Texture, spriteAssignments[key].FrameCount, spriteAssignments[key].FrameDelay);
         }
-
-
-
-
-
 
     }
 }

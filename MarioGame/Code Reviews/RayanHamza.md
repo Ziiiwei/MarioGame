@@ -1,36 +1,40 @@
-﻿### Code Readiblity Review
+﻿### Code Maintainability Review
 Author: Rayan Hamza
-Date: 6/7/19
-Sprint: 3
-Name: Ziwei Jin
-File: Physics.cs
-Minutes: 7
+Date: 6/28/19
+Sprint: 4
+Name: Matt Harrow
+File: KeyboardController.cs
+Minutes: 6
 
-Coupling: not too high
--Physics interacts with game objects, mainly Mario and the enemies
--The information that is taken from other classes involve the motion of the
-game objects, i.e. their position, and updates it based on factors of 
-acceleration and velocity.
+Coupling: None directly
+-Just looking at the file, there is nothing that the Keyboard Class couples
+with, it does not have other class instance variables nor does it utilize
+methods of other classes, however there is something that relates Keyboard
+to another file, the "alive" and "dead" strings. These strings implicitly
+couple the keyboard with mario, because the keyboard's functionality and 
+accessible keys depends on Mario's health state. This was good for
+functionality, but removes flexibility from the code.
 
-Cohesion: Pretty high
-- This class focuses entirely on the movement of sprites, but it handles 
-multiple kinds of movement, though I guess movement itself is a purpose.
--The Update does way too much here, but it was done in a compressed time
-interval, and is something that is on the list to refactor.
+Cohesion: Handles a little more 
+- The job of the keyboard controller is to assign keys to commands, and 
+to handle the holding and releasing of keys to start and stop certain
+commands. This one goes a step further by not only doing those things,
+but having a way to lock and unlock keys disguised as a way to switch
+mapping.
 
-Complexity: Getting there
--As I said, long update
--The update contains many conditionals, which increase the class' cyclomatic
-complexity.
--We deal with the position and the previous position, which I believe is 
-for the future, in case we want to track sliding facing the other way.
+Complexity: Minimal for this case
+-The class is short and easy to read, most of the code is either adding
+something or assigning something to something else, so it is not too
+hard to see what is going on. As for cyclomatic complexity, there is the
+obligatory for loop that checks for pressed keys.
+
+Hypothetical change: Mario does not die
+- this class would not be able to deal with that because stuff in it depends
+on mario dying.
+-  there probably will be some change here, what may happen as a result of 
+getting rid of the implicit coupling here could be new coupling between
+keyboard and physics.
 
 Additional Notes:
-- Most other methods are one line long, which is really good and easy to 
-understand
-- some methods are empty, so that might be something to address with the 
-virtual keyword or something along those lines.
--There are some magic numbers used for the acceleration, gravity, and 
-velocity, I'm sure those are planned to be data drived in the future.
--He knows the Conditional one line operator "statement? (if true):(if false)"
-which is pretty neat.
+- Strings exist, and will likely be exterminated by sprint 5.
+- Overall, this class has a lot of dictionaries and is very data driven.

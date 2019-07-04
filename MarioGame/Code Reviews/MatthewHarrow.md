@@ -1,29 +1,35 @@
 ﻿
 ### Code Readiblity Review
 Author : Matthew Harrow (harrow.13)
-Date   : 7th June 2019
-Sprint : 3
-Name   : Ziwei Jin
-File   : Physics.cs
+Date   : 28th June 2019
+Sprint : 4
+Name   : Rayan Hamza
+File   : Camera.cs
 Minutes: 12
 
-Coupling - medium
-- The class depends on a rectangle passed in that represents the collision area. This locks in
-the implementation for collision detection. It makes sense that physics is involved with collision
-detection, but any changes in collision detection will result in changes in the Physics class.
-- The Update method includes code that implements wrap-around, but it is defined with magic numbers,
-so any screen size changes breaks this.
-- The public IGameObject doesn't appear to need to be open to set.
+Coupling: Moderate
+- The camera implementation is tightly coupled to Mario. This makes sense, but inside of the 
+MarioWorld class, on update the camera is updated according to Mario's center. Currently the class design can only handle one Mario. 
+- The coupling could however be solved with a controller that communicates with camera instead of the single instance of Mario.
 
-Cohesion - medium (of concern)
--The wrap-around implementation being in physics and not being implemented in something relation to
-collision is not cohesive. 
-- The public methods are all relevant to events related to Physics, but it is unclear
-how FreeFall() may come into use.
 
-Readability:
-- The constants are curiously named and violate convention. A and G should be lowercase. G may get 
-a pass because of its relation with gravity, but maybe not because it doesn't equal 9.8. The variable
-A certainly needs a new name.
+Cohesion: Very cohesive.
+- The class is very cohesive, but is also very sparce. Right now the class only has methods that correspond to 
+a Mario clone gameplay. During our sprint 5 and 6 changes, the camera system is going to need a lot of rework most likely. 
 
-Additional notes: It says I authored the file, but it is Ziwei's creation, except I changed login in update.
+
+Complexity: Very little
+- The class does not contain much branching. There is not very much logic and most actions are performed by the Monogame api. 
+It's good to use what is available. 
+
+
+Hypothetical change: Multiplayer mario.
+- The class is curently coupled to the absolute dimensions of the Game window, our current implementation would thus be lacking. 
+The class otherwise is suitable, as instead of feeding the camera Mario's center, we could create a controller that manages the coordinates
+that get fed to the multiple cameras and are couple with Mario. This approach would decouple Mario and the camera allowing for other
+camera styles like floating instead of scrolling.
+
+
+Additional Notes:
+- It is a spartan class, but with that comes the advantage that dramatic rewrites (anticipated as we plan on multiplayer) would be as painful.
+

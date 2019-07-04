@@ -10,19 +10,18 @@ namespace Gamespace.Commands
 {
     class HitStar : ICommand
     {
-        IMario mario;
-        Rectangle collisionArea;
+        private IMario mario;
+        private CollisionData collisionData;
 
-        public HitStar(IMario mario, Rectangle collisionArea)
+        public HitStar(IMario mario, CollisionData collisionData)
         {
             this.mario = mario;
-            this.collisionArea = collisionArea;
+            this.collisionData = collisionData;
         }
 
         public void Execute()
         {
-            mario.PowerUpState = new StarMarioState();
-            mario.UpdateArt();
+            this.mario = new StarMario(this.mario, this.mario.PositionOnScreen);
         }
     }
 }

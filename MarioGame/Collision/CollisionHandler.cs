@@ -3,109 +3,51 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+
 using System.Threading.Tasks;
 using Gamespace.Commands;
 using Gamespace.Goombas;
 using Gamespace.Blocks;
 using Gamespace.Items;
 using Gamespace.Koopas;
+using Gamespace.Collision;
+using Gamespace.Interfaces;
+using Gamespace.Clouds;
+using Gamespace.Hills;
 
 namespace Gamespace
 {
+    public enum Side : int { None, Up, Down, Left, Right };
     class CollisionHandler
     {
-        /* Side is relative to the first IGameObject in the tuple */
-        private Dictionary<Tuple<Type, Type, Side>, Tuple<Type, Type>> collisionActions;
-        
-        enum Side : int { None, Up, Down, Left, Right };
-
-        static CollisionHandler()
-        {
-        }
+        /* Side is relative to the second IGameObject in the tuple */
+        private readonly    Dictionary<Tuple<Type, Type, Side>, (Type, Type)> collisionActions;
+        private Dictionary<(Type, Type), Func<IGameObject, IGameObject, (Type, Type)>> translator;
+        private Dictionary<Tuple<Type, Type, Side>, (Type, Type)> statefulCollisionActions;
+        private List<Type> collisionMasks;
+        public enum Side  { None, Up, Down, Left, Right };
 
         public CollisionHandler()
         {
-            collisionActions = new Dictionary<Tuple<Type, Type, Side>, Tuple<Type, Type>>();
+            collisionActions = JsonParser.Instance.ParseCollisionFile();
+            translator = new Dictionary<(Type, Type), Func<IGameObject, IGameObject, (Type, Type)>>();
+            /* This will become data driven */
+            translator.Add((typeof(Mario), typeof(BrickBlock)), new Func<IGameObject, IGameObject, (Type, Type)>(TypeTranslator.MarioBlockTranslator));
+            translator.Add((typeof(Mario), typeof(Goomba)), new Func<IGameObject, IGameObject, (Type, Type)>(TypeTranslator.MarioGoombaTranslator));
+            translator.Add((typeof(Mario), typeof(Koopa)), new Func<IGameObject, IGameObject, (Type, Type)>(TypeTranslator.MarioKoopaTranslator));
+            translator.Add((typeof(Goomba), typeof(BrickBlock)), new Func<IGameObject, IGameObject, (Type, Type)>(TypeTranslator.BumpableBlockEnemyTranslator));
+            translator.Add((typeof(Koopa), typeof(BrickBlock)), new Func<IGameObject, IGameObject, (Type, Type)>(TypeTranslator.BumpableBlockEnemyTranslator));
+            statefulCollisionActions = JsonParser.Instance.ParseCollisionStatefulFile();
 
-            collisionActions.Add(new Tuple<Type, Type, Side>(typeof(Mario), typeof(Block), Side.Up),
-                new Tuple<Type, Type>(typeof(PushMarioUp), typeof(HitBlock)));
-            collisionActions.Add(new Tuple<Type, Type, Side>(typeof(Mario), typeof(Block), Side.Down),
-                new Tuple<Type, Type>(typeof(PushMarioDown), typeof(NullCommand)));
-            collisionActions.Add(new Tuple<Type, Type, Side>(typeof(Mario), typeof(Block), Side.Left),
-                new Tuple<Type, Type>(typeof(PushMarioLeft), typeof(NullCommand)));
-            collisionActions.Add(new Tuple<Type, Type, Side>(typeof(Mario), typeof(Block), Side.Right),
-                new Tuple<Type, Type>(typeof(PushMarioRight), typeof(NullCommand)));
-
-            collisionActions.Add(new Tuple<Type, Type, Side>(typeof(Mario), typeof(Flower), Side.Right),
-                new Tuple<Type, Type>(typeof(HitFlower), typeof(MakeItemDisappear)));
-            collisionActions.Add(new Tuple<Type, Type, Side>(typeof(Mario), typeof(Flower), Side.Left),
-                new Tuple<Type, Type>(typeof(HitFlower), typeof(MakeItemDisappear)));
-            collisionActions.Add(new Tuple<Type, Type, Side>(typeof(Mario), typeof(Flower), Side.Up),
-                new Tuple<Type, Type>(typeof(HitFlower), typeof(MakeItemDisappear)));
-            collisionActions.Add(new Tuple<Type, Type, Side>(typeof(Mario), typeof(Flower), Side.Down),
-                new Tuple<Type, Type>(typeof(HitFlower), typeof(MakeItemDisappear)));
-            collisionActions.Add(new Tuple<Type, Type, Side>(typeof(Mario), typeof(RedShroom), Side.Down),
-                new Tuple<Type, Type>(typeof(HitShroom), typeof(MakeItemDisappear)));
-            collisionActions.Add(new Tuple<Type, Type, Side>(typeof(Mario), typeof(RedShroom), Side.Left),
-                new Tuple<Type, Type>(typeof(HitShroom), typeof(MakeItemDisappear)));
-            collisionActions.Add(new Tuple<Type, Type, Side>(typeof(Mario), typeof(RedShroom), Side.Right),
-                new Tuple<Type, Type>(typeof(HitShroom), typeof(MakeItemDisappear)));
-            collisionActions.Add(new Tuple<Type, Type, Side>(typeof(Mario), typeof(RedShroom), Side.Up),
-                new Tuple<Type, Type>(typeof(HitShroom), typeof(MakeItemDisappear)));
-            collisionActions.Add(new Tuple<Type, Type, Side>(typeof(Mario), typeof(Star), Side.Up),
-                new Tuple<Type, Type>(typeof(HitStar), typeof(MakeItemDisappear)));
-            collisionActions.Add(new Tuple<Type, Type, Side>(typeof(Mario), typeof(Star), Side.Down),
-                new Tuple<Type, Type>(typeof(HitStar), typeof(MakeItemDisappear)));
-            collisionActions.Add(new Tuple<Type, Type, Side>(typeof(Mario), typeof(Star), Side.Left),
-                new Tuple<Type, Type>(typeof(HitStar), typeof(MakeItemDisappear)));
-            collisionActions.Add(new Tuple<Type, Type, Side>(typeof(Mario), typeof(Star), Side.Right),
-                new Tuple<Type, Type>(typeof(HitStar), typeof(MakeItemDisappear)));
-            collisionActions.Add(new Tuple<Type, Type, Side>(typeof(Mario), typeof(Pipe), Side.Right),
-                new Tuple<Type, Type>(typeof(PushMarioRight), typeof(NullCommand)));
-            collisionActions.Add(new Tuple<Type, Type, Side>(typeof(Mario), typeof(Pipe), Side.Left),
-                new Tuple<Type, Type>(typeof(PushMarioLeft), typeof(NullCommand)));
-            collisionActions.Add(new Tuple<Type, Type, Side>(typeof(Mario), typeof(Pipe), Side.Up),
-                new Tuple<Type, Type>(typeof(PushMarioUp), typeof(NullCommand)));
-            collisionActions.Add(new Tuple<Type, Type, Side>(typeof(Mario), typeof(Pipe), Side.Down),
-                new Tuple<Type, Type>(typeof(PushMarioDown), typeof(NullCommand)));
-            collisionActions.Add(new Tuple<Type, Type, Side>(typeof(Mario), typeof(Coin), Side.Down),
-                new Tuple<Type, Type>(typeof(PushMarioDown), typeof(MakeItemDisappear)));
-            collisionActions.Add(new Tuple<Type, Type, Side>(typeof(Mario), typeof(Coin), Side.Up),
-                new Tuple<Type, Type>(typeof(PushMarioUp), typeof(MakeItemDisappear)));
-            collisionActions.Add(new Tuple<Type, Type, Side>(typeof(Mario), typeof(Coin), Side.Left),
-                new Tuple<Type, Type>(typeof(PushMarioLeft), typeof(MakeItemDisappear)));
-            collisionActions.Add(new Tuple<Type, Type, Side>(typeof(Mario), typeof(Coin), Side.Right),
-                new Tuple<Type, Type>(typeof(PushMarioRight), typeof(MakeItemDisappear)));
-            collisionActions.Add(new Tuple<Type, Type, Side>(typeof(Mario), typeof(GreenShroom), Side.Down),
-            new Tuple<Type, Type>(typeof(PushMarioDown), typeof(MakeItemDisappear)));
-            collisionActions.Add(new Tuple<Type, Type, Side>(typeof(Mario), typeof(GreenShroom), Side.Up),
-                new Tuple<Type, Type>(typeof(PushMarioUp), typeof(MakeItemDisappear)));
-            collisionActions.Add(new Tuple<Type, Type, Side>(typeof(Mario), typeof(GreenShroom), Side.Left),
-                new Tuple<Type, Type>(typeof(PushMarioLeft), typeof(MakeItemDisappear)));
-            collisionActions.Add(new Tuple<Type, Type, Side>(typeof(Mario), typeof(GreenShroom), Side.Right),
-                new Tuple<Type, Type>(typeof(PushMarioRight), typeof(MakeItemDisappear)));
-            collisionActions.Add(new Tuple<Type, Type, Side>(typeof(Mario), typeof(Goomba), Side.Down),
-           new Tuple<Type, Type>(typeof(PushMarioUp), typeof(MakeItemDisappear)));
-            collisionActions.Add(new Tuple<Type, Type, Side>(typeof(Mario), typeof(Goomba), Side.Up),
-                new Tuple<Type, Type>(typeof(MakeMarioDead), typeof(NullCommand)));
-            collisionActions.Add(new Tuple<Type, Type, Side>(typeof(Mario), typeof(Goomba), Side.Left),
-                new Tuple<Type, Type>(typeof(MakeMarioDead), typeof(NullCommand)));
-            collisionActions.Add(new Tuple<Type, Type, Side>(typeof(Mario), typeof(Goomba), Side.Right),
-                new Tuple<Type, Type>(typeof(MakeMarioDead), typeof(NullCommand)));
-            collisionActions.Add(new Tuple<Type, Type, Side>(typeof(Mario), typeof(Koopa), Side.Down),
-           new Tuple<Type, Type>(typeof(PushMarioUp), typeof(MakeItemDisappear)));
-            collisionActions.Add(new Tuple<Type, Type, Side>(typeof(Mario), typeof(Koopa), Side.Up),
-                new Tuple<Type, Type>(typeof(MakeMarioDead), typeof(NullCommand)));
-            collisionActions.Add(new Tuple<Type, Type, Side>(typeof(Mario), typeof(Koopa), Side.Left),
-                new Tuple<Type, Type>(typeof(MakeMarioDead), typeof(NullCommand)));
-            collisionActions.Add(new Tuple<Type, Type, Side>(typeof(Mario), typeof(Koopa), Side.Right),
-                new Tuple<Type, Type>(typeof(MakeMarioDead), typeof(NullCommand)));
-
-
-
-
+            collisionMasks = new List<Type>()
+            {
+                typeof(Cloud1),
+                typeof(Cloud2),
+                typeof(Cloud3),
+                typeof(BigHill),
+                typeof(SmallHill)
+            };
         }
-        
 
         public void HandleCollision(IGameObject mover, IGameObject target)
         {
@@ -115,29 +57,76 @@ namespace Gamespace
             }
 
             (Side, Rectangle) directionAndArea = DetectCollision(mover, target);
+            Side side = directionAndArea.Item1;
+            Rectangle collisionArea = directionAndArea.Item2;
 
             Tuple<Type, Type, Side> key = new Tuple<Type, Type, Side>(mover.GetType(),
-                target.GetType(), directionAndArea.Item1);
+            target.GetType(), directionAndArea.Item1);
+
+            if((collisionMasks.Contains(mover.GetType()) || collisionMasks.Contains(target.GetType())))
+            {
+                return;
+            }
 
             if (collisionActions.ContainsKey(key))
             {
-                Type object1Type = collisionActions[key].Item1;
-                Type object2Type = collisionActions[key].Item2;
-
-                ICommand collisionMember1 = (ICommand)Activator.CreateInstance(object1Type, mover, directionAndArea.Item2);
-                ICommand collisionMember2 = (ICommand)Activator.CreateInstance(object2Type, target, directionAndArea.Item2);
-
-                collisionMember1.Execute();
-                collisionMember2.Execute();
+                ExecuteCommand(collisionActions, key, mover, target, collisionArea);
             }
+            else if (translator.ContainsKey((mover.GetType(), target.GetType())))
+            {
+                Delegate translatorValue = translator[(mover.GetType(), target.GetType())];
+                (Type, Type) statefulActionsKey = ((Type, Type)) translatorValue.DynamicInvoke(mover, target);
 
+                var statefulKey = new Tuple<Type, Type, Side>(statefulActionsKey.Item1, statefulActionsKey.Item2, side);
+
+                if (statefulCollisionActions.ContainsKey(statefulKey))
+                {
+                    ExecuteCommand(statefulCollisionActions, statefulKey, mover, target, collisionArea);
+                }
+                else
+                {
+                    ExecuteDefaultCollision(mover, target, collisionArea, side);
+                } 
+            }
+            else
+            {
+                /* This is known to be messy and will be cleaned up later. */
+                /* TODO: Consider a collision list where items collide with nothing */
+                ExecuteDefaultCollision(mover, target, collisionArea, side);
+            }
 
         }
 
+        private void ExecuteCommand(Dictionary<Tuple<Type, Type, Side>, (Type, Type)> actions, Tuple<Type, Type, Side> key,
+                                    IGameObject mover, IGameObject target, Rectangle collisionArea)
+        {
+            Type object1Type = actions[key].Item1;
+            Type object2Type = actions[key].Item2;
+
+            ICommand collisionMember1 = (ICommand)Activator.CreateInstance(object1Type, mover, new CollisionData(collisionArea));
+            ICommand collisionMember2 = (ICommand)Activator.CreateInstance(object2Type, target, new CollisionData(collisionArea));
+
+            collisionMember1.Execute();
+            collisionMember2.Execute();
+        }
+
+        private void ExecuteDefaultCollision(IGameObject mover, IGameObject target, Rectangle collisionArea, Side side)
+        {
+            ICommand defaultCommand = new CollideUp((ICollidable)mover, new CollisionData(collisionArea));
+
+            if (side is Side.Down)
+                defaultCommand = new CollideDown((ICollidable)mover, new CollisionData(collisionArea));
+            if (side is Side.Left)
+                defaultCommand = new CollideLeft((ICollidable)mover, new CollisionData(collisionArea));
+            if (side is Side.Right)
+                defaultCommand = new CollideRight((ICollidable)mover, new CollisionData(collisionArea));
+
+            defaultCommand.Execute();
+        }
         /* Collision direction is target relative 
          * Example: Mario hits top of the block, so that is a top collision.
          */
-        private (Side, Rectangle) DetectCollision(IGameObject mover, IGameObject target)
+        internal (Side, Rectangle) DetectCollision(IGameObject mover, IGameObject target)
         {
             if (!mover.GetCollisionBoundary().Intersects(target.GetCollisionBoundary()))
             {
@@ -147,7 +136,9 @@ namespace Gamespace
             Rectangle collisionArea = Rectangle.Intersect(mover.GetCollisionBoundary(),
                 target.GetCollisionBoundary());
 
-            bool horizontalCollision = (collisionArea.Height > collisionArea.Width);
+             //bool horizontalCollision = ((int)mover.GameObjectPhysics.GetVelocity().X < collisionArea.Width);
+
+              bool  horizontalCollision = (collisionArea.Height > collisionArea.Width);
 
             if (horizontalCollision)
             {

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Gamespace;
 
 
 namespace Gamespace.Controllers
@@ -10,5 +11,7 @@ namespace Gamespace.Controllers
     interface IController
     {
         void Update();
+        void SwitchMapping(string bindings);
+
     }
 }

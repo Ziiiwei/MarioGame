@@ -4,19 +4,30 @@ using Microsoft.Xna.Framework.Input;
 using System.Collections.Generic;
 using Microsoft.Xna.Framework.Content;
 using Gamespace.Controllers;
+using Microsoft.Xna.Framework.Media;
 
 namespace Gamespace
 {
+
     /// <summary>
     /// This is the main type for your game.
     /// </summary>
+  
     public class MarioGame : Game
     {
         private static readonly MarioGame instance = new MarioGame();
+        public const int WINDOW_WIDTH = 800;
+        public const int WINDOW_HEIGHT = 480;
+        public const float SCALE = 1f;
+        private GameTime time;
+
+        private Song song;
+
         private GraphicsDeviceManager graphics;
-        public SpriteBatch TheSpriteBatch { get; private set; }
+        public SpriteBatch spriteBatch;
         private List<IController> controllers;
-    
+
+        private Camera camera;
         // Make LevelLoader a singleton.
         private LevelLoader levelLoader;
 
@@ -29,10 +40,11 @@ namespace Gamespace
         private MarioGame()
         {
             graphics = new GraphicsDeviceManager(this);
-
-            graphics.PreferredBackBufferWidth = 1500;  // set this value to the desired width of your window
-            graphics.PreferredBackBufferHeight = 900;   // set this value to the desired height of your window
+            
+            graphics.PreferredBackBufferWidth = WINDOW_WIDTH;  // set this value to the desired width of your window
+            graphics.PreferredBackBufferHeight = WINDOW_HEIGHT;   // set this value to the desired height of your window
             graphics.ApplyChanges();
+          
             controllers = new List<IController>();
             Content.RootDirectory = "Content";
         }
@@ -54,12 +66,10 @@ namespace Gamespace
         protected override void Initialize()
         {
             base.Initialize();
-            SpriteFactory.Instance.SetGameInstance(this);
             levelLoader = new LevelLoader(World.Instance);
+            camera = new Camera();
             controllers.Add(new KeyboardController(this));
-
-
-            controllers.Add(new Gamepad1(this));
+            controllers.Add(new GamepadController(this));
             
         }
                 /// <summary>
@@ -69,9 +79,11 @@ namespace Gamespace
         /// </summary>
         protected override void LoadContent()
         {   
-            TheSpriteBatch = new SpriteBatch(GraphicsDevice);
-
+            spriteBatch = new SpriteBatch(GraphicsDevice);
             font = Content.Load<SpriteFont>("Arial");
+            song = Content.Load<Song>("Super Mario Bros");
+            MediaPlayer.Play(song);
+            MediaPlayer.Volume = 0.1f;
         }
 
         /// <summary>
@@ -90,13 +102,15 @@ namespace Gamespace
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
-            foreach( IController c in controllers)
+            foreach( IController controller in controllers)
             {
-                c.Update();
+                controller.Update();
             }
-
             World.Instance.UpdateWorld();
+            camera.Update(World.Instance.Mario.GetCenter());
             base.Update(gameTime);
+            time = gameTime;
+            
         }
 
         /// <summary>
@@ -107,19 +121,28 @@ namespace Gamespace
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
             frameRate = 1 / (float)gameTime.ElapsedGameTime.TotalSeconds;
-            TheSpriteBatch.Begin(SpriteSortMode.Immediate, null, null, null, null, null, Matrix.CreateScale(2.0f));
-            World.Instance.DrawWorld();
-            TheSpriteBatch.DrawString(font, "FPS "+frameRate, new Vector2(0, 0), Color.Red);
-            TheSpriteBatch.End();
+            //camera.Follow(World.Instance.Mario.Sprite);
+            spriteBatch.Begin(SpriteSortMode.BackToFront, transformMatrix: camera.Transform * Matrix.CreateScale(SCALE), samplerState: SamplerState.PointClamp);
+            World.Instance.DrawWorld(spriteBatch);
+            spriteBatch.DrawString(font, "FPS "+frameRate, new Vector2(0, 0), Color.Red);
+            spriteBatch.End();
             base.Draw(gameTime);
+        }
+
+        public void SwitchMapping(string bindings)
+        {
+            foreach (IController controller in controllers)
+                controller.SwitchMapping(bindings);
         }
 
         public void Reset()
         {
-
+            World.Instance.ClearWorld();
             controllers = new List<IController>();
+            // TODO : This needs to go away.
             Initialize();
-        
+
+
         }
     }
 }

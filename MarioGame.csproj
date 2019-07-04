@@ -42,102 +42,174 @@
     <ApplicationManifest>MarioGame\app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="MarioGame\Commands\MarioJumpAfterEnemyHit.cs" />
+    <Compile Include="MarioGame\GameObjects\Blocks\Bump States\BlockIsBumpedState.cs" />
+    <Compile Include="MarioGame\GameObjects\Blocks\Bump States\BlockIsNotBumpedState.cs" />
+    <Compile Include="MarioGame\GameObjects\Blocks\Bump States\IBlockBumpState.cs" />
+    <Compile Include="MarioGame\GameObjects\Blocks\IBlock.cs" />
+    <Compile Include="MarioGame\GameObjects\Blocks\IBumpable.cs" />
+    <Compile Include="MarioGame\GameObjects\Blocks\IDestroyable.cs" />
+    <Compile Include="MarioGame\Camera.cs" />
+    <Compile Include="MarioGame\Collision\TypeTranslator.cs" />
+    <Compile Include="MarioGame\Commands\BumpBlock.cs" />
+    <Compile Include="MarioGame\Commands\DestroyBlock.cs" />
+    <Compile Include="MarioGame\Commands\MarioPowerUp.cs" />
+    <Compile Include="MarioGame\Commands\SlideEnemyLeft.cs" />
+    <Compile Include="MarioGame\Commands\SlideEnemyRight.cs" />
+    <Compile Include="MarioGame\Data\CSVObject.cs" />
+    <Compile Include="MarioGame\Data\CSVParser.cs" />
+    <Compile Include="MarioGame\Collision\ICollidable.cs" />
+    <Compile Include="MarioGame\GameObjects\Blocks\PipeExtension.cs" />
+    <Compile Include="MarioGame\GameObjects\Background\Castle.cs" />
+    <Compile Include="MarioGame\GameObjects\Background\Clouds\Cloud1.cs" />
+    <Compile Include="MarioGame\GameObjects\Background\Clouds\Cloud2.cs" />
+    <Compile Include="MarioGame\GameObjects\Background\Clouds\Cloud3.cs" />
+    <Compile Include="MarioGame\GameObjects\Enemies\IEnemyState.cs" />
+    <Compile Include="MarioGame\GameObjects\Flag Pole\Flag.cs" />
+    <Compile Include="MarioGame\GameObjects\Flag Pole\Flagpole.cs" />
+    <Compile Include="MarioGame\GameObjects\Flag Pole\FlagPoleTop.cs" />
+    <Compile Include="MarioGame\GameObjects\Items\IMovableItem.cs" />
+    <Compile Include="MarioGame\GameObjects\Items\RedShroomStates\IShroomState.cs" />
+    <Compile Include="MarioGame\GameObjects\Items\RedShroomStates\ShroomMovingLeftState.cs" />
+    <Compile Include="MarioGame\GameObjects\Items\RedShroomStates\ShroomMovingRightState.cs" />
+    <Compile Include="MarioGame\GameObjects\Items\RedShroomStates\ShroomMovingUpState.cs" />
+    <Compile Include="MarioGame\GameObjects\Mario\Fireball.cs" />
+    <Compile Include="MarioGame\GameObjects\Mario\Mario.cs" />
+    <Compile Include="MarioGame\GameObjects\Mario\States\RightSlidingMarioState.cs" />
+    <Compile Include="MarioGame\GameObjects\Mario\States\LeftSlidingMarioState.cs" />
+    <Compile Include="MarioGame\GameObjects\Mario\States\SmallStarMarioState.cs" />
+    <Compile Include="MarioGame\GameObjects\NullGameObject.cs" />
+    <Compile Include="MarioGame\Physics\BumpableBlockPhysics.cs" />
+    <Compile Include="MarioGame\Physics\IPhysicsConstants.cs" />
+    <Compile Include="MarioGame\Physics\PhysicsConstants.cs" />
+    <Compile Include="MarioGame\Physics\PhysicsFactory.cs" />
+    <Compile Include="MarioGame\GameObjects\Mario\StarMario.cs" />
+    <Compile Include="MarioGame\GameObjects\Blocks\BrickBlock.cs" />
+    <Compile Include="MarioGame\GameObjects\Blocks\FloorBlock.cs" />
+    <Compile Include="MarioGame\GameObjects\Blocks\HiddenBlock.cs" />
+    <Compile Include="MarioGame\GameObjects\Blocks\MetalBlock.cs" />
+    <Compile Include="MarioGame\GameObjects\Blocks\QuestionBlock.cs" />
+    <Compile Include="MarioGame\GameObjects\Blocks\UsedBlock.cs" />
+    <Compile Include="MarioGame\Collision\CollisionData.cs" />
     <Compile Include="MarioGame\Collision\CollisionHandler.cs" />
-    <Compile Include="MarioGame\AbstractGameStatefulObject.cs" />
-    <Compile Include="MarioGame\AbstractGameObject.cs" />
-    <Compile Include="MarioGame\Blocks\BrickBlock.cs" />
-    <Compile Include="MarioGame\Blocks\FloorBlock.cs" />
-    <Compile Include="MarioGame\Blocks\HiddenBlock.cs" />
-    <Compile Include="MarioGame\Blocks\IBlock.cs" />
-    <Compile Include="MarioGame\Blocks\MetalBlock.cs" />
-    <Compile Include="MarioGame\Blocks\QuestionBlock.cs" />
-    <Compile Include="MarioGame\Blocks\Block.cs" />
-    <Compile Include="MarioGame\Blocks\UsedBlock.cs" />
-    <Compile Include="MarioGame\Commands\HitBlock.cs" />
-    <Compile Include="MarioGame\Commands\HitFlower.cs" />
-    <Compile Include="MarioGame\Commands\HitShroom.cs" />
+    <Compile Include="MarioGame\GameObjects\AbstractGameStatefulObject.cs" />
+    <Compile Include="MarioGame\GameObjects\AbstractGameObject.cs" />
+    <Compile Include="MarioGame\Commands\ConsumeItem.cs" />
+    <Compile Include="MarioGame\Commands\EnemyHitsMario.cs" />
+    <Compile Include="MarioGame\Commands\MarioHitsEnemy.cs" />
     <Compile Include="MarioGame\Commands\HitStar.cs" />
-    <Compile Include="MarioGame\Commands\MakeItemDisappear.cs" />
-    <Compile Include="MarioGame\Commands\MakeMarioBig.cs" />
-    <Compile Include="MarioGame\Commands\MakeMarioDead.cs" />
-    <Compile Include="MarioGame\Commands\MakeMarioFire.cs" />
-    <Compile Include="MarioGame\Commands\MakeMarioSmall.cs" />
     <Compile Include="MarioGame\Commands\MakeMarioStar.cs" />
     <Compile Include="MarioGame\Commands\MarioCrouchCommand.cs" />
     <Compile Include="MarioGame\Commands\MarioJumpCommand.cs" />
     <Compile Include="MarioGame\Commands\MarioMoveLeftCommand.cs" />
     <Compile Include="MarioGame\Commands\MarioMoveRightCommand.cs" />
     <Compile Include="MarioGame\Commands\NullCommand.cs" />
-    <Compile Include="MarioGame\Commands\PushMarioDown.cs" />
-    <Compile Include="MarioGame\Commands\PushMarioRight.cs" />
-    <Compile Include="MarioGame\Commands\PushMarioLeft.cs" />
-    <Compile Include="MarioGame\Commands\PushMarioUp.cs" />
+    <Compile Include="MarioGame\Commands\CollideDown.cs" />
+    <Compile Include="MarioGame\Commands\CollideRight.cs" />
+    <Compile Include="MarioGame\Commands\CollideLeft.cs" />
+    <Compile Include="MarioGame\Commands\CollideUp.cs" />
     <Compile Include="MarioGame\Commands\Reset.cs" />
-    <Compile Include="MarioGame\Interfaces\IPhysics.cs" />
-    <Compile Include="MarioGame\Items\Coin.cs" />
-    <Compile Include="MarioGame\Items\Flower.cs" />
-    <Compile Include="MarioGame\Goomba\Goomba.cs" />
-    <Compile Include="MarioGame\Items\GreenShroom.cs" />
-    <Compile Include="MarioGame\Interfaces\IGameObject.cs" />
-    <Compile Include="MarioGame\Interfaces\IMarioPowerUpState.cs" />
-    <Compile Include="MarioGame\Interfaces\IMarioState.cs" />
-    <Compile Include="MarioGame\Goomba\IGoombaState.cs" />
-    <Compile Include="MarioGame\Items\IItem.cs" />
-    <Compile Include="MarioGame\Items\Star.cs" />
-    <Compile Include="MarioGame\Koopa\IKoopaState.cs" />
-    <Compile Include="MarioGame\Interfaces\IMario.cs" />
-    <Compile Include="MarioGame\Koopa\KoopaChangeDirectionCommand.cs" />
-    <Compile Include="MarioGame\Koopa\KoopaFlipCommand.cs" />
-    <Compile Include="MarioGame\Koopa\KoopaFlipedState.cs" />
-    <Compile Include="MarioGame\Koopa\KoopaMovingLeftState.cs" />
-    <Compile Include="MarioGame\Koopa\KoopaMovingRightState.cs" />
-    <Compile Include="MarioGame\Koopa\Koopa.cs" />
-    <Compile Include="MarioGame\Items\Pipe.cs" />
-    <Compile Include="MarioGame\States\LeftCrouchingMarioState.cs" />
-    <Compile Include="MarioGame\States\LeftStandingMarioState.cs" />
-    <Compile Include="MarioGame\States\LeftWalkingMarioState.cs" />
-    <Compile Include="MarioGame\States\LeftJumpingMarioState.cs" />
-    <Compile Include="MarioGame\Goomba\LeftMovingGoombaState.cs" />
-    <Compile Include="MarioGame\Goomba\LeftMovingStompedGoombaState.cs" />
-    <Compile Include="MarioGame\States\StarMarioState.cs" />
-    <Compile Include="MarioGame\World\BigCloud.cs" />
-    <Compile Include="MarioGame\World\BigHill.cs" />
-    <Compile Include="MarioGame\World\SmallHill.cs" />
-    <Compile Include="MarioGame\World\SmallCloud.cs" />
+    <Compile Include="MarioGame\Data\JsonParser.cs" />
+    <Compile Include="MarioGame\GameObjects\Enemies\IEnemy.cs" />
+    <Compile Include="MarioGame\Physics\IPhysics.cs" />
+    <Compile Include="MarioGame\GameObjects\Items\Coin.cs" />
+    <Compile Include="MarioGame\GameObjects\Items\Flower.cs" />
+    <Compile Include="MarioGame\GameObjects\Enemies\Goomba\Goomba.cs" />
+    <Compile Include="MarioGame\GameObjects\Items\GreenShroom.cs" />
+    <Compile Include="MarioGame\GameObjects\\IGameObject.cs" />
+    <Compile Include="MarioGame\GameObjects\Mario\MarioStates\IMarioPowerUpState.cs" />
+    <Compile Include="MarioGame\GameObjects\Mario\MarioStates\IMarioState.cs" />
+    <Compile Include="MarioGame\GameObjects\Items\IItem.cs" />
+    <Compile Include="MarioGame\GameObjects\Items\Star.cs" />
+    <Compile Include="MarioGame\GameObjects\Mario\IMario.cs" />
+    <Compile Include="MarioGame\Commands\KoopaFlipCommand.cs" />
+    <Compile Include="MarioGame\GameObjects\Enemies\Koopa\KoopaFlippedState.cs" />
+    <Compile Include="MarioGame\GameObjects\Enemies\Koopa\KoopaMovingLeftState.cs" />
+    <Compile Include="MarioGame\GameObjects\Enemies\Koopa\KoopaMovingRightState.cs" />
+    <Compile Include="MarioGame\GameObjects\Enemies\Koopa\Koopa.cs" />
+    <Compile Include="MarioGame\GameObjects\Blocks\Pipe.cs" />
+    <Compile Include="MarioGame\GameObjects\Mario\States\MovingMarioState.cs" />
+    <Compile Include="MarioGame\GameObjects\Mario\States\LeftCrouchingMarioState.cs" />
+    <Compile Include="MarioGame\GameObjects\Mario\States\LeftStandingMarioState.cs" />
+    <Compile Include="MarioGame\GameObjects\Mario\States\LeftWalkingMarioState.cs" />
+    <Compile Include="MarioGame\GameObjects\Mario\States\LeftJumpingMarioState.cs" />
+    <Compile Include="MarioGame\GameObjects\Enemies\Goomba\LeftMovingGoombaState.cs" />
+    <Compile Include="MarioGame\GameObjects\Mario\States\StarMarioState.cs" />
+    <Compile Include="MarioGame\GameObjects\Background\Hills\BigHill.cs" />
+    <Compile Include="MarioGame\GameObjects\Background\Hills\SmallHill.cs" />
+    <Compile Include="MarioGame\Physics\ShroomPhysics.cs" />
     <Compile Include="MarioGame\World\LevelLoader.cs" />
-    <Compile Include="MarioGame\Items\RedShroom.cs" />
-    <Compile Include="MarioGame\States\RightCrouchingMarioState.cs" />
-    <Compile Include="MarioGame\States\RightStandingMarioState.cs" />
-    <Compile Include="MarioGame\States\RightWalkingMarioState.cs" />
-    <Compile Include="MarioGame\States\RightJumpingMarioState.cs" />
-    <Compile Include="MarioGame\Goomba\RightMovingGoombaState.cs" />
-    <Compile Include="MarioGame\Goomba\RightMovingStompedGoombaState.cs" />
+    <Compile Include="MarioGame\GameObjects\Items\RedShroom.cs" />
+    <Compile Include="MarioGame\GameObjects\Mario\States\RightCrouchingMarioState.cs" />
+    <Compile Include="MarioGame\GameObjects\Mario\States\RightStandingMarioState.cs" />
+    <Compile Include="MarioGame\GameObjects\Mario\States\RightWalkingMarioState.cs" />
+    <Compile Include="MarioGame\GameObjects\Mario\States\RightJumpingMarioState.cs" />
+    <Compile Include="MarioGame\GameObjects\Enemies\Goomba\RightMovingGoombaState.cs" />
+    <Compile Include="MarioGame\GameObjects\Enemies\Goomba\StompedGoombaState.cs" />
     <Compile Include="MarioGame\Sprites\SpriteFactory.cs" />
-    <Compile Include="MarioGame\Mario.cs" />
     <Compile Include="MarioGame\Commands\QuitGame.cs" />
     <Compile Include="MarioGame\Commands\ICommand.cs" />
     <Compile Include="MarioGame\Controllers\IController.cs" />
     <Compile Include="MarioGame\Sprites\ISprite.cs" />
     <Compile Include="MarioGame\Controllers\KeyboardController.cs" />
-    <Compile Include="MarioGame\Controllers\Gamepad1.cs" />
+    <Compile Include="MarioGame\Controllers\GamepadController.cs" />
     <Compile Include="MarioGame\MarioGame.cs" />
     <Compile Include="MarioGame\Program.cs" />
     <Compile Include="MarioGame\Physics\Physics.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
     <Compile Include="MarioGame\Sprites\Sprite.cs" />
-    <Compile Include="MarioGame\States\MarioDeadState.cs" />
-    <Compile Include="MarioGame\States\MarioFireState.cs" />
-    <Compile Include="MarioGame\States\MarioSmallState.cs" />
-    <Compile Include="MarioGame\States\MarioSuperState.cs" />
+    <Compile Include="MarioGame\GameObjects\Mario\States\MarioDeadState.cs" />
+    <Compile Include="MarioGame\GameObjects\Mario\States\MarioFireState.cs" />
+    <Compile Include="MarioGame\GameObjects\Mario\States\MarioSmallState.cs" />
+    <Compile Include="MarioGame\GameObjects\Mario\States\MarioSuperState.cs" />
     <Compile Include="MarioGame\World\World.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Reference Include="ChoETL.Core, Version=1.1.0.3, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\ChoETL.NETStandard.1.1.0.3\lib\netstandard2.0\ChoETL.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="ChoETL.JSON.Core, Version=1.1.0.3, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\ChoETL.JSON.NETStandard.1.1.0.3\lib\netstandard2.0\ChoETL.JSON.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="MonoGame.Framework">
       <HintPath>$(MonoGameInstallDirectory)\MonoGame\v3.0\Assemblies\Windows\MonoGame.Framework.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
+    <Reference Include="System.CodeDom, Version=4.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.CodeDom.4.4.0\lib\net461\System.CodeDom.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.Annotations, Version=4.2.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.ComponentModel.Annotations.4.4.1\lib\net461\System.ComponentModel.Annotations.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Configuration.ConfigurationManager, Version=4.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Configuration.ConfigurationManager.4.4.1\lib\net461\System.Configuration.ConfigurationManager.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Console, Version=4.0.1.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Console.4.3.1\lib\net46\System.Console.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data.SqlClient, Version=4.2.0.2, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Data.SqlClient.4.4.3\lib\net461\System.Data.SqlClient.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="MarioGame\Icon.ico" />
@@ -152,20 +224,20 @@
     <None Include="MarioGame\Code Reviews\MatthewHarrow.md" />
     <None Include="MarioGame\Code Reviews\ZiweiJin.md" />
     <None Include="MarioGame\Code Reviews\RayanHamza.md" />
-    <None Include="MarioGame\Data\Level1.json">
+    <None Include="MarioGame\Data\DataFiles\CollisionActions.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="MarioGame\Data\CollisionActions.json" />
-    <None Include="MarioGame\Data\SpriteFrameCounts.json">
+    <None Include="MarioGame\Data\DataFiles\level1.csv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="MarioGame\Data\MarioSpriteMagicNumbers.json">
+    <None Include="MarioGame\Data\DataFiles\SpriteFactoryData.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Include="MarioGame\Data\DataFiles\StatefulCollisionActions.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="packages.config" />
     <None Include="README.md" />
-    <None Include="MarioGame\Data\EnemyAndItemMagicNumbers.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
