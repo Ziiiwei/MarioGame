@@ -140,6 +140,25 @@
     <Compile Include="MarioGame\Physics\ShroomPhysics.cs" />
     <Compile Include="MarioGame\Sounds\AbstractSound.cs" />
     <Compile Include="MarioGame\Sounds\ISound.cs" />
+    <Compile Include="MarioGame\Sounds\SoundEffects\BreakBlockSound.cs" />
+    <Compile Include="MarioGame\Sounds\SoundEffects\BumpBlockSound.cs" />
+    <Compile Include="MarioGame\Sounds\SoundEffects\CoinSound.cs" />
+    <Compile Include="MarioGame\Sounds\SoundEffects\FireballSound.cs" />
+    <Compile Include="MarioGame\Sounds\SoundEffects\FireworkSound.cs" />
+    <Compile Include="MarioGame\Sounds\SoundEffects\FlagpoleSound.cs" />
+    <Compile Include="MarioGame\Sounds\SoundEffects\GameOverSound.cs" />
+    <Compile Include="MarioGame\Sounds\SoundEffects\MarioDiesSound.cs" />
+    <Compile Include="MarioGame\Sounds\SoundEffects\MarioKickSound.cs" />
+    <Compile Include="MarioGame\Sounds\SoundEffects\OutOfTimeSound.cs" />
+    <Compile Include="MarioGame\Sounds\SoundEffects\Pause.cs" />
+    <Compile Include="MarioGame\Sounds\SoundEffects\PipeTravelSound.cs" />
+    <Compile Include="MarioGame\Sounds\SoundEffects\PowerUpAppearsSound.cs" />
+    <Compile Include="MarioGame\Sounds\SoundEffects\PowerUpSound.cs" />
+    <Compile Include="MarioGame\Sounds\SoundEffects\SmallMarioJumpSound.cs" />
+    <Compile Include="MarioGame\Sounds\SoundEffects\StageClearSound.cs" />
+    <Compile Include="MarioGame\Sounds\SoundEffects\StompSound.cs" />
+    <Compile Include="MarioGame\Sounds\SoundEffects\SuperMarioJumpSound.cs" />
+    <Compile Include="MarioGame\Sounds\SoundEffects\_1UpSound.cs" />
     <Compile Include="MarioGame\Sounds\SoundFactory.cs" />
     <Compile Include="MarioGame\World\LevelLoader.cs" />
     <Compile Include="MarioGame\GameObjects\Items\RedShroom.cs" />
@@ -233,6 +252,7 @@
     <None Include="MarioGame\Data\DataFiles\level1.csv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Include="MarioGame\Data\DataFiles\SoundData.json" />
     <None Include="MarioGame\Data\DataFiles\SpriteFactoryData.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

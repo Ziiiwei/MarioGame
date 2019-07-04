@@ -1,0 +1,84 @@
+{
+  "Entries": [
+    {
+      "SoundName": "MarioDies",
+      "SoundPath": "Sounds/MarioDies"
+    },
+    {
+      "SoundName": "BumpBlock",
+      "SoundPath": "Sounds/bump"
+    },
+    {
+      "SoundName": "PowerUp",
+      "SoundPath": "Sounds/powerup"
+    },
+    {
+      "SoundName": "_1UpSound",
+      "SoundPath": "Sounds/1-up"
+    },
+    {
+      "SoundName": "BreakBlock",
+      "SoundPath": "Sounds/breakblock"
+    },
+    {
+      "SoundName": "Coin",
+      "SoundPath": "Sounds/coin"
+    },
+    {
+      "SoundName": "Fireball",
+      "SoundPath": "Sounds/fireball"
+    },
+    {
+      "SoundName": "Firework",
+      "SoundPath": "Sounds/firework"
+    },
+    {
+      "SoundName": "Flagpole",
+      "SoundPath": "Sounds/flagpole"
+    },
+    {
+      "SoundName": "GameOver",
+      "SoundPath": "Sounds/GameOver"
+    },
+    {
+      "SoundName": "Kick",
+      "SoundPath": "Sounds/kick"
+    },
+    {
+      "SoundName": "OutOfTime",
+      "SoundPath": "Sounds/outoftime"
+    },
+    {
+      "SoundName": "Pause",
+      "SoundPath": "Sounds/pause"
+    },
+    {
+      "SoundName": "PipeTravel",
+      "SoundPath": "Sounds/pipetravel"
+    },
+    {
+      "SoundName": "PowerUp",
+      "SoundPath": "Sounds/powerup"
+    },
+    {
+      "SoundName": "PowerUpAppears",
+      "SoundPath": "Sounds/powerupappears"
+    },
+    {
+      "SoundName": "SmallMarioJump",
+      "SoundPath": "Sounds/smalljump"
+    },
+    {
+      "SoundName": "StageClear",
+      "SoundPath": "Sounds/StageClear"
+    },
+    {
+      "SoundName": "Stomp",
+      "SoundPath": "Sounds/stomp"
+    },
+    {
+      "SoundName": "SuperMarioJump",
+      "SoundPath": "Sounds/super jump"
+    }
+  ]
+}

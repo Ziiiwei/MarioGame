@@ -9,10 +9,10 @@ using Microsoft.Xna.Framework.Content;
 
 namespace Gamespace
 {
-    internal class SoundFactory
+    internal sealed class SoundFactory
     {
         private static readonly SoundFactory instance = new SoundFactory();
-        private Dictionary<String, SoundEffect> commandEffects;
+        private Dictionary<String, SoundEffect> soundAssignments;
 
         static SoundFactory()
         {
@@ -22,5 +22,6 @@ namespace Gamespace
         {
 
         }
+        internal static SoundFactory Instance { get; } = new SoundFactory();
     }
 }
