@@ -14,7 +14,7 @@ namespace Gamespace.Sounds
     {
         public AbstractSound()
         {
-
+            
         }
 
         public void Play()
