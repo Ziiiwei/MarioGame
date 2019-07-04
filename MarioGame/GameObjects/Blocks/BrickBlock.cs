@@ -13,9 +13,6 @@ namespace Gamespace.Blocks
 {
     internal class BrickBlock : AbstractGameStatefulObject<IBlockBumpState>, IBumpable, IDestroyable
     {
-        //private static int[] bumpOffsets = { 0, 1, 2, 3, -1, -2, -3 };
-        //private int bumpCounter = -1;
-
         private Type bumpReward;
 
         public BrickBlock(Vector2 positionOnScreen, Type bumpReward) : base(positionOnScreen)

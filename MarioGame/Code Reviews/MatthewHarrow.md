@@ -1,22 +1,35 @@
 ﻿
 ### Code Readiblity Review
 Author : Matthew Harrow (harrow.13)
-Date   : 21st June 2019
+Date   : 28th June 2019
 Sprint : 4
-Name   : Keith
-File   : CSVParser
-Minutes: 15
+Name   : Rayan Hamza
+File   : Camera.cs
+Minutes: 12
 
-Readability:
-- The line String[][] data = File.ReadLines("MarioGame/Data/level1.csv").Select(x => x.Split(',')).ToArray(); has a very long chain
-of function calls which makes this line very busy. It was also unclear if the class kept a file steam open (it doesn't, but it
-was unclear at the time). 
-- The path specified in the body of the loops could be moved towards to top, or probably moved into a set of constants for the program.
-- The naming _X and _Y is unclear. Also, the line name = shortcuts[data[i][j]]; is consice, but more intermediate names would help
-with reading.
-- The Json header approach could be more clear, its a weird way to prepend something. 
-- The base unit for the game is specified in this class. This type of constant would be more appropriate in the MarioGame class.
-- Naming is also unclear from the outside. While it does read a CSV file, it only reads a very specifically formatted one. - The unit being specified in this class couples it to art and scaling. This could create a hard to track bug.
-- The file is highly coupled to the CSV format, but this of course must be the case. The file could make the format more clear.
-For instance, checking for the literal "+" could be placed into  variable called rewardSeparator. 
--The serialization helps to decouple the format and the implemenation of this class and makes it easy to add new fields.
+Coupling: Moderate
+- The camera implementation is tightly coupled to Mario. This makes sense, but inside of the 
+MarioWorld class, on update the camera is updated according to Mario's center. Currently the class design can only handle one Mario. 
+- The coupling could however be solved with a controller that communicates with camera instead of the single instance of Mario.
+
+
+Cohesion: Very cohesive.
+- The class is very cohesive, but is also very sparce. Right now the class only has methods that correspond to 
+a Mario clone gameplay. During our sprint 5 and 6 changes, the camera system is going to need a lot of rework most likely. 
+
+
+Complexity: Very little
+- The class does not contain much branching. There is not very much logic and most actions are performed by the Monogame api. 
+It's good to use what is available. 
+
+
+Hypothetical change: Multiplayer mario.
+- The class is curently coupled to the absolute dimensions of the Game window, our current implementation would thus be lacking. 
+The class otherwise is suitable, as instead of feeding the camera Mario's center, we could create a controller that manages the coordinates
+that get fed to the multiple cameras and are couple with Mario. This approach would decouple Mario and the camera allowing for other
+camera styles like floating instead of scrolling.
+
+
+Additional Notes:
+- It is a spartan class, but with that comes the advantage that dramatic rewrites (anticipated as we plan on multiplayer) would be as painful.
+
