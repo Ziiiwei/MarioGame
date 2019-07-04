@@ -11,7 +11,6 @@ using System.Web.Script.Serialization;
 using Gamespace.Sprites;
 using Gamespace.Blocks;
 using Gamespace.States;
-using Gamespace.Interfaces;
 
 namespace Gamespace
 {
