@@ -12,8 +12,8 @@ namespace Gamespace
     internal class SoundFactory
     {
         private static readonly SoundFactory instance = new SoundFactory();
-        private SoundEffect effect;
-        private Song song;
+        private Dictionary<String, SoundEffect> commandEffects;
+
         static SoundFactory()
         {
         }
