@@ -13,12 +13,6 @@
 
 #---------------------------------- Content ---------------------------------#
 
-#begin 1-up.wav
-/importer:WavImporter
-/processor:SoundEffectProcessor
-/processorParam:Quality=Best
-/build:1-up.wav
-
 #begin Arial.spritefont
 /importer:FontDescriptionImporter
 /processor:FontDescriptionProcessor
@@ -134,12 +128,6 @@
 /processorParam:TextureFormat=Color
 /build:BigHill.png
 
-#begin breakblock.wav
-/importer:WavImporter
-/processor:SoundEffectProcessor
-/processorParam:Quality=Best
-/build:breakblock.wav
-
 #begin BrickBlock.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -151,12 +139,6 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:BrickBlock.png
-
-#begin bump.wav
-/importer:WavImporter
-/processor:SoundEffectProcessor
-/processorParam:Quality=Best
-/build:bump.wav
 
 #begin bush1.png
 /importer:TextureImporter
@@ -254,12 +236,6 @@
 /processorParam:TextureFormat=Color
 /build:Coin.png
 
-#begin coin.wav
-/importer:WavImporter
-/processor:SoundEffectProcessor
-/processorParam:Quality=Best
-/build:coin.wav
-
 #begin CoinBlock.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -283,12 +259,6 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:fireball.png
-
-#begin fireball.wav
-/importer:WavImporter
-/processor:SoundEffectProcessor
-/processorParam:Quality=Best
-/build:fireball.wav
 
 #begin FireMario/FMCrouchLeft.png
 /importer:TextureImporter
@@ -410,12 +380,6 @@
 /processorParam:TextureFormat=Color
 /build:FireMario/FMSlidingFromRight.png
 
-#begin fireworks.wav
-/importer:WavImporter
-/processor:SoundEffectProcessor
-/processorParam:Quality=Best
-/build:fireworks.wav
-
 #begin Flag.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -439,12 +403,6 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Flagpole.png
-
-#begin flagpole.wav
-/importer:WavImporter
-/processor:SoundEffectProcessor
-/processorParam:Quality=Best
-/build:flagpole.wav
 
 #begin FlagPoleTop.png
 /importer:TextureImporter
@@ -494,12 +452,6 @@
 /processorParam:TextureFormat=Color
 /build:FMCrouchLeft.png
 
-#begin GameOver.wav
-/importer:WavImporter
-/processor:SoundEffectProcessor
-/processorParam:Quality=Best
-/build:GameOver.wav
-
 #begin Goomba.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -547,12 +499,6 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:HiddenBlock.png
-
-#begin kick.wav
-/importer:WavImporter
-/processor:SoundEffectProcessor
-/processorParam:Quality=Best
-/build:kick.wav
 
 #begin KoopaFlipped.png
 /importer:TextureImporter
@@ -613,12 +559,6 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:MarioDead.png
-
-#begin MarioDies.wav
-/importer:WavImporter
-/processor:SoundEffectProcessor
-/processorParam:Quality=Best
-/build:MarioDies.wav
 
 #begin MarioFacingLeft.png
 /importer:TextureImporter
@@ -740,18 +680,6 @@
 /processorParam:TextureFormat=Color
 /build:missing.png
 
-#begin outoftime.wav
-/importer:WavImporter
-/processor:SoundEffectProcessor
-/processorParam:Quality=Best
-/build:outoftime.wav
-
-#begin pause.wav
-/importer:WavImporter
-/processor:SoundEffectProcessor
-/processorParam:Quality=Best
-/build:pause.wav
-
 #begin Pipe.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -776,24 +704,6 @@
 /processorParam:TextureFormat=Color
 /build:PipeExtension.png
 
-#begin pipetravel.wav
-/importer:WavImporter
-/processor:SoundEffectProcessor
-/processorParam:Quality=Best
-/build:pipetravel.wav
-
-#begin powerup.wav
-/importer:WavImporter
-/processor:SoundEffectProcessor
-/processorParam:Quality=Best
-/build:powerup.wav
-
-#begin powerupappears.wav
-/importer:WavImporter
-/processor:SoundEffectProcessor
-/processorParam:Quality=Best
-/build:powerupappears.wav
-
 #begin QuestionBlock.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -817,12 +727,6 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:RedShroom.png
-
-#begin small jump.wav
-/importer:WavImporter
-/processor:SoundEffectProcessor
-/processorParam:Quality=Best
-/build:small jump.wav
 
 #begin SmallHill.png
 /importer:TextureImporter
@@ -883,6 +787,126 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:SMSlidingFromRight.png
+
+#begin Sounds/1-up.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sounds/1-up.wav
+
+#begin Sounds/breakblock.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sounds/breakblock.wav
+
+#begin Sounds/bump.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sounds/bump.wav
+
+#begin Sounds/coin.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sounds/coin.wav
+
+#begin Sounds/fireball.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sounds/fireball.wav
+
+#begin Sounds/fireworks.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sounds/fireworks.wav
+
+#begin Sounds/flagpole.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sounds/flagpole.wav
+
+#begin Sounds/GameOver.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sounds/GameOver.wav
+
+#begin Sounds/kick.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sounds/kick.wav
+
+#begin Sounds/MarioDies.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sounds/MarioDies.wav
+
+#begin Sounds/outoftime.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sounds/outoftime.wav
+
+#begin Sounds/pause.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sounds/pause.wav
+
+#begin Sounds/pipetravel.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sounds/pipetravel.wav
+
+#begin Sounds/powerup.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sounds/powerup.wav
+
+#begin Sounds/powerupappears.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sounds/powerupappears.wav
+
+#begin Sounds/small jump.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sounds/small jump.wav
+
+#begin Sounds/StageClear.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sounds/StageClear.wav
+
+#begin Sounds/stomp.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sounds/stomp.wav
+
+#begin Sounds/super jump.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sounds/super jump.wav
+
+#begin Sounds/Super Mario Bros.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:Sounds/Super Mario Bros.mp3
 
 #begin SSMJumpLeft.png
 /importer:TextureImporter
@@ -979,12 +1003,6 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:SSMStandRight.png
-
-#begin StageClear.wav
-/importer:WavImporter
-/processor:SoundEffectProcessor
-/processorParam:Quality=Best
-/build:StageClear.wav
 
 #begin Star.png
 /importer:TextureImporter
@@ -1093,24 +1111,6 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:StarMario/SMStandRight.png;SMStandRight.png
-
-#begin stomp.wav
-/importer:WavImporter
-/processor:SoundEffectProcessor
-/processorParam:Quality=Best
-/build:stomp.wav
-
-#begin super jump.wav
-/importer:WavImporter
-/processor:SoundEffectProcessor
-/processorParam:Quality=Best
-/build:super jump.wav
-
-#begin Super Mario Bros.mp3
-/importer:Mp3Importer
-/processor:SongProcessor
-/processorParam:Quality=Best
-/build:Super Mario Bros.mp3
 
 #begin SuperMario/BigMarioSlidingFromLeft.png
 /importer:TextureImporter

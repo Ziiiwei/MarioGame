@@ -16,7 +16,7 @@
     },
 	{
       "Mover": "Gamespace.Goombas.Goomba",
-      "Target": "GGamespace.Koopas.Koopa",
+      "Target": "Gamespace.Koopas.Koopa",
       "Side": "Right",
       "Command1": "Gamespace.Commands.CollideRight",
       "Command2": "Gamespace.Commands.CollideLeft"

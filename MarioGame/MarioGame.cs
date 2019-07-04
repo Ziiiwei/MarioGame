@@ -4,7 +4,7 @@ using Microsoft.Xna.Framework.Input;
 using System.Collections.Generic;
 using Microsoft.Xna.Framework.Content;
 using Gamespace.Controllers;
-using Microsoft.Xna.Framework.Media;
+
 
 namespace Gamespace
 {
@@ -21,7 +21,6 @@ namespace Gamespace
         public const float SCALE = 1f;
         private GameTime time;
 
-        private Song song;
 
         private GraphicsDeviceManager graphics;
         public SpriteBatch spriteBatch;
@@ -81,9 +80,9 @@ namespace Gamespace
         {   
             spriteBatch = new SpriteBatch(GraphicsDevice);
             font = Content.Load<SpriteFont>("Arial");
-            song = Content.Load<Song>("Super Mario Bros");
-            MediaPlayer.Play(song);
-            MediaPlayer.Volume = 0.1f;
+            //song = Content.Load<Song>("Super Mario Bros");
+            //MediaPlayer.Play(song);
+            //MediaPlayer.Volume = 0.1f;
         }
 
         /// <summary>
