@@ -46,6 +46,7 @@
     <Compile Include="MarioGame\Camera\MultiplayerCamera.cs" />
     <Compile Include="MarioGame\Commands\MarioFireCommand.cs" />
     <Compile Include="MarioGame\Commands\MarioJumpAfterEnemyHit.cs" />
+    <Compile Include="MarioGame\Commands\ProjectileRemoveCommand.cs" />
     <Compile Include="MarioGame\Controllers\KeyAssignmentFactory.cs" />
     <Compile Include="MarioGame\GameObjects\Blocks\Bump States\BlockIsBumpedState.cs" />
     <Compile Include="MarioGame\GameObjects\Blocks\Bump States\BlockIsNotBumpedState.cs" />

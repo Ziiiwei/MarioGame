@@ -96,7 +96,7 @@ namespace Gamespace
 
         public void Fire()
         {
-            PowerUpState.Fire(this);
+             PowerUpState.Fire(this);
         }
     }
 }

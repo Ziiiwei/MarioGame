@@ -7,6 +7,7 @@ using Gamespace.Interfaces;
 using Gamespace.Items;
 using Gamespace.Koopas;
 using Gamespace.Multiplayer;
+using Gamespace.Projectiles;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
@@ -54,6 +55,7 @@ namespace Gamespace
             collisionPriorities = new Dictionary<Type, int>()
             {
                 {typeof(Mario), 1},
+                {typeof(Fireball), 1 },
                 {typeof(Goomba), 2},
                 {typeof(Koopa), 3},
             };
@@ -128,7 +130,7 @@ namespace Gamespace
             {
                 IGameObject mover = collisionMovers[i];
                 //foreach (IGameObject otherMover in collisionMovers)
-                for (int j = i+1; j < collisionMovers.Count; j++)
+                for (int j = 0; j < collisionMovers.Count; j++)
                 {
                     IGameObject otherMover = collisionMovers[j];
 

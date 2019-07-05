@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Gamespace
+namespace Gamespace.Projectiles
 {
     internal class Fireball : AbstractGameStatefulObject<IProjectileState>, IProjectile
     {
@@ -52,6 +52,30 @@ namespace Gamespace
             base.Update();
             GameObjectPhysics.Update();
             positionOnScreen = GameObjectPhysics.GetPosition();
+        }
+
+        public void Remove()
+        {
+            // NEW SPRITE FOR REMOVAL
+            World.Instance.RemoveFromWorld(Uid);
+        }
+
+        public override void CollideLeft(Rectangle collisionArea)
+        {
+            base.CollideLeft(collisionArea);
+            State.ChangeDirection();
+        }
+
+        public override void CollideRight(Rectangle collisionArea)
+        {
+            base.CollideRight(collisionArea);
+            State.ChangeDirection();
+        }
+
+        public override void CollideDown(Rectangle collisionArea)
+        {
+            base.CollideDown(collisionArea);
+            GameObjectPhysics.MoveMaxSpeed(Side.Up);
         }
     }
 }

@@ -13,5 +13,6 @@ namespace Gamespace
         void ChangeDirection();
         void MoveLeft();
         void MoveRight();
+        void Remove();
     }
 }

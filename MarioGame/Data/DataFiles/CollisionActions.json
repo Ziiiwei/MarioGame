@@ -279,6 +279,62 @@
       "Side": "Right",
       "Command1": "Gamespace.Commands.NullCommand",
       "Command2": "Gamespace.Commands.MarioHitsEnemy"
+    },
+		{
+      "Mover": "Gamespace.Projectiles.Fireball",
+      "Target": "Gamespace.Koopas.Koopa",
+      "Side": "Up",
+      "Command1": "Gamespace.Commands.ProjectileRemoveCommand",
+      "Command2": "Gamespace.Commands.MarioHitsEnemy"
+    },
+	{
+      "Mover": "Gamespace.Projectiles.Fireball",
+      "Target": "Gamespace.Koopas.Koopa",
+      "Side": "Down",
+      "Command1": "Gamespace.Commands.ProjectileRemoveCommand",
+      "Command2": "Gamespace.Commands.MarioHitsEnemy"
+    },
+	{
+      "Mover": "Gamespace.Projectiles.Fireball",
+      "Target": "Gamespace.Koopas.Koopa",
+      "Side": "Left",
+      "Command1": "Gamespace.Commands.ProjectileRemoveCommand",
+      "Command2": "Gamespace.Commands.MarioHitsEnemy"
+    },
+	{
+      "Mover": "Gamespace.Projectiles.Fireball",
+      "Target": "Gamespace.Koopas.Koopa",
+      "Side": "Right",
+      "Command1": "Gamespace.Commands.ProjectileRemoveCommand",
+      "Command2": "Gamespace.Commands.MarioHitsEnemy"
+    },
+	{
+      "Mover": "Gamespace.Projectiles.Fireball",
+      "Target": "Gamespace.Goombas.Goomba",
+      "Side": "Up",
+      "Command1": "Gamespace.Commands.ProjectileRemoveCommand",
+      "Command2": "Gamespace.Commands.MarioHitsEnemy"
+    },
+	{
+      "Mover": "Gamespace.Projectiles.Fireball",
+      "Target": "Gamespace.Goombas.Goomba",
+      "Side": "Down",
+      "Command1": "Gamespace.Commands.ProjectileRemoveCommand",
+      "Command2": "Gamespace.Commands.MarioHitsEnemy"
+    },
+	{
+      "Mover": "Gamespace.Projectiles.Fireball",
+      "Target": "Gamespace.Goombas.Goomba",
+      "Side": "Left",
+      "Command1": "Gamespace.Commands.ProjectileRemoveCommand",
+      "Command2": "Gamespace.Commands.MarioHitsEnemy"
+    },
+	{
+      "Mover": "Gamespace.Projectiles.Fireball",
+      "Target": "Gamespace.Goombas.Goomba",
+      "Side": "Right",
+      "Command1": "Gamespace.Commands.ProjectileRemoveCommand",
+      "Command2": "Gamespace.Commands.MarioHitsEnemy"
     }
   ]
 }

@@ -2,6 +2,7 @@
 using Gamespace.Goombas;
 using Gamespace.Items;
 using Gamespace.Koopas;
+using Gamespace.Projectiles;
 using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
@@ -38,7 +39,7 @@ namespace Gamespace
             List<float> brickBlockDefinitions = new List<float> { 5.2f, 1.2f, 7f, 7f, 3.0f };
             constantsAssignments.Add(typeof(BrickBlock), new PhysicsConstantsDefinitons(brickBlockDefinitions));
 
-            List<float> fireballDefinitions = new List<float> { 3f, 3f, 3f, 3f, 3f };
+            List<float> fireballDefinitions = new List<float> { 1.0f, 0.1f, 5f, 2f, 5f };
             constantsAssignments.Add(typeof(Fireball), new PhysicsConstantsDefinitons(fireballDefinitions));
 
             constantsAssignments.Add(typeof(Star), new PhysicsConstantsDefinitons(zeroDefinitions));

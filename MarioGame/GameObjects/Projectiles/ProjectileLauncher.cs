@@ -34,7 +34,7 @@ namespace Gamespace.Projectiles
                         gameObject.PositionOnScreen.Y + gameObject.Sprite.Height / 2);
                     IProjectile projectile = (IProjectile)Activator.CreateInstance(projectileClassification, fireballPosition, Side.Right);
                     World.Instance.AddGameObject(projectile);
-                    projectile.MoveLeft();
+                    projectile.MoveRight();
                 }
             }
             delayCounter++;
