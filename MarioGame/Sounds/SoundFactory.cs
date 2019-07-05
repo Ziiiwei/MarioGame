@@ -10,12 +10,13 @@ using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
 using Gamespace.Sounds;
 
-namespace Gamespace.Sounds
+namespace Gamespace
 {
     internal class SoundFactory
     {
         private static readonly SoundFactory instance = new SoundFactory();
-        private Dictionary<String, SoundEffectInstance> soundAssignments;
+        private Dictionary<String, SoundEffect> soundAssignments;
+        private SoundEffect soundEffect;
 
         static SoundFactory()
         {
@@ -28,13 +29,16 @@ namespace Gamespace.Sounds
             var magicNumbers = javaScriptSerializer.Deserialize<SoundDataRoot>(reader.ReadToEnd());
             reader.Close();
 
-            soundAssignments = new Dictionary<String, SoundEffectInstance>();
+            soundAssignments = new Dictionary<String, SoundEffect>();
 
             foreach (SoundData entry in magicNumbers.Entries)
             {
-                var key = entry.SoundName;
-                entry.soundEffect = MarioGame.Instance.Content.Load<SoundEffectInstance>(entry.SoundPath);
-                soundAssignments.Add(key, entry.soundEffect);
+                String key = entry.SoundName;
+                soundEffect = MarioGame.Instance.Content.Load<SoundEffect>(entry.SoundPath);
+                if (!soundAssignments.ContainsKey(key))
+                {
+                    soundAssignments.Add(key, soundEffect);
+                }
 
             }
         }
@@ -44,7 +48,7 @@ namespace Gamespace.Sounds
         {
             public String SoundName { get; set; }
             public String SoundPath { get; set; }
-            public SoundEffectInstance soundEffect { get; set; }
+
         }
 
         protected class SoundDataRoot
@@ -52,5 +56,10 @@ namespace Gamespace.Sounds
             public List<SoundData> Entries { get; set; }
         }
 
+        public void PlaySoundEffect(String name)
+        {
+            String key = name;
+            soundAssignments[name].Play();
+        }
     }
 }

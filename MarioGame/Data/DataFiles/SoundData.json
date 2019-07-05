@@ -29,8 +29,8 @@
       "SoundPath": "Sounds/fireball"
     },
     {
-      "SoundName": "Firework",
-      "SoundPath": "Sounds/firework"
+      "SoundName": "Fireworks",
+      "SoundPath": "Sounds/fireworks"
     },
     {
       "SoundName": "Flagpole",
@@ -78,7 +78,7 @@
     },
     {
       "SoundName": "SuperMarioJump",
-      "SoundPath": "Sounds/super jump"
+      "SoundPath": "Sounds/superjump"
     }
   ]
 }

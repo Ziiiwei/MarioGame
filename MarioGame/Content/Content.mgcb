@@ -878,11 +878,11 @@
 /processorParam:Quality=Best
 /build:Sounds/powerupappears.wav
 
-#begin Sounds/small jump.wav
+#begin Sounds/smalljump.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor
 /processorParam:Quality=Best
-/build:Sounds/small jump.wav
+/build:Sounds/smalljump.wav
 
 #begin Sounds/StageClear.wav
 /importer:WavImporter
@@ -896,17 +896,17 @@
 /processorParam:Quality=Best
 /build:Sounds/stomp.wav
 
-#begin Sounds/super jump.wav
-/importer:WavImporter
-/processor:SoundEffectProcessor
-/processorParam:Quality=Best
-/build:Sounds/super jump.wav
-
 #begin Sounds/Super Mario Bros.mp3
 /importer:Mp3Importer
 /processor:SongProcessor
 /processorParam:Quality=Best
 /build:Sounds/Super Mario Bros.mp3
+
+#begin Sounds/superjump.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sounds/superjump.wav
 
 #begin SSMJumpLeft.png
 /importer:TextureImporter

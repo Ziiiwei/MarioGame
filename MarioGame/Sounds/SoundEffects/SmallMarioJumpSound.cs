@@ -8,7 +8,7 @@ namespace Gamespace.Sounds
 {
     class SmallMarioJumpSound : AbstractSound
     {
-        public SmallMarioJumpSoundSound() : base()
+        public SmallMarioJumpSound() : base()
         {
 
         }

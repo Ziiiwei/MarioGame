@@ -22,6 +22,7 @@ namespace Gamespace.Items
 
         public void Consume()
         {
+            SoundFactory.Instance.PlaySoundEffect(this.GetType().Name);
             World.Instance.RemoveFromWorld(Uid);
         }
 
