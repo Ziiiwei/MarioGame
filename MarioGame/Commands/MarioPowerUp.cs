@@ -17,6 +17,7 @@ namespace Gamespace.Commands
         public void Execute()
         {
             mario.PowerUp();
+            mario.ScorePoints();
         }
     }
 }

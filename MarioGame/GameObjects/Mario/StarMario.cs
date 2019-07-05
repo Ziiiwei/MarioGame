@@ -19,6 +19,8 @@ namespace Gamespace
 
         public  IMarioPowerUpState PowerUpState { get; set; }
         public IMarioPowerUpState PreviousState { get; set; }
+
+        public int score { get; set; }
         internal IPhysics Physics { get; set; }
 
 
@@ -125,6 +127,11 @@ namespace Gamespace
         public void Fire()
         {
             throw new NotImplementedException();
+        }
+
+        public void ScorePoints()
+        {
+            mario.ScorePoints();
         }
     }
 }

@@ -6,17 +6,16 @@ using System.Threading.Tasks;
 
 namespace Gamespace.Commands
 {
-    class MarioJumpAfterEnemyHit : ICommand
+    class UpScore : ICommand
     {
         private IMario mario;
 
-        public MarioJumpAfterEnemyHit(IMario mario, CollisionData collisionData)
+        public UpScore(IMario mario, CollisionData collisionData)
         {
             this.mario = mario;
         }
         public void Execute()
         {
-            mario.Bounce();
             mario.ScorePoints();
         }
     }

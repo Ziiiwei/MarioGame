@@ -15,6 +15,8 @@ namespace Gamespace
         public IMarioPowerUpState PowerUpState { get; set; }
         public IMarioPowerUpState PreviousState { get; set; }
 
+        public int score { get; set; }
+
         public Mario(Vector2 positionOnScreen) : base(positionOnScreen)
         {
             State = new RightStandingMarioState(this);
@@ -93,6 +95,11 @@ namespace Gamespace
         public void Fire()
         {
             State.Fire();
+        }
+
+        public void ScorePoints()
+        {
+            score++;
         }
     }
 }

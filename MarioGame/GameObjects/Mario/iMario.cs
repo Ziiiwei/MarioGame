@@ -12,6 +12,8 @@ namespace Gamespace
         IMarioPowerUpState PreviousState { get; set; }
         IPhysics GameObjectPhysics { get; set; }
 
+        int score { get; set; }
+
         void Bounce();
         void Jump();
         void MoveRight();
@@ -22,6 +24,7 @@ namespace Gamespace
         void Fire();
         void UpdateArt();
         void Die();
+        void ScorePoints();
         void CollideLeft(Rectangle collisionArea);
         void CollideRight(Rectangle collisionArea);
         void CollideUp(Rectangle collisionArea);
