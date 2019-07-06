@@ -26,7 +26,7 @@ namespace Gamespace.Blocks
         public void Destroy()
         {
             Vector2 newBlockPosition = positionOnScreen;
-            World.Instance.RemoveFromWorld(Uid);
+            World.Instance.RemoveFromWorld(this);
             World.Instance.AddGameObject(new UsedBlock(newBlockPosition));
         }
 

@@ -12,5 +12,6 @@ namespace Gamespace.Multiplayer
         IMario GameObject { get; }
         void Update();
         void DrawPlayersScreen();
+        void Release();
     }
 }

@@ -27,7 +27,7 @@ namespace Gamespace.Blocks
         {
             Vector2 newBlockPosition = positionOnScreen;
             Bump();
-            World.Instance.RemoveFromWorld(Uid);
+            World.Instance.RemoveFromWorld(this);
             World.Instance.AddGameObject(new UsedBlock(newBlockPosition));
         }
 

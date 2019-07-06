@@ -22,7 +22,7 @@ namespace Gamespace.Items
 
         public void Consume()
         {
-            World.Instance.RemoveFromWorld(Uid);
+            World.Instance.RemoveFromWorld(this);
         }
 
         public override void Update()

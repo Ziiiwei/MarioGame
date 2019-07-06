@@ -23,13 +23,18 @@ namespace Gamespace
     {
         private static readonly World instance = new World();
         private readonly Dictionary<int, IGameObject> objectsInWorld;
+
         private readonly List<IGameObject> objectsToAdd;
         private readonly List<IPlayer> playersToAdd;
-        private readonly ISet<int> objectsToRemove;
+
+        private ISet<IGameObject> objectsToRemove;
+        private List<IPlayer> playersToRemove;
+
         private readonly List<IGameObject> collisionMovers;
         private readonly List<IGameObject> collisionReceivers;
         private readonly List<Type> collisionMoverClassifier;
         private readonly Dictionary<Type, int> collisionPriorities;
+
         public IMario Mario { get; set; }
         public List<IPlayer> players;
         private readonly CollisionHandler collisionHandler;
@@ -39,7 +44,8 @@ namespace Gamespace
             objectsInWorld = new Dictionary<int, IGameObject>();
             objectsToAdd = new List<IGameObject>();
             playersToAdd = new List<IPlayer>();
-            objectsToRemove = new HashSet<int>();
+            objectsToRemove = new HashSet<IGameObject>();
+            playersToRemove = new List<IPlayer>();
             collisionMovers = new List<IGameObject>();
             collisionReceivers = new List<IGameObject>();
 
@@ -81,12 +87,73 @@ namespace Gamespace
             objectsToAdd.Add(gameObject);
         }
 
-        public void UpdateWorld()
+        public void UpdatePlayers()
         {
             foreach (IPlayer player in playersToAdd)
             {
                 players.Add(player);
             }
+
+            foreach (IPlayer player in playersToRemove)
+            {
+                player.Release();
+                players.Remove(player);
+            }
+
+            playersToAdd.Clear();
+            playersToRemove.Clear();
+
+            foreach (IPlayer player in players)
+            {
+                player.Update();
+            }
+        }
+
+        public void UpdateWorld()
+        {
+            UpdateWaitingItems();
+
+            foreach (IGameObject gameObject in objectsInWorld.Values)
+            {
+                gameObject.Update();
+            }
+
+            var pendingCollisions = GetPendingCollisions();
+
+            List<IGameObject> pendingCollisionsObjectsList = pendingCollisions.Keys.ToList().OrderBy(o => GetCollisionPriority(o)).ToList();
+
+            foreach (IGameObject pendingCollisionKey in pendingCollisionsObjectsList)
+            {
+                pendingCollisions[pendingCollisionKey] = pendingCollisions[pendingCollisionKey].OrderByDescending(collisionArea => collisionArea.Item2).ToList();
+            }
+
+            for (int i = 0; i < pendingCollisionsObjectsList.Count; i++)
+            {
+                List<(IGameObject, int)> pendingTargets = pendingCollisions[pendingCollisionsObjectsList[i]];
+
+                for (int j = 0; j < pendingTargets.Count; j++)
+                {
+                    collisionHandler.HandleCollision(pendingCollisionsObjectsList[i], pendingTargets[j].Item1);
+                }
+            }
+        }
+
+        public void DrawWorld(SpriteBatch spriteBatch)
+        {
+            foreach (IGameObject gameObject in objectsInWorld.Values)
+            {
+                gameObject.Draw(spriteBatch);
+            }
+        }
+
+        public void RemoveFromWorld(IGameObject gameObject)
+        {
+            objectsToRemove.Add(gameObject);
+        }
+
+        private void UpdateWaitingItems()
+        {
+
 
             foreach (IGameObject gameObject in objectsToAdd)
             {
@@ -94,42 +161,29 @@ namespace Gamespace
                 objectsInWorld.Add(gameObject.Uid, gameObject);
             }
 
-            foreach (int i in objectsToRemove)
+            foreach (IGameObject gameObject in objectsToRemove)
             {
-                if (collisionMovers.Contains(objectsInWorld[i]))
+                if (collisionMovers.Contains(objectsInWorld[gameObject.Uid]))
                 {
-                    collisionMovers.Remove(objectsInWorld[i]);
+                    collisionMovers.Remove(objectsInWorld[gameObject.Uid]);
                 }
                 else
                 {
-                    collisionReceivers.Remove(objectsInWorld[i]);
+                    collisionReceivers.Remove(objectsInWorld[gameObject.Uid]);
                 }
-                objectsInWorld.Remove(i);
+                objectsInWorld.Remove(gameObject.Uid);
             }
-
             objectsToAdd.Clear();
             objectsToRemove.Clear();
-            playersToAdd.Clear();
+        }
 
-            /* The instigator is the first object, then target. */
-
-            foreach (IPlayer player in players)
-            {
-                player.Update();
-            }
-
-            foreach (IGameObject gameObject in objectsInWorld.Values)
-            {
-                gameObject.Update();
-            }
-
+        private Dictionary<IGameObject, List<(IGameObject, int)>> GetPendingCollisions()
+        {
             var pendingCollisions = new Dictionary<IGameObject, List<(IGameObject, int)>>();
 
-            //foreach (IGameObject mover in collisionMovers)
             for (int i = 0; i < collisionMovers.Count; i++)
             {
                 IGameObject mover = collisionMovers[i];
-                //foreach (IGameObject otherMover in collisionMovers)
                 for (int j = 0; j < collisionMovers.Count; j++)
                 {
                     IGameObject otherMover = collisionMovers[j];
@@ -158,47 +212,7 @@ namespace Gamespace
                     }
                 }
             }
-
-            List<IGameObject> pendingCollisionsObjectsList = pendingCollisions.Keys.ToList().OrderBy(o => GetCollisionPriority(o)).ToList();
-
-            foreach (IGameObject pendingCollisionKey in pendingCollisionsObjectsList)
-            {
-                pendingCollisions[pendingCollisionKey] = pendingCollisions[pendingCollisionKey].OrderByDescending(ca => ca.Item2).ToList();
-            }
-
-            for (int i = 0; i < pendingCollisionsObjectsList.Count; i++)
-            {
-                List<(IGameObject, int)> pendingTargets = pendingCollisions[pendingCollisionsObjectsList[i]];
-
-                for (int j = 0; j < pendingTargets.Count; j++)
-                {
-                    collisionHandler.HandleCollision(pendingCollisionsObjectsList[i], pendingTargets[j].Item1);
-                }
-            }
-        }
-
-        public void DrawWorld(SpriteBatch spriteBatch)
-        {
-            foreach (IGameObject gameObject in objectsInWorld.Values)
-            {
-                gameObject.Draw(spriteBatch);
-            }
-        }
-
-        public void RemoveFromWorld(int uid)
-        {
-            objectsToRemove.Add(uid);
-        }
-
-        // Thanks Kirby!
-        public void ClearWorld()
-        {
-            objectsInWorld.Clear();
-            objectsToAdd.Clear();
-            objectsToRemove.Clear();
-            collisionMovers.Clear();
-            collisionReceivers.Clear();
-            players.Clear();
+            return pendingCollisions;
         }
 
         private void ClassifyNewObject(IGameObject gameObject)
@@ -261,8 +275,8 @@ namespace Gamespace
             System.Diagnostics.Debug.Assert(objectsInWorld.ContainsKey(oldObject.Uid));
             /*This is mainly to manage decorators*/
             if(objectsInWorld.ContainsKey(newObject.Uid))
-                RemoveFromWorld(newObject.Uid); /*They were In to begin with?*/
-            RemoveFromWorld(oldObject.Uid);
+                RemoveFromWorld(newObject); /*They were In to begin with?*/
+            RemoveFromWorld(oldObject);
             AddGameObject(newObject);
         }
 
@@ -278,6 +292,17 @@ namespace Gamespace
             {
                 player.DrawPlayersScreen();
             }
+        }
+
+        public void ClearWorld()
+        {
+            objectsToAdd.Clear();
+            playersToAdd.Clear();
+            objectsToRemove = objectsInWorld.Values.ToHashSet();
+            playersToRemove = new List<IPlayer>(players);
+            collisionMovers.Clear();
+            collisionReceivers.Clear();
+            
         }
     }
 }

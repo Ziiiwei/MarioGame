@@ -61,7 +61,7 @@ namespace Gamespace.Projectiles
         public void Remove()
         {
             Sprite = SpriteFactory.Instance.GetSprite("Fireball_out", "", "");
-            World.Instance.RemoveFromWorld(Uid);
+            World.Instance.RemoveFromWorld(this);
         }
 
         public override void CollideLeft(Rectangle collisionArea)

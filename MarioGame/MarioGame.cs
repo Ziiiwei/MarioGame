@@ -27,6 +27,8 @@ namespace Gamespace
         private GraphicsDeviceManager graphics;
         private List<IController> controllers;
 
+        public int PlayerCount { get; private set; }
+
         // Make LevelLoader a singleton.
         private LevelLoader levelLoader;
 
@@ -66,6 +68,8 @@ namespace Gamespace
         {
             base.Initialize();
 
+            PlayerCount = 2;
+
             IPlayer player1 = new Player(new Mario(new Vector2(200, 200)),
                 new MultiplayerCamera(0), new SpriteBatch(GraphicsDevice));
             World.Instance.AddPlayer(player1);
@@ -88,9 +92,9 @@ namespace Gamespace
             spriteBatch = new SpriteBatch(GraphicsDevice);
             font = Content.Load<SpriteFont>("Arial");
             */
-            song = Content.Load<Song>("Super Mario Bros");
-            MediaPlayer.Play(song);
-            MediaPlayer.Volume = 0.1f;
+            //song = Content.Load<Song>("Super Mario Bros");
+            //MediaPlayer.Play(song);
+            //MediaPlayer.Volume = 0.1f;
         }
 
         /// <summary>
@@ -109,6 +113,7 @@ namespace Gamespace
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
+            World.Instance.UpdatePlayers();
             World.Instance.UpdateWorld();
             base.Update(gameTime);
             time = gameTime;
@@ -139,7 +144,15 @@ namespace Gamespace
         {
             World.Instance.ClearWorld();
 
-            Initialize();
+            IPlayer player1 = new Player(new Mario(new Vector2(200, 200)),
+                new MultiplayerCamera(0), new SpriteBatch(GraphicsDevice));
+            World.Instance.AddPlayer(player1);
+
+            IPlayer player2 = new Player(new Mario(new Vector2(300, 200)),
+                new MultiplayerCamera(1), new SpriteBatch(GraphicsDevice));
+            World.Instance.AddPlayer(player2);
+
+            levelLoader = new LevelLoader(World.Instance);
 
 
         }

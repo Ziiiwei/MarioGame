@@ -40,7 +40,7 @@ namespace Gamespace.Blocks
 
         public void Destroy()
         {
-            World.Instance.RemoveFromWorld(this.Uid);
+            World.Instance.RemoveFromWorld(this);
         }
 
         public override void Update()

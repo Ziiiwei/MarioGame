@@ -40,7 +40,7 @@ namespace Gamespace.Goombas
             {
                 if (stompTimer == stompTimerBound)
                 {
-                    World.Instance.RemoveFromWorld(Uid);
+                    World.Instance.RemoveFromWorld(this);
                     return;
                 }
                 else

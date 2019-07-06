@@ -11,17 +11,20 @@ namespace Gamespace.Multiplayer
 {
     internal class Player : IPlayer
     {
-        public IMario GameObject { get; }
+        public IMario GameObject { get; private set; }
         public IController Controller { get; }
-        public ICamera Cam { get; }
+        public ICamera Cam { get; private set; }
         public SpriteBatch Screen { get; }
         private static int playerCounter = 0;
-        public int PlayerID { get; }
+        private int playerID;
+        public int PlayerID { get => playerID % MarioGame.Instance.PlayerCount; }
+        private Vector2 resetPoint;
 
         public Player(IMario gameObject, ICamera cam, SpriteBatch screen)
         {
             GameObject = gameObject;
-            PlayerID = playerCounter;
+            resetPoint = gameObject.PositionOnScreen;
+            playerID = playerCounter;
             playerCounter++;
             Cam = cam;
             Controller = new KeyboardController(this);
@@ -40,6 +43,11 @@ namespace Gamespace.Multiplayer
             World.Instance.DrawWorld(Screen);
             //spriteBatch.DrawString(font, "FPS " + frameRate, new Vector2(0, 0), Color.Red);
             Screen.End();
+        }
+
+        public void Release()
+        {
+            Screen.Dispose();
         }
     }
 }
