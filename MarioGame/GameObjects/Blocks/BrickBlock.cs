@@ -40,6 +40,7 @@ namespace Gamespace.Blocks
 
         public void Destroy()
         {
+            SoundFactory.Instance.PlaySoundEffect("BreakBlock");
             World.Instance.RemoveFromWorld(this.Uid);
         }
 

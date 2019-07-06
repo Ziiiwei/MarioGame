@@ -16,6 +16,7 @@ namespace Gamespace.Commands
         }
         public void Execute()
         {
+            SoundFactory.Instance.PlaySoundEffect("SmallMarioJump");
             mario.Jump();
         }
     }

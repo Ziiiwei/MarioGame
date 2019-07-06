@@ -79,6 +79,10 @@
     {
       "SoundName": "SuperMarioJump",
       "SoundPath": "Sounds/superjump"
+    },
+    {
+      "SoundName": "BGM",
+      "SoundPath": "Sounds/Super Mario Bros"
     }
   ]
 }

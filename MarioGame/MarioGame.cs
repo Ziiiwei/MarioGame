@@ -39,6 +39,7 @@ namespace Gamespace
         private MarioGame()
         {
             graphics = new GraphicsDeviceManager(this);
+
             graphics.PreferredBackBufferWidth = WINDOW_WIDTH;  // set this value to the desired width of your window
             graphics.PreferredBackBufferHeight = WINDOW_HEIGHT;   // set this value to the desired height of your window
             graphics.ApplyChanges();
@@ -79,9 +80,7 @@ namespace Gamespace
         {   
             spriteBatch = new SpriteBatch(GraphicsDevice);
             font = Content.Load<SpriteFont>("Arial");
-            //song = Content.Load<Song>("Super Mario Bros");
-            //MediaPlayer.Play(song);
-            //MediaPlayer.Volume = 0.1f;
+            SoundFactory.Instance.PlayBGM();
         }
 
         /// <summary>

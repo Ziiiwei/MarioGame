@@ -8,15 +8,16 @@ using System.Web.Script.Serialization;
 using Microsoft.Xna.Framework.Media;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
-using Gamespace.Sounds;
 
 namespace Gamespace
 {
     internal class SoundFactory
     {
         private static readonly SoundFactory instance = new SoundFactory();
-        private Dictionary<String, SoundEffect> soundAssignments;
+        private Dictionary<String, SoundEffectInstance> soundAssignments;
         private SoundEffect soundEffect;
+        private SoundEffectInstance soundEffectInstance;
+        private Song BGM;
 
         static SoundFactory()
         {
@@ -29,15 +30,23 @@ namespace Gamespace
             var magicNumbers = javaScriptSerializer.Deserialize<SoundDataRoot>(reader.ReadToEnd());
             reader.Close();
 
-            soundAssignments = new Dictionary<String, SoundEffect>();
+            soundAssignments = new Dictionary<String, SoundEffectInstance>();
 
             foreach (SoundData entry in magicNumbers.Entries)
             {
                 String key = entry.SoundName;
-                soundEffect = MarioGame.Instance.Content.Load<SoundEffect>(entry.SoundPath);
-                if (!soundAssignments.ContainsKey(key))
+                if (key == "BGM")
                 {
-                    soundAssignments.Add(key, soundEffect);
+                    BGM = MarioGame.Instance.Content.Load<Song>(entry.SoundPath);
+                }
+                else 
+                {
+                    soundEffect = MarioGame.Instance.Content.Load<SoundEffect>(entry.SoundPath);
+                    soundEffectInstance = soundEffect.CreateInstance();
+                    if (!soundAssignments.ContainsKey(key))
+                    {
+                        soundAssignments.Add(key, soundEffectInstance);
+                    }
                 }
 
             }
@@ -60,6 +69,14 @@ namespace Gamespace
         {
             String key = name;
             soundAssignments[name].Play();
+        }
+        public void PlayBGM()
+        {
+            MediaPlayer.Play(BGM);
+        }
+        public void StopBGM()
+        {
+            MediaPlayer.Stop();
         }
     }
 }
