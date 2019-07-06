@@ -19,6 +19,7 @@ namespace Gamespace.Items
         {
             State = new ShroomMovingUpState(this);
             SetSprite();
+            SoundFactory.Instance.PlaySoundEffect("PowerUpAppears");
         }
 
         public void ChangeDirection()

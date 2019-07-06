@@ -73,6 +73,7 @@ namespace Gamespace
         public void PlayBGM()
         {
             MediaPlayer.Play(BGM);
+            MediaPlayer.Volume = 0.4f;
         }
         public void StopBGM()
         {

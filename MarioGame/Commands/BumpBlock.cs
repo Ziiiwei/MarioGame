@@ -17,6 +17,8 @@ namespace Gamespace.Commands
         public void Execute()
         {
             block.Bump();
+
+            SoundFactory.Instance.PlaySoundEffect("BumpBlock");
         }
     }
 }
