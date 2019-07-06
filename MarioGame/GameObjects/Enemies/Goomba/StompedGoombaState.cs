@@ -15,6 +15,7 @@ namespace Gamespace.Goombas
         {
             this.goomba = goomba;
             this.goomba.GameObjectPhysics.Stop(Side.Left);
+            World.Instance.MaskCollision(goomba);
             goomba.UpdateArt();
         }
 
