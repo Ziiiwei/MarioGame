@@ -11,7 +11,7 @@ using System.Timers;
 
 namespace Gamespace
 {
-    internal class Mario : AbstractGameStatefulObject<IMarioState>, IMario, IFireable
+    internal class Mario : AbstractGameStatefulObject<IMarioState>, IMario
     {
         public IMarioPowerUpState PowerUpState { get; set; }
         public IMarioPowerUpState PreviousState { get; set; }

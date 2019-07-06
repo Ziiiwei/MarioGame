@@ -19,6 +19,7 @@ namespace Gamespace
     {
         private static readonly SpriteFactory instance = new SpriteFactory();
         private Dictionary<Tuple<String, String, String>, SpriteData> spriteAssignments;
+        private Texture2D missingTexture = MarioGame.Instance.Content.Load<Texture2D>("missing");
 
         static SpriteFactory()
         {
@@ -64,7 +65,11 @@ namespace Gamespace
         public ISprite GetSprite(String gameObjectName, String state, String powerUpState)
         {
             var key = new Tuple<String, String, String>(gameObjectName, state, powerUpState);
-            return new Sprite(spriteAssignments[key].Texture, spriteAssignments[key].FrameCount, spriteAssignments[key].FrameDelay);
+            if (spriteAssignments.ContainsKey(key))
+            {
+                return new Sprite(spriteAssignments[key].Texture, spriteAssignments[key].FrameCount, spriteAssignments[key].FrameDelay);
+            }
+            return new Sprite(missingTexture, 1, 1);
         }
 
     }

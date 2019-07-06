@@ -18,7 +18,7 @@ namespace Gamespace.Projectiles
         public void ChangeDirection()
         {
             projectile.State = new LeftMovingProjectile(projectile);
-            projectile.MoveLeft();
+            projectile.Move(Side.Left);
         }
     }
 }

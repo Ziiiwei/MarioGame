@@ -30,5 +30,10 @@ namespace Gamespace.States
             mario.State = new RightStandingMarioState(mario);
             mario.UpdateArt();
         }
+
+        public override void Fire()
+        {
+            mario.Projectiles.Fire(Side.Right);
+        }
     }
 }

@@ -37,5 +37,10 @@ namespace Gamespace.States
             mario.State = new LeftWalkingMarioState(mario);
             mario.UpdateArt();
         }
+
+        public override void Fire()
+        {
+            mario.Projectiles.Fire(Side.Left);
+        }
     }
 }

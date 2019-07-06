@@ -8,6 +8,6 @@ namespace Gamespace.Projectiles
 {
     public interface IFireable
     {
-        void Fire();
+        void Fire(Side side);
     }
 }

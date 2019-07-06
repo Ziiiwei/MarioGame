@@ -40,5 +40,10 @@ namespace Gamespace.States
                 mario.UpdateArt();
             }
         }
+
+        public override void Fire()
+        {
+            mario.Projectiles.Fire(Side.Right);
+        }
     }
 }

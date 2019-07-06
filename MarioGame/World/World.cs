@@ -25,7 +25,7 @@ namespace Gamespace
         private readonly Dictionary<int, IGameObject> objectsInWorld;
         private readonly List<IGameObject> objectsToAdd;
         private readonly List<IPlayer> playersToAdd;
-        private readonly List<int> objectsToRemove;
+        private readonly ISet<int> objectsToRemove;
         private readonly List<IGameObject> collisionMovers;
         private readonly List<IGameObject> collisionReceivers;
         private readonly List<Type> collisionMoverClassifier;
@@ -39,7 +39,7 @@ namespace Gamespace
             objectsInWorld = new Dictionary<int, IGameObject>();
             objectsToAdd = new List<IGameObject>();
             playersToAdd = new List<IPlayer>();
-            objectsToRemove = new List<int>();
+            objectsToRemove = new HashSet<int>();
             collisionMovers = new List<IGameObject>();
             collisionReceivers = new List<IGameObject>();
 

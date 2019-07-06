@@ -11,8 +11,7 @@ namespace Gamespace
     {
         IProjectileState State { get; set; }
         void ChangeDirection();
-        void MoveLeft();
-        void MoveRight();
+        void Move(Side side);
         void Remove();
     }
 }

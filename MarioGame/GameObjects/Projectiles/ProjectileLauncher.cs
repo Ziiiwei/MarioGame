@@ -24,18 +24,15 @@ namespace Gamespace.Projectiles
             projectileClassification = typeof(Fireball);
         }
 
-        public void Fire()
+        public void Fire(Side side)
         {
             if (delayCounter % delayBound == 0)
             {
-                if (true)
-                {
-                    Vector2 fireballPosition = new Vector2(gameObject.PositionOnScreen.X + gameObject.Sprite.Width,
-                        gameObject.PositionOnScreen.Y + gameObject.Sprite.Height / 2);
-                    IProjectile projectile = (IProjectile)Activator.CreateInstance(projectileClassification, fireballPosition, Side.Right);
-                    World.Instance.AddGameObject(projectile);
-                    projectile.MoveRight();
-                }
+                Vector2 fireballPosition = new Vector2(gameObject.PositionOnScreen.X + gameObject.Sprite.Width,
+                    gameObject.PositionOnScreen.Y + gameObject.Sprite.Height / 2);
+                IProjectile projectile = (IProjectile)Activator.CreateInstance(projectileClassification, fireballPosition, side);
+                World.Instance.AddGameObject(projectile);
+                projectile.Move(side);
             }
             delayCounter++;
         }

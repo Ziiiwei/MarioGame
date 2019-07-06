@@ -21,7 +21,7 @@ namespace Gamespace.States
 
         public void Fire(IMario mario)
         {
-            mario.Projectiles.Fire();
+            mario.State.Fire();
         }
     }
 }

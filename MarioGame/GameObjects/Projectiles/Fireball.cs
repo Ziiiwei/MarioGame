@@ -11,6 +11,8 @@ namespace Gamespace.Projectiles
     internal class Fireball : AbstractGameStatefulObject<IProjectileState>, IProjectile
     {
         private static readonly Dictionary<Side, Type> initialOrientation;
+        private int bounceCounter = 0;
+        private int bounceBound = 10;
 
         static Fireball()
         {
@@ -32,14 +34,9 @@ namespace Gamespace.Projectiles
             State.ChangeDirection();
         }
 
-        public void MoveLeft()
+        public void Move(Side side)
         {
-            GameObjectPhysics.MoveMaxSpeed(Side.Left);
-        }
-
-        public void MoveRight()
-        {
-            GameObjectPhysics.MoveMaxSpeed(Side.Right);
+            GameObjectPhysics.MoveMaxSpeed(side);
         }
 
         protected override void SetSprite()
@@ -49,14 +46,21 @@ namespace Gamespace.Projectiles
 
         public override void Update()
         {
-            base.Update();
-            GameObjectPhysics.Update();
-            positionOnScreen = GameObjectPhysics.GetPosition();
+            if (bounceCounter < bounceBound)
+            {
+                base.Update();
+                GameObjectPhysics.Update();
+                positionOnScreen = GameObjectPhysics.GetPosition();
+            }
+            else
+            {
+                Remove();
+            }
         }
 
         public void Remove()
         {
-            // NEW SPRITE FOR REMOVAL
+            Sprite = SpriteFactory.Instance.GetSprite("Fireball_out", "", "");
             World.Instance.RemoveFromWorld(Uid);
         }
 
@@ -64,18 +68,28 @@ namespace Gamespace.Projectiles
         {
             base.CollideLeft(collisionArea);
             State.ChangeDirection();
+            bounceCounter++;
         }
 
         public override void CollideRight(Rectangle collisionArea)
         {
             base.CollideRight(collisionArea);
             State.ChangeDirection();
+            bounceCounter++;
         }
 
         public override void CollideDown(Rectangle collisionArea)
         {
             base.CollideDown(collisionArea);
             GameObjectPhysics.MoveMaxSpeed(Side.Up);
+            bounceCounter++;
+        }
+
+        public override void CollideUp(Rectangle collisionArea)
+        {
+            base.CollideDown(collisionArea);
+            GameObjectPhysics.MoveMaxSpeed(Side.Down);
+            bounceCounter++;
         }
     }
 }
