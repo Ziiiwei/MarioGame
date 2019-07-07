@@ -854,6 +854,12 @@
 /processorParam:Quality=Best
 /build:Sounds/outoftime.wav
 
+#begin Sounds/outoftimesong.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sounds/outoftimesong.wav
+
 #begin Sounds/pause.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor

@@ -49,6 +49,10 @@
       "SoundPath": "Sounds/outoftime"
     },
     {
+      "SoundName": "OutOfTimeSong",
+      "SoundPath": "Sounds/outoftimesong"
+    },
+    {
       "SoundName": "Pause",
       "SoundPath": "Sounds/pause"
     },
