@@ -24,7 +24,7 @@ namespace Gamespace
 
         private Song song;
 
-        private GraphicsDeviceManager graphics;
+        public GraphicsDeviceManager graphics { get; }
         private List<IController> controllers;
 
         public int PlayerCount { get; private set; }
@@ -33,7 +33,7 @@ namespace Gamespace
         private LevelLoader levelLoader;
 
         private float frameRate = 0; //help the animation and detaction rate
-        private SpriteFont font; //used to print the framerate
+        public SpriteFont Font { get; private set; }
 
         static MarioGame()
         {
@@ -88,10 +88,9 @@ namespace Gamespace
         /// </summary>
         protected override void LoadContent()
         {
-            /*
-            spriteBatch = new SpriteBatch(GraphicsDevice);
-            font = Content.Load<SpriteFont>("Arial");
-            */
+           
+            Font = Content.Load<SpriteFont>("Arial");
+            
             //song = Content.Load<Song>("Super Mario Bros");
             //MediaPlayer.Play(song);
             //MediaPlayer.Volume = 0.1f;

@@ -1,4 +1,5 @@
 ﻿using Gamespace.Controllers;
+using Gamespace.Views;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
@@ -14,11 +15,15 @@ namespace Gamespace.Multiplayer
         public IMario GameObject { get; private set; }
         public IController Controller { get; }
         public ICamera Cam { get; private set; }
+        private IView view;
         public SpriteBatch Screen { get; }
         private static int playerCounter = 0;
         private int playerID;
         public int PlayerID { get => playerID % MarioGame.Instance.PlayerCount; }
         private Vector2 resetPoint;
+        public int Lives { get; set; }
+        private DiscreteTimer viewTimer;
+        private bool timerIsArmed = false;
 
         public Player(IMario gameObject, ICamera cam, SpriteBatch screen)
         {
@@ -26,21 +31,30 @@ namespace Gamespace.Multiplayer
             resetPoint = gameObject.PositionOnScreen;
             playerID = playerCounter;
             playerCounter++;
+            Lives = 3;
+            ShowLives();
+
             Cam = cam;
             Controller = new KeyboardController(this);
             Screen = screen;
+            
         }
 
         public void Update()
         {
             Controller.Update();
             Cam.Update(GameObject.PositionOnScreen);
+
+            if (timerIsArmed)
+            {
+                viewTimer.Tick();
+            }
         }
 
         public void DrawPlayersScreen()
         {
             Screen.Begin(SpriteSortMode.BackToFront, transformMatrix: Cam.Transform * Matrix.CreateScale(1), samplerState: SamplerState.PointClamp);
-            World.Instance.DrawWorld(Screen);
+            view.Draw(Screen);
             //spriteBatch.DrawString(font, "FPS " + frameRate, new Vector2(0, 0), Color.Red);
             Screen.End();
         }
@@ -48,6 +62,18 @@ namespace Gamespace.Multiplayer
         public void Release()
         {
             Screen.Dispose();
+        }
+
+        public void ShowLives()
+        {
+            timerIsArmed = true;
+            view = new LivesView(Lives);
+
+            viewTimer = new DiscreteTimer(100, new Action(() =>
+            {
+                view = new PlayableView();
+                timerIsArmed = false;
+            }));
         }
     }
 }
