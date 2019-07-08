@@ -25,9 +25,9 @@ namespace Gamespace.Items
             World.Instance.RemoveFromWorld(this);
         }
 
-        public override void Update()
+        protected override void SurrogateUpdate()
         {
-            base.Update();
+            base.SurrogateUpdate();
 
             if (bumpCounter < bumpOffsets.Count())
             {

@@ -39,7 +39,7 @@ namespace Gamespace.Koopas
             State.TakeDamage();
         }
 
-        public override void Update()
+        protected override void SurrogateUpdate()
         {
             Sprite.Update();
 

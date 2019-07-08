@@ -24,6 +24,7 @@ namespace Gamespace.Controllers
         private KeyAssignmentFactory()
         {
             playerOneBinds = new Dictionary<Keys, Type>();
+            playerOneBinds.Add(Keys.P, typeof(PauseGameCommand));
             playerOneBinds.Add(Keys.Q, typeof(QuitGame));
             playerOneBinds.Add(Keys.W, typeof(MarioJumpCommand));
             playerOneBinds.Add(Keys.S, typeof(MarioCrouchCommand));
@@ -33,6 +34,7 @@ namespace Gamespace.Controllers
             playerOneBinds.Add(Keys.R, typeof(Reset));
 
             playerTwoBinds = new Dictionary<Keys, Type>();
+            playerTwoBinds.Add(Keys.P, typeof(PauseGameCommand));
             playerTwoBinds.Add(Keys.Q, typeof(QuitGame));
             playerTwoBinds.Add(Keys.Up, typeof(MarioJumpCommand));
             playerTwoBinds.Add(Keys.Down, typeof(MarioCrouchCommand));

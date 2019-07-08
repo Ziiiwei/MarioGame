@@ -16,7 +16,8 @@ namespace Gamespace
         Vector2 PositionOnScreen { get; }
         Rectangle GetCollisionBoundary();
         Vector2 GetCenter();
-        
+        bool IsPaused { get; set; }
+
     }
 }
  

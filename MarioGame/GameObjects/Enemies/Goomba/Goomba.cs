@@ -34,7 +34,7 @@ namespace Gamespace.Goombas
             UpdateArt();
         }
 
-        public override void Update()
+        protected override void SurrogateUpdate()
         {
             if (State.GetType() == typeof(StompedGoombaState))
             {

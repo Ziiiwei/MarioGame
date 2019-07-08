@@ -43,9 +43,9 @@ namespace Gamespace.Blocks
             World.Instance.RemoveFromWorld(this);
         }
 
-        public override void Update()
+        protected override void SurrogateUpdate()
         {
-            base.Update();
+            base.SurrogateUpdate();
             GameObjectPhysics.Update();
             positionOnScreen = GameObjectPhysics.GetPosition();
         }

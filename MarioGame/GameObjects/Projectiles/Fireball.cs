@@ -44,11 +44,11 @@ namespace Gamespace.Projectiles
             Sprite =  SpriteFactory.Instance.GetSprite(this.GetType().Name, "", "");
         }
 
-        public override void Update()
+        protected override void SurrogateUpdate()
         {
             if (bounceCounter < bounceBound)
             {
-                base.Update();
+                base.SurrogateUpdate();
                 GameObjectPhysics.Update();
                 positionOnScreen = GameObjectPhysics.GetPosition();
             }

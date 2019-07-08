@@ -18,6 +18,18 @@ namespace Gamespace
         protected Vector2 positionOnScreen;
         public Vector2 PositionOnScreen  => positionOnScreen;
         public IPhysics GameObjectPhysics { get; set; }
+        private static Dictionary<bool, Action<AbstractGameObject>> updateFunctionPointer;
+        public bool IsPaused { get; set; }
+
+        static AbstractGameObject()
+        {
+            updateFunctionPointer = new Dictionary<bool, Action<AbstractGameObject>>()
+            {
+                {false, new Action<AbstractGameObject>((gameObject) => gameObject.SurrogateUpdate()) },
+                {true, new Action<AbstractGameObject>((gameObject) => { }) }
+            };
+        }
+
         public AbstractGameObject()
         {
             Uid = counter;
@@ -32,13 +44,19 @@ namespace Gamespace
             counter++;
             //GameObjectPhysics = new Physics(this, positionOnScreen); 
             GameObjectPhysics = PhysicsFactory.Instance.GetPhysics(this, positionOnScreen);
+            IsPaused = false;
         }
         public virtual void Draw(SpriteBatch spriteBatch)
         {
             Sprite.Draw(spriteBatch, PositionOnScreen);
         }
 
-        public virtual void Update()
+        public void Update()
+        {
+            updateFunctionPointer[IsPaused].Invoke(this);
+        }
+
+        protected virtual void SurrogateUpdate()
         {
             Sprite.Update();
         }

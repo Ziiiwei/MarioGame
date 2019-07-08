@@ -10,10 +10,6 @@ namespace Gamespace
         {
         }
 
-        public override void Update()
-        {
-        }
-
         public override Rectangle GetCollisionBoundary()
         {
             return new Rectangle(0, 0, 0, 0);

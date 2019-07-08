@@ -35,6 +35,8 @@ namespace Gamespace
         private readonly List<Type> collisionMoverClassifier;
         private readonly Dictionary<Type, int> collisionPriorities;
 
+        private bool worldIsPaused = false;
+
         public IMario Mario { get; set; }
         public List<IPlayer> players;
         private readonly CollisionHandler collisionHandler;
@@ -302,7 +304,16 @@ namespace Gamespace
             playersToRemove = new List<IPlayer>(players);
             collisionMovers.Clear();
             collisionReceivers.Clear();
-            
+        }
+
+        public void PauseAllObjects()
+        {
+            worldIsPaused = !worldIsPaused;
+
+            foreach (IGameObject gameObject in objectsInWorld.Values)
+            {
+                gameObject.IsPaused = worldIsPaused;
+            }
         }
     }
 }

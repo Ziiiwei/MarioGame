@@ -31,9 +31,9 @@ namespace Gamespace.Items
             World.Instance.RemoveFromWorld(this);
         }
 
-        public override void Update()
+        protected override void SurrogateUpdate()
         {
-            base.Update();
+            base.SurrogateUpdate();
             if (State.GetType() == typeof(ShroomMovingUpState))
             {
                 positionOnScreen.Y -= bumpOffsets[bumpCounter];

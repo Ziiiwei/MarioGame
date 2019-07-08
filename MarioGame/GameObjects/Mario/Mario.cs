@@ -26,16 +26,16 @@ namespace Gamespace
             Projectiles = new ProjectileLauncher(this);
         }
 
-        public override void Update()
+        protected override void SurrogateUpdate()
         {
-            base.Update();
-
+            base.SurrogateUpdate();
             GameObjectPhysics.Update();
             GameObjectPhysics.FrictionStop(Side.Right);
             State.FrictionStop();
 
-            positionOnScreen = GameObjectPhysics.GetPosition();  
+            positionOnScreen = GameObjectPhysics.GetPosition();
         }
+
         public void Crouch()
         {
             State.Crouch();    
