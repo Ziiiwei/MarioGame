@@ -1,6 +1,7 @@
 ﻿using Gamespace.Sprites;
 using Gamespace.States;
 using Microsoft.Xna.Framework;
+using System.Timers;
 
 namespace Gamespace
 {
@@ -11,6 +12,8 @@ namespace Gamespace
         IMarioPowerUpState PowerUpState { get; set; }
         IMarioPowerUpState PreviousState { get; set; }
         IPhysics GameObjectPhysics { get; set; }
+        Timer timer { get;  }
+        Scoreboard scoreboard { get; }
 
         int score { get; set; }
 
@@ -24,7 +27,6 @@ namespace Gamespace
         void Fire();
         void UpdateArt();
         void Die();
-        void ScorePoints();
         void CollideLeft(Rectangle collisionArea);
         void CollideRight(Rectangle collisionArea);
         void CollideUp(Rectangle collisionArea);

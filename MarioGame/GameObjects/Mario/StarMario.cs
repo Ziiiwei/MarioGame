@@ -7,6 +7,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
 using Gamespace.Sprites;
 using Gamespace.States;
+using System.Timers;
 
 namespace Gamespace
 {
@@ -21,15 +22,18 @@ namespace Gamespace
         public IMarioPowerUpState PreviousState { get; set; }
 
         public int score { get; set; }
+
+        public Timer timer { get; }
+        public Scoreboard scoreboard { get; }
         internal IPhysics Physics { get; set; }
 
-
+        int Timer = 1000;
         private IMario mario;
-        int timer = 1000;
 
         public StarMario(IMario mario, Vector2 positionOnScreen) : base(positionOnScreen)
         {
             this.mario = mario;
+            timer = new Timer(1000);
         }
         
         public new void Draw(SpriteBatch spriteBatch)
@@ -40,8 +44,8 @@ namespace Gamespace
 
         public new void Update()
         {
-            timer--;
-            if (timer == 0)
+            Timer--;
+            if (Timer == 0)
             {
                 this.mario.PowerUpState = this.PreviousState;
                 this.mario.UpdateArt();
@@ -129,9 +133,5 @@ namespace Gamespace
             throw new NotImplementedException();
         }
 
-        public void ScorePoints()
-        {
-            mario.ScorePoints();
-        }
     }
 }

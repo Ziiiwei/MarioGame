@@ -4,19 +4,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Gamespace.Commands
+namespace Gamespace
 {
-    class UpScore : ICommand
+    public class Scoreboard
     {
         private IMario mario;
-
-        public UpScore(IMario mario, CollisionData collisionData)
+        public Scoreboard(IMario mario)
         {
             this.mario = mario;
         }
-        public void Execute()
+
+        public void UpScore(int points)
         {
-            mario.ScorePoints();
+            mario.score += points;
         }
     }
 }

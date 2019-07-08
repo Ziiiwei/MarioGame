@@ -200,28 +200,28 @@
       "Mover": "Gamespace.Mario",
       "Target": "Gamespace.Items.Coin",
       "Side": "Up",
-      "Command1": "Gamespace.Commands.UpScore",
+      "Command1": "Gamespace.Commands.NullCommand",
       "Command2": "Gamespace.Commands.ConsumeItem"
     },
     {
       "Mover": "Gamespace.Mario",
       "Target": "Gamespace.Items.Coin",
       "Side": "Down",
-      "Command1": "Gamespace.Commands.UpScore",
+      "Command1": "Gamespace.Commands.NullCommand",
       "Command2": "Gamespace.Commands.ConsumeItem"
     },
     {
       "Mover": "Gamespace.Mario",
       "Target": "Gamespace.Items.Coin",
       "Side": "Left",
-      "Command1": "Gamespace.Commands.UpScore",
+      "Command1": "Gamespace.Commands.NullCommand",
       "Command2": "Gamespace.Commands.ConsumeItem"
     },
     {
       "Mover": "Gamespace.Mario",
       "Target": "Gamespace.Items.Coin",
       "Side": "Right",
-      "Command1": "Gamespace.Commands.UpScore",
+      "Command1": "Gamespace.Commands.NullCommand",
       "Command2": "Gamespace.Commands.ConsumeItem"
     },
     {
@@ -235,21 +235,21 @@
       "Mover": "Gamespace.StarMario",
       "Target": "Gamespace.Koopas.Koopa",
       "Side": "Up",
-      "Command1": "Gamespace.Commands.UpScore",
+      "Command1": "Gamespace.Commands.NullCommand",
       "Command2": "Gamespace.Commands.MarioHitsEnemy"
     },
     {
       "Mover": "Gamespace.StarMario",
       "Target": "Gamespace.Koopas.Koopa",
       "Side": "Left",
-      "Command1": "Gamespace.Commands.UpScore",
+      "Command1": "Gamespace.Commands.NullCommand",
       "Command2": "Gamespace.Commands.MarioHitsEnemy"
     },
     {
       "Mover": "Gamespace.StarMario",
       "Target": "Gamespace.Koopas.Koopa",
       "Side": "Right",
-      "Command1": "Gamespace.Commands.UpScore",
+      "Command1": "Gamespace.Commands.NullCommand",
       "Command2": "Gamespace.Commands.MarioHitsEnemy"
     },
     {
@@ -263,21 +263,21 @@
       "Mover": "Gamespace.StarMario",
       "Target": "Gamespace.Goombas.Goomba",
       "Side": "Up",
-      "Command1": "Gamespace.Commands.UpScore",
+      "Command1": "Gamespace.Commands.NullCommand",
       "Command2": "Gamespace.Commands.MarioHitsEnemy"
     },
     {
       "Mover": "Gamespace.StarMario",
       "Target": "Gamespace.Goombas.Goomba",
       "Side": "Left",
-      "Command1": "Gamespace.Commands.UpScore",
+      "Command1": "Gamespace.Commands.NullCommand",
       "Command2": "Gamespace.Commands.MarioHitsEnemy"
     },
     {
       "Mover": "Gamespace.StarMario",
       "Target": "Gamespace.Goombas.Goomba",
       "Side": "Right",
-      "Command1": "Gamespace.Commands.UpScore",
+      "Command1": "Gamespace.Commands.NullCommand",
       "Command2": "Gamespace.Commands.MarioHitsEnemy"
     }
   ]

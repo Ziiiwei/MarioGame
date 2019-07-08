@@ -9,7 +9,7 @@ namespace Gamespace.Blocks
 {
     internal class QuestionBlock : AbstractGameStatefulObject<IBlockBumpState>, IBumpable, IDestroyable
     {
-        private Type bumpReward;
+        public Type bumpReward { get; private set; }
 
         public QuestionBlock(Vector2 positionOnScreen, Type bumpReward) : base(positionOnScreen)
         {

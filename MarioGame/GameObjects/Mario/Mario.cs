@@ -17,17 +17,23 @@ namespace Gamespace
 
         public int score { get; set; }
 
+        public Timer timer { get; }
+
+        public Scoreboard scoreboard { get; }
+
         public Mario(Vector2 positionOnScreen) : base(positionOnScreen)
         {
             State = new RightStandingMarioState(this);
             PowerUpState = new MarioSmallState();
+            scoreboard = new Scoreboard(this);
+            timer = new Timer(400000);
+            timer.Start();
             SetSprite();
         }
 
         public override void Update()
         {
             base.Update();
-
             GameObjectPhysics.Update();
             GameObjectPhysics.FrictionStop(Side.Right);
             State.FrictionStop();
@@ -63,6 +69,7 @@ namespace Gamespace
         public void PowerUp()
         {
             PowerUpState.PowerUp(this);
+            scoreboard.UpScore(ScoreConstants.ITEM_SCORE);
         }
 
         public void UpdateArt()
@@ -78,6 +85,7 @@ namespace Gamespace
         public void Bounce()
         {
             GameObjectPhysics.MoveMaxSpeed(Side.Up);
+            scoreboard.UpScore(ScoreConstants.ENEMY_SCORE);
         }
 
         public void Die()
@@ -95,11 +103,6 @@ namespace Gamespace
         public void Fire()
         {
             State.Fire();
-        }
-
-        public void ScorePoints()
-        {
-            score++;
         }
     }
 }

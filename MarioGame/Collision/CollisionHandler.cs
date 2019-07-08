@@ -18,6 +18,8 @@ using Gamespace.Hills;
 namespace Gamespace
 {
     public enum Side : int { None, Up, Down, Left, Right };
+    //perhaps temporary, just to test collisions and stuff.
+    public delegate void actions();
     class CollisionHandler
     {
         /* Side is relative to the second IGameObject in the tuple */
@@ -102,10 +104,24 @@ namespace Gamespace
         {
             Type object1Type = actions[key].Item1;
             Type object2Type = actions[key].Item2;
-
+            
             ICommand collisionMember1 = (ICommand)Activator.CreateInstance(object1Type, mover, new CollisionData(collisionArea));
             ICommand collisionMember2 = (ICommand)Activator.CreateInstance(object2Type, target, new CollisionData(collisionArea));
 
+            // this delegate may change to a call to some scoreFactory (using mover and target).
+            if (target.GetType().Equals(typeof(QuestionBlock)) || target.GetType().Equals(typeof(BrickBlock)))
+            {
+                if(mover.GetType().Equals(typeof(Mario)))
+                {
+                    ScoreFactory factory = new ScoreFactory((IBumpable)target);
+                    ((IMario)mover).scoreboard.UpScore(factory.GiveScore());
+                }
+                
+            }
+            /*
+            foreach (ICommand command in collisionMember1)
+                command.Execute();
+                */
             collisionMember1.Execute();
             collisionMember2.Execute();
         }

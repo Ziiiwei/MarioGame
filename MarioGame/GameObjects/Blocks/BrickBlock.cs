@@ -13,7 +13,7 @@ namespace Gamespace.Blocks
 {
     internal class BrickBlock : AbstractGameStatefulObject<IBlockBumpState>, IBumpable, IDestroyable
     {
-        private Type bumpReward;
+        public Type bumpReward { get; private set; }
 
         public BrickBlock(Vector2 positionOnScreen, Type bumpReward) : base(positionOnScreen)
         {
