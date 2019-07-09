@@ -26,6 +26,7 @@ namespace Gamespace.Projectiles
         public Fireball(Vector2 positionOnScreen, Side side) : base(positionOnScreen)
         {
             State = (IProjectileState) Activator.CreateInstance(initialOrientation[side], this);
+            SoundFactory.Instance.PlaySoundEffect("Fireball");
             SetSprite();
         }
 
