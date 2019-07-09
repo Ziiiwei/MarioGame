@@ -19,6 +19,7 @@ namespace Gamespace.Views
 
         public void Draw(SpriteBatch spriteBatch)
         {
+            // TODO: change the font to something more specific?
             spriteBatch.DrawString(MarioGame.Instance.Font, "Lives " + lives.ToString(), new Vector2(375, 200), Color.Red);
         }
     }
