@@ -71,14 +71,9 @@ namespace Gamespace
             SoundEffectInstance _soundEffect = soundAssignments[name];
             return _soundEffect;
         }
-        public void PlayBGM()
+        public Song GetBGM()
         {
-            MediaPlayer.Play(BGM);
-            MediaPlayer.Volume = 0.4f;
-        }
-        public void StopBGM()
-        {
-            MediaPlayer.Stop();
+            return BGM;
         }
     }
 }

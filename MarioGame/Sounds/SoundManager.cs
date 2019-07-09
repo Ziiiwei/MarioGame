@@ -13,6 +13,7 @@ namespace Gamespace.Sounds
     {
         private static readonly SoundManager instance = new SoundManager();
         private SoundEffectInstance  soundEffect;
+        private Song BGM;
         static SoundManager()
         {
         }
@@ -21,6 +22,18 @@ namespace Gamespace.Sounds
         {
             soundEffect = SoundFactory.Instance.GetSoundEffect(name);
             soundEffect.Play();
+        }
+
+        public void PlayBGM()
+        {
+            BGM = SoundFactory.Instance.GetBGM();
+            MediaPlayer.Play(BGM);
+            MediaPlayer.Volume = 0.4f;
+        }
+
+        public void StopBGM()
+        {
+            MediaPlayer.Stop();
         }
 
     }
