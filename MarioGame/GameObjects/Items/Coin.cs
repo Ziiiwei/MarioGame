@@ -23,7 +23,7 @@ namespace Gamespace.Items
         public void Consume()
         {
             SoundFactory.Instance.PlaySoundEffect(this.GetType().Name);
-            World.Instance.RemoveFromWorld(Uid);
+            World.Instance.RemoveFromWorld(this);
         }
 
         protected override void SurrogateUpdate()

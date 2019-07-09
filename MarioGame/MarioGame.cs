@@ -88,8 +88,7 @@ namespace Gamespace
         /// </summary>
         protected override void LoadContent()
         {   
-            spriteBatch = new SpriteBatch(GraphicsDevice);
-            font = Content.Load<SpriteFont>("Arial");
+            Font = Content.Load<SpriteFont>("Arial");
             SoundFactory.Instance.PlayBGM();
         }
 
