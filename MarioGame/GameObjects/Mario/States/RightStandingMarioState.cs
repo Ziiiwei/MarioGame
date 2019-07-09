@@ -22,7 +22,7 @@ namespace Gamespace.States
         public override void Jump()
         { 
             mario.State = new RightJumpingMarioState(mario);
-            mario.GameObjectPhysics.MoveMaxSpeed(Side.Up);
+            mario.PowerUpState.Jump(mario);
             mario.UpdateArt();
 
         }

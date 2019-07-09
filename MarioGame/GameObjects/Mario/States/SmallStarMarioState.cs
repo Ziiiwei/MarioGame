@@ -17,5 +17,11 @@ namespace Gamespace.States
         {
             mario.PowerUpState = new StarMarioState();
         }
+
+        public void Jump(IMario mario)
+        {
+            SoundFactory.Instance.PlaySoundEffect("SmallMarioJump");
+            mario.GameObjectPhysics.MoveMaxSpeed(Side.Up);
+        }
     }
 }
