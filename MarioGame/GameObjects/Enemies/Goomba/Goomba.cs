@@ -2,6 +2,7 @@
 using Gamespace.Interfaces;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
+using Gamespace.Sounds;
 using Gamespace.States;
 using Gamespace.Sprites;
 
@@ -31,7 +32,7 @@ namespace Gamespace.Goombas
         public void TakeDamage()
         {
 
-            SoundFactory.Instance.PlaySoundEffect("Stomp");
+            SoundManager.Instance.PlaySoundEffect("Stomp");
             State.TakeDamage();
             UpdateArt();
         }

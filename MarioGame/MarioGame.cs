@@ -3,9 +3,10 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using System.Collections.Generic;
 using Microsoft.Xna.Framework.Content;
-using Gamespace.Controllers;
 using Microsoft.Xna.Framework.Media;
+using Gamespace.Controllers;
 using Gamespace.Multiplayer;
+using Gamespace.Sounds;
 
 
 namespace Gamespace
@@ -89,7 +90,7 @@ namespace Gamespace
         protected override void LoadContent()
         {   
             Font = Content.Load<SpriteFont>("Arial");
-            SoundFactory.Instance.PlayBGM();
+            SoundManager.Instance.PlayBGM();
         }
 
         /// <summary>
@@ -141,6 +142,7 @@ namespace Gamespace
             World.Instance.AddPlayer(player2);
 
             levelLoader = new LevelLoader(World.Instance);
+            SoundManager.Instance.PlayBGM();
 
 
         }

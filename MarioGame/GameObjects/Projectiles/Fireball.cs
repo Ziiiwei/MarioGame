@@ -1,4 +1,5 @@
 ﻿using Gamespace.Projectiles;
+using Gamespace.Sounds;
 using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
@@ -26,7 +27,7 @@ namespace Gamespace.Projectiles
         public Fireball(Vector2 positionOnScreen, Side side) : base(positionOnScreen)
         {
             State = (IProjectileState) Activator.CreateInstance(initialOrientation[side], this);
-            SoundFactory.Instance.PlaySoundEffect("Fireball");
+            SoundManager.Instance.PlaySoundEffect("Fireball");
             SetSprite();
         }
 

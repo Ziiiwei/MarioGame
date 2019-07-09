@@ -65,19 +65,15 @@ namespace Gamespace
             public List<SoundData> Entries { get; set; }
         }
 
-        public void PlaySoundEffect(String name)
+        public SoundEffectInstance GetSoundEffect(String name)
         {
             String key = name;
-            soundAssignments[name].Play();
+            SoundEffectInstance _soundEffect = soundAssignments[name];
+            return _soundEffect;
         }
-        public void PlayBGM()
+        public Song GetBGM()
         {
-            MediaPlayer.Play(BGM);
-            MediaPlayer.Volume = 0.4f;
-        }
-        public void StopBGM()
-        {
-            MediaPlayer.Stop();
+            return BGM;
         }
     }
 }

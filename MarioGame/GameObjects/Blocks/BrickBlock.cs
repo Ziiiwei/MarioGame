@@ -1,4 +1,4 @@
-﻿
+﻿using Gamespace.Sounds;
 using Gamespace;
 using Gamespace.Blocks;
 using Gamespace.Items;
@@ -40,7 +40,7 @@ namespace Gamespace.Blocks
 
         public void Destroy()
         {
-            SoundFactory.Instance.PlaySoundEffect("BreakBlock");
+            SoundManager.Instance.PlaySoundEffect("BreakBlock");
             World.Instance.RemoveFromWorld(this);
         }
 
