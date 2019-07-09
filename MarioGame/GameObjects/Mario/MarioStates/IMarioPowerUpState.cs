@@ -11,5 +11,7 @@ namespace Gamespace
         void PowerUp(IMario mario);
         void PowerDown(IMario mario);
         void Fire(IMario mario);
+
+        void Jump(IMario mario);
     }
 }

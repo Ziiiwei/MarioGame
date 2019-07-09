@@ -7,6 +7,7 @@ using Gamespace.Controllers;
 using Microsoft.Xna.Framework.Media;
 using Gamespace.Multiplayer;
 
+
 namespace Gamespace
 {
 
@@ -22,7 +23,6 @@ namespace Gamespace
         public const float SCALE = 1f;
         private GameTime time;
 
-        private Song song;
 
         public GraphicsDeviceManager graphics { get; }
 
@@ -40,7 +40,7 @@ namespace Gamespace
         private MarioGame()
         {
             graphics = new GraphicsDeviceManager(this);
-            
+
             graphics.PreferredBackBufferWidth = WINDOW_WIDTH;  // set this value to the desired width of your window
             graphics.PreferredBackBufferHeight = WINDOW_HEIGHT;   // set this value to the desired height of your window
             graphics.ApplyChanges();
@@ -87,13 +87,10 @@ namespace Gamespace
         /// all of your content.
         /// </summary>
         protected override void LoadContent()
-        {
-           
-            Font = Content.Load<SpriteFont>("Arial");
-            
-            //song = Content.Load<Song>("Super Mario Bros");
-            //MediaPlayer.Play(song);
-            //MediaPlayer.Volume = 0.1f;
+        {   
+            spriteBatch = new SpriteBatch(GraphicsDevice);
+            font = Content.Load<SpriteFont>("Arial");
+            SoundFactory.Instance.PlayBGM();
         }
 
         /// <summary>

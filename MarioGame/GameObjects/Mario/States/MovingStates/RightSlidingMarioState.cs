@@ -22,7 +22,7 @@ namespace Gamespace.States
         public override void Jump()
         {
             mario.State = new LeftJumpingMarioState(mario);
-            mario.GameObjectPhysics.Move(Side.Up);
+            mario.PowerUpState.Jump(mario);
             mario.UpdateArt();
         }
 

@@ -64,6 +64,7 @@ namespace Gamespace
 
         public void PowerUp()
         {
+            SoundFactory.Instance.PlaySoundEffect("PowerUp");
             PowerUpState.PowerUp(this);
         }
 
@@ -86,6 +87,8 @@ namespace Gamespace
         {
             GameObjectPhysics.MoveMaxSpeed(Side.Up);
             World.Instance.MaskCollision(this);
+            SoundFactory.Instance.StopBGM();
+            SoundFactory.Instance.PlaySoundEffect("MarioDies");
         }
 
         public override void CollideDown(Rectangle collisionArea)

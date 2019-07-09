@@ -30,6 +30,8 @@ namespace Gamespace.Goombas
 
         public void TakeDamage()
         {
+
+            SoundFactory.Instance.PlaySoundEffect("Stomp");
             State.TakeDamage();
             UpdateArt();
         }

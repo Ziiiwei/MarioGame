@@ -153,6 +153,7 @@
     <Compile Include="MarioGame\GameObjects\Background\Hills\BigHill.cs" />
     <Compile Include="MarioGame\GameObjects\Background\Hills\SmallHill.cs" />
     <Compile Include="MarioGame\Physics\ShroomPhysics.cs" />
+    <Compile Include="MarioGame\Sounds\SoundFactory.cs" />
     <Compile Include="MarioGame\Timer\DiscreteTimer.cs" />
     <Compile Include="MarioGame\Transitions\ViewFactory.cs" />
     <Compile Include="MarioGame\Transitions\Views\IView.cs" />
@@ -248,6 +249,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="MarioGame\Data\DataFiles\level1.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="MarioGame\Data\DataFiles\SoundData.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="MarioGame\Data\DataFiles\SpriteFactoryData.json">

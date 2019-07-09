@@ -18,6 +18,11 @@ namespace Gamespace.States
         {
             mario.PowerUpState = new MarioFireState();
             mario.UpdateArt();
+        } 
+        public void Jump(IMario mario)
+        {
+            SoundFactory.Instance.PlaySoundEffect("SuperMarioJump");
+            mario.GameObjectPhysics.MoveMaxSpeed(Side.Up);
         }
 
         public void Fire(IMario mario)

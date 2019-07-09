@@ -23,5 +23,10 @@ namespace Gamespace.States
         {
             mario.State.Fire();
         }
+        public void Jump(IMario mario)
+        {
+            SoundFactory.Instance.PlaySoundEffect("SuperMarioJump");
+            mario.GameObjectPhysics.MoveMaxSpeed(Side.Up);
+        }
     }
 }
