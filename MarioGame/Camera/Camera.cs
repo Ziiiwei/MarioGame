@@ -12,6 +12,9 @@ namespace Gamespace
     internal class Camera : ICamera
     {
         public Matrix Transform { get; private set; }
+
+        Vector2 ICamera.CameraPosition => throw new NotImplementedException();
+
         private Vector2 CameraPosition;
 
         public Camera(Point location)

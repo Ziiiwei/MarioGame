@@ -16,6 +16,7 @@ namespace Gamespace.Multiplayer
         public IController Controller { get; }
         public ICamera Cam { get; private set; }
         private IView view;
+        private Scoreboard scoreboard;
         public SpriteBatch Screen { get; }
         private static int playerCounter = 0;
         private int playerID;
@@ -33,6 +34,7 @@ namespace Gamespace.Multiplayer
             playerCounter++;
             Lives = 3;
             ShowLives();
+            scoreboard = new Scoreboard(Lives);
 
             Cam = cam;
             Controller = new KeyboardController(this);
@@ -42,7 +44,9 @@ namespace Gamespace.Multiplayer
 
         public void Update()
         {
+
             Controller.Update();
+            scoreboard.Update();
             Cam.Update(GameObject.PositionOnScreen);
 
             if (timerIsArmed)
@@ -71,7 +75,7 @@ namespace Gamespace.Multiplayer
 
             viewTimer = new DiscreteTimer(100, new Action(() =>
             {
-                view = new PlayableView();
+                view = new PlayableView(scoreboard, Cam);
                 timerIsArmed = false;
             }));
         }

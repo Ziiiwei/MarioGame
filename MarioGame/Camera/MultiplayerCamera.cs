@@ -10,7 +10,8 @@ namespace Gamespace
     internal class MultiplayerCamera : ICamera
     {
         public Matrix Transform { get; private set; }
-        private Vector2 CameraPosition;
+        private Vector2 cameraPosition;
+        public Vector2 CameraPosition { get => cameraPosition; }
         private readonly int playerID;
         private readonly int yTransform;
 
@@ -19,7 +20,7 @@ namespace Gamespace
             Transform = Matrix.CreateTranslation(-location.X, yTransform, 0);
             //Transform = Matrix.CreateTranslation(-location.X + MarioGame.WINDOW_WIDTH / (2 * MarioGame.SCALE), yTransform, 0);
             //CameraPosition.X = location.X - MarioGame.WINDOW_WIDTH / (2 * MarioGame.SCALE);
-            CameraPosition.X = location.X;
+            cameraPosition.X = location.X;
         }
 
         public MultiplayerCamera(int playerID, Vector2 initialPosition) : this(initialPosition)
@@ -48,7 +49,7 @@ namespace Gamespace
         {
             Transform = Matrix.CreateTranslation(-position.X + MarioGame.WINDOW_WIDTH / (2 * MarioGame.SCALE), yTransform, 0);
             //always set the position equal to Mario's position minus half the screen to keep him at half or below.
-            CameraPosition.X = position.X - MarioGame.WINDOW_WIDTH / (2 * MarioGame.SCALE);
+            cameraPosition.X = position.X - MarioGame.WINDOW_WIDTH / (2 * MarioGame.SCALE);
         }
     }
 }

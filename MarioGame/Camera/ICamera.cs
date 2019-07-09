@@ -9,6 +9,7 @@ namespace Gamespace
 {
     interface ICamera
     {
+        Vector2 CameraPosition { get; }
         Matrix Transform { get; }
         void Update(Vector2 position);
     }

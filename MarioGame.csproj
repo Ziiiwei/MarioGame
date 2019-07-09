@@ -93,6 +93,7 @@
     <Compile Include="MarioGame\GameObjects\Projectiles\ProjectileLauncher.cs" />
     <Compile Include="MarioGame\Multiplayer\IPlayer.cs" />
     <Compile Include="MarioGame\Multiplayer\Player.cs" />
+    <Compile Include="MarioGame\Multiplayer\Scoreboard.cs" />
     <Compile Include="MarioGame\Physics\BumpableBlockPhysics.cs" />
     <Compile Include="MarioGame\Physics\FireballPhysics.cs" />
     <Compile Include="MarioGame\Physics\IPhysicsConstants.cs" />
