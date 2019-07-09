@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Gamespace.Interfaces;
 using Gamespace.Sprites;
+using Gamespace.Sounds;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
@@ -19,7 +20,7 @@ namespace Gamespace.Items
         {
             State = new ShroomMovingUpState(this);
             SetSprite();
-            SoundFactory.Instance.PlaySoundEffect("PowerUpAppears");
+            SoundManager.Instance.PlaySoundEffect("PowerUpAppears");
         }
 
         public void ChangeDirection()

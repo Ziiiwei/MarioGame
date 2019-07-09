@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Gamespace.Sounds;
 
 namespace Gamespace.States
 {
@@ -24,7 +25,7 @@ namespace Gamespace.States
         }
         public void Jump(IMario mario)
         {
-            SoundFactory.Instance.PlaySoundEffect("SuperMarioJump");
+            SoundManager.Instance.PlaySoundEffect("SuperMarioJump");
             mario.GameObjectPhysics.MoveMaxSpeed(Side.Up);
         }
     }

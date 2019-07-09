@@ -1,4 +1,5 @@
 ﻿using Gamespace.Projectiles;
+using Gamespace.Sounds;
 using Gamespace.Sprites;
 using Gamespace.States;
 using Microsoft.Xna.Framework;
@@ -64,7 +65,7 @@ namespace Gamespace
 
         public void PowerUp()
         {
-            SoundFactory.Instance.PlaySoundEffect("PowerUp");
+            SoundManager.Instance.PlaySoundEffect("PowerUp");
             PowerUpState.PowerUp(this);
         }
 
@@ -88,7 +89,7 @@ namespace Gamespace
             GameObjectPhysics.MoveMaxSpeed(Side.Up);
             World.Instance.MaskCollision(this);
             SoundFactory.Instance.StopBGM();
-            SoundFactory.Instance.PlaySoundEffect("MarioDies");
+            SoundManager.Instance.PlaySoundEffect("MarioDies");
         }
 
         public override void CollideDown(Rectangle collisionArea)

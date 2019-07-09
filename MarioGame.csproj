@@ -154,6 +154,7 @@
     <Compile Include="MarioGame\GameObjects\Background\Hills\SmallHill.cs" />
     <Compile Include="MarioGame\Physics\ShroomPhysics.cs" />
     <Compile Include="MarioGame\Sounds\SoundFactory.cs" />
+    <Compile Include="MarioGame\Sounds\SoundManager.cs" />
     <Compile Include="MarioGame\Timer\DiscreteTimer.cs" />
     <Compile Include="MarioGame\Transitions\ViewFactory.cs" />
     <Compile Include="MarioGame\Transitions\Views\IView.cs" />

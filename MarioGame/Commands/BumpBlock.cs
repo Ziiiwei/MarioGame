@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Gamespace.Sounds;
 
 namespace Gamespace.Commands
 {
@@ -18,7 +19,7 @@ namespace Gamespace.Commands
         {
             block.Bump();
 
-            SoundFactory.Instance.PlaySoundEffect("BumpBlock");
+            SoundManager.Instance.PlaySoundEffect("BumpBlock");
         }
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Gamespace.Sounds;
 using Gamespace.Sprites;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -22,7 +23,7 @@ namespace Gamespace.Items
 
         public void Consume()
         {
-            SoundFactory.Instance.PlaySoundEffect(this.GetType().Name);
+            SoundManager.Instance.PlaySoundEffect(this.GetType().Name);
             World.Instance.RemoveFromWorld(this);
         }
 
