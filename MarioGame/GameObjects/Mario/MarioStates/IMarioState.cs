@@ -15,5 +15,7 @@ namespace Gamespace.States
         void Land();
         void FrictionStop();
         void Fire();
+        void ClimbUp();
+        void ClimbDown();
     }
 }

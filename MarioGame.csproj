@@ -82,6 +82,8 @@
     <Compile Include="MarioGame\GameObjects\Items\RedShroomStates\ShroomMovingLeftState.cs" />
     <Compile Include="MarioGame\GameObjects\Items\RedShroomStates\ShroomMovingRightState.cs" />
     <Compile Include="MarioGame\GameObjects\Items\RedShroomStates\ShroomMovingUpState.cs" />
+    <Compile Include="MarioGame\GameObjects\Mario\States\MovingStates\LeftClimbing.cs" />
+    <Compile Include="MarioGame\GameObjects\Mario\States\MovingStates\RightClimbing.cs" />
     <Compile Include="MarioGame\GameObjects\Projectiles\IFireable.cs" />
     <Compile Include="MarioGame\GameObjects\Projectiles\Fireball.cs" />
     <Compile Include="MarioGame\GameObjects\Projectiles\FireballStates\IProjectileState.cs" />
