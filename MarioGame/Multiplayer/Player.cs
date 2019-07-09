@@ -49,6 +49,11 @@ namespace Gamespace.Multiplayer
             scoreboard.Update();
             Cam.Update(GameObject.PositionOnScreen);
 
+            //subject to change later on
+            if (GameObject.PositionOnScreen.X < Cam.CameraPosition.X)
+                GameObject.CollideLeft(new Rectangle((int)Cam.CameraPosition.X - 1,0,1,MarioGame.WINDOW_HEIGHT));
+
+
             if (timerIsArmed)
             {
                 viewTimer.Tick();
