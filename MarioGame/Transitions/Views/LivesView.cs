@@ -19,7 +19,7 @@ namespace Gamespace.Views
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.DrawString(MarioGame.Instance.Font, "Lives " + lives.ToString(), new Vector2(200, 200), Color.Red);
+            spriteBatch.DrawString(MarioGame.Instance.Font, "Lives " + lives.ToString(), new Vector2(0, 0), Color.Red);
         }
     }
 }

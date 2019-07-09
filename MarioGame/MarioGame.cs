@@ -25,14 +25,13 @@ namespace Gamespace
         private Song song;
 
         public GraphicsDeviceManager graphics { get; }
-        private List<IController> controllers;
 
         public int PlayerCount { get; private set; }
 
         // Make LevelLoader a singleton.
         private LevelLoader levelLoader;
 
-        private float frameRate = 0; //help the animation and detaction rate
+        public float Framerate { get; private set; }
         public SpriteFont Font { get; private set; }
 
         static MarioGame()
@@ -45,9 +44,10 @@ namespace Gamespace
             graphics.PreferredBackBufferWidth = WINDOW_WIDTH;  // set this value to the desired width of your window
             graphics.PreferredBackBufferHeight = WINDOW_HEIGHT;   // set this value to the desired height of your window
             graphics.ApplyChanges();
-          
-            controllers = new List<IController>();
+
             Content.RootDirectory = "Content";
+
+            Framerate = 0;
         }
 
         public static MarioGame Instance
@@ -71,11 +71,11 @@ namespace Gamespace
             PlayerCount = 2;
 
             IPlayer player1 = new Player(new Mario(new Vector2(200, 200)),
-                new MultiplayerCamera(0), new SpriteBatch(GraphicsDevice));
+                new MultiplayerCamera(0, new Vector2(0, 0)), new SpriteBatch(GraphicsDevice));
             World.Instance.AddPlayer(player1);
 
             IPlayer player2 = new Player(new Mario(new Vector2(300, 200)),
-                new MultiplayerCamera(1), new SpriteBatch(GraphicsDevice));
+                new MultiplayerCamera(1, new Vector2(0, 0)), new SpriteBatch(GraphicsDevice));
             World.Instance.AddPlayer(player2);
 
             levelLoader = new LevelLoader(World.Instance);
@@ -127,14 +127,7 @@ namespace Gamespace
         {
             
             GraphicsDevice.Clear(Color.CornflowerBlue);
-            /*
-            frameRate = 1 / (float)gameTime.ElapsedGameTime.TotalSeconds;
-            //camera.Follow(World.Instance.Mario.Sprite);
-            spriteBatch.Begin(SpriteSortMode.BackToFront, transformMatrix: camera.Transform * Matrix.CreateScale(SCALE), samplerState: SamplerState.PointClamp);
-            World.Instance.DrawWorld(spriteBatch);
-            spriteBatch.DrawString(font, "FPS "+frameRate, new Vector2(0, 0), Color.Red);
-            spriteBatch.End();
-            */
+            Framerate = 1 / (float)gameTime.ElapsedGameTime.TotalSeconds;
             World.Instance.DrawPlayers();
             base.Draw(gameTime);
         }
@@ -144,11 +137,11 @@ namespace Gamespace
             World.Instance.ClearWorld();
 
             IPlayer player1 = new Player(new Mario(new Vector2(200, 200)),
-                new MultiplayerCamera(0), new SpriteBatch(GraphicsDevice));
+                new MultiplayerCamera(0, new Vector2(0, 0)), new SpriteBatch(GraphicsDevice));
             World.Instance.AddPlayer(player1);
 
             IPlayer player2 = new Player(new Mario(new Vector2(300, 200)),
-                new MultiplayerCamera(1), new SpriteBatch(GraphicsDevice));
+                new MultiplayerCamera(1, new Vector2(0, 0)), new SpriteBatch(GraphicsDevice));
             World.Instance.AddPlayer(player2);
 
             levelLoader = new LevelLoader(World.Instance);
