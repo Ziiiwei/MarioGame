@@ -28,7 +28,6 @@ namespace Gamespace
         void CollideRight(Rectangle collisionArea);
         void CollideUp(Rectangle collisionArea);
         void CollideDown(Rectangle collisionArea);
-        void SetPlayer(IPlayer player);
         void Coin();
     }
 

@@ -21,7 +21,7 @@ namespace Gamespace
         public IPhysics GameObjectPhysics { get; set; }
         private static Dictionary<bool, Action<AbstractGameObject>> updateFunctionPointer;
         public bool IsPaused { get; set; }
-        public int BlockSpacePosition { get => (int)Math.Max(0, Math.Floor(positionOnScreen.X / Numbers.BLOCK_SPACING_SCALE)); }
+        public int BlockSpacePosition { get => (int)Math.Min(Numbers.BLOCK_SPACING_SCALE, Math.Max(0, Math.Floor(positionOnScreen.X / Numbers.BLOCK_SPACING_SCALE))); }
 
         static AbstractGameObject()
         {

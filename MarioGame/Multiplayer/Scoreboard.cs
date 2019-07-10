@@ -8,14 +8,12 @@ using Gamespace.Data;
 
 namespace Gamespace.Multiplayer
 {
-    class Scoreboard
+    internal class Scoreboard
     {
         public int Score { get; set; }
         public int Coins { get; set; }
         public int Lives { get; set; }
-
         public int Time { get; set; }
-
         private int StartingTime = Numbers.STARTING_TIME;
 
         public Scoreboard(int lives)
@@ -30,6 +28,20 @@ namespace Gamespace.Multiplayer
         {
             Time = StartingTime - (int)gametime.TotalGameTime.TotalSeconds;
         }
-        
+
+        public void UpScore(int score)
+        {
+            Score += score;
+        }
+
+        public void Collect()
+        {
+            Coins++;
+        }
+
+        public void Die()
+        {
+            Lives--;
+        }
     }
 }

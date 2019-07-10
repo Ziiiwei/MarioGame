@@ -18,14 +18,20 @@ namespace Gamespace
         public IMarioPowerUpState PowerUpState { get; set; }
         public IMarioPowerUpState PreviousState { get; set; }
         public IFireable Projectiles { get; set; }
-        private IPlayer player;
+        private Scoreboard scoreboard;
 
-        public Mario(Vector2 positionOnScreen) : base(positionOnScreen)
+
+        private Mario(Vector2 positionOnScreen) : base(positionOnScreen)
         {
             State = new RightStandingMarioState(this);
             PowerUpState = new MarioSmallState();
             SetSprite();
             Projectiles = new ProjectileLauncher(this);
+        }
+
+        public Mario(Vector2 positionOnScreen, Scoreboard scoreboard) : this(positionOnScreen)
+        {
+            this.scoreboard = scoreboard;
         }
 
         protected override void SurrogateUpdate()
@@ -68,7 +74,7 @@ namespace Gamespace
         {
             SoundManager.Instance.PlaySoundEffect("PowerUp");
             PowerUpState.PowerUp(this);
-            player.UpScore(ScoringConstants.ITEM_SCORE);
+            scoreboard.UpScore(ScoringConstants.ITEM_SCORE);
         }
 
         public void UpdateArt()
@@ -84,14 +90,14 @@ namespace Gamespace
         public void Bounce()
         {
             GameObjectPhysics.MoveMaxSpeed(Side.Up);
-            player.UpScore(ScoringConstants.ENEMY_SCORE);
+            scoreboard.UpScore(ScoringConstants.ENEMY_SCORE);
         }
 
         public void Die()
         {
             GameObjectPhysics.MoveMaxSpeed(Side.Up);
             World.Instance.MaskCollision(this);
-            player.Die();
+            scoreboard.Die();
             SoundManager.Instance.PlaySoundEffect("MarioDies");
       
         }
@@ -108,13 +114,8 @@ namespace Gamespace
 
         public void Coin()
         {
-            player.UpScore(ScoringConstants.COIN_SCORE);
-            player.Collect();
-        }
-
-        public void SetPlayer(IPlayer player)
-        {
-            this.player = player;
+            scoreboard.UpScore(ScoringConstants.COIN_SCORE);
+            scoreboard.Collect();
         }
     }
 }
