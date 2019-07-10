@@ -29,6 +29,7 @@ namespace Gamespace
                 {"FB", "Gamespace.Blocks.FloorBlock" },
                 {"UB", "Gamespace.Blocks.UsedBlock" },
                 {"HB", "Gamespace.Blocks.HiddenBlock" },
+                {"DB", "Gamespace.Blocks.DeathBlock" },
                 {"QB", "Gamespace.Blocks.QuestionBlock" },
                 {"P", "Gamespace.Items.Pipe" },
                 {"PE", "Gamespace.Items.PipeExtension" },

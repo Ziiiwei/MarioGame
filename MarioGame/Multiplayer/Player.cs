@@ -59,7 +59,8 @@ namespace Gamespace.Multiplayer
         {
             Screen.Begin(SpriteSortMode.BackToFront, transformMatrix: Cam.Transform * Matrix.CreateScale(1), samplerState: SamplerState.PointClamp);
             view.Draw(Screen);
-            //Screen.DrawString(MarioGame.Instance.Font, "FPS " + MarioGame.Instance.Framerate, , Color.Red);
+            Vector2 fpsCounterPosition = new Vector2(Cam.CameraPosition.X + 50, Cam.CameraPosition.Y + 50);
+            Screen.DrawString(MarioGame.Instance.Font, "FPS " + MarioGame.Instance.Framerate, fpsCounterPosition, Color.Red);
             Screen.End();
         }
 

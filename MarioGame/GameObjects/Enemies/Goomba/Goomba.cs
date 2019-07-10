@@ -87,5 +87,10 @@ namespace Gamespace.Goombas
         {
             // Do nothing
         }
+
+        public void Die()
+        {
+            World.Instance.RemoveFromWorld(this);
+        }
     }
 }

@@ -35,6 +35,8 @@ namespace Gamespace
         private readonly List<Type> collisionMoverClassifier;
         private readonly Dictionary<Type, int> collisionPriorities;
 
+        private readonly List<List<IGameObject>> collisionColumns;
+
         private bool worldIsPaused = false;
 
         public IMario Mario { get; set; }
@@ -50,6 +52,13 @@ namespace Gamespace
             playersToRemove = new List<IPlayer>();
             collisionMovers = new List<IGameObject>();
             collisionReceivers = new List<IGameObject>();
+
+            collisionColumns = new List<List<IGameObject>>();
+            // This magic number has to go.
+            for (int i = 0; i < 207; i++)
+            {
+                collisionColumns.Add(new List<IGameObject>());
+            }
 
             collisionMoverClassifier = new List<Type>
             {
@@ -87,6 +96,7 @@ namespace Gamespace
         public void AddGameObject(IGameObject gameObject)
         {
             objectsToAdd.Add(gameObject);
+            collisionColumns[gameObject.BlockSpacePosition].Add(gameObject);
         }
 
         public void UpdatePlayers()
@@ -115,9 +125,15 @@ namespace Gamespace
         {
             UpdateWaitingItems();
 
+            foreach (List<IGameObject> collisionsColumn in collisionColumns)
+            {
+                collisionsColumn.Clear();
+            }
+
             foreach (IGameObject gameObject in objectsInWorld.Values)
             {
                 gameObject.Update();
+                collisionColumns[gameObject.BlockSpacePosition].Add(gameObject);
             }
 
             var pendingCollisions = GetPendingCollisions();
@@ -155,8 +171,6 @@ namespace Gamespace
 
         private void UpdateWaitingItems()
         {
-
-
             foreach (IGameObject gameObject in objectsToAdd)
             {
                 ClassifyNewObject(gameObject);
@@ -183,6 +197,7 @@ namespace Gamespace
         {
             var pendingCollisions = new Dictionary<IGameObject, List<(IGameObject, int)>>();
 
+            /*
             for (int i = 0; i < collisionMovers.Count; i++)
             {
                 IGameObject mover = collisionMovers[i];
@@ -207,7 +222,7 @@ namespace Gamespace
                 {
                     (CollisionHandler.Side, Rectangle) collisionData = collisionHandler.DetectCollision(mover, receiver);
 
-                    if (collisionHandler.DetectCollision(mover, receiver).Item1 != CollisionHandler.Side.None)
+                    if (collisionData.Item1 != CollisionHandler.Side.None)
                     {
                         int collisionArea = collisionData.Item2.Height * collisionData.Item2.Width;
                         AddPendingCollision(pendingCollisions, mover, receiver, collisionArea);
@@ -215,6 +230,44 @@ namespace Gamespace
                 }
             }
             return pendingCollisions;
+            */
+            
+            Action<int, IGameObject> collisionColumnDetection = (column, mover) =>
+            {
+                List<IGameObject> collisionColumn = collisionColumns[column];
+                for (int j = 0; j < collisionColumn.Count; j++)
+                {
+                    IGameObject target = collisionColumn[j];
+
+                    if (mover != target)
+                    {   
+                        (CollisionHandler.Side, Rectangle) collisionData = collisionHandler.DetectCollision(mover, target);
+
+                        if (collisionHandler.DetectCollision(mover, target).Item1 != CollisionHandler.Side.None)
+                        {
+                            int collisionArea = collisionData.Item2.Height * collisionData.Item2.Width;
+                            AddPendingCollision(pendingCollisions, mover, target, collisionArea);
+                        }
+                    }
+                }
+            };
+
+            List<int> columnsToCheck = new List<int>() { -1, 0, 1 };
+
+            for (int i = 0; i < collisionMovers.Count; i++)
+            {
+                IGameObject mover = collisionMovers[i];
+                
+                foreach (int column in columnsToCheck)
+                {
+                    int columnToCheck = Math.Max(0, mover.BlockSpacePosition + column);
+                    collisionColumnDetection(columnToCheck, mover);
+                }
+
+            }
+
+            return pendingCollisions;
+            
         }
 
         private void ClassifyNewObject(IGameObject gameObject)

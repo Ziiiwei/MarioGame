@@ -596,6 +596,14 @@
       "FrameCount": 1,
       "FrameDelay": 3
     },
+	{
+      "Name": "DeathBlock",
+      "State": "",
+      "PowerUpState": "",
+      "TexturePath": "HiddenBlock",
+      "FrameCount": 1,
+      "FrameDelay": 3
+    },
     {
       "Name": "Cloud3",
       "State": "",
