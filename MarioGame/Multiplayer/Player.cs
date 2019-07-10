@@ -29,6 +29,7 @@ namespace Gamespace.Multiplayer
         public Player(IMario gameObject, ICamera cam, SpriteBatch screen)
         {
             GameObject = gameObject;
+            GameObject.SetPlayer(this);
             resetPoint = gameObject.PositionOnScreen;
             playerID = playerCounter;
             playerCounter++;
@@ -84,6 +85,10 @@ namespace Gamespace.Multiplayer
                 view = new PlayableView(scoreboard, Cam);
                 timerIsArmed = false;
             }));
+        }
+
+        public void UpScore(int score)
+        {
         }
     }
 }
