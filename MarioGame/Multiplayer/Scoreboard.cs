@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Gamespace.Data;
 
 namespace Gamespace.Multiplayer
 {
@@ -15,14 +16,14 @@ namespace Gamespace.Multiplayer
 
         public int Time { get; set; }
 
-        private int StartingTime = 400;
+        private int StartingTime = Numbers.STARTING_TIME;
 
         public Scoreboard(int lives)
         {
             Score = 0;
             Coins = 0;
             Lives = lives;
-            Time = 400;
+            Time = StartingTime;
         }
 
         public void Update(GameTime gametime)

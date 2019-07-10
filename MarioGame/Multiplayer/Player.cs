@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Gamespace.Data;
 
 namespace Gamespace.Multiplayer
 {
@@ -33,7 +34,7 @@ namespace Gamespace.Multiplayer
             resetPoint = gameObject.PositionOnScreen;
             playerID = playerCounter;
             playerCounter++;
-            Lives = 3;
+            Lives = Numbers.LIVES_STOCK;
             ShowLives();
             scoreboard = new Scoreboard(Lives);
 
@@ -65,7 +66,7 @@ namespace Gamespace.Multiplayer
         {
             Screen.Begin(SpriteSortMode.BackToFront, transformMatrix: Cam.Transform * Matrix.CreateScale(1), samplerState: SamplerState.PointClamp);
             view.Draw(Screen);
-            Vector2 fpsCounterPosition = new Vector2(Cam.CameraPosition.X + 50, Cam.CameraPosition.Y + 50);
+            Vector2 fpsCounterPosition = new Vector2(Cam.CameraPosition.X + Numbers.COUNTER_OFFSET, Cam.CameraPosition.Y + Numbers.COUNTER_OFFSET);
             Screen.DrawString(MarioGame.Instance.Font, "FPS " + MarioGame.Instance.Framerate, fpsCounterPosition, Color.Red);
             Screen.End();
         }
@@ -80,7 +81,7 @@ namespace Gamespace.Multiplayer
             timerIsArmed = true;
             view = new LivesView(Lives);
 
-            viewTimer = new DiscreteTimer(100, new Action(() =>
+            viewTimer = new DiscreteTimer(Numbers.DISCREET_TIMER_START, new Action(() =>
             {
                 view = new PlayableView(scoreboard, Cam);
                 timerIsArmed = false;
@@ -89,6 +90,17 @@ namespace Gamespace.Multiplayer
 
         public void UpScore(int score)
         {
+            scoreboard.Score += score;
+        }
+
+        public void Die()
+        {
+            scoreboard.Lives--;
+        }
+
+        public void Collect()
+        {
+            scoreboard.Coins++;
         }
     }
 }

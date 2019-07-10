@@ -124,14 +124,14 @@
       "Target": "Gamespace.Koopas.KoopaFlippedState",
       "Side": "Left",
       "Command1": "Gamespace.Commands.NullCommand",
-      "Command2": "Gamespace.Commands.SlideEnemyRight"
+      "Command2": "Gamespace.Commands.SlideEnemyLeft"
     },
     {
       "Mover": "Gamespace.Mario",
       "Target": "Gamespace.Koopas.KoopaFlippedState",
       "Side": "Right",
       "Command1": "Gamespace.Commands.NullCommand",
-      "Command2": "Gamespace.Commands.SlideEnemyLeft"
+      "Command2": "Gamespace.Commands.SlideEnemyRight"
     },
 	{
       "Mover": "Gamespace.Mario",

@@ -9,6 +9,7 @@ using Gamespace.Sprites;
 using Gamespace.States;
 using Gamespace.Projectiles;
 using Gamespace.Multiplayer;
+using Gamespace.Data;
 
 namespace Gamespace
 {
@@ -25,7 +26,7 @@ namespace Gamespace
         public IFireable Projectiles { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
         private IMario mario;
-        int timer = 1000;
+        int timer = Numbers.STAR_TIMER;
 
         public StarMario(IMario mario, Vector2 positionOnScreen) : base(positionOnScreen)
         {

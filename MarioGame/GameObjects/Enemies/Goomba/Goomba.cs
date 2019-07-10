@@ -5,18 +5,21 @@ using Microsoft.Xna.Framework;
 using Gamespace.Sounds;
 using Gamespace.States;
 using Gamespace.Sprites;
+using Gamespace.Data;
 
 namespace Gamespace.Goombas
 {
     internal class Goomba : AbstractGameStatefulObject<IEnemyState>, IEnemy
     {
         private int stompTimer = 0;
-        private readonly int stompTimerBound = 20;
+        //this int is readOnly, so the number 20 is only used here. (Magic Number?)
+        private readonly int stompTimerBound = Numbers.STOMP_TIMER_BOUND;
 
         public Goomba (Vector2 positionOnScreen) : base(positionOnScreen)
         {
             State = new LeftMovingGoombaState(this);
             SetSprite();
+            GameObjectPhysics.MoveMaxSpeed(Side.Left);
         }
 
         public void ChangeDirection()
@@ -53,15 +56,6 @@ namespace Gamespace.Goombas
             }
             Sprite.Update();
 
-            // This can be reworked by adding this CONSTANT ACCEL functionality into Physics.
-            if (State.GetType() == typeof(LeftMovingGoombaState))
-            {
-                GameObjectPhysics.Move(Side.Left);
-            }
-            else if (State.GetType() == typeof(RightMovingGoombaState))
-            {
-                GameObjectPhysics.Move(Side.Right);
-            }
             GameObjectPhysics.Update();
             positionOnScreen = GameObjectPhysics.GetPosition();
         }

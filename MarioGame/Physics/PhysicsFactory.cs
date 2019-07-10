@@ -1,6 +1,7 @@
 ﻿using Gamespace.Blocks;
 using Gamespace.Goombas;
 using Gamespace.Items;
+using Gamespace.Koopas;
 using Gamespace.Projectiles;
 using Microsoft.Xna.Framework;
 using System;
@@ -26,7 +27,10 @@ namespace Gamespace
                 {typeof(RedShroom), typeof(ShroomPhysics) },
                 {typeof(GreenShroom), typeof(ShroomPhysics) },
                 {typeof(BrickBlock), typeof(BumpableBlockPhysics) },
-                {typeof(Fireball), typeof(FireballPhysics) }
+                {typeof(Fireball), typeof(FireballPhysics) },
+                {typeof(Goomba), typeof(EnemyPhysics) },
+                {typeof(Koopa), typeof(EnemyPhysics) }
+
             };
         }
 

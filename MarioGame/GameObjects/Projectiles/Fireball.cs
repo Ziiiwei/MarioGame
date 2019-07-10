@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Gamespace.Data;
 
 namespace Gamespace.Projectiles
 {
@@ -13,7 +14,7 @@ namespace Gamespace.Projectiles
     {
         private static readonly Dictionary<Side, Type> initialOrientation;
         private int bounceCounter = 0;
-        private int bounceBound = 10;
+        private int bounceBound = Numbers.BOUNCE_BOUND;
 
         static Fireball()
         {

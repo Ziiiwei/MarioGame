@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Gamespace.Data;
 
 namespace Gamespace
 {
@@ -20,7 +21,7 @@ namespace Gamespace
         public IPhysics GameObjectPhysics { get; set; }
         private static Dictionary<bool, Action<AbstractGameObject>> updateFunctionPointer;
         public bool IsPaused { get; set; }
-        public int BlockSpacePosition { get => (int)Math.Max(0, Math.Floor(positionOnScreen.X / 32)); }
+        public int BlockSpacePosition { get => (int)Math.Max(0, Math.Floor(positionOnScreen.X / Numbers.BLOCK_SPACING_SCALE)); }
 
         static AbstractGameObject()
         {
@@ -69,8 +70,9 @@ namespace Gamespace
 
         public virtual Vector2 GetCenter()
         {
-            float height = Sprite.Height / 2;
-            float width = Sprite.Width / 2;
+            // this and the camera factor are both 2, and they may be related to the same issue
+            float height = Sprite.Height / Numbers.CAMERA_FACTOR;
+            float width = Sprite.Width / Numbers.CAMERA_FACTOR;
 
             return new Vector2(PositionOnScreen.X + width, PositionOnScreen.Y + height);
         }

@@ -10,5 +10,7 @@ namespace Gamespace.Interfaces
     {
         void TakeDamage();
         void ChangeDirection();
+        void SlideLeft();
+        void SlideRight();
     }
 }

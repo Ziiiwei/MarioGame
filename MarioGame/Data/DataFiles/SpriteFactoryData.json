@@ -538,10 +538,25 @@
       "FrameCount": 1,
       "FrameDelay": 3
     },
-
     {
       "Name": "Koopa",
       "State": "KoopaFlippedState",
+      "PowerUpState": "",
+      "TexturePath": "KoopaFlipped",
+      "FrameCount": 2,
+      "FrameDelay": 5
+    },
+	{
+      "Name": "Koopa",
+      "State": "KoopaFlippedLeftState",
+      "PowerUpState": "",
+      "TexturePath": "KoopaFlipped",
+      "FrameCount": 2,
+      "FrameDelay": 5
+    },
+	{
+      "Name": "Koopa",
+      "State": "KoopaFlippedRightState",
       "PowerUpState": "",
       "TexturePath": "KoopaFlipped",
       "FrameCount": 2,

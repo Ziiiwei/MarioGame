@@ -24,6 +24,16 @@ namespace Gamespace.Goombas
             // do nothing
         }
 
+        public void SlideLeft()
+        {
+            // do nothing
+        }
+
+        public void SlideRight()
+        {
+            // do nothing
+        }
+
         public void TakeDamage()
         {
             // do nothing
