@@ -20,8 +20,9 @@ namespace Gamespace
         public IFireable Projectiles { get; set; }
         private Scoreboard scoreboard;
 
+        public Scoreboard scoreboard { get; set; }
 
-        private Mario(Vector2 positionOnScreen) : base(positionOnScreen)
+        public Mario(Vector2 positionOnScreen) : base(positionOnScreen)
         {
             State = new RightStandingMarioState(this);
             PowerUpState = new MarioSmallState();

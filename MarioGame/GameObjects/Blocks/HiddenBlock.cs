@@ -37,6 +37,7 @@ namespace Gamespace.Blocks
                 World.Instance.AddGameObject((IGameObject)Activator.CreateInstance(bumpReward, positionOnScreen));
                 bumpReward = null;
             }
+            Destroy();
         }
 
         protected override void SetSprite()
