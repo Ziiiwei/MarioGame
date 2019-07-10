@@ -88,7 +88,6 @@ namespace Gamespace
         {
             GameObjectPhysics.MoveMaxSpeed(Side.Up);
             World.Instance.MaskCollision(this);
-            SoundManager.Instance.StopBGM();
             SoundManager.Instance.PlaySoundEffect("MarioDies");
       
         }
