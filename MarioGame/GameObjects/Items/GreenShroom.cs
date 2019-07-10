@@ -8,12 +8,13 @@ using Gamespace.Sprites;
 using Gamespace.Sounds;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Gamespace.Data;
 
 namespace Gamespace.Items
 {
     class GreenShroom : AbstractGameStatefulObject<IShroomState>, IMovableItem, IItem
     {
-        private static int[] bumpOffsets = { 4, 4, 4, 4, 4, 4, 4, 4 };
+        private static int[] bumpOffsets = Numbers.BUMP_OFFSETS;
         private int bumpCounter = 0;
 
         public GreenShroom(Vector2 positionOnScreen) : base(positionOnScreen)

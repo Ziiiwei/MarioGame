@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.Xna.Framework.Media;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
+using Gamespace.Data;
 
 namespace Gamespace.Sounds
 {
@@ -28,7 +29,7 @@ namespace Gamespace.Sounds
         {
             BGM = SoundFactory.Instance.GetBGM();
             MediaPlayer.Play(BGM);
-            MediaPlayer.Volume = 0.4f;
+            MediaPlayer.Volume = Numbers.VOLUME;
         }
 
         public void StopBGM()

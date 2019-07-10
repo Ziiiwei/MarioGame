@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Gamespace.Data;
 
 namespace Gamespace
 {
@@ -26,7 +27,7 @@ namespace Gamespace
         public MultiplayerCamera(int playerID, Vector2 initialPosition) : this(initialPosition)
         {
             this.playerID = playerID;
-            yTransform = (MarioGame.WINDOW_HEIGHT / 2) * playerID;
+            yTransform = (MarioGame.WINDOW_HEIGHT / Numbers.CAMERA_FACTOR) * playerID;
         }
 
         public void Update(Vector2 position)
@@ -34,7 +35,7 @@ namespace Gamespace
             // now we just compare Mario's position with the Camera's left side plus half the screen
             //then we move the camera right, we may lock it here soon
             
-            if (position.X >= CameraPosition.X + MarioGame.WINDOW_WIDTH / (2 * MarioGame.SCALE))
+            if (position.X >= CameraPosition.X + MarioGame.WINDOW_WIDTH / (Numbers.CAMERA_FACTOR * MarioGame.SCALE))
             {
                 MoveRight(position);
             }
@@ -47,9 +48,10 @@ namespace Gamespace
 
         private void MoveRight(Vector2 position)
         {
-            Transform = Matrix.CreateTranslation(-position.X + MarioGame.WINDOW_WIDTH / (2 * MarioGame.SCALE), yTransform, 0);
+            //Since the scale is being doubled, I do not believe this is an example of a magic number
+            Transform = Matrix.CreateTranslation(-position.X + MarioGame.WINDOW_WIDTH / (Numbers.CAMERA_FACTOR * MarioGame.SCALE), yTransform, 0);
             //always set the position equal to Mario's position minus half the screen to keep him at half or below.
-            cameraPosition.X = position.X - MarioGame.WINDOW_WIDTH / (2 * MarioGame.SCALE);
+            cameraPosition.X = position.X - MarioGame.WINDOW_WIDTH / (Numbers.CAMERA_FACTOR * MarioGame.SCALE);
         }
     }
 }

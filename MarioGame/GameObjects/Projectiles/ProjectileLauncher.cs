@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Gamespace.Data;
 
 namespace Gamespace.Projectiles
 {
@@ -19,8 +20,8 @@ namespace Gamespace.Projectiles
         public ProjectileLauncher(IMario mario)
         {
             gameObject = mario;
-            maxProjectiles = 3;
-            delayBound = 5;
+            maxProjectiles = Numbers.MAX_PROJECTILES;
+            delayBound = Numbers.DELAY_BOUND;
             projectileClassification = typeof(Fireball);
         }
 

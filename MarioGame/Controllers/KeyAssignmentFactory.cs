@@ -43,6 +43,7 @@ namespace Gamespace.Controllers
             playerTwoBinds.Add(Keys.RightShift, typeof(MarioFireCommand));
             playerTwoBinds.Add(Keys.R, typeof(Reset));
 
+            //this is used as an identification for player binds, so I would not say it is a magic number.
             playerBindingsSelector = new Dictionary<int, Dictionary<Keys, Type>>()
             {
                 {0, playerOneBinds },
@@ -55,14 +56,13 @@ namespace Gamespace.Controllers
         internal Dictionary<Keys, ICommand> GetBindings(IPlayer player)
         {
             Dictionary<Keys, Type> binds = playerBindingsSelector[player.PlayerID];
-            Dictionary<Keys, ICommand> retVal = new Dictionary<Keys, ICommand>();
+            Dictionary<Keys, ICommand> returnValue = new Dictionary<Keys, ICommand>();
 
             foreach (Keys key in binds.Keys)
             {
-                retVal.Add(key, (ICommand)Activator.CreateInstance(binds[key], player.GameObject));
+                returnValue.Add(key, (ICommand)Activator.CreateInstance(binds[key], player.GameObject));
             }
-            /* rename retval */
-            return retVal;
+            return returnValue;
         }
 
 

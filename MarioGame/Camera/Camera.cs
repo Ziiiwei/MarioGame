@@ -11,6 +11,7 @@ namespace Gamespace
 {
     internal class Camera : ICamera
     {
+        /*This class is being replaced*/
         public Matrix Transform { get; private set; }
 
         Vector2 ICamera.CameraPosition => throw new NotImplementedException();
@@ -43,15 +44,14 @@ namespace Gamespace
 
         private void MoveRight(Vector2 position)
         {
-            Transform = Matrix.CreateTranslation(-position.X + MarioGame.WINDOW_WIDTH / (2 * MarioGame.SCALE), 0, 0);
+            Transform = Matrix.CreateTranslation(-position.X + MarioGame.WINDOW_WIDTH / MarioGame.SCALE, 0, 0);
             //always set the position equal to Mario's position minus half the screen to keep him at half or below.
-            CameraPosition.X = position.X - MarioGame.WINDOW_WIDTH / (2 * MarioGame.SCALE);
+            CameraPosition.X = position.X - MarioGame.WINDOW_WIDTH / (MarioGame.SCALE);
         }
 
         private void Lock(IMario gameObject)
         {
-            // The simplest way to do this is to  force the mario to collide left, magic numbers need to be removed
-            gameObject.CollideLeft(new Rectangle((int)CameraPosition.X - 16,0,8,MarioGame.WINDOW_HEIGHT));
+            // Collide Here
         }
 
         public void Update(Vector2 position)
