@@ -17,6 +17,7 @@ namespace Gamespace.Goombas
         {
             State = new LeftMovingGoombaState(this);
             SetSprite();
+            GameObjectPhysics.MoveMaxSpeed(Side.Left);
         }
 
         public void ChangeDirection()
@@ -53,15 +54,6 @@ namespace Gamespace.Goombas
             }
             Sprite.Update();
 
-            // This can be reworked by adding this CONSTANT ACCEL functionality into Physics.
-            if (State.GetType() == typeof(LeftMovingGoombaState))
-            {
-                GameObjectPhysics.Move(Side.Left);
-            }
-            else if (State.GetType() == typeof(RightMovingGoombaState))
-            {
-                GameObjectPhysics.Move(Side.Right);
-            }
             GameObjectPhysics.Update();
             positionOnScreen = GameObjectPhysics.GetPosition();
         }

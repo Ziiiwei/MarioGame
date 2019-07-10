@@ -74,6 +74,8 @@
     <Compile Include="MarioGame\GameObjects\Background\Clouds\Cloud2.cs" />
     <Compile Include="MarioGame\GameObjects\Background\Clouds\Cloud3.cs" />
     <Compile Include="MarioGame\GameObjects\Enemies\IEnemyState.cs" />
+    <Compile Include="MarioGame\GameObjects\Enemies\Koopa\KoopaFlippedRightState.cs" />
+    <Compile Include="MarioGame\GameObjects\Enemies\Koopa\KoopaFlippedState.cs" />
     <Compile Include="MarioGame\GameObjects\Flag Pole\Flag.cs" />
     <Compile Include="MarioGame\GameObjects\Flag Pole\Flagpole.cs" />
     <Compile Include="MarioGame\GameObjects\Flag Pole\FlagPoleTop.cs" />
@@ -98,6 +100,7 @@
     <Compile Include="MarioGame\Multiplayer\Player.cs" />
     <Compile Include="MarioGame\Multiplayer\Scoreboard.cs" />
     <Compile Include="MarioGame\Physics\BumpableBlockPhysics.cs" />
+    <Compile Include="MarioGame\Physics\EnemyPhysics.cs" />
     <Compile Include="MarioGame\Physics\FireballPhysics.cs" />
     <Compile Include="MarioGame\Physics\IPhysicsConstants.cs" />
     <Compile Include="MarioGame\Physics\PhysicsConstants.cs" />
@@ -142,7 +145,7 @@
     <Compile Include="MarioGame\GameObjects\Items\Star.cs" />
     <Compile Include="MarioGame\GameObjects\Mario\IMario.cs" />
     <Compile Include="MarioGame\Commands\KoopaFlipCommand.cs" />
-    <Compile Include="MarioGame\GameObjects\Enemies\Koopa\KoopaFlippedState.cs" />
+    <Compile Include="MarioGame\GameObjects\Enemies\Koopa\KoopaFlippedLeftState.cs" />
     <Compile Include="MarioGame\GameObjects\Enemies\Koopa\KoopaMovingLeftState.cs" />
     <Compile Include="MarioGame\GameObjects\Enemies\Koopa\KoopaMovingRightState.cs" />
     <Compile Include="MarioGame\GameObjects\Enemies\Koopa\Koopa.cs" />

@@ -16,7 +16,7 @@ namespace Gamespace.Commands
         }
         public void Execute()
         {
-            enemy.SlideRight();
+             enemy.SlideRight();
         }
     }
 }

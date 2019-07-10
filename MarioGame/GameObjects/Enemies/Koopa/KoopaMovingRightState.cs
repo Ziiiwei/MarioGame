@@ -19,13 +19,25 @@ namespace Gamespace.Koopas
         public void ChangeDirection()
         {
             koopa.State = new KoopaMovingLeftState(koopa);
+            koopa.GameObjectPhysics.MoveMaxSpeed(Side.Left);
             koopa.UpdateArt();
         }
 
         public void TakeDamage()
         {
             koopa.State = new KoopaFlippedState(koopa);
+            koopa.GameObjectPhysics.Stop(Side.Right);
             koopa.UpdateArt();
+        }
+
+        public void SlideLeft()
+        {
+
+        }
+
+        public void SlideRight()
+        {
+
         }
     }
 }

@@ -19,6 +19,17 @@ namespace Gamespace.Goombas
         public void ChangeDirection()
         {
             goomba.State = new LeftMovingGoombaState(goomba);
+            goomba.GameObjectPhysics.MoveMaxSpeed(Side.Left);
+        }
+
+        public void SlideLeft()
+        {
+            // do nothing
+        }
+
+        public void SlideRight()
+        {
+            // do nothing
         }
 
         public void TakeDamage()
