@@ -109,7 +109,7 @@ namespace Gamespace
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
-            World.Instance.UpdatePlayers();
+            World.Instance.UpdatePlayers(gameTime);
             World.Instance.UpdateWorld();
             base.Update(gameTime);
             time = gameTime;

@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Timers;
+using Gamespace.Multiplayer;
 
 namespace Gamespace
 {
@@ -17,7 +18,7 @@ namespace Gamespace
         public IMarioPowerUpState PowerUpState { get; set; }
         public IMarioPowerUpState PreviousState { get; set; }
         public IFireable Projectiles { get; set; }
-
+        private IPlayer player;
 
         public Mario(Vector2 positionOnScreen) : base(positionOnScreen)
         {
@@ -100,6 +101,15 @@ namespace Gamespace
         public void Fire()
         {
              PowerUpState.Fire(this);
+        }
+
+        public void Coin()
+        {
+        }
+
+        public void SetPlayer(IPlayer player)
+        {
+            this.player = player;
         }
     }
 }

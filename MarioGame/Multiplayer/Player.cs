@@ -29,6 +29,7 @@ namespace Gamespace.Multiplayer
         public Player(IMario gameObject, ICamera cam, SpriteBatch screen)
         {
             GameObject = gameObject;
+            GameObject.SetPlayer(this);
             resetPoint = gameObject.PositionOnScreen;
             playerID = playerCounter;
             playerCounter++;
@@ -42,11 +43,11 @@ namespace Gamespace.Multiplayer
             
         }
 
-        public void Update()
+        public void Update(GameTime gameTime)
         {
 
             Controller.Update();
-            scoreboard.Update();
+            scoreboard.Update(gameTime);
             Cam.Update(GameObject.PositionOnScreen);
 
             //subject to change later on
@@ -84,6 +85,10 @@ namespace Gamespace.Multiplayer
                 view = new PlayableView(scoreboard, Cam);
                 timerIsArmed = false;
             }));
+        }
+
+        public void UpScore(int score)
+        {
         }
     }
 }

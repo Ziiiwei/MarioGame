@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Xna.Framework;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,8 +11,9 @@ namespace Gamespace.Multiplayer
     {
         int PlayerID { get; }
         IMario GameObject { get; }
-        void Update();
+        void Update(GameTime gameTime);
         void DrawPlayersScreen();
         void Release();
+        void UpScore(int score);
     }
 }

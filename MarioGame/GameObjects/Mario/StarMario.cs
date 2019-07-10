@@ -8,6 +8,7 @@ using Microsoft.Xna.Framework;
 using Gamespace.Sprites;
 using Gamespace.States;
 using Gamespace.Projectiles;
+using Gamespace.Multiplayer;
 
 namespace Gamespace
 {
@@ -126,6 +127,16 @@ namespace Gamespace
         public void Fire()
         {
             throw new NotImplementedException();
+        }
+
+        public void SetPlayer(IPlayer player)
+        {
+
+        }
+
+        public void Coin()
+        {
+
         }
     }
 }

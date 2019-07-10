@@ -2,6 +2,7 @@
 using Gamespace.Sprites;
 using Gamespace.States;
 using Microsoft.Xna.Framework;
+using Gamespace.Multiplayer;
 
 namespace Gamespace
 {
@@ -27,6 +28,8 @@ namespace Gamespace
         void CollideRight(Rectangle collisionArea);
         void CollideUp(Rectangle collisionArea);
         void CollideDown(Rectangle collisionArea);
+        void SetPlayer(IPlayer player);
+        void Coin();
     }
 
 }
