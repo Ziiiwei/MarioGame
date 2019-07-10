@@ -20,6 +20,8 @@ namespace Gamespace
         public IFireable Projectiles { get; set; }
         private IPlayer player;
 
+        public Scoreboard scoreboard { get; set; }
+
         public Mario(Vector2 positionOnScreen) : base(positionOnScreen)
         {
             State = new RightStandingMarioState(this);

@@ -12,7 +12,7 @@ namespace Gamespace.Items
         public GreenShroomRightState(GreenShroom shroom)
         {
             this.shroom = shroom;
-            shroom.GameObjectPhysics.MoveMaxSpeed(Side.Left);
+            shroom.GameObjectPhysics.MoveMaxSpeed(Side.Right);
         }
         public void ChangeDirection()
         {
