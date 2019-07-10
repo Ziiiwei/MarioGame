@@ -142,7 +142,7 @@ namespace Gamespace
             World.Instance.AddPlayer(player2);
 
             levelLoader = new LevelLoader(World.Instance);
-            SoundManager.Instance.PlayBGM();
+            SoundManager.Instance.PlayBGM();  
 
 
         }
