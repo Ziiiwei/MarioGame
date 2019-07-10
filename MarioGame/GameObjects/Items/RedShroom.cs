@@ -18,7 +18,7 @@ namespace Gamespace.Items
 
         public RedShroom(Vector2 positionOnScreen) : base(positionOnScreen)
         {
-            State = new ShroomMovingUpState(this);
+            State = new RedShroomUpState(this);
             SetSprite();
             SoundManager.Instance.PlaySoundEffect("PowerUpAppears");
         }
@@ -36,7 +36,7 @@ namespace Gamespace.Items
         protected override void SurrogateUpdate()
         {
             base.SurrogateUpdate();
-            if (State.GetType() == typeof(ShroomMovingUpState))
+            if (State.GetType() == typeof(RedShroomUpState))
             {
                 positionOnScreen.Y -= bumpOffsets[bumpCounter];
                 bumpCounter += 1;
@@ -61,7 +61,7 @@ namespace Gamespace.Items
 
         public override void CollideLeft(Rectangle collisionArea)
         {
-            if (State.GetType() != typeof(ShroomMovingUpState))
+            if (State.GetType() != typeof(RedShroomUpState))
             {
                 base.CollideLeft(collisionArea);
                 ChangeDirection();
@@ -70,7 +70,7 @@ namespace Gamespace.Items
 
         public override void CollideRight(Rectangle collisionArea)
         {
-            if (State.GetType() != typeof(ShroomMovingUpState))
+            if (State.GetType() != typeof(RedShroomUpState))
             {
                 base.CollideRight(collisionArea);
                 ChangeDirection();
@@ -79,7 +79,7 @@ namespace Gamespace.Items
 
         public override void CollideDown(Rectangle collisionArea)
         {
-            if (State.GetType() != typeof(ShroomMovingUpState))
+            if (State.GetType() != typeof(RedShroomUpState))
             {
                 base.CollideDown(collisionArea);
             }
@@ -87,7 +87,7 @@ namespace Gamespace.Items
 
         public override void CollideUp(Rectangle collisionArea)
         {
-            if (State.GetType() != typeof(ShroomMovingUpState))
+            if (State.GetType() != typeof(RedShroomUpState))
             {
                 base.CollideUp(collisionArea);
             }

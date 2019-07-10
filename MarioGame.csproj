@@ -77,11 +77,14 @@
     <Compile Include="MarioGame\GameObjects\Flag Pole\Flag.cs" />
     <Compile Include="MarioGame\GameObjects\Flag Pole\Flagpole.cs" />
     <Compile Include="MarioGame\GameObjects\Flag Pole\FlagPoleTop.cs" />
+    <Compile Include="MarioGame\GameObjects\Items\GreenShroomStates\GreenShroomLeftState.cs" />
+    <Compile Include="MarioGame\GameObjects\Items\GreenShroomStates\GreenShroomRightState.cs" />
+    <Compile Include="MarioGame\GameObjects\Items\GreenShroomStates\GreenShroomUpState.cs" />
     <Compile Include="MarioGame\GameObjects\Items\IMovableItem.cs" />
     <Compile Include="MarioGame\GameObjects\Items\RedShroomStates\IShroomState.cs" />
-    <Compile Include="MarioGame\GameObjects\Items\RedShroomStates\ShroomMovingLeftState.cs" />
-    <Compile Include="MarioGame\GameObjects\Items\RedShroomStates\ShroomMovingRightState.cs" />
-    <Compile Include="MarioGame\GameObjects\Items\RedShroomStates\ShroomMovingUpState.cs" />
+    <Compile Include="MarioGame\GameObjects\Items\RedShroomStates\RedShroomLeftState.cs" />
+    <Compile Include="MarioGame\GameObjects\Items\RedShroomStates\RedShroomRightState.cs" />
+    <Compile Include="MarioGame\GameObjects\Items\RedShroomStates\RedShroomUpState.cs" />
     <Compile Include="MarioGame\GameObjects\Projectiles\IFireable.cs" />
     <Compile Include="MarioGame\GameObjects\Projectiles\Fireball.cs" />
     <Compile Include="MarioGame\GameObjects\Projectiles\FireballStates\IProjectileState.cs" />
