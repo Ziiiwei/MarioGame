@@ -43,11 +43,11 @@ namespace Gamespace.Multiplayer
             
         }
 
-        public void Update()
+        public void Update(GameTime gameTime)
         {
 
             Controller.Update();
-            scoreboard.Update();
+            scoreboard.Update(gameTime);
             Cam.Update(GameObject.PositionOnScreen);
 
             //subject to change later on

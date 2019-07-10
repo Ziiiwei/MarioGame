@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Xna.Framework;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,16 +13,21 @@ namespace Gamespace.Multiplayer
         public int Coins { get; set; }
         public int Lives { get; set; }
 
+        public int Time { get; set; }
+
+        private int StartingTime = 400;
+
         public Scoreboard(int lives)
         {
             Score = 0;
             Coins = 0;
             Lives = lives;
+            Time = 400;
         }
 
-        public void Update()
+        public void Update(GameTime gametime)
         {
-            // put timer stuff here
+            Time = StartingTime - (int)gametime.TotalGameTime.TotalSeconds;
         }
         
     }
