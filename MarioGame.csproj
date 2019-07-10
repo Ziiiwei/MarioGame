@@ -44,6 +44,7 @@
   <ItemGroup>
     <Compile Include="MarioGame\Camera\ICamera.cs" />
     <Compile Include="MarioGame\Camera\MultiplayerCamera.cs" />
+    <Compile Include="MarioGame\Collision\RewardChecker.cs" />
     <Compile Include="MarioGame\Commands\KillEnemy.cs" />
     <Compile Include="MarioGame\Commands\KillMario.cs" />
     <Compile Include="MarioGame\Commands\MarioFireCommand.cs" />
@@ -94,6 +95,7 @@
     <Compile Include="MarioGame\GameObjects\Mario\States\PowerupStates\SmallStarMarioState.cs" />
     <Compile Include="MarioGame\GameObjects\NullGameObject.cs" />
     <Compile Include="MarioGame\GameObjects\Projectiles\ProjectileLauncher.cs" />
+    <Compile Include="MarioGame\Multiplayer\ScoringConstants.cs" />
     <Compile Include="MarioGame\Multiplayer\IPlayer.cs" />
     <Compile Include="MarioGame\Multiplayer\Player.cs" />
     <Compile Include="MarioGame\Multiplayer\Scoreboard.cs" />

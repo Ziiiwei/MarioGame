@@ -89,6 +89,17 @@ namespace Gamespace.Multiplayer
 
         public void UpScore(int score)
         {
+            scoreboard.Score += score;
+        }
+
+        public void Die()
+        {
+            scoreboard.Lives--;
+        }
+
+        public void Collect()
+        {
+            scoreboard.Coins++;
         }
     }
 }

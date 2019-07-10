@@ -15,5 +15,7 @@ namespace Gamespace.Multiplayer
         void DrawPlayersScreen();
         void Release();
         void UpScore(int score);
+        void Die();
+        void Collect();
     }
 }

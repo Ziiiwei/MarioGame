@@ -68,6 +68,7 @@ namespace Gamespace
         {
             SoundManager.Instance.PlaySoundEffect("PowerUp");
             PowerUpState.PowerUp(this);
+            player.UpScore(ScoringConstants.ITEM_SCORE);
         }
 
         public void UpdateArt()
@@ -83,12 +84,14 @@ namespace Gamespace
         public void Bounce()
         {
             GameObjectPhysics.MoveMaxSpeed(Side.Up);
+            player.UpScore(ScoringConstants.ENEMY_SCORE);
         }
 
         public void Die()
         {
             GameObjectPhysics.MoveMaxSpeed(Side.Up);
             World.Instance.MaskCollision(this);
+            player.Die();
             SoundManager.Instance.PlaySoundEffect("MarioDies");
       
         }
@@ -105,6 +108,8 @@ namespace Gamespace
 
         public void Coin()
         {
+            player.UpScore(ScoringConstants.COIN_SCORE);
+            player.Collect();
         }
 
         public void SetPlayer(IPlayer player)
