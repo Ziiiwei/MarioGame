@@ -63,7 +63,7 @@ namespace Gamespace.Projectiles
 
         public void Remove()
         {
-            Sprite = SpriteFactory.Instance.GetSprite("Fireball_out", "", "");
+             Sprite = SpriteFactory.Instance.GetSprite("Fireball_out", "", "");
             World.Instance.RemoveFromWorld(this);
         }
 
