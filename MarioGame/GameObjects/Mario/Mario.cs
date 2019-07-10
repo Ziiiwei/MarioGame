@@ -90,8 +90,8 @@ namespace Gamespace
             World.Instance.MaskCollision(this);
             SoundManager.Instance.StopBGM();
             SoundManager.Instance.PlaySoundEffect("MarioDies");
+      
         }
-
         public override void CollideDown(Rectangle collisionArea)
         {
             base.CollideDown(collisionArea);
