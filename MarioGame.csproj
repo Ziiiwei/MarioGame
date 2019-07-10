@@ -44,6 +44,8 @@
   <ItemGroup>
     <Compile Include="MarioGame\Camera\ICamera.cs" />
     <Compile Include="MarioGame\Camera\MultiplayerCamera.cs" />
+    <Compile Include="MarioGame\Commands\KillEnemy.cs" />
+    <Compile Include="MarioGame\Commands\KillMario.cs" />
     <Compile Include="MarioGame\Commands\MarioFireCommand.cs" />
     <Compile Include="MarioGame\Commands\MarioJumpAfterEnemyHit.cs" />
     <Compile Include="MarioGame\Commands\PauseGameCommand.cs" />
@@ -52,6 +54,7 @@
     <Compile Include="MarioGame\GameObjects\Blocks\Bump States\BlockIsBumpedState.cs" />
     <Compile Include="MarioGame\GameObjects\Blocks\Bump States\BlockIsNotBumpedState.cs" />
     <Compile Include="MarioGame\GameObjects\Blocks\Bump States\IBlockBumpState.cs" />
+    <Compile Include="MarioGame\GameObjects\Blocks\DeathBlock.cs" />
     <Compile Include="MarioGame\GameObjects\Blocks\IBlock.cs" />
     <Compile Include="MarioGame\GameObjects\Blocks\IBumpable.cs" />
     <Compile Include="MarioGame\GameObjects\Blocks\IDestroyable.cs" />

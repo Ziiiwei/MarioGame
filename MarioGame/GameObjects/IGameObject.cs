@@ -17,6 +17,7 @@ namespace Gamespace
         Rectangle GetCollisionBoundary();
         Vector2 GetCenter();
         bool IsPaused { get; set; }
+        int BlockSpacePosition { get; }
 
     }
 }

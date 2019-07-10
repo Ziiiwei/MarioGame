@@ -72,5 +72,10 @@ namespace Gamespace.Koopas
             base.CollideRight(collisionArea);
             ChangeDirection();
         }
+
+        public void Die()
+        {
+            World.Instance.RemoveFromWorld(this);
+        }
     }
 }

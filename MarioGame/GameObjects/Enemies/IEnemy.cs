@@ -13,5 +13,6 @@ namespace Gamespace.Interfaces
         void TakeDamage();
         void SlideLeft();
         void SlideRight();
+        void Die();
     }
 }

@@ -20,6 +20,7 @@ namespace Gamespace
         public IPhysics GameObjectPhysics { get; set; }
         private static Dictionary<bool, Action<AbstractGameObject>> updateFunctionPointer;
         public bool IsPaused { get; set; }
+        public int BlockSpacePosition { get => (int)Math.Max(0, Math.Floor(positionOnScreen.X / 32)); }
 
         static AbstractGameObject()
         {
