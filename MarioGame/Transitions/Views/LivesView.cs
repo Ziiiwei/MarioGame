@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Gamespace.Data;
 
 namespace Gamespace.Views
 {
@@ -20,7 +21,8 @@ namespace Gamespace.Views
         public void Draw(SpriteBatch spriteBatch)
         {
             // TODO: change the font to something more specific?
-            spriteBatch.DrawString(MarioGame.Instance.Font, "Lives " + lives.ToString(), new Vector2(375, 200), Color.Red);
+            spriteBatch.DrawString(MarioGame.Instance.Font, "Lives " + lives.ToString(), 
+                new Vector2(Numbers.CENTER_X, Numbers.CENTER_Y), Color.Red);
         }
     }
 }

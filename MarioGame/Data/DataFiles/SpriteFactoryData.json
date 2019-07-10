@@ -698,6 +698,14 @@
       "TexturePath": "fireball",
       "FrameCount": 4,
       "FrameDelay": 3
+    },
+	{
+      "Name": "Fireball_out",
+      "State": "",
+      "PowerUpState": "",
+      "TexturePath": "Fireball_out",
+      "FrameCount": 1,
+      "FrameDelay": 3
     }
   ]
 }

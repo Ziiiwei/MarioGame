@@ -11,6 +11,7 @@ namespace Gamespace
     {
         IBlockBumpState State { get; set; }
         IPhysics GameObjectPhysics { get; }
+        Type bumpReward { get; }
         void Bump();
     }
 }

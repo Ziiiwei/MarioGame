@@ -7,6 +7,7 @@ using Microsoft.Xna.Framework.Media;
 using Gamespace.Controllers;
 using Gamespace.Multiplayer;
 using Gamespace.Sounds;
+using Gamespace.Data;
 
 
 namespace Gamespace
@@ -19,8 +20,10 @@ namespace Gamespace
     public class MarioGame : Game
     {
         private static readonly MarioGame instance = new MarioGame();
-        public const int WINDOW_WIDTH = 800;
-        public const int WINDOW_HEIGHT = 480 * 2;
+        public const int WINDOW_WIDTH = Numbers.WIDTH;
+        // there are currently two cameras, and I think that is another reason for the camera factor here
+        public const int WINDOW_HEIGHT = Numbers.HEIGHT * Numbers.CAMERA_FACTOR;
+        // since this is one, I do not believe it is a magic number
         public const float SCALE = 1f;
         private GameTime time;
 
@@ -69,13 +72,13 @@ namespace Gamespace
         {
             base.Initialize();
 
-            PlayerCount = 2;
+            PlayerCount = Numbers.PLAYERS_IN_GAME;
 
-            IPlayer player1 = new Player(new Mario(new Vector2(200, 200)),
+            IPlayer player1 = new Player(new Mario(new Vector2(Numbers.PLAYER_ONE_X, Numbers.STARTING_Y)),
                 new MultiplayerCamera(0, new Vector2(0, 0)), new SpriteBatch(GraphicsDevice));
             World.Instance.AddPlayer(player1);
 
-            IPlayer player2 = new Player(new Mario(new Vector2(300, 200)),
+            IPlayer player2 = new Player(new Mario(new Vector2(Numbers.PLAYER_TWO_X, Numbers.STARTING_Y)),
                 new MultiplayerCamera(1, new Vector2(0, 0)), new SpriteBatch(GraphicsDevice));
             World.Instance.AddPlayer(player2);
 
@@ -109,7 +112,7 @@ namespace Gamespace
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
-            World.Instance.UpdatePlayers();
+            World.Instance.UpdatePlayers(gameTime);
             World.Instance.UpdateWorld();
             base.Update(gameTime);
             time = gameTime;
@@ -133,11 +136,11 @@ namespace Gamespace
         {
             World.Instance.ClearWorld();
 
-            IPlayer player1 = new Player(new Mario(new Vector2(200, 200)),
+            IPlayer player1 = new Player(new Mario(new Vector2(Numbers.PLAYER_ONE_X, Numbers.STARTING_Y)),
                 new MultiplayerCamera(0, new Vector2(0, 0)), new SpriteBatch(GraphicsDevice));
             World.Instance.AddPlayer(player1);
 
-            IPlayer player2 = new Player(new Mario(new Vector2(300, 200)),
+            IPlayer player2 = new Player(new Mario(new Vector2(Numbers.PLAYER_TWO_X, Numbers.STARTING_Y)),
                 new MultiplayerCamera(1, new Vector2(0, 0)), new SpriteBatch(GraphicsDevice));
             World.Instance.AddPlayer(player2);
 

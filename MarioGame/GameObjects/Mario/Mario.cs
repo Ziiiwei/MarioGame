@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Timers;
+using Gamespace.Multiplayer;
 
 namespace Gamespace
 {
@@ -17,7 +18,7 @@ namespace Gamespace
         public IMarioPowerUpState PowerUpState { get; set; }
         public IMarioPowerUpState PreviousState { get; set; }
         public IFireable Projectiles { get; set; }
-
+        private IPlayer player;
 
         public Mario(Vector2 positionOnScreen) : base(positionOnScreen)
         {
@@ -67,6 +68,7 @@ namespace Gamespace
         {
             SoundManager.Instance.PlaySoundEffect("PowerUp");
             PowerUpState.PowerUp(this);
+            player.UpScore(ScoringConstants.ITEM_SCORE);
         }
 
         public void UpdateArt()
@@ -82,12 +84,14 @@ namespace Gamespace
         public void Bounce()
         {
             GameObjectPhysics.MoveMaxSpeed(Side.Up);
+            player.UpScore(ScoringConstants.ENEMY_SCORE);
         }
 
         public void Die()
         {
             GameObjectPhysics.MoveMaxSpeed(Side.Up);
             World.Instance.MaskCollision(this);
+            player.Die();
             SoundManager.Instance.PlaySoundEffect("MarioDies");
       
         }
@@ -100,6 +104,17 @@ namespace Gamespace
         public void Fire()
         {
              PowerUpState.Fire(this);
+        }
+
+        public void Coin()
+        {
+            player.UpScore(ScoringConstants.COIN_SCORE);
+            player.Collect();
+        }
+
+        public void SetPlayer(IPlayer player)
+        {
+            this.player = player;
         }
     }
 }

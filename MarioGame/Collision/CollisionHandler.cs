@@ -106,6 +106,17 @@ namespace Gamespace
             ICommand collisionMember1 = (ICommand)Activator.CreateInstance(object1Type, mover, new CollisionData(collisionArea));
             ICommand collisionMember2 = (ICommand)Activator.CreateInstance(object2Type, target, new CollisionData(collisionArea));
 
+            // Thiis is for the instance that mario finds a coin
+            if (target.GetType().Equals(typeof(QuestionBlock)) || target.GetType().Equals(typeof(BrickBlock)))
+            {
+                //checks if there is a coin in the collided block and collects it
+                if ( RewardChecker.HasCoin( (IBumpable)target ) && mover.GetType().Equals( typeof(Mario) ) )
+                {
+                    ( (IMario)mover ).Coin();
+                }
+
+            }
+
             collisionMember1.Execute();
             collisionMember2.Execute();
         }

@@ -5,13 +5,15 @@ using Microsoft.Xna.Framework;
 using Gamespace.Sounds;
 using Gamespace.States;
 using Gamespace.Sprites;
+using Gamespace.Data;
 
 namespace Gamespace.Goombas
 {
     internal class Goomba : AbstractGameStatefulObject<IEnemyState>, IEnemy
     {
         private int stompTimer = 0;
-        private readonly int stompTimerBound = 20;
+        //this int is readOnly, so the number 20 is only used here. (Magic Number?)
+        private readonly int stompTimerBound = Numbers.STOMP_TIMER_BOUND;
 
         public Goomba (Vector2 positionOnScreen) : base(positionOnScreen)
         {

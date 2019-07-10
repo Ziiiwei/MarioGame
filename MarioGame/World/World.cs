@@ -99,7 +99,7 @@ namespace Gamespace
             collisionColumns[gameObject.BlockSpacePosition].Add(gameObject);
         }
 
-        public void UpdatePlayers()
+        public void UpdatePlayers(GameTime gameTime)
         {
             foreach (IPlayer player in playersToAdd)
             {
@@ -117,7 +117,7 @@ namespace Gamespace
 
             foreach (IPlayer player in players)
             {
-                player.Update();
+                player.Update(gameTime);
             }
         }
 

@@ -44,6 +44,7 @@
   <ItemGroup>
     <Compile Include="MarioGame\Camera\ICamera.cs" />
     <Compile Include="MarioGame\Camera\MultiplayerCamera.cs" />
+    <Compile Include="MarioGame\Collision\RewardChecker.cs" />
     <Compile Include="MarioGame\Commands\KillEnemy.cs" />
     <Compile Include="MarioGame\Commands\KillMario.cs" />
     <Compile Include="MarioGame\Commands\MarioFireCommand.cs" />
@@ -51,6 +52,7 @@
     <Compile Include="MarioGame\Commands\PauseGameCommand.cs" />
     <Compile Include="MarioGame\Commands\ProjectileRemoveCommand.cs" />
     <Compile Include="MarioGame\Controllers\KeyAssignmentFactory.cs" />
+    <Compile Include="MarioGame\Data\Numbers.cs" />
     <Compile Include="MarioGame\GameObjects\Blocks\Bump States\BlockIsBumpedState.cs" />
     <Compile Include="MarioGame\GameObjects\Blocks\Bump States\BlockIsNotBumpedState.cs" />
     <Compile Include="MarioGame\GameObjects\Blocks\Bump States\IBlockBumpState.cs" />
@@ -79,11 +81,14 @@
     <Compile Include="MarioGame\GameObjects\Flag Pole\Flag.cs" />
     <Compile Include="MarioGame\GameObjects\Flag Pole\Flagpole.cs" />
     <Compile Include="MarioGame\GameObjects\Flag Pole\FlagPoleTop.cs" />
+    <Compile Include="MarioGame\GameObjects\Items\GreenShroomStates\GreenShroomLeftState.cs" />
+    <Compile Include="MarioGame\GameObjects\Items\GreenShroomStates\GreenShroomRightState.cs" />
+    <Compile Include="MarioGame\GameObjects\Items\GreenShroomStates\GreenShroomUpState.cs" />
     <Compile Include="MarioGame\GameObjects\Items\IMovableItem.cs" />
     <Compile Include="MarioGame\GameObjects\Items\RedShroomStates\IShroomState.cs" />
-    <Compile Include="MarioGame\GameObjects\Items\RedShroomStates\ShroomMovingLeftState.cs" />
-    <Compile Include="MarioGame\GameObjects\Items\RedShroomStates\ShroomMovingRightState.cs" />
-    <Compile Include="MarioGame\GameObjects\Items\RedShroomStates\ShroomMovingUpState.cs" />
+    <Compile Include="MarioGame\GameObjects\Items\RedShroomStates\RedShroomLeftState.cs" />
+    <Compile Include="MarioGame\GameObjects\Items\RedShroomStates\RedShroomRightState.cs" />
+    <Compile Include="MarioGame\GameObjects\Items\RedShroomStates\RedShroomUpState.cs" />
     <Compile Include="MarioGame\GameObjects\Projectiles\IFireable.cs" />
     <Compile Include="MarioGame\GameObjects\Projectiles\Fireball.cs" />
     <Compile Include="MarioGame\GameObjects\Projectiles\FireballStates\IProjectileState.cs" />
@@ -96,6 +101,7 @@
     <Compile Include="MarioGame\GameObjects\Mario\States\PowerupStates\SmallStarMarioState.cs" />
     <Compile Include="MarioGame\GameObjects\NullGameObject.cs" />
     <Compile Include="MarioGame\GameObjects\Projectiles\ProjectileLauncher.cs" />
+    <Compile Include="MarioGame\Multiplayer\ScoringConstants.cs" />
     <Compile Include="MarioGame\Multiplayer\IPlayer.cs" />
     <Compile Include="MarioGame\Multiplayer\Player.cs" />
     <Compile Include="MarioGame\Multiplayer\Scoreboard.cs" />
