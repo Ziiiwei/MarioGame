@@ -93,7 +93,7 @@ namespace Gamespace
         protected override void LoadContent()
         {   
             Font = Content.Load<SpriteFont>("Arial");
-            SoundManager.Instance.PlayBGM();
+            SoundManager.Instance.PlayMainBGM();
         }
 
         /// <summary>
@@ -145,7 +145,7 @@ namespace Gamespace
             World.Instance.AddPlayer(player2);
 
             levelLoader = new LevelLoader(World.Instance);
-            SoundManager.Instance.PlayBGM();  
+            SoundManager.Instance.PlayMainBGM();  
 
 
         }
