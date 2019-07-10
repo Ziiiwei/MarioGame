@@ -8,6 +8,7 @@ using Gamespace.Items;
 using Gamespace.Koopas;
 using Gamespace.Multiplayer;
 using Gamespace.Projectiles;
+using Gamespace.Animation;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
@@ -19,13 +20,16 @@ using System.Threading.Tasks;
 
 namespace Gamespace
 {
-    public class World
+    public partial class World
     {
         private static readonly World instance = new World();
         private readonly Dictionary<int, IGameObject> objectsInWorld;
 
         private readonly List<IGameObject> objectsToAdd;
         private readonly List<IPlayer> playersToAdd;
+
+        private readonly List<IAnimation<IGameObject>> animationsToAdd;
+        private readonly List<IAnimation<IGameObject>> animationsToPlay;
 
         private ISet<IGameObject> objectsToRemove;
         private List<IPlayer> playersToRemove;
@@ -37,7 +41,7 @@ namespace Gamespace
 
         public bool worldIsPaused = false;
 
-        public bool cutkeyboard = false;
+        public bool pendingAnimation = false;
 
         public IMario Mario { get; set; }
         public List<IPlayer> players;
@@ -52,6 +56,9 @@ namespace Gamespace
             playersToRemove = new List<IPlayer>();
             collisionMovers = new List<IGameObject>();
             collisionReceivers = new List<IGameObject>();
+
+            animationsToAdd = new List<IAnimation<IGameObject>>();
+            animationsToPlay = new List<IAnimation<IGameObject>>();
 
             collisionMoverClassifier = new List<Type>
             {

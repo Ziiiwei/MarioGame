@@ -52,6 +52,7 @@
     <Compile Include="MarioGame\Commands\MarioFireCommand.cs" />
     <Compile Include="MarioGame\Commands\MarioJumpAfterEnemyHit.cs" />
     <Compile Include="MarioGame\Commands\PauseGameCommand.cs" />
+    <Compile Include="MarioGame\Commands\PlayTestAnimation.cs" />
     <Compile Include="MarioGame\Commands\ProjectileRemoveCommand.cs" />
     <Compile Include="MarioGame\Controllers\KeyAssignmentFactory.cs" />
     <Compile Include="MarioGame\GameObjects\Blocks\Bump States\BlockIsBumpedState.cs" />
@@ -165,6 +166,7 @@
     <Compile Include="MarioGame\Transitions\Views\IView.cs" />
     <Compile Include="MarioGame\Transitions\Views\LivesView.cs" />
     <Compile Include="MarioGame\Transitions\Views\PlayableView.cs" />
+    <Compile Include="MarioGame\World\WorldAnimation.cs" />
     <Compile Include="MarioGame\World\LevelLoader.cs" />
     <Compile Include="MarioGame\GameObjects\Items\RedShroom.cs" />
     <Compile Include="MarioGame\GameObjects\Mario\States\MovingStates\RightCrouchingMarioState.cs" />
