@@ -14,7 +14,9 @@ namespace Gamespace.Controllers
     {
         private readonly Dictionary<Keys, ICommand> currentBindings;
         private static readonly List<Type> nonHoldableCommands;
-        private List<Keys> previouslyPressed;
+        private List<Keys> previouslyPressed =  new List<Keys>();
+
+
 
         static KeyboardController()
         {
@@ -27,7 +29,12 @@ namespace Gamespace.Controllers
         public KeyboardController(IPlayer player)
         {
             currentBindings = KeyAssignmentFactory.Instance.GetBindings(player);
-            previouslyPressed = new List<Keys>();
+            
+        }
+
+        public KeyboardController(IPlayer player, bool keyActivation)
+        {
+            currentBindings = KeyAssignmentFactory.Instance.GetPausedBinding(player);
         }
 
         public void Update()

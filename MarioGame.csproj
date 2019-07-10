@@ -42,9 +42,11 @@
     <ApplicationManifest>MarioGame\app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="MarioGame\Animation\AnimationPhysics.cs" />
+    <Compile Include="MarioGame\Animation\AnimationFactory.cs" />
+    <Compile Include="MarioGame\Animation\KeyFrame.cs" />
     <Compile Include="MarioGame\Animation\IAnimation.cs" />
     <Compile Include="MarioGame\Animation\IKeyFrame.cs" />
+    <Compile Include="MarioGame\Animation\Animation.cs" />
     <Compile Include="MarioGame\Camera\ICamera.cs" />
     <Compile Include="MarioGame\Camera\MultiplayerCamera.cs" />
     <Compile Include="MarioGame\Commands\MarioFireCommand.cs" />

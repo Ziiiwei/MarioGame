@@ -17,7 +17,7 @@ using Gamespace.Hills;
 
 namespace Gamespace
 {
-    public enum Side : int { None, Up, Down, Left, Right };
+    public enum Side : int { None, Up, Down, Left, Right , Horizontal, Vertical};
     class CollisionHandler
     {
         /* Side is relative to the second IGameObject in the tuple */

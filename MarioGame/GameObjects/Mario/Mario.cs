@@ -33,7 +33,7 @@ namespace Gamespace
             GameObjectPhysics.FrictionStop(Side.Right);
             State.FrictionStop();
 
-            positionOnScreen = GameObjectPhysics.GetPosition();
+            positionOnScreen = GameObjectPhysics.Position;
         }
 
         public void Crouch()

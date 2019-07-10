@@ -15,6 +15,7 @@ namespace Gamespace.Controllers
         private Dictionary<int, Dictionary<Keys, Type>> playerBindingsSelector;
         private Dictionary<Keys, Type> playerOneBinds;
         private Dictionary<Keys, Type> playerTwoBinds;
+        private Dictionary<Keys, Type> duringAnimationBinds;
 
         static KeyAssignmentFactory()
         {
@@ -43,6 +44,11 @@ namespace Gamespace.Controllers
             playerTwoBinds.Add(Keys.RightShift, typeof(MarioFireCommand));
             playerTwoBinds.Add(Keys.R, typeof(Reset));
 
+            duringAnimationBinds = new Dictionary<Keys, Type>();
+            duringAnimationBinds.Add(Keys.P, typeof(PauseGameCommand));
+            duringAnimationBinds.Add(Keys.Q, typeof(QuitGame));
+            duringAnimationBinds.Add(Keys.R, typeof(Reset));
+
             playerBindingsSelector = new Dictionary<int, Dictionary<Keys, Type>>()
             {
                 {0, playerOneBinds },
@@ -62,6 +68,17 @@ namespace Gamespace.Controllers
                 retVal.Add(key, (ICommand)Activator.CreateInstance(binds[key], player.GameObject));
             }
             /* rename retval */
+            return retVal;
+        }
+
+        internal Dictionary<Keys,ICommand> GetPausedBinding(IPlayer player)
+        {
+            Dictionary<Keys, ICommand> retVal = new Dictionary<Keys, ICommand>();
+
+            foreach (Keys key in duringAnimationBinds.Keys)
+            {
+                retVal.Add(key, (ICommand)Activator.CreateInstance(duringAnimationBinds[key], player.GameObject));
+            }
             return retVal;
         }
 

@@ -35,7 +35,9 @@ namespace Gamespace
         private readonly List<Type> collisionMoverClassifier;
         private readonly Dictionary<Type, int> collisionPriorities;
 
-        private bool worldIsPaused = false;
+        public bool worldIsPaused = false;
+
+        public bool cutkeyboard = false;
 
         public IMario Mario { get; set; }
         public List<IPlayer> players;

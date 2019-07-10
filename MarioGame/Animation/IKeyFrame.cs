@@ -5,15 +5,15 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
 
-namespace Gamespace.Animaiton
+namespace Gamespace.Animation
 {
-    interface IKeyFrame
+    public interface IKeyFrame<T>
     {
-        IKeyFrame Previous { get; set; }
-        IKeyFrame Next { get; set; }
-        Vector2 FramePoint { get; set; }
+        T AnimatedObj { get;}
+        Vector2 FramePoint { get;}
+        Type ComandToCall { get; }
+        void FrameFinished();
+        void Update();
 
-     
-        void ToNext();
     }
 }

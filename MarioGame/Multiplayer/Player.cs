@@ -10,10 +10,11 @@ using System.Threading.Tasks;
 
 namespace Gamespace.Multiplayer
 {
+  
     internal class Player : IPlayer
     {
         public IMario GameObject { get; private set; }
-        public IController Controller { get; }
+        public IController Controller { get; set; }
         public ICamera Cam { get; private set; }
         private IView view;
         public SpriteBatch Screen { get; }
@@ -24,6 +25,8 @@ namespace Gamespace.Multiplayer
         public int Lives { get; set; }
         private DiscreteTimer viewTimer;
         private bool timerIsArmed = false;
+
+        private bool keyBoardEnabled = true;
 
         public Player(IMario gameObject, ICamera cam, SpriteBatch screen)
         {
@@ -38,6 +41,12 @@ namespace Gamespace.Multiplayer
             Controller = new KeyboardController(this);
             Screen = screen;
             
+        }
+
+        public void PaulseControlForAnimation()
+        {
+            keyBoardEnabled = false;
+            Controller = new KeyboardController(this);
         }
 
         public void Update()

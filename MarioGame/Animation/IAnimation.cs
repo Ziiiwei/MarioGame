@@ -4,10 +4,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Sprint0.MarioGame.Animation
+namespace Gamespace.Animation
 {
-    interface IAnimation
+    public interface IAnimation<T>
 
     {
+        T AnimatiedObj { get; set;}
+
+        void Start();
+        void Play();
+        void PlayNextFrame();
+        void AddFrame(IKeyFrame<T> frame);
+        void Finished();
+       
+
+
     }
 }
