@@ -33,6 +33,7 @@ namespace Gamespace.Controllers
             playerOneBinds.Add(Keys.D, typeof(MarioMoveRightCommand));
             playerOneBinds.Add(Keys.Space, typeof(MarioFireCommand));
             playerOneBinds.Add(Keys.R, typeof(Reset));
+            playerOneBinds.Add(Keys.F, typeof(PlayTestAnimation));
 
             playerTwoBinds = new Dictionary<Keys, Type>();
             playerTwoBinds.Add(Keys.P, typeof(PauseGameCommand));

@@ -12,7 +12,7 @@ namespace Gamespace.Animation
     {
         T AnimatiedObj { get; set;}
 
-        void Start();
+        void Activate();
         void Play();
         void PlayNextFrame();
         void AddFrame(IKeyFrame<T> frame);

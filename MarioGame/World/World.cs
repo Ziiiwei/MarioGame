@@ -23,14 +23,21 @@ namespace Gamespace
     public partial class World
     {
         private static readonly World instance = new World();
-        private readonly Dictionary<int, IGameObject> objectsInWorld;
+        //private readonly Dictionary<int, IGameObject> objectsInWorld;
 
         private readonly List<IGameObject> objectsToAdd;
         private readonly List<IPlayer> playersToAdd;
+        private readonly List<IGameObject> objectsToAddToUpdate;
+
+        private readonly List<IGameObject> objectsToUpdate;
+        private readonly List<IGameObject> objectsToDraw;
 
         private readonly List<IAnimation<IGameObject>> animationsToAdd;
         private readonly List<IAnimation<IGameObject>> animationsToPlay;
+        private readonly List<IAnimation<IGameObject>> animationsToDelete;
 
+
+        private List<IGameObject> objectsToRemoveFromUpdate;
         private ISet<IGameObject> objectsToRemove;
         private List<IPlayer> playersToRemove;
 
@@ -41,7 +48,7 @@ namespace Gamespace
 
         public bool worldIsPaused = false;
 
-        public bool pendingAnimation = false;
+        
 
         public IMario Mario { get; set; }
         public List<IPlayer> players;
@@ -49,16 +56,22 @@ namespace Gamespace
 
         private World()
         {
-            objectsInWorld = new Dictionary<int, IGameObject>();
+            //objectsInWorld = new Dictionary<int, IGameObject>();
             objectsToAdd = new List<IGameObject>();
             playersToAdd = new List<IPlayer>();
+            objectsToAddToUpdate = new List<IGameObject>();
             objectsToRemove = new HashSet<IGameObject>();
             playersToRemove = new List<IPlayer>();
+            objectsToRemoveFromUpdate = new List<IGameObject>();
             collisionMovers = new List<IGameObject>();
             collisionReceivers = new List<IGameObject>();
 
+            objectsToUpdate = new List<IGameObject>();
+            objectsToDraw = new List<IGameObject>();
+
             animationsToAdd = new List<IAnimation<IGameObject>>();
             animationsToPlay = new List<IAnimation<IGameObject>>();
+            animationsToDelete = new List<IAnimation<IGameObject>>();
 
             collisionMoverClassifier = new List<Type>
             {
@@ -124,7 +137,12 @@ namespace Gamespace
         {
             UpdateWaitingItems();
 
-            foreach (IGameObject gameObject in objectsInWorld.Values)
+            foreach (IAnimation<IGameObject> animation in animationsToPlay)
+            {
+                animation.Play();
+            }
+
+            foreach (IGameObject gameObject in objectsToUpdate)
             {
                 gameObject.Update();
             }
@@ -151,7 +169,7 @@ namespace Gamespace
 
         public void DrawWorld(SpriteBatch spriteBatch)
         {
-            foreach (IGameObject gameObject in objectsInWorld.Values)
+            foreach (IGameObject gameObject in objectsToDraw)
             {
                 gameObject.Draw(spriteBatch);
             }
@@ -169,21 +187,68 @@ namespace Gamespace
             foreach (IGameObject gameObject in objectsToAdd)
             {
                 ClassifyNewObject(gameObject);
-                objectsInWorld.Add(gameObject.Uid, gameObject);
+                //objectsInWorld.Add(gameObject.Uid, gameObject);
+
+                objectsToUpdate.Add(gameObject);
+                objectsToDraw.Add(gameObject);
+
+            }
+
+            foreach (IGameObject gameObject in objectsToRemoveFromUpdate)
+            {
+                if (objectsToUpdate.Contains(gameObject))
+                {
+                    objectsToUpdate.Remove(gameObject);
+                }
+            }
+
+            foreach (IGameObject gameObject in objectsToAddToUpdate)
+            {
+                if (objectsToAddToUpdate.Contains(gameObject))
+                {
+                    objectsToUpdate.Add(gameObject);
+                }
             }
 
             foreach (IGameObject gameObject in objectsToRemove)
             {
-                if (collisionMovers.Contains(objectsInWorld[gameObject.Uid]))
+                if (collisionMovers.Contains(gameObject))
                 {
-                    collisionMovers.Remove(objectsInWorld[gameObject.Uid]);
+                    collisionMovers.Remove(gameObject);
                 }
                 else
                 {
-                    collisionReceivers.Remove(objectsInWorld[gameObject.Uid]);
+                    collisionReceivers.Remove(gameObject);
                 }
-                objectsInWorld.Remove(gameObject.Uid);
+                
+                if (objectsToUpdate.Contains(gameObject))
+                {
+                    objectsToUpdate.Remove(gameObject);
+                }
+
+                if (objectsToDraw.Contains(gameObject))
+                {
+                    objectsToDraw.Remove(gameObject);
+                }
             }
+
+            foreach (IAnimation<IGameObject> animation in animationsToAdd)
+            {
+                animationsToPlay.Add(animation);
+            }
+
+            foreach (IAnimation<IGameObject> animation in animationsToDelete)
+            {
+                if (animationsToPlay.Contains(animation))
+                {
+                    animationsToPlay.Remove(animation);
+                }
+            }
+
+            animationsToAdd.Clear();
+            animationsToDelete.Clear();
+            objectsToAddToUpdate.Clear();
+            objectsToRemoveFromUpdate.Clear();
             objectsToAdd.Clear();
             objectsToRemove.Clear();
         }
@@ -280,16 +345,18 @@ namespace Gamespace
             AddGameObject(gameObject);
         }
 
-        public void Replace(IGameObject oldObject, IGameObject newObject)
+      /*  public void Replace(IGameObject oldObject, IGameObject newObject)
         {
-            /*This assertion helps with debugging the replace*/
-            System.Diagnostics.Debug.Assert(objectsInWorld.ContainsKey(oldObject.Uid));
-            /*This is mainly to manage decorators*/
+         
+           System.Diagnostics.Debug.Assert(objectsInWorld.ContainsKey(oldObject.Uid));
+          
             if(objectsInWorld.ContainsKey(newObject.Uid))
-                RemoveFromWorld(newObject); /*They were In to begin with?*/
+                RemoveFromWorld(newObject); 
             RemoveFromWorld(oldObject);
             AddGameObject(newObject);
         }
+        */
+   
 
         public void AddPlayer(IPlayer player)
         {
@@ -309,7 +376,7 @@ namespace Gamespace
         {
             objectsToAdd.Clear();
             playersToAdd.Clear();
-            objectsToRemove = objectsInWorld.Values.ToHashSet();
+            objectsToRemove = objectsToUpdate.Concat(objectsToDraw).ToHashSet();
             playersToRemove = new List<IPlayer>(players);
             collisionMovers.Clear();
             collisionReceivers.Clear();
@@ -319,7 +386,7 @@ namespace Gamespace
         {
             worldIsPaused = !worldIsPaused;
 
-            foreach (IGameObject gameObject in objectsInWorld.Values)
+            foreach (IGameObject gameObject in objectsToUpdate)
             {
                 gameObject.IsPaused = worldIsPaused;
             }

@@ -44,7 +44,7 @@ namespace Gamespace
             {
                 this.mario.PowerUpState = this.PreviousState;
                 this.mario.UpdateArt();
-                World.Instance.Replace(this, this.mario);
+               // World.Instance.Replace(this, this.mario);
             }
             this.mario.Update();
         }

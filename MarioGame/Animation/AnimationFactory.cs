@@ -18,11 +18,9 @@ namespace Gamespace.Animation
         {
             testMarioAnimation = new List<(Side side, int distance, Type command)>
             {
-                (Side.Right, 100, typeof(MarioMoveRightCommand)),
                 (Side.Up, 50, typeof(MarioJumpCommand)),
-                (Side.Left,200,typeof(MarioMoveLeftCommand)),
-                (Side.None,20,typeof(MarioCrouchCommand)),
-                (Side.Up, 50, typeof(MarioJumpCommand))
+                (Side.Right, 400, typeof(MarioMoveRightCommand))
+       
             };
 
             newFrameCaculation = new Dictionary<Side, Func<Vector2,int,Vector2>>()
@@ -30,7 +28,8 @@ namespace Gamespace.Animation
                 {Side.Up, new Func<Vector2, int, Vector2>((p,d) => new Vector2(p.X,p.Y-d))},
                 {Side.Down, new Func<Vector2, int, Vector2>((p,d) => new Vector2(p.X,p.Y+d))},
                 {Side.Left, new Func<Vector2, int, Vector2>((p,d) => new Vector2(p.X-d,p.Y))},
-                {Side.Right, new Func<Vector2, int, Vector2>((p,d) => new Vector2(p.X+d,p.Y+d))}
+                {Side.Right, new Func<Vector2, int, Vector2>((p,d) => new Vector2(p.X+d,p.Y+d))},
+                {Side.None, new Func<Vector2, int, Vector2>((p,d) => new Vector2(p.X,p.Y))}
             };
         }
 

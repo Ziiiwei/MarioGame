@@ -18,6 +18,7 @@ namespace Gamespace.Animation
                                     //set to -1
         private int totalFrames;
         private Action finishedAction;
+        private bool activation;
 
         public Animation(IGameObject gameObject,Action afterAnimation)
         {
@@ -26,6 +27,7 @@ namespace Gamespace.Animation
             frameCounter = -1;
             totalFrames = 0;
             finishedAction = afterAnimation;
+            activation = false;
         }
 
         public void AddFrame(IKeyFrame<IGameObject> frame)
@@ -34,8 +36,9 @@ namespace Gamespace.Animation
             totalFrames++;
         }
 
-        public void Start()
+        public void Activate()
         {
+            activation = true;
             if (totalFrames<=0)
             {
                 throw new Exception("Animation is not created properly");
@@ -47,7 +50,17 @@ namespace Gamespace.Animation
 
         public void Play()
         {
-            frameList[frameCounter].Update();
+            if (activation)
+            {
+                if (frameCounter < totalFrames)
+                {
+                    frameList[frameCounter].Update();
+                }
+                else
+                {
+                    Finished();
+                }
+            }
         }
         public void PlayNextFrame()
         {
@@ -55,7 +68,9 @@ namespace Gamespace.Animation
         }
         public void Finished()
         {
+            activation = false;
             finishedAction.Invoke();
+            World.Instance.RemoveFinishedAnimation(this);
         }
 
 

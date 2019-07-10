@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Gamespace.Commands
 {
-    interface ICommand
+    public interface ICommand
     {
         void Execute();
     }

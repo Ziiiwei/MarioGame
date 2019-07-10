@@ -22,7 +22,8 @@ namespace Gamespace.Controllers
         {
             nonHoldableCommands = new List<Type>()
             {
-                typeof(PauseGameCommand)
+                typeof(PauseGameCommand),
+                typeof(PlayTestAnimation)
             };
         }
 
@@ -45,11 +46,6 @@ namespace Gamespace.Controllers
             {
                 if (currentBindings.ContainsKey(key))
                 {
-                    if (pressed.Contains(Keys.P))
-                    {
-                        int i = 1;
-                    }
-
                     if (!nonHoldableCommands.Contains(currentBindings[key].GetType()) || !previouslyPressed.Contains(key))
                     {
                         currentBindings[key].Execute();

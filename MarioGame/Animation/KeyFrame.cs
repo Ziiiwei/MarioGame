@@ -13,7 +13,7 @@ namespace Gamespace.Animation
     {
         public IGameObject AnimatedObj { get; }
         public Vector2 FramePoint { get; }
-        public Type ComandToCall { get; }
+        public ICommand ComandToCall { get; }
     
         private Action frameAnimation;
         private Vector2 currentPosition;
@@ -23,17 +23,22 @@ namespace Gamespace.Animation
         {
             AnimatedObj = obj;
             FramePoint = point;
-            ComandToCall = command;
+            ComandToCall = (ICommand)Activator.CreateInstance(command, obj);
             animation = ani;
            
             currentPosition = obj.PositionOnScreen;
-            frameAnimation = () => Activator.CreateInstance(command, obj);
+
+            frameAnimation = () =>
+            {
+                ComandToCall.Execute();
+                obj.Update();
+            };
         }
 
         public void Update()
         {
             currentPosition = AnimatedObj.PositionOnScreen;
-            if (Vector2.Distance(currentPosition, FramePoint) <= 1.0)
+            if (Vector2.Distance(currentPosition, FramePoint) <= 5.0)
             {
                 FrameFinished();
             }
