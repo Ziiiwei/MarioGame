@@ -66,6 +66,7 @@ namespace Gamespace
                 typeof(Goomba),
                 typeof(Koopa),
                 typeof(RedShroom),
+                typeof(GreenShroom),
                 typeof(Fireball)
             };
 

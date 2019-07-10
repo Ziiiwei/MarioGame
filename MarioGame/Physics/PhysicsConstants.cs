@@ -33,8 +33,9 @@ namespace Gamespace
             constantsAssignments.Add(typeof(Goomba), new PhysicsConstantsDefinitons(enemyDefinitions));
             constantsAssignments.Add(typeof(Koopa), new PhysicsConstantsDefinitons(enemyDefinitions));
 
-            List<float> redShroomDefinitions = new List<float> { 3f, 3f, 3f, 3f, 3f };
-            constantsAssignments.Add(typeof(RedShroom), new PhysicsConstantsDefinitons(redShroomDefinitions));
+            List<float> shroomDefinitions = new List<float> { 3f, 3f, 3f, 3f, 3f };
+            constantsAssignments.Add(typeof(RedShroom), new PhysicsConstantsDefinitons(shroomDefinitions));
+            constantsAssignments.Add(typeof(GreenShroom), new PhysicsConstantsDefinitons(shroomDefinitions));
 
             List<float> brickBlockDefinitions = new List<float> { 5.2f, 1.2f, 7f, 7f, 3.0f };
             constantsAssignments.Add(typeof(BrickBlock), new PhysicsConstantsDefinitons(brickBlockDefinitions));

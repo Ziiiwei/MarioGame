@@ -7,7 +7,7 @@ using Microsoft.Xna.Framework.Media;
 using Gamespace.Controllers;
 using Gamespace.Multiplayer;
 using Gamespace.Sounds;
-
+using System;
 
 namespace Gamespace
 {
@@ -23,6 +23,7 @@ namespace Gamespace
         public const int WINDOW_HEIGHT = 480 * 2;
         public const float SCALE = 1f;
         private GameTime time;
+        private BGMTimer bgmTimer;
 
 
         public GraphicsDeviceManager graphics { get; }
@@ -90,7 +91,7 @@ namespace Gamespace
         protected override void LoadContent()
         {   
             Font = Content.Load<SpriteFont>("Arial");
-            SoundManager.Instance.PlayBGM();
+            SoundManager.Instance.PlayMainBGM();
         }
 
         /// <summary>
@@ -113,7 +114,6 @@ namespace Gamespace
             World.Instance.UpdateWorld();
             base.Update(gameTime);
             time = gameTime;
-            
         }
 
         /// <summary>
@@ -142,8 +142,17 @@ namespace Gamespace
             World.Instance.AddPlayer(player2);
 
             levelLoader = new LevelLoader(World.Instance);
-            SoundManager.Instance.PlayBGM();  
+            SoundManager.Instance.PlayMainBGM();  
 
+
+        }
+        public void ChangeBGM()
+        {
+            bgmTimer = new BGMTimer(300, new Action(() =>
+            {
+                SoundManager.Instance.PlaySoundEffect("OutOfTime");
+            
+            }));
 
         }
     }

@@ -46,6 +46,7 @@
     <Compile Include="MarioGame\Camera\MultiplayerCamera.cs" />
     <Compile Include="MarioGame\Commands\KillEnemy.cs" />
     <Compile Include="MarioGame\Commands\KillMario.cs" />
+    <Compile Include="MarioGame\Commands\MarioAddLife.cs" />
     <Compile Include="MarioGame\Commands\MarioFireCommand.cs" />
     <Compile Include="MarioGame\Commands\MarioJumpAfterEnemyHit.cs" />
     <Compile Include="MarioGame\Commands\PauseGameCommand.cs" />
@@ -162,6 +163,7 @@
     <Compile Include="MarioGame\Physics\ShroomPhysics.cs" />
     <Compile Include="MarioGame\Sounds\SoundFactory.cs" />
     <Compile Include="MarioGame\Sounds\SoundManager.cs" />
+    <Compile Include="MarioGame\Timer\BGMTimer.cs" />
     <Compile Include="MarioGame\Timer\DiscreteTimer.cs" />
     <Compile Include="MarioGame\Transitions\ViewFactory.cs" />
     <Compile Include="MarioGame\Transitions\Views\IView.cs" />

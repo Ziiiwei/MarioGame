@@ -24,6 +24,7 @@ namespace Gamespace
             {
                 {typeof(Mario), typeof(Physics) },
                 {typeof(RedShroom), typeof(ShroomPhysics) },
+                {typeof(GreenShroom), typeof(ShroomPhysics) },
                 {typeof(BrickBlock), typeof(BumpableBlockPhysics) },
                 {typeof(Fireball), typeof(FireballPhysics) }
             };

@@ -26,7 +26,6 @@ namespace Gamespace.Blocks
         public void Destroy()
         {
             Vector2 newBlockPosition = positionOnScreen;
-            Bump();
             World.Instance.RemoveFromWorld(this);
             World.Instance.AddGameObject(new UsedBlock(newBlockPosition));
         }
@@ -38,7 +37,6 @@ namespace Gamespace.Blocks
                 World.Instance.AddGameObject((IGameObject)Activator.CreateInstance(bumpReward, positionOnScreen));
                 bumpReward = null;
             }
-            //Destroy();
         }
 
         protected override void SetSprite()

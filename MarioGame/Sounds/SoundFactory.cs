@@ -39,6 +39,7 @@ namespace Gamespace
                 {
                     BGM = MarioGame.Instance.Content.Load<Song>(entry.SoundPath);
                 }
+
                 else 
                 {
                     soundEffect = MarioGame.Instance.Content.Load<SoundEffect>(entry.SoundPath);
@@ -71,8 +72,14 @@ namespace Gamespace
             SoundEffectInstance _soundEffect = soundAssignments[name];
             return _soundEffect;
         }
-        public Song GetBGM()
+        public Song GetMainBGM()
         {
+            return BGM;
+        }
+
+        public SoundEffectInstance GetNoTimeBGM()
+        {
+            SoundEffectInstance BGM = soundAssignments["NoTime"];
             return BGM;
         }
     }

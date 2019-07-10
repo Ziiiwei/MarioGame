@@ -24,9 +24,9 @@ namespace Gamespace.Sounds
             soundEffect.Play();
         }
 
-        public void PlayBGM()
+        public void PlayMainBGM()
         {
-            BGM = SoundFactory.Instance.GetBGM();
+            BGM = SoundFactory.Instance.GetMainBGM();
             MediaPlayer.Play(BGM);
             MediaPlayer.Volume = 0.4f;
         }
@@ -34,6 +34,13 @@ namespace Gamespace.Sounds
         public void StopBGM()
         {
             MediaPlayer.Stop();
+        }
+
+        public void PlayNoTimeBGM()
+        {
+            soundEffect = SoundFactory.Instance.GetNoTimeBGM();
+            soundEffect.Play();
+            soundEffect.Volume = 0.4f;
         }
 
     }
