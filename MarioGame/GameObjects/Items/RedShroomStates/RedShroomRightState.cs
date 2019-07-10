@@ -6,17 +6,17 @@ using System.Threading.Tasks;
 
 namespace Gamespace.Items
 {
-    class ShroomMovingRightState : IShroomState
+    class RedShroomRightState : IShroomState
     {
         private RedShroom shroom;
-        public ShroomMovingRightState(RedShroom shroom)
+        public RedShroomRightState(RedShroom shroom)
         {
             this.shroom = shroom;
             shroom.GameObjectPhysics.MoveMaxSpeed(Side.Right);
         }
         public void ChangeDirection()
         {
-            shroom.State = new ShroomMovingLeftState(shroom);
+            shroom.State = new RedShroomLeftState(shroom);
         }
     }
 }
