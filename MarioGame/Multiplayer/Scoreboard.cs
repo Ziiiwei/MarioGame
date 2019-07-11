@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Gamespace.Data;
+using Gamespace.Sounds;
 
 namespace Gamespace.Multiplayer
 {
@@ -29,7 +30,17 @@ namespace Gamespace.Multiplayer
         public void Update(GameTime gametime)
         {
             Time = StartingTime - (int)gametime.TotalGameTime.TotalSeconds;
+            BGMChange(Time);
         }
-        
+
+        public void BGMChange(int time)
+        {
+            if(time == 100)
+            {
+                SoundManager.Instance.StopBGM();
+                SoundManager.Instance.PlaySoundEffect("OutOfTime");
+                SoundManager.Instance.PlayNoTimeBGM();
+            }
+        }
     }
 }

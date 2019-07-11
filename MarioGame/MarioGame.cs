@@ -147,7 +147,6 @@ namespace Gamespace
             levelLoader = new LevelLoader(World.Instance);
             SoundManager.Instance.PlayMainBGM();  
 
-
         }
     }
 }

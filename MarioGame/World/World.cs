@@ -198,41 +198,7 @@ namespace Gamespace
         {
             var pendingCollisions = new Dictionary<IGameObject, List<(IGameObject, int)>>();
 
-            /*
-            for (int i = 0; i < collisionMovers.Count; i++)
-            {
-                IGameObject mover = collisionMovers[i];
-                for (int j = 0; j < collisionMovers.Count; j++)
-                {
-                    IGameObject otherMover = collisionMovers[j];
-
-                    if (mover != otherMover)
-                    {
-                        (CollisionHandler.Side, Rectangle) collisionData = collisionHandler.DetectCollision(mover, otherMover);
-
-                        if (collisionHandler.DetectCollision(mover, otherMover).Item1 != CollisionHandler.Side.None)
-                        {
-                            int collisionArea = collisionData.Item2.Height * collisionData.Item2.Width;
-                            AddPendingCollision(pendingCollisions, mover, otherMover, collisionArea);
-                        }
-
-                    }
-                }
-
-                foreach (IGameObject receiver in collisionReceivers)
-                {
-                    (CollisionHandler.Side, Rectangle) collisionData = collisionHandler.DetectCollision(mover, receiver);
-
-                    if (collisionData.Item1 != CollisionHandler.Side.None)
-                    {
-                        int collisionArea = collisionData.Item2.Height * collisionData.Item2.Width;
-                        AddPendingCollision(pendingCollisions, mover, receiver, collisionArea);
-                    }
-                }
-            }
-            return pendingCollisions;
-            */
-            
+          
             Action<int, IGameObject> collisionColumnDetection = (column, mover) =>
             {
                 List<IGameObject> collisionColumn = collisionColumns[column];
