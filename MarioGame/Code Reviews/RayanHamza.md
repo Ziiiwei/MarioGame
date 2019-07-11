@@ -1,8 +1,8 @@
-﻿### Code Maintainability Review
+﻿### Code Readibility Review
 Author: Rayan Hamza
 Date: 7/10/19
 Sprint: 5
-Name: Kieth Chin
+Name: Keith Chin
 File: SoundManager.cs
 Minutes: 6
 
@@ -38,5 +38,5 @@ for more musi
 
 Additional Notes:
 - Initially, a magic number was passed in for volume, later brought in from a utility class.
-- Kieth did all of the music and music management himself, which was an impressive feat for 
+- Keith did all of the music and music management himself, which was an impressive feat for 
 our team.
