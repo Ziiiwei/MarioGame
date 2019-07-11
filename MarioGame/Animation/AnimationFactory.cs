@@ -19,7 +19,10 @@ namespace Gamespace.Animation
 
         private delegate bool GoalCheckFun(Vector2 location, int repeat,Vector2 goallocation,int goalrepeat);
         private delegate Vector2 GoalPointCal(Vector2 location, int distance);
+
         private const int DISTANCE_PRECISION = 4;
+        private const int NO_REPEAT_CHECK = -1;
+        private const int REPEAT_UPER_LIMIT = 600; 
 
 
         
@@ -28,17 +31,17 @@ namespace Gamespace.Animation
         {
             GoalCheckFun locationCheck = (p, c, goal_p, goal_c) =>
            {              
-               return (Vector2.Distance(p,goal_p)<= DISTANCE_PRECISION || c>=goal_c);
+               return (Vector2.Distance(p,goal_p)<= DISTANCE_PRECISION);
            };
 
             GoalCheckFun verticalCheck = (p, c, goal_p, goal_c) =>
             {
-                return (Math.Abs(p.Y-goal_p.Y) <= DISTANCE_PRECISION||c>=goal_c);
+                return (Math.Abs(p.Y-goal_p.Y) <= DISTANCE_PRECISION);
             };
 
             GoalCheckFun horizontalCheck = (p, c, goal_p, goal_c) =>
             {
-                return (Math.Abs(p.X - goal_p.X) <= DISTANCE_PRECISION||c>=goal_c);
+                return (Math.Abs(p.X - goal_p.X) <= DISTANCE_PRECISION);
             };
 
             GoalCheckFun repeatCheck = (p, c, goal_p, goal_c) =>
@@ -55,10 +58,10 @@ namespace Gamespace.Animation
                     typeof(PlayTestAnimation),
                     new List<(Type, int,int)>
                     {
-                        (typeof(MarioMoveLeftCommand),50,1000),
-                        (typeof(MarioMoveRightCommand),100,1000),
-                        (typeof(MarioCrouchCommand),0,100),
-                        (typeof(MarioJumpCommand),0,100)
+                        (typeof(MarioMoveLeftCommand),50,NO_REPEAT_CHECK),
+                        (typeof(MarioMoveRightCommand),100,NO_REPEAT_CHECK),
+                        (typeof(MarioCrouchCommand),0,60),
+                        (typeof(MarioJumpCommand),0,60)
                     }
                 },
 
@@ -66,8 +69,8 @@ namespace Gamespace.Animation
                     typeof(PlayMarioTouchFlag),
                     new List<(Type, int, int)>
                     {
-                        (typeof(MarioClimingDownCommand),150,150),
-                        (typeof(MarioMoveRightCommand),200,1000)
+                        (typeof(MarioClimbingDownCommand),150,NO_REPEAT_CHECK),
+                        (typeof(MarioMoveRightCommand),200,NO_REPEAT_CHECK)
                     }
                 }
 
@@ -76,7 +79,7 @@ namespace Gamespace.Animation
             newFrameCaculation = new Dictionary<Type, Func<Vector2,int,Vector2>>()
             {
                 {typeof(MarioClimbingUpCommand), new Func<Vector2, int, Vector2>((p,d) => new Vector2(p.X,p.Y-d))},
-                {typeof(MarioClimingDownCommand), new Func<Vector2, int, Vector2>((p,d) => new Vector2(p.X,p.Y+d))},
+                {typeof(MarioClimbingDownCommand), new Func<Vector2, int, Vector2>((p,d) => new Vector2(p.X,p.Y+d))},
                 {typeof(MarioMoveLeftCommand), new Func<Vector2, int, Vector2>((p,d) => new Vector2(p.X-d,p.Y))},
                 {typeof(MarioMoveRightCommand), new Func<Vector2, int, Vector2>((p,d) => new Vector2(p.X+d,p.Y))},
                 {typeof(MarioCrouchCommand), new Func<Vector2, int, Vector2>((p,d) => new Vector2(p.X,p.Y))},
@@ -86,7 +89,7 @@ namespace Gamespace.Animation
             goalCheckFuncLog = new Dictionary<Type, GoalCheckFun>()
             {
                 {typeof(MarioClimbingUpCommand),verticalCheck},
-                {typeof(MarioClimingDownCommand),verticalCheck},
+                {typeof(MarioClimbingDownCommand),verticalCheck},
                 {typeof(MarioMoveLeftCommand), horizontalCheck},
                 {typeof(MarioMoveRightCommand), horizontalCheck},
                 {typeof(MarioCrouchCommand), repeatCheck},

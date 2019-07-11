@@ -198,12 +198,9 @@ namespace Gamespace
 
         private void UpdateWaitingItems()
         {
-
-
             foreach (IGameObject gameObject in objectsToAdd)
             {
                 ClassifyNewObject(gameObject);
-                //objectsInWorld.Add(gameObject.Uid, gameObject);
 
                 objectsToUpdate.Add(gameObject);
                 objectsToDraw.Add(gameObject);
@@ -293,6 +290,11 @@ namespace Gamespace
             playersToRemove = new List<IPlayer>(players);
             collisionMovers.Clear();
             collisionReceivers.Clear();
+            animationsToAdd.Clear();
+            animationsToDelete.Clear();
+            objectsToAddToUpdate.Clear();
+            objectsToRemoveFromUpdate.Clear();
+            animationsToPlay.Clear();
         }
 
         public void PauseAllObjects()

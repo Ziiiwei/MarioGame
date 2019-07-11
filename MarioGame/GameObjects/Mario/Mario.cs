@@ -21,12 +21,15 @@ namespace Gamespace
 
         public Scoreboard scoreboard { get; set; }
 
+        private Action keepStanding;
+
         public Mario(Vector2 positionOnScreen) : base(positionOnScreen)
         {
             State = new RightStandingMarioState(this);
             PowerUpState = new MarioSmallState();
             SetSprite();
             Projectiles = new ProjectileLauncher(this);
+            keepStanding= () => State.Stand();
         }
 
         public Mario(Vector2 positionOnScreen, Scoreboard scoreboard) : this(positionOnScreen)
@@ -38,15 +41,19 @@ namespace Gamespace
         {
             base.SurrogateUpdate();
             GameObjectPhysics.Update();
-            GameObjectPhysics.FrictionStop(Side.Right);
             State.FrictionStop();
-
             positionOnScreen = GameObjectPhysics.Position;
+
+            keepStanding.Invoke();
+            keepStanding = () => State.Stand();
         }
 
         public void Crouch()
         {
-            State.Crouch();    
+            int previous_h = Sprite.Height;
+            State.Crouch();
+            GameObjectPhysics.DownStop(new Rectangle(0, 0, 0, Sprite.Height - previous_h));
+            keepStanding = () => { };
         }
 
         public void Jump()
@@ -114,12 +121,12 @@ namespace Gamespace
 
         public void ClimbDown()
         {
-            this.GameObjectPhysics.Climb(Side.Down);
+            State.ClimbDown();
         }
 
         public void ClimbUp()
         {
-            this.GameObjectPhysics.Climb(Side.Up);
+            State.ClimbUp();
         }
 
         public void Coin()

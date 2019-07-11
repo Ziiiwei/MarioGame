@@ -21,9 +21,21 @@ namespace Gamespace.States
             mario.UpdateArt();
         }
 
+        public override void MoveLeft()
+        {
+            mario.State = new LeftCrouchingMarioState(mario);
+            mario.UpdateArt();
+        }
+
         public override void Fire()
         {
             mario.Projectiles.Fire(Side.Right);
+        }
+
+        public override void Stand()
+        {
+            mario.State = new RightStandingMarioState(mario);
+            mario.UpdateArt();
         }
 
     }

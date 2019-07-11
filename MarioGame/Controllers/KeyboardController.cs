@@ -23,7 +23,8 @@ namespace Gamespace.Controllers
             nonHoldableCommands = new List<Type>()
             {
                 typeof(PauseGameCommand),
-                typeof(PlayTestAnimation)
+                typeof(PlayTestAnimation),
+                typeof(MarioJumpCommand)
             };
         }
 
@@ -35,7 +36,14 @@ namespace Gamespace.Controllers
 
         public KeyboardController(IPlayer player, bool keyActivation)
         {
-            currentBindings = KeyAssignmentFactory.Instance.GetPausedBinding(player);
+            if (keyActivation)
+            {
+                currentBindings = KeyAssignmentFactory.Instance.GetBindings(player);
+            } else
+            {
+                currentBindings = KeyAssignmentFactory.Instance.GetPausedBinding(player);
+            }
+         
         }
 
         public void Update()

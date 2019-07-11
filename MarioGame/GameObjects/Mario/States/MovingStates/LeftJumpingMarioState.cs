@@ -20,14 +20,21 @@ namespace Gamespace.States
         public override void MoveRight()
         {
             mario.State = new RightJumpingMarioState(mario);
-            mario.GameObjectPhysics.Move(Side.Right);
             mario.UpdateArt();
         }
 
         public override void Land()
         {
-            mario.State = new LeftStandingMarioState(mario);
-            mario.UpdateArt();
+            if (mario.GameObjectPhysics.Velocity.X != 0)
+            {
+                mario.State = new LeftWalkingMarioState(mario);
+                mario.UpdateArt();
+            }
+            else
+            {
+                mario.State = new LeftStandingMarioState(mario);
+                mario.UpdateArt();
+            }
         }
 
         public override void Fire()

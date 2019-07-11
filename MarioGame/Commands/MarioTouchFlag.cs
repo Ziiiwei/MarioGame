@@ -17,6 +17,12 @@ namespace Gamespace.Commands
             obj = gameObject;
             endingCommand = new NullEndingAnimationCommand(gameObject);
         }
+
+        public PlayMarioTouchFlag(IGameObject gameObject)
+        {
+            obj = gameObject;
+            endingCommand = new NullEndingAnimationCommand(gameObject);
+        }
         public void Execute()
         {
             World.Instance.MaskCollision(obj);

@@ -51,7 +51,7 @@ namespace Gamespace.States
         public override void ClimbUp()
         {
             mario.State = new RightClimbingMarioState(mario);
-            mario.GameObjectPhysics.Climb(Side.Right);
+            mario.GameObjectPhysics.Climb(Side.Up);
             mario.UpdateArt();
         }
 

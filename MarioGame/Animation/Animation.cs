@@ -73,6 +73,11 @@ namespace Gamespace.Animation
             World.Instance.RemoveFinishedAnimation(this);
         }
 
+        public void Abort()
+        {
+            activation = false;
+        }
+
 
     }
 }

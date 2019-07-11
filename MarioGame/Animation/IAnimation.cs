@@ -17,6 +17,7 @@ namespace Gamespace.Animation
         void PlayNextFrame();
         void AddFrame(IKeyFrame<T> frame);
         void Finished();
+        void Abort();
        
 
 

@@ -17,5 +17,6 @@ namespace Gamespace.States
         void Fire();
         void ClimbUp();
         void ClimbDown();
+        void Stand();
     }
 }

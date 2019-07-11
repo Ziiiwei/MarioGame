@@ -27,7 +27,8 @@ namespace Gamespace.Multiplayer
         public int Lives { get; set; }
         private DiscreteTimer viewTimer;
         private bool timerIsArmed = false;
-
+        private IController disabledController;
+        private Action controllerUpdate;
         public Player(Type character, SpriteBatch screen, Vector2 spawnPoint)
         {
             Lives = Numbers.LIVES_STOCK;
@@ -39,13 +40,14 @@ namespace Gamespace.Multiplayer
             this.spawnPoint = spawnPoint;
             Cam = new MultiplayerCamera(PlayerID, new Vector2(Numbers.CAMERA_START_X, 0));
             Controller = new KeyboardController(this);
+            disabledController = new KeyboardController(this, false);
+            controllerUpdate = ()=> Controller.Update();
             Screen = screen;
-            
         }
 
         public void Update(GameTime gameTime)
         {
-            Controller.Update();
+            controllerUpdate.Invoke();
             scoreboard.Update(gameTime);
             Lives = scoreboard.Lives;
             Cam.Update(GameObject.PositionOnScreen);
@@ -97,6 +99,16 @@ namespace Gamespace.Multiplayer
             ShowLives();
             Cam = new MultiplayerCamera(PlayerID, new Vector2(Numbers.CAMERA_START_X, 0));
             Controller = new KeyboardController(this);
+        }
+
+        public void DisableGameControl()
+        {
+            controllerUpdate = () => disabledController.Update();
+        }
+
+        public void ResumeControl()
+        {
+            controllerUpdate = () => Controller.Update();
         }
     }
 }

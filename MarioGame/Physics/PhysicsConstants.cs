@@ -85,6 +85,15 @@ namespace Gamespace
                 max_Y_V = definitions[3];
                 frictionConstant = definitions[4];
             }
+
+            public PhysicsConstantsDefinitons(float g,float a, float x, float y, float f)
+            {
+                gravityConstant = g;
+                accelConstant = a;
+                max_X_V = x;
+                max_Y_V = y;
+                frictionConstant = f;
+            }
         }
     }
 }

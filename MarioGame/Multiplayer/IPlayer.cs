@@ -15,5 +15,8 @@ namespace Gamespace.Multiplayer
         void DrawPlayersScreen();
         void Release();
         void Respawn();
+void DisableGameControl();
+
+ void ResumeControl();
     }
 }

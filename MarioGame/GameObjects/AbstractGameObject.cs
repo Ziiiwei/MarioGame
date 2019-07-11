@@ -60,7 +60,10 @@ namespace Gamespace
 
         protected virtual void SurrogateUpdate()
         {
-            Sprite.Update();
+            if (GameObjectPhysics.Velocity.LengthSquared() > 0)
+            {
+                Sprite.Update();
+            }
         }
 
         public virtual Rectangle GetCollisionBoundary()

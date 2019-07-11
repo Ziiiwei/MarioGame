@@ -8,9 +8,14 @@ namespace Gamespace.Commands
 {
     class MarioClimbingUpCommand : ICommand
     {
+        private IMario mario;
+        public MarioClimbingUpCommand(IMario mario)
+        {
+            this.mario = mario;
+        }
         public void Execute()
         {
-            throw new NotImplementedException();
+            mario.ClimbUp();
         }
     }
    

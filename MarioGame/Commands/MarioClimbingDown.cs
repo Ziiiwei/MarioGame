@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace Gamespace.Commands
 {
-    class MarioClimingDownCommand : ICommand
+    class MarioClimbingDownCommand : ICommand
     {
         private IMario mario;
-        public MarioClimingDownCommand(IMario mario)
+        public MarioClimbingDownCommand(IMario mario)
         {
             this.mario = mario;
         }

@@ -19,10 +19,6 @@ namespace Gamespace
         public Vector2 Acceleration { get => acceleration; }
         public IGameObject gameObject { get; set; }
 
-        private bool gravityEnanbled = true;
-        private bool horizontalFrictionEnabled = false;
-        private bool verticalFrictionEnabled = false;
-
         protected Dictionary<Side, Action> moveMaxSpeedActions;
         protected Dictionary<Side, Action> moveActions;
         protected Dictionary<Side, Action> climbActions;
@@ -33,7 +29,10 @@ namespace Gamespace
         protected readonly float max_X_V;
         protected readonly float max_Y_V;
 
-        private readonly float FRICTION;
+        protected readonly float FRICTION;
+
+        private Action freefall;
+        private Action frictionstop;
 
         public Physics(IGameObject gameObject, Vector2 position, IPhysicsConstants constants)
         {
@@ -67,36 +66,42 @@ namespace Gamespace
 
             climbActions = new Dictionary<Side, Action>()
             {
-                {Side.Up, new Action(() => velocity.Y = -max_Y_V/2)},
-                {Side.Down, new Action(() => velocity.Y = max_Y_V/2)},
-                {Side.Left, new Action(() => velocity.X = -max_X_V/2)},
-                {Side.Right, new Action(() => velocity.X = max_X_V/2)}
+                {Side.Up, new Action(() => {acceleration.Y = -accelConstant/100; velocity.Y = -max_Y_V/5; })},
+                {Side.Down, new Action(() => {acceleration.Y = accelConstant/100; velocity.Y = max_Y_V/5; })},
+                {Side.Left, new Action(() => {acceleration.X = -accelConstant/100; velocity.X = -max_Y_V/5; })},
+                {Side.Right, new Action(() => {acceleration.X = accelConstant/100; velocity.X = max_Y_V/5; })},
             };
 
+            freefall = () => FreeFall();
+            frictionstop = () => { };
         }
         protected virtual void FreeFall()
         {
             acceleration.Y = gravityConstant;
+            frictionstop = () => { };
         }
 
         public virtual void Move(Side side)
         {
             moveActions[side].Invoke();
+            freefall = () => FreeFall();
+            frictionstop = () => { };
         }
 
         public virtual void MoveMaxSpeed(Side side)
         {
             moveMaxSpeedActions[side].Invoke();
+            freefall = () => FreeFall();
+            frictionstop = () => { };
         }
 
         public virtual void Climb(Side side)
         {
-            gravityEnanbled = false;
-            horizontalFrictionEnabled = true;
-            verticalFrictionEnabled = true;
-
-
+        
             climbActions[side].Invoke();
+
+            freefall = () => { };
+            frictionstop = () => FrictionStop(Side.Vertical);
         }
 
 
@@ -118,21 +123,21 @@ namespace Gamespace
         {
             position.Y += collisionArea.Height;
             Stop(Side.Vertical);
+            frictionstop = () => { };
         }
 
         public virtual void DownStop(Rectangle collisionArea)
         {
             position.Y -= collisionArea.Height;
             Stop(Side.Vertical);
+            freefall = () => { };
+            frictionstop = () => { };
+
         }
 
         public virtual void Update()
         {
-            if (gravityEnanbled)
-            {
-                FreeFall();
-            }
-          
+            freefall.Invoke();
 
             velocity.X = MinimumMagnitude(velocity.X + acceleration.X, Math.Sign(acceleration.X) * max_X_V);
             velocity.Y = MinimumMagnitude(velocity.Y + acceleration.Y, Math.Sign(acceleration.Y) * max_Y_V);
@@ -140,22 +145,8 @@ namespace Gamespace
             position.X += velocity.X;
             position.Y += velocity.Y;
 
-
-            if (verticalFrictionEnabled)
-            {
-                FrictionStop(Side.Down);
-            }
-           
-            if (horizontalFrictionEnabled)
-            {
-                FrictionStop(Side.Left);
-            }
-
-            gravityEnanbled = true;
-            horizontalFrictionEnabled = false;
-            verticalFrictionEnabled = false;
-
-    }
+            frictionstop.Invoke();
+        }
 
         protected float MinimumMagnitude(float a, float b)
         {

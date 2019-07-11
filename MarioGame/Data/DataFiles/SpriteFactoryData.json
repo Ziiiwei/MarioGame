@@ -705,7 +705,7 @@
       "PowerUpState": "MarioSuperState",
       "TexturePath": "SpecialMarioMove/SMClimingLeft",
       "FrameCount": 2,
-      "FrameDelay": 3
+      "FrameDelay": 6
     },
     {
       "Name": "Mario",
@@ -713,7 +713,7 @@
       "PowerUpState": "MarioSuperState",
       "TexturePath": "SpecialMarioMove/SMClimingRight",
       "FrameCount": 2,
-      "FrameDelay": 3
+      "FrameDelay": 6
     },
     {
       "Name": "Mario",
@@ -721,7 +721,7 @@
       "PowerUpState": "MarioSmallState",
       "TexturePath": "SpecialMarioMove/MarioClimingLeft",
       "FrameCount": 2,
-      "FrameDelay": 3
+      "FrameDelay": 6
     },
     {
       "Name": "Mario",
@@ -729,7 +729,7 @@
       "PowerUpState": "MarioSmallState",
       "TexturePath": "SpecialMarioMove/MarioClimingRight",
       "FrameCount": 2,
-      "FrameDelay": 3
+      "FrameDelay": 6
     },
     {
       "Name": "Mario",
@@ -737,7 +737,7 @@
       "PowerUpState": "MarioFireState",
       "TexturePath": "SpecialMarioMove/FMClimingLeft",
       "FrameCount": 2,
-      "FrameDelay": 3
+      "FrameDelay": 6
     },
     {
       "Name": "Mario",
@@ -745,7 +745,7 @@
       "PowerUpState": "MarioFireState",
       "TexturePath": "SpecialMarioMove/FMClimingRight",
       "FrameCount": 2,
-      "FrameDelay": 3
+      "FrameDelay": 6
     },
 	{
       "Name": "Fireball_out",
