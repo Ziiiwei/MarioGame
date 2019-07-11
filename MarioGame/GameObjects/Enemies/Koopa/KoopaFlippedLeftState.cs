@@ -18,7 +18,8 @@ namespace Gamespace.Koopas
 
         public void ChangeDirection()
         {
-            // do nothing
+            koopa.State = new KoopaFlippedRightState(koopa);
+            koopa.GameObjectPhysics.MoveMaxSpeed(Side.Right);
         }
 
         public void SlideLeft()
