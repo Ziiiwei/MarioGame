@@ -14,8 +14,9 @@ namespace Gamespace.Projectiles
         private int activeProjectiles = 0;
         private int maxProjectiles;
         private int delayBound;
-        private int delayCounter = 0;
+        private int delayCounter;
         private Type projectileClassification;
+        private static Dictionary<Side, Func<IMario, float>> spawnOffset;
 
         public ProjectileLauncher(IMario mario)
         {
@@ -23,13 +24,19 @@ namespace Gamespace.Projectiles
             maxProjectiles = Numbers.MAX_PROJECTILES;
             delayBound = Numbers.DELAY_BOUND;
             projectileClassification = typeof(Fireball);
+
+            spawnOffset = new Dictionary<Side, Func<IMario, float>>()
+            {
+                {Side.Left, (gameObject) => {return Numbers.PROJECTILE_LEFT_OFFSET; } },
+                {Side.Right, (gameObject) => { return gameObject.Sprite.Width; } }
+            };
         }
 
         public void Fire(Side side)
         {
             if (delayCounter % delayBound == 0)
             {
-                Vector2 fireballPosition = new Vector2(gameObject.PositionOnScreen.X + gameObject.Sprite.Width,
+                Vector2 fireballPosition = new Vector2(gameObject.PositionOnScreen.X + spawnOffset[side].Invoke(gameObject),
                     gameObject.PositionOnScreen.Y + gameObject.Sprite.Height / 2);
                 IProjectile projectile = (IProjectile)Activator.CreateInstance(projectileClassification, fireballPosition, side);
                 World.Instance.AddGameObject(projectile);

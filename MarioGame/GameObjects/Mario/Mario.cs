@@ -18,7 +18,6 @@ namespace Gamespace
         public IMarioPowerUpState PowerUpState { get; set; }
         public IMarioPowerUpState PreviousState { get; set; }
         public IFireable Projectiles { get; set; }
-        private Scoreboard scoreboard;
 
         public Scoreboard scoreboard { get; set; }
 

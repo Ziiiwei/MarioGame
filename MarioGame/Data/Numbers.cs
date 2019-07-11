@@ -13,9 +13,9 @@ namespace Gamespace.Data
         public const int STOMP_TIMER_BOUND = 20;
         public static readonly int[] BUMP_OFFSETS = { 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4 };
         public const int STAR_TIMER = 1000;
-        public const int BOUNCE_BOUND = 10;
+        public const int BOUNCE_BOUND = 5;
         public const int MAX_PROJECTILES = 3;
-        public const int DELAY_BOUND = 5;
+        public const int DELAY_BOUND = 12;
         public const int BLOCK_SPACING_SCALE = 32;
         public const int LIVES_STOCK = 3;
         public const int COUNTER_OFFSET = 50;
@@ -30,5 +30,6 @@ namespace Gamespace.Data
         public const int PLAYER_TWO_X = 300;
         public const int STARTING_Y = 200;
         public const int PLAYERS_IN_GAME = 2;
+        public const float PROJECTILE_LEFT_OFFSET = -18;
     }
 }
