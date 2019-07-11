@@ -1,69 +1,69 @@
 ﻿{
   "Entries": [
-	 {
+    {
       "Mover": "Gamespace.Goombas.Goomba",
       "Target": "Gamespace.Blocks.BlockIsBumpedState",
       "Side": "Down",
       "Command1": "Gamespace.Commands.MarioHitsEnemy",
       "Command2": "Gamespace.Commands.NullCommand"
     },
-	{
+    {
       "Mover": "Gamespace.Goombas.Koopa",
       "Target": "Gamespace.Blocks.BlockIsBumpedState",
       "Side": "Down",
       "Command1": "Gamespace.Commands.MarioHitsEnemy",
       "Command2": "Gamespace.Commands.NullCommand"
     },
-	 {
+    {
       "Mover": "Gamespace.States.MarioSmallState",
       "Target": "Gamespace.Blocks.BrickBlock",
       "Side": "Up",
       "Command1": "Gamespace.Commands.CollideUp",
       "Command2": "Gamespace.Commands.BumpBlock"
     },
-	{
+    {
       "Mover": "Gamespace.States.MarioSuperState",
       "Target": "Gamespace.Blocks.BrickBlock",
       "Side": "Up",
       "Command1": "Gamespace.Commands.NullCommand",
       "Command2": "Gamespace.Commands.DestroyBlock"
     },
-	{
+    {
       "Mover": "Gamespace.States.MarioFireState",
       "Target": "Gamespace.Blocks.BrickBlock",
       "Side": "Up",
       "Command1": "Gamespace.Commands.NullCommand",
       "Command2": "Gamespace.Commands.DestroyBlock"
     },
-	{
+    {
       "Mover": "Gamespace.Mario",
       "Target": "Gamespace.Goombas.StompedGoombaState",
       "Side": "Up",
       "Command1": "Gamespace.Commands.NullCommand",
       "Command2": "Gamespace.Commands.NullCommand"
     },
-	{
+    {
       "Mover": "Gamespace.Mario",
       "Target": "Gamespace.Goombas.StompedGoombaState",
       "Side": "Down",
       "Command1": "Gamespace.Commands.NullCommand",
       "Command2": "Gamespace.Commands.NullCommand"
     },
-	{
+    {
       "Mover": "Gamespace.Mario",
       "Target": "Gamespace.Goombas.StompedGoombaState",
       "Side": "Left",
       "Command1": "Gamespace.Commands.NullCommand",
       "Command2": "Gamespace.Commands.NullCommand"
     },
-	{
+    {
       "Mover": "Gamespace.Mario",
       "Target": "Gamespace.Goombas.StompedGoombaState",
       "Side": "Right",
       "Command1": "Gamespace.Commands.NullCommand",
       "Command2": "Gamespace.Commands.NullCommand"
     },
-	{
+    {
       "Mover": "Gamespace.Mario",
       "Target": "Gamespace.Goombas.LeftMovingGoombaState",
       "Side": "Down",
@@ -91,7 +91,7 @@
       "Command1": "Gamespace.Commands.EnemyHitsMario",
       "Command2": "Gamespace.Commands.NullCommand"
     },
-	{
+    {
       "Mover": "Gamespace.Mario",
       "Target": "Gamespace.Goombas.RightMovingGoombaState",
       "Side": "Down",
@@ -133,7 +133,9 @@
       "Command1": "Gamespace.Commands.NullCommand",
       "Command2": "Gamespace.Commands.SlideEnemyRight"
     },
-	{
+
+
+    {
       "Mover": "Gamespace.Mario",
       "Target": "Gamespace.Koopas.KoopaMovingLeftState",
       "Side": "Left",
@@ -147,7 +149,7 @@
       "Command1": "Gamespace.Commands.EnemyHitsMario",
       "Command2": "Gamespace.Commands.NullCommand"
     },
-	    {
+    {
       "Mover": "Gamespace.Mario",
       "Target": "Gamespace.Koopas.KoopaMovingRightState",
       "Side": "Left",
@@ -161,5 +163,5 @@
       "Command1": "Gamespace.Commands.EnemyHitsMario",
       "Command2": "Gamespace.Commands.NullCommand"
     }
-	]
+  ]
 }
