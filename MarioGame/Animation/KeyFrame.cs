@@ -12,19 +12,29 @@ namespace Gamespace.Animation
     public class KeyFrame : IKeyFrame<IGameObject>
     {
         public IGameObject AnimatedObj { get; }
-        public Vector2 FramePoint { get; }
+        public Func<Vector2,int,Vector2,int,bool> GoalCheck { get; } //for diffrent type of keyframe goal check
         public ICommand ComandToCall { get; }
-    
+
+        public Vector2 GoalPoint { get; }
+        public int GoalFrameCount { get; }
+
         private Action frameAnimation;
-        private Vector2 currentPosition;
+        private Vector2 currentPosition;       
+        private int frameCount; //for checking the goal of the key frame
+
         private IAnimation<IGameObject> animation;
-        
-        public KeyFrame(IGameObject obj, Vector2 point, Type command, IAnimation<IGameObject> ani)
+
+        public KeyFrame(IGameObject obj, Type command, IAnimation<IGameObject> ani,
+            Func<Vector2, int,Vector2, int, bool> goalCheck,Vector2 goalpoint,int goalcount)
         {
             AnimatedObj = obj;
-            FramePoint = point;
             ComandToCall = (ICommand)Activator.CreateInstance(command, obj);
+            GoalCheck = goalCheck;
+            GoalPoint = goalpoint;
+            GoalFrameCount = goalcount;
             animation = ani;
+            frameCount = 0;
+           
            
             currentPosition = obj.PositionOnScreen;
 
@@ -38,13 +48,14 @@ namespace Gamespace.Animation
         public void Update()
         {
             currentPosition = AnimatedObj.PositionOnScreen;
-            if (Vector2.Distance(currentPosition, FramePoint) <= 5.0)
+            if (GoalCheck(currentPosition,frameCount,GoalPoint,GoalFrameCount))
             {
                 FrameFinished();
             }
             else
             {
                 frameAnimation.Invoke();
+                frameCount++;
             }
         }
 

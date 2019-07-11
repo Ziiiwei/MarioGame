@@ -19,7 +19,7 @@ namespace Gamespace.Commands
         }
         public void Execute()
         {
-            ani = AnimationFactory.Instance.GetAnimation(obj, () =>endingCommand.Execute());
+            ani = AnimationFactory.Instance.GetAnimation(obj,()=>endingCommand.Execute(),this.GetType());
             ani.Activate();
             World.Instance.AddAnimationToPlay(ani);
         }

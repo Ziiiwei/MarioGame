@@ -49,6 +49,8 @@
     <Compile Include="MarioGame\Animation\Animation.cs" />
     <Compile Include="MarioGame\Camera\ICamera.cs" />
     <Compile Include="MarioGame\Camera\MultiplayerCamera.cs" />
+    <Compile Include="MarioGame\Commands\MarioClimbingUp.cs" />
+    <Compile Include="MarioGame\Commands\MarioClimingDown.cs" />
     <Compile Include="MarioGame\Commands\MarioFireCommand.cs" />
     <Compile Include="MarioGame\Commands\MarioJumpAfterEnemyHit.cs" />
     <Compile Include="MarioGame\Commands\PauseGameCommand.cs" />

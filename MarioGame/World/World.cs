@@ -204,7 +204,7 @@ namespace Gamespace
 
             foreach (IGameObject gameObject in objectsToAddToUpdate)
             {
-                if (objectsToAddToUpdate.Contains(gameObject))
+                if (!objectsToUpdate.Contains(gameObject))
                 {
                     objectsToUpdate.Add(gameObject);
                 }

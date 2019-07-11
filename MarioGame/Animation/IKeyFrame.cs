@@ -11,7 +11,10 @@ namespace Gamespace.Animation
     public interface IKeyFrame<T>
     {
         T AnimatedObj { get;}
-        Vector2 FramePoint { get;}
+        Func<Vector2,int,Vector2,int,bool> GoalCheck { get; }
+
+        Vector2 GoalPoint { get; }
+        int GoalFrameCount { get; }
         ICommand ComandToCall { get; }
         void FrameFinished();
         void Update();
