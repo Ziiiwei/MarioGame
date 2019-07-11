@@ -46,6 +46,11 @@ namespace Gamespace.Multiplayer
             Lives--;
         }
 
+        public void AddLife()
+        {
+            Lives++;
+        }
+
         public void BGMChange(int time)
         {
             if (time == 100)
@@ -55,6 +60,5 @@ namespace Gamespace.Multiplayer
                 SoundManager.Instance.PlayNoTimeBGM();
             }
         }
-        
     }
 }
