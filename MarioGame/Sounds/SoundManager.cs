@@ -41,7 +41,7 @@ namespace Gamespace.Sounds
         {
             soundEffect = SoundFactory.Instance.GetNoTimeBGM();
             soundEffect.Play();
-            soundEffect.Volume = 0.4f;
+            soundEffect.Volume = Numbers.VOLUME;
         }
 
     }
