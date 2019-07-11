@@ -98,5 +98,15 @@ namespace Gamespace
         {
              PowerUpState.Fire(this);
         }
+
+        public void ClimbDown()
+        {
+            this.GameObjectPhysics.Climb(Side.Down);
+        }
+
+        public void ClimbUp()
+        {
+            this.GameObjectPhysics.Climb(Side.Up);
+        }
     }
 }

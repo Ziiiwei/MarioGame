@@ -14,6 +14,8 @@ namespace Gamespace
         IPhysics GameObjectPhysics { get; set; }
         IFireable Projectiles { get; set; }
         void Bounce();
+        void ClimbDown();
+        void ClimbUp();
         void Jump();
         void MoveRight();
         void MoveLeft();

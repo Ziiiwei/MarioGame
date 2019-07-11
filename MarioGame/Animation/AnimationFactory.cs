@@ -60,7 +60,17 @@ namespace Gamespace.Animation
                         (typeof(MarioCrouchCommand),0,100),
                         (typeof(MarioJumpCommand),0,100)
                     }
+                },
+
+                {
+                    typeof(PlayMarioTouchFlag),
+                    new List<(Type, int, int)>
+                    {
+                        (typeof(MarioClimingDownCommand),150,150),
+                        (typeof(MarioMoveRightCommand),200,1000)
+                    }
                 }
+
             };
 
             newFrameCaculation = new Dictionary<Type, Func<Vector2,int,Vector2>>()

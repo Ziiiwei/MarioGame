@@ -70,7 +70,7 @@ namespace Gamespace
 
             PlayerCount = 2;
 
-            IPlayer player1 = new Player(new Mario(new Vector2(200, 200)),
+            IPlayer player1 = new Player(new Mario(new Vector2(4900, 200)),
                 new MultiplayerCamera(0, new Vector2(0, 0)), new SpriteBatch(GraphicsDevice));
             World.Instance.AddPlayer(player1);
 

@@ -14,17 +14,19 @@ namespace Gamespace.States
 
         public override void ClimbUp()
         {
-            base.ClimbUp();
+            mario.GameObjectPhysics.Climb(Side.Up);
+
         }
 
         public override void ClimbDown()
         {
-            base.ClimbDown();
+            mario.GameObjectPhysics.Climb(Side.Down);
         }
 
         public override void Land()
         {
-            base.Land();
+            mario.State = new LeftStandingMarioState(mario);
+            mario.UpdateArt();
         }
 
         public override void MoveRight()

@@ -127,5 +127,15 @@ namespace Gamespace
         {
             throw new NotImplementedException();
         }
+
+        public void ClimbDown()
+        {
+            this.GameObjectPhysics.Climb(Side.Down);
+        }
+
+        public void ClimbUp()
+        {
+            this.GameObjectPhysics.Climb(Side.Up);
+        }
     }
 }
