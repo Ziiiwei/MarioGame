@@ -9,7 +9,7 @@ using Gamespace.Sounds;
 
 namespace Gamespace.Multiplayer
 {
-    internal class Scoreboard
+    public class Scoreboard
     {
         public int Score { get; set; }
         public int Coins { get; set; }
@@ -45,5 +45,16 @@ namespace Gamespace.Multiplayer
         {
             Lives--;
         }
+
+        public void BGMChange(int time)
+        {
+            if (time == 100)
+            {
+                SoundManager.Instance.StopBGM();
+                SoundManager.Instance.PlaySoundEffect("OutOfTime");
+                SoundManager.Instance.PlayNoTimeBGM();
+            }
+        }
+        
     }
 }

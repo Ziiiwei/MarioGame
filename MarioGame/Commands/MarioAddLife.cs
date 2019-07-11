@@ -10,9 +10,9 @@ namespace Gamespace.Commands
     class MarioAddLife: ICommand
     {
 
-        private Mario mario;
+        private IMario mario;
 
-        public MarioAddLife(Mario mario)
+        public MarioAddLife(IMario mario)
         {
             this.mario = mario;
         }
