@@ -45,5 +45,20 @@ namespace Gamespace.Multiplayer
         {
             Lives--;
         }
+
+        public void AddLife()
+        {
+            Lives++;
+        }
+
+        public void BGMChange(int time)
+        {
+            if (time == 100)
+            {
+                SoundManager.Instance.StopBGM();
+                SoundManager.Instance.PlaySoundEffect("OutOfTime");
+                SoundManager.Instance.PlayNoTimeBGM();
+            }
+        }
     }
 }
