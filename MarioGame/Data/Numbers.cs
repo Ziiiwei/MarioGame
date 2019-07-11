@@ -31,5 +31,6 @@ namespace Gamespace.Data
         public const int STARTING_Y = 200;
         public const int PLAYERS_IN_GAME = 2;
         public const float PROJECTILE_LEFT_OFFSET = -18;
+        public const int CAMERA_START_X= 0;
     }
 }

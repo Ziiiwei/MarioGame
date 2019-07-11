@@ -14,5 +14,6 @@ namespace Gamespace.Multiplayer
         void Update(GameTime gameTime);
         void DrawPlayersScreen();
         void Release();
+        void Respawn();
     }
 }

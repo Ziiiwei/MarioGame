@@ -74,14 +74,10 @@ namespace Gamespace
 
             PlayerCount = Numbers.PLAYERS_IN_GAME;
 
-            Scoreboard playerOneScoreboard = new Scoreboard(3);
-            IPlayer player1 = new Player(new Mario(new Vector2(Numbers.PLAYER_ONE_X, Numbers.STARTING_Y), playerOneScoreboard),
-                new MultiplayerCamera(0, new Vector2(0, 0)), new SpriteBatch(GraphicsDevice), playerOneScoreboard);
+            IPlayer player1 = new Player(typeof(Mario), new SpriteBatch(GraphicsDevice), new Vector2(Numbers.PLAYER_ONE_X, Numbers.STARTING_Y));
             World.Instance.AddPlayer(player1);
 
-            Scoreboard playerTwoScoreboard = new Scoreboard(3);
-            IPlayer player2 = new Player(new Mario(new Vector2(Numbers.PLAYER_TWO_X, Numbers.STARTING_Y), playerTwoScoreboard),
-                new MultiplayerCamera(1, new Vector2(0, 0)), new SpriteBatch(GraphicsDevice), playerTwoScoreboard);
+            IPlayer player2 = new Player(typeof(Mario), new SpriteBatch(GraphicsDevice), new Vector2(Numbers.PLAYER_TWO_X, Numbers.STARTING_Y));
             World.Instance.AddPlayer(player2);
 
             levelLoader = new LevelLoader(World.Instance);
@@ -138,14 +134,10 @@ namespace Gamespace
         {
             World.Instance.ClearWorld();
 
-            Scoreboard playerOneScoreboard = new Scoreboard(3);
-            IPlayer player1 = new Player(new Mario(new Vector2(Numbers.PLAYER_ONE_X, Numbers.STARTING_Y), playerOneScoreboard),
-                new MultiplayerCamera(0, new Vector2(0, 0)), new SpriteBatch(GraphicsDevice), playerOneScoreboard);
+            IPlayer player1 = new Player(typeof(Mario), new SpriteBatch(GraphicsDevice), new Vector2(Numbers.PLAYER_ONE_X, Numbers.STARTING_Y));
             World.Instance.AddPlayer(player1);
 
-            Scoreboard playerTwoScoreboard = new Scoreboard(3);
-            IPlayer player2 = new Player(new Mario(new Vector2(Numbers.PLAYER_TWO_X, Numbers.STARTING_Y), playerTwoScoreboard),
-                new MultiplayerCamera(1, new Vector2(0, 0)), new SpriteBatch(GraphicsDevice), playerTwoScoreboard);
+            IPlayer player2 = new Player(typeof(Mario), new SpriteBatch(GraphicsDevice), new Vector2(Numbers.PLAYER_TWO_X, Numbers.STARTING_Y));
             World.Instance.AddPlayer(player2);
 
             levelLoader = new LevelLoader(World.Instance);
