@@ -172,6 +172,7 @@
     <Compile Include="MarioGame\Timer\BGMTimer.cs" />
     <Compile Include="MarioGame\Timer\DiscreteTimer.cs" />
     <Compile Include="MarioGame\Transitions\ViewFactory.cs" />
+    <Compile Include="MarioGame\Transitions\Views\DeadView.cs" />
     <Compile Include="MarioGame\Transitions\Views\IView.cs" />
     <Compile Include="MarioGame\Transitions\Views\LivesView.cs" />
     <Compile Include="MarioGame\Transitions\Views\PlayableView.cs" />
