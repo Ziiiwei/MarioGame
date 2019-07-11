@@ -10,16 +10,16 @@ namespace Gamespace.Commands
     class MarioAddLife: ICommand
     {
 
-        private Scoreboard scoreboard;
+        private IMario mario;
 
-        public MarioAddLife(Scoreboard scoreboard)
+        public MarioAddLife(IMario mario, CollisionData collisionData)
         {
-            this.scoreboard = scoreboard;
+            this.mario = mario;
         }
 
         public void Execute()
         {
-            scoreboard.Lives += 1;
+            mario.scoreboard.AddLife();
         }
     }
 }

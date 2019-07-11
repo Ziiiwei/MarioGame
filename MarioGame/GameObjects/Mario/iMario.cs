@@ -14,6 +14,8 @@ namespace Gamespace
         IMarioPowerUpState PreviousState { get; set; }
         IPhysics GameObjectPhysics { get; set; }
         IFireable Projectiles { get; set; }
+
+        Scoreboard scoreboard { get; set; }
         void Bounce();
         void Jump();
         void MoveRight();
@@ -28,7 +30,6 @@ namespace Gamespace
         void CollideRight(Rectangle collisionArea);
         void CollideUp(Rectangle collisionArea);
         void CollideDown(Rectangle collisionArea);
-        void SetPlayer(IPlayer player);
         void Coin();
     }
 

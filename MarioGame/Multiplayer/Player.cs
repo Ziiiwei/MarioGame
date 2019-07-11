@@ -27,16 +27,15 @@ namespace Gamespace.Multiplayer
         private DiscreteTimer viewTimer;
         private bool timerIsArmed = false;
 
-        public Player(IMario gameObject, ICamera cam, SpriteBatch screen)
+        public Player(IMario gameObject, ICamera cam, SpriteBatch screen, Scoreboard scoreboard)
         {
             GameObject = gameObject;
-            GameObject.SetPlayer(this);
             resetPoint = gameObject.PositionOnScreen;
             playerID = playerCounter;
             playerCounter++;
             Lives = Numbers.LIVES_STOCK;
             ShowLives();
-            scoreboard = new Scoreboard(Lives);
+            this.scoreboard = scoreboard;
 
             Cam = cam;
             Controller = new KeyboardController(this);
@@ -86,21 +85,6 @@ namespace Gamespace.Multiplayer
                 view = new PlayableView(scoreboard, Cam);
                 timerIsArmed = false;
             }));
-        }
-
-        public void UpScore(int score)
-        {
-            scoreboard.Score += score;
-        }
-
-        public void Die()
-        {
-            scoreboard.Lives--;
-        }
-
-        public void Collect()
-        {
-            scoreboard.Coins++;
         }
     }
 }
