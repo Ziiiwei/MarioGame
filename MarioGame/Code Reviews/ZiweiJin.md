@@ -7,13 +7,7 @@ File: World.cs
 Minutes: 10
 
 Coupling: Kinda High
--world now decide the sequence of colisison handling, this happens only 
-because handling outside world without knoklege of other pending conlision
-is potentially buggy
--But the solution is elegent by ranking out the priority of each collision
-case by its area and type, and only world is has approriate access to get these
-information.
--And in future We would change name of the class to GameobjectManager
+-World has improved to new orgnized sequence 
 
 Cohesion: 
 -Still tight
