@@ -1,35 +1,30 @@
 ﻿
 ### Code Readiblity Review
 Author : Matthew Harrow (harrow.13)
-Date   : 28th June 2019
-Sprint : 4
-Name   : Rayan Hamza
-File   : Camera.cs
-Minutes: 12
+Date   : 10th July 2019
+Sprint : 5
+Name   : Keith Chin
+File   : SoundFactory.cs
+Minutes: 
 
-Coupling: Moderate
-- The camera implementation is tightly coupled to Mario. This makes sense, but inside of the 
-MarioWorld class, on update the camera is updated according to Mario's center. Currently the class design can only handle one Mario. 
-- The coupling could however be solved with a controller that communicates with camera instead of the single instance of Mario.
-
-
-Cohesion: Very cohesive.
-- The class is very cohesive, but is also very sparce. Right now the class only has methods that correspond to 
-a Mario clone gameplay. During our sprint 5 and 6 changes, the camera system is going to need a lot of rework most likely. 
+Coupling: Some coupling
+-The operation of the class is coupled to two magic strings: The file path and a magic string for back ground music.
+-There is also coupling to the MarioGame instance, for the Load sound method. 
 
 
-Complexity: Very little
-- The class does not contain much branching. There is not very much logic and most actions are performed by the Monogame api. 
-It's good to use what is available. 
+Cohesion: 
+- The class is cohesive. As far as the interface on the outside, strings are passed in that match a data file and it plays 
+sounds. The implementation has some variation.
+- Methods like GetMainBGM could possibly be handed like any other sound.
+- Integration for JSON parsing could be moved to the JSON parser class which handles the data in other classes.
 
 
-Hypothetical change: Multiplayer mario.
-- The class is curently coupled to the absolute dimensions of the Game window, our current implementation would thus be lacking. 
-The class otherwise is suitable, as instead of feeding the camera Mario's center, we could create a controller that manages the coordinates
-that get fed to the multiple cameras and are couple with Mario. This approach would decouple Mario and the camera allowing for other
-camera styles like floating instead of scrolling.
+Complexity: Low
+- The user interfaces with the class which does not involve conditionals and looping. 
 
 
-Additional Notes:
-- It is a spartan class, but with that comes the advantage that dramatic rewrites (anticipated as we plan on multiplayer) would be as painful.
+
+Hypothetical change: 
+-Adding additional background music involves changing the GetMainBGM function in the methods that call it. This could be
+better handled by fetching the background music with a key rather than having a sepearate method.
 
