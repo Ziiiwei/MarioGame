@@ -413,7 +413,7 @@
       "Command1": "Gamespace.Commands.KillEnemy",
       "Command2": "Gamespace.Commands.NullCommand"
     },
-	{
+    {
       "Mover": "Gamespace.Koopas.Koopa",
       "Target": "Gamespace.Blocks.DeathBlock",
       "Side": "Right",
