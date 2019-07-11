@@ -28,12 +28,14 @@ namespace Gamespace.Koopas
         public void SlideLeft()
         {
             koopa.State = new KoopaFlippedLeftState(koopa);
+            koopa.GameObjectPhysics = PhysicsFactory.Instance.GetNewConstants(koopa.GameObjectPhysics, koopa, this.GetType());
             koopa.GameObjectPhysics.MoveMaxSpeed(Side.Left);
         }
 
         public void SlideRight()
         {
             koopa.State = new KoopaFlippedRightState(koopa);
+            koopa.GameObjectPhysics = PhysicsFactory.Instance.GetNewConstants(koopa.GameObjectPhysics, koopa, this.GetType());
             koopa.GameObjectPhysics.MoveMaxSpeed(Side.Right);
         }
     }

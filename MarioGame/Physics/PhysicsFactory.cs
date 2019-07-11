@@ -29,8 +29,7 @@ namespace Gamespace
                 {typeof(BrickBlock), typeof(BumpableBlockPhysics) },
                 {typeof(Fireball), typeof(FireballPhysics) },
                 {typeof(Goomba), typeof(EnemyPhysics) },
-                {typeof(Koopa), typeof(EnemyPhysics) }
-
+                {typeof(Koopa), typeof(EnemyPhysics) },
             };
         }
 
@@ -45,6 +44,13 @@ namespace Gamespace
             }
             IPhysicsConstants constants = PhysicsConstants.Instance.GetConstants(gameObject.GetType());
             return (IPhysics)Activator.CreateInstance(concretePhysics, gameObject, positionOnScreen, constants);
+        }
+
+        internal IPhysics GetNewConstants(IPhysics physics, IGameObject gameObject, Type constantsKey)
+        {
+            Vector2 positionOnScreen = gameObject.PositionOnScreen;
+            IPhysicsConstants constants = PhysicsConstants.Instance.GetConstants(constantsKey);
+            return (IPhysics) Activator.CreateInstance(physics.GetType(), gameObject, positionOnScreen, constants);
         }
 
         internal IPhysics GetNullPhysics(Vector2 positionOnScreen)
