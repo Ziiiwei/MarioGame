@@ -48,7 +48,7 @@ namespace Gamespace.Blocks
         {
             base.SurrogateUpdate();
             GameObjectPhysics.Update();
-            positionOnScreen = GameObjectPhysics.GetPosition();
+            positionOnScreen = GameObjectPhysics.Position;
         }
 
         protected override void SetSprite()

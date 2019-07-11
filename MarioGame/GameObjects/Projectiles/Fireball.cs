@@ -53,7 +53,7 @@ namespace Gamespace.Projectiles
             {
                 base.SurrogateUpdate();
                 GameObjectPhysics.Update();
-                positionOnScreen = GameObjectPhysics.GetPosition();
+                positionOnScreen = GameObjectPhysics.Position;
             }
             else
             {

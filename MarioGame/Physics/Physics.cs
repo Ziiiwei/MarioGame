@@ -94,6 +94,8 @@ namespace Gamespace
             gravityEnanbled = false;
             horizontalFrictionEnabled = true;
             verticalFrictionEnabled = true;
+
+
             climbActions[side].Invoke();
         }
 
@@ -101,31 +103,27 @@ namespace Gamespace
         public virtual void LeftStop(Rectangle collisionArea)
         {
             position.X += collisionArea.Width;
-            velocity.X = 0;
-            acceleration.X = 0;
+            Stop(Side.Horizontal);
 
         }
 
         public virtual void RightStop(Rectangle collisionArea)
         {
             position.X -= collisionArea.Width;
-            velocity.X = 0;
-            acceleration.X = 0;
+            Stop(Side.Horizontal);
 
         }
 
         public virtual void UpStop(Rectangle collisionArea)
         {
             position.Y += collisionArea.Height;
-            velocity.Y = 0;
-            acceleration.Y = 0;
+            Stop(Side.Vertical);
         }
 
         public virtual void DownStop(Rectangle collisionArea)
         {
             position.Y -= collisionArea.Height;
-            velocity.Y = 0;
-            acceleration.Y = 0;
+            Stop(Side.Vertical);
         }
 
         public virtual void Update()
@@ -159,16 +157,6 @@ namespace Gamespace
 
     }
 
-        public virtual Vector2 GetPosition()
-        {
-            return position;
-        }
-
-        public virtual Vector2 GetVelocity()
-        {
-            return velocity;
-        }
-
         protected float MinimumMagnitude(float a, float b)
         {
             return Math.Abs(a) < Math.Abs(b) ? a : b;
@@ -176,7 +164,7 @@ namespace Gamespace
 
         public virtual void FrictionStop(Side side)
         {
-            if (side == Side.Right || side == Side.Left || side == Side.None)
+            if (side == Side.Right || side == Side.Left || side == Side.None || side == Side.Horizontal)
             {
                 if (velocity.X != 0 && Math.Sign(velocity.X) != Math.Sign(velocity.X + acceleration.X))
                 {
@@ -187,7 +175,7 @@ namespace Gamespace
                     acceleration.X = (-Math.Sign(velocity.X)) * FRICTION;
             }
 
-            if (side == Side.Up || side == Side.Down || side == Side.None)
+            if (side == Side.Up || side == Side.Down || side == Side.None || side == Side.Vertical)
             {
 
                 if (velocity.Y != 0 && Math.Sign(velocity.Y) != Math.Sign(velocity.Y + acceleration.Y))
@@ -203,13 +191,13 @@ namespace Gamespace
 
         public virtual void Stop(Side side)
         {
-            if (side == Side.Right || side == Side.Left || side == Side.None)
+            if (side == Side.Right || side == Side.Left || side == Side.None || side == Side.Horizontal)
             {
                 velocity.X = 0;
                 acceleration.X = 0;
             }
 
-            if (side == Side.Up || side == Side.Down || side == Side.None)
+            if (side == Side.Up || side == Side.Down || side == Side.None || side == Side.Vertical)
             {
                 velocity.Y = 0;
                 acceleration.Y = 0;

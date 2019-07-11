@@ -99,6 +99,8 @@
     <Compile Include="MarioGame\GameObjects\Items\RedShroomStates\RedShroomLeftState.cs" />
     <Compile Include="MarioGame\GameObjects\Items\RedShroomStates\RedShroomRightState.cs" />
     <Compile Include="MarioGame\GameObjects\Items\RedShroomStates\RedShroomUpState.cs" />
+    <Compile Include="MarioGame\GameObjects\Mario\States\MovingStates\LeftClimbingMarioState.cs" />
+    <Compile Include="MarioGame\GameObjects\Mario\States\MovingStates\RightClimbingMarioState.cs" />
     <Compile Include="MarioGame\GameObjects\Projectiles\IFireable.cs" />
     <Compile Include="MarioGame\GameObjects\Projectiles\Fireball.cs" />
     <Compile Include="MarioGame\GameObjects\Projectiles\FireballStates\IProjectileState.cs" />
@@ -204,6 +206,7 @@
     <Compile Include="MarioGame\MarioGame.cs" />
     <Compile Include="MarioGame\Program.cs" />
     <Compile Include="MarioGame\Physics\Physics.cs" />
+    <Compile Include="MarioGame\World\WorldCollision.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
