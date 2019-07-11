@@ -24,6 +24,7 @@ namespace Gamespace
         public IMarioPowerUpState PreviousState { get; set; }
         internal IPhysics Physics { get; set; }
         public IFireable Projectiles { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public Scoreboard scoreboard { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
         private IMario mario;
         int timer = Numbers.STAR_TIMER;

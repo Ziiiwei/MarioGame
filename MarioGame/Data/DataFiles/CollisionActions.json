@@ -144,28 +144,28 @@
       "Mover": "Gamespace.Mario",
       "Target": "Gamespace.Items.GreenShroom",
       "Side": "Up",
-      "Command1": "Gamespace.Commands.NullCommand",
+      "Command1": "Gamespace.Commands.MarioAddLife",
       "Command2": "Gamespace.Commands.ConsumeItem"
     },
     {
       "Mover": "Gamespace.Mario",
       "Target": "Gamespace.Items.GreenShroom",
       "Side": "Down",
-      "Command1": "Gamespace.Commands.NullCommand",
+      "Command1": "Gamespace.Commands.MarioAddLife",
       "Command2": "Gamespace.Commands.ConsumeItem"
     },
     {
       "Mover": "Gamespace.Mario",
       "Target": "Gamespace.Items.GreenShroom",
       "Side": "Left",
-      "Command1": "Gamespace.Commands.NullCommand",
+      "Command1": "Gamespace.Commands.MarioAddLife",
       "Command2": "Gamespace.Commands.ConsumeItem"
     },
     {
       "Mover": "Gamespace.Mario",
       "Target": "Gamespace.Items.GreenShroom",
       "Side": "Right",
-      "Command1": "Gamespace.Commands.NullCommand",
+      "Command1": "Gamespace.Commands.MarioAddLife",
       "Command2": "Gamespace.Commands.ConsumeItem"
     },
     {

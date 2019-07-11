@@ -12,14 +12,14 @@ namespace Gamespace.Commands
 
         private IMario mario;
 
-        public MarioAddLife(IMario mario)
+        public MarioAddLife(IMario mario, CollisionData collisionData)
         {
             this.mario = mario;
         }
 
         public void Execute()
         {
-            mario.scoreboard.Lives += 1;
+            mario.scoreboard.AddLife();
         }
     }
 }
