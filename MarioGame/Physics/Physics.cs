@@ -19,8 +19,13 @@ namespace Gamespace
         public Vector2 Acceleration { get => acceleration; }
         public IGameObject gameObject { get; set; }
 
+        private bool gravityEnanbled = true;
+        private bool horizontalFrictionEnabled = false;
+        private bool verticalFrictionEnabled = false;
+
         protected Dictionary<Side, Action> moveMaxSpeedActions;
         protected Dictionary<Side, Action> moveActions;
+        protected Dictionary<Side, Action> climbActions;
 
         protected readonly float gravityConstant;
         protected readonly float accelConstant;
@@ -60,6 +65,14 @@ namespace Gamespace
                 {Side.Right, new Action(() => velocity.X = max_X_V)}
             };
 
+            climbActions = new Dictionary<Side, Action>()
+            {
+                {Side.Up, new Action(() => velocity.Y = -max_Y_V/2)},
+                {Side.Down, new Action(() => velocity.Y = max_Y_V/2)},
+                {Side.Left, new Action(() => velocity.X = -max_X_V/2)},
+                {Side.Right, new Action(() => velocity.X = max_X_V/2)}
+            };
+
         }
         protected virtual void FreeFall()
         {
@@ -74,6 +87,14 @@ namespace Gamespace
         public virtual void MoveMaxSpeed(Side side)
         {
             moveMaxSpeedActions[side].Invoke();
+        }
+
+        public virtual void Climb(Side side)
+        {
+            gravityEnanbled = false;
+            horizontalFrictionEnabled = true;
+            verticalFrictionEnabled = true;
+            climbActions[side].Invoke();
         }
 
 
@@ -109,7 +130,11 @@ namespace Gamespace
 
         public virtual void Update()
         {
-            FreeFall();
+            if (gravityEnanbled)
+            {
+                FreeFall();
+            }
+          
 
             velocity.X = MinimumMagnitude(velocity.X + acceleration.X, Math.Sign(acceleration.X) * max_X_V);
             velocity.Y = MinimumMagnitude(velocity.Y + acceleration.Y, Math.Sign(acceleration.Y) * max_Y_V);
@@ -117,7 +142,22 @@ namespace Gamespace
             position.X += velocity.X;
             position.Y += velocity.Y;
 
-        }
+
+            if (verticalFrictionEnabled)
+            {
+                FrictionStop(Side.Down);
+            }
+           
+            if (horizontalFrictionEnabled)
+            {
+                FrictionStop(Side.Left);
+            }
+
+            gravityEnanbled = true;
+            horizontalFrictionEnabled = false;
+            verticalFrictionEnabled = false;
+
+    }
 
         public virtual Vector2 GetPosition()
         {

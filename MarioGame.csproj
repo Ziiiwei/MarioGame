@@ -42,15 +42,24 @@
     <ApplicationManifest>MarioGame\app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="MarioGame\Animation\AnimationFactory.cs" />
+    <Compile Include="MarioGame\Animation\KeyFrame.cs" />
+    <Compile Include="MarioGame\Animation\IAnimation.cs" />
+    <Compile Include="MarioGame\Animation\IKeyFrame.cs" />
+    <Compile Include="MarioGame\Animation\Animation.cs" />
     <Compile Include="MarioGame\Camera\ICamera.cs" />
     <Compile Include="MarioGame\Camera\MultiplayerCamera.cs" />
     <Compile Include="MarioGame\Collision\RewardChecker.cs" />
     <Compile Include="MarioGame\Commands\KillEnemy.cs" />
     <Compile Include="MarioGame\Commands\KillMario.cs" />
     <Compile Include="MarioGame\Commands\MarioAddLife.cs" />
+    <Compile Include="MarioGame\Commands\MarioClimbingUp.cs" />
+    <Compile Include="MarioGame\Commands\MarioClimingDown.cs" />
     <Compile Include="MarioGame\Commands\MarioFireCommand.cs" />
     <Compile Include="MarioGame\Commands\MarioJumpAfterEnemyHit.cs" />
+    <Compile Include="MarioGame\Commands\MarioTouchFlag.cs" />
     <Compile Include="MarioGame\Commands\PauseGameCommand.cs" />
+    <Compile Include="MarioGame\Commands\PlayTestAnimation.cs" />
     <Compile Include="MarioGame\Commands\ProjectileRemoveCommand.cs" />
     <Compile Include="MarioGame\Controllers\KeyAssignmentFactory.cs" />
     <Compile Include="MarioGame\Data\Numbers.cs" />
@@ -176,6 +185,7 @@
     <Compile Include="MarioGame\Transitions\Views\IView.cs" />
     <Compile Include="MarioGame\Transitions\Views\LivesView.cs" />
     <Compile Include="MarioGame\Transitions\Views\PlayableView.cs" />
+    <Compile Include="MarioGame\World\WorldAnimation.cs" />
     <Compile Include="MarioGame\World\LevelLoader.cs" />
     <Compile Include="MarioGame\GameObjects\Items\RedShroom.cs" />
     <Compile Include="MarioGame\GameObjects\Mario\States\MovingStates\RightCrouchingMarioState.cs" />

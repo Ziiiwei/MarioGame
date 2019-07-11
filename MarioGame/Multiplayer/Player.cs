@@ -11,6 +11,7 @@ using Gamespace.Data;
 
 namespace Gamespace.Multiplayer
 {
+  
     internal class Player : IPlayer
     {
         public IMario GameObject { get; private set; }

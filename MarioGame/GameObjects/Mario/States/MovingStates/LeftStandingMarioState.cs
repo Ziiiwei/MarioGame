@@ -46,5 +46,12 @@ namespace Gamespace.States
             mario.Projectiles.Fire(Side.Left);
         }
 
+        public override void ClimbUp()
+        {
+            mario.State = new LeftClimbingMarioState(mario);
+            mario.GameObjectPhysics.Climb(Side.Up);
+            mario.UpdateArt();
+        }
+
     }
 }

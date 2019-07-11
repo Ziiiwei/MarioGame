@@ -41,7 +41,7 @@ namespace Gamespace
             GameObjectPhysics.FrictionStop(Side.Right);
             State.FrictionStop();
 
-            positionOnScreen = GameObjectPhysics.GetPosition();
+            positionOnScreen = GameObjectPhysics.Position;
         }
 
         public void Crouch()
@@ -110,6 +110,16 @@ namespace Gamespace
         public void Fire()
         {
              PowerUpState.Fire(this);
+        }
+
+        public void ClimbDown()
+        {
+            this.GameObjectPhysics.Climb(Side.Down);
+        }
+
+        public void ClimbUp()
+        {
+            this.GameObjectPhysics.Climb(Side.Up);
         }
 
         public void Coin()

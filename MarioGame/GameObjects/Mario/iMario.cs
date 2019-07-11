@@ -17,6 +17,8 @@ namespace Gamespace
 
         Scoreboard scoreboard { get; set; }
         void Bounce();
+        void ClimbDown();
+        void ClimbUp();
         void Jump();
         void MoveRight();
         void MoveLeft();

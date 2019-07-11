@@ -7,56 +7,56 @@
       "Command1": "Gamespace.Commands.CollideUp",
       "Command2": "Gamespace.Commands.BumpBlock"
     },
-	{
+    {
       "Mover": "Gamespace.Goombas.Goomba",
       "Target": "Gamespace.Koopas.Koopa",
       "Side": "Left",
       "Command1": "Gamespace.Commands.CollideLeft",
       "Command2": "Gamespace.Commands.CollideRight"
     },
-	{
+    {
       "Mover": "Gamespace.Goombas.Goomba",
       "Target": "Gamespace.Koopas.Koopa",
       "Side": "Right",
       "Command1": "Gamespace.Commands.CollideRight",
       "Command2": "Gamespace.Commands.CollideLeft"
     },
-		{
+    {
       "Mover": "Gamespace.Koopas.Koopa",
       "Target": "Gamespace.Goombas.Goomba",
       "Side": "Left",
       "Command1": "Gamespace.Commands.CollideLeft",
       "Command2": "Gamespace.Commands.CollideRight"
     },
-	{
+    {
       "Mover": "Gamespace.Koopas.Koopa",
       "Target": "Gamespace.Goombas.Goomba",
       "Side": "Right",
       "Command1": "Gamespace.Commands.CollideRight",
       "Command2": "Gamespace.Commands.CollideLeft"
     },
-	{
+    {
       "Mover": "Gamespace.Koopas.Koopa",
       "Target": "Gamespace.Koopas.Koopa",
       "Side": "Left",
       "Command1": "Gamespace.Commands.CollideLeft",
       "Command2": "Gamespace.Commands.CollideRight"
     },
-	{
+    {
       "Mover": "Gamespace.Koopas.Koopa",
       "Target": "Gamespace.Koopas.Koopa",
       "Side": "Right",
       "Command1": "Gamespace.Commands.CollideRight",
       "Command2": "Gamespace.Commands.CollideLeft"
     },
-	{
+    {
       "Mover": "Gamespace.Goombas.Goomba",
       "Target": "Gamespace.Goombas.Goomba",
       "Side": "Left",
       "Command1": "Gamespace.Commands.CollideLeft",
       "Command2": "Gamespace.Commands.CollideRight"
     },
-		{
+    {
       "Mover": "Gamespace.Goombas.Goomba",
       "Target": "Gamespace.Goombas.Goomba",
       "Side": "Right",
@@ -280,61 +280,75 @@
       "Command1": "Gamespace.Commands.NullCommand",
       "Command2": "Gamespace.Commands.MarioHitsEnemy"
     },
-		{
+    {
       "Mover": "Gamespace.Projectiles.Fireball",
       "Target": "Gamespace.Koopas.Koopa",
       "Side": "Up",
       "Command1": "Gamespace.Commands.ProjectileRemoveCommand",
       "Command2": "Gamespace.Commands.MarioHitsEnemy"
     },
-	{
+    {
       "Mover": "Gamespace.Projectiles.Fireball",
       "Target": "Gamespace.Koopas.Koopa",
       "Side": "Down",
       "Command1": "Gamespace.Commands.ProjectileRemoveCommand",
       "Command2": "Gamespace.Commands.MarioHitsEnemy"
     },
-	{
+    {
       "Mover": "Gamespace.Projectiles.Fireball",
       "Target": "Gamespace.Koopas.Koopa",
       "Side": "Left",
       "Command1": "Gamespace.Commands.ProjectileRemoveCommand",
       "Command2": "Gamespace.Commands.MarioHitsEnemy"
     },
-	{
+    {
       "Mover": "Gamespace.Projectiles.Fireball",
       "Target": "Gamespace.Koopas.Koopa",
       "Side": "Right",
       "Command1": "Gamespace.Commands.ProjectileRemoveCommand",
       "Command2": "Gamespace.Commands.MarioHitsEnemy"
     },
-	{
+    {
       "Mover": "Gamespace.Projectiles.Fireball",
       "Target": "Gamespace.Goombas.Goomba",
       "Side": "Up",
       "Command1": "Gamespace.Commands.ProjectileRemoveCommand",
       "Command2": "Gamespace.Commands.MarioHitsEnemy"
     },
-	{
+    {
       "Mover": "Gamespace.Projectiles.Fireball",
       "Target": "Gamespace.Goombas.Goomba",
       "Side": "Down",
       "Command1": "Gamespace.Commands.ProjectileRemoveCommand",
       "Command2": "Gamespace.Commands.MarioHitsEnemy"
     },
-	{
+    {
       "Mover": "Gamespace.Projectiles.Fireball",
       "Target": "Gamespace.Goombas.Goomba",
       "Side": "Left",
       "Command1": "Gamespace.Commands.ProjectileRemoveCommand",
       "Command2": "Gamespace.Commands.MarioHitsEnemy"
     },
-	{
+    {
       "Mover": "Gamespace.Projectiles.Fireball",
       "Target": "Gamespace.Goombas.Goomba",
       "Side": "Right",
       "Command1": "Gamespace.Commands.ProjectileRemoveCommand",
       "Command2": "Gamespace.Commands.MarioHitsEnemy"
+    },
+    {
+      "Mover": "Gamespace.Mario",
+      "Target": "Gamespace.FlagPole.Flagpole",
+      "Side": "Left",
+      "Command1": "Gamespace.Commands.PlayMarioTouchFlag",
+      "Command2": "Gamespace.Commands.NullCommand"
+    },
+    {
+      "Mover": "Gamespace.Mario",
+      "Target": "Gamespace.FlagPole.Flagpole",
+      "Side": "Right",
+      "Command1": "Gamespace.Commands.PlayMarioTouchFlag",
+      "Command2": "Gamespace.Commands.NullCommand"
     },
 	{
       "Mover": "Gamespace.Mario",

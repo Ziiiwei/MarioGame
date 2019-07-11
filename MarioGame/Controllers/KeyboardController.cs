@@ -14,20 +14,28 @@ namespace Gamespace.Controllers
     {
         private readonly Dictionary<Keys, ICommand> currentBindings;
         private static readonly List<Type> nonHoldableCommands;
-        private List<Keys> previouslyPressed;
+        private List<Keys> previouslyPressed =  new List<Keys>();
+
+
 
         static KeyboardController()
         {
             nonHoldableCommands = new List<Type>()
             {
-                typeof(PauseGameCommand)
+                typeof(PauseGameCommand),
+                typeof(PlayTestAnimation)
             };
         }
 
         public KeyboardController(IPlayer player)
         {
             currentBindings = KeyAssignmentFactory.Instance.GetBindings(player);
-            previouslyPressed = new List<Keys>();
+            
+        }
+
+        public KeyboardController(IPlayer player, bool keyActivation)
+        {
+            currentBindings = KeyAssignmentFactory.Instance.GetPausedBinding(player);
         }
 
         public void Update()
@@ -38,11 +46,6 @@ namespace Gamespace.Controllers
             {
                 if (currentBindings.ContainsKey(key))
                 {
-                    if (pressed.Contains(Keys.P))
-                    {
-                        int i = 1;
-                    }
-
                     if (!nonHoldableCommands.Contains(currentBindings[key].GetType()) || !previouslyPressed.Contains(key))
                     {
                         currentBindings[key].Execute();

@@ -6,8 +6,12 @@ using System.Threading.Tasks;
 
 namespace Gamespace.Commands
 {
-    public interface ICommand
+    class MarioClimbingUpCommand : ICommand
     {
-        void Execute();
+        public void Execute()
+        {
+            throw new NotImplementedException();
+        }
     }
+   
 }

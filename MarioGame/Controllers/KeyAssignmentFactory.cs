@@ -15,6 +15,7 @@ namespace Gamespace.Controllers
         private Dictionary<int, Dictionary<Keys, Type>> playerBindingsSelector;
         private Dictionary<Keys, Type> playerOneBinds;
         private Dictionary<Keys, Type> playerTwoBinds;
+        private Dictionary<Keys, Type> duringAnimationBinds;
 
         static KeyAssignmentFactory()
         {
@@ -32,6 +33,7 @@ namespace Gamespace.Controllers
             playerOneBinds.Add(Keys.D, typeof(MarioMoveRightCommand));
             playerOneBinds.Add(Keys.Space, typeof(MarioFireCommand));
             playerOneBinds.Add(Keys.R, typeof(Reset));
+            playerOneBinds.Add(Keys.F, typeof(PlayTestAnimation));
 
             playerTwoBinds = new Dictionary<Keys, Type>();
             playerTwoBinds.Add(Keys.P, typeof(PauseGameCommand));
@@ -42,6 +44,11 @@ namespace Gamespace.Controllers
             playerTwoBinds.Add(Keys.Right, typeof(MarioMoveRightCommand));
             playerTwoBinds.Add(Keys.RightShift, typeof(MarioFireCommand));
             playerTwoBinds.Add(Keys.R, typeof(Reset));
+
+            duringAnimationBinds = new Dictionary<Keys, Type>();
+            duringAnimationBinds.Add(Keys.P, typeof(PauseGameCommand));
+            duringAnimationBinds.Add(Keys.Q, typeof(QuitGame));
+            duringAnimationBinds.Add(Keys.R, typeof(Reset));
 
             //this is used as an identification for player binds, so I would not say it is a magic number.
             playerBindingsSelector = new Dictionary<int, Dictionary<Keys, Type>>()
@@ -63,6 +70,17 @@ namespace Gamespace.Controllers
                 returnValue.Add(key, (ICommand)Activator.CreateInstance(binds[key], player.GameObject));
             }
             return returnValue;
+        }
+
+        internal Dictionary<Keys,ICommand> GetPausedBinding(IPlayer player)
+        {
+            Dictionary<Keys, ICommand> retVal = new Dictionary<Keys, ICommand>();
+
+            foreach (Keys key in duringAnimationBinds.Keys)
+            {
+                retVal.Add(key, (ICommand)Activator.CreateInstance(duringAnimationBinds[key], player.GameObject));
+            }
+            return retVal;
         }
 
 
