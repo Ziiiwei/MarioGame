@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
 using Gamespace.Controllers;
+using Gamespace.Data;
 
 namespace Gamespace
 {
@@ -75,6 +76,10 @@ namespace Gamespace
             freefall = () => FreeFall();
             frictionstop = () => { };
         }
+
+        public void Jump()
+        {
+        }
         protected virtual void FreeFall()
         {
             acceleration.Y = gravityConstant;
@@ -132,7 +137,6 @@ namespace Gamespace
             Stop(Side.Vertical);
             freefall = () => { };
             frictionstop = () => { };
-
         }
 
         public virtual void Update()

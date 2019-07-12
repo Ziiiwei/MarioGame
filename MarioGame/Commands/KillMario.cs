@@ -20,6 +20,7 @@ namespace Gamespace.Commands
         public void Execute()
         {
             this.mario.Die();
+           
         }
     }
 }

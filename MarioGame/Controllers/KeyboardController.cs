@@ -23,8 +23,8 @@ namespace Gamespace.Controllers
             nonHoldableCommands = new List<Type>()
             {
                 typeof(PauseGameCommand),
-                typeof(PlayTestAnimation),
-                typeof(MarioJumpCommand)
+                typeof(PlayTestAnimation)
+              
             };
         }
 

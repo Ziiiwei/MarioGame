@@ -26,7 +26,7 @@ namespace Gamespace
 
             List<float> zeroDefinitions = new List<float> { 0.0f, 0.0f, 0.0f, 0.0f, 0.0f };
 
-            List<float> marioDefinitions = new List<float> { 12.5f, 0.5f, 5f, 12f, 1f };
+            List<float> marioDefinitions = new List<float> {0.5f, 0.5f, 5f, 12f, 1f };
             constantsAssignments.Add(typeof(Mario), new PhysicsConstantsDefinitons(marioDefinitions));
 
             List<float> enemyDefinitions = new List<float> { 2f, 0.5f, 3f, 3f, 1f };
@@ -79,8 +79,8 @@ namespace Gamespace
             public float frictionConstant { get; }
             public PhysicsConstantsDefinitons(List<float> definitions)
             {
-                gravityConstant = definitions[1];
                 accelConstant = definitions[0];
+                gravityConstant = definitions[1];          
                 max_X_V = definitions[2];
                 max_Y_V = definitions[3];
                 frictionConstant = definitions[4];

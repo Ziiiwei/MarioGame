@@ -121,6 +121,7 @@
     <Compile Include="MarioGame\Physics\BumpableBlockPhysics.cs" />
     <Compile Include="MarioGame\Physics\EnemyPhysics.cs" />
     <Compile Include="MarioGame\Physics\FireballPhysics.cs" />
+    <Compile Include="MarioGame\Physics\IAnimationPhysics.cs" />
     <Compile Include="MarioGame\Physics\IPhysicsConstants.cs" />
     <Compile Include="MarioGame\Physics\PhysicsConstants.cs" />
     <Compile Include="MarioGame\Physics\PhysicsFactory.cs" />
@@ -208,7 +209,6 @@
     <Compile Include="MarioGame\Program.cs" />
     <Compile Include="MarioGame\Physics\Physics.cs" />
     <Compile Include="MarioGame\World\WorldCollision.cs" />
-    <Compile Include="Physics\ValueTuple.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>

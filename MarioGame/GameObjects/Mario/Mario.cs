@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Timers;
 using Gamespace.Multiplayer;
+using Gamespace.Data;
 
 namespace Gamespace
 {
@@ -23,6 +24,7 @@ namespace Gamespace
 
         private Action keepStanding;
 
+
         public Mario(Vector2 positionOnScreen) : base(positionOnScreen)
         {
             State = new RightStandingMarioState(this);
@@ -30,6 +32,8 @@ namespace Gamespace
             SetSprite();
             Projectiles = new ProjectileLauncher(this);
             keepStanding= () => State.Stand();
+
+
         }
 
         public Mario(Vector2 positionOnScreen, Scoreboard scoreboard) : this(positionOnScreen)
@@ -42,10 +46,11 @@ namespace Gamespace
             base.SurrogateUpdate();
             GameObjectPhysics.Update();
             State.FrictionStop();
+
             positionOnScreen = GameObjectPhysics.Position;
 
             keepStanding.Invoke();
-            keepStanding = () => State.Stand();
+            keepStanding = () => State.Stand();          
         }
 
         public void Crouch()
@@ -59,6 +64,7 @@ namespace Gamespace
         public void Jump()
         {
             State.Jump();
+  
         }
 
         public void MoveLeft()
@@ -103,6 +109,8 @@ namespace Gamespace
         public void Die()
         {
             GameObjectPhysics.MoveMaxSpeed(Side.Up);
+
+            GameObjectPhysics.Stop(Side.Horizontal);
             World.Instance.MaskCollision(this);
             scoreboard.Die();
             SoundManager.Instance.PlaySoundEffect("MarioDies");

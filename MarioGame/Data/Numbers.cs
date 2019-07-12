@@ -9,6 +9,8 @@ namespace Gamespace.Data
 {
     static class Numbers
     {
+        public const int MARIO_JUMP_MAX_UPDATE = 10;// which is 0.1s
+        public const int MARIO_JUMP_SPEED = 3; 
         public const int CAMERA_FACTOR = 2;
         public const int STOMP_TIMER_BOUND = 20;
         public static readonly int[] BUMP_OFFSETS = { 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4 };
