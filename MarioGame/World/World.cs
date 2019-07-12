@@ -172,7 +172,7 @@ namespace Gamespace
                 pendingCollisions[pendingCollisionKey] = pendingCollisions[pendingCollisionKey].OrderByDescending(collisionArea => collisionArea.Item2).ToList();
             }
 
-            for (int i = 0; i < pendingCollisionsObjectsList.Count; i++)
+            for ( int i = 0; i < pendingCollisionsObjectsList.Count; i++)
             {
                 List<(IGameObject, int)> pendingTargets = pendingCollisions[pendingCollisionsObjectsList[i]];
 

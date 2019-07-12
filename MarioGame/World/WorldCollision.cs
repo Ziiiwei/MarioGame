@@ -36,7 +36,7 @@ namespace Gamespace
                     {
                         (CollisionHandler.Side, Rectangle) collisionData = collisionHandler.DetectCollision(mover, target);
 
-                        if (collisionHandler.DetectCollision(mover, target).Item1 != CollisionHandler.Side.None)
+                        if (collisionData.Item1 != CollisionHandler.Side.None)
                         {
                             int collisionArea = collisionData.Item2.Height * collisionData.Item2.Width;
                             AddPendingCollision(pendingCollisions, mover, target, collisionArea);
