@@ -51,17 +51,18 @@ namespace Gamespace
 
         public void HandleCollision(IGameObject mover, IGameObject target)
         {
-            if (DetectCollision(mover, target).Item1 == Side.None)
-            {
-                return;
-            }
-
             (Side, Rectangle) directionAndArea = DetectCollision(mover, target);
             Side side = directionAndArea.Item1;
             Rectangle collisionArea = directionAndArea.Item2;
 
+            if (side == Side.None)
+            {
+                return;
+            }
+
+
             Tuple<Type, Type, Side> key = new Tuple<Type, Type, Side>(mover.GetType(),
-            target.GetType(), directionAndArea.Item1);
+            target.GetType(), side);
 
             if((collisionMasks.Contains(mover.GetType()) || collisionMasks.Contains(target.GetType())))
             {
@@ -139,15 +140,16 @@ namespace Gamespace
          */
         internal (Side, Rectangle) DetectCollision(IGameObject mover, IGameObject target)
         {
-            if (!mover.GetCollisionBoundary().Intersects(target.GetCollisionBoundary()))
+            Rectangle moverCollisionBoundary = mover.GetCollisionBoundary();
+            Rectangle targetCollisionBoundary = target.GetCollisionBoundary();
+
+            if (!moverCollisionBoundary.Intersects(targetCollisionBoundary))
             {
                 return (Side.None, new Rectangle(0, 0, 0, 0));
             }
 
-            Rectangle collisionArea = Rectangle.Intersect(mover.GetCollisionBoundary(),
-                target.GetCollisionBoundary());
-
-             //bool horizontalCollision = ((int)mover.GameObjectPhysics.GetVelocity().X < collisionArea.Width);
+            Rectangle collisionArea = Rectangle.Intersect(moverCollisionBoundary,
+                targetCollisionBoundary);
 
               bool  horizontalCollision = (collisionArea.Height > collisionArea.Width);
 
