@@ -18,6 +18,7 @@ namespace Gamespace
         Vector2 GetCenter();
         bool IsPaused { get; set; }
         int BlockSpacePosition { get; }
+        int DrawPriority { get; }
 
     }
 }

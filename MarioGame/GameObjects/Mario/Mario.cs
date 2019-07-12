@@ -30,6 +30,7 @@ namespace Gamespace
             SetSprite();
             Projectiles = new ProjectileLauncher(this);
             keepStanding= () => State.Stand();
+            DrawPriority = 1;
         }
 
         public Mario(Vector2 positionOnScreen, Scoreboard scoreboard) : this(positionOnScreen)

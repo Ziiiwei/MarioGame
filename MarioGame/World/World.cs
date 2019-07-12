@@ -16,7 +16,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using Gamespace.Data;
 
 namespace Gamespace
 {
@@ -185,7 +185,21 @@ namespace Gamespace
 
         public void DrawWorld(SpriteBatch spriteBatch)
         {
+            List<IGameObject> deferredDraw = new List<IGameObject>();
+
             foreach (IGameObject gameObject in objectsToDraw)
+            {
+                if (gameObject.DrawPriority == Numbers.FOREGROUND_DRAW_PRIORITY)
+                {
+                    deferredDraw.Add(gameObject);
+                }
+                else
+                {
+                    gameObject.Draw(spriteBatch);
+                }
+            }
+
+            foreach (IGameObject gameObject in deferredDraw)
             {
                 gameObject.Draw(spriteBatch);
             }

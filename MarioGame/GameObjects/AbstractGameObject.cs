@@ -1,4 +1,5 @@
-﻿using Gamespace.Interfaces;
+﻿/* Using Deferred SpriteSort taken here https://gamedev.stackexchange.com/questions/47796/objects-being-drawn-on-wrong-layers */
+using Gamespace.Interfaces;
 using Gamespace.Sprites;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -22,6 +23,9 @@ namespace Gamespace
         private readonly static Dictionary<bool, Action<AbstractGameObject>> updateFunctionPointer;
         public bool IsPaused { get; set; }
         public int BlockSpacePosition { get => (int)Math.Min(Numbers.BLOCK_SPACING_SCALE, Math.Max(0, Math.Floor(positionOnScreen.X / Numbers.BLOCK_SPACING_SCALE))); }
+        
+        /* Higher integers are drawn first */
+        public int DrawPriority { get; protected set; }
 
         static AbstractGameObject()
         {
@@ -47,6 +51,7 @@ namespace Gamespace
             //GameObjectPhysics = new Physics(this, positionOnScreen); 
             GameObjectPhysics = PhysicsFactory.Instance.GetPhysics(this, positionOnScreen);
             IsPaused = false;
+            DrawPriority = 0;
         }
         public virtual void Draw(SpriteBatch spriteBatch)
         {
