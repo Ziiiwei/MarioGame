@@ -18,9 +18,11 @@ namespace Gamespace.Commands
             endingCommand = new NullEndingAnimationCommand(gameObject);
         }
         public void Execute()
-        {
+        {   
+
             ani = AnimationFactory.Instance.GetAnimation(obj,()=>endingCommand.Execute(),this.GetType());
             ani.Activate();
+           
             World.Instance.AddAnimationToPlay(ani);
         }
     }

@@ -18,7 +18,7 @@ namespace Gamespace
         public int Uid { get; protected set; }
         public ISprite Sprite { get; protected set; }
         protected Vector2 positionOnScreen;
-        public Vector2 PositionOnScreen  => positionOnScreen;
+        public Vector2 PositionOnScreen { get => positionOnScreen; set => positionOnScreen = value; }
         public IPhysics GameObjectPhysics { get; set; }
         private readonly static Dictionary<bool, Action<AbstractGameObject>> updateFunctionPointer;
         public bool IsPaused { get; set; }

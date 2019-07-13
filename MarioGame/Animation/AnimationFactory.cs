@@ -15,6 +15,7 @@ namespace Gamespace.Animation
         private Dictionary<Type,List<(Type, int, int)>> animationLog;
         private Dictionary<Type, Func<Vector2, int, Vector2>> newFrameCaculation;
         private Dictionary<Type, GoalCheckFun> goalCheckFuncLog;
+        private Dictionary<Type, List<(Func<Vector2,int,Vector2>,int)>> simpleAnimationLog;
 
 
         private delegate bool GoalCheckFun(Vector2 location, int repeat,Vector2 goallocation,int goalrepeat);
@@ -22,8 +23,6 @@ namespace Gamespace.Animation
 
         private const int DISTANCE_PRECISION = 4;
         private const int NO_REPEAT_CHECK = -1;
-        private const int REPEAT_UPER_LIMIT = 600; 
-
 
         
         static AnimationFactory() { }
@@ -58,7 +57,9 @@ namespace Gamespace.Animation
                     typeof(PlayTestAnimation),
                     new List<(Type, int,int)>
                     {
+                       
                         (typeof(MarioMoveLeftCommand),50,NO_REPEAT_CHECK),
+                        (typeof(MarioClimbingUpCommand),100,NO_REPEAT_CHECK),
                         (typeof(MarioMoveRightCommand),100,NO_REPEAT_CHECK),
                         (typeof(MarioCrouchCommand),0,60),
                         (typeof(MarioJumpCommand),0,60)
@@ -66,14 +67,28 @@ namespace Gamespace.Animation
                 },
 
                 {
-                    typeof(PlayMarioTouchFlag),
+                    typeof(PlayMarioTouchFlagPole),
                     new List<(Type, int, int)>
                     {
-                        (typeof(MarioClimbingDownCommand),150,NO_REPEAT_CHECK),
+
+                        (typeof(MarioClimbingDownCommand),100,NO_REPEAT_CHECK),
                         (typeof(MarioMoveRightCommand),200,NO_REPEAT_CHECK)
                     }
-                }
+                },
 
+               
+
+            };
+
+            simpleAnimationLog = new Dictionary<Type, List<(Func<Vector2,int, Vector2>, int)>>
+            {
+                {
+                    typeof(PlayFlagSlidDown),
+                    new List<(Func<Vector2,int, Vector2>, int)>
+                    {
+                        (new Func<Vector2,int,Vector2>((p,t)=> new Vector2(p.X,p.Y+2*t)),32*7/2)
+                    }
+                }
             };
 
             newFrameCaculation = new Dictionary<Type, Func<Vector2,int,Vector2>>()
@@ -93,7 +108,8 @@ namespace Gamespace.Animation
                 {typeof(MarioMoveLeftCommand), horizontalCheck},
                 {typeof(MarioMoveRightCommand), horizontalCheck},
                 {typeof(MarioCrouchCommand), repeatCheck},
-                {typeof(MarioJumpCommand), repeatCheck}
+                {typeof(MarioJumpCommand), repeatCheck},
+                {typeof(PlayFlagSlidDown),repeatCheck}
             };
 
         }
@@ -114,6 +130,26 @@ namespace Gamespace.Animation
                     repeat
                     ));
                 pointToBegin = newFrameCaculation[command].Invoke(pointToBegin, distance);
+            }
+
+            return animation;
+        }
+
+        public IAnimation<IGameObject> GetSimpleAnimation(IGameObject obj, Action afterCommand, Type type)
+        {
+            Animation animation = new Animation(obj, afterCommand);
+            Vector2 pointToBegin = new Vector2(obj.PositionOnScreen.X, obj.PositionOnScreen.Y);
+
+            foreach ((Func<Vector2,int,Vector2> func, int repeat) in simpleAnimationLog[type])
+            {
+                animation.AddFrame(new SimpleKeyFrame(obj,func,
+                    animation,
+                     new Func<Vector2, int, Vector2, int, bool>(goalCheckFuncLog[type]),
+                    func(pointToBegin,repeat),
+                    repeat
+                    ));
+
+                pointToBegin = func(pointToBegin, repeat);
             }
 
             return animation;

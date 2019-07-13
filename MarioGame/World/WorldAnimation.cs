@@ -10,9 +10,20 @@ namespace Gamespace
 {
     public partial class World
     {
+
+        public IGameObject FindObject(Type type)
+        {
+            foreach (IGameObject obj in objectsToDraw)
+            {
+                if (obj.GetType() == type)
+                {
+                    return obj;
+                }
+            }
+            return null;
+        }
         public void AddAnimationToPlay(IAnimation<IGameObject> animation)
         {
-
             bool duplicatedAni = false;
 
             foreach (IAnimation<IGameObject> ani in animationsToPlay)

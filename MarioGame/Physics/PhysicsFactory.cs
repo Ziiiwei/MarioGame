@@ -58,5 +58,10 @@ namespace Gamespace
             IGameObject nullGameObject = new NullGameObject();
             return new Physics(nullGameObject, positionOnScreen, PhysicsConstants.Instance.GetConstants(nullGameObject.GetType()));
         }
+
+        internal IAnimationPhysics GetNullAnimationPhysics(IGameObject gameObject)
+        {
+            return new AnimationPhysics(gameObject, gameObject.PositionOnScreen, PhysicsConstants.Instance.GetConstants(typeof(Mario)));
+        }
     }
 }

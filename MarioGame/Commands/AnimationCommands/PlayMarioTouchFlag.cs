@@ -7,18 +7,18 @@ using Gamespace.Animation;
 
 namespace Gamespace.Commands
 {
-    class PlayMarioTouchFlag : ICommand
+    class PlayMarioTouchFlagPole : ICommand
     {
         private IGameObject obj;
         private readonly ICommand endingCommand;
         private IAnimation<IGameObject> ani;
-        public PlayMarioTouchFlag(IGameObject gameObject, CollisionData cd )
+        public PlayMarioTouchFlagPole(IGameObject gameObject, CollisionData cd )
         {
             obj = gameObject;
             endingCommand = new NullEndingAnimationCommand(gameObject);
         }
 
-        public PlayMarioTouchFlag(IGameObject gameObject)
+        public PlayMarioTouchFlagPole(IGameObject gameObject)
         {
             obj = gameObject;
             endingCommand = new NullEndingAnimationCommand(gameObject);
@@ -31,4 +31,7 @@ namespace Gamespace.Commands
             World.Instance.AddAnimationToPlay(ani);
         }
     }
+
+
+  
 }

@@ -341,14 +341,14 @@
       "Target": "Gamespace.FlagPole.Flagpole",
       "Side": "Left",
       "Command1": "Gamespace.Commands.PlayMarioTouchFlag",
-      "Command2": "Gamespace.Commands.NullCommand"
+      "Command2": "Gamespace.Commands.PlayFlagSlidDown"
     },
     {
       "Mover": "Gamespace.Mario",
       "Target": "Gamespace.FlagPole.Flagpole",
       "Side": "Right",
       "Command1": "Gamespace.Commands.PlayMarioTouchFlag",
-      "Command2": "Gamespace.Commands.NullCommand"
+      "Command2": "Gamespace.Commands.PlayFlagSlidDown"
     },
 	{
       "Mover": "Gamespace.Mario",

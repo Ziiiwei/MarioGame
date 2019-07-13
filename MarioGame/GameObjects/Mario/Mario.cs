@@ -24,6 +24,8 @@ namespace Gamespace
 
         private Action keepStanding;
 
+        
+
 
         public Mario(Vector2 positionOnScreen) : base(positionOnScreen)
         {
@@ -54,9 +56,9 @@ namespace Gamespace
 
         public void Crouch()
         {
-            int previous_h = Sprite.Height;
+           
             State.Crouch();
-            GameObjectPhysics.DownStop(new Rectangle(0, 0, 0, Sprite.Height - previous_h));
+          
             keepStanding = () => { };
         }
 

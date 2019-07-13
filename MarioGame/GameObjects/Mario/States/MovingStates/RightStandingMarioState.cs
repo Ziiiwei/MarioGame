@@ -16,8 +16,10 @@ namespace Gamespace.States
 
         public override void Crouch()
         {
+            int previous_h = mario.Sprite.Height;
             mario.State = new RightCrouchingMarioState(mario);
             mario.UpdateArt();
+            mario.GameObjectPhysics.DownStop(new Rectangle(0, 0, 0, mario.Sprite.Height - previous_h));
         }
 
         public override void Jump()
