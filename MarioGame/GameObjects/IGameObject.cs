@@ -13,7 +13,7 @@ namespace Gamespace
         int Uid { get; }
         void Update();
         void Draw(SpriteBatch spriteBatch);
-        Vector2 PositionOnScreen { get; }
+        Vector2 PositionOnScreen { get; set; }
         Rectangle CollisionBoundary { get; }
         Vector2 Center { get; }
         bool IsPaused { get; set; }
