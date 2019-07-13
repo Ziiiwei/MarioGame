@@ -2,41 +2,28 @@
 Author: Rayan Hamza
 Date: 7/10/19
 Sprint: 5
-Name: Keith Chin
-File: SoundManager.cs
+Name: Matt Harrow/Ziwei Jin
+File: World.cs
 Minutes: 6
 
-Coupling: Some, but seemingly needed
--The SoundManager's job is, as the name states, to manage sounds that are
-produced by the SoundFactory, and as such, the Instance of SoundFactory
-will need to be called to retrieve the appropriate sound to manage. This
-class also takes advantage of the Song and MediaPlayer classes as well, 
-but seeing as we are dealing with .mp3 files, that should not be 
-surprising nor percieved as dangerous in my opinion.
+Coupling: Same as initial implementation
+-The collision handler was one of the only recently updated classes
+in this refactor. It still needs the same information to function,
+a mover and a target.
 
-Cohesion: BGM is specified
-- As stated above, the SoundManager's job is to manage sound, and thus,
-it has them divided into BGM and SFX (SoundEffects). BGM however, is 
-divided into 2 kinds, Main BGM and no time BGM. This makes the manager
-deal with a little bit more, but the trade-off is having dynamic music
-for mario.
+Cohesion: Similar and not figured out
+- this was one of the concerns that needed to be addressed, however
+there was not a very good understanding on how to go about. There 
+was a lack of abstraction in our code, that much has been stated.
+But as of right now, it has not been found within the code.
 
-Complexity: Minimal
--This code has a total of 4 methods, with the longest being no longer
-than 3 lines. The first line is a retrieval from the factory, and the 
-second line is typically the call to play the sound (except for the 
-case of StopBGM(), in which there is one line to stop the music).
-The only other thing in the methods is the defining of volume,
-only needed in the PlaySoundEffect method.
+Complexity: Noticable
+-This is also part of the problem we cannot solve right now,
+extra branching exists in our code, and getting rid of it would
+mess with some cases for the state of our game. Since the collision
+handler checks constantly and requires a lot of specifics, it holds
+a really high cyclomatic complexity compared to other  classes.
 
-Hypothetical change: Randomized BGMs
-- this class handles dynamic music, but is vicariously dependent on
-something else (gameTime in this case), if we could just remove the
-PlayMainBGM method, and abstract it to just PlayBGM, and abstract 
-the song retrieved from the Sprite Factory, there would be potential
-for more musi
-
-Additional Notes:
-- Initially, a magic number was passed in for volume, later brought in from a utility class.
-- Keith did all of the music and music management himself, which was an impressive feat for 
-our team.
+Hypothetical change: Sides are delegates for their collision function
+- If this idea could work out, it may help solve the abstraction 
+scarcity going on in our code.
