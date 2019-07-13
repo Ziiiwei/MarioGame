@@ -34,7 +34,7 @@ namespace Gamespace
 
                     if (mover != target)
                     {
-                        (CollisionHandler.Side, Rectangle) collisionData = collisionHandler.DetectCollision(mover, target);
+                        Tuple<CollisionHandler.Side, Rectangle> collisionData = collisionHandler.DetectCollision(mover, target);
 
                         if (collisionData.Item1 != CollisionHandler.Side.None)
                         {
