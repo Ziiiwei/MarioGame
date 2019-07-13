@@ -14,8 +14,8 @@ namespace Gamespace
         void Update();
         void Draw(SpriteBatch spriteBatch);
         Vector2 PositionOnScreen { get; }
-        Rectangle GetCollisionBoundary();
-        Vector2 GetCenter();
+        Rectangle CollisionBoundary { get; }
+        Vector2 Center { get; }
         bool IsPaused { get; set; }
         int BlockSpacePosition { get; }
         int DrawPriority { get; }

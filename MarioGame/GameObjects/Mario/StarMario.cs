@@ -87,11 +87,6 @@ namespace Gamespace
             mario.UpdateArt();
         }
 
-        public new Rectangle GetCollisionBoundary()
-        {
-           return mario.GetCollisionBoundary();
-        }
-
         public new void CollideLeft(Rectangle collisionArea)
         {
             mario.CollideLeft(collisionArea);
@@ -109,11 +104,6 @@ namespace Gamespace
         public new void CollideDown(Rectangle collisionArea)
         {
             mario.CollideDown(collisionArea);
-        }
-
-        public new Vector2 GetCenter()
-        {
-            return mario.GetCenter();
         }
 
         public void Bounce()

@@ -10,16 +10,6 @@ namespace Gamespace
         {
         }
 
-        public override Rectangle GetCollisionBoundary()
-        {
-            return new Rectangle(0, 0, 0, 0);
-        }
-
-        public override Vector2 GetCenter()
-        {
-            return new Vector2(0, 0);
-        }
-
         protected override void SetSprite()
         {
         }

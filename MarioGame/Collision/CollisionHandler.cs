@@ -21,22 +21,23 @@ namespace Gamespace
     class CollisionHandler
     {
         /* Side is relative to the second IGameObject in the tuple */
-        private readonly    Dictionary<Tuple<Type, Type, Side>, (Type, Type)> collisionActions;
-        private Dictionary<(Type, Type), Func<IGameObject, IGameObject, (Type, Type)>> translator;
-        private Dictionary<Tuple<Type, Type, Side>, (Type, Type)> statefulCollisionActions;
+        private readonly    Dictionary<Tuple<Type, Type, Side>, Tuple<Type, Type>> collisionActions;
+        private delegate Tuple<Type, Type> Translator(IGameObject mover, IGameObject reciever);
+        private Dictionary<Tuple<Type, Type>, Translator> translator;
+        private Dictionary<Tuple<Type, Type, Side>, Tuple<Type, Type>> statefulCollisionActions;
         private List<Type> collisionMasks;
         public enum Side  { None, Up, Down, Left, Right };
 
         public CollisionHandler()
         {
             collisionActions = JsonParser.Instance.ParseCollisionFile();
-            translator = new Dictionary<(Type, Type), Func<IGameObject, IGameObject, (Type, Type)>>();
+            translator = new Dictionary<Tuple<Type, Type>, Translator>();
             /* This will become data driven */
-            translator.Add((typeof(Mario), typeof(BrickBlock)), new Func<IGameObject, IGameObject, (Type, Type)>(TypeTranslator.MarioBlockTranslator));
-            translator.Add((typeof(Mario), typeof(Goomba)), new Func<IGameObject, IGameObject, (Type, Type)>(TypeTranslator.MarioGoombaTranslator));
-            translator.Add((typeof(Mario), typeof(Koopa)), new Func<IGameObject, IGameObject, (Type, Type)>(TypeTranslator.MarioKoopaTranslator));
-            translator.Add((typeof(Goomba), typeof(BrickBlock)), new Func<IGameObject, IGameObject, (Type, Type)>(TypeTranslator.BumpableBlockEnemyTranslator));
-            translator.Add((typeof(Koopa), typeof(BrickBlock)), new Func<IGameObject, IGameObject, (Type, Type)>(TypeTranslator.BumpableBlockEnemyTranslator));
+            translator.Add(new Tuple<Type, Type>(typeof(Mario), typeof(BrickBlock)), TypeTranslator.MarioBlockTranslator);
+            translator.Add(new Tuple<Type, Type>(typeof(Mario), typeof(Goomba)), TypeTranslator.MarioGoombaTranslator);
+            translator.Add(new Tuple<Type, Type>(typeof(Mario), typeof(Koopa)), TypeTranslator.MarioKoopaTranslator);
+            translator.Add(new Tuple<Type, Type>(typeof(Goomba), typeof(BrickBlock)), TypeTranslator.BumpableBlockEnemyTranslator);
+            translator.Add(new Tuple<Type, Type>(typeof(Koopa), typeof(BrickBlock)), TypeTranslator.BumpableBlockEnemyTranslator);
             statefulCollisionActions = JsonParser.Instance.ParseCollisionStatefulFile();
 
             collisionMasks = new List<Type>()
@@ -51,7 +52,7 @@ namespace Gamespace
 
         public void HandleCollision(IGameObject mover, IGameObject target)
         {
-            (Side, Rectangle) directionAndArea = DetectCollision(mover, target);
+            Tuple<Side, Rectangle> directionAndArea = DetectCollision(mover, target);
             Side side = directionAndArea.Item1;
             Rectangle collisionArea = directionAndArea.Item2;
 
@@ -73,10 +74,11 @@ namespace Gamespace
             {
                 ExecuteCommand(collisionActions, key, mover, target, collisionArea);
             }
-            else if (translator.ContainsKey((mover.GetType(), target.GetType())))
+            else if (translator.TryGetValue(new Tuple<Type, Type>(mover.GetType(), target.GetType()), out var @delegate))
             {
-                Delegate translatorValue = translator[(mover.GetType(), target.GetType())];
-                (Type, Type) statefulActionsKey = ((Type, Type)) translatorValue.DynamicInvoke(mover, target);
+                Delegate translatorValue = translator[new Tuple<Type, Type>(mover.GetType(), target.GetType())];
+                object[] parameters = { mover, target};
+                Tuple<Type, Type> statefulActionsKey = @delegate(mover, target);
 
                 var statefulKey = new Tuple<Type, Type, Side>(statefulActionsKey.Item1, statefulActionsKey.Item2, side);
 
@@ -98,12 +100,13 @@ namespace Gamespace
 
         }
 
-        private void ExecuteCommand(Dictionary<Tuple<Type, Type, Side>, (Type, Type)> actions, Tuple<Type, Type, Side> key,
+        private void ExecuteCommand(Dictionary<Tuple<Type, Type, Side>, Tuple<Type, Type>> actions, Tuple<Type, Type, Side> key,
                                     IGameObject mover, IGameObject target, Rectangle collisionArea)
         {
             Type object1Type = actions[key].Item1;
             Type object2Type = actions[key].Item2;
 
+            
             ICommand collisionMember1 = (ICommand)Activator.CreateInstance(object1Type, mover, new CollisionData(collisionArea));
             ICommand collisionMember2 = (ICommand)Activator.CreateInstance(object2Type, target, new CollisionData(collisionArea));
 
@@ -138,14 +141,14 @@ namespace Gamespace
         /* Collision direction is target relative 
          * Example: Mario hits top of the block, so that is a top collision.
          */
-        internal (Side, Rectangle) DetectCollision(IGameObject mover, IGameObject target)
+        internal Tuple<Side, Rectangle> DetectCollision(IGameObject mover, IGameObject target)
         {
-            Rectangle moverCollisionBoundary = mover.GetCollisionBoundary();
-            Rectangle targetCollisionBoundary = target.GetCollisionBoundary();
+            Rectangle moverCollisionBoundary = mover.CollisionBoundary;
+            Rectangle targetCollisionBoundary = target.CollisionBoundary;
 
             if (!moverCollisionBoundary.Intersects(targetCollisionBoundary))
             {
-                return (Side.None, new Rectangle(0, 0, 0, 0));
+                return new Tuple<Side, Rectangle> (Side.None, new Rectangle(0, 0, 0, 0));
             }
 
             Rectangle collisionArea = Rectangle.Intersect(moverCollisionBoundary,
@@ -156,24 +159,24 @@ namespace Gamespace
             if (horizontalCollision)
             {
                 
-                if (mover.GetCenter().X < target.GetCenter().X)
+                if (mover.Center.X < target.Center.X)
                 {
-                    return (Side.Right, collisionArea);
+                    return new Tuple<Side, Rectangle>(Side.Right, collisionArea);
                 }
                 else
                 {
-                    return (Side.Left, collisionArea);
+                    return new Tuple<Side, Rectangle>(Side.Left, collisionArea);
                 }
             }
             else
             {
-                if (mover.GetCenter().Y < target.GetCenter().Y)
+                if (mover.Center.Y < target.Center.Y)
                 {
-                    return (Side.Down, collisionArea);
+                    return new Tuple<Side, Rectangle>(Side.Down, collisionArea);
                 }
                 else
                 {
-                    return (Side.Up, collisionArea);
+                    return new Tuple<Side, Rectangle>(Side.Up, collisionArea);
                 }
             }
 

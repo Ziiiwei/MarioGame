@@ -27,6 +27,24 @@ namespace Gamespace
         /* Higher integers are drawn first */
         public int DrawPriority { get; protected set; }
 
+        public Rectangle CollisionBoundary {
+            get
+            {
+                return new Rectangle((int)GameObjectPhysics.Position.X, (int)GameObjectPhysics.Position.Y, Sprite.Width, Sprite.Height);
+            }
+        }
+
+        public Vector2 Center
+        {
+            get
+            {
+                float height = Sprite.Height / Numbers.CAMERA_FACTOR;
+                float width = Sprite.Width / Numbers.CAMERA_FACTOR;
+
+                return new Vector2(PositionOnScreen.X + width, PositionOnScreen.Y + height);
+            }
+        }
+
         static AbstractGameObject()
         {
             updateFunctionPointer = new Dictionary<bool, Action<AbstractGameObject>>()
@@ -69,20 +87,6 @@ namespace Gamespace
             {
                 Sprite.Update();
             }
-        }
-
-        public virtual Rectangle GetCollisionBoundary()
-        {
-            return new Rectangle((int)GameObjectPhysics.Position.X, (int)GameObjectPhysics.Position.Y, Sprite.Width, Sprite.Height);
-        }
-
-        public virtual Vector2 GetCenter()
-        {
-            // this and the camera factor are both 2, and they may be related to the same issue
-            float height = Sprite.Height / Numbers.CAMERA_FACTOR;
-            float width = Sprite.Width / Numbers.CAMERA_FACTOR;
-
-            return new Vector2(PositionOnScreen.X + width, PositionOnScreen.Y + height);
         }
 
         protected virtual void SetSprite()
