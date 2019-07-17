@@ -14,10 +14,10 @@ namespace Gamespace
 {
     internal class LevelLoader
     {
-        public LevelLoader(World world)
+        public LevelLoader(World world, string path)
         {
-            CSVParser.ConvertCSVtoJSON();
-            var gameObjects = JsonParser.Instance.ParseLevelFile();
+            CSVParser.ConvertCSVtoJSON(path);
+            var gameObjects = JsonParser.Instance.ParseLevelFile(path);
 
             foreach (Tuple<int, IGameObject> entry in gameObjects)
             {

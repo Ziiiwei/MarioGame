@@ -8,7 +8,8 @@ using Gamespace.Controllers;
 using Gamespace.Multiplayer;
 using Gamespace.Sounds;
 using Gamespace.Data;
-
+using System;
+using Gamespace.Transitions;
 
 namespace Gamespace
 {
@@ -26,17 +27,17 @@ namespace Gamespace
         // since this is one, I do not believe it is a magic number
         public const float SCALE = 1f;
         private GameTime time;
-
-
         public GraphicsDeviceManager graphics { get; }
-
         public int PlayerCount { get; private set; }
-
-        // Make LevelLoader a singleton.
         private LevelLoader levelLoader;
-
         public float Framerate { get; private set; }
         public SpriteFont Font { get; private set; }
+        private GameMenu menu;
+        private delegate void GameUpdate(GameTime gameTime);
+        private delegate void GameDraw();
+        private SpriteBatch menuSpriteBatch;
+        private GameUpdate gameUpdate;
+        private GameDraw gameDraw;
 
         static MarioGame()
         {
@@ -72,7 +73,27 @@ namespace Gamespace
         {
             base.Initialize();
 
-            PlayerCount = Numbers.PLAYERS_IN_GAME;
+            PlayerCount = 1;
+
+            menuSpriteBatch = new SpriteBatch(graphics.GraphicsDevice);
+            menu = new GameMenu();
+
+            gameUpdate += UpdateGameMenu;
+            gameDraw += DrawGameMenu;
+
+            levelLoader = new LevelLoader(World.Instance, "MarioGame/Data/DataFiles/MenuBackground.csv");
+
+        }
+
+        public void OnMenuSelectionsComplete()
+        {
+            gameUpdate -= UpdateGameMenu;
+            gameDraw -= DrawGameMenu;
+
+            World.Instance.ClearWorld();
+            levelLoader = new LevelLoader(World.Instance, "MarioGame/Data/DataFiles/level1.csv");
+            
+            PlayerCount = 2;
 
             IPlayer player1 = new Player(typeof(Mario), new SpriteBatch(GraphicsDevice), new Vector2(Numbers.PLAYER_ONE_X, Numbers.STARTING_Y));
             World.Instance.AddPlayer(player1);
@@ -80,10 +101,11 @@ namespace Gamespace
             IPlayer player2 = new Player(typeof(Mario), new SpriteBatch(GraphicsDevice), new Vector2(Numbers.PLAYER_TWO_X, Numbers.STARTING_Y));
             World.Instance.AddPlayer(player2);
 
-            levelLoader = new LevelLoader(World.Instance);
-            
+            gameUpdate += UpdateGameWorld;
+            gameDraw += DrawGameWorld;
         }
-                /// <summary>
+
+        /// <summary>
 
         /// LoadContent will be called once per game and is the place to load
         /// all of your content.
@@ -110,11 +132,8 @@ namespace Gamespace
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
-            World.Instance.UpdatePlayers(gameTime);
-            World.Instance.UpdateWorld();
             base.Update(gameTime);
-            time = gameTime;
-            
+            gameUpdate.Invoke(gameTime);
         }
 
         /// <summary>
@@ -123,11 +142,10 @@ namespace Gamespace
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
-            
+            base.Draw(gameTime);
             GraphicsDevice.Clear(Color.CornflowerBlue);
             Framerate = 1 / (float)gameTime.ElapsedGameTime.TotalSeconds;
-            World.Instance.DrawPlayers();
-            base.Draw(gameTime);
+            gameDraw.Invoke();
         }
 
         public void Reset()
@@ -140,9 +158,34 @@ namespace Gamespace
             IPlayer player2 = new Player(typeof(Mario), new SpriteBatch(GraphicsDevice), new Vector2(Numbers.PLAYER_TWO_X, Numbers.STARTING_Y));
             World.Instance.AddPlayer(player2);
 
-            levelLoader = new LevelLoader(World.Instance);
+            levelLoader = new LevelLoader(World.Instance, "MarioGame/Data/DataFiles/level1.csv");
             SoundManager.Instance.PlayMainBGM();  
 
+        }
+
+        private void UpdateGameWorld(GameTime gameTime)
+        {
+            World.Instance.UpdatePlayers(gameTime);
+            World.Instance.UpdateWorld();
+        }
+
+        private void UpdateGameMenu(GameTime gameTime)
+        {
+            World.Instance.UpdateWorld();
+            // Menu later
+        }
+
+        private void DrawGameWorld()
+        {
+            World.Instance.DrawPlayers();
+        }
+
+        private void DrawGameMenu()
+        {
+            menuSpriteBatch.Begin();
+            World.Instance.DrawWorld(menuSpriteBatch);
+            menu.Draw(menuSpriteBatch);
+            menuSpriteBatch.End();
         }
     }
 }

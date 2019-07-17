@@ -15,13 +15,6 @@ namespace Gamespace
     {
         static CSVParser()
         {
-
-        }
-        private const int UNIT = 32;
-        private static Dictionary<string, string> shortcuts;
-
-        public static void ConvertCSVtoJSON()
-        {
             shortcuts = new Dictionary<string, string>
             {
                 {"BB", "Gamespace.Blocks.BrickBlock"},
@@ -50,17 +43,20 @@ namespace Gamespace
                 {"C3", "Gamespace.Clouds.Cloud3" },
                 {"BH", "Gamespace.Hills.BigHill" },
                 {"SH", "Gamespace.Hills.SmallHill" }
-
             };
+        }
+        private const int UNIT = 32;
+        private static Dictionary<string, string> shortcuts;
 
-            String[][] data = File.ReadLines("MarioGame/Data/DataFiles/level1.csv").Select(x => x.Split(',')).ToArray();
+        public static void ConvertCSVtoJSON(String path)
+        {
+            String[][] data = File.ReadLines(path).Select(x => x.Split(',')).ToArray();
             int _X = 0;
             int _Y = 0;
             var JsonList = new List<CSVObject>();
             string pattern = @"\+";
             string name;
             string state = "null";
-            string path = "MarioGame/Data/DataFiles/Level1.json";
             for (int i = 0; i < data.Length; i++)
             {
                 for (int j = 0; j < data[i].Length; j++)

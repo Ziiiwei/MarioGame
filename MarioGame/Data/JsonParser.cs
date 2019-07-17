@@ -19,7 +19,6 @@ namespace Gamespace
         private static readonly JsonParser instance = new JsonParser();
         private readonly string collisionActionsPath = "MarioGame/Data/DataFiles/CollisionActions.json";
         private readonly string statefulCollisionActionsPath = "MarioGame/Data/DataFiles/StatefulCollisionActions.json";
-        private readonly string levelObjectsPath = "MarioGame/Data/DataFiles/Level1.json";
 
         static JsonParser()
         {
@@ -96,7 +95,7 @@ namespace Gamespace
             public List<LevelDeserializedObject> gameObjects;
         }
 
-        public List<Tuple<int, IGameObject>> ParseLevelFile()
+        public List<Tuple<int, IGameObject>> ParseLevelFile(string levelObjectsPath)
         {
             StreamReader reader = File.OpenText(levelObjectsPath);
             JavaScriptSerializer javaScriptSerializer = new JavaScriptSerializer();
