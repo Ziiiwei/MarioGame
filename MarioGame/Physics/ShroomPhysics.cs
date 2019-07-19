@@ -9,7 +9,7 @@ namespace Gamespace
 {
     internal class ShroomPhysics : Physics
     {
-        public ShroomPhysics(IGameObject gameObject, Vector2 position, IPhysicsConstants constants) : base(gameObject, position, constants)
+        public ShroomPhysics(IGameObject gameObject, Vector2 position, (float G, float A, float X_V, float Y_V, float F) constants) : base(gameObject, position, constants)
         {
         }
 

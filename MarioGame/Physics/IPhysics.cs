@@ -11,9 +11,11 @@ namespace Gamespace
 {
     public interface IPhysics
     {
-        Vector2 Position { get; }
-        Vector2 Velocity { get; }
-        Vector2 Acceleration { get; }
+        Vector2 Position { get; set; }
+        Vector2 Velocity { get; set; }
+        Vector2 Acceleration { get; set; }
+        (float G,float A,float X_V,float Y_V,float F) PhysicsConstants { get; set; }
+
         void LeftStop(Rectangle collisionArea);
         void RightStop(Rectangle collisionArea);
         void UpStop(Rectangle collisionArea);
@@ -25,8 +27,13 @@ namespace Gamespace
         void Update();
         void Stop(Side side);
         void FrictionStop(Side side);
-       
-       
+        void ResoveCollision(Side side, Rectangle collisionArea);
+        void IncrementMove(Side side, int distance);
+        void TrajectMove(Func<Vector2, int, Vector2> trajectory);
+
+        //void Rotate();
+
+
 
 
 

@@ -104,7 +104,7 @@ namespace Gamespace
                                     IGameObject mover, IGameObject target, Rectangle collisionArea)
         {
             Type object1Type = actions[key].Item1==null? typeof(NullCommand) : actions[key].Item1;
-            Type object2Type = actions[key].Item2==null ? typeof(NullCommand) : actions[key].Item2;
+            Type object2Type = actions[key].Item2==null? typeof(NullCommand) : actions[key].Item2;
 
             
             ICommand collisionMember1 = (ICommand)Activator.CreateInstance(object1Type, mover, new CollisionData(collisionArea));

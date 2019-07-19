@@ -14,7 +14,7 @@ namespace Gamespace
 {
     internal class PhysicsConstants
     {
-        Dictionary<Type, IPhysicsConstants> constantsAssignments;
+        Dictionary<Type, (float g,float a,float x,float y,float f)> constantsAssignments;
         List<List<float>> constants;
         
         static PhysicsConstants() {}
@@ -22,78 +22,65 @@ namespace Gamespace
         {
             constants = new List<List<float>>();
 
-            constantsAssignments = new Dictionary<Type, IPhysicsConstants>();
+            constantsAssignments = new Dictionary<Type, (float g, float a, float x, float y, float f)>
+            {
+                {
+                    typeof(Mario),
+                    (0.5f, 0.5f, 5f, 12f, 1f)
+                },
+                {
+                    typeof(NullGameObject),
+                    (0.0f, 0.0f, 0.0f, 0.0f, 0.0f)
+                },
+                {
+                    typeof(Goomba),
+                    (2f, 0.5f, 3f, 3f, 1f )
+                },
+                {
+                    typeof(Koopa),
+                    (2f, 0.5f, 3f, 3f, 1f )
+                },
+                {
+                    typeof(KoopaFlippedState),
+                    (2f, 0.5f, 8f, 8f, 1f )
+                },
+                {
+                    typeof(RedShroom),
+                    (3f, 3f, 3f, 3f, 3f )
+                },
+                {
+                    typeof(GreenShroom),
+                    (3f, 3f, 3f, 3f, 3f )
+                },
+                {
+                    typeof(BrickBlock),
+                    (5.2f, 1.2f, 7f, 7f, 3.0f )
 
-            List<float> zeroDefinitions = new List<float> { 0.0f, 0.0f, 0.0f, 0.0f, 0.0f };
-
-            List<float> marioDefinitions = new List<float> {0.5f, 0.5f, 5f, 12f, 1f };
-            constantsAssignments.Add(typeof(Mario), new PhysicsConstantsDefinitons(marioDefinitions));
-
-            List<float> enemyDefinitions = new List<float> { 2f, 0.5f, 3f, 3f, 1f };
-            constantsAssignments.Add(typeof(Goomba), new PhysicsConstantsDefinitons(enemyDefinitions));
-            constantsAssignments.Add(typeof(Koopa), new PhysicsConstantsDefinitons(enemyDefinitions));
-
-            List<float> shellDefinitions = new List<float> { 2f, 0.5f, 8f, 8f, 1f };
-            constantsAssignments.Add(typeof(KoopaFlippedState), new PhysicsConstantsDefinitons(shellDefinitions));
-
-            List<float> shroomDefinitions = new List<float> { 3f, 3f, 3f, 3f, 3f };
-            constantsAssignments.Add(typeof(RedShroom), new PhysicsConstantsDefinitons(shroomDefinitions));
-            constantsAssignments.Add(typeof(GreenShroom), new PhysicsConstantsDefinitons(shroomDefinitions));
-
-            List<float> brickBlockDefinitions = new List<float> { 5.2f, 1.2f, 7f, 7f, 3.0f };
-            constantsAssignments.Add(typeof(BrickBlock), new PhysicsConstantsDefinitons(brickBlockDefinitions));
-
-            List<float> fireballDefinitions = new List<float> { 1.0f, 0.1f, 5f, 2f, 5f };
-            constantsAssignments.Add(typeof(Fireball), new PhysicsConstantsDefinitons(fireballDefinitions));
-
-            constantsAssignments.Add(typeof(Star), new PhysicsConstantsDefinitons(zeroDefinitions));
-
-            constantsAssignments.Add(typeof(NullGameObject), new PhysicsConstantsDefinitons(zeroDefinitions));
+                },
+                {
+                    typeof(Star),
+                    (0.0f, 0.0f, 0.0f, 0.0f, 0.0f)
+                },
+                {
+                    typeof(Fireball),
+                    (1.0f, 0.1f, 5f, 2f, 5f)
+                }
+            };
         }
+           
+          
 
+      
         internal static PhysicsConstants Instance { get; } = new PhysicsConstants();
 
-        internal IPhysicsConstants GetConstants(Type t)
+        internal (float g, float a, float x, float y, float f) GetConstants(Type t)
         {
             if (constantsAssignments.ContainsKey(t))
             {
                 return constantsAssignments[t];
             }
-            List<float> nullDefinitions = new List<float> { 0, 0, 0, 0, 0,};
-            return new PhysicsConstantsDefinitons(nullDefinitions);
-        }
 
-        internal IPhysics GetNullPhysics()
-        {
-            IGameObject nullGameObject = new NullGameObject();
-            return new Physics(nullGameObject, new Vector2(0, 0), PhysicsConstants.Instance.GetConstants(nullGameObject.GetType()));
-        }
-
-        internal class PhysicsConstantsDefinitons : IPhysicsConstants
-        {
-
-            public float gravityConstant { get; }
-            public float accelConstant { get; }
-            public float max_X_V { get; }
-            public float max_Y_V { get; }
-            public float frictionConstant { get; }
-            public PhysicsConstantsDefinitons(List<float> definitions)
-            {
-                accelConstant = definitions[0];
-                gravityConstant = definitions[1];          
-                max_X_V = definitions[2];
-                max_Y_V = definitions[3];
-                frictionConstant = definitions[4];
-            }
-
-            public PhysicsConstantsDefinitons(float g,float a, float x, float y, float f)
-            {
-                gravityConstant = g;
-                accelConstant = a;
-                max_X_V = x;
-                max_Y_V = y;
-                frictionConstant = f;
-            }
+            return (0f, 0f, 0f, 0f, 0f);
         }
     }
 }

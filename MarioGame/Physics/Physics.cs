@@ -15,9 +15,10 @@ namespace Gamespace
         protected Vector2 position;
         protected Vector2 velocity;
         protected Vector2 acceleration;
-        public Vector2 Position { get => position; }
-        public Vector2 Velocity { get => velocity; }
-        public Vector2 Acceleration { get => acceleration; }
+        public Vector2 Position { get => position; set => position = value; }
+        public Vector2 Velocity { get => velocity; set => velocity = value; }
+        public Vector2 Acceleration { get => acceleration; set => acceleration = value; }
+        public (float G, float A, float X_V, float Y_V, float F) PhysicsConstants { get; set; }
         public IGameObject gameObject { get; set; }
 
         protected Dictionary<Side, Action> moveMaxSpeedActions;
@@ -35,16 +36,18 @@ namespace Gamespace
         private Action freefall;
         private Action frictionstop;
 
-        public Physics(IGameObject gameObject, Vector2 position, IPhysicsConstants constants)
+        public Physics(IGameObject gameObject, Vector2 position, (float G, float A, float X_V, float Y_V, float F) constants)
         {
-            gravityConstant = constants.gravityConstant;
-            accelConstant = constants.accelConstant;  
-            max_X_V = constants.max_X_V;
-            max_Y_V = constants.max_Y_V;
-            FRICTION = constants.frictionConstant;
+           
 
             this.gameObject = gameObject;
             this.position = position;
+            PhysicsConstants = constants;
+            accelConstant = constants.A;
+            gravityConstant = constants.G;
+            max_X_V = constants.X_V;
+            max_Y_V = constants.Y_V;
+            FRICTION = constants.F;
 
             acceleration = new Vector2(0, 0);
             velocity = new Vector2(0, 0);
@@ -197,6 +200,21 @@ namespace Gamespace
                 velocity.Y = 0;
                 acceleration.Y = 0;
             }
+        }
+
+        public void ResoveCollision(Side side, Rectangle collisionArea)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void IncrementMove(Side side, int distance)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void TrajectMove(Func<Vector2, int, Vector2> trajectory)
+        {
+            throw new NotImplementedException();
         }
     }
 }

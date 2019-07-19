@@ -119,12 +119,11 @@
     <Compile Include="MarioGame\Multiplayer\IPlayer.cs" />
     <Compile Include="MarioGame\Multiplayer\Player.cs" />
     <Compile Include="MarioGame\Multiplayer\Scoreboard.cs" />
-    <Compile Include="MarioGame\Physics\AnimationPhysics.cs" />
+    <Compile Include="MarioGame\Physics\BasePhysics.cs" />
     <Compile Include="MarioGame\Physics\BumpableBlockPhysics.cs" />
+    <Compile Include="MarioGame\Physics\MarioPhysics.cs" />
     <Compile Include="MarioGame\Physics\EnemyPhysics.cs" />
     <Compile Include="MarioGame\Physics\FireballPhysics.cs" />
-    <Compile Include="MarioGame\Physics\IAnimationPhysics.cs" />
-    <Compile Include="MarioGame\Physics\IPhysicsConstants.cs" />
     <Compile Include="MarioGame\Physics\PhysicsConstants.cs" />
     <Compile Include="MarioGame\Physics\PhysicsFactory.cs" />
     <Compile Include="MarioGame\GameObjects\Mario\StarMario.cs" />
