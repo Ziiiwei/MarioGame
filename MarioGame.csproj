@@ -171,8 +171,11 @@
     <Compile Include="MarioGame\Sounds\SoundManager.cs" />
     <Compile Include="MarioGame\Timer\BGMTimer.cs" />
     <Compile Include="MarioGame\Timer\DiscreteTimer.cs" />
-    <Compile Include="MarioGame\Transitions\GameMenu.cs" />
-    <Compile Include="MarioGame\Transitions\ViewFactory.cs" />
+    <Compile Include="MarioGame\Transitions\Menu\GameMenu.cs" />
+    <Compile Include="MarioGame\Transitions\Menu\Input\MenuInputController.cs" />
+    <Compile Include="MarioGame\Transitions\Menu\Input\TitleScreenInput.cs" />
+    <Compile Include="MarioGame\Transitions\Menu\MenuViews\ContinueScreen.cs" />
+    <Compile Include="MarioGame\Transitions\Views\ViewFactory.cs" />
     <Compile Include="MarioGame\Transitions\Views\DeadView.cs" />
     <Compile Include="MarioGame\Transitions\Views\IView.cs" />
     <Compile Include="MarioGame\Transitions\Views\LivesView.cs" />

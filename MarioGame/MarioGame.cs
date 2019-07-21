@@ -172,7 +172,7 @@ namespace Gamespace
         private void UpdateGameMenu(GameTime gameTime)
         {
             World.Instance.UpdateWorld();
-            // Menu later
+            menu.Update();
         }
 
         private void DrawGameWorld()
