@@ -15,7 +15,7 @@ namespace Gamespace.States
 
         public override void Jump()
         {
-            mario.GameObjectPhysics.Jump();
+            ((MarioPhysics)mario.GameObjectPhysics).KeepJump();
         }
         public override void MoveLeft()
         {

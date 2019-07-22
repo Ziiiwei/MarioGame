@@ -8,7 +8,7 @@ using Gamespace.Controllers;
 using Gamespace.Multiplayer;
 using Gamespace.Sounds;
 using Gamespace.Data;
-
+using System;
 
 namespace Gamespace
 {
@@ -52,6 +52,7 @@ namespace Gamespace
             Content.RootDirectory = "Content";
 
             Framerate = 0;
+            //TargetElapsedTime = TimeSpan.FromSeconds(1d / 30d); 
         }
 
         public static MarioGame Instance

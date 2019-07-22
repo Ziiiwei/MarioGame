@@ -13,7 +13,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using Gamespace.Data;
 
 namespace Gamespace
 {
@@ -53,7 +53,7 @@ namespace Gamespace
 
                 foreach (int column in columnsToCheck)
                 {
-                    int columnToCheck = Math.Max(0, mover.BlockSpacePosition + column);
+                    int columnToCheck = Math.Max(0, Math.Min(Numbers.LEVEL1_BLOCK_WIDTH,mover.BlockSpacePosition + column));
                     collisionColumnDetection(columnToCheck, mover);
                 }
 

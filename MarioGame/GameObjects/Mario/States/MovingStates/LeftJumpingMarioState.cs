@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Gamespace;
 
+
 namespace Gamespace.States
 {
     class LeftJumpingMarioState : MovingMarioState
@@ -15,7 +16,7 @@ namespace Gamespace.States
 
         public override void Jump()
         {
-            mario.GameObjectPhysics.Jump();
+           ((MarioPhysics)mario.GameObjectPhysics).KeepJump();
         }
 
         public override void MoveLeft()

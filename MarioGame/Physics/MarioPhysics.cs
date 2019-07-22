@@ -11,9 +11,9 @@ namespace Gamespace
     {
         private Dictionary<Side, Action> climbActions;
         private Dictionary<Side, Action> moveActions;
-        private bool previousJumpCall;
         private bool maxYSpeedReach;
-        private Action jumpUpdator;
+        private bool keepJumpAble;
+        private Action keepJumping;
         public MarioPhysics(IGameObject gameObject, Vector2 position,(float G, float A, float X_V, float Y_V, float F) constants) 
             :base(gameObject,position,constants)
         {
@@ -33,9 +33,10 @@ namespace Gamespace
                 {Side.Right, new Action(() => acceleration.X = PhysicsConstants.A)}
             };
 
-            jumpUpdator = () => previousJumpCall = false;
-            previousJumpCall = false;
+           
             maxYSpeedReach = false;
+            keepJumpAble = false;
+            keepJumping = () =>  keepJumpAble = false; 
 
         }
         public override void Move(Side side)
@@ -52,31 +53,33 @@ namespace Gamespace
         public override void Jump()
         {
             SetDefautUpdators();
-            jumpUpdator = () => { };
 
-            if (Math.Abs(velocity.Y) < PhysicsConstants.Y_V  && previousJumpCall && !maxYSpeedReach)
+            position.Y -= PhysicsConstants.G;
+            velocity.Y = -PhysicsConstants.Y_V / 4;
+
+            keepJumpAble = true;
+            keepJumping = () => { };
+
+        }
+
+        public void KeepJump()
+        {
+           
+            if (keepJumpAble)
             {
-                position.Y -= 15f;
-                velocity.Y = MinimumMagnitude(velocity.Y-PhysicsConstants.G*5,-PhysicsConstants.Y_V);
-            } 
-
+                velocity.Y = MinimumMagnitude(velocity.Y - PhysicsConstants.G * 4, -PhysicsConstants.Y_V);
+            }
             if (Math.Abs(velocity.Y) >= PhysicsConstants.Y_V)
             {
                 maxYSpeedReach = true;
             }
-
-            previousJumpCall = true;
+            keepJumping = () => { };
         }
 
         public override void DownStop(Rectangle collisionArea)
         {
             base.DownStop(collisionArea);
-            frictionUpdater = ()=>FrictionStop(Side.Horizontal);
-
-            if (!previousJumpCall)
-            {
-                maxYSpeedReach = false;
-            }
+            frictionUpdater = ()=>FrictionStop(Side.Horizontal);          
         }
 
         public override void UpStop(Rectangle collisionArea)
@@ -87,12 +90,8 @@ namespace Gamespace
         public override void Update()
         {
             base.Update();
-
-            jumpUpdator.Invoke();
-            jumpUpdator = () =>
-            {
-                previousJumpCall = false;
-            };
+            keepJumping.Invoke();
+            keepJumping = () => keepJumpAble = false;
         }
 
         public override bool MaxSpeedReached(Side side)
@@ -105,6 +104,11 @@ namespace Gamespace
             {
                 return base.MaxSpeedReached(side);
             }
+        }
+
+        public void ReSetMaxSpeedCheck()
+        {
+            maxYSpeedReach = false;
         }
     }
 }

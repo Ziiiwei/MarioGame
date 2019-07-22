@@ -22,7 +22,7 @@ namespace Gamespace
         public IPhysics GameObjectPhysics { get; set; }
         private readonly static Dictionary<bool, Action<AbstractGameObject>> updateFunctionPointer;
         public bool IsPaused { get; set; }
-        public int BlockSpacePosition { get => (int)Math.Min(Numbers.BLOCK_SPACING_SCALE * Numbers.LEVEL1_BLOCK_WIDTH, Math.Max(0, Math.Floor(positionOnScreen.X / Numbers.BLOCK_SPACING_SCALE))); }
+        public int BlockSpacePosition { get => (int)Math.Min(Numbers.LEVEL1_BLOCK_WIDTH, Math.Max(0, Math.Floor(positionOnScreen.X / Numbers.BLOCK_SPACING_SCALE))); }
         
         /* Higher integers are drawn first */
         public int DrawPriority { get; protected set; }

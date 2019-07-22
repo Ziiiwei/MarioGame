@@ -26,8 +26,9 @@ namespace Gamespace
         
        
         
-        protected bool jumpKeyPressed;
+        private bool jumpKeyPressed;
         private bool jumpKeyHolded;
+        private bool previouslyJumpKeyPressed;
       
 
 
@@ -41,8 +42,7 @@ namespace Gamespace
             DrawPriority = 1;
             jumpKeyPressed = false;
             jumpKeyHolded = false;
-
-        
+            previouslyJumpKeyPressed = false;
         }
 
         public Mario(Vector2 positionOnScreen, Scoreboard scoreboard) : this(positionOnScreen)
@@ -61,9 +61,10 @@ namespace Gamespace
             keepStanding.Invoke();
             keepStanding = () => State.Stand();
 
-            jumpKeyHolded = jumpKeyPressed && jumpKeyHolded;
-            jumpKeyHolded = jumpKeyPressed;
-            jumpKeyPressed = false;
+
+            jumpKeyHolded = jumpKeyPressed && previouslyJumpKeyPressed;
+            previouslyJumpKeyPressed = jumpKeyPressed;
+            jumpKeyPressed = false;         
         }
 
         public void Crouch()
@@ -74,11 +75,12 @@ namespace Gamespace
 
         public void Jump()
         {
+            jumpKeyPressed = true;
             if (Jumpable())
             {
-                jumpKeyPressed = true;
                 State.Jump();
-            }
+            }           
+           
         }
 
         public void MoveLeft()
@@ -116,13 +118,13 @@ namespace Gamespace
 
         public void Bounce()
         {
-            GameObjectPhysics.MoveMaxSpeed(Side.Up);
+            GameObjectPhysics.Jump();
             scoreboard.UpScore(ScoringConstants.ENEMY_SCORE);
         }
 
         public void Die()
         {
-            GameObjectPhysics.MoveMaxSpeed(Side.Up);
+            GameObjectPhysics.Jump();
 
             GameObjectPhysics.Stop(Side.Horizontal);
             World.Instance.MaskCollision(this);
@@ -134,6 +136,12 @@ namespace Gamespace
         {
             base.CollideDown(collisionArea);
             State.Land();
+
+            if (!jumpKeyHolded)
+            {
+                ((MarioPhysics)GameObjectPhysics).ReSetMaxSpeedCheck();
+            }
+
         }
 
         public void Fire()
@@ -159,6 +167,8 @@ namespace Gamespace
 
         public bool Jumpable()
         {
+            jumpKeyHolded = jumpKeyPressed && previouslyJumpKeyPressed;
+
             return ((State.Jumpable()^jumpKeyHolded)&!GameObjectPhysics.MaxSpeedReached(Side.Up));
         }
     }

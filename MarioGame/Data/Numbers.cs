@@ -28,8 +28,8 @@ namespace Gamespace.Data
         public const int CENTER_Y = 200;
         public const int WIDTH = 800;
         public const int HEIGHT = 480;
-        public const int PLAYER_ONE_X = 200;
-        public const int PLAYER_TWO_X = 300;
+        public const int PLAYER_ONE_X = 2760;
+        public const int PLAYER_TWO_X = 1250;
         public const int STARTING_Y = 200;
         public const int PLAYERS_IN_GAME = 2;
         public const float PROJECTILE_LEFT_OFFSET = -18;

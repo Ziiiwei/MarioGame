@@ -26,7 +26,7 @@ namespace Gamespace
             {
                 {
                     typeof(Mario),
-                    (1.1f, 0.5f, 5f, 12f, 1f)
+                    (0.5f, 0.5f, 5f, 11f, 1f)
                 },
                 {
                     typeof(NullGameObject),
