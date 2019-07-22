@@ -13,7 +13,7 @@ namespace Gamespace.Transitions
 {
     internal class GameMenu
     {
-        private enum MenuState { Title, Count, Arena, Character };
+        private enum MenuState { Title, Count, Arena, Character, Complete };
         private Dictionary<MenuState, Delegate> stateTransitions;
         private MenuState currentState;
         private enum InputDirection { Up, Down };
@@ -32,13 +32,14 @@ namespace Gamespace.Transitions
             view = new ContinueScreen();
             input = new TitleScreenInput(this);
             PlayerCount = 0;
+            ArenaSelected = 0;
 
             stateTransitions = new Dictionary<MenuState, Delegate>()
             {
                 {MenuState.Title, new Action(TitleToCountTransition) },
                 {MenuState.Count, new Action(CountToArenaTransition) },
-                {MenuState.Arena, new Action(TitleToCountTransition) },
-                {MenuState.Character, new Action(TitleToCountTransition) }
+                {MenuState.Arena, new Action(ArenaToCharacterTransition) },
+                {MenuState.Character, new Action(SelectionsComplete) },
 
             };
 
@@ -48,10 +49,13 @@ namespace Gamespace.Transitions
                     new Action(() => PlayerCount = Math.Max(PlayerCount - 1, 0)) },
                 {new Tuple<MenuState, InputDirection>(MenuState.Count, InputDirection.Down),
                     new Action(() => PlayerCount = Math.Min(Numbers.MAX_PLAYERS, PlayerCount + 1)) },
-                {new Tuple<MenuState, InputDirection>(MenuState.Arena, InputDirection.Up), new Action(() => view = null) },
-                {new Tuple<MenuState, InputDirection>(MenuState.Arena, InputDirection.Down), new Action(() => view = null) },
-                {new Tuple<MenuState, InputDirection>(MenuState.Character, InputDirection.Up), new Action(() => view = null) },
-                {new Tuple<MenuState, InputDirection>(MenuState.Character, InputDirection.Down), new Action(() => view = null) },
+                {new Tuple<MenuState, InputDirection>(MenuState.Arena, InputDirection.Up),
+                    new Action(() => ArenaSelected = Math.Max(ArenaSelected - 1, 0)) },
+                {new Tuple<MenuState, InputDirection>(MenuState.Arena, InputDirection.Down),
+                    new Action(() => ArenaSelected = Math.Min(ArenaSelected + 1, MarioGame.Instance.ArenaPaths.Count)) },
+
+                {new Tuple<MenuState, InputDirection>(MenuState.Character, InputDirection.Up), new Action(() => { }) },
+                {new Tuple<MenuState, InputDirection>(MenuState.Character, InputDirection.Down), new Action(() => { }) },
             };
         }
 
@@ -104,7 +108,18 @@ namespace Gamespace.Transitions
         private void CountToArenaTransition()
         {
             currentState = MenuState.Arena;
+            view = new ArenaSelection(this);
+        }
+
+        private void ArenaToCharacterTransition()
+        {
+            currentState = MenuState.Character;
             view = new PlayerCountSelection(this);
+        }
+
+        private void SelectionsComplete()
+        {
+            MarioGame.Instance.OnMenuSelectionsComplete();
         }
     }
 }

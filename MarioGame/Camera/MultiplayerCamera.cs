@@ -8,7 +8,7 @@ using Gamespace.Data;
 
 namespace Gamespace
 {
-    internal class MultiplayerCamera : ICamera
+    internal class  MultiplayerCamera : ICamera
     {
         public Matrix Transform { get; private set; }
         private Vector2 cameraPosition;

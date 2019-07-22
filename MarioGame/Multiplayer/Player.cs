@@ -21,7 +21,7 @@ namespace Gamespace.Multiplayer
         public SpriteBatch Screen { get; }
         private static int playerCounter = 0;
         private int playerID;
-        public int PlayerID { get => playerID % MarioGame.Instance.PlayerCount; }
+        public int PlayerID { get => playerID % Numbers.MAX_PLAYERS; }
         private Vector2 spawnPoint;
         public int Lives { get; set; }
         private DiscreteTimer viewTimer;

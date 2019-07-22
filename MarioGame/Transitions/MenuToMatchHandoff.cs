@@ -13,7 +13,6 @@ namespace Gamespace
 {
     internal class MenuToMatchHandoff
     {
-        private GameMenu menu;
         private static List<IPlayer> players;
 
         public MenuToMatchHandoff(GameMenu menu, GraphicsDevice graphicsDevice)
@@ -31,7 +30,9 @@ namespace Gamespace
                 World.Instance.AddPlayer(players[i]);
             }
 
-            Level levelLoader = new LevelLoader(World.Instance, menu.ArenaSelected);
+            string path = MarioGame.Instance.ArenaPaths[menu.ArenaSelected].Item2;
+
+            LevelLoader levelLoader = new LevelLoader(World.Instance, path);
 
         }
     }

@@ -77,8 +77,8 @@ namespace Gamespace
 
             ArenaPaths = new Dictionary<int, Tuple<string, string>>()
             {
-                {1, new Tuple<string, string>("Arena One", "MarioGame/Data/DataFiles/level1.csv") },
-                {2, new Tuple<string, string>("Arena One", "MarioGame/Data/DataFiles/level1.csv") }
+                {0, new Tuple<string, string>("Arena One", "MarioGame/Data/DataFiles/level1.csv") },
+                {1, new Tuple<string, string>("Arena One", "MarioGame/Data/DataFiles/level1.csv") }
             };
 
             PlayerCount = 1;
@@ -101,8 +101,6 @@ namespace Gamespace
             World.Instance.ClearWorld();
 
             MenuToMatchHandoff handoff = new MenuToMatchHandoff(menu, graphics.GraphicsDevice);
-
-
 
             gameUpdate += UpdateGameWorld;
             gameDraw += DrawGameWorld;

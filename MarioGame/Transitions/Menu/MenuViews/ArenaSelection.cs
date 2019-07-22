@@ -1,5 +1,6 @@
 ﻿using Gamespace.Transitions;
 using Gamespace.Views;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
@@ -20,17 +21,7 @@ namespace Gamespace
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            for (int i = 0; i < playerCount; i++)
-            {
-                Color color = Color.Black;
-
-                if (menu.PlayerCount == i)
-                {
-                    color = Color.Red;
-                }
-
-                spriteBatch.DrawString(MarioGame.Instance.Font, i.ToString() + "-player", stringsOrigin + stringDistance * i, color, 0.0f, Vector2.Zero, 2.0f, SpriteEffects.None, 0.0f);
-            }
+            spriteBatch.DrawString(MarioGame.Instance.Font, "COOOL", new Vector2(400, 400), Color.Red);
         }
     }
 }

@@ -176,6 +176,7 @@
     <Compile Include="MarioGame\Transitions\Menu\Input\MenuInputController.cs" />
     <Compile Include="MarioGame\Transitions\Menu\Input\TitleScreenInput.cs" />
     <Compile Include="MarioGame\Transitions\Menu\MenuViews\ArenaSelection.cs" />
+    <Compile Include="MarioGame\Transitions\Menu\MenuViews\CharacterSelection.cs" />
     <Compile Include="MarioGame\Transitions\Menu\MenuViews\ContinueScreen.cs" />
     <Compile Include="MarioGame\Transitions\Menu\MenuViews\PlayerCountSelection.cs" />
     <Compile Include="MarioGame\Transitions\Views\ViewFactory.cs" />
