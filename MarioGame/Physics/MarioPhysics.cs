@@ -67,7 +67,7 @@ namespace Gamespace
            
             if (keepJumpAble)
             {
-                velocity.Y = MinimumMagnitude(velocity.Y - PhysicsConstants.G * 4, -PhysicsConstants.Y_V);
+                velocity.Y = MinimumMagnitude(velocity.Y - PhysicsConstants.G * 3, -PhysicsConstants.Y_V);
             }
             if (Math.Abs(velocity.Y) >= PhysicsConstants.Y_V)
             {
