@@ -32,6 +32,8 @@ namespace Gamespace
         private LevelLoader levelLoader;
         public float Framerate { get; private set; }
         public SpriteFont Font { get; private set; }
+        public Dictionary<int, Tuple<string, string>> ArenaPaths { get; private set; }
+
         private GameMenu menu;
         private delegate void GameUpdate(GameTime gameTime);
         private delegate void GameDraw();
@@ -73,6 +75,12 @@ namespace Gamespace
         {
             base.Initialize();
 
+            ArenaPaths = new Dictionary<int, Tuple<string, string>>()
+            {
+                {1, new Tuple<string, string>("Arena One", "MarioGame/Data/DataFiles/level1.csv") },
+                {2, new Tuple<string, string>("Arena One", "MarioGame/Data/DataFiles/level1.csv") }
+            };
+
             PlayerCount = 1;
 
             menuSpriteBatch = new SpriteBatch(graphics.GraphicsDevice);
@@ -91,15 +99,10 @@ namespace Gamespace
             gameDraw -= DrawGameMenu;
 
             World.Instance.ClearWorld();
-            levelLoader = new LevelLoader(World.Instance, "MarioGame/Data/DataFiles/level1.csv");
-            
-            PlayerCount = 2;
 
-            IPlayer player1 = new Player(typeof(Mario), new SpriteBatch(GraphicsDevice), new Vector2(Numbers.PLAYER_ONE_X, Numbers.STARTING_Y));
-            World.Instance.AddPlayer(player1);
+            MenuToMatchHandoff handoff = new MenuToMatchHandoff(menu, graphics.GraphicsDevice);
 
-            IPlayer player2 = new Player(typeof(Mario), new SpriteBatch(GraphicsDevice), new Vector2(Numbers.PLAYER_TWO_X, Numbers.STARTING_Y));
-            World.Instance.AddPlayer(player2);
+
 
             gameUpdate += UpdateGameWorld;
             gameDraw += DrawGameWorld;

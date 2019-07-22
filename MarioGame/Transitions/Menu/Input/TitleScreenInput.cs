@@ -37,19 +37,16 @@ namespace Gamespace
                 GamePadState gamePadState = GamePad.GetState(i);
                 if (gamePadState != previousGamePadStates[i])
                 {
-                    menu.ExitTitleScreen();
+                    menu.SelectionEntered();
                 }
-                previousGamePadStates[i] = gamePadState;
             }
 
             KeyboardState keyboardState = Keyboard.GetState();
 
             if (keyboardState != previousKeyboardState)
             {
-                menu.ExitTitleScreen();
+                menu.SelectionEntered();
             }
-
-            previousKeyboardState = keyboardState;
 
         }
     }

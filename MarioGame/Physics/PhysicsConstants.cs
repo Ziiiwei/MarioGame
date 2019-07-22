@@ -29,7 +29,7 @@ namespace Gamespace
             List<float> marioDefinitions = new List<float> { 12.5f, 0.5f, 5f, 12f, 1f };
             constantsAssignments.Add(typeof(Mario), new PhysicsConstantsDefinitons(marioDefinitions));
 
-            List<float> enemyDefinitions = new List<float> { 2f, 0.5f, 3f, 3f, 1f };
+            List<float> enemyDefinitions = new List<float> { 2f, 0.5f, 4f, 4f, 1f };
             constantsAssignments.Add(typeof(Goomba), new PhysicsConstantsDefinitons(enemyDefinitions));
             constantsAssignments.Add(typeof(Koopa), new PhysicsConstantsDefinitons(enemyDefinitions));
 
