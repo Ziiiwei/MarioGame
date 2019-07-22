@@ -89,7 +89,7 @@ namespace Gamespace
             gameUpdate += UpdateGameMenu;
             gameDraw += DrawGameMenu;
 
-            levelLoader = new LevelLoader(World.Instance, "MarioGame/Data/DataFiles/MenuBackground.csv");
+            levelLoader = new LevelLoader(World.Instance, "MarioGame/Data/DataFiles/MainMenu.csv");
 
         }
 
