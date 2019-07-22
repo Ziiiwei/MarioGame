@@ -23,8 +23,12 @@ namespace Gamespace
         public Scoreboard scoreboard { get; set; }
 
         private Action keepStanding;
-
         
+       
+        
+        protected bool jumpKeyPressed;
+        private bool jumpKeyHolded;
+      
 
 
         public Mario(Vector2 positionOnScreen) : base(positionOnScreen)
@@ -35,6 +39,10 @@ namespace Gamespace
             Projectiles = new ProjectileLauncher(this);
             keepStanding= () => State.Stand();
             DrawPriority = 1;
+            jumpKeyPressed = false;
+            jumpKeyHolded = false;
+
+        
         }
 
         public Mario(Vector2 positionOnScreen, Scoreboard scoreboard) : this(positionOnScreen)
@@ -51,21 +59,26 @@ namespace Gamespace
             positionOnScreen = GameObjectPhysics.Position;
 
             keepStanding.Invoke();
-            keepStanding = () => State.Stand();          
+            keepStanding = () => State.Stand();
+
+            jumpKeyHolded = jumpKeyPressed && jumpKeyHolded;
+            jumpKeyHolded = jumpKeyPressed;
+            jumpKeyPressed = false;
         }
 
         public void Crouch()
-        {
-           
-            State.Crouch();
-          
+        {           
+            State.Crouch();         
             keepStanding = () => { };
         }
 
         public void Jump()
         {
-            State.Jump();
-  
+            if (Jumpable())
+            {
+                jumpKeyPressed = true;
+                State.Jump();
+            }
         }
 
         public void MoveLeft()
@@ -142,6 +155,11 @@ namespace Gamespace
         {
             scoreboard.UpScore(ScoringConstants.COIN_SCORE);
             scoreboard.Collect();
+        }
+
+        public bool Jumpable()
+        {
+            return ((State.Jumpable()^jumpKeyHolded)&!GameObjectPhysics.MaxSpeedReached(Side.Up));
         }
     }
 }

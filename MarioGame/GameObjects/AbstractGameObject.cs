@@ -66,7 +66,6 @@ namespace Gamespace
             this.positionOnScreen = positionOnScreen;
             Uid = counter;
             counter++;
-            //GameObjectPhysics = new Physics(this, positionOnScreen); 
             GameObjectPhysics = PhysicsFactory.Instance.GetPhysics(this, positionOnScreen);
             IsPaused = false;
             DrawPriority = 0;

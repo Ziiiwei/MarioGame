@@ -18,7 +18,7 @@ namespace Gamespace.States
         {
             mario.PowerUpState.Jump(mario);
             mario.State = new LeftJumpingMarioState(mario);
-            mario.GameObjectPhysics.MoveMaxSpeed(Side.Up);
+            mario.GameObjectPhysics.Jump();
             mario.UpdateArt();
         }
 
@@ -35,7 +35,6 @@ namespace Gamespace.States
 
         public override void FrictionStop()
         {
-            mario.GameObjectPhysics.FrictionStop(Side.Horizontal);
             if (mario.GameObjectPhysics.Velocity.X == 0)
             {
                 mario.State = new LeftStandingMarioState(mario);

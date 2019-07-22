@@ -23,7 +23,7 @@ namespace Gamespace
         {
             physicsAssignment = new Dictionary<Type, Type>()
             {
-                {typeof(Mario), typeof(Physics) },
+                {typeof(Mario), typeof(MarioPhysics) },
                 {typeof(RedShroom), typeof(ShroomPhysics) },
                 {typeof(GreenShroom), typeof(ShroomPhysics) },
                 {typeof(BrickBlock), typeof(BumpableBlockPhysics) },
@@ -37,13 +37,13 @@ namespace Gamespace
 
         internal IPhysics GetPhysics(IGameObject gameObject, Vector2 positionOnScreen)
         {
-            Type concretePhysics = typeof(Physics);
+            Type physicsType = typeof(Physics);
             if (physicsAssignment.ContainsKey(gameObject.GetType()))
             {
-                concretePhysics = physicsAssignment[gameObject.GetType()];
+                physicsType = physicsAssignment[gameObject.GetType()];
             }
             (float g, float a, float x, float y, float f) constants = PhysicsConstants.Instance.GetConstants(gameObject.GetType());
-            return (IPhysics)Activator.CreateInstance(concretePhysics, gameObject, positionOnScreen, constants);
+            return (IPhysics)Activator.CreateInstance(physicsType, gameObject, positionOnScreen, constants);
         }
 
         internal IPhysics GetNewConstants(IPhysics physics, IGameObject gameObject, Type constantsKey)

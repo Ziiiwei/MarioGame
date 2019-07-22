@@ -140,5 +140,10 @@ namespace Gamespace
         {
             this.GameObjectPhysics.Climb(Side.Up);
         }
+
+        public bool Jumpable()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

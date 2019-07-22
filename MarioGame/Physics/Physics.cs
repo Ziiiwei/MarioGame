@@ -216,5 +216,10 @@ namespace Gamespace
         {
             throw new NotImplementedException();
         }
+
+        public bool MaxSpeedReached(Side side)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

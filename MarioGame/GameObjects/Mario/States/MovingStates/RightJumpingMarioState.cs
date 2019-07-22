@@ -13,6 +13,10 @@ namespace Gamespace.States
         {
         }
 
+        public override void Jump()
+        {
+            mario.GameObjectPhysics.Jump();
+        }
         public override void MoveLeft()
         {
             mario.State = new LeftJumpingMarioState(mario);
@@ -43,6 +47,11 @@ namespace Gamespace.States
         public override void Fire()
         {
             mario.Projectiles.Fire(Side.Right);
+        }
+
+        public override bool Jumpable()
+        {
+            return false;
         }
     }
 }

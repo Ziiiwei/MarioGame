@@ -31,6 +31,8 @@ namespace Gamespace
         void IncrementMove(Side side, int distance);
         void TrajectMove(Func<Vector2, int, Vector2> trajectory);
 
+        bool MaxSpeedReached(Side side);
+
         //void Rotate();
 
 

@@ -24,8 +24,8 @@ namespace Gamespace
 
         private Dictionary<Side, Action<int>> animoveaction;
         private Dictionary<Side, Action> moveMaxSpeedActions;
-        private Dictionary<Side, Action> moveActions;
         private Dictionary<Side, Action<Rectangle>> collisionActions;
+        private Dictionary<Side, Func<bool>> checkMaxSpeed;
 
         public Vector2 Position { get=> position; set =>position=value; }
         public Vector2 Velocity { get=> velocity ; set =>velocity= value ; }
@@ -39,20 +39,22 @@ namespace Gamespace
             initialPostion = position;
             PhysicsConstants = constants;
 
+            checkMaxSpeed = new Dictionary<Side, Func<bool>>
+            {
+                {Side.Up, new Func<bool> (()=>velocity.Y <= -PhysicsConstants.Y_V) },
+                {Side.Down, new Func<bool> (()=>velocity.Y >= PhysicsConstants.Y_V) },
+                {Side.Left, new Func<bool> (()=>velocity.X <= -PhysicsConstants.X_V) },
+                {Side.Right, new Func<bool> (()=>velocity.X >= PhysicsConstants.X_V) }
+            };
+
             animoveaction = new Dictionary<Side, Action<int>>()
             {
                 { Side.Left,new Action<int>((d)=> this.position.X -=d) },
                 { Side.Right,new Action<int>((d)=> this.position.X +=d) },
                 { Side.Up,new Action<int>((d)=> this.position.Y -=d) },
-                { Side.Left,new Action<int>((d)=> this.position.Y +=d) }
+                { Side.Down,new Action<int>((d)=> this.position.Y +=d) }
             };
-            moveActions = new Dictionary<Side, Action>()
-            {
-                {Side.Up, new Action(() => acceleration.Y = -PhysicsConstants.A)},
-                {Side.Down, new Action(() => acceleration.Y = PhysicsConstants.A)},
-                {Side.Left, new Action(() => acceleration.X = -PhysicsConstants.A)},
-                {Side.Right, new Action(() => acceleration.X = PhysicsConstants.A)}
-            };
+     
 
             moveMaxSpeedActions = new Dictionary<Side, Action>()
             {
@@ -73,14 +75,14 @@ namespace Gamespace
             SetDefautUpdators();
         }
 
-        private void SetNullUpdators()
+        protected void SetNullUpdators()
         {
             velocityUpdater = () => { };
             positionUpdater = () => { };
             frictionUpdater = () => { };
             gravityUpdater = () => { };
         }
-        private void SetDefautUpdators()
+        protected void SetDefautUpdators()
         {
             velocityUpdater = () =>
             {
@@ -109,8 +111,6 @@ namespace Gamespace
 
         public virtual void Move(Side side)
         {
-            moveActions[side].Invoke();
-            frictionUpdater = () => FrictionStop(side);
         }
 
         public virtual void MoveMaxSpeed(Side side)
@@ -155,6 +155,7 @@ namespace Gamespace
         {
             position.Y -= collisionArea.Height;
             Stop(Side.Vertical);
+
         }
 
         public virtual void Jump()
@@ -222,6 +223,11 @@ namespace Gamespace
         protected float MinimumMagnitude(float a, float b)
         {
             return Math.Abs(a) < Math.Abs(b) ? a : b;
+        }
+
+        public virtual bool MaxSpeedReached(Side side)
+        {
+            return checkMaxSpeed[side].Invoke();
         }
     }
 }

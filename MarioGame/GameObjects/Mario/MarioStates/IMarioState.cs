@@ -18,5 +18,6 @@ namespace Gamespace.States
         void ClimbUp();
         void ClimbDown();
         void Stand();
+        bool Jumpable();
     }
 }

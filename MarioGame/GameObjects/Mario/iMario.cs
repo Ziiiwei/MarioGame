@@ -33,6 +33,7 @@ namespace Gamespace
         void CollideUp(Rectangle collisionArea);
         void CollideDown(Rectangle collisionArea);
         void Coin();
+        bool Jumpable();
     }
 
 }
