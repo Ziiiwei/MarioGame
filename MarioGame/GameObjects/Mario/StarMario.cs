@@ -47,7 +47,7 @@ namespace Gamespace
             {
                 this.mario.PowerUpState = this.PreviousState;
                 this.mario.UpdateArt();
-                World.Instance.Replace(this, this.mario);
+               // World.Instance.Replace(this, this.mario);
             }
             this.mario.Update();
         }
@@ -87,11 +87,6 @@ namespace Gamespace
             mario.UpdateArt();
         }
 
-        public new Rectangle GetCollisionBoundary()
-        {
-           return mario.GetCollisionBoundary();
-        }
-
         public new void CollideLeft(Rectangle collisionArea)
         {
             mario.CollideLeft(collisionArea);
@@ -109,11 +104,6 @@ namespace Gamespace
         public new void CollideDown(Rectangle collisionArea)
         {
             mario.CollideDown(collisionArea);
-        }
-
-        public new Vector2 GetCenter()
-        {
-            return mario.GetCenter();
         }
 
         public void Bounce()
@@ -139,6 +129,21 @@ namespace Gamespace
         public void Coin()
         {
 
+        }
+
+        public void ClimbDown()
+        {
+            this.GameObjectPhysics.Climb(Side.Down);
+        }
+
+        public void ClimbUp()
+        {
+            this.GameObjectPhysics.Climb(Side.Up);
+        }
+
+        public bool Jumpable()
+        {
+            throw new NotImplementedException();
         }
     }
 }

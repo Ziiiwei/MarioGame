@@ -23,7 +23,7 @@ namespace Gamespace
         {
             physicsAssignment = new Dictionary<Type, Type>()
             {
-                {typeof(Mario), typeof(Physics) },
+                {typeof(Mario), typeof(MarioPhysics) },
                 {typeof(RedShroom), typeof(ShroomPhysics) },
                 {typeof(GreenShroom), typeof(ShroomPhysics) },
                 {typeof(BrickBlock), typeof(BumpableBlockPhysics) },
@@ -37,19 +37,19 @@ namespace Gamespace
 
         internal IPhysics GetPhysics(IGameObject gameObject, Vector2 positionOnScreen)
         {
-            Type concretePhysics = typeof(Physics);
+            Type physicsType = typeof(Physics);
             if (physicsAssignment.ContainsKey(gameObject.GetType()))
             {
-                concretePhysics = physicsAssignment[gameObject.GetType()];
+                physicsType = physicsAssignment[gameObject.GetType()];
             }
-            IPhysicsConstants constants = PhysicsConstants.Instance.GetConstants(gameObject.GetType());
-            return (IPhysics)Activator.CreateInstance(concretePhysics, gameObject, positionOnScreen, constants);
+            (float g, float a, float x, float y, float f) constants = PhysicsConstants.Instance.GetConstants(gameObject.GetType());
+            return (IPhysics)Activator.CreateInstance(physicsType, gameObject, positionOnScreen, constants);
         }
 
         internal IPhysics GetNewConstants(IPhysics physics, IGameObject gameObject, Type constantsKey)
         {
             Vector2 positionOnScreen = gameObject.PositionOnScreen;
-            IPhysicsConstants constants = PhysicsConstants.Instance.GetConstants(constantsKey);
+            (float G, float A, float X_V, float Y_V, float F) constants = PhysicsConstants.Instance.GetConstants(constantsKey);
             return (IPhysics) Activator.CreateInstance(physics.GetType(), gameObject, positionOnScreen, constants);
         }
 
@@ -58,5 +58,7 @@ namespace Gamespace
             IGameObject nullGameObject = new NullGameObject();
             return new Physics(nullGameObject, positionOnScreen, PhysicsConstants.Instance.GetConstants(nullGameObject.GetType()));
         }
+
+  
     }
 }

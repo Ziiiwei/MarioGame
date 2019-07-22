@@ -57,7 +57,7 @@ namespace Gamespace.Goombas
             Sprite.Update();
 
             GameObjectPhysics.Update();
-            positionOnScreen = GameObjectPhysics.GetPosition();
+            positionOnScreen = GameObjectPhysics.Position;
         }
 
         public override void CollideLeft(Rectangle collisionArea)

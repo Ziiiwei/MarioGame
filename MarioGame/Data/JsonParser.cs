@@ -2,15 +2,8 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Web.Script.Serialization;
-using Gamespace.Blocks;
-using Gamespace.Commands;
-using Gamespace.Goombas;
-using Gamespace.Koopas;
-using Gamespace.States;
+
 
 namespace Gamespace
 {
@@ -50,14 +43,14 @@ namespace Gamespace
         {
             public List<CollisionDeserializedObject> Entries { get; set; }
         }
-        private Dictionary<Tuple<Type, Type, CollisionHandler.Side>, (Type, Type)> ParseCollisionFile(string path)
+        private Dictionary<Tuple<Type, Type, CollisionHandler.Side>, Tuple<Type, Type>> ParseCollisionFile(string path)
         {
             StreamReader reader = File.OpenText(path);
             JavaScriptSerializer javaScriptSerializer = new JavaScriptSerializer();
             var magicNumbers = javaScriptSerializer.Deserialize<CollisionDeserializedObjectRoot>(reader.ReadToEnd());
             reader.Close();
 
-            var collisionActions = new Dictionary<Tuple<Type, Type, CollisionHandler.Side>, (Type, Type)>();
+            var collisionActions = new Dictionary<Tuple<Type, Type, CollisionHandler.Side>, Tuple<Type, Type>>();
 
             foreach (var cdo in magicNumbers.Entries)
             {
@@ -65,18 +58,18 @@ namespace Gamespace
                 Type obj2 = Type.GetType(cdo.Target);
                 CollisionHandler.Side Side = (CollisionHandler.Side) Enum.Parse(typeof(CollisionHandler.Side), cdo.Side);
                 var key = new Tuple<Type, Type, CollisionHandler.Side>(obj1, obj2, Side);
-                var value = (Type.GetType(cdo.Command1), Type.GetType(cdo.Command2));
+                var value = new Tuple<Type, Type>(Type.GetType(cdo.Command1), Type.GetType(cdo.Command2));
                 collisionActions.Add(key, value);
             }
             return collisionActions;
         }
 
-        internal Dictionary<Tuple<Type, Type, CollisionHandler.Side>, (Type, Type)> ParseCollisionFile()
+        internal Dictionary<Tuple<Type, Type, CollisionHandler.Side>, Tuple<Type, Type>> ParseCollisionFile()
         {
             return ParseCollisionFile(collisionActionsPath);
         }
 
-        internal Dictionary<Tuple<Type, Type, CollisionHandler.Side>, (Type, Type)> ParseCollisionStatefulFile()
+        internal Dictionary<Tuple<Type, Type, CollisionHandler.Side>, Tuple<Type, Type>> ParseCollisionStatefulFile()
         {
             return ParseCollisionFile(statefulCollisionActionsPath);
         }

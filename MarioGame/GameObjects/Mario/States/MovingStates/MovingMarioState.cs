@@ -21,6 +21,14 @@ namespace Gamespace.States
         public virtual void Land() { }
         public virtual void FrictionStop() { }
         public virtual void Fire() { }
+        public virtual void ClimbUp() { }
+        public virtual void ClimbDown() { }
+        public virtual void Stand() { }
+
+        public virtual bool Jumpable()
+        {
+            return true;
+        }
         
     }
 }

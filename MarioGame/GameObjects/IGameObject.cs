@@ -13,11 +13,12 @@ namespace Gamespace
         int Uid { get; }
         void Update();
         void Draw(SpriteBatch spriteBatch);
-        Vector2 PositionOnScreen { get; }
-        Rectangle GetCollisionBoundary();
-        Vector2 GetCenter();
+        Vector2 PositionOnScreen { get; set; }
+        Rectangle CollisionBoundary { get; }
+        Vector2 Center { get; }
         bool IsPaused { get; set; }
         int BlockSpacePosition { get; }
+        int DrawPriority { get; }
 
     }
 }

@@ -9,6 +9,8 @@ namespace Gamespace.Data
 {
     static class Numbers
     {
+        public const int MARIO_JUMP_MAX_UPDATE = 10;// which is 0.1s
+        public const int MARIO_JUMP_SPEED = 3; 
         public const int CAMERA_FACTOR = 2;
         public const int STOMP_TIMER_BOUND = 20;
         public static readonly int[] BUMP_OFFSETS = { 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4 };
@@ -26,12 +28,13 @@ namespace Gamespace.Data
         public const int CENTER_Y = 200;
         public const int WIDTH = 800;
         public const int HEIGHT = 480;
-        public const int PLAYER_ONE_X = 200;
-        public const int PLAYER_TWO_X = 300;
+        public const int PLAYER_ONE_X = 2760;
+        public const int PLAYER_TWO_X = 1250;
         public const int STARTING_Y = 200;
         public const int PLAYERS_IN_GAME = 2;
         public const float PROJECTILE_LEFT_OFFSET = -18;
         public const int CAMERA_START_X= 0;
-        public const int MAX_PLAYERS = 4;
+        public const int FOREGROUND_DRAW_PRIORITY = 1;
+        public const int LEVEL1_BLOCK_WIDTH = 206;
     }
 }

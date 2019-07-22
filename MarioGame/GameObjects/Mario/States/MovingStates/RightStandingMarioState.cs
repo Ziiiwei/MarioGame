@@ -16,13 +16,16 @@ namespace Gamespace.States
 
         public override void Crouch()
         {
+            int previous_h = mario.Sprite.Height;
             mario.State = new RightCrouchingMarioState(mario);
             mario.UpdateArt();
+            mario.GameObjectPhysics.DownStop(new Rectangle(0, 0, 0, mario.Sprite.Height - previous_h));
         }
 
         public override void Jump()
         { 
             mario.State = new RightJumpingMarioState(mario);
+            mario.GameObjectPhysics.Jump();
             mario.PowerUpState.Jump(mario);
             mario.UpdateArt();
 
@@ -46,6 +49,13 @@ namespace Gamespace.States
         public override void Fire()
         {
             mario.Projectiles.Fire(Side.Right);
+        }
+
+        public override void ClimbUp()
+        {
+            mario.State = new RightClimbingMarioState(mario);
+            mario.GameObjectPhysics.Climb(Side.Up);
+            mario.UpdateArt();
         }
 
     }

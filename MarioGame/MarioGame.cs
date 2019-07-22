@@ -55,6 +55,7 @@ namespace Gamespace
             Content.RootDirectory = "Content";
 
             Framerate = 0;
+            //TargetElapsedTime = TimeSpan.FromSeconds(1d / 30d); 
         }
 
         public static MarioGame Instance
@@ -113,7 +114,7 @@ namespace Gamespace
         /// </summary>
         protected override void LoadContent()
         {   
-            Font = Content.Load<SpriteFont>("Arial");
+            Font = Content.Load<SpriteFont>("Pixel");
             SoundManager.Instance.PlayMainBGM();
         }
 

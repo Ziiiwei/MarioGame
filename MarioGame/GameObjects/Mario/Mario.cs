@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Timers;
 using Gamespace.Multiplayer;
+using Gamespace.Data;
 
 namespace Gamespace
 {
@@ -21,12 +22,27 @@ namespace Gamespace
 
         public Scoreboard scoreboard { get; set; }
 
+        private Action keepStanding;
+        
+       
+        
+        private bool jumpKeyPressed;
+        private bool jumpKeyHolded;
+        private bool previouslyJumpKeyPressed;
+      
+
+
         public Mario(Vector2 positionOnScreen) : base(positionOnScreen)
         {
             State = new RightStandingMarioState(this);
             PowerUpState = new MarioSmallState();
             SetSprite();
             Projectiles = new ProjectileLauncher(this);
+            keepStanding= () => State.Stand();
+            DrawPriority = 1;
+            jumpKeyPressed = false;
+            jumpKeyHolded = false;
+            previouslyJumpKeyPressed = false;
         }
 
         public Mario(Vector2 positionOnScreen, Scoreboard scoreboard) : this(positionOnScreen)
@@ -38,20 +54,33 @@ namespace Gamespace
         {
             base.SurrogateUpdate();
             GameObjectPhysics.Update();
-            GameObjectPhysics.FrictionStop(Side.Right);
             State.FrictionStop();
 
-            positionOnScreen = GameObjectPhysics.GetPosition();
+            positionOnScreen = GameObjectPhysics.Position;
+
+            keepStanding.Invoke();
+            keepStanding = () => State.Stand();
+
+
+            jumpKeyHolded = jumpKeyPressed && previouslyJumpKeyPressed;
+            previouslyJumpKeyPressed = jumpKeyPressed;
+            jumpKeyPressed = false;         
         }
 
         public void Crouch()
-        {
-            State.Crouch();    
+        {           
+            State.Crouch();         
+            keepStanding = () => { };
         }
 
         public void Jump()
         {
-            State.Jump();
+            jumpKeyPressed = true;
+            if (Jumpable())
+            {
+                State.Jump();
+            }           
+           
         }
 
         public void MoveLeft()
@@ -89,13 +118,15 @@ namespace Gamespace
 
         public void Bounce()
         {
-            GameObjectPhysics.MoveMaxSpeed(Side.Up);
+            GameObjectPhysics.Jump();
             scoreboard.UpScore(ScoringConstants.ENEMY_SCORE);
         }
 
         public void Die()
         {
-            GameObjectPhysics.MoveMaxSpeed(Side.Up);
+            GameObjectPhysics.Jump();
+
+            GameObjectPhysics.Stop(Side.Horizontal);
             World.Instance.MaskCollision(this);
             scoreboard.Die();
             SoundManager.Instance.PlaySoundEffect("MarioDies");
@@ -105,6 +136,12 @@ namespace Gamespace
         {
             base.CollideDown(collisionArea);
             State.Land();
+
+            if (!jumpKeyHolded)
+            {
+                ((MarioPhysics)GameObjectPhysics).ReSetMaxSpeedCheck();
+            }
+
         }
 
         public void Fire()
@@ -112,10 +149,27 @@ namespace Gamespace
              PowerUpState.Fire(this);
         }
 
+        public void ClimbDown()
+        {
+            State.ClimbDown();
+        }
+
+        public void ClimbUp()
+        {
+            State.ClimbUp();
+        }
+
         public void Coin()
         {
             scoreboard.UpScore(ScoringConstants.COIN_SCORE);
             scoreboard.Collect();
+        }
+
+        public bool Jumpable()
+        {
+            jumpKeyHolded = jumpKeyPressed && previouslyJumpKeyPressed;
+
+            return ((State.Jumpable()^jumpKeyHolded)&!GameObjectPhysics.MaxSpeedReached(Side.Up));
         }
     }
 }

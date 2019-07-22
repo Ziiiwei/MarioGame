@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
 using Gamespace.Controllers;
+using Gamespace.Data;
 
 namespace Gamespace
 {
@@ -14,13 +15,15 @@ namespace Gamespace
         protected Vector2 position;
         protected Vector2 velocity;
         protected Vector2 acceleration;
-        public Vector2 Position { get => position; }
-        public Vector2 Velocity { get => velocity; }
-        public Vector2 Acceleration { get => acceleration; }
+        public Vector2 Position { get => position; set => position = value; }
+        public Vector2 Velocity { get => velocity; set => velocity = value; }
+        public Vector2 Acceleration { get => acceleration; set => acceleration = value; }
+        public (float G, float A, float X_V, float Y_V, float F) PhysicsConstants { get; set; }
         public IGameObject gameObject { get; set; }
 
         protected Dictionary<Side, Action> moveMaxSpeedActions;
         protected Dictionary<Side, Action> moveActions;
+        protected Dictionary<Side, Action> climbActions;
 
         protected readonly float gravityConstant;
         protected readonly float accelConstant;
@@ -28,18 +31,23 @@ namespace Gamespace
         protected readonly float max_X_V;
         protected readonly float max_Y_V;
 
-        private readonly float FRICTION;
+        protected readonly float FRICTION;
 
-        public Physics(IGameObject gameObject, Vector2 position, IPhysicsConstants constants)
+        private Action freefall;
+        private Action frictionstop;
+
+        public Physics(IGameObject gameObject, Vector2 position, (float G, float A, float X_V, float Y_V, float F) constants)
         {
-            gravityConstant = constants.gravityConstant;
-            accelConstant = constants.accelConstant;  
-            max_X_V = constants.max_X_V;
-            max_Y_V = constants.max_Y_V;
-            FRICTION = constants.frictionConstant;
+           
 
             this.gameObject = gameObject;
             this.position = position;
+            PhysicsConstants = constants;
+            accelConstant = constants.A;
+            gravityConstant = constants.G;
+            max_X_V = constants.X_V;
+            max_Y_V = constants.Y_V;
+            FRICTION = constants.F;
 
             acceleration = new Vector2(0, 0);
             velocity = new Vector2(0, 0);
@@ -60,56 +68,83 @@ namespace Gamespace
                 {Side.Right, new Action(() => velocity.X = max_X_V)}
             };
 
+            climbActions = new Dictionary<Side, Action>()
+            {
+                {Side.Up, new Action(() => {acceleration.Y = -accelConstant/100; velocity.Y = -max_Y_V/5; })},
+                {Side.Down, new Action(() => {acceleration.Y = accelConstant/100; velocity.Y = max_Y_V/5; })},
+                {Side.Left, new Action(() => {acceleration.X = -accelConstant/100; velocity.X = -max_Y_V/5; })},
+                {Side.Right, new Action(() => {acceleration.X = accelConstant/100; velocity.X = max_Y_V/5; })},
+            };
+
+            freefall = () => FreeFall();
+            frictionstop = () => { };
+        }
+
+        public void Jump()
+        {
         }
         protected virtual void FreeFall()
         {
             acceleration.Y = gravityConstant;
+            frictionstop = () => { };
         }
 
         public virtual void Move(Side side)
         {
             moveActions[side].Invoke();
+            freefall = () => FreeFall();
+            frictionstop = () => { };
         }
 
         public virtual void MoveMaxSpeed(Side side)
         {
             moveMaxSpeedActions[side].Invoke();
+            freefall = () => FreeFall();
+            frictionstop = () => { };
+        }
+
+        public virtual void Climb(Side side)
+        {
+        
+            climbActions[side].Invoke();
+
+            freefall = () => { };
+            frictionstop = () => FrictionStop(Side.Vertical);
         }
 
 
         public virtual void LeftStop(Rectangle collisionArea)
         {
             position.X += collisionArea.Width;
-            velocity.X = 0;
-            acceleration.X = 0;
+            Stop(Side.Horizontal);
 
         }
 
         public virtual void RightStop(Rectangle collisionArea)
         {
             position.X -= collisionArea.Width;
-            velocity.X = 0;
-            acceleration.X = 0;
+            Stop(Side.Horizontal);
 
         }
 
         public virtual void UpStop(Rectangle collisionArea)
         {
             position.Y += collisionArea.Height;
-            velocity.Y = 0;
-            acceleration.Y = 0;
+            Stop(Side.Vertical);
+            frictionstop = () => { };
         }
 
         public virtual void DownStop(Rectangle collisionArea)
         {
             position.Y -= collisionArea.Height;
-            velocity.Y = 0;
-            acceleration.Y = 0;
+            Stop(Side.Vertical);
+            freefall = () => { };
+            frictionstop = () => { };
         }
 
         public virtual void Update()
         {
-            FreeFall();
+            freefall.Invoke();
 
             velocity.X = MinimumMagnitude(velocity.X + acceleration.X, Math.Sign(acceleration.X) * max_X_V);
             velocity.Y = MinimumMagnitude(velocity.Y + acceleration.Y, Math.Sign(acceleration.Y) * max_Y_V);
@@ -117,16 +152,7 @@ namespace Gamespace
             position.X += velocity.X;
             position.Y += velocity.Y;
 
-        }
-
-        public virtual Vector2 GetPosition()
-        {
-            return position;
-        }
-
-        public virtual Vector2 GetVelocity()
-        {
-            return velocity;
+            frictionstop.Invoke();
         }
 
         protected float MinimumMagnitude(float a, float b)
@@ -136,7 +162,7 @@ namespace Gamespace
 
         public virtual void FrictionStop(Side side)
         {
-            if (side == Side.Right || side == Side.Left || side == Side.None)
+            if (side == Side.Right || side == Side.Left || side == Side.None || side == Side.Horizontal)
             {
                 if (velocity.X != 0 && Math.Sign(velocity.X) != Math.Sign(velocity.X + acceleration.X))
                 {
@@ -147,7 +173,7 @@ namespace Gamespace
                     acceleration.X = (-Math.Sign(velocity.X)) * FRICTION;
             }
 
-            if (side == Side.Up || side == Side.Down || side == Side.None)
+            if (side == Side.Up || side == Side.Down || side == Side.None || side == Side.Vertical)
             {
 
                 if (velocity.Y != 0 && Math.Sign(velocity.Y) != Math.Sign(velocity.Y + acceleration.Y))
@@ -163,17 +189,37 @@ namespace Gamespace
 
         public virtual void Stop(Side side)
         {
-            if (side == Side.Right || side == Side.Left || side == Side.None)
+            if (side == Side.Right || side == Side.Left || side == Side.None || side == Side.Horizontal)
             {
                 velocity.X = 0;
                 acceleration.X = 0;
             }
 
-            if (side == Side.Up || side == Side.Down || side == Side.None)
+            if (side == Side.Up || side == Side.Down || side == Side.None || side == Side.Vertical)
             {
                 velocity.Y = 0;
                 acceleration.Y = 0;
             }
+        }
+
+        public void ResoveCollision(Side side, Rectangle collisionArea)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void IncrementMove(Side side, int distance)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void TrajectMove(Func<Vector2, int, Vector2> trajectory)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool MaxSpeedReached(Side side)
+        {
+            throw new NotImplementedException();
         }
     }
 }

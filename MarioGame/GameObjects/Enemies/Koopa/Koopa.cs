@@ -45,7 +45,7 @@ namespace Gamespace.Koopas
             Sprite.Update();
 
             GameObjectPhysics.Update();
-            positionOnScreen = GameObjectPhysics.GetPosition();
+            positionOnScreen = GameObjectPhysics.Position;
         }
 
         public void UpdateArt()

@@ -42,15 +42,26 @@
     <ApplicationManifest>MarioGame\app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="MarioGame\Animation\AnimationFactory.cs" />
+    <Compile Include="MarioGame\Animation\KeyFrame.cs" />
+    <Compile Include="MarioGame\Animation\IAnimation.cs" />
+    <Compile Include="MarioGame\Animation\IKeyFrame.cs" />
+    <Compile Include="MarioGame\Animation\Animation.cs" />
+    <Compile Include="MarioGame\Animation\SimpleKeyFrame.cs" />
     <Compile Include="MarioGame\Camera\ICamera.cs" />
     <Compile Include="MarioGame\Camera\MultiplayerCamera.cs" />
     <Compile Include="MarioGame\Collision\RewardChecker.cs" />
+    <Compile Include="MarioGame\Commands\AnimationCommands\PlayFlagSlidDown.cs" />
     <Compile Include="MarioGame\Commands\KillEnemy.cs" />
     <Compile Include="MarioGame\Commands\KillMario.cs" />
     <Compile Include="MarioGame\Commands\MarioAddLife.cs" />
+    <Compile Include="MarioGame\Commands\MarioClimbingUp.cs" />
+    <Compile Include="MarioGame\Commands\MarioClimbingDown.cs" />
     <Compile Include="MarioGame\Commands\MarioFireCommand.cs" />
     <Compile Include="MarioGame\Commands\MarioJumpAfterEnemyHit.cs" />
+    <Compile Include="MarioGame\Commands\AnimationCommands\PlayMarioTouchFlag.cs" />
     <Compile Include="MarioGame\Commands\PauseGameCommand.cs" />
+    <Compile Include="MarioGame\Commands\AnimationCommands\PlayTestAnimation.cs" />
     <Compile Include="MarioGame\Commands\ProjectileRemoveCommand.cs" />
     <Compile Include="MarioGame\Controllers\KeyAssignmentFactory.cs" />
     <Compile Include="MarioGame\Data\Numbers.cs" />
@@ -90,6 +101,8 @@
     <Compile Include="MarioGame\GameObjects\Items\RedShroomStates\RedShroomLeftState.cs" />
     <Compile Include="MarioGame\GameObjects\Items\RedShroomStates\RedShroomRightState.cs" />
     <Compile Include="MarioGame\GameObjects\Items\RedShroomStates\RedShroomUpState.cs" />
+    <Compile Include="MarioGame\GameObjects\Mario\States\MovingStates\LeftClimbingMarioState.cs" />
+    <Compile Include="MarioGame\GameObjects\Mario\States\MovingStates\RightClimbingMarioState.cs" />
     <Compile Include="MarioGame\GameObjects\Projectiles\IFireable.cs" />
     <Compile Include="MarioGame\GameObjects\Projectiles\Fireball.cs" />
     <Compile Include="MarioGame\GameObjects\Projectiles\FireballStates\IProjectileState.cs" />
@@ -106,10 +119,11 @@
     <Compile Include="MarioGame\Multiplayer\IPlayer.cs" />
     <Compile Include="MarioGame\Multiplayer\Player.cs" />
     <Compile Include="MarioGame\Multiplayer\Scoreboard.cs" />
+    <Compile Include="MarioGame\Physics\BasePhysics.cs" />
     <Compile Include="MarioGame\Physics\BumpableBlockPhysics.cs" />
+    <Compile Include="MarioGame\Physics\MarioPhysics.cs" />
     <Compile Include="MarioGame\Physics\EnemyPhysics.cs" />
     <Compile Include="MarioGame\Physics\FireballPhysics.cs" />
-    <Compile Include="MarioGame\Physics\IPhysicsConstants.cs" />
     <Compile Include="MarioGame\Physics\PhysicsConstants.cs" />
     <Compile Include="MarioGame\Physics\PhysicsFactory.cs" />
     <Compile Include="MarioGame\GameObjects\Mario\StarMario.cs" />
@@ -184,6 +198,7 @@
     <Compile Include="MarioGame\Transitions\Views\IView.cs" />
     <Compile Include="MarioGame\Transitions\Views\LivesView.cs" />
     <Compile Include="MarioGame\Transitions\Views\PlayableView.cs" />
+    <Compile Include="MarioGame\World\WorldAnimation.cs" />
     <Compile Include="MarioGame\World\LevelLoader.cs" />
     <Compile Include="MarioGame\GameObjects\Items\RedShroom.cs" />
     <Compile Include="MarioGame\GameObjects\Mario\States\MovingStates\RightCrouchingMarioState.cs" />
@@ -202,6 +217,7 @@
     <Compile Include="MarioGame\MarioGame.cs" />
     <Compile Include="MarioGame\Program.cs" />
     <Compile Include="MarioGame\Physics\Physics.cs" />
+    <Compile Include="MarioGame\World\WorldCollision.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
@@ -294,7 +310,9 @@
     <None Include="packages.config" />
     <None Include="README.md" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="MarioGame\Data\Animation\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\MonoGame\v3.0\MonoGame.Content.Builder.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

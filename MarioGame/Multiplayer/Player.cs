@@ -11,6 +11,7 @@ using Gamespace.Data;
 
 namespace Gamespace.Multiplayer
 {
+  
     internal class Player : IPlayer
     {
         public IMario GameObject { get; private set; }
@@ -26,7 +27,8 @@ namespace Gamespace.Multiplayer
         public int Lives { get; set; }
         private DiscreteTimer viewTimer;
         private bool timerIsArmed = false;
-
+        private IController disabledController;
+        private Action controllerUpdate;
         public Player(Type character, SpriteBatch screen, Vector2 spawnPoint)
         {
             Lives = Numbers.LIVES_STOCK;
@@ -38,13 +40,14 @@ namespace Gamespace.Multiplayer
             this.spawnPoint = spawnPoint;
             Cam = new MultiplayerCamera(PlayerID, new Vector2(Numbers.CAMERA_START_X, 0));
             Controller = new KeyboardController(this);
+            disabledController = new KeyboardController(this, false);
+            controllerUpdate = ()=> Controller.Update();
             Screen = screen;
-            
         }
 
         public void Update(GameTime gameTime)
         {
-            Controller.Update();
+            controllerUpdate.Invoke();
             scoreboard.Update(gameTime);
             Lives = scoreboard.Lives;
             Cam.Update(GameObject.PositionOnScreen);
@@ -66,7 +69,7 @@ namespace Gamespace.Multiplayer
 
         public void DrawPlayersScreen()
         {
-            Screen.Begin(SpriteSortMode.BackToFront, transformMatrix: Cam.Transform * Matrix.CreateScale(1), samplerState: SamplerState.PointClamp);
+            Screen.Begin(SpriteSortMode.Deferred, transformMatrix: Cam.Transform * Matrix.CreateScale(1), samplerState: SamplerState.PointClamp);
             view.Draw(Screen);
             Vector2 fpsCounterPosition = new Vector2(Cam.CameraPosition.X + Numbers.COUNTER_OFFSET, Cam.CameraPosition.Y + Numbers.COUNTER_OFFSET);
             Screen.DrawString(MarioGame.Instance.Font, "FPS " + MarioGame.Instance.Framerate, fpsCounterPosition, Color.Red);
@@ -96,6 +99,16 @@ namespace Gamespace.Multiplayer
             ShowLives();
             Cam = new MultiplayerCamera(PlayerID, new Vector2(Numbers.CAMERA_START_X, 0));
             Controller = new KeyboardController(this);
+        }
+
+        public void DisableGameControl()
+        {
+            controllerUpdate = () => disabledController.Update();
+        }
+
+        public void ResumeControl()
+        {
+            controllerUpdate = () => Controller.Update();
         }
     }
 }

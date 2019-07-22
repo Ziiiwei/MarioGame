@@ -1,4 +1,5 @@
-﻿using Gamespace.Interfaces;
+﻿/* Using Deferred SpriteSort taken here https://gamedev.stackexchange.com/questions/47796/objects-being-drawn-on-wrong-layers */
+using Gamespace.Interfaces;
 using Gamespace.Sprites;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -17,11 +18,32 @@ namespace Gamespace
         public int Uid { get; protected set; }
         public ISprite Sprite { get; protected set; }
         protected Vector2 positionOnScreen;
-        public Vector2 PositionOnScreen  => positionOnScreen;
+        public Vector2 PositionOnScreen { get => positionOnScreen; set => positionOnScreen = value; }
         public IPhysics GameObjectPhysics { get; set; }
         private readonly static Dictionary<bool, Action<AbstractGameObject>> updateFunctionPointer;
         public bool IsPaused { get; set; }
-        public int BlockSpacePosition { get => (int)Math.Min(Numbers.BLOCK_SPACING_SCALE, Math.Max(0, Math.Floor(positionOnScreen.X / Numbers.BLOCK_SPACING_SCALE))); }
+        public int BlockSpacePosition { get => (int)Math.Min(Numbers.LEVEL1_BLOCK_WIDTH, Math.Max(0, Math.Floor(positionOnScreen.X / Numbers.BLOCK_SPACING_SCALE))); }
+        
+        /* Higher integers are drawn first */
+        public int DrawPriority { get; protected set; }
+
+        public Rectangle CollisionBoundary {
+            get
+            {
+                return new Rectangle((int)GameObjectPhysics.Position.X, (int)GameObjectPhysics.Position.Y, Sprite.Width, Sprite.Height);
+            }
+        }
+
+        public Vector2 Center
+        {
+            get
+            {
+                float height = Sprite.Height / Numbers.CAMERA_FACTOR;
+                float width = Sprite.Width / Numbers.CAMERA_FACTOR;
+
+                return new Vector2(PositionOnScreen.X + width, PositionOnScreen.Y + height);
+            }
+        }
 
         static AbstractGameObject()
         {
@@ -44,9 +66,9 @@ namespace Gamespace
             this.positionOnScreen = positionOnScreen;
             Uid = counter;
             counter++;
-            //GameObjectPhysics = new Physics(this, positionOnScreen); 
             GameObjectPhysics = PhysicsFactory.Instance.GetPhysics(this, positionOnScreen);
             IsPaused = false;
+            DrawPriority = 0;
         }
         public virtual void Draw(SpriteBatch spriteBatch)
         {
@@ -60,21 +82,10 @@ namespace Gamespace
 
         protected virtual void SurrogateUpdate()
         {
-            Sprite.Update();
-        }
-
-        public virtual Rectangle GetCollisionBoundary()
-        {
-            return new Rectangle((int)GameObjectPhysics.Position.X, (int)GameObjectPhysics.Position.Y, Sprite.Width, Sprite.Height);
-        }
-
-        public virtual Vector2 GetCenter()
-        {
-            // this and the camera factor are both 2, and they may be related to the same issue
-            float height = Sprite.Height / Numbers.CAMERA_FACTOR;
-            float width = Sprite.Width / Numbers.CAMERA_FACTOR;
-
-            return new Vector2(PositionOnScreen.X + width, PositionOnScreen.Y + height);
+            if (GameObjectPhysics.Velocity.LengthSquared() > 0)
+            {
+                Sprite.Update();
+            }
         }
 
         protected virtual void SetSprite()

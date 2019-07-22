@@ -1,4 +1,4 @@
-﻿### Code Readiblity Review
+﻿### Code Maintainability Review
 Author: Keith Chin
 Date: 7/10/19
 Sprint: 5
@@ -9,8 +9,8 @@ Minutes: 15
 Coupling: Minimal, only with Physics
 
 This class was created to isolate all of the physics constants
-for game objects that required physics. With this class, this resulted 
-in a cleaner and more organized code.
+for game objects that required physics. This class is only coupled to the Physics classes
+and thus coupling is really low.
 
 
 
@@ -28,8 +28,8 @@ Complexity: Could do with more organization but not complicated.
 
 Without understanding how the physics works in our solution, this class can be a little tedious
 to read. Most of the complexity is bounded by the way the code is organized but
-in general, it is relatively easy to understand; Put constants in this class and call 
-it for a constant assignment.
+in general, it is relatively easy to understand. However, the code may be riddled with high complexity
+in the future when there are more constants to be added.
 
 Hypothetical change: 
 

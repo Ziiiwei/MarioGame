@@ -13,10 +13,13 @@ namespace Gamespace.States
         {
         }
 
+        public override void Jump()
+        {
+            ((MarioPhysics)mario.GameObjectPhysics).KeepJump();
+        }
         public override void MoveLeft()
         {
             mario.State = new LeftJumpingMarioState(mario);
-            mario.GameObjectPhysics.Move(Side.Left);
             mario.UpdateArt();
         }
 
@@ -27,13 +30,28 @@ namespace Gamespace.States
 
         public override void Land()
         {
-            mario.State = new RightStandingMarioState(mario);
-            mario.UpdateArt();
+            if (mario.GameObjectPhysics.Velocity.X != 0)
+            {
+                mario.State = new RightWalkingMarioState(mario);
+                mario.UpdateArt();
+            }
+            else
+            {
+                mario.State = new RightStandingMarioState(mario);
+                mario.UpdateArt();
+            }
         }
+
+    
 
         public override void Fire()
         {
             mario.Projectiles.Fire(Side.Right);
+        }
+
+        public override bool Jumpable()
+        {
+            return false;
         }
     }
 }

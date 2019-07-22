@@ -16,8 +16,9 @@ namespace Gamespace.States
 
         public override void Jump()
         {
-            mario.State = new LeftJumpingMarioState(mario);
             mario.PowerUpState.Jump(mario);
+            mario.State = new LeftJumpingMarioState(mario);
+            mario.GameObjectPhysics.Jump();
             mario.UpdateArt();
         }
 
@@ -34,7 +35,6 @@ namespace Gamespace.States
 
         public override void FrictionStop()
         {
-            mario.GameObjectPhysics.FrictionStop(Side.Left);
             if (mario.GameObjectPhysics.Velocity.X == 0)
             {
                 mario.State = new LeftStandingMarioState(mario);
@@ -45,6 +45,13 @@ namespace Gamespace.States
         public override void Fire()
         {
             mario.Projectiles.Fire(Side.Left);
+        }
+
+        public override void ClimbUp()
+        {
+            mario.State = new LeftClimbingMarioState(mario);
+            mario.GameObjectPhysics.Climb(Side.Up);
+            mario.UpdateArt();
         }
     }
 }

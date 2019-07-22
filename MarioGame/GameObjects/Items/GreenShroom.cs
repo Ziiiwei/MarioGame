@@ -50,7 +50,7 @@ namespace Gamespace.Items
             else
             {
                 GameObjectPhysics.Update();
-                positionOnScreen = GameObjectPhysics.GetPosition();
+                positionOnScreen = GameObjectPhysics.Position;
             }
 
         }
