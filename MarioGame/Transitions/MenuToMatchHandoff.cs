@@ -17,6 +17,8 @@ namespace Gamespace
 
         public MenuToMatchHandoff(GameMenu menu, GraphicsDevice graphicsDevice)
         {
+            MarioGame.Instance.PlayerCount = menu.PlayerCount;
+
             players = new List<IPlayer>()
             {
                 new Player(typeof(Mario), new SpriteBatch(graphicsDevice), new Vector2(Numbers.PLAYER_ONE_X, Numbers.STARTING_Y)),
@@ -25,14 +27,16 @@ namespace Gamespace
                 new Player(typeof(Mario), new SpriteBatch(graphicsDevice), new Vector2(200, 400))
             };
 
-            for (int i = 0; i < menu.PlayerCount; i++)
+            for (int i = 1; i <= menu.PlayerCount; i++)
             {
-                World.Instance.AddPlayer(players[i]);
+                World.Instance.AddPlayer(players[i-1]);
             }
 
             string path = MarioGame.Instance.ArenaPaths[menu.ArenaSelected].Item2;
 
             LevelLoader levelLoader = new LevelLoader(World.Instance, path);
+
+            
 
         }
     }

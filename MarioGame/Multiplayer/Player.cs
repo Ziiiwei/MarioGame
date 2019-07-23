@@ -16,6 +16,7 @@ namespace Gamespace.Multiplayer
         public IMario GameObject { get; private set; }
         public IController Controller { get; private set; }
         public ICamera Cam { get; private set; }
+        private Viewport viewport;
         private IView view;
         private Scoreboard scoreboard;
         public SpriteBatch Screen { get; }
@@ -37,6 +38,7 @@ namespace Gamespace.Multiplayer
             ShowLives();
             this.spawnPoint = spawnPoint;
             Cam = new MultiplayerCamera(PlayerID, new Vector2(Numbers.CAMERA_START_X, 0));
+            InitViewport();
             Controller = new KeyboardController(this);
             Screen = screen;
             
@@ -48,10 +50,6 @@ namespace Gamespace.Multiplayer
             scoreboard.Update(gameTime);
             Lives = scoreboard.Lives;
             Cam.Update(GameObject.PositionOnScreen);
-
-            //subject to change later on
-            if (GameObject.PositionOnScreen.X < Cam.CameraPosition.X)
-                GameObject.CollideLeft(new Rectangle((int)Cam.CameraPosition.X - 1,0,1,MarioGame.WINDOW_HEIGHT));
 
             if (timerIsArmed)
             {
@@ -66,10 +64,16 @@ namespace Gamespace.Multiplayer
 
         public void DrawPlayersScreen()
         {
+            MarioGame.Instance.GraphicsDevice.Viewport = viewport;
+
             Screen.Begin(SpriteSortMode.BackToFront, transformMatrix: Cam.Transform * Matrix.CreateScale(1), samplerState: SamplerState.PointClamp);
+
             view.Draw(Screen);
+
             Vector2 fpsCounterPosition = new Vector2(Cam.CameraPosition.X + Numbers.COUNTER_OFFSET, Cam.CameraPosition.Y + Numbers.COUNTER_OFFSET);
+
             Screen.DrawString(MarioGame.Instance.Font, "FPS " + MarioGame.Instance.Framerate, fpsCounterPosition, Color.Red);
+
             Screen.End();
         }
 
@@ -96,6 +100,17 @@ namespace Gamespace.Multiplayer
             ShowLives();
             Cam = new MultiplayerCamera(PlayerID, new Vector2(Numbers.CAMERA_START_X, 0));
             Controller = new KeyboardController(this);
+        }
+
+        private void InitViewport()
+        {
+            viewport = new Viewport
+            {
+                Width = MarioGame.WINDOW_WIDTH,
+                Height = MarioGame.WINDOW_HEIGHT / MarioGame.Instance.PlayerCount,
+                X = 0,
+                Y = (MarioGame.WINDOW_HEIGHT / MarioGame.Instance.PlayerCount) * PlayerID
+            };
         }
     }
 }

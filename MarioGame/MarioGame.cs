@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework;
+﻿/* Saving original viewport taken from rbwhitaker.wikidot.com/viewport-split-screen  */
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using System.Collections.Generic;
@@ -28,7 +29,7 @@ namespace Gamespace
         public const float SCALE = 1f;
         private GameTime time;
         public GraphicsDeviceManager graphics { get; }
-        public int PlayerCount { get; private set; }
+        public int PlayerCount { get; set; }
         private LevelLoader levelLoader;
         public float Framerate { get; private set; }
         public SpriteFont Font { get; private set; }
@@ -146,7 +147,9 @@ namespace Gamespace
             base.Draw(gameTime);
             GraphicsDevice.Clear(Color.CornflowerBlue);
             Framerate = 1 / (float)gameTime.ElapsedGameTime.TotalSeconds;
+            Viewport viewport = GraphicsDevice.Viewport;
             gameDraw.Invoke();
+            GraphicsDevice.Viewport = viewport;
         }
 
         public void Reset()
