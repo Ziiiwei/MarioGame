@@ -147,9 +147,8 @@ namespace Gamespace
             base.Draw(gameTime);
             GraphicsDevice.Clear(Color.CornflowerBlue);
             Framerate = 1 / (float)gameTime.ElapsedGameTime.TotalSeconds;
-            Viewport viewport = GraphicsDevice.Viewport;
+
             gameDraw.Invoke();
-            GraphicsDevice.Viewport = viewport;
         }
 
         public void Reset()
@@ -181,7 +180,9 @@ namespace Gamespace
 
         private void DrawGameWorld()
         {
+            Viewport viewport = GraphicsDevice.Viewport;
             World.Instance.DrawPlayers();
+            GraphicsDevice.Viewport = viewport;
         }
 
         private void DrawGameMenu()
