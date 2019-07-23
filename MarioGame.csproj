@@ -52,6 +52,7 @@
     <Compile Include="MarioGame\Camera\MultiplayerCamera.cs" />
     <Compile Include="MarioGame\Collision\RewardChecker.cs" />
     <Compile Include="MarioGame\Commands\AnimationCommands\PlayFlagSlidDown.cs" />
+    <Compile Include="MarioGame\Commands\AnimationCommands\PlayMarioIntroScene.cs" />
     <Compile Include="MarioGame\Commands\KillEnemy.cs" />
     <Compile Include="MarioGame\Commands\KillMario.cs" />
     <Compile Include="MarioGame\Commands\MarioAddLife.cs" />
@@ -192,6 +193,7 @@
     <Compile Include="MarioGame\Transitions\Menu\MenuViews\ArenaSelection.cs" />
     <Compile Include="MarioGame\Transitions\Menu\MenuViews\CharacterSelection.cs" />
     <Compile Include="MarioGame\Transitions\Menu\MenuViews\ContinueScreen.cs" />
+    <Compile Include="MarioGame\Transitions\Menu\MenuViews\IntroScene.cs" />
     <Compile Include="MarioGame\Transitions\Menu\MenuViews\PlayerCountSelection.cs" />
     <Compile Include="MarioGame\Transitions\Views\ViewFactory.cs" />
     <Compile Include="MarioGame\Transitions\Views\DeadView.cs" />

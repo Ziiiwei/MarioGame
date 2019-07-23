@@ -115,7 +115,6 @@ namespace Gamespace
         protected override void LoadContent()
         {   
             Font = Content.Load<SpriteFont>("Pixel");
-            SoundManager.Instance.PlayMainBGM();
         }
 
         /// <summary>

@@ -1,6 +1,7 @@
 ﻿using Gamespace.Controllers;
 using Gamespace.Data;
 using Gamespace.Views;
+using Gamespace.Sounds;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
@@ -9,11 +10,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+/*
+ * Part of the transitions idea was taken from https://stackoverflow.com/questions/37047017/monogame-cut-scene-methods
+ */
+
 namespace Gamespace.Transitions
 {
     internal class GameMenu
     {
-        private enum MenuState { Title, Count, Arena, Character, Complete };
+        private enum MenuState {Intro, Title, Count, Arena, Character, Complete };
         private Dictionary<MenuState, Delegate> stateTransitions;
         private MenuState currentState;
         private enum InputDirection { Up, Down };
@@ -26,16 +31,27 @@ namespace Gamespace.Transitions
         private IView view;
         private IController input;
 
+        private float timer,
+            fadeInTime,
+            waitTime,
+            fadeOutTime;
+
+        private float startToWaitTime { get { return fadeInTime;  } }
+        private float startToFadeOutTime { get { return fadeInTime + waitTime;  } }
+        private float startToEndTime { get { return fadeInTime + waitTime + fadeOutTime; } }
+
         public GameMenu()
         {
-            currentState = MenuState.Title;
-            view = new ContinueScreen();
+            SoundManager.Instance.PlayMainBGM();
+            currentState = MenuState.Intro;
+            view = new IntroScene();
             input = new TitleScreenInput(this);
             PlayerCount = 0;
             ArenaSelected = 0;
 
             stateTransitions = new Dictionary<MenuState, Delegate>()
             {
+                {MenuState.Intro, new Action(IntroToTitleTransition) },
                 {MenuState.Title, new Action(TitleToCountTransition) },
                 {MenuState.Count, new Action(CountToArenaTransition) },
                 {MenuState.Arena, new Action(ArenaToCharacterTransition) },
@@ -73,6 +89,10 @@ namespace Gamespace.Transitions
         public void Update()
         {
             input.Update();
+            if(currentState == MenuState.Intro)
+            {
+                if()
+            }
         }
 
         public void SelectionUp(PlayerIndex i)
@@ -98,6 +118,15 @@ namespace Gamespace.Transitions
             stateTransitions[currentState].DynamicInvoke();
         }
 
+        private void IntroToTitleTransition()
+        {
+            currentState = MenuState.Title;
+            view = new ContinueScreen();
+            input = new TitleScreenInput(this);
+
+
+        }
+
         private void TitleToCountTransition()
         {
             currentState = MenuState.Count;
@@ -109,6 +138,9 @@ namespace Gamespace.Transitions
         {
             currentState = MenuState.Arena;
             view = new ArenaSelection(this);
+            SoundManager.Instance.StopMainBGM();
+            SoundManager.Instance.PlaySelectBGM();
+            
         }
 
         private void ArenaToCharacterTransition()
@@ -120,6 +152,7 @@ namespace Gamespace.Transitions
         private void SelectionsComplete()
         {
             MarioGame.Instance.OnMenuSelectionsComplete();
+            SoundManager.Instance.StopSelectBGM();
         }
     }
 }

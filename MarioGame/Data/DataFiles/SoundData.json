@@ -85,8 +85,12 @@
       "SoundPath": "Sounds/superjump"
     },
     {
-      "SoundName": "BGM",
-      "SoundPath": "Sounds/Super Mario Bros"
+      "SoundName": "MainMenu",
+      "SoundPath": "Sounds/DeathmatchTitleMusic"
+    },
+    {
+      "SoundName": "Select",
+      "SoundPath": "Sounds/DeathmatchSelect"
     }
   ]
 }

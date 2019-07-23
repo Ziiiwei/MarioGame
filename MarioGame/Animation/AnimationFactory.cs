@@ -76,7 +76,15 @@ namespace Gamespace.Animation
                     }
                 },
 
-               
+                {
+                    typeof(PlayMarioIntroScene),
+                    new List<(Type, int, int)>
+                    { 
+                        (typeof(MarioMoveRightCommand),200,NO_REPEAT_CHECK)
+                    }
+                },
+
+
 
             };
 

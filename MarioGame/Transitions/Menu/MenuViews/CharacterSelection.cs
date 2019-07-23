@@ -1,4 +1,5 @@
 ﻿using Gamespace.Views;
+using Gamespace.Transitions;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
@@ -10,6 +11,8 @@ namespace Gamespace
 {
     internal class CharacterSelection : IView
     {
+
+        GameMenu menu;
         public void Draw(SpriteBatch spriteBatch)
         {
             

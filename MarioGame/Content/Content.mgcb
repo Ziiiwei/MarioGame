@@ -831,6 +831,18 @@
 /processorParam:Quality=Best
 /build:Sounds/coin.wav
 
+#begin Sounds/DeathmatchSelect.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sounds/DeathmatchSelect.wav
+
+#begin Sounds/DeathmatchTitleMusic.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sounds/DeathmatchTitleMusic.wav
+
 #begin Sounds/fireball.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor
@@ -1328,6 +1340,18 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:SuperMario/SMWalkingRight.png
+
+#begin TestBackground.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:TestBackground.png
 
 #begin UsedBlock.png
 /importer:TextureImporter
