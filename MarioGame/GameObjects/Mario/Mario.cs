@@ -55,12 +55,9 @@ namespace Gamespace
             base.SurrogateUpdate();
             GameObjectPhysics.Update();
             State.FrictionStop();
-
             positionOnScreen = GameObjectPhysics.Position;
-
             keepStanding.Invoke();
             keepStanding = () => State.Stand();
-
 
             jumpKeyHolded = jumpKeyPressed && previouslyJumpKeyPressed;
             previouslyJumpKeyPressed = jumpKeyPressed;

@@ -20,7 +20,7 @@ namespace Gamespace.States
             int previous_h = mario.Sprite.Height;
             mario.State = new LeftCrouchingMarioState(mario);
             mario.UpdateArt();
-            mario.GameObjectPhysics.DownStop(new Rectangle(0, 0, 0, mario.Sprite.Height - previous_h));
+            mario.GameObjectPhysics.IncrementMove(Side.Down,Math.Abs(mario.Sprite.Height - previous_h));
         }
 
         public override void Jump()

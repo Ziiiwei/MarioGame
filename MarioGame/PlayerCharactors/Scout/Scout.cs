@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Gamespace.Projectiles
+namespace Gamespace.Scout
 {
-    interface IProjectileState
+    class Scout
     {
-        void ChangeDirection(ShootAngle angle);
     }
 }

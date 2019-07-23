@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace Gamespace.Projectiles
 {
-    class LeftMovingProjectile : MovingProjectileState
+    class UpMovingProjectile : MovingProjectileState
     {
-        public LeftMovingProjectile(IProjectile projectile) : base(projectile)
+        public UpMovingProjectile(IProjectile projectile) : base(projectile)
         {
-            this.projectile.Angle = ShootAngle.Left;
+            this.projectile.Angle = ShootAngle.Up;
         }
 
         public override void ChangeDirection(ShootAngle angle)

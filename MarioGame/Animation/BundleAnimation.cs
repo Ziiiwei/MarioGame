@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Gamespace.Projectiles
+namespace GameSpace.Animation
 {
-    interface IProjectileState
+    class BundleAnimation
     {
-        void ChangeDirection(ShootAngle angle);
     }
 }

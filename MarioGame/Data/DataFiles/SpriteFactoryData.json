@@ -546,7 +546,7 @@
       "FrameCount": 2,
       "FrameDelay": 5
     },
-	{
+    {
       "Name": "Koopa",
       "State": "KoopaFlippedLeftState",
       "PowerUpState": "",
@@ -554,7 +554,7 @@
       "FrameCount": 2,
       "FrameDelay": 5
     },
-	{
+    {
       "Name": "Koopa",
       "State": "KoopaFlippedRightState",
       "PowerUpState": "",
@@ -611,7 +611,7 @@
       "FrameCount": 1,
       "FrameDelay": 3
     },
-	{
+    {
       "Name": "DeathBlock",
       "State": "",
       "PowerUpState": "",
@@ -747,13 +747,53 @@
       "FrameCount": 2,
       "FrameDelay": 6
     },
-	{
+    {
       "Name": "Fireball_out",
       "State": "",
       "PowerUpState": "",
       "TexturePath": "Fireball_out",
       "FrameCount": 1,
       "FrameDelay": 3
+    },
+    {
+      "Name": "BrickBlockPart1",
+      "State": "",
+      "PowerUpState": "",
+      "TexturePath": "Sprint6/BB1",
+      "FrameCount": 2,
+      "FrameDelay": 4
+    },
+    {
+      "Name": "BrickBlockPart2",
+      "State": "",
+      "PowerUpState": "",
+      "TexturePath": "Sprint6/BB2",
+      "FrameCount": 2,
+      "FrameDelay": 4
+    },
+    {
+      "Name": "BrickBlockPart3",
+      "State": "",
+      "PowerUpState": "",
+      "TexturePath": "Sprint6/BB3",
+      "FrameCount": 2,
+      "FrameDelay": 4
+    },
+    {
+      "Name": "BrickBlockPart4",
+      "State": "",
+      "PowerUpState": "",
+      "TexturePath": "Sprint6/BB4",
+      "FrameCount": 2,
+      "FrameDelay": 4
+    },
+    {
+      "Name": "Explosion1",
+      "State": "",
+      "PowerUpState": "",
+      "TexturePath": "Sprint6/Explosion",
+      "FrameCount": 3,
+      "FrameDelay": 4
     }
   ]
 }

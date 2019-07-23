@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Gamespace;
+using Microsoft.Xna.Framework;
 
 namespace Gamespace.States
 {
@@ -34,8 +35,11 @@ namespace Gamespace.States
 
         public override void Stand()
         {
+            int previous_h = mario.Sprite.Height;
             mario.State = new RightStandingMarioState(mario);
             mario.UpdateArt();
+            mario.GameObjectPhysics.IncrementMove(Side.Up, Math.Abs(previous_h - mario.Sprite.Height));
+          
         }
 
     }

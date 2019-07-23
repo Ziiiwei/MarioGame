@@ -1,18 +1,19 @@
-﻿using System;
+﻿using Gamespace.States;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Gamespace.States
+namespace Gamespace.Characters
 {
-    internal abstract class MovingMarioState : IMarioState
+    internal abstract class MovingCharacterState : ICharacterState
     {
-        protected IMario mario;
+        protected ICharacter character;
 
-        protected MovingMarioState(IMario mario)
+        protected MovingCharacterState(ICharacter character)
         {
-            this.mario = mario;
+            this.character = character;
         }
         public virtual void Crouch() { }
         public virtual void Jump() { }

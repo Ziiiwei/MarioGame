@@ -10,8 +10,9 @@ namespace Gamespace
     interface IProjectile : IGameObject
     {
         IProjectileState State { get; set; }
-        void ChangeDirection();
-        void Move(Side side);
+        ShootAngle Angle { get; set; }
+        void ChangeDirection(ShootAngle angle);
+        void Shoot(ShootAngle angle);
         void Remove();
     }
 }

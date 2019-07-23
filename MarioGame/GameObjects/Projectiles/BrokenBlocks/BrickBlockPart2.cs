@@ -6,8 +6,7 @@ using System.Threading.Tasks;
 
 namespace Gamespace.Projectiles
 {
-    interface IProjectileState
+    class BrickBlockPart2
     {
-        void ChangeDirection(ShootAngle angle);
     }
 }

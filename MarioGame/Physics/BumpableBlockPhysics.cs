@@ -11,7 +11,7 @@ namespace Gamespace
     internal class BumpableBlockPhysics : Physics
     {
         int highWaterMark;
-        public BumpableBlockPhysics(IGameObject gameObject, Vector2 position, (float,float,float,float,float) constants) : base(gameObject, position, constants)
+        public BumpableBlockPhysics(IGameObject gameObject, Vector2 position, (float,float,float,float,float)  constants) : base(gameObject, position, constants)
         {
             highWaterMark = (int) position.Y;
         }
