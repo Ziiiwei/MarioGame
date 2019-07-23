@@ -11,11 +11,15 @@ namespace Gamespace
 {
     internal class IntroScene : IView
     {
-        private Texture2D FreeLunch;
+        private Texture2D Background;
+        private Texture2D FreeLunchLogo;
         public void Draw(SpriteBatch spriteBatch)
         {
-            FreeLunch = MarioGame.Instance.Content.Load<Texture2D>("TestBackground");
-            spriteBatch.Draw(FreeLunch, new Rectangle(0, 0, 800, 480), Color.Black);
+            FreeLunchLogo = MarioGame.Instance.Content.Load<Texture2D>("FreeLunchLogo");
+            Background = MarioGame.Instance.Content.Load<Texture2D>("TestBackground");
+            MarioGame.Instance.GraphicsDevice.Clear(Color.Black);
+            spriteBatch.Draw(FreeLunchLogo, new Rectangle(0, 0, 800, 480), Color.White);
+          
         }
     }
 }

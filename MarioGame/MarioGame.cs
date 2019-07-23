@@ -90,7 +90,7 @@ namespace Gamespace
             gameUpdate += UpdateGameMenu;
             gameDraw += DrawGameMenu;
 
-            levelLoader = new LevelLoader(World.Instance, "MarioGame/Data/DataFiles/MainMenu.csv");
+            
 
         }
 
@@ -144,7 +144,7 @@ namespace Gamespace
         protected override void Draw(GameTime gameTime)
         {
             base.Draw(gameTime);
-            GraphicsDevice.Clear(Color.CornflowerBlue);
+            GraphicsDevice.Clear(Color.Maroon);
             Framerate = 1 / (float)gameTime.ElapsedGameTime.TotalSeconds;
             gameDraw.Invoke();
         }

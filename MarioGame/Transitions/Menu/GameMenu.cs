@@ -21,24 +21,23 @@ namespace Gamespace.Transitions
         private enum MenuState {Intro, Title, Count, Arena, Character, Complete };
         private Dictionary<MenuState, Delegate> stateTransitions;
         private MenuState currentState;
+
+        private LevelLoader levelLoader;
+        
+        private int startingTime;
+        private int StartingTime = Numbers.STARTING_TIME;
         private enum InputDirection { Up, Down };
 
         public int PlayerCount { get; private set; }
         public int ArenaSelected { get; private set; }
+        public int Time { get; private set; }
         public Dictionary<PlayerIndex, Type> playerCharacterSelection { get; private set; }
 
         private Dictionary<Tuple<MenuState, InputDirection>, Delegate> inputAction;
         private IView view;
         private IController input;
 
-        private float timer,
-            fadeInTime,
-            waitTime,
-            fadeOutTime;
-
-        private float startToWaitTime { get { return fadeInTime;  } }
-        private float startToFadeOutTime { get { return fadeInTime + waitTime;  } }
-        private float startToEndTime { get { return fadeInTime + waitTime + fadeOutTime; } }
+   
 
         public GameMenu()
         {
@@ -48,6 +47,7 @@ namespace Gamespace.Transitions
             input = new TitleScreenInput(this);
             PlayerCount = 0;
             ArenaSelected = 0;
+            Time = StartingTime;
 
             stateTransitions = new Dictionary<MenuState, Delegate>()
             {
@@ -89,11 +89,11 @@ namespace Gamespace.Transitions
         public void Update()
         {
             input.Update();
-            if(currentState == MenuState.Intro)
+            if (currentState == MenuState.Intro)
             {
-                if (DiscreteTimer.Equals(15))
+                if (Time.Equals(4))
                 {
-
+                    IntroToTitleTransition();
                 }
             }
         }
@@ -124,6 +124,7 @@ namespace Gamespace.Transitions
         private void IntroToTitleTransition()
         {
             currentState = MenuState.Title;
+            levelLoader = new LevelLoader(World.Instance, "MarioGame/Data/DataFiles/MainMenu.csv");
             view = new ContinueScreen();
             input = new TitleScreenInput(this);
 
