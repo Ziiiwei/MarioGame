@@ -91,7 +91,10 @@ namespace Gamespace.Transitions
             input.Update();
             if(currentState == MenuState.Intro)
             {
-                if()
+                if (DiscreteTimer.Equals(15))
+                {
+
+                }
             }
         }
 
