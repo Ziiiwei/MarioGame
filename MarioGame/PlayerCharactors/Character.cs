@@ -16,7 +16,9 @@ namespace Gamespace
         {
             public ICharacterPowerUpState PowerUpState { get; set; }
             public Scoreboard scoreboard { get; set; }
-            private Action keepStanding;
+        public ILauncher Launcher { get; set; }
+
+        private Action keepStanding;
 
             private bool jumpKeyPressed;
             private bool jumpKeyHolded;

@@ -46,7 +46,7 @@ namespace Gamespace.Characters
 
         public override void Fire()
         {
-            character.Projectiles.Fire(Side.Right);
+            character.Launcher.Fire(Projectiles.ShootAngle.Right);
         }
 
         public override bool Jumpable()

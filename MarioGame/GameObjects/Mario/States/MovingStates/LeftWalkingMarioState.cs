@@ -44,7 +44,7 @@ namespace Gamespace.States
 
         public override void Fire()
         {
-            mario.Projectiles.Fire(Side.Left);
+            mario.Launcher.Fire(Projectiles.ShootAngle.Left);
         }
 
         public override void ClimbUp()

@@ -112,14 +112,13 @@
     <Compile Include="MarioGame\GameObjects\Projectiles\BrokenBB.cs" />
     <Compile Include="MarioGame\GameObjects\Projectiles\Bullet2.cs" />
     <Compile Include="MarioGame\GameObjects\Projectiles\CharacterWeapeonManager.cs" />
-    <Compile Include="MarioGame\GameObjects\Projectiles\FireballStates\LeftUpMovingProjectile.cs" />
     <Compile Include="MarioGame\GameObjects\Projectiles\FireballStates\MovingProjectileState.cs" />
-    <Compile Include="MarioGame\GameObjects\Projectiles\FireballStates\RightUpMovingProjectile.cs" />
     <Compile Include="MarioGame\GameObjects\Projectiles\FireballStates\UpMovingProjectile.cs" />
     <Compile Include="MarioGame\GameObjects\Projectiles\Fireball.cs" />
     <Compile Include="MarioGame\GameObjects\Projectiles\FireballStates\IProjectileState.cs" />
     <Compile Include="MarioGame\GameObjects\Projectiles\FireballStates\LeftMovingProjectile.cs" />
     <Compile Include="MarioGame\GameObjects\Projectiles\FireballStates\RightMovingProjectile.cs" />
+    <Compile Include="MarioGame\GameObjects\Projectiles\ILauncher.cs" />
     <Compile Include="MarioGame\GameObjects\Projectiles\IProjectile.cs" />
     <Compile Include="MarioGame\GameObjects\Mario\Mario.cs" />
     <Compile Include="MarioGame\GameObjects\Mario\States\MovingStates\RightSlidingMarioState.cs" />

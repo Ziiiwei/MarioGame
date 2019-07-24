@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Gamespace;
 using Gamespace.Interfaces;
+using Gamespace.Projectiles;
 using Microsoft.Xna.Framework;
 
 namespace Gamespace.States
@@ -46,7 +47,7 @@ namespace Gamespace.States
 
         public override void Fire()
         {
-            mario.Projectiles.Fire(Side.Left);
+            mario.Launcher.Fire(ShootAngle.Left);
         }
 
         public override void ClimbUp()

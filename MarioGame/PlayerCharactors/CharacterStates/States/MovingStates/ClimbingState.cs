@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Gamespace.Characters
 {
-    class RightClimbingCharacterState : MovingCharacterState
+    class ClimbingCharacterState : MovingCharacterState
     {
-        public RightClimbingCharacterState(ICharacter character) : base(character)
+        public ClimbingCharacterState(ICharacter character) : base(character)
         {
             this.character = character;
         }

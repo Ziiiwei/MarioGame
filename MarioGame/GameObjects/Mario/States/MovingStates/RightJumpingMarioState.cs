@@ -46,7 +46,7 @@ namespace Gamespace.States
 
         public override void Fire()
         {
-            mario.Projectiles.Fire(Side.Right);
+            mario.Launcher.Fire(Projectiles.ShootAngle.Right);
         }
 
         public override bool Jumpable()

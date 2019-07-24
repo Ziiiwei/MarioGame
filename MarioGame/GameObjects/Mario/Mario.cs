@@ -19,7 +19,7 @@ namespace Gamespace
         public IMarioPowerUpState PowerUpState { get; set; }
         public IMarioPowerUpState PreviousState { get; set; }
       
-
+        public ILauncher Launcher { get; set; }
         public Scoreboard scoreboard { get; set; }
 
         private Action keepStanding;
@@ -36,13 +36,14 @@ namespace Gamespace
         {
             State = new RightStandingMarioState(this);
             PowerUpState = new MarioSmallState();
-            SetSprite();
-    
+            SetSprite();    
             keepStanding= () => State.Stand();
             DrawPriority = 1;
             jumpKeyPressed = false;
             jumpKeyHolded = false;
             previouslyJumpKeyPressed = false;
+
+            Launcher = CharacterWeapeonManager.Instance.GetWeapeon(this);
         }
 
         public Mario(Vector2 positionOnScreen, Scoreboard scoreboard) : this(positionOnScreen)

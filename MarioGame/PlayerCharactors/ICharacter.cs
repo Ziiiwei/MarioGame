@@ -12,6 +12,7 @@ namespace Gamespace
         ICharacterState State { get; set; }
         ICharacterPowerUpState PowerUpState { get; set; }
         IPhysics GameObjectPhysics { get; set; }
+        ILauncher Launcher { get; set; }
 
         Scoreboard scoreboard { get; set; }
         void Bounce();

@@ -44,12 +44,12 @@ namespace Gamespace.Characters
 
         public override void Fire()
         {
-            character.Projectiles.Fire(Side.Left);
+            character.Launcher.Fire(Projectiles.ShootAngle.Left);
         }
 
         public override void ClimbUp()
         {
-            character.State = new LeftClimbingCharacterState(character);
+            character.State = new ClimbingCharacterState(character);
             character.GameObjectPhysics.Climb(Side.Up);
             character.UpdateArt();
         }

@@ -48,12 +48,12 @@ namespace Gamespace.Characters
 
         public override void Fire()
         {
-            character.Projectiles.Fire(Side.Right);
+            character.Launcher.Fire(Projectiles.ShootAngle.Right);
         }
 
         public override void ClimbUp()
         {
-            character.State = new RightClimbingCharacterState(character);
+            character.State = new ClimbingCharacterState(character);
             character.GameObjectPhysics.Climb(Side.Up);
             character.UpdateArt();
         }

@@ -16,7 +16,6 @@ namespace Gamespace.Projectiles
         public override void ChangeDirection(ShootAngle angle)
         {
             base.ChangeDirection(angle);
-            projectile.Shoot(angle);
         }
     }
 }

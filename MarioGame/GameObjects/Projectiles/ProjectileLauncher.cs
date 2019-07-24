@@ -10,7 +10,7 @@ using Gamespace.Blocks;
 
 namespace Gamespace.Projectiles
 {
-    internal class ProjectileLauncher
+    internal class ProjectileLauncher : ILauncher
     {
         private AbstractGameObject gameObject;
 
