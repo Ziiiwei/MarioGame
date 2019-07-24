@@ -1,18 +1,40 @@
-﻿using System;
+﻿using Microsoft.Xna.Framework;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Gamespace.Blocks;
 
 namespace Gamespace.Projectiles
 {
     public enum ShootAngle : int { None, Up, Down, Left, Right, LeftUp, RightUp};
-    class CharacterWeapeonManager<IProjectiles>
+    class CharacterWeapeonManager
     {
-        public ICharacter character;
-        private IProjectile projectile;
-        public CharacterWeapeonManager(ICharacter character)
+  
+        private Dictionary<Type, (Func<IProjectile> ammoType, int ammoMax, int fillSpeed)> weapeonLog;
+        static CharacterWeapeonManager() { }
+        private CharacterWeapeonManager()
         {
+            weapeonLog = new Dictionary<Type, (Func<IProjectile> ammoType, int ammoMax, int fillSpeed)>
+            {
+                {typeof(Mario),(new Func<IProjectile>(()=>new Fireball()),10,5)},
+                {typeof(BrickBlock),(new Func<IProjectile>(()=>new Fireball()),10,5)},
+                {typeof(Scout),(new Func<IProjectile>(()=>new Fireball()),20,5)}
+            };
+
+        }
+        public static CharacterWeapeonManager Instance { get; } = new CharacterWeapeonManager();
+
+        public ProjectileLauncher GetWeapeon(IGameObject gameObject)
+        {
+
+            Type type = gameObject.GetType();
+            ProjectileLauncher launcher = new ProjectileLauncher(gameObject,weapeonLog[type].ammoType,
+                weapeonLog[type].fillSpeed);
+            launcher.MaxProjectiles = weapeonLog[type].ammoMax;
+
+            return launcher;
 
         }
     }

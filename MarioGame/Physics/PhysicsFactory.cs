@@ -27,7 +27,11 @@ namespace Gamespace
                 {typeof(RedShroom), typeof(ShroomPhysics) },
                 {typeof(GreenShroom), typeof(ShroomPhysics) },
                 {typeof(BrickBlock), typeof(BumpableBlockPhysics) },
-                {typeof(Fireball), typeof(FireballPhysics) },
+                {typeof(Fireball), typeof(TrajectoryPhysics) },
+                {typeof(Bomb), typeof(TrajectoryPhysics) },
+                {typeof(Bullet1), typeof(TrajectoryPhysics) },
+                {typeof(Bullet2), typeof(TrajectoryPhysics) },
+                {typeof(BrokenBB), typeof(TrajectoryPhysics) },
                 {typeof(Goomba), typeof(EnemyPhysics) },
                 {typeof(Koopa), typeof(EnemyPhysics) },
             };

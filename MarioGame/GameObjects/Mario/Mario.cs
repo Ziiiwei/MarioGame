@@ -18,7 +18,7 @@ namespace Gamespace
     {
         public IMarioPowerUpState PowerUpState { get; set; }
         public IMarioPowerUpState PreviousState { get; set; }
-        public IFireable Projectiles { get; set; }
+      
 
         public Scoreboard scoreboard { get; set; }
 
@@ -37,7 +37,7 @@ namespace Gamespace
             State = new RightStandingMarioState(this);
             PowerUpState = new MarioSmallState();
             SetSprite();
-            Projectiles = new ProjectileLauncher(this);
+    
             keepStanding= () => State.Stand();
             DrawPriority = 1;
             jumpKeyPressed = false;

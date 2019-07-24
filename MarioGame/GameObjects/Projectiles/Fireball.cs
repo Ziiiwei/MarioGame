@@ -13,24 +13,24 @@ namespace Gamespace.Projectiles
     internal class Fireball : AbstractGameStatefulObject<IProjectileState>, IProjectile
     {
         private static readonly Dictionary<ShootAngle, Type> initialOrientation;
+        private readonly Dictionary<ShootAngle, Func<Vector2, Func<Vector2, int, Vector2>>> trajectoryLog;
         private int bounceCounter = 0;
-        private int bounceBound = Numbers.BOUNCE_BOUND;
+        private readonly int bounceBound = Numbers.BOUNCE_BOUND;
 
         public ShootAngle Angle { get ; set; }
 
+        /*
         static Fireball()
         {
             initialOrientation = new Dictionary<ShootAngle, Type>()
             {
                 {ShootAngle.Left, typeof(LeftMovingProjectile) },
                 {ShootAngle.Right, typeof(RightMovingProjectile) },
-                {ShootAngle.LeftUp, typeof(LeftUpMovingProjectile) },
-                {ShootAngle.RightUp, typeof(RightUpMovingProjectile) },
                 {ShootAngle.Up,typeof(UpMovingProjectile) }
 
             };
         }
-
+        */
         public Fireball(Vector2 positionOnScreen, ShootAngle angle) : base(positionOnScreen)
         {
             State = (IProjectileState) Activator.CreateInstance(initialOrientation[angle], this);
@@ -38,14 +38,42 @@ namespace Gamespace.Projectiles
             SetSprite();
         }
 
+        public Fireball() : this(new Vector2(0), ShootAngle.None)
+        {
+            trajectoryLog = new Dictionary<ShootAngle, Func<Vector2, Func<Vector2, int, Vector2>>>
+            {
+                {ShootAngle.Left, new Func<Vector2, Func<Vector2, int, Vector2>>((ini_v) =>
+                {
+                    float v_x = ini_v.X - GameObjectPhysics.PhysicsConstants.X_V;
+                    float v_y = ini_v.Y;
+                    return new Func<Vector2, int, Vector2>((p,t)=>new Vector2(p.X+v_x*t,p.Y+v_y*t+1/2*GameObjectPhysics.PhysicsConstants.G*t*t));
+                }) },
+
+                 {ShootAngle.Right, new Func<Vector2, Func<Vector2, int, Vector2>>((ini_v) =>
+                {
+                    float v_x = ini_v.X + GameObjectPhysics.PhysicsConstants.X_V;
+                    float v_y = ini_v.Y;
+                    return new Func<Vector2, int, Vector2>((p,t)=>new Vector2(p.X+v_x*t,p.Y+v_y*t+1/2*GameObjectPhysics.PhysicsConstants.G*t*t));
+                }) },
+
+                 {ShootAngle.Up, new Func<Vector2, Func<Vector2, int, Vector2>>((ini_v) =>
+                {
+                    float v_x = ini_v.X;
+                    float v_y = ini_v.Y -GameObjectPhysics.PhysicsConstants.Y_V;;
+                    return new Func<Vector2, int, Vector2>((p,t)=>new Vector2(p.X+v_x*t,p.Y+v_y*t+1/2*GameObjectPhysics.PhysicsConstants.G*t*t));
+                }) },
+                   {ShootAngle.Down, new Func<Vector2, Func<Vector2, int, Vector2>>((ini_v) =>
+                {
+                    float v_x = ini_v.X;
+                    float v_y = ini_v.Y +GameObjectPhysics.PhysicsConstants.Y_V;;
+                    return new Func<Vector2, int, Vector2>((p,t)=>new Vector2(p.X+v_x*t,p.Y+v_y*t+1/2*GameObjectPhysics.PhysicsConstants.G*t*t));
+                }) }
+            };
+        }
+
         public void ChangeDirection(ShootAngle angle)
         {
             State.ChangeDirection(angle);
-        }
-
-        public void Move(Side side)
-        {
-            GameObjectPhysics.MoveMaxSpeed(side);
         }
 
         protected override void SetSprite()
@@ -76,34 +104,39 @@ namespace Gamespace.Projectiles
         public override void CollideLeft(Rectangle collisionArea)
         {
             base.CollideLeft(collisionArea);
-            State.ChangeDirection(ShootAngle.Right);
+            Vector2 ini_v = new Vector2(-GameObjectPhysics.Velocity.X, GameObjectPhysics.Velocity.Y);
+            GameObjectPhysics.TrajectMove(trajectoryLog[ShootAngle.Right].Invoke(ini_v));
             bounceCounter++;
         }
 
         public override void CollideRight(Rectangle collisionArea)
         {
             base.CollideRight(collisionArea);
-            State.ChangeDirection(ShootAngle.Left);
+            Vector2 ini_v = new Vector2(-GameObjectPhysics.Velocity.X, GameObjectPhysics.Velocity.Y);
+            GameObjectPhysics.TrajectMove(trajectoryLog[ShootAngle.Left].Invoke(ini_v));
             bounceCounter++;
         }
 
         public override void CollideDown(Rectangle collisionArea)
         {
             base.CollideDown(collisionArea);
-            GameObjectPhysics.MoveMaxSpeed(Side.Up);
+            Vector2 ini_v = new Vector2(GameObjectPhysics.Velocity.X, -GameObjectPhysics.Velocity.Y);
+            GameObjectPhysics.TrajectMove(trajectoryLog[ShootAngle.Up].Invoke(ini_v));
             bounceCounter++;
         }
 
         public override void CollideUp(Rectangle collisionArea)
         {
-            base.CollideDown(collisionArea);
-            GameObjectPhysics.MoveMaxSpeed(Side.Down);
+            base.CollideUp(collisionArea);
+            Vector2 ini_v = new Vector2(GameObjectPhysics.Velocity.X, -GameObjectPhysics.Velocity.Y);
+            GameObjectPhysics.TrajectMove(trajectoryLog[ShootAngle.Down].Invoke(ini_v));
             bounceCounter++;
         }
 
-        public void Shoot(ShootAngle angle)
+        public void Shoot(ShootAngle angle, Vector2 initialV, Vector2 initialP)
         {
-            
+            GameObjectPhysics.Position = initialP;
+            GameObjectPhysics.TrajectMove(trajectoryLog[angle].Invoke(initialV));
         }
     }
 }

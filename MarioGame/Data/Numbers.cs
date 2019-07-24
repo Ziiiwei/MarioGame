@@ -32,9 +32,9 @@ namespace Gamespace.Data
         public const int PLAYER_TWO_X = 1250;
         public const int STARTING_Y = 200;
         public const int PLAYERS_IN_GAME = 2;
-        public const float PROJECTILE_LEFT_OFFSET = -18;
         public const int CAMERA_START_X= 0;
         public const int FOREGROUND_DRAW_PRIORITY = 1;
         public const int LEVEL1_BLOCK_WIDTH = 206;
+        public const int FIREBALL_REFILL_SPEED = 10;
     }
 }

@@ -113,8 +113,6 @@ namespace Gamespace.Animation
             };
 
         }
-
-        private static readonly AnimationFactory instance = new AnimationFactory();
         public static AnimationFactory Instance { get; } = new AnimationFactory();
 
         public IAnimation<IGameObject> GetAnimation(IGameObject obj, Action afterCommand, Type type)

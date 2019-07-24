@@ -74,7 +74,7 @@ namespace Gamespace
 
             SetDefautUpdators();
         }
-
+   
         protected void SetNullUpdators()
         {
             velocityUpdater = () => { };

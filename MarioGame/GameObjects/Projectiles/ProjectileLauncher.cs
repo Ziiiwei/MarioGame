@@ -1,48 +1,75 @@
 ﻿using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
+
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Gamespace.Data;
+using Gamespace.Blocks;
 
 namespace Gamespace.Projectiles
 {
-    internal class ProjectileLauncher : IFireable
+    internal class ProjectileLauncher
     {
-        private IMario gameObject;
-        private int activeProjectiles = 0;
-        private int maxProjectiles;
-        private int delayBound;
+        private AbstractGameObject gameObject;
+
+        public int MaxProjectiles { get; set; }
+      
         private int delayCounter;
-        private Type projectileClassification;
-        private static Dictionary<Side, Func<IMario, float>> spawnOffset;
+        private int refillCounter;
+        private int refillSpeed;
 
-        public ProjectileLauncher(IMario mario)
+        private Stack<IProjectile> ammos;
+        private Func<IProjectile> refill;
+
+        private readonly Dictionary<ShootAngle, Func<Vector2>> spawnOffset;
+
+        public ProjectileLauncher(IGameObject gameObject, Func<IProjectile> fill,int fillSpeed)
         {
-            gameObject = mario;
-            maxProjectiles = Numbers.MAX_PROJECTILES;
-            delayBound = Numbers.DELAY_BOUND;
-            projectileClassification = typeof(Fireball);
+            this.gameObject = (AbstractGameObject)gameObject;
+            MaxProjectiles = Numbers.MAX_PROJECTILES;
 
-            spawnOffset = new Dictionary<Side, Func<IMario, float>>()
+            for (int i=0;i<= MaxProjectiles;i++)
             {
-                {Side.Left, (gameObject) => {return Numbers.PROJECTILE_LEFT_OFFSET; } },
-                {Side.Right, (gameObject) => { return gameObject.Sprite.Width; } }
+                ammos.Push(fill.Invoke());
+            }
+            refill = fill;
+            refillSpeed = fillSpeed;
+
+            spawnOffset = new Dictionary<ShootAngle, Func<Vector2>>
+            {
+                {ShootAngle.Left,  new Func<Vector2>(()=>new Vector2(
+                    this.gameObject.GameObjectPhysics.Position.X,
+                    this.gameObject.Center.Y))},
+                {ShootAngle.Right,  new Func<Vector2>(()=>new Vector2(
+                    this.gameObject.GameObjectPhysics.Position.X+this.gameObject.Sprite.Width,
+                    this.gameObject.Center.Y))},
+                {ShootAngle.Up, new Func<Vector2>(() => new Vector2(
+                    this.gameObject.Center.X,
+                    this.gameObject.GameObjectPhysics.Position.Y))}
             };
+  
         }
 
-        public void Fire(Side side)
+        public void Fire(ShootAngle angle)
         {
-            if (delayCounter % delayBound == 0)
+            if (delayCounter % Numbers.DELAY_BOUND == 0 && ammos.Count>0)
             {
-                Vector2 fireballPosition = new Vector2(gameObject.PositionOnScreen.X + spawnOffset[side].Invoke(gameObject),
-                    gameObject.PositionOnScreen.Y + gameObject.Sprite.Height / 2);
-                IProjectile projectile = (IProjectile)Activator.CreateInstance(projectileClassification, fireballPosition, side);
+                IProjectile projectile = ammos.Pop();
                 World.Instance.AddGameObject(projectile);
-                projectile.Move(side);
+                projectile.Shoot(angle, gameObject.GameObjectPhysics.Position, gameObject.GameObjectPhysics.Velocity);
             }
             delayCounter++;
+        }
+
+        public void Update()
+        {
+            if (refillCounter % refillSpeed ==0 && ammos.Count< Numbers.MAX_PROJECTILES)
+            {
+                ammos.Push(refill.Invoke());
+            }
+            refillCounter++;
         }
     }
 }
