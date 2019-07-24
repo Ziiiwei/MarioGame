@@ -80,7 +80,7 @@ namespace Gamespace
             ArenaPaths = new Dictionary<int, Tuple<string, string>>()
             {
                 {0, new Tuple<string, string>("Arena One", "MarioGame/Data/DataFiles/level1.csv") },
-                {1, new Tuple<string, string>("Arena Two", "MarioGame/Data/DataFiles/level1.csv") },
+                {1, new Tuple<string, string>("Arena Two", "MarioGame/Data/DataFiles/level2.csv") },
                 {2, new Tuple<string, string>("Arena Three", "MarioGame/Data/DataFiles/level1.csv") }
             };
 
@@ -147,7 +147,7 @@ namespace Gamespace
         protected override void Draw(GameTime gameTime)
         {
             base.Draw(gameTime);
-            GraphicsDevice.Clear(Color.DarkSlateGray);
+            GraphicsDevice.Clear(Color.CornflowerBlue);
             Framerate = 1 / (float)gameTime.ElapsedGameTime.TotalSeconds;
 
 
