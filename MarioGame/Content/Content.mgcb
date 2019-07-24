@@ -13,6 +13,12 @@
 
 #---------------------------------- Content ---------------------------------#
 
+#begin ../../../../../Downloads/DeathmatchTitleMusic.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:../../../../../Downloads/DeathmatchTitleMusic.wav;Sounds/DeathmatchTitleMusic.wav
+
 #begin Arial.spritefont
 /importer:FontDescriptionImporter
 /processor:FontDescriptionProcessor
@@ -848,6 +854,12 @@
 /processor:SoundEffectProcessor
 /processorParam:Quality=Best
 /build:Sounds/DeathmatchSelect.wav
+
+#begin Sounds/DeathmatchTitleMusic.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sounds/DeathmatchTitleMusic.wav
 
 #begin Sounds/DeathmatchTitleMusic.wav
 /importer:WavImporter

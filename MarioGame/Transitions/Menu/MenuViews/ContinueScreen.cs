@@ -17,7 +17,7 @@ namespace Gamespace
       
         public void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.DrawString(MarioGame.Instance.Font, textOnScreen, positionOnScreen, Color.Black, 0.0f, Vector2.Zero, 2.0f, SpriteEffects.None, 0.0f);
+            spriteBatch.DrawString(MarioGame.Instance.Font, textOnScreen, positionOnScreen, Color.Black, 0.0f, Vector2.Zero, 1.0f, SpriteEffects.None, 0.0f);
         }
     }
 }

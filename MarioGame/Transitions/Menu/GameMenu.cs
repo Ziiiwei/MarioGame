@@ -23,8 +23,9 @@ namespace Gamespace.Transitions
         private MenuState currentState;
 
         private LevelLoader levelLoader;
+
+        private GameTime gameTime;
         
-        private int startingTime;
         private int StartingTime = Numbers.STARTING_TIME;
         private enum InputDirection { Up, Down };
 
@@ -86,12 +87,12 @@ namespace Gamespace.Transitions
             view.Draw(spriteBatch);
         }
 
-        public void Update()
+        public void Update(GameTime gt)
         {
             input.Update();
             if (currentState == MenuState.Intro)
             {
-                if (Time.Equals(4))
+                if ((int)gt.TotalGameTime.TotalSeconds == Numbers.INTRO_TIME)
                 {
                     IntroToTitleTransition();
                 }
@@ -100,6 +101,7 @@ namespace Gamespace.Transitions
 
         public void SelectionUp(PlayerIndex i)
         {
+            
             var key = new Tuple<MenuState, InputDirection>(currentState, InputDirection.Up);
             if (inputAction.ContainsKey(key))
             {

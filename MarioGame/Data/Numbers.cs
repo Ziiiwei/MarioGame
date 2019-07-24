@@ -37,5 +37,6 @@ namespace Gamespace.Data
         public const int FOREGROUND_DRAW_PRIORITY = 1;
         public const int LEVEL1_BLOCK_WIDTH = 206;
         public const int MAX_PLAYERS = 4;
+        public const int INTRO_TIME = 13;
     }
 }

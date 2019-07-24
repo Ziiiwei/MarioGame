@@ -161,7 +161,6 @@ namespace Gamespace
 
             levelLoader = new LevelLoader(World.Instance, "MarioGame/Data/DataFiles/level1.csv");
             SoundManager.Instance.PlayMainBGM();  
-
         }
 
         private void UpdateGameWorld(GameTime gameTime)
@@ -173,7 +172,7 @@ namespace Gamespace
         private void UpdateGameMenu(GameTime gameTime)
         {
             World.Instance.UpdateWorld();
-            menu.Update();
+            menu.Update(gameTime);
         }
 
         private void DrawGameWorld()
