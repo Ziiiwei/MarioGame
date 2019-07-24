@@ -42,7 +42,6 @@ namespace Gamespace
             jumpKeyPressed = false;
             jumpKeyHolded = false;
             previouslyJumpKeyPressed = false;
-
             Launcher = CharacterWeapeonManager.Instance.GetWeapeon(this);
         }
 
@@ -62,7 +61,9 @@ namespace Gamespace
 
             jumpKeyHolded = jumpKeyPressed && previouslyJumpKeyPressed;
             previouslyJumpKeyPressed = jumpKeyPressed;
-            jumpKeyPressed = false;         
+            jumpKeyPressed = false;
+
+            Launcher.Update();
         }
 
         public void Crouch()

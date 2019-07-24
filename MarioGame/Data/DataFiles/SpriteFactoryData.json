@@ -815,7 +815,7 @@
       "Name": "Tank",
       "State": "LeftWalkingingState",
       "PowerUpState": "ActiveState",
-      "TexturePath": "Sprint6/Tank/MovingLeft",
+      "TexturePath": "Sprint6/Tank/MoveLeft",
       "FrameCount": 3,
       "FrameDelay": 3
     },
@@ -823,7 +823,7 @@
       "Name": "Tank",
       "State": "RightWalkingingState",
       "PowerUpState": "ActiveState",
-      "TexturePath": "Sprint6/Tank/MovingRight",
+      "TexturePath": "Sprint6/Tank/MoveRight",
       "FrameCount": 3,
       "FrameDelay": 3
     },

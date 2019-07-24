@@ -30,6 +30,8 @@ namespace Gamespace.Projectiles
             this.gameObject = (AbstractGameObject)gameObject;
             MaxProjectiles = Numbers.MAX_PROJECTILES;
 
+            ammos = new Stack<IProjectile>();
+
             for (int i=0;i<= MaxProjectiles;i++)
             {
                 ammos.Push(fill.Invoke());
@@ -58,7 +60,7 @@ namespace Gamespace.Projectiles
             {
                 IProjectile projectile = ammos.Pop();
                 World.Instance.AddGameObject(projectile);
-                projectile.Shoot(angle, gameObject.GameObjectPhysics.Position, gameObject.GameObjectPhysics.Velocity);
+                projectile.Shoot(angle, gameObject.GameObjectPhysics.Velocity, spawnOffset[angle].Invoke());
             }
             delayCounter++;
         }

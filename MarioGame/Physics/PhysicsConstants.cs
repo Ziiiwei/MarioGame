@@ -63,7 +63,7 @@ namespace Gamespace
                 },
                 {
                     typeof(Fireball),
-                    (1.0f, 0.1f, 5f, 2f, 5f)
+                    (1.0f, 2.0f, 10f, 10f, 5f)
                 }
             };
         }

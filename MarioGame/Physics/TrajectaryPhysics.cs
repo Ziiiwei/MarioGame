@@ -19,6 +19,7 @@ namespace Gamespace
             positionUpdater.Invoke();
             velocity.Y = position.Y - currentPosition.Y;
             velocity.X = position.X - currentPosition.X;
+            updateTimer++;
         }
     }
 }
