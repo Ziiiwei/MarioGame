@@ -147,7 +147,7 @@ namespace Gamespace
         protected override void Draw(GameTime gameTime)
         {
             base.Draw(gameTime);
-            GraphicsDevice.Clear(Color.CornflowerBlue);
+            GraphicsDevice.Clear(Color.DarkSlateGray);
             Framerate = 1 / (float)gameTime.ElapsedGameTime.TotalSeconds;
 
 

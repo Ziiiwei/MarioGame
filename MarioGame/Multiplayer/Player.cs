@@ -38,7 +38,7 @@ namespace Gamespace.Multiplayer
             playerCounter++;
             ShowLives();
             this.spawnPoint = spawnPoint;
-            Cam = new MultiplayerCamera(PlayerID, new Vector2(Numbers.CAMERA_START_X, 0));
+            Cam = new MultiplayerCamera(PlayerID, new Vector2(Numbers.CAMERA_START_X, 0), MarioGame.Instance.PlayerCount);
             bezel = new Bezel(playerID, MarioGame.Instance.PlayerCount, MarioGame.Instance.GraphicsDevice, Cam);
 
             viewport = ViewportFactory.Instance.GetViewport(playerID, MarioGame.Instance.PlayerCount);
@@ -103,7 +103,7 @@ namespace Gamespace.Multiplayer
         {
             GameObject = (IMario)Activator.CreateInstance(GameObject.GetType(), spawnPoint, scoreboard);
             ShowLives();
-            Cam = new MultiplayerCamera(PlayerID, new Vector2(Numbers.CAMERA_START_X, 0));
+            Cam = new MultiplayerCamera(PlayerID, new Vector2(Numbers.CAMERA_START_X, 0), MarioGame.Instance.PlayerCount);
             Controller = new KeyboardController(this);
         }
     }

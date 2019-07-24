@@ -92,17 +92,59 @@ namespace Gamespace
 
         private void PlayerTwoBezel()
         {
+            drawable.Clear();
 
+            Rectangle verticalRectangle = new Rectangle((int)cam.CameraPosition.X - 1, 0, 1, MarioGame.WINDOW_HEIGHT / 2);
+
+            if (playerCount < 3)
+            {
+                Rectangle horizontalRectangle = new Rectangle((int)cam.CameraPosition.X, (int)cam.CameraPosition.Y + (MarioGame.WINDOW_HEIGHT / 2) - 1, MarioGame.WINDOW_WIDTH, 1);
+                drawable.Add(new Tuple<Texture2D, Rectangle>(horizontalBezel, horizontalRectangle));
+            }
+            else
+            {
+                Rectangle horizontalRectangle = new Rectangle((int)cam.CameraPosition.X + 1, (MarioGame.WINDOW_HEIGHT / 2) - 1, MarioGame.WINDOW_WIDTH / 2, 1);
+                drawable.Add(new Tuple<Texture2D, Rectangle>(horizontalBezel, horizontalRectangle));
+                drawable.Add(new Tuple<Texture2D, Rectangle>(verticalBezel, verticalRectangle));
+            }
         }
 
         private void PlayerThreeBezel()
         {
+            drawable.Clear();
 
+            Rectangle verticalRectangle = new Rectangle((int)cam.CameraPosition.X + (MarioGame.WINDOW_WIDTH / 2) - 1, 0, 1, MarioGame.WINDOW_HEIGHT / 2);
+
+            if (playerCount < 3)
+            {
+                Rectangle horizontalRectangle = new Rectangle((int)cam.CameraPosition.X, (int)cam.CameraPosition.Y + (MarioGame.WINDOW_HEIGHT) - 1, MarioGame.WINDOW_WIDTH, 1);
+                drawable.Add(new Tuple<Texture2D, Rectangle>(horizontalBezel, horizontalRectangle));
+            }
+            else
+            {
+                Rectangle horizontalRectangle = new Rectangle((int)cam.CameraPosition.X + 1, (MarioGame.WINDOW_HEIGHT / 2) - 1, MarioGame.WINDOW_WIDTH / 2, 1);
+                drawable.Add(new Tuple<Texture2D, Rectangle>(horizontalBezel, horizontalRectangle));
+                drawable.Add(new Tuple<Texture2D, Rectangle>(verticalBezel, verticalRectangle));
+            }
         }
 
         private void PlayerFourBezel()
         {
+            drawable.Clear();
 
+            Rectangle verticalRectangle = new Rectangle((int)cam.CameraPosition.X + (MarioGame.WINDOW_WIDTH / 2) - 1, 0, 1, MarioGame.WINDOW_HEIGHT / 2);
+
+            if (playerCount < 3)
+            {
+                Rectangle horizontalRectangle = new Rectangle((int)cam.CameraPosition.X, (int)cam.CameraPosition.Y + (MarioGame.WINDOW_HEIGHT / 2) - 1, MarioGame.WINDOW_WIDTH, 1);
+                drawable.Add(new Tuple<Texture2D, Rectangle>(horizontalBezel, horizontalRectangle));
+            }
+            else
+            {
+                Rectangle horizontalRectangle = new Rectangle((int)cam.CameraPosition.X + 1, (MarioGame.WINDOW_HEIGHT / 2) - 1, MarioGame.WINDOW_WIDTH / 2, 1);
+                drawable.Add(new Tuple<Texture2D, Rectangle>(horizontalBezel, horizontalRectangle));
+                drawable.Add(new Tuple<Texture2D, Rectangle>(verticalBezel, verticalRectangle));
+            }
         }
     }
 }
