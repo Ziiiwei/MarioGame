@@ -225,6 +225,7 @@
     <Compile Include="MarioGame\Transitions\Menu\MenuViews\ArenaSelection.cs" />
     <Compile Include="MarioGame\Transitions\Menu\MenuViews\CharacterSelection.cs" />
     <Compile Include="MarioGame\Transitions\Menu\MenuViews\ContinueScreen.cs" />
+    <Compile Include="MarioGame\Transitions\Menu\MenuViews\CreditScene.cs" />
     <Compile Include="MarioGame\Transitions\Menu\MenuViews\IntroScene.cs" />
     <Compile Include="MarioGame\Transitions\Menu\MenuViews\PlayerCountSelection.cs" />
     <Compile Include="MarioGame\Transitions\Views\Bezel.cs" />
