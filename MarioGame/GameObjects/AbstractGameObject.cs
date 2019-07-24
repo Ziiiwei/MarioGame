@@ -19,18 +19,9 @@ namespace Gamespace
         protected Vector2 positionOnScreen;
         public Vector2 PositionOnScreen  => positionOnScreen;
         public IPhysics GameObjectPhysics { get; set; }
-        private readonly static Dictionary<bool, Action<AbstractGameObject>> updateFunctionPointer;
         public bool IsPaused { get; set; }
         public int BlockSpacePosition { get => (int)Math.Min(Numbers.BLOCK_SPACING_SCALE, Math.Max(0, Math.Floor(positionOnScreen.X / Numbers.BLOCK_SPACING_SCALE))); }
 
-        static AbstractGameObject()
-        {
-            updateFunctionPointer = new Dictionary<bool, Action<AbstractGameObject>>()
-            {
-                {false, new Action<AbstractGameObject>((gameObject) => gameObject.SurrogateUpdate()) },
-                {true, new Action<AbstractGameObject>((gameObject) => { }) }
-            };
-        }
 
         public AbstractGameObject()
         {
@@ -55,7 +46,7 @@ namespace Gamespace
 
         public void Update()
         {
-            updateFunctionPointer[IsPaused].Invoke(this);
+            SurrogateUpdate();
         }
 
         protected virtual void SurrogateUpdate()
