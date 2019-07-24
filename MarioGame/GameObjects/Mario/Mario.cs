@@ -127,7 +127,7 @@ namespace Gamespace
 
             GameObjectPhysics.Stop(Side.Horizontal);
             World.Instance.MaskCollision(this);
-            scoreboard.Die();
+            scoreboard?.Die();
             SoundManager.Instance.PlaySoundEffect("MarioDies");
       
         }

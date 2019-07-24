@@ -21,8 +21,8 @@ namespace Gamespace
         public PlayerCountSelection(GameMenu menu)
         {
             this.menu = menu;
-            stringsOrigin = new Vector2(MarioGame.WINDOW_WIDTH / 4, MarioGame.WINDOW_HEIGHT / 2);
-            stringDistance = new Vector2(0, 30);
+            stringsOrigin = new Vector2(MarioGame.WINDOW_WIDTH / 4, MarioGame.WINDOW_HEIGHT / 3);
+            stringDistance = new Vector2(0, 60);
         }
 
         public void Draw(SpriteBatch spriteBatch)
