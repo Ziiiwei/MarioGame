@@ -861,6 +861,12 @@
 /processorParam:Quality=Best
 /build:Sounds/1-up.wav
 
+#begin Sounds/AK47.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sounds/AK47.wav
+
 #begin Sounds/arena1ost.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor
@@ -903,11 +909,11 @@
 /processorParam:Quality=Best
 /build:Sounds/DeathmatchTitleMusic.wav
 
-#begin Sounds/DeathmatchTitleMusic.wav
+#begin Sounds/DesertEagle.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor
 /processorParam:Quality=Best
-/build:Sounds/DeathmatchTitleMusic.wav
+/build:Sounds/DesertEagle.wav
 
 #begin Sounds/fireball.wav
 /importer:WavImporter
@@ -932,6 +938,24 @@
 /processor:SoundEffectProcessor
 /processorParam:Quality=Best
 /build:Sounds/GameOver.wav
+
+#begin Sounds/GrenadeBounce.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sounds/GrenadeBounce.wav
+
+#begin Sounds/GrenadeExplosion.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sounds/GrenadeExplosion.wav
+
+#begin Sounds/GrenadeThrow.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sounds/GrenadeThrow.wav
 
 #begin Sounds/kick.wav
 /importer:WavImporter
@@ -1010,6 +1034,12 @@
 /processor:SoundEffectProcessor
 /processorParam:Quality=Best
 /build:Sounds/superjump.wav
+
+#begin Sounds/ThiefDash.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sounds/ThiefDash.wav
 
 #begin SpecialMarioMove/FMClimingLeft.png
 /importer:TextureImporter

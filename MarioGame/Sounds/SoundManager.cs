@@ -54,7 +54,7 @@ namespace Gamespace.Sounds
         }
         public void PlayArenaBGM()
         {
-            ArenaBGM = SoundFactory.Instance.GetSoundEffect("arena1");
+            ArenaBGM = SoundFactory.Instance.GetSoundEffect("arena2");
             ArenaBGM.IsLooped = true;
             ArenaBGM.Volume = 0.5f;
             ArenaBGM.Play();
