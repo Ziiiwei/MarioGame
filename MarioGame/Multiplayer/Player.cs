@@ -17,7 +17,9 @@ namespace Gamespace.Multiplayer
         public IMario GameObject { get; private set; }
         public IController Controller { get; private set; }
         public ICamera Cam { get; private set; }
+        private Viewport viewport;
         private IView view;
+        private Bezel bezel;
         private Scoreboard scoreboard;
         public SpriteBatch Screen { get; }
         private static int playerCounter = 0;
@@ -38,7 +40,10 @@ namespace Gamespace.Multiplayer
             playerCounter++;
             ShowLives();
             this.spawnPoint = spawnPoint;
-            Cam = new MultiplayerCamera(PlayerID, new Vector2(Numbers.CAMERA_START_X, 0));
+            viewport = ViewportFactory.Instance.GetViewport(playerID, MarioGame.Instance.PlayerCount);
+            Cam = new MultiplayerCamera(PlayerID, new Vector2(Numbers.CAMERA_START_X, 0), MarioGame.Instance.PlayerCount, viewport);
+            bezel = new Bezel(playerID, MarioGame.Instance.PlayerCount, MarioGame.Instance.GraphicsDevice, Cam);
+            
             Controller = new KeyboardController(this);
             disabledController = new KeyboardController(this, false);
             controllerUpdate = ()=> Controller.Update();
@@ -51,10 +56,7 @@ namespace Gamespace.Multiplayer
             scoreboard.Update(gameTime);
             Lives = scoreboard.Lives;
             Cam.Update(GameObject.PositionOnScreen);
-
-            //subject to change later on
-            if (GameObject.PositionOnScreen.X < Cam.CameraPosition.X)
-                GameObject.CollideLeft(new Rectangle((int)Cam.CameraPosition.X - 1,0,1,MarioGame.WINDOW_HEIGHT));
+            scoreboard.Update(gameTime);
 
             if (timerIsArmed)
             {
@@ -69,10 +71,18 @@ namespace Gamespace.Multiplayer
 
         public void DrawPlayersScreen()
         {
-            Screen.Begin(SpriteSortMode.Deferred, transformMatrix: Cam.Transform * Matrix.CreateScale(1), samplerState: SamplerState.PointClamp);
+            MarioGame.Instance.GraphicsDevice.Viewport = viewport;
+
+            Screen.Begin(SpriteSortMode.BackToFront, transformMatrix: Cam.Transform * Matrix.CreateScale(1), samplerState: SamplerState.PointClamp);
+
             view.Draw(Screen);
+
             Vector2 fpsCounterPosition = new Vector2(Cam.CameraPosition.X + Numbers.COUNTER_OFFSET, Cam.CameraPosition.Y + Numbers.COUNTER_OFFSET);
+
             Screen.DrawString(MarioGame.Instance.Font, "FPS " + MarioGame.Instance.Framerate, fpsCounterPosition, Color.Red);
+
+            //bezel.Draw(Screen);
+
             Screen.End();
         }
 
@@ -88,7 +98,7 @@ namespace Gamespace.Multiplayer
 
             viewTimer = new DiscreteTimer(Numbers.DISCREET_TIMER_START, new Action(() =>
             {
-                view = new PlayableView(scoreboard, Cam);
+                view = new PlayableView(scoreboard, Cam, viewport, MarioGame.Instance.GraphicsDevice);
                 timerIsArmed = false;
             }));
         }
@@ -97,7 +107,7 @@ namespace Gamespace.Multiplayer
         {
             GameObject = (IMario)Activator.CreateInstance(GameObject.GetType(), spawnPoint, scoreboard);
             ShowLives();
-            Cam = new MultiplayerCamera(PlayerID, new Vector2(Numbers.CAMERA_START_X, 0));
+            Cam = new MultiplayerCamera(PlayerID, new Vector2(Numbers.CAMERA_START_X, 0), MarioGame.Instance.PlayerCount, viewport);
             Controller = new KeyboardController(this);
         }
 

@@ -70,6 +70,8 @@
     <Compile Include="MarioGame\GameObjects\Blocks\Bump States\BlockIsBumpedState.cs" />
     <Compile Include="MarioGame\GameObjects\Blocks\Bump States\BlockIsNotBumpedState.cs" />
     <Compile Include="MarioGame\GameObjects\Blocks\Bump States\IBlockBumpState.cs" />
+    <Compile Include="MarioGame\GameObjects\Blocks\KoopaSpawner.cs" />
+    <Compile Include="MarioGame\GameObjects\Blocks\GoombaSpawner.cs" />
     <Compile Include="MarioGame\GameObjects\Blocks\DeathBlock.cs" />
     <Compile Include="MarioGame\GameObjects\Blocks\IBlock.cs" />
     <Compile Include="MarioGame\GameObjects\Blocks\IBumpable.cs" />
@@ -133,6 +135,7 @@
     <Compile Include="MarioGame\Multiplayer\Player.cs" />
     <Compile Include="MarioGame\Multiplayer\Scoreboard.cs" />
     <Compile Include="MarioGame\Physics\BasePhysics.cs" />
+    <Compile Include="MarioGame\Multiplayer\ViewportFactory.cs" />
     <Compile Include="MarioGame\Physics\BumpableBlockPhysics.cs" />
     <Compile Include="MarioGame\Physics\TrajectaryPhysics.cs" />
     <Compile Include="MarioGame\Physics\MarioPhysics.cs" />
@@ -224,6 +227,7 @@
     <Compile Include="MarioGame\Transitions\Menu\MenuViews\ContinueScreen.cs" />
     <Compile Include="MarioGame\Transitions\Menu\MenuViews\IntroScene.cs" />
     <Compile Include="MarioGame\Transitions\Menu\MenuViews\PlayerCountSelection.cs" />
+    <Compile Include="MarioGame\Transitions\Views\Bezel.cs" />
     <Compile Include="MarioGame\Transitions\Views\ViewFactory.cs" />
     <Compile Include="MarioGame\Transitions\Views\DeadView.cs" />
     <Compile Include="MarioGame\Transitions\Views\IView.cs" />
@@ -318,6 +322,12 @@
     <None Include="MarioGame\Code Reviews\ZiweiJin.md" />
     <None Include="MarioGame\Code Reviews\RayanHamza.md" />
     <None Include="MarioGame\Data\DataFiles\CollisionActions.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="MarioGame\Data\DataFiles\level2used.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="MarioGame\Data\DataFiles\level2.csv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="MarioGame\Data\DataFiles\MainMenu.csv">

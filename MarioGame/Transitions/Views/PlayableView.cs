@@ -13,9 +13,13 @@ namespace Gamespace.Views
     {
         private Scoreboard scoreboard;
         private ICamera cam;
+        private GraphicsDevice graphicsDevice;
+        private VertexBuffer vertexBuffer;
+        private List<VertexPositionColor> vertexPositions;
+  
 
-        public PlayableView(Scoreboard scoreboard, ICamera cam)
-        {
+        public PlayableView(Scoreboard scoreboard, ICamera cam, Viewport viewport, GraphicsDevice graphicsDevice)
+        {   
             this.scoreboard = scoreboard;
             this.cam = cam;
         }

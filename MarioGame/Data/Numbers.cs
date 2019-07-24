@@ -26,8 +26,8 @@ namespace Gamespace.Data
         public const Single VOLUME = 0.4f;
         public const int CENTER_X = 375;
         public const int CENTER_Y = 200;
-        public const int WIDTH = 800;
-        public const int HEIGHT = 480;
+        public const int WIDTH = 1080;
+        public const int HEIGHT = 960;
         public const int PLAYER_ONE_X = 200;
         public const int PLAYER_TWO_X = 1250;
         public const int STARTING_Y = 200;
@@ -38,6 +38,6 @@ namespace Gamespace.Data
         public const int FIREBALL_REFILL_SPEED = 10;
         public const int BULLET1_BOUNCE_BOUND = 6;
         public const int MAX_PLAYERS = 4;
-        public const int INTRO_TIME = 13;
+        public const int SPAWN_LIMITER = 307;
     }
 }

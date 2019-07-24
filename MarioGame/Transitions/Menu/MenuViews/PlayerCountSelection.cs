@@ -1,4 +1,5 @@
-﻿using Gamespace.Sprites;
+﻿using Gamespace.Data;
+using Gamespace.Sprites;
 using Gamespace.Transitions;
 using Gamespace.Views;
 using Microsoft.Xna.Framework;
@@ -16,7 +17,6 @@ namespace Gamespace
         private readonly GameMenu menu;
         private readonly Vector2 stringsOrigin;
         private readonly Vector2 stringDistance;
-        private readonly int playerCount = 4;
 
         public PlayerCountSelection(GameMenu menu)
         {
@@ -27,7 +27,7 @@ namespace Gamespace
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            for (int i = 0; i < playerCount; i++)
+            for (int i = 1; i <= Numbers.MAX_PLAYERS; i++)
             {
                 Color color = Color.Black;
                 

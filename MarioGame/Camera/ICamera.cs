@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Gamespace
 {
-    interface ICamera
+    public interface ICamera
     {
         Vector2 CameraPosition { get; }
         Matrix Transform { get; }

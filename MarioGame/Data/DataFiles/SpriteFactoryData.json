@@ -611,7 +611,23 @@
       "FrameCount": 1,
       "FrameDelay": 3
     },
-    {
+	{
+      "Name": "GoombaSpawner",
+      "State": "",
+      "PowerUpState": "",
+      "TexturePath": "HiddenBlock",
+      "FrameCount": 1,
+      "FrameDelay": 3
+    },
+	{
+      "Name": "KoopaSpawner",
+      "State": "",
+      "PowerUpState": "",
+      "TexturePath": "HiddenBlock",
+      "FrameCount": 1,
+      "FrameDelay": 3
+    },
+	{
       "Name": "DeathBlock",
       "State": "",
       "PowerUpState": "",

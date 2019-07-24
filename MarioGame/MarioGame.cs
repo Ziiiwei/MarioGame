@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework;
+﻿/* Saving original viewport taken from rbwhitaker.wikidot.com/viewport-split-screen  */
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using System.Collections.Generic;
@@ -23,16 +24,17 @@ namespace Gamespace
         private static readonly MarioGame instance = new MarioGame();
         public const int WINDOW_WIDTH = Numbers.WIDTH;
         // there are currently two cameras, and I think that is another reason for the camera factor here
-        public const int WINDOW_HEIGHT = Numbers.HEIGHT * Numbers.CAMERA_FACTOR;
+        public const int WINDOW_HEIGHT = Numbers.HEIGHT;
         // since this is one, I do not believe it is a magic number
         public const float SCALE = 1f;
         private GameTime time;
         public GraphicsDeviceManager graphics { get; }
-        public int PlayerCount { get; private set; }
+        public int PlayerCount { get; set; }
         private LevelLoader levelLoader;
         public float Framerate { get; private set; }
         public SpriteFont Font { get; private set; }
         public Dictionary<int, Tuple<string, string>> ArenaPaths { get; private set; }
+        public Bezel SplitScreenBezel { get; set; }
 
         private GameMenu menu;
         private delegate void GameUpdate(GameTime gameTime);
@@ -40,7 +42,7 @@ namespace Gamespace
         private SpriteBatch menuSpriteBatch;
         private GameUpdate gameUpdate;
         private GameDraw gameDraw;
-
+        
         static MarioGame()
         {
         }
@@ -79,7 +81,8 @@ namespace Gamespace
             ArenaPaths = new Dictionary<int, Tuple<string, string>>()
             {
                 {0, new Tuple<string, string>("Arena One", "MarioGame/Data/DataFiles/level1.csv") },
-                {1, new Tuple<string, string>("Arena One", "MarioGame/Data/DataFiles/level1.csv") }
+                {1, new Tuple<string, string>("Arena Two", "MarioGame/Data/DataFiles/level2.csv") },
+                {2, new Tuple<string, string>("Arena Three", "MarioGame/Data/DataFiles/level1.csv") }
             };
 
             PlayerCount = 1;
@@ -146,6 +149,8 @@ namespace Gamespace
             base.Draw(gameTime);
             GraphicsDevice.Clear(Color.Maroon);
             Framerate = 1 / (float)gameTime.ElapsedGameTime.TotalSeconds;
+
+
             gameDraw.Invoke();
         }
 
@@ -177,7 +182,9 @@ namespace Gamespace
 
         private void DrawGameWorld()
         {
+            Viewport viewport = GraphicsDevice.Viewport;
             World.Instance.DrawPlayers();
+            GraphicsDevice.Viewport = viewport;
         }
 
         private void DrawGameMenu()

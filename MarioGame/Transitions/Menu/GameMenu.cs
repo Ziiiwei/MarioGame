@@ -46,7 +46,7 @@ namespace Gamespace.Transitions
             currentState = MenuState.Intro;
             view = new IntroScene();
             input = new TitleScreenInput(this);
-            PlayerCount = 0;
+            PlayerCount = 1;
             ArenaSelected = 0;
             Time = StartingTime;
 
@@ -63,7 +63,7 @@ namespace Gamespace.Transitions
             inputAction = new Dictionary<Tuple<MenuState, InputDirection>, Delegate>()
             {
                 {new Tuple<MenuState, InputDirection>(MenuState.Count, InputDirection.Up),
-                    new Action(() => PlayerCount = Math.Max(PlayerCount - 1, 0)) },
+                    new Action(() => PlayerCount = Math.Max(PlayerCount - 1, 1)) },
                 {new Tuple<MenuState, InputDirection>(MenuState.Count, InputDirection.Down),
                     new Action(() => PlayerCount = Math.Min(Numbers.MAX_PLAYERS, PlayerCount + 1)) },
                 {new Tuple<MenuState, InputDirection>(MenuState.Arena, InputDirection.Up),

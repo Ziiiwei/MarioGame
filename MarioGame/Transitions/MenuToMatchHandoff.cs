@@ -13,21 +13,24 @@ namespace Gamespace
 {
     internal class MenuToMatchHandoff
     {
-        private static List<IPlayer> players;
+        private static List<Vector2> spawnPoints;
 
         public MenuToMatchHandoff(GameMenu menu, GraphicsDevice graphicsDevice)
         {
-            players = new List<IPlayer>()
+            MarioGame.Instance.PlayerCount = menu.PlayerCount;
+
+            spawnPoints = new List<Vector2>()
             {
-                new Player(typeof(Mario), new SpriteBatch(graphicsDevice), new Vector2(Numbers.PLAYER_ONE_X, Numbers.STARTING_Y)),
-                new Player(typeof(Mario), new SpriteBatch(graphicsDevice), new Vector2(Numbers.PLAYER_TWO_X, Numbers.STARTING_Y)),
-                new Player(typeof(Mario), new SpriteBatch(graphicsDevice), new Vector2(200, 300)),
-                new Player(typeof(Mario), new SpriteBatch(graphicsDevice), new Vector2(200, 400))
+                new Vector2(200, 200),
+                new Vector2(200, 300),
+                new Vector2(300, 350),
+                new Vector2(300, 400)
             };
 
-            for (int i = 0; i < menu.PlayerCount; i++)
+            for (int i = 1; i <= menu.PlayerCount; i++)
             {
-                World.Instance.AddPlayer(players[i]);
+
+                World.Instance.AddPlayer(new Player(typeof(Mario), new SpriteBatch(graphicsDevice), spawnPoints[i-1]));
             }
 
             string path = MarioGame.Instance.ArenaPaths[menu.ArenaSelected].Item2;
