@@ -17,7 +17,7 @@ namespace Gamespace
         private Dictionary<String, SoundEffectInstance> soundAssignments;
         private SoundEffect soundEffect;
         private SoundEffectInstance soundEffectInstance;
-        private Song BGM;
+        private SoundEffectInstance MainMenuBGM;
 
         static SoundFactory()
         {
@@ -35,9 +35,10 @@ namespace Gamespace
             foreach (SoundData entry in magicNumbers.Entries)
             {
                 String key = entry.SoundName;
-                if (key == "BGM")
+                if (key == "MainMenu")
                 {
-                    BGM = MarioGame.Instance.Content.Load<Song>(entry.SoundPath);
+                    soundEffect = MarioGame.Instance.Content.Load<SoundEffect>(entry.SoundPath);
+                    MainMenuBGM = soundEffect.CreateInstance();
                 }
 
                 else 
@@ -72,9 +73,9 @@ namespace Gamespace
             SoundEffectInstance _soundEffect = soundAssignments[name];
             return _soundEffect;
         }
-        public Song GetMainBGM()
+        public SoundEffectInstance GetMainBGM()
         {
-            return BGM;
+            return MainMenuBGM;
         }
 
         public SoundEffectInstance GetNoTimeBGM()

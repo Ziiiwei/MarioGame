@@ -56,7 +56,9 @@ namespace Gamespace.Controllers
             playerBindingsSelector = new Dictionary<int, Dictionary<Keys, Type>>()
             {
                 {0, playerOneBinds },
-                {1, playerTwoBinds }
+                {1, playerTwoBinds },
+                {2, playerTwoBinds },
+                {3, playerTwoBinds }
             };
         }
 

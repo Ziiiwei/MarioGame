@@ -53,6 +53,7 @@
     <Compile Include="MarioGame\Camera\MultiplayerCamera.cs" />
     <Compile Include="MarioGame\Collision\RewardChecker.cs" />
     <Compile Include="MarioGame\Commands\AnimationCommands\PlayFlagSlidDown.cs" />
+    <Compile Include="MarioGame\Commands\AnimationCommands\PlayMarioIntroScene.cs" />
     <Compile Include="MarioGame\Commands\KillEnemy.cs" />
     <Compile Include="MarioGame\Commands\KillMario.cs" />
     <Compile Include="MarioGame\Commands\MarioAddLife.cs" />
@@ -214,7 +215,16 @@
     <Compile Include="MarioGame\Sounds\SoundManager.cs" />
     <Compile Include="MarioGame\Timer\BGMTimer.cs" />
     <Compile Include="MarioGame\Timer\DiscreteTimer.cs" />
-    <Compile Include="MarioGame\Transitions\ViewFactory.cs" />
+    <Compile Include="MarioGame\Transitions\MenuToMatchHandoff.cs" />
+    <Compile Include="MarioGame\Transitions\Menu\GameMenu.cs" />
+    <Compile Include="MarioGame\Transitions\Menu\Input\MenuInputController.cs" />
+    <Compile Include="MarioGame\Transitions\Menu\Input\TitleScreenInput.cs" />
+    <Compile Include="MarioGame\Transitions\Menu\MenuViews\ArenaSelection.cs" />
+    <Compile Include="MarioGame\Transitions\Menu\MenuViews\CharacterSelection.cs" />
+    <Compile Include="MarioGame\Transitions\Menu\MenuViews\ContinueScreen.cs" />
+    <Compile Include="MarioGame\Transitions\Menu\MenuViews\IntroScene.cs" />
+    <Compile Include="MarioGame\Transitions\Menu\MenuViews\PlayerCountSelection.cs" />
+    <Compile Include="MarioGame\Transitions\Views\ViewFactory.cs" />
     <Compile Include="MarioGame\Transitions\Views\DeadView.cs" />
     <Compile Include="MarioGame\Transitions\Views\IView.cs" />
     <Compile Include="MarioGame\Transitions\Views\LivesView.cs" />
@@ -308,6 +318,12 @@
     <None Include="MarioGame\Code Reviews\ZiweiJin.md" />
     <None Include="MarioGame\Code Reviews\RayanHamza.md" />
     <None Include="MarioGame\Data\DataFiles\CollisionActions.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="MarioGame\Data\DataFiles\MainMenu.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="MarioGame\Data\DataFiles\MenuBackground.csv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="MarioGame\Data\DataFiles\level1.csv">
