@@ -777,6 +777,18 @@
 /processorParam:TextureFormat=Color
 /build:RedShroom.png
 
+#begin ScoutAvatar.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:ScoutAvatar.png
+
 #begin SmallHill.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -837,6 +849,18 @@
 /processorParam:TextureFormat=Color
 /build:SMSlidingFromRight.png
 
+#begin SoldierAvatar.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:SoldierAvatar.png
+
 #begin Sounds/1-up.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor
@@ -848,6 +872,12 @@
 /processor:SoundEffectProcessor
 /processorParam:Quality=Best
 /build:Sounds/arena1ost.wav
+
+#begin Sounds/arena2ost.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sounds/arena2ost.wav
 
 #begin Sounds/breakblock.wav
 /importer:WavImporter
@@ -1377,6 +1407,18 @@
 /processorParam:TextureFormat=Color
 /build:SuperMario/SMWalkingRight.png
 
+#begin TankAvatar.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:TankAvatar.png
+
 #begin TestBackground.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -1388,6 +1430,18 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:TestBackground.png
+
+#begin ThiefAvatar.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:ThiefAvatar.png
 
 #begin UsedBlock.png
 /importer:TextureImporter

@@ -159,7 +159,7 @@ namespace Gamespace.Transitions
         {
             MarioGame.Instance.OnMenuSelectionsComplete();
             SoundManager.Instance.StopSelectBGM();
-            SoundManager.Instance.PlayArenaBGM();
+            SoundManager.Instance.PlayArenaBGM(); 
         }
     }
 }

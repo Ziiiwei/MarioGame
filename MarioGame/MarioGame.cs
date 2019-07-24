@@ -159,7 +159,7 @@ namespace Gamespace
             IPlayer player2 = new Player(typeof(Mario), new SpriteBatch(GraphicsDevice), new Vector2(Numbers.PLAYER_TWO_X, Numbers.STARTING_Y));
             World.Instance.AddPlayer(player2);
 
-            levelLoader = new LevelLoader(World.Instance, "MarioGame/Data/DataFiles/level1.csv");
+
             SoundManager.Instance.PlayMainBGM();  
         }
 
