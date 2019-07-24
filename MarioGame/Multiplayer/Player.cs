@@ -18,6 +18,7 @@ namespace Gamespace.Multiplayer
         public ICamera Cam { get; private set; }
         private Viewport viewport;
         private IView view;
+        private Bezel bezel;
         private Scoreboard scoreboard;
         public SpriteBatch Screen { get; }
         private static int playerCounter = 0;
@@ -38,7 +39,9 @@ namespace Gamespace.Multiplayer
             ShowLives();
             this.spawnPoint = spawnPoint;
             Cam = new MultiplayerCamera(PlayerID, new Vector2(Numbers.CAMERA_START_X, 0));
-            InitViewport();
+            bezel = new Bezel(playerID, MarioGame.Instance.PlayerCount, MarioGame.Instance.GraphicsDevice);
+
+            viewport = ViewportFactory.Instance.GetViewport(playerID, MarioGame.Instance.PlayerCount);
             Controller = new KeyboardController(this);
             Screen = screen;
             
@@ -74,6 +77,8 @@ namespace Gamespace.Multiplayer
 
             Screen.DrawString(MarioGame.Instance.Font, "FPS " + MarioGame.Instance.Framerate, fpsCounterPosition, Color.Red);
 
+            bezel.Draw(Screen);
+
             Screen.End();
         }
 
@@ -89,7 +94,7 @@ namespace Gamespace.Multiplayer
 
             viewTimer = new DiscreteTimer(Numbers.DISCREET_TIMER_START, new Action(() =>
             {
-                view = new PlayableView(scoreboard, Cam);
+                view = new PlayableView(scoreboard, Cam, viewport, MarioGame.Instance.GraphicsDevice);
                 timerIsArmed = false;
             }));
         }
@@ -100,17 +105,6 @@ namespace Gamespace.Multiplayer
             ShowLives();
             Cam = new MultiplayerCamera(PlayerID, new Vector2(Numbers.CAMERA_START_X, 0));
             Controller = new KeyboardController(this);
-        }
-
-        private void InitViewport()
-        {
-            viewport = new Viewport
-            {
-                Width = MarioGame.WINDOW_WIDTH,
-                Height = MarioGame.WINDOW_HEIGHT / MarioGame.Instance.PlayerCount,
-                X = 0,
-                Y = (MarioGame.WINDOW_HEIGHT / MarioGame.Instance.PlayerCount) * PlayerID
-            };
         }
     }
 }

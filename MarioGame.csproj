@@ -106,6 +106,7 @@
     <Compile Include="MarioGame\Multiplayer\IPlayer.cs" />
     <Compile Include="MarioGame\Multiplayer\Player.cs" />
     <Compile Include="MarioGame\Multiplayer\Scoreboard.cs" />
+    <Compile Include="MarioGame\Multiplayer\ViewportFactory.cs" />
     <Compile Include="MarioGame\Physics\BumpableBlockPhysics.cs" />
     <Compile Include="MarioGame\Physics\EnemyPhysics.cs" />
     <Compile Include="MarioGame\Physics\FireballPhysics.cs" />
@@ -179,6 +180,7 @@
     <Compile Include="MarioGame\Transitions\Menu\MenuViews\CharacterSelection.cs" />
     <Compile Include="MarioGame\Transitions\Menu\MenuViews\ContinueScreen.cs" />
     <Compile Include="MarioGame\Transitions\Menu\MenuViews\PlayerCountSelection.cs" />
+    <Compile Include="MarioGame\Transitions\Views\Bezel.cs" />
     <Compile Include="MarioGame\Transitions\Views\ViewFactory.cs" />
     <Compile Include="MarioGame\Transitions\Views\DeadView.cs" />
     <Compile Include="MarioGame\Transitions\Views\IView.cs" />

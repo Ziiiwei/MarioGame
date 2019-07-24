@@ -24,8 +24,8 @@ namespace Gamespace.Data
         public const Single VOLUME = 0.4f;
         public const int CENTER_X = 375;
         public const int CENTER_Y = 200;
-        public const int WIDTH = 800;
-        public const int HEIGHT = 480;
+        public const int WIDTH = 1080;
+        public const int HEIGHT = 960;
         public const int PLAYER_ONE_X = 200;
         public const int PLAYER_TWO_X = 300;
         public const int STARTING_Y = 200;

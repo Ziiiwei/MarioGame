@@ -24,7 +24,7 @@ namespace Gamespace
         private static readonly MarioGame instance = new MarioGame();
         public const int WINDOW_WIDTH = Numbers.WIDTH;
         // there are currently two cameras, and I think that is another reason for the camera factor here
-        public const int WINDOW_HEIGHT = Numbers.HEIGHT * Numbers.CAMERA_FACTOR;
+        public const int WINDOW_HEIGHT = Numbers.HEIGHT;
         // since this is one, I do not believe it is a magic number
         public const float SCALE = 1f;
         private GameTime time;
@@ -34,6 +34,7 @@ namespace Gamespace
         public float Framerate { get; private set; }
         public SpriteFont Font { get; private set; }
         public Dictionary<int, Tuple<string, string>> ArenaPaths { get; private set; }
+        public Bezel SplitScreenBezel { get; set; }
 
         private GameMenu menu;
         private delegate void GameUpdate(GameTime gameTime);
@@ -41,7 +42,7 @@ namespace Gamespace
         private SpriteBatch menuSpriteBatch;
         private GameUpdate gameUpdate;
         private GameDraw gameDraw;
-
+        
         static MarioGame()
         {
         }
@@ -148,6 +149,7 @@ namespace Gamespace
             base.Draw(gameTime);
             GraphicsDevice.Clear(Color.CornflowerBlue);
             Framerate = 1 / (float)gameTime.ElapsedGameTime.TotalSeconds;
+
 
             gameDraw.Invoke();
         }
