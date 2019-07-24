@@ -611,7 +611,7 @@
       "FrameCount": 1,
       "FrameDelay": 3
     },
-	{
+    {
       "Name": "GoombaSpawner",
       "State": "",
       "PowerUpState": "",
@@ -619,7 +619,7 @@
       "FrameCount": 1,
       "FrameDelay": 3
     },
-	{
+    {
       "Name": "KoopaSpawner",
       "State": "",
       "PowerUpState": "",
@@ -627,7 +627,7 @@
       "FrameCount": 1,
       "FrameDelay": 3
     },
-	{
+    {
       "Name": "DeathBlock",
       "State": "",
       "PowerUpState": "",
@@ -890,6 +890,38 @@
       "TexturePath": "Sprint6/Tank/Dead",
       "FrameCount": 1,
       "FrameDelay": 3
+    },
+    {
+      "Name": "TankAvatar",
+      "State": "",
+      "PowerUpState": "",
+      "TexturePath": "TankAvatar",
+      "FrameCount": 1,
+      "FrameDelay": 1
+    },
+    {
+      "Name": "ThiefAvatar",
+      "State": "",
+      "PowerUpState": "",
+      "TexturePath": "ThiefAvatar",
+      "FrameCount": 1,
+      "FrameDelay": 1
+    },
+    {
+      "Name": "SoldierAvatar",
+      "State": "",
+      "PowerUpState": "",
+      "TexturePath": "SoldierAvatar",
+      "FrameCount": 1,
+      "FrameDelay": 1
+    },
+    {
+      "Name": "ScoutAvatar",
+      "State": "",
+      "PowerUpState": "",
+      "TexturePath": "ScoutAvatar",
+      "FrameCount": 1,
+      "FrameDelay": 1
     },
     {
       "Name": "Bullet1",
