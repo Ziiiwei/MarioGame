@@ -16,10 +16,10 @@ namespace Gamespace
         public Vector2 CameraPosition { get => cameraPosition; }
         private readonly int playerID;
         private int playerCount;
-        private int xScale;
         private Viewport viewport;
-        private int softBoundary = 250;
-        private int hardBoundary = 50;
+        int playerScale = (MarioGame.Instance.PlayerCount > 2) ? 2 : 1;
+        private int softXBoundary = 300;
+        private int softYBoundary = 80;
         private int frameDisplacement = 4;
         private int frameDisplacementSpeedUp = 1;
         private int FrameDisplacement { get => Math.Max(frameDisplacement, frameDisplacementSpeedUp); }
@@ -30,10 +30,12 @@ namespace Gamespace
             this.playerCount = playerCount;
             this.viewport = viewport;
 
-            xScale = (this.playerCount > 2) ? 2 : 1;
+            softXBoundary /= playerScale;
+            softYBoundary /= playerScale;
+
             float y = -initialPosition.Y + (MarioGame.WINDOW_HEIGHT / MarioGame.Instance.PlayerCount) / 2;
 
-            Transform = Matrix.CreateTranslation(-initialPosition.X + MarioGame.WINDOW_WIDTH / (Numbers.CAMERA_FACTOR * xScale), 0, 0);
+            //Transform = Matrix.CreateTranslation(-initialPosition.X + MarioGame.WINDOW_WIDTH / (Numbers.CAMERA_FACTOR * xScale), 0, 0);
 
             cameraPosition.X = initialPosition.X;
             cameraPosition.Y = initialPosition.Y;
@@ -42,19 +44,28 @@ namespace Gamespace
 
         public void Update(Vector2 position)
         {
-            if ((cameraPosition.X + viewport.Width) - softBoundary <= position.X)
+            if ((cameraPosition.X + viewport.Width) - softXBoundary <= position.X)
             {
-                if ((cameraPosition.X + viewport.Width) - hardBoundary <= position.X)
+                xForward(position);
+            }
+            else if(cameraPosition.X + softXBoundary >= position.X)
+            {
+                xBackward(position);
+            }
+            
+            if (position.Y < (cameraPosition.Y + softYBoundary) ||
+                position.Y > (cameraPosition.Y + MarioGame.WINDOW_HEIGHT - softYBoundary) / (2 * playerScale))
+            {
+                if ((cameraPosition.Y + MarioGame.WINDOW_HEIGHT + softYBoundary) / (4 * playerScale) > position.Y)
                 {
-                    frameDisplacementSpeedUp = 5;
-
+                    yUp(position);
                 }
-                xPush(position);
+                else if ((cameraPosition.Y + MarioGame.WINDOW_HEIGHT - softYBoundary) / (4 * playerScale) < position.Y)
+                {
+                    yDown(position);
+                }
             }
-            else if(cameraPosition.X + softBoundary >= position.X)
-            {
-                xDrag(position);
-            }
+
 
         }
 
@@ -69,33 +80,76 @@ namespace Gamespace
 
         private void xFollow(Vector2 position)
         {
-            float x = -position.X + (MarioGame.WINDOW_WIDTH / (Numbers.CAMERA_FACTOR * xScale));
+            float x = -position.X + (MarioGame.WINDOW_WIDTH / (Numbers.CAMERA_FACTOR * playerScale));
 
             Transform = Matrix.CreateTranslation(x, 0, 0);
 
-            cameraPosition.X = position.X - MarioGame.WINDOW_WIDTH / (Numbers.CAMERA_FACTOR * xScale);
+            cameraPosition.X = position.X - MarioGame.WINDOW_WIDTH / (Numbers.CAMERA_FACTOR * playerScale);
         }
 
-        private void xPush(Vector2 position)
+        private void xForward(Vector2 position)
         {
             float x = -cameraPosition.X + FrameDisplacement;
+            float delta = position.X - (cameraPosition.X + viewport.Width - softXBoundary);
 
-            Transform = Matrix.CreateTranslation(x, 0, 0);
-
-            cameraPosition.X = cameraPosition.X + FrameDisplacement;
+            if ((delta > 0) && delta < FrameDisplacement)
+            {
+                cameraPosition.X += delta;
+                Transform = Matrix.CreateTranslation(-cameraPosition.X + delta, Transform.Translation.Y, 0);
+            } else
+            {
+                cameraPosition.X += FrameDisplacement;
+                Transform = Matrix.CreateTranslation(x, Transform.Translation.Y, 0);
+            }
 
             frameDisplacementSpeedUp = 1;
         }
 
-        private void xDrag(Vector2 position)
+        private void xBackward(Vector2 position)
         {
             float x = -cameraPosition.X - FrameDisplacement;
+            float delta = (cameraPosition.X + softXBoundary) - position.X;
 
-            Transform = Matrix.CreateTranslation(x, 0, 0);
-
-            cameraPosition.X = cameraPosition.X - FrameDisplacement;
+            if ((delta > 0) && delta < FrameDisplacement)
+            {
+                cameraPosition.X -= delta;
+                Transform = Matrix.CreateTranslation(-cameraPosition.X - delta, Transform.Translation.Y, 0);
+            }
+            else
+            {
+                cameraPosition.X -= FrameDisplacement;
+                Transform = Matrix.CreateTranslation(x, Transform.Translation.Y, 0);
+            }
 
             frameDisplacementSpeedUp = 1;
+        }
+
+        private void yUp(Vector2 position)
+        {
+            if(true)
+            //if (((int)position.Y) != cameraPosition.Y + MarioGame.WINDOW_HEIGHT / 2)
+            {
+                float y = -cameraPosition.Y - FrameDisplacement;
+
+                cameraPosition.Y -= FrameDisplacement;
+                Transform = Matrix.CreateTranslation(Transform.Translation.X, y, 0);
+
+                frameDisplacementSpeedUp = 1;
+            }
+        }
+
+        private void yDown(Vector2 position)
+        {
+            if(true)
+            //if (((int)position.Y) != cameraPosition.Y + MarioGame.WINDOW_HEIGHT / 4)
+            {
+                float y = -cameraPosition.Y + FrameDisplacement;
+
+                cameraPosition.Y += FrameDisplacement;
+                Transform = Matrix.CreateTranslation(Transform.Translation.X, y, 0);
+
+                frameDisplacementSpeedUp = 1;
+            }
         }
 
     }
