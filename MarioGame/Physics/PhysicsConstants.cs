@@ -64,6 +64,10 @@ namespace Gamespace
                 {
                     typeof(Fireball),
                     (1.0f, 2.0f, 10f, 10f, 5f)
+                },
+                {
+                    typeof(Bullet1),
+                    (1.0f, 2.0f, 10f, 8f, 5f)
                 }
             };
         }

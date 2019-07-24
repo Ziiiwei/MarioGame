@@ -873,7 +873,39 @@
       "PowerUpState": "DeadState",
       "TexturePath": "Sprint6/Tank/Dead",
       "FrameCount": 1,
-      "FrameDelay": 3 
+      "FrameDelay": 3
+    },
+    {
+      "Name": "Bullet1",
+      "State": "",
+      "PowerUpState": "",
+      "TexturePath": "Sprint6/ScoutBullet",
+      "FrameCount": 4,
+      "FrameDelay": 3
+    },
+    {
+      "Name": "Bullet2",
+      "State": "RightMovingProjectile",
+      "PowerUpState": "",
+      "TexturePath": "Sprint6/SoldierBulletRight",
+      "FrameCount": 2,
+      "FrameDelay": 3
+    },
+    {
+      "Name": "Bullet2",
+      "State": "LeftMovingProjectile",
+      "PowerUpState": "",
+      "TexturePath": "Sprint6/SoldierBulletLeft",
+      "FrameCount": 2,
+      "FrameDelay": 3
+    },
+    {
+      "Name": "Bomb",
+      "State": "",
+      "PowerUpState": "",
+      "TexturePath": "Sprint6/TankBomb",
+      "FrameCount": 2,
+      "FrameDelay": 3
     }
 
   ]

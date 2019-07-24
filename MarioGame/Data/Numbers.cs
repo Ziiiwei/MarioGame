@@ -36,5 +36,6 @@ namespace Gamespace.Data
         public const int FOREGROUND_DRAW_PRIORITY = 1;
         public const int LEVEL1_BLOCK_WIDTH = 206;
         public const int FIREBALL_REFILL_SPEED = 10;
+        public const int BULLET1_BOUNCE_BOUND = 6;
     }
 }

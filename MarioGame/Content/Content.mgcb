@@ -1197,6 +1197,18 @@
 /processorParam:TextureFormat=Color
 /build:Sprint6/Scout/StandRight.png
 
+#begin Sprint6/ScoutBullet.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Sprint6/ScoutBullet.png
+
 #begin Sprint6/Soldier/Climbing.png
 /importer:TextureImporter
 /processor:TextureProcessor
