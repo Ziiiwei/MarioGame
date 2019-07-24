@@ -16,6 +16,8 @@ namespace Gamespace.Sounds
         private SoundEffectInstance  soundEffect;
         private SoundEffectInstance MainMenuBGM;
         private SoundEffectInstance SelectBGM;
+        private SoundEffectInstance ArenaBGM;
+
         static SoundManager()
         {
         }
@@ -49,6 +51,18 @@ namespace Gamespace.Sounds
         public void StopSelectBGM()
         {
             SelectBGM.Stop();
+        }
+        public void PlayArenaBGM()
+        {
+            ArenaBGM = SoundFactory.Instance.GetSoundEffect("arena1");
+            ArenaBGM.IsLooped = true;
+            ArenaBGM.Volume = 0.5f;
+            ArenaBGM.Play();
+        }
+
+        public void StopArenaBGM()
+        {
+            ArenaBGM.Stop();
         }
 
     }

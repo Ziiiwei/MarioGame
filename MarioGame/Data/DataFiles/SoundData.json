@@ -91,6 +91,10 @@
     {
       "SoundName": "Select",
       "SoundPath": "Sounds/DeathmatchSelect"
+    },
+    {
+      "SoundName": "arena1",
+      "SoundPath": "Sounds/arena1ost"
     }
   ]
 }

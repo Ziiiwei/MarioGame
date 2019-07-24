@@ -254,6 +254,18 @@
 /processorParam:TextureFormat=Color
 /build:CoinBlock.png
 
+#begin deathmatchlogo.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:deathmatchlogo.png
+
 #begin fireball.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -831,6 +843,12 @@
 /processorParam:Quality=Best
 /build:Sounds/1-up.wav
 
+#begin Sounds/arena1ost.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sounds/arena1ost.wav
+
 #begin Sounds/breakblock.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor
@@ -854,12 +872,6 @@
 /processor:SoundEffectProcessor
 /processorParam:Quality=Best
 /build:Sounds/DeathmatchSelect.wav
-
-#begin Sounds/DeathmatchTitleMusic.wav
-/importer:WavImporter
-/processor:SoundEffectProcessor
-/processorParam:Quality=Best
-/build:Sounds/DeathmatchTitleMusic.wav
 
 #begin Sounds/DeathmatchTitleMusic.wav
 /importer:WavImporter
