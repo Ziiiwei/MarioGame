@@ -15,13 +15,8 @@ namespace Gamespace
         internal class Character : AbstractGameStatefulObject<ICharacterState>, ICharacter
         {
             public ICharacterPowerUpState PowerUpState { get; set; }
-            public IFireable Projectiles { get; set; }
-
             public Scoreboard scoreboard { get; set; }
-
             private Action keepStanding;
-
-
 
             private bool jumpKeyPressed;
             private bool jumpKeyHolded;
@@ -34,7 +29,7 @@ namespace Gamespace
                 State = new RightStandingCharacterState(this);
                 PowerUpState = new StarCharacterState();
                 SetSprite();
-                Projectiles = new ProjectileLauncher(this);
+       
                 keepStanding = () => State.Stand();
                 DrawPriority = 1;
                 jumpKeyPressed = false;
@@ -67,7 +62,7 @@ namespace Gamespace
                 keepStanding = () => { };
             }
 
-            public void Jump()
+            public virtual void Jump()
             {
                 jumpKeyPressed = true;
                 if (Jumpable())
@@ -77,23 +72,23 @@ namespace Gamespace
 
             }
 
-            public void MoveLeft()
+            public virtual void MoveLeft()
             {
                 State.MoveLeft();
             }
 
-            public void MoveRight()
+            public virtual void MoveRight()
             {
                 State.MoveRight();
             }
 
-            public void PowerDown()
+            public virtual void PowerDown()
             {
                 PowerUpState.PowerDown(this);
                 UpdateArt();
             }
 
-            public void PowerUp()
+            public virtual void PowerUp()
             {
                 SoundManager.Instance.PlaySoundEffect("PowerUp");
                 PowerUpState.PowerUp(this);
@@ -138,28 +133,27 @@ namespace Gamespace
 
             }
 
-            public void Fire()
+            public virtual void Fire()
             {
-                PowerUpState.Fire(this);
             }
 
-            public void ClimbDown()
+            public virtual void ClimbDown()
             {
                 State.ClimbDown();
             }
 
-            public void ClimbUp()
+            public virtual void ClimbUp()
             {
                 State.ClimbUp();
             }
 
-            public void GetCoin()
+            public virtual void GetCoin()
             {
                 scoreboard.UpScore(ScoringConstants.COIN_SCORE);
                 scoreboard.Collect();
             }
 
-            public bool Jumpable()
+            public virtual bool Jumpable()
             {
                 jumpKeyHolded = jumpKeyPressed && previouslyJumpKeyPressed;
 

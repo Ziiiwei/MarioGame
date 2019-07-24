@@ -794,6 +794,87 @@
       "TexturePath": "Sprint6/Explosion",
       "FrameCount": 3,
       "FrameDelay": 4
+    },
+    {
+      "Name": "Tank",
+      "State": "LeftStandingState",
+      "PowerUpState": "ActiveState",
+      "TexturePath": "Sprint6/Tank/StandLeft",
+      "FrameCount": 1,
+      "FrameDelay": 3
+    },
+    {
+      "Name": "Tank",
+      "State": "RightStandingState",
+      "PowerUpState": "ActiveState",
+      "TexturePath": "Sprint6/Tank/StandRight",
+      "FrameCount": 1,
+      "FrameDelay": 3
+    },
+    {
+      "Name": "Tank",
+      "State": "LeftWalkingingState",
+      "PowerUpState": "ActiveState",
+      "TexturePath": "Sprint6/Tank/MovingLeft",
+      "FrameCount": 3,
+      "FrameDelay": 3
+    },
+    {
+      "Name": "Tank",
+      "State": "RightWalkingingState",
+      "PowerUpState": "ActiveState",
+      "TexturePath": "Sprint6/Tank/MovingRight",
+      "FrameCount": 3,
+      "FrameDelay": 3
+    },
+    {
+      "Name": "Tank",
+      "State": "ClimbingState",
+      "PowerUpState": "ActiveState",
+      "TexturePath": "Sprint6/Tank/Climbing",
+      "FrameCount": 2,
+      "FrameDelay": 3
+    },
+    {
+      "Name": "Tank",
+      "State": "LeftJumpingState",
+      "PowerUpState": "ActiveState",
+      "TexturePath": "Sprint6/Tank/JumpLeft",
+      "FrameCount": 1,
+      "FrameDelay": 3
+    },
+    {
+      "Name": "Tank",
+      "State": "RightJumpingState",
+      "PowerUpState": "ActiveState",
+      "TexturePath": "Sprint6/Tank/JumpRight",
+      "FrameCount": 1,
+      "FrameDelay": 3
+    },
+    {
+      "Name": "Tank",
+      "State": "RightCrouchingState",
+      "PowerUpState": "ActiveState",
+      "TexturePath": "Sprint6/Tank/CrouchRight",
+      "FrameCount": 1,
+      "FrameDelay": 3
+    },
+    {
+      "Name": "Tank",
+      "State": "LeftCrouchingState",
+      "PowerUpState": "ActiveState",
+      "TexturePath": "Sprint6/Tank/CrouchLeft",
+      "FrameCount": 1,
+      "FrameDelay": 3
+    },
+    {
+      "Name": "Tank",
+      "State": "",
+      "PowerUpState": "DeadState",
+      "TexturePath": "Sprint6/Tank/Dead",
+      "FrameCount": 1,
+      "FrameDelay": 3 
     }
+
   ]
 }

@@ -12,29 +12,35 @@ namespace Gamespace.Projectiles
 {
     internal class Fireball : AbstractGameStatefulObject<IProjectileState>, IProjectile
     {
-        private static readonly Dictionary<Side, Type> initialOrientation;
+        private static readonly Dictionary<ShootAngle, Type> initialOrientation;
         private int bounceCounter = 0;
         private int bounceBound = Numbers.BOUNCE_BOUND;
 
+        public ShootAngle Angle { get ; set; }
+
         static Fireball()
         {
-            initialOrientation = new Dictionary<Side, Type>()
+            initialOrientation = new Dictionary<ShootAngle, Type>()
             {
-                {Side.Left, typeof(LeftMovingProjectile) },
-                {Side.Right, typeof(RightMovingProjectile) }
+                {ShootAngle.Left, typeof(LeftMovingProjectile) },
+                {ShootAngle.Right, typeof(RightMovingProjectile) },
+                {ShootAngle.LeftUp, typeof(LeftUpMovingProjectile) },
+                {ShootAngle.RightUp, typeof(RightUpMovingProjectile) },
+                {ShootAngle.Up,typeof(UpMovingProjectile) }
+
             };
         }
 
-        public Fireball(Vector2 positionOnScreen, Side side) : base(positionOnScreen)
+        public Fireball(Vector2 positionOnScreen, ShootAngle angle) : base(positionOnScreen)
         {
-            State = (IProjectileState) Activator.CreateInstance(initialOrientation[side], this);
+            State = (IProjectileState) Activator.CreateInstance(initialOrientation[angle], this);
             SoundManager.Instance.PlaySoundEffect("Fireball");
             SetSprite();
         }
 
-        public void ChangeDirection()
+        public void ChangeDirection(ShootAngle angle)
         {
-            State.ChangeDirection();
+            State.ChangeDirection(angle);
         }
 
         public void Move(Side side)
@@ -70,14 +76,14 @@ namespace Gamespace.Projectiles
         public override void CollideLeft(Rectangle collisionArea)
         {
             base.CollideLeft(collisionArea);
-            State.ChangeDirection();
+            State.ChangeDirection(ShootAngle.Right);
             bounceCounter++;
         }
 
         public override void CollideRight(Rectangle collisionArea)
         {
             base.CollideRight(collisionArea);
-            State.ChangeDirection();
+            State.ChangeDirection(ShootAngle.Left);
             bounceCounter++;
         }
 
@@ -93,6 +99,11 @@ namespace Gamespace.Projectiles
             base.CollideDown(collisionArea);
             GameObjectPhysics.MoveMaxSpeed(Side.Down);
             bounceCounter++;
+        }
+
+        public void Shoot(ShootAngle angle)
+        {
+            
         }
     }
 }
