@@ -28,10 +28,10 @@ namespace Gamespace
                 new Vector2(300, 400)
             };
 
-            for (int i = 1; i <= menu.PlayerCount; i++)
+            for (int i = 0; i < menu.PlayerCount; i++)
             {
 
-                World.Instance.AddPlayer(new Player(menu.PlayableCharacters[i], new SpriteBatch(graphicsDevice), spawnPoints[i-1]));
+                World.Instance.AddPlayer(new Player(menu.playerCharacterSelection[(PlayerIndex)i], new SpriteBatch(graphicsDevice), spawnPoints[i]));
             }
 
             string path = MarioGame.Instance.ArenaPaths[menu.ArenaSelected].Item2;

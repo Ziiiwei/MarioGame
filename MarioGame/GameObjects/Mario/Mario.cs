@@ -121,7 +121,7 @@ namespace Gamespace
         public virtual void Die()
         {
             GameObjectPhysics.Jump();
-
+            State = new MarioDeadState(this);
             GameObjectPhysics.Stop(Side.Horizontal);
             scoreboard?.Die();
             SoundManager.Instance.PlaySoundEffect("MarioDies");

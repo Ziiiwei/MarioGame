@@ -200,13 +200,16 @@ namespace Gamespace.Transitions
 
         private void HandlePlayerCharacterSwitch(PlayerIndex i, Side side)
         {
+            Type current = playerCharacterSelection[i];
+            int previousIndex = PlayableCharacters.IndexOf(current);
+
             if (side == Side.Up)
             {
-                playerCharacterSelection[i] = PlayableCharacters[Math.Max(0, PlayableCharacters.IndexOf(playerCharacterSelection[i]) - 1)];
+                playerCharacterSelection[i] = PlayableCharacters[Math.Max(0,  previousIndex - 1)];
             }
             else
             {
-                playerCharacterSelection[i] = PlayableCharacters[Math.Min(PlayableCharacters.Count - 1, PlayableCharacters.IndexOf(playerCharacterSelection[i]) + 1)];
+                playerCharacterSelection[i] = PlayableCharacters[Math.Min(previousIndex + 1, PlayableCharacters.Count)];
             }
         }
     }
