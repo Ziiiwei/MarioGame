@@ -170,5 +170,10 @@ namespace Gamespace
 
             return ((State.Jumpable()^jumpKeyHolded)&!GameObjectPhysics.MaxSpeedReached(Side.Up));
         }
+        
+        public void ScoreKill()
+        {
+            scoreboard.UpScore(1);
+        }
     }
 }

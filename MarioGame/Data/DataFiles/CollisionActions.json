@@ -433,6 +433,35 @@
       "Side": "Right",
       "Command1": "Gamespace.Commands.KillEnemy",
       "Command2": "Gamespace.Commands.NullCommand"
+    },
+
+	{
+      "Mover": "Gamespace.Mario",
+      "Target": "Gamespace.Projectiles.Fireball",
+      "Side": "Up",
+      "Command1": "Gamespace.Commands.PlayerHitsProjectile",
+      "Command2": "Gamespace.Commands.ProjectileHitsPlayer"
+    },
+	{
+      "Mover": "Gamespace.Mario",
+      "Target": "Gamespace.Projectiles.Fireball",
+      "Side": "Down",
+      "Command1": "Gamespace.Commands.PlayerHitsProjectile",
+      "Command2": "Gamespace.Commands.ProjectileHitsPlayer"
+    },
+	{
+      "Mover": "Gamespace.Mario",
+      "Target": "Gamespace.Projectiles.Fireball",
+      "Side": "Left",
+      "Command1": "Gamespace.Commands.PlayerHitsProjectile",
+      "Command2": "Gamespace.Commands.ProjectileHitsPlayer"
+    },
+    {
+      "Mover": "Gamespace.Mario",
+      "Target": "Gamespace.Projectiles.Fireball",
+      "Side": "Right",
+      "Command1": "Gamespace.Commands.PlayerHitsProjectile",
+      "Command2": "Gamespace.Commands.ProjectileHitsPlayer"
     }
   ]
 }
