@@ -1,5 +1,4 @@
-﻿using Gamespace;
-using Gamespace.Multiplayer;
+﻿using Gamespace.Multiplayer;
 using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
@@ -9,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace Gamespace
 {
-    class Soldier : Mario
+    class Thief : Mario
     {
-        public Soldier(Vector2 positionOnScreen, Scoreboard scoreboard) : base(positionOnScreen, scoreboard)
+        public Thief(Vector2 positionOnScreen, Scoreboard scoreboard) : base(positionOnScreen, scoreboard)
         {
 
         }

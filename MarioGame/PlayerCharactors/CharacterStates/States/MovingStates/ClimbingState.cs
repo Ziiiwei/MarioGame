@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Gamespace.States;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,34 +7,38 @@ using System.Threading.Tasks;
 
 namespace Gamespace.Characters
 {
-    class ClimbingCharacterState : MovingCharacterState
+    class ClimbingCharacterState : LeftClimbingMarioState
     {
-        public ClimbingCharacterState(ICharacter character) : base(character)
+        public ClimbingCharacterState(IMario mario) : base(mario)
         {
-            this.character = character;
         }
 
         public override void ClimbUp()
         {
-            character.GameObjectPhysics.Climb(Side.Up);
+            base.ClimbUp();
         }
 
         public override void ClimbDown()
         {
-            character.GameObjectPhysics.Climb(Side.Down);
+            base.ClimbDown();
         }
 
         public override void MoveLeft()
         {
-            character.GameObjectPhysics.Move(Side.Left);
-            character.State = new LeftJumpingCharacterState(character);
-            character.UpdateArt();
+            base.MoveLeft();
+            mario.GameObjectPhysics.Move(Side.Left);
+            mario.State = new LeftJumpingMarioState(mario);
+            mario.UpdateArt();
+        }
+
+        public override void MoveRight()
+        {
+            base.MoveRight();
         }
 
         public override void Land()
         {
-            character.State = new RightStandingCharacterState(character);
-            character.UpdateArt();
+            base.Land();
         }
     }
 }

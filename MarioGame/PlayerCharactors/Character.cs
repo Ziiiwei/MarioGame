@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace Gamespace
 {
-        internal class Character : AbstractGameStatefulObject<ICharacterState>, ICharacter
+        internal class Character : Mario
         {
             public ICharacterPowerUpState PowerUpState { get; set; }
             public Scoreboard scoreboard { get; set; }
