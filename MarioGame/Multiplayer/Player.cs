@@ -31,6 +31,19 @@ namespace Gamespace.Multiplayer
         private bool timerIsArmed = false;
         private IController disabledController;
         private Action controllerUpdate;
+        private static Dictionary<int, Type> controllerAssignment;
+        
+        static Player()
+        {
+            controllerAssignment = new Dictionary<int, Type>()
+            {
+                {0, typeof(KeyboardController) },
+                {1, typeof(GamepadController) },
+                {2, typeof(GamepadController) },
+                {3, typeof(GamepadController) }
+            };
+
+        }
         public Player(Type character, SpriteBatch screen, Vector2 spawnPoint)
         {
             Lives = Numbers.LIVES_STOCK;
@@ -45,7 +58,7 @@ namespace Gamespace.Multiplayer
             Cam = new MultiplayerCamera2(viewport, GameObject);
             bezel = new Bezel(playerID, MarioGame.Instance.PlayerCount, MarioGame.Instance.GraphicsDevice, Cam);
             
-            if (playerID > 1)
+            if (playerID > 0)
             {
                 Controller = new GamepadController(this);
             }
@@ -53,6 +66,7 @@ namespace Gamespace.Multiplayer
             {
                 Controller = new KeyboardController(this);
             }
+
             disabledController = new KeyboardController(this, false);
             controllerUpdate = ()=> Controller.Update();
             Screen = screen;
