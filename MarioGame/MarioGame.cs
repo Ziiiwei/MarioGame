@@ -82,7 +82,7 @@ namespace Gamespace
             {
                 {0, new Tuple<string, string>("Arena One", "MarioGame/Data/DataFiles/level1.csv") },
                 {1, new Tuple<string, string>("Arena Two", "MarioGame/Data/DataFiles/level2.csv") },
-                {2, new Tuple<string, string>("Arena Three", "MarioGame/Data/DataFiles/level1.csv") }
+                {2, new Tuple<string, string>("Arena Three", "MarioGame/Data/DataFiles/level3.csv") }
             };
 
             PlayerCount = 1;
@@ -163,7 +163,6 @@ namespace Gamespace
 
             IPlayer player2 = new Player(typeof(Mario), new SpriteBatch(GraphicsDevice), new Vector2(Numbers.PLAYER_TWO_X, Numbers.STARTING_Y));
             World.Instance.AddPlayer(player2);
-
 
             SoundManager.Instance.PlayMainBGM();  
         }
