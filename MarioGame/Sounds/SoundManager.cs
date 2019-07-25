@@ -15,12 +15,21 @@ namespace Gamespace.Sounds
         private static readonly SoundManager instance = new SoundManager();
         private SoundEffectInstance  soundEffect;
         private SoundEffectInstance MainMenuBGM;
-        private SoundEffectInstance SelectBGM;
+        private SoundEffectInstance SelectBGM; 
         private SoundEffectInstance ArenaBGM;
 
         static SoundManager()
         {
+
+            arenaPath = new Dictionary<string, string>
+            {
+                {"MarioGame/Data/DataFiles/level1.csv", "arena1"},
+                {"MarioGame/Data/DataFiles/level2.csv", "arena2"},
+                {"MarioGame/Data/DataFiles/level3.csv", "NoTime"}
+            };
         }
+  
+         private Dictionary<string, string> arenaPath;
         internal static SoundManager Instance { get; } = new SoundManager();
         public void PlaySoundEffect(String name)
         {
