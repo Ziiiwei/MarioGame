@@ -69,7 +69,7 @@ namespace Gamespace
 
             collisionColumns = new List<List<IGameObject>>();
             // This magic number has to go.
-            for (int i = 0; i < 207; i++)
+            for (int i = 0; i < CSVParser.width; i++)
             {
                 collisionColumns.Add(new List<IGameObject>());
             }
