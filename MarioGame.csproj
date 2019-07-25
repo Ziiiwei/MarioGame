@@ -72,6 +72,7 @@
     <Compile Include="MarioGame\GameObjects\Blocks\Bump States\BlockIsBumpedState.cs" />
     <Compile Include="MarioGame\GameObjects\Blocks\Bump States\BlockIsNotBumpedState.cs" />
     <Compile Include="MarioGame\GameObjects\Blocks\Bump States\IBlockBumpState.cs" />
+    <Compile Include="MarioGame\GameObjects\Blocks\Spawner.cs" />
     <Compile Include="MarioGame\GameObjects\Blocks\KoopaSpawner.cs" />
     <Compile Include="MarioGame\GameObjects\Blocks\GoombaSpawner.cs" />
     <Compile Include="MarioGame\GameObjects\Blocks\DeathBlock.cs" />

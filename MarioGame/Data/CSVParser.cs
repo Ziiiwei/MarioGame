@@ -24,6 +24,7 @@ namespace Gamespace
                 {"HB", "Gamespace.Blocks.HiddenBlock" },
                 {"DB", "Gamespace.Blocks.DeathBlock" },
                 {"QB", "Gamespace.Blocks.QuestionBlock" },
+                {"SP", "Gamespace.Blocks.Spawner"},
                 {"GSP", "Gamespace.Blocks.GoombaSpawner"},
                 {"KSP", "Gamespace.Blocks.KoopaSpawner"},
                 {"P", "Gamespace.Items.Pipe" },

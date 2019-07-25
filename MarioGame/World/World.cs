@@ -49,6 +49,7 @@ namespace Gamespace
 
         private readonly List<List<IGameObject>> collisionColumns;
 
+        private List<Vector2> SpawnPoints;
         private bool worldIsPaused = false;
 
    
@@ -66,6 +67,7 @@ namespace Gamespace
             objectsToRemoveFromUpdate = new List<IGameObject>();
             collisionMovers = new List<IGameObject>();
             collisionReceivers = new List<IGameObject>();
+            SpawnPoints = new List<Vector2>();
 
             collisionColumns = new List<List<IGameObject>>();
             // This magic number has to go.
@@ -286,6 +288,7 @@ namespace Gamespace
             objectsToRemoveFromUpdate.Clear();
             objectsToAdd.Clear();
             objectsToRemove.Clear();
+            SpawnPoints.Clear();
         }
 
 
@@ -302,6 +305,11 @@ namespace Gamespace
             {
                 player.DrawPlayersScreen();
             }
+        }
+
+        public void AddSpawner(Spawner spawner)
+        {
+            SpawnPoints.Add(spawner.PositionOnScreen);
         }
 
         public void ClearWorld()
