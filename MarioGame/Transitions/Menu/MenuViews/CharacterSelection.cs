@@ -22,7 +22,7 @@ namespace Gamespace
         {
             this.menu = menu;
             stringsOrigin = new Vector2(0, 0);
-            stringDistance = new Vector2(0, 60);
+            stringDistance = new Vector2(0, 50);
             characterOrigins = new Dictionary<PlayerIndex, Vector2>()
             {
                 {PlayerIndex.One, new Vector2(MarioGame.WINDOW_WIDTH / 6, MarioGame.WINDOW_HEIGHT / 6) },
@@ -38,16 +38,16 @@ namespace Gamespace
 
             for (PlayerIndex i = PlayerIndex.One; i <= PlayerIndex.Four; i++)
             {
-                Color color = Color.Black;
-
                 for (int j = 0; j < menu.PlayableCharacters.Count ; j++)
                 {
+
+                    Color color = Color.Black;
                     if (menu.PlayableCharacters[j] == menu.playerCharacterSelection[i])
                     {
                         color = Color.Red;
                     }
 
-                    spriteBatch.DrawString(MarioGame.Instance.Font, menu.PlayableCharacters[j].ToString(), characterOrigins[i] + stringDistance, Color.Black);
+                    spriteBatch.DrawString(MarioGame.Instance.Font, menu.PlayableCharacters[j].Name.ToString(), characterOrigins[i] + (stringDistance * j), color);
                 }
             }
         }

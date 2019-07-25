@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Gamespace.Commands;
+using Gamespace.Multiplayer;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
 
@@ -14,10 +15,29 @@ namespace Gamespace.Controllers
         private GamePadState gamePadState;
         private GamePadState previousState;
         private Dictionary<Buttons, ICommand> buttonCommands;
+        private static readonly List<Type> nonHoldableCommands;
 
-        public GamepadController(MarioGame game)
+        static GamepadController()
         {
+            nonHoldableCommands = new List<Type>()
+            {
+                typeof(PauseGameCommand),
+                typeof(PlayTestAnimation),
+            };
+        }
 
+        public GamepadController(IPlayer player)
+        {
+            buttonCommands = new Dictionary<Buttons, ICommand>()
+            {
+                {Buttons.Start, new PauseGameCommand(player.GameObject) },
+                {Buttons.Back, new QuitGame(player.GameObject) },
+                {Buttons.DPadUp, new MarioJumpCommand(player.GameObject) },
+                {Buttons.DPadDown, new MarioCrouchCommand(player.GameObject) },
+                {Buttons.DPadLeft, new MarioMoveLeftCommand(player.GameObject) },
+                {Buttons.DPadRight, new MarioMoveRightCommand(player.GameObject) },
+                {Buttons.A, new MarioFireCommand(player.GameObject) }
+            };
         }
 
         public bool CommandOverRide(string comand)

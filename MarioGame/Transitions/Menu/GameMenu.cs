@@ -23,8 +23,6 @@ namespace Gamespace.Transitions
         private MenuState currentState;
 
         private LevelLoader levelLoader;
-
-
         
         private int StartingTime = Numbers.STARTING_TIME;
         private enum InputDirection { Up, Down };
@@ -32,8 +30,10 @@ namespace Gamespace.Transitions
         public int PlayerCount { get; private set; }
         public int ArenaSelected { get; private set; }
         public int Time { get; private set; }
+
         public Dictionary<PlayerIndex, Type> playerCharacterSelection { get; private set; }
         public List<Type> PlayableCharacters { get; }
+
         private Dictionary<Tuple<MenuState, InputDirection>, Delegate> inputAction;
         private IView view;
         private IController input;
@@ -53,7 +53,8 @@ namespace Gamespace.Transitions
 
             PlayableCharacters = new List<Type>()
             {
-                typeof(Scout)
+                typeof(Scout),
+                typeof(Soldier)
             };
 
             stateTransitions = new Dictionary<MenuState, Delegate>()
@@ -70,25 +71,26 @@ namespace Gamespace.Transitions
             inputAction = new Dictionary<Tuple<MenuState, InputDirection>, Delegate>()
             {
                 {new Tuple<MenuState, InputDirection>(MenuState.Count, InputDirection.Up),
-                    new Action(() => PlayerCount = Math.Max(PlayerCount - 1, 1)) },
+                    new Action<PlayerIndex>((i) => PlayerCount = Math.Max(PlayerCount - 1, 1)) },
                 {new Tuple<MenuState, InputDirection>(MenuState.Count, InputDirection.Down),
-                    new Action(() => PlayerCount = Math.Min(Numbers.MAX_PLAYERS, PlayerCount + 1)) },
+                    new Action<PlayerIndex>((i) => PlayerCount = Math.Min(Numbers.MAX_PLAYERS, PlayerCount + 1)) },
                 {new Tuple<MenuState, InputDirection>(MenuState.Arena, InputDirection.Up),
-                    new Action(() => ArenaSelected = Math.Max(ArenaSelected - 1, 0)) },
+                    new Action<PlayerIndex>((i) => ArenaSelected = Math.Max(ArenaSelected - 1, 0)) },
                 {new Tuple<MenuState, InputDirection>(MenuState.Arena, InputDirection.Down),
-                    new Action(() => ArenaSelected = Math.Min(ArenaSelected + 1, MarioGame.Instance.ArenaPaths.Count)) },
-
-                {new Tuple<MenuState, InputDirection>(MenuState.Character, InputDirection.Up), new Action(() => { }) },
-                {new Tuple<MenuState, InputDirection>(MenuState.Character, InputDirection.Down), new Action(() => { }) },
+                    new Action<PlayerIndex>((i) => ArenaSelected = Math.Min(ArenaSelected + 1, MarioGame.Instance.ArenaPaths.Count)) },
+                {new Tuple<MenuState, InputDirection>(MenuState.Character, InputDirection.Up), new Action<PlayerIndex>((i) => { HandlePlayerCharacterSwitch(i, Side.Up); }) },
+                {new Tuple<MenuState, InputDirection>(MenuState.Character, InputDirection.Down), new Action<PlayerIndex>((i) => { HandlePlayerCharacterSwitch(i, Side.Down); }) },
             };
 
             playerCharacterSelection = new Dictionary<PlayerIndex, Type>()
             {
-                {PlayerIndex.One, typeof(Scout) },
-                {PlayerIndex.Two, typeof(Scout) },
-                {PlayerIndex.Three, typeof(Scout) },
-                {PlayerIndex.Four, typeof(Scout) }
+                {PlayerIndex.One, PlayableCharacters[0] },
+                {PlayerIndex.Two, PlayableCharacters[0] },
+                {PlayerIndex.Three, PlayableCharacters[0] },
+                {PlayerIndex.Four, PlayableCharacters[0] }
             };
+
+
         }
 
         /* This is to be removed */
@@ -128,7 +130,7 @@ namespace Gamespace.Transitions
             var key = new Tuple<MenuState, InputDirection>(currentState, InputDirection.Up);
             if (inputAction.ContainsKey(key))
             {
-                inputAction[key].DynamicInvoke();
+                inputAction[key].DynamicInvoke(i);
             }
         }
 
@@ -137,7 +139,7 @@ namespace Gamespace.Transitions
             var key = new Tuple<MenuState, InputDirection>(currentState, InputDirection.Down);
             if (inputAction.ContainsKey(key))
             {
-                inputAction[key].DynamicInvoke();
+                inputAction[key].DynamicInvoke(i);
             }
         }
 
@@ -193,6 +195,18 @@ namespace Gamespace.Transitions
             MarioGame.Instance.OnMenuSelectionsComplete();
             SoundManager.Instance.StopSelectBGM();
             SoundManager.Instance.PlayArenaBGM(); 
+        }
+
+        private void HandlePlayerCharacterSwitch(PlayerIndex i, Side side)
+        {
+            if (side == Side.Up)
+            {
+                playerCharacterSelection[i] = PlayableCharacters[Math.Max(0, PlayableCharacters.IndexOf(playerCharacterSelection[i]) - 1)];
+            }
+            else
+            {
+                playerCharacterSelection[i] = PlayableCharacters[Math.Min(PlayableCharacters.Count - 1, PlayableCharacters.IndexOf(playerCharacterSelection[i]) + 1)];
+            }
         }
     }
 }

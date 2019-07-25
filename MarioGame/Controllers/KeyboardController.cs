@@ -24,8 +24,6 @@ namespace Gamespace.Controllers
             {
                 typeof(PauseGameCommand),
                 typeof(PlayTestAnimation),
-               
-              
             };
         }
 
