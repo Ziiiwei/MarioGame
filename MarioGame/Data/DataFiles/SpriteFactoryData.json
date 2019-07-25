@@ -1018,7 +1018,7 @@
       "State": "LeftJumpingMarioState",
       "PowerUpState": "",
       "TexturePath": "Sprint6/Scout/JumpShootLeft",
-      "FrameCount": 1,
+      "FrameCount": 2,
       "FrameDelay": 3
     },
     {
@@ -1026,7 +1026,7 @@
       "State": "RightJumpingMarioState",
       "PowerUpState": "",
       "TexturePath": "Sprint6/Scout/JumpShootRight",
-      "FrameCount": 1,
+      "FrameCount": 2,
       "FrameDelay": 3
     },
     {
