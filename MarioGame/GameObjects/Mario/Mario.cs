@@ -123,6 +123,8 @@ namespace Gamespace
             GameObjectPhysics.Jump();
             State = new MarioDeadState(this);
             GameObjectPhysics.Stop(Side.Horizontal);
+            GameObjectPhysics = PhysicsFactory.Instance.GetNullPhysics(positionOnScreen);
+            World.Instance.MaskCollision(this);
             scoreboard?.Die();
             SoundManager.Instance.PlaySoundEffect("MarioDies");
       

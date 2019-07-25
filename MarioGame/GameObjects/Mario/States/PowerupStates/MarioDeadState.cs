@@ -11,7 +11,6 @@ namespace Gamespace.States
         public MarioDeadState(IMario mario) : base(mario)
         {
             mario.UpdateArt();
-            mario.Die();
         }
 
 
