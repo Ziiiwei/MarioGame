@@ -143,5 +143,10 @@ namespace Gamespace
         {
             throw new NotImplementedException();
         }
+
+        public void ScoreKill()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

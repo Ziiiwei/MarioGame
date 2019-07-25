@@ -126,7 +126,7 @@ namespace Gamespace
 
             GameObjectPhysics.Stop(Side.Horizontal);
             World.Instance.MaskCollision(this);
-            scoreboard?.Die();
+            scoreboard.Die();
             SoundManager.Instance.PlaySoundEffect("MarioDies");
       
         }
@@ -168,6 +168,11 @@ namespace Gamespace
             jumpKeyHolded = jumpKeyPressed && previouslyJumpKeyPressed;
 
             return ((State.Jumpable()^jumpKeyHolded)&!GameObjectPhysics.MaxSpeedReached(Side.Up));
+        }
+        
+        public void ScoreKill()
+        {
+            scoreboard.UpScore(1);
         }
     }
 }

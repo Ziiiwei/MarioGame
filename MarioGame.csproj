@@ -64,6 +64,8 @@
     <Compile Include="MarioGame\Commands\AnimationCommands\PlayMarioTouchFlag.cs" />
     <Compile Include="MarioGame\Commands\PauseGameCommand.cs" />
     <Compile Include="MarioGame\Commands\AnimationCommands\PlayTestAnimation.cs" />
+    <Compile Include="MarioGame\Commands\PlayerHitsProjectile.cs" />
+    <Compile Include="MarioGame\Commands\ProjectileHitsPlayer.cs" />
     <Compile Include="MarioGame\Commands\ProjectileRemoveCommand.cs" />
     <Compile Include="MarioGame\Controllers\KeyAssignmentFactory.cs" />
     <Compile Include="MarioGame\Data\Numbers.cs" />
@@ -328,6 +330,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="MarioGame\Data\DataFiles\level2.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="MarioGame\Data\DataFiles\level3.csv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="MarioGame\Data\DataFiles\MainMenu.csv">

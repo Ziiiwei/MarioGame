@@ -12,7 +12,7 @@ namespace Gamespace.Projectiles
 {
     internal class ProjectileLauncher : ILauncher
     {
-        private AbstractGameObject gameObject;
+        private AbstractGameObject OwnedBy { get; }
 
         public int MaxProjectiles { get; set; }
       
@@ -27,7 +27,7 @@ namespace Gamespace.Projectiles
 
         public ProjectileLauncher(IGameObject gameObject, Func<IProjectile> fill,int fillSpeed)
         {
-            this.gameObject = (AbstractGameObject)gameObject;
+            this.OwnedBy = (AbstractGameObject)gameObject;
             MaxProjectiles = Numbers.MAX_PROJECTILES;
 
             ammos = new Stack<IProjectile>();
@@ -42,14 +42,14 @@ namespace Gamespace.Projectiles
             spawnOffset = new Dictionary<ShootAngle, Func<Vector2>>
             {
                 {ShootAngle.Left,  new Func<Vector2>(()=>new Vector2(
-                    this.gameObject.GameObjectPhysics.Position.X,
-                    this.gameObject.Center.Y))},
+                    this.OwnedBy.GameObjectPhysics.Position.X,
+                    this.OwnedBy.Center.Y))},
                 {ShootAngle.Right,  new Func<Vector2>(()=>new Vector2(
-                    this.gameObject.GameObjectPhysics.Position.X+this.gameObject.Sprite.Width,
-                    this.gameObject.Center.Y))},
+                    this.OwnedBy.GameObjectPhysics.Position.X+this.OwnedBy.Sprite.Width,
+                    this.OwnedBy.Center.Y))},
                 {ShootAngle.Up, new Func<Vector2>(() => new Vector2(
-                    this.gameObject.Center.X,
-                    this.gameObject.GameObjectPhysics.Position.Y))}
+                    this.OwnedBy.Center.X,
+                    this.OwnedBy.GameObjectPhysics.Position.Y))}
             };
   
         }
@@ -60,7 +60,7 @@ namespace Gamespace.Projectiles
             {
                 IProjectile projectile = ammos.Pop();
                 World.Instance.AddGameObject(projectile);
-                projectile.Shoot(angle, gameObject.GameObjectPhysics.Velocity, spawnOffset[angle].Invoke());
+                projectile.Shoot(angle, OwnedBy.GameObjectPhysics.Velocity, spawnOffset[angle].Invoke());
             }
             delayCounter++;
         }
