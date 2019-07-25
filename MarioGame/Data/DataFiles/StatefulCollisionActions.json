@@ -1,4 +1,4 @@
-﻿{
+﻿ {
   "Entries": [
     {
       "Mover": "Gamespace.Goombas.Goomba",
@@ -182,6 +182,34 @@
       "Side": "Right",
       "Command1": "Gamespace.Commands.EnemyHitsMario",
       "Command2": "Gamespace.Commands.NullCommand"
+    },
+    {
+      "Mover": "Gamespace.Projectiles.Fireball",
+      "Target": "Gamespace.Mario",
+      "Side": "Up",
+      "Command1": "Gamespace.Commands.NullCommand",
+      "Command2": "Gamespace.Commands.EnemyHitsMario"
+    },
+    {
+      "Mover": "Gamespace.Projectiles.Fireball",
+      "Target": "Gamespace.Mario",
+      "Side": "Down",
+      "Command1": "Gamespace.Commands.NullCommand",
+      "Command2": "Gamespace.Commands.EnemyHitsMario"
+    },
+    {
+      "Mover": "Gamespace.Projectiles.Fireball",
+      "Target": "Gamespace.Mario",
+      "Side": "Left",
+      "Command1": "Gamespace.Commands.NullCommand",
+      "Command2": "Gamespace.Commands.EnemyHitsMario"
+    },
+    {
+      "Mover": "Gamespace.Projectiles.Fireball",
+      "Target": "Gamespace.Mario",
+      "Side": "Right",
+      "Command1": "Gamespace.Commands.NullCommand",
+      "Command2": "Gamespace.Commands.EnemyHitsMario"
     }
   ]
 }

@@ -50,6 +50,8 @@ namespace Gamespace
         private const int UNIT = 32;
         private static Dictionary<string, string> shortcuts;
 
+        public static int width;
+
         public static void ConvertCSVtoJSON(String path)
         {
             String[][] data = File.ReadLines(path).Select(x => x.Split(',')).ToArray();
@@ -59,6 +61,7 @@ namespace Gamespace
             string pattern = @"\+";
             string name;
             string state = "null";
+            width = data[data.Length - 1].Length;
             for (int i = 0; i < data.Length; i++)
             {
                 for (int j = 0; j < data[i].Length; j++)

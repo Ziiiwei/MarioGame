@@ -23,7 +23,7 @@ namespace Gamespace.Projectiles
                 {typeof(Scout),(new Func<IProjectile>(()=>new Fireball()),20,5)},
                 {typeof(Tank),(new Func<IProjectile>(()=>new Fireball()),20,5)},
                 {typeof(Thief),(new Func<IProjectile>(()=>new Fireball()),20,5)},
-                {typeof(Soldier),(new Func<IProjectile>(()=>new Bullet1()),20,5)}
+                {typeof(Soldier),(new Func<IProjectile>(()=>new Fireball()),20,5)}
             };
 
         }
