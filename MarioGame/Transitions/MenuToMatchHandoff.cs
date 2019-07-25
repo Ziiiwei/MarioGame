@@ -31,7 +31,7 @@ namespace Gamespace
             for (int i = 1; i <= menu.PlayerCount; i++)
             {
 
-                World.Instance.AddPlayer(new Player(typeof(Mario), new SpriteBatch(graphicsDevice), spawnPoints[i-1]));
+                World.Instance.AddPlayer(new Player(menu.PlayableCharacters[i], new SpriteBatch(graphicsDevice), spawnPoints[i-1]));
             }
 
             string path = MarioGame.Instance.ArenaPaths[menu.ArenaSelected].Item2;
