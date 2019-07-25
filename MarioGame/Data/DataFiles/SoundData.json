@@ -95,6 +95,10 @@
     {
       "SoundName": "arena1",
       "SoundPath": "Sounds/arena1ost"
+    },
+    {
+      "SoundName": "arena2",
+      "SoundPath": "Sounds/arena2ost"
     }
   ]
 }

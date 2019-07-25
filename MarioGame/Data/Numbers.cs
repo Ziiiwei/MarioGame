@@ -39,6 +39,7 @@ namespace Gamespace.Data
         public const int BULLET1_BOUNCE_BOUND = 6;
         public const int MAX_PLAYERS = 4;
         public const int SPAWN_LIMITER = 307;
-        public const int INTRO_TIME = 13;
+        public const int TITLE_TIME = 13;
+        public const int INTRO_CREDIT = 6;
     }
 }
