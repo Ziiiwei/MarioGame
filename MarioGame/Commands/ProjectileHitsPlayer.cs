@@ -17,7 +17,7 @@ namespace Gamespace.Commands
 
         public void Execute()
         {
-            
+            projectile.OwnerScores();
         }
     }
 }

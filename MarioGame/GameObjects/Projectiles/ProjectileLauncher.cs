@@ -59,6 +59,7 @@ namespace Gamespace.Projectiles
             if (delayCounter % Numbers.DELAY_BOUND == 0 && ammos.Count>0)
             {
                 IProjectile projectile = ammos.Pop();
+                projectile.SetOwner((IMario) OwnedBy);
                 World.Instance.AddGameObject(projectile);
                 projectile.Shoot(angle, OwnedBy.GameObjectPhysics.Velocity, spawnOffset[angle].Invoke());
             }

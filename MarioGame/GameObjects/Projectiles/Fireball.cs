@@ -17,6 +17,7 @@ namespace Gamespace.Projectiles
         private static readonly Dictionary<ShootAngle, Func<Vector2, int, Vector2>> spriteOffset;
         private int bounceCounter = 0;
         private readonly int bounceBound = Numbers.BOUNCE_BOUND;
+        private IMario owner;
 
         public ShootAngle Angle { get ; set; }
 
@@ -50,6 +51,7 @@ namespace Gamespace.Projectiles
 
         public Fireball() : this(new Vector2(0), ShootAngle.Right)
         {
+
             trajectoryLog = new Dictionary<ShootAngle, Func<Vector2, Func<Vector2, int, Vector2>>>
             {
                 {ShootAngle.Left, new Func<Vector2, Func<Vector2, int, Vector2>>((ini_v) =>
@@ -150,6 +152,16 @@ namespace Gamespace.Projectiles
             int offset = angle == ShootAngle.Up ? Sprite.Height : Sprite.Width;
             GameObjectPhysics.Position = spriteOffset[angle].Invoke(initialP,offset);
             GameObjectPhysics.TrajectMove(trajectoryLog[angle].Invoke(initialV));
+        }
+
+        public void OwnerScores()
+        {
+            owner.ScoreKill();
+        }
+        
+        public void SetOwner(IMario owner)
+        {
+            this.owner = owner;
         }
     }
 }
