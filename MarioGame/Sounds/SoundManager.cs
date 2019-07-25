@@ -52,9 +52,19 @@ namespace Gamespace.Sounds
         {
             SelectBGM.Stop();
         }
-        public void PlayArenaBGM()
+        public void PlayArenaBGM(string path)
         {
-            ArenaBGM = SoundFactory.Instance.GetSoundEffect("arena2");
+            if(path == "MarioGame/Data/DataFiles/level1.csv")
+            {
+                ArenaBGM = SoundFactory.Instance.GetSoundEffect("arena1");
+            } else if(path == "MarioGame/Data/DataFiles/level2.csv")
+            {
+                ArenaBGM = SoundFactory.Instance.GetSoundEffect("arena2");
+            } else
+            {
+                ArenaBGM = SoundFactory.Instance.GetSoundEffect("NoTime");
+            }
+       
             ArenaBGM.IsLooped = true;
             ArenaBGM.Volume = 0.5f;
             ArenaBGM.Play();

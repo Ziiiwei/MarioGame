@@ -815,7 +815,7 @@
 
     {
       "Name": "Tank",
-      "State": "LeftStandingState",
+      "State": "LeftStandingMarioState",
       "PowerUpState": "",
       "TexturePath": "Sprint6/Tank/StandLeft",
       "FrameCount": 1,
@@ -823,7 +823,7 @@
     },
     {
       "Name": "Tank",
-      "State": "RightStandingState",
+      "State": "RightStandingMarioState",
       "PowerUpState": "",
       "TexturePath": "Sprint6/Tank/StandRight",
       "FrameCount": 1,
@@ -831,7 +831,7 @@
     },
     {
       "Name": "Tank",
-      "State": "LeftWalkingState",
+      "State": "LeftWalkingMarioState",
       "PowerUpState": "",
       "TexturePath": "Sprint6/Tank/MoveLeft",
       "FrameCount": 3,
@@ -839,7 +839,7 @@
     },
     {
       "Name": "Tank",
-      "State": "RightWalkingState",
+      "State": "RightWalkingMarioState",
       "PowerUpState": "",
       "TexturePath": "Sprint6/Tank/MoveRight",
       "FrameCount": 3,
@@ -855,7 +855,7 @@
     },
     {
       "Name": "Tank",
-      "State": "LeftJumpingState",
+      "State": "LeftJumpingMarioState",
       "PowerUpState": "",
       "TexturePath": "Sprint6/Tank/JumpLeft",
       "FrameCount": 1,
@@ -863,7 +863,7 @@
     },
     {
       "Name": "Tank",
-      "State": "RightJumpingState",
+      "State": "RightJumpingMarioState",
       "PowerUpState": "",
       "TexturePath": "Sprint6/Tank/JumpRight",
       "FrameCount": 1,
@@ -871,7 +871,7 @@
     },
     {
       "Name": "Tank",
-      "State": "RightCrouchingState",
+      "State": "RightCrouchingMarioState",
       "PowerUpState": "",
       "TexturePath": "Sprint6/Tank/CrouchRight",
       "FrameCount": 1,
@@ -879,7 +879,7 @@
     },
     {
       "Name": "Tank",
-      "State": "LeftCrouchingState",
+      "State": "LeftCrouchingMarioState",
       "PowerUpState": "",
       "TexturePath": "Sprint6/Tank/CrouchLeft",
       "FrameCount": 1,
@@ -895,7 +895,7 @@
     },
     {
       "Name": "Soldier",
-      "State": "LeftStandingState",
+      "State": "LeftStandingMarioState",
       "PowerUpState": "",
       "TexturePath": "Sprint6/Soldier/StandLeft",
       "FrameCount": 1,
@@ -903,7 +903,7 @@
     },
     {
       "Name": "Soldier",
-      "State": "RightStandingState",
+      "State": "RightStandingMarioState",
       "PowerUpState": "",
       "TexturePath": "Sprint6/Soldier/StandRight",
       "FrameCount": 1,
@@ -911,7 +911,7 @@
     },
     {
       "Name": "Soldier",
-      "State": "LeftWalkingState",
+      "State": "LeftWalkingMarioState",
       "PowerUpState": "",
       "TexturePath": "Sprint6/Soldier/MoveLeft",
       "FrameCount": 3,
@@ -919,7 +919,7 @@
     },
     {
       "Name": "Soldier",
-      "State": "RightWalkingState",
+      "State": "RightWalkingMarioState",
       "PowerUpState": "",
       "TexturePath": "Sprint6/Soldier/MoveRight",
       "FrameCount": 3,
@@ -935,7 +935,7 @@
     },
     {
       "Name": "Soldier",
-      "State": "LeftJumpingState",
+      "State": "LeftJumpingMarioState",
       "PowerUpState": "",
       "TexturePath": "Sprint6/Soldier/JumpLeft",
       "FrameCount": 1,
@@ -943,7 +943,7 @@
     },
     {
       "Name": "Soldier",
-      "State": "RightJumpingState",
+      "State": "RightJumpingMarioState",
       "PowerUpState": "",
       "TexturePath": "Sprint6/Soldier/JumpRight",
       "FrameCount": 1,
@@ -951,7 +951,7 @@
     },
     {
       "Name": "Soldier",
-      "State": "RightCrouchingState",
+      "State": "RightCrouchingMarioState",
       "PowerUpState": "",
       "TexturePath": "Sprint6/Soldier/CrouchRight",
       "FrameCount": 1,
@@ -959,7 +959,7 @@
     },
     {
       "Name": "Soldier",
-      "State": "LeftCrouchingState",
+      "State": "LeftCrouchingMarioState",
       "PowerUpState": "",
       "TexturePath": "Sprint6/Soldier/CrouchLeft",
       "FrameCount": 1,
@@ -975,7 +975,7 @@
     },
     {
       "Name": "Scout",
-      "State": "LeftStandingState",
+      "State": "LeftStandingMarioState",
       "PowerUpState": "",
       "TexturePath": "Sprint6/Scout/StandLeft",
       "FrameCount": 1,
@@ -983,7 +983,7 @@
     },
     {
       "Name": "Scout",
-      "State": "RightStandingState",
+      "State": "RightStandingMarioState",
       "PowerUpState": "",
       "TexturePath": "Sprint6/Scout/StandRight",
       "FrameCount": 1,
@@ -991,7 +991,7 @@
     },
     {
       "Name": "Scout",
-      "State": "LeftWalkingState",
+      "State": "LeftWalkingMarioState",
       "PowerUpState": "",
       "TexturePath": "Sprint6/Scout/MoveLeft",
       "FrameCount": 3,
@@ -999,7 +999,7 @@
     },
     {
       "Name": "Scout",
-      "State": "RightWalkingState",
+      "State": "RightWalkingMarioState",
       "PowerUpState": "",
       "TexturePath": "Sprint6/Scout/MoveRight",
       "FrameCount": 3,
@@ -1015,7 +1015,7 @@
     },
     {
       "Name": "Scout",
-      "State": "LeftJumpingState",
+      "State": "LeftJumpingMarioState",
       "PowerUpState": "",
       "TexturePath": "Sprint6/Scout/JumpShootLeft",
       "FrameCount": 1,
@@ -1023,7 +1023,7 @@
     },
     {
       "Name": "Scout",
-      "State": "RightJumpingState",
+      "State": "RightJumpingMarioState",
       "PowerUpState": "",
       "TexturePath": "Sprint6/Scout/JumpShootRight",
       "FrameCount": 1,
@@ -1031,7 +1031,7 @@
     },
     {
       "Name": "Scout",
-      "State": "RightCrouchingState",
+      "State": "RightCrouchingMarioState",
       "PowerUpState": "",
       "TexturePath": "Sprint6/Scout/CrouchRight",
       "FrameCount": 1,
@@ -1039,7 +1039,7 @@
     },
     {
       "Name": "Scout",
-      "State": "LeftCrouchingState",
+      "State": "LeftCrouchingMarioState",
       "PowerUpState": "",
       "TexturePath": "Sprint6/Scout/CrouchLeft",
       "FrameCount": 1,
@@ -1056,7 +1056,7 @@
 
     {
       "Name": "Thief",
-      "State": "LeftStandingState",
+      "State": "LeftStandingMarioState",
       "PowerUpState": "",
       "TexturePath": "Sprint6/Thief/StandLeft",
       "FrameCount": 1,
@@ -1064,7 +1064,7 @@
     },
     {
       "Name": "Thief",
-      "State": "RightStandingState",
+      "State": "RightStandingMarioState",
       "PowerUpState": "",
       "TexturePath": "Sprint6/Thief/StandRight",
       "FrameCount": 1,
@@ -1072,7 +1072,7 @@
     },
     {
       "Name": "Thief",
-      "State": "LeftWalkingState",
+      "State": "LeftWalkingMarioState",
       "PowerUpState": "",
       "TexturePath": "Sprint6/Thief/MoveLeft",
       "FrameCount": 3,
@@ -1080,7 +1080,7 @@
     },
     {
       "Name": "Thief",
-      "State": "RightWalkingState",
+      "State": "RightWalkingMarioState",
       "PowerUpState": "",
       "TexturePath": "Sprint6/Thief/MoveRight",
       "FrameCount": 3,
@@ -1096,7 +1096,7 @@
     },
       {
         "Name": "Thief",
-        "State": "LeftJumpingState",
+        "State": "LeftJumpingMarioState",
         "PowerUpState": "",
         "TexturePath": "Sprint6/Thief/JumpLeft",
         "FrameCount": 1,
@@ -1104,7 +1104,7 @@
       },
       {
         "Name": "Thief",
-        "State": "RightJumpingState",
+        "State": "RightJumpingMarioState",
         "PowerUpState": "",
         "TexturePath": "Sprint6/Thief/JumpRight",
         "FrameCount": 1,
@@ -1112,7 +1112,7 @@
       },
       {
         "Name": "Thief",
-        "State": "RightCrouchingState",
+        "State": "RightCrouchingMarioState",
         "PowerUpState": "",
         "TexturePath": "Sprint6/Thief/CrouchRight",
         "FrameCount": 1,
@@ -1120,7 +1120,7 @@
       },
       {
         "Name": "Thief",
-        "State": "LeftCrouchingState",
+        "State": "LeftCrouchingMarioState",
         "PowerUpState": "",
         "TexturePath": "Sprint6/Thief/CrouchLeft",
         "FrameCount": 1,

@@ -175,14 +175,14 @@ namespace Gamespace.Transitions
             currentState = MenuState.Count;
             view = new PlayerCountSelection(this);
             input = new MenuInputController(this);
+            SoundManager.Instance.StopMainBGM();
+            SoundManager.Instance.PlaySelectBGM();
         }
 
         private void CountToArenaTransition()
         {
             currentState = MenuState.Arena;
             view = new ArenaSelection(this);
-            SoundManager.Instance.StopMainBGM();
-            SoundManager.Instance.PlaySelectBGM();
             
         }
 
@@ -196,7 +196,6 @@ namespace Gamespace.Transitions
         {
             MarioGame.Instance.OnMenuSelectionsComplete();
             SoundManager.Instance.StopSelectBGM();
-            SoundManager.Instance.PlayArenaBGM(); 
         }
 
         private void HandlePlayerCharacterSwitch(PlayerIndex i, Side side)
