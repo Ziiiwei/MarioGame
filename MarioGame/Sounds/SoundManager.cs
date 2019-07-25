@@ -15,12 +15,22 @@ namespace Gamespace.Sounds
         private static readonly SoundManager instance = new SoundManager();
         private SoundEffectInstance  soundEffect;
         private SoundEffectInstance MainMenuBGM;
-        private SoundEffectInstance SelectBGM;
+        private SoundEffectInstance SelectBGM; 
         private SoundEffectInstance ArenaBGM;
+        private string arena;
 
         static SoundManager()
         {
+
+            arenaPath = new Dictionary<string, string>
+            {
+                {"MarioGame/Data/DataFiles/level1.csv", "arena1"},
+                {"MarioGame/Data/DataFiles/level2.csv", "arena2"},
+                {"MarioGame/Data/DataFiles/level3.csv", "NoTime"}
+            };
         }
+  
+        private static Dictionary<string, string> arenaPath;
         internal static SoundManager Instance { get; } = new SoundManager();
         public void PlaySoundEffect(String name)
         {
@@ -54,17 +64,7 @@ namespace Gamespace.Sounds
         }
         public void PlayArenaBGM(string path)
         {
-            if(path == "MarioGame/Data/DataFiles/level1.csv")
-            {
-                ArenaBGM = SoundFactory.Instance.GetSoundEffect("arena1");
-            } else if(path == "MarioGame/Data/DataFiles/level2.csv")
-            {
-                ArenaBGM = SoundFactory.Instance.GetSoundEffect("arena2");
-            } else
-            {
-                ArenaBGM = SoundFactory.Instance.GetSoundEffect("NoTime");
-            }
-       
+            ArenaBGM = SoundFactory.Instance.GetSoundEffect(arenaPath[path]);
             ArenaBGM.IsLooped = true;
             ArenaBGM.Volume = 0.5f;
             ArenaBGM.Play();
