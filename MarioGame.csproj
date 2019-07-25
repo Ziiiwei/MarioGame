@@ -51,6 +51,7 @@
     <Compile Include="MarioGame\Animation\SimpleKeyFrame.cs" />
     <Compile Include="MarioGame\Camera\ICamera.cs" />
     <Compile Include="MarioGame\Camera\MultiplayerCamera.cs" />
+    <Compile Include="MarioGame\Camera\MultiplayerCamera2.cs" />
     <Compile Include="MarioGame\Collision\RewardChecker.cs" />
     <Compile Include="MarioGame\Commands\AnimationCommands\PlayFlagSlidDown.cs" />
     <Compile Include="MarioGame\Commands\AnimationCommands\PlayMarioIntroScene.cs" />
@@ -323,6 +324,9 @@
     <None Include="MarioGame\Code Reviews\ZiweiJin.md" />
     <None Include="MarioGame\Code Reviews\RayanHamza.md" />
     <None Include="MarioGame\Data\DataFiles\CollisionActions.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="MarioGame\Data\DataFiles\flatlevel.csv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="MarioGame\Data\DataFiles\level2used.csv">
