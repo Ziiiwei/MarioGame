@@ -214,6 +214,7 @@
     <Compile Include="MarioGame\PlayerCharactors\CharacterStates\States\MovingStates\RightWalkingState.cs" />
     <Compile Include="MarioGame\PlayerCharactors\CharacterStates\States\PowerupStates\DeadState.cs" />
     <Compile Include="MarioGame\PlayerCharactors\CharacterStates\States\PowerupStates\StarState.cs" />
+    <Compile Include="MarioGame\PlayerCharactors\Soldier\Soldier.cs" />
     <Compile Include="MarioGame\Sounds\SoundFactory.cs" />
     <Compile Include="MarioGame\Sounds\SoundManager.cs" />
     <Compile Include="MarioGame\Timer\BGMTimer.cs" />
@@ -353,7 +354,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="MarioGame\Data\Animation\" />
-    <Folder Include="MarioGame\PlayerCharactors\Soldier\" />
     <Folder Include="MarioGame\PlayerCharactors\Tank\" />
     <Folder Include="MarioGame\PlayerCharactors\Thief\" />
   </ItemGroup>
