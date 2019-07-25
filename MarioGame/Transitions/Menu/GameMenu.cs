@@ -23,8 +23,6 @@ namespace Gamespace.Transitions
         private MenuState currentState;
 
         private LevelLoader levelLoader;
-
-
         
         private int StartingTime = Numbers.STARTING_TIME;
         private enum InputDirection { Up, Down };
