@@ -816,7 +816,7 @@
     {
       "Name": "Tank",
       "State": "LeftStandingState",
-      "PowerUpState": "ActiveState",
+      "PowerUpState": "",
       "TexturePath": "Sprint6/Tank/StandLeft",
       "FrameCount": 1,
       "FrameDelay": 3
@@ -824,7 +824,7 @@
     {
       "Name": "Tank",
       "State": "RightStandingState",
-      "PowerUpState": "ActiveState",
+      "PowerUpState": "",
       "TexturePath": "Sprint6/Tank/StandRight",
       "FrameCount": 1,
       "FrameDelay": 3
@@ -832,7 +832,7 @@
     {
       "Name": "Tank",
       "State": "LeftWalkingState",
-      "PowerUpState": "ActiveState",
+      "PowerUpState": "",
       "TexturePath": "Sprint6/Tank/MoveLeft",
       "FrameCount": 3,
       "FrameDelay": 3
@@ -840,7 +840,7 @@
     {
       "Name": "Tank",
       "State": "RightWalkingState",
-      "PowerUpState": "ActiveState",
+      "PowerUpState": "",
       "TexturePath": "Sprint6/Tank/MoveRight",
       "FrameCount": 3,
       "FrameDelay": 3
@@ -848,7 +848,7 @@
     {
       "Name": "Tank",
       "State": "ClimbingState",
-      "PowerUpState": "ActiveState",
+      "PowerUpState": "",
       "TexturePath": "Sprint6/Tank/Climbing",
       "FrameCount": 2,
       "FrameDelay": 3
@@ -856,7 +856,7 @@
     {
       "Name": "Tank",
       "State": "LeftJumpingState",
-      "PowerUpState": "ActiveState",
+      "PowerUpState": "",
       "TexturePath": "Sprint6/Tank/JumpLeft",
       "FrameCount": 1,
       "FrameDelay": 3
@@ -864,7 +864,7 @@
     {
       "Name": "Tank",
       "State": "RightJumpingState",
-      "PowerUpState": "ActiveState",
+      "PowerUpState": "",
       "TexturePath": "Sprint6/Tank/JumpRight",
       "FrameCount": 1,
       "FrameDelay": 3
@@ -872,7 +872,7 @@
     {
       "Name": "Tank",
       "State": "RightCrouchingState",
-      "PowerUpState": "ActiveState",
+      "PowerUpState": "",
       "TexturePath": "Sprint6/Tank/CrouchRight",
       "FrameCount": 1,
       "FrameDelay": 3
@@ -880,7 +880,7 @@
     {
       "Name": "Tank",
       "State": "LeftCrouchingState",
-      "PowerUpState": "ActiveState",
+      "PowerUpState": "",
       "TexturePath": "Sprint6/Tank/CrouchLeft",
       "FrameCount": 1,
       "FrameDelay": 3
@@ -896,7 +896,7 @@
     {
       "Name": "Soldier",
       "State": "LeftStandingState",
-      "PowerUpState": "ActiveState",
+      "PowerUpState": "",
       "TexturePath": "Sprint6/Soldier/StandLeft",
       "FrameCount": 1,
       "FrameDelay": 3
@@ -904,7 +904,7 @@
     {
       "Name": "Soldier",
       "State": "RightStandingState",
-      "PowerUpState": "ActiveState",
+      "PowerUpState": "",
       "TexturePath": "Sprint6/Soldier/StandRight",
       "FrameCount": 1,
       "FrameDelay": 3
@@ -912,7 +912,7 @@
     {
       "Name": "Soldier",
       "State": "LeftWalkingState",
-      "PowerUpState": "ActiveState",
+      "PowerUpState": "",
       "TexturePath": "Sprint6/Soldier/MoveLeft",
       "FrameCount": 3,
       "FrameDelay": 3
@@ -920,7 +920,7 @@
     {
       "Name": "Soldier",
       "State": "RightWalkingState",
-      "PowerUpState": "ActiveState",
+      "PowerUpState": "",
       "TexturePath": "Sprint6/Soldier/MoveRight",
       "FrameCount": 3,
       "FrameDelay": 3
@@ -928,7 +928,7 @@
     {
       "Name": "Soldier",
       "State": "ClimbingState",
-      "PowerUpState": "ActiveState",
+      "PowerUpState": "",
       "TexturePath": "Sprint6/Soldier/Climbing",
       "FrameCount": 2,
       "FrameDelay": 3
@@ -936,7 +936,7 @@
     {
       "Name": "Soldier",
       "State": "LeftJumpingState",
-      "PowerUpState": "ActiveState",
+      "PowerUpState": "",
       "TexturePath": "Sprint6/Soldier/JumpLeft",
       "FrameCount": 1,
       "FrameDelay": 3
@@ -944,7 +944,7 @@
     {
       "Name": "Soldier",
       "State": "RightJumpingState",
-      "PowerUpState": "ActiveState",
+      "PowerUpState": "",
       "TexturePath": "Sprint6/Soldier/JumpRight",
       "FrameCount": 1,
       "FrameDelay": 3
@@ -952,7 +952,7 @@
     {
       "Name": "Soldier",
       "State": "RightCrouchingState",
-      "PowerUpState": "ActiveState",
+      "PowerUpState": "",
       "TexturePath": "Sprint6/Soldier/CrouchRight",
       "FrameCount": 1,
       "FrameDelay": 3
@@ -960,7 +960,7 @@
     {
       "Name": "Soldier",
       "State": "LeftCrouchingState",
-      "PowerUpState": "ActiveState",
+      "PowerUpState": "",
       "TexturePath": "Sprint6/Soldier/CrouchLeft",
       "FrameCount": 1,
       "FrameDelay": 3
@@ -976,7 +976,7 @@
     {
       "Name": "Scout",
       "State": "LeftStandingState",
-      "PowerUpState": "ActiveState",
+      "PowerUpState": "",
       "TexturePath": "Sprint6/Scout/StandLeft",
       "FrameCount": 1,
       "FrameDelay": 3
@@ -984,7 +984,7 @@
     {
       "Name": "Scout",
       "State": "RightStandingState",
-      "PowerUpState": "ActiveState",
+      "PowerUpState": "",
       "TexturePath": "Sprint6/Scout/StandRight",
       "FrameCount": 1,
       "FrameDelay": 3
@@ -992,7 +992,7 @@
     {
       "Name": "Scout",
       "State": "LeftWalkingState",
-      "PowerUpState": "ActiveState",
+      "PowerUpState": "",
       "TexturePath": "Sprint6/Scout/MoveLeft",
       "FrameCount": 3,
       "FrameDelay": 3
@@ -1000,7 +1000,7 @@
     {
       "Name": "Scout",
       "State": "RightWalkingState",
-      "PowerUpState": "ActiveState",
+      "PowerUpState": "",
       "TexturePath": "Sprint6/Scout/MoveRight",
       "FrameCount": 3,
       "FrameDelay": 3
@@ -1008,7 +1008,7 @@
     {
       "Name": "Scout",
       "State": "ClimbingState",
-      "PowerUpState": "ActiveState",
+      "PowerUpState": "",
       "TexturePath": "Sprint6/Scout/Climbing",
       "FrameCount": 2,
       "FrameDelay": 3
@@ -1016,7 +1016,7 @@
     {
       "Name": "Scout",
       "State": "LeftJumpingState",
-      "PowerUpState": "ActiveState",
+      "PowerUpState": "",
       "TexturePath": "Sprint6/Scout/JumpShootLeft",
       "FrameCount": 1,
       "FrameDelay": 3
@@ -1024,7 +1024,7 @@
     {
       "Name": "Scout",
       "State": "RightJumpingState",
-      "PowerUpState": "ActiveState",
+      "PowerUpState": "",
       "TexturePath": "Sprint6/Scout/JumpShootRight",
       "FrameCount": 1,
       "FrameDelay": 3
@@ -1032,7 +1032,7 @@
     {
       "Name": "Scout",
       "State": "RightCrouchingState",
-      "PowerUpState": "ActiveState",
+      "PowerUpState": "",
       "TexturePath": "Sprint6/Scout/CrouchRight",
       "FrameCount": 1,
       "FrameDelay": 3
@@ -1040,7 +1040,7 @@
     {
       "Name": "Scout",
       "State": "LeftCrouchingState",
-      "PowerUpState": "ActiveState",
+      "PowerUpState": "",
       "TexturePath": "Sprint6/Scout/CrouchLeft",
       "FrameCount": 1,
       "FrameDelay": 3
@@ -1057,7 +1057,7 @@
     {
       "Name": "Thief",
       "State": "LeftStandingState",
-      "PowerUpState": "ActiveState",
+      "PowerUpState": "",
       "TexturePath": "Sprint6/Thief/StandLeft",
       "FrameCount": 1,
       "FrameDelay": 3
@@ -1065,7 +1065,7 @@
     {
       "Name": "Thief",
       "State": "RightStandingState",
-      "PowerUpState": "ActiveState",
+      "PowerUpState": "",
       "TexturePath": "Sprint6/Thief/StandRight",
       "FrameCount": 1,
       "FrameDelay": 3
@@ -1073,7 +1073,7 @@
     {
       "Name": "Thief",
       "State": "LeftWalkingState",
-      "PowerUpState": "ActiveState",
+      "PowerUpState": "",
       "TexturePath": "Sprint6/Thief/MoveLeft",
       "FrameCount": 3,
       "FrameDelay": 3
@@ -1081,7 +1081,7 @@
     {
       "Name": "Thief",
       "State": "RightWalkingState",
-      "PowerUpState": "ActiveState",
+      "PowerUpState": "",
       "TexturePath": "Sprint6/Thief/MoveRight",
       "FrameCount": 3,
       "FrameDelay": 3
@@ -1089,7 +1089,7 @@
     {
       "Name": "Thief",
       "State": "ClimbingState",
-      "PowerUpState": "ActiveState",
+      "PowerUpState": "",
       "TexturePath": "Sprint6/Thief/Climbing",
       "FrameCount": 2,
       "FrameDelay": 3
@@ -1097,7 +1097,7 @@
       {
         "Name": "Thief",
         "State": "LeftJumpingState",
-        "PowerUpState": "ActiveState",
+        "PowerUpState": "",
         "TexturePath": "Sprint6/Thief/JumpLeft",
         "FrameCount": 1,
         "FrameDelay": 3
@@ -1105,7 +1105,7 @@
       {
         "Name": "Thief",
         "State": "RightJumpingState",
-        "PowerUpState": "ActiveState",
+        "PowerUpState": "",
         "TexturePath": "Sprint6/Thief/JumpRight",
         "FrameCount": 1,
         "FrameDelay": 3
@@ -1113,7 +1113,7 @@
       {
         "Name": "Thief",
         "State": "RightCrouchingState",
-        "PowerUpState": "ActiveState",
+        "PowerUpState": "",
         "TexturePath": "Sprint6/Thief/CrouchRight",
         "FrameCount": 1,
         "FrameDelay": 3
@@ -1121,7 +1121,7 @@
       {
         "Name": "Thief",
         "State": "LeftCrouchingState",
-        "PowerUpState": "ActiveState",
+        "PowerUpState": "",
         "TexturePath": "Sprint6/Thief/CrouchLeft",
         "FrameCount": 1,
         "FrameDelay": 3

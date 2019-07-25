@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Sprint0.MarioGame.PlayerCharactors.CharacterStates.States.PowerupStates
+namespace Gamespace.State
 {
-    class ActivateState
+    class ActiveState : IMarioPowerUpState
     {
+        ActiveState()
     }
 }

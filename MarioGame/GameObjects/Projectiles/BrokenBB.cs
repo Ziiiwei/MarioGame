@@ -20,7 +20,17 @@ namespace Gamespace.Projectiles
             throw new NotImplementedException();
         }
 
+        public void OwnerScores()
+        {
+            throw new NotImplementedException();
+        }
+
         public void Remove()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SetOwner(IMario owner)
         {
             throw new NotImplementedException();
         }
