@@ -26,7 +26,8 @@ namespace Gamespace.Sounds
             {
                 {"MarioGame/Data/DataFiles/level1.csv", "arena1"},
                 {"MarioGame/Data/DataFiles/level2.csv", "arena2"},
-                {"MarioGame/Data/DataFiles/level3.csv", "NoTime"}
+                {"MarioGame/Data/DataFiles/level3.csv", "NoTime"},
+                {"MarioGame/Data/DataFiles/flatlevel.csv", "arena1"},
             };
         }
   

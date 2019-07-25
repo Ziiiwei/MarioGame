@@ -41,7 +41,8 @@ namespace Gamespace.Multiplayer
             ShowLives();
             this.spawnPoint = spawnPoint;
             viewport = ViewportFactory.Instance.GetViewport(playerID, MarioGame.Instance.PlayerCount);
-            Cam = new MultiplayerCamera(PlayerID, new Vector2(Numbers.CAMERA_START_X, 0), MarioGame.Instance.PlayerCount, viewport);
+            //Cam = new MultiplayerCamera(PlayerID, new Vector2(Numbers.CAMERA_START_X, 0), MarioGame.Instance.PlayerCount, viewport);
+            Cam = new MultiplayerCamera2(viewport, GameObject);
             bezel = new Bezel(playerID, MarioGame.Instance.PlayerCount, MarioGame.Instance.GraphicsDevice, Cam);
             
             if (playerID > 1)
