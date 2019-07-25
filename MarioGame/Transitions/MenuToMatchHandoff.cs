@@ -1,6 +1,7 @@
 ﻿using Gamespace.Data;
 using Gamespace.Multiplayer;
 using Gamespace.Transitions;
+using Gamespace.Sounds;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
@@ -30,12 +31,14 @@ namespace Gamespace
             for (int i = 1; i <= menu.PlayerCount; i++)
             {
 
-                World.Instance.AddPlayer(new Player(typeof(Mario), new SpriteBatch(graphicsDevice), spawnPoints[i-1]));
+                World.Instance.AddPlayer(new Player(menu.PlayableCharacters[i], new SpriteBatch(graphicsDevice), spawnPoints[i-1]));
             }
 
             string path = MarioGame.Instance.ArenaPaths[menu.ArenaSelected].Item2;
 
             LevelLoader levelLoader = new LevelLoader(World.Instance, path);
+
+            SoundManager.Instance.PlayArenaBGM(path);
 
         }
     }

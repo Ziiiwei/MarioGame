@@ -44,7 +44,14 @@ namespace Gamespace.Multiplayer
             Cam = new MultiplayerCamera(PlayerID, new Vector2(Numbers.CAMERA_START_X, 0), MarioGame.Instance.PlayerCount, viewport);
             bezel = new Bezel(playerID, MarioGame.Instance.PlayerCount, MarioGame.Instance.GraphicsDevice, Cam);
             
-            Controller = new KeyboardController(this);
+            if (playerID > 1)
+            {
+                Controller = new GamepadController(this);
+            }
+            else
+            {
+                Controller = new KeyboardController(this);
+            }
             disabledController = new KeyboardController(this, false);
             controllerUpdate = ()=> Controller.Update();
             Screen = screen;
