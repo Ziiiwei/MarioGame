@@ -102,7 +102,6 @@ namespace Gamespace
         {
             SoundManager.Instance.PlaySoundEffect("PowerUp");
             PowerUpState.PowerUp(this);
-            scoreboard.UpScore(ScoringConstants.ITEM_SCORE);
         }
 
         public void UpdateArt()
@@ -118,7 +117,6 @@ namespace Gamespace
         public void Bounce()
         {
             GameObjectPhysics.Jump();
-            scoreboard.UpScore(ScoringConstants.ENEMY_SCORE);
         }
 
         public void Die()
@@ -126,7 +124,6 @@ namespace Gamespace
             GameObjectPhysics.Jump();
 
             GameObjectPhysics.Stop(Side.Horizontal);
-            World.Instance.MaskCollision(this);
             scoreboard.Die();
             SoundManager.Instance.PlaySoundEffect("MarioDies");
       
@@ -160,8 +157,6 @@ namespace Gamespace
 
         public void Coin()
         {
-            scoreboard.UpScore(ScoringConstants.COIN_SCORE);
-            scoreboard.Collect();
         }
 
         public bool Jumpable()
