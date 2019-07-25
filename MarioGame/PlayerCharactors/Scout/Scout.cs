@@ -15,7 +15,28 @@ namespace Gamespace
 
         }
 
-        
+        public override void PowerDown()
+        { 
+        }
 
+        public override void PowerUp()
+        {
+        }
+
+        public override void UpdateArt()
+        {
+            Sprite = SpriteFactory.Instance.GetSprite(this.GetType().Name, State.GetType().Name, "");
+        }
+
+        protected override void SetSprite()
+        {
+            Sprite = SpriteFactory.Instance.GetSprite(this.GetType().Name, State.GetType().Name, "");
+        }
+
+        public override void Die()
+        {
+            base.Die();
+        }
     }
+
 }
