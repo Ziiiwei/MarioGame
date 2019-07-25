@@ -150,5 +150,15 @@ namespace Gamespace.Projectiles
             GameObjectPhysics.Position = spriteOffset[angle].Invoke(initialP, offset);
             GameObjectPhysics.TrajectMove(trajectoryLog[angle].Invoke(initialV));
         }
+
+        public void OwnerScores()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SetOwner(IMario owner)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
