@@ -18,8 +18,8 @@ namespace Gamespace
         private int playerCount;
         private Viewport viewport;
         int playerScale = (MarioGame.Instance.PlayerCount > 2) ? 2 : 1;
-        private int softXBoundary = 300;
-        private int softYBoundary = 80;
+        private int softXBoundary = 200;
+        private int softYBoundary = 60;
         private int frameDisplacement = 4;
         private int frameDisplacementSpeedUp = 1;
         private int FrameDisplacement { get => Math.Max(frameDisplacement, frameDisplacementSpeedUp); }
