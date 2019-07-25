@@ -1,32 +1,33 @@
 ﻿
 ### Code Readiblity Review
 Author : Matthew Harrow (harrow.13)
-Date   : 12th July 2019
-Sprint : 5
+Date   : 24th July 2019
+Sprint : 6
 Name   : Ziwei Jin
-File   : Animation.cs
-Minutes: 10
+File   : ProjectileLauncher.cs
+Minutes: 16
 
-Coupling: Low
-- Class is coupled to implementation in world. Animations are added to the object manager which is responsibly for playing then,
-so this is necessary. 
-- The rest of the class is coupled to KeyFrames, which are expected to be tightly coupled to an animation because they make up
-one. 
+Coupling: Medium
+- OwnedBy is couple to an abstract class instead of the interface it implements being extended to include a new property.
+- The ILauncher interface is good and promotes an entity design patterns, which seems appropriate for something each character has.
+- The class is couple to Physics, but since a projecile needs initial velocity, this relly seems unavoidable.
 
 
 Cohesion: High
--Cohesion could be possibly increased by having an animation builder. This way an animation is responsible for playback,
-but construction details are left out. 
+- Very cohesive, and well contained. 
+- The SetOwner function is not very cohesive because is not clear to an calling class that this is needed for projectile collision
+registration. The alternative approach is unclear to me, so I don't know how to avoid it.
 
 
-Complexity: 
-- Special cases like having frameCounter set to -1 could possibly be better served with a boolean, for clarity
-- The if-else check for an animation finished could possibly be constructed into a observer pattern setup, eliminating some complexity.
+
+Complexity: Medium
+- The use of dictionaries cuts down on cyclomatic complexity. 
+- There is also the use of an object pool which cuts down on object instatiation overhead, but the first readthrough for me, 
+I didn't observe that there was an object pool. Different names could help clear it up.
+
+Hypothetical change: Goombas can shoot projectiles. 
+- Goombas are IGameObjects that implement AbstractGameObject, with a simple extension of IEnemy, they could implement Fire(). Then
+some AI could controll calls to Fire(). The code requires changes only to the Goomba class for such a change. 
 
 
-Hypothetical change: 
-- Adding an animation that runs as long as the level is running. This involves setting the FinishedAction to play 
-the start of the animation. This involves no changes to the class, just to the use of it. This is ideal.
-
-Additional Notes:
-- The exception is good for debugging, but perhaps it would be better to have the error handled more gracefully in a release.
+Additional Notes: None
