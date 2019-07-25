@@ -34,6 +34,11 @@ namespace Gamespace
                 {typeof(BrokenBB), typeof(TrajectoryPhysics) },
                 {typeof(Goomba), typeof(EnemyPhysics) },
                 {typeof(Koopa), typeof(EnemyPhysics) },
+                {typeof(Tank), typeof(MarioPhysics) },
+                {typeof(Thief), typeof(MarioPhysics) },
+                 {typeof(Soldier), typeof(MarioPhysics) },
+                  {typeof(Scout), typeof(MarioPhysics) }
+
             };
         }
 
