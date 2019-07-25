@@ -199,7 +199,6 @@
     <Compile Include="MarioGame\GameObjects\Background\Hills\BigHill.cs" />
     <Compile Include="MarioGame\GameObjects\Background\Hills\SmallHill.cs" />
     <Compile Include="MarioGame\Physics\ShroomPhysics.cs" />
-    <Compile Include="MarioGame\PlayerCharactors\CharacterStates\States\PowerupStates\ActivateState.cs" />
     <Compile Include="MarioGame\PlayerCharactors\Scout\Scout.cs" />
     <Compile Include="MarioGame\PlayerCharactors\CharacterStates\States\MovingStates\LeftCrouchingState.cs" />
     <Compile Include="MarioGame\PlayerCharactors\CharacterStates\States\MovingStates\LeftJumpingState.cs" />
