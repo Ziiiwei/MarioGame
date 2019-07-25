@@ -1,6 +1,7 @@
 ﻿using Gamespace.Data;
 using Gamespace.Multiplayer;
 using Gamespace.Transitions;
+using Gamespace.Sounds;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
@@ -36,6 +37,8 @@ namespace Gamespace
             string path = MarioGame.Instance.ArenaPaths[menu.ArenaSelected].Item2;
 
             LevelLoader levelLoader = new LevelLoader(World.Instance, path);
+
+            SoundManager.Instance.PlayArenaBGM(path);
 
         }
     }

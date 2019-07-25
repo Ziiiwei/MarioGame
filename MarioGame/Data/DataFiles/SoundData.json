@@ -99,6 +99,30 @@
     {
       "SoundName": "arena2",
       "SoundPath": "Sounds/arena2ost"
+    },
+    {
+      "SoundName": "AK47",
+      "SoundPath": "Sounds/AK47"
+    },
+    {
+      "SoundName": "DesertEagle",
+      "SoundPath": "Sounds/DesertEagle"
+    },
+    {
+      "SoundName": "GrenadeBounce",
+      "SoundPath": "Sounds/GrenadeBounce"
+    },
+    {
+      "SoundName": "GrenadeExplosion",
+      "SoundPath": "Sounds/GrenadeExplosion"
+    },
+    {
+      "SoundName": "GrenadeThrow",
+      "SoundPath": "Sounds/GrenadeThrow"
+    },
+    {
+      "SoundName": "ThiefDash",
+      "SoundPath": "Sounds/ThiefDash"
     }
   ]
 }
