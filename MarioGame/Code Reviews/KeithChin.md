@@ -1,38 +1,35 @@
 ﻿### Code Maintainability Review
 Author: Keith Chin
-Date: 7/10/19
-Sprint: 5
+Date: 7/24/19
+Sprint: 6
 Name: Matt Harrow
-File: PhysicsConstants.cs
+File: GameMenu.cs
 Minutes: 15
 
-Coupling: Minimal, only with Physics
+Coupling: Minimal, only with other classes in Menu folder
 
-This class was created to isolate all of the physics constants
-for game objects that required physics. This class is only coupled to the Physics classes
-and thus coupling is really low.
+This class was created to isolate each menu class as well as each view.
+It is only coupled to the Menu classes and thus coupling is really low.
 
 
 
 Cohesion: Highly functional and cohesive
 
-With this class, the cohesion along with the other Physics classes were
-high because of the way the classes interacted with one another. There was
-no need to declare constants in the respective physics classes, but with the
-PhysicsConstants class, we are now able to data drive all the constants that
-belong in Physics.
+With this class, the cohesion between each menu view, the MenuInputController class
+and TitleScreenInput class is tied together tightly. Cohesion is really good because
+of Matt's GameMenu, and it allowed me to add new views into it smoothly. Functionality
+is not a problem because of this, and I can easily add new views into the game, such as
+loading screens, cutscenes at ease.
 
 
+Complexity: Low complexity
 
-Complexity: Could do with more organization but not complicated.
-
-Without understanding how the physics works in our solution, this class can be a little tedious
-to read. Most of the complexity is bounded by the way the code is organized but
-in general, it is relatively easy to understand. However, the code may be riddled with high complexity
-in the future when there are more constants to be added.
+The Game Menu class is riddled with many different methods for transitions between views,
+button clicks, as well as storing dictionaries for the state of the menu. 
+Even though there's a lot of code in this class, it serves as a middle man between each view
+to call and transition between different views.  Complexity as a result, is low, making it easy
+to maintain the Game Menu in the game.
 
 Hypothetical change: 
 
-One recommended change is to fully data drive all of the Physics constants assignments
-into a json file. This will significantly reduce the amount of times we have to add
-constant assignments in the constructor of the PhysicsConstants class.
+One hypothetical change is to add a GameMenu manager and move most of the code into it.
