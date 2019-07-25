@@ -3,19 +3,16 @@ Author: Ziwei Jin
 Date: 6/7/19
 Sprint: 3
 Name: Matthew Harrow
-File: World.cs
+File: Menu
 Minutes: 10
 
-World as a singleton is way too overpowered now. It handles collsion, it plays animation
-and it's being constantly called everywhere. We want to change this in the future thus we 
-are starting devide the functions into partial class. But for now, it is a major bug origin
-and mess to sort through
+Menu is where a complex delegate class mesh for player to select map, charactor, and number of players
+It is cohesive, does the job nicely, and comabine all members' work from Art to Sound to acheive a consist
+ent feel for the game.
+Coupling wise, it is a indvidul part has clear sepration from rest of the code base.
+We chose use system provided function to draw the elemental part to seprate the view, which was a efficient
+chocice other than make the art work in out side souce's then input into content
+But in seems espectially complex for a menu system
 
-As Matthew trying to make collision efficient, the new block space arraging system narrow 
-world space collison detection down to 3 row of block space on screen, this eliminated the 
-fucntion overcalling issue in the begining of this sprint. If the future this system can be 
-also applied to update and draw to furthur improve out game efficiency
-
-Complexity: Too High
-Cohesion: As a singlton supposed to be the game objectManager, it is kind low
-Couplin: with collision and animation
+Menu use entity comand pattern which is right too for the right tast. Overall it give our game deepth and
+functionality we deserve.
