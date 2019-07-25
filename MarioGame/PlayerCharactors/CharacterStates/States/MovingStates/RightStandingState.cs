@@ -4,59 +4,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Gamespace;
+using Gamespace.States;
 using Microsoft.Xna.Framework;
 
 namespace Gamespace.Characters
 {
-    class RightStandingCharacterState : MovingCharacterState
+    class RightStandingCharacterState : RightStandingMarioState
     {
-        public RightStandingCharacterState(ICharacter character) : base(character)
+        public RightStandingCharacterState(IMario mario) : base(mario)
         {
         }
 
-        public override void Crouch()
-        {
-            int previous_h = character.Sprite.Height;
-            character.State = new RightCrouchingCharacterState(character);
-            character.UpdateArt();
-            character.GameObjectPhysics.IncrementMove(Side.Down, Math.Abs(character.Sprite.Height - previous_h));
-        }
-
-        public override void Jump()
-        { 
-            character.State = new RightJumpingCharacterState(character);
-            character.GameObjectPhysics.Jump();
-            character.PowerUpState.Jump(character);
-            character.UpdateArt();
-
-        }
-
-        public override void MoveLeft()
-        {
-            character.State = new LeftStandingCharacterState(character);
-            character.UpdateArt();
-
-        }
-
-        public override void MoveRight()
-        {
-            character.State = new RightWalkingCharacterState(character);
-            character.GameObjectPhysics.Move(Side.Right);
-            character.UpdateArt();
-
-        }
-
-        public override void Fire()
-        {
-            character.Launcher.Fire(Projectiles.ShootAngle.Right);
-        }
-
-        public override void ClimbUp()
-        {
-            character.State = new ClimbingCharacterState(character);
-            character.GameObjectPhysics.Climb(Side.Up);
-            character.UpdateArt();
-        }
+     
 
     }
 }

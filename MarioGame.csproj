@@ -200,23 +200,22 @@
     <Compile Include="MarioGame\GameObjects\Background\Hills\SmallHill.cs" />
     <Compile Include="MarioGame\Physics\ShroomPhysics.cs" />
     <Compile Include="MarioGame\PlayerCharactors\Character.cs" />
-    <Compile Include="MarioGame\PlayerCharactors\CharacterStates\ICharacterPowerUpState.cs" />
-    <Compile Include="MarioGame\PlayerCharactors\CharacterStates\ICharacterState.cs" />
+    <Compile Include="MarioGame\PlayerCharactors\CharacterStates\States\PowerupStates\ActivateState.cs" />
     <Compile Include="MarioGame\PlayerCharactors\ICharacter.cs" />
     <Compile Include="MarioGame\PlayerCharactors\Scout\Scout.cs" />
     <Compile Include="MarioGame\PlayerCharactors\CharacterStates\States\MovingStates\LeftCrouchingState.cs" />
     <Compile Include="MarioGame\PlayerCharactors\CharacterStates\States\MovingStates\LeftJumpingState.cs" />
     <Compile Include="MarioGame\PlayerCharactors\CharacterStates\States\MovingStates\LeftStandingState.cs" />
     <Compile Include="MarioGame\PlayerCharactors\CharacterStates\States\MovingStates\LeftWalkingState.cs" />
-    <Compile Include="MarioGame\PlayerCharactors\CharacterStates\States\MovingStates\MovingCharacterState.cs" />
     <Compile Include="MarioGame\PlayerCharactors\CharacterStates\States\MovingStates\ClimbingState.cs" />
     <Compile Include="MarioGame\PlayerCharactors\CharacterStates\States\MovingStates\RightCrouchingState.cs" />
     <Compile Include="MarioGame\PlayerCharactors\CharacterStates\States\MovingStates\RightJumpingState.cs" />
     <Compile Include="MarioGame\PlayerCharactors\CharacterStates\States\MovingStates\RightStandingState.cs" />
     <Compile Include="MarioGame\PlayerCharactors\CharacterStates\States\MovingStates\RightWalkingState.cs" />
     <Compile Include="MarioGame\PlayerCharactors\CharacterStates\States\PowerupStates\DeadState.cs" />
-    <Compile Include="MarioGame\PlayerCharactors\CharacterStates\States\PowerupStates\StarState.cs" />
     <Compile Include="MarioGame\PlayerCharactors\Soldier\Soldier.cs" />
+    <Compile Include="MarioGame\PlayerCharactors\Tank\Tank.cs" />
+    <Compile Include="MarioGame\PlayerCharactors\Thief\Thief.cs" />
     <Compile Include="MarioGame\Sounds\SoundFactory.cs" />
     <Compile Include="MarioGame\Sounds\SoundManager.cs" />
     <Compile Include="MarioGame\Timer\BGMTimer.cs" />
@@ -360,8 +359,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="MarioGame\Data\Animation\" />
-    <Folder Include="MarioGame\PlayerCharactors\Tank\" />
-    <Folder Include="MarioGame\PlayerCharactors\Thief\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\MonoGame\v3.0\MonoGame.Content.Builder.targets" />

@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 
 namespace Gamespace.States
 {
-    class DeadState : MovingCharacterState
+    class DeadState : MarioDeadState
     {
-        public DeadState(ICharacter character) : base(character)
+        public DeadState(IMario mario) : base(mario)
         {
-            character.UpdateArt();
-            character.Die();
+             mario.UpdateArt();
+             mario.Die();
         }
 
 

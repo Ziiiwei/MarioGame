@@ -54,7 +54,9 @@ namespace Gamespace.Transitions
             PlayableCharacters = new List<Type>()
             {
                 typeof(Scout),
-                typeof(Soldier)
+                typeof(Soldier),
+                typeof(Tank),
+                typeof(Thief),
             };
 
             stateTransitions = new Dictionary<MenuState, Delegate>()

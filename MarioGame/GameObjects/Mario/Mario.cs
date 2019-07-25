@@ -17,10 +17,9 @@ namespace Gamespace
     internal class Mario : AbstractGameStatefulObject<IMarioState>, IMario
     {
         public IMarioPowerUpState PowerUpState { get; set; }
-        public IMarioPowerUpState PreviousState { get; set; }
-      
+
         public ILauncher Launcher { get; set; }
-        public Scoreboard scoreboard { get; set; }
+        public  Scoreboard scoreboard { get; set; }
 
         private Action keepStanding;
         
@@ -66,13 +65,13 @@ namespace Gamespace
             Launcher.Update();
         }
 
-        public void Crouch()
+        public virtual void Crouch()
         {           
             State.Crouch();         
             keepStanding = () => { };
         }
 
-        public void Jump()
+        public virtual void Jump()
         {
             jumpKeyPressed = true;
             if (Jumpable())
@@ -82,29 +81,29 @@ namespace Gamespace
            
         }
 
-        public void MoveLeft()
+        public virtual void MoveLeft()
         {
             State.MoveLeft();
         }
 
-        public void MoveRight()
+        public virtual void MoveRight()
         {
             State.MoveRight();
         }
 
-        public void PowerDown()
+        public virtual void PowerDown()
         {
             PowerUpState.PowerDown(this);
             UpdateArt();
         }
 
-        public void PowerUp()
+        public virtual  void PowerUp()
         {
             SoundManager.Instance.PlaySoundEffect("PowerUp");
             PowerUpState.PowerUp(this);
         }
 
-        public void UpdateArt()
+        public virtual void UpdateArt()
         {
             Sprite = SpriteFactory.Instance.GetSprite(this.GetType().Name, State.GetType().Name, PowerUpState.GetType().Name);
         }
@@ -114,12 +113,12 @@ namespace Gamespace
             Sprite = SpriteFactory.Instance.GetSprite(this.GetType().Name, State.GetType().Name, PowerUpState.GetType().Name);
         }
 
-        public void Bounce()
+        public virtual void Bounce()
         {
             GameObjectPhysics.Jump();
         }
 
-        public void Die()
+        public virtual void Die()
         {
             GameObjectPhysics.Jump();
 
@@ -140,26 +139,26 @@ namespace Gamespace
 
         }
 
-        public void Fire()
+        public virtual void Fire()
         {
              PowerUpState.Fire(this);
         }
 
-        public void ClimbDown()
+        public virtual void ClimbDown()
         {
             State.ClimbDown();
         }
 
-        public void ClimbUp()
+        public virtual void ClimbUp()
         {
             State.ClimbUp();
         }
 
-        public void Coin()
+        public virtual void Coin()
         {
         }
 
-        public bool Jumpable()
+        public virtual bool Jumpable()
         {
             jumpKeyHolded = jumpKeyPressed && previouslyJumpKeyPressed;
 

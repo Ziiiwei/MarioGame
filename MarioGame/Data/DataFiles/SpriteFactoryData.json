@@ -892,69 +892,550 @@
       "FrameDelay": 3
     },
     {
-      "Name": "TankAvatar",
-      "State": "",
-      "PowerUpState": "",
-      "TexturePath": "TankAvatar",
+      "Name": "Tank",
+      "State": "LeftStandingState",
+      "PowerUpState": "ActiveState",
+      "TexturePath": "Sprint6/Tank/StandLeft",
       "FrameCount": 1,
-      "FrameDelay": 1
-    },
-    {
-      "Name": "ThiefAvatar",
-      "State": "",
-      "PowerUpState": "",
-      "TexturePath": "ThiefAvatar",
-      "FrameCount": 1,
-      "FrameDelay": 1
-    },
-    {
-      "Name": "SoldierAvatar",
-      "State": "",
-      "PowerUpState": "",
-      "TexturePath": "SoldierAvatar",
-      "FrameCount": 1,
-      "FrameDelay": 1
-    },
-    {
-      "Name": "ScoutAvatar",
-      "State": "",
-      "PowerUpState": "",
-      "TexturePath": "ScoutAvatar",
-      "FrameCount": 1,
-      "FrameDelay": 1
-    },
-    {
-      "Name": "Bullet1",
-      "State": "",
-      "PowerUpState": "",
-      "TexturePath": "Sprint6/ScoutBullet",
-      "FrameCount": 4,
       "FrameDelay": 3
     },
     {
-      "Name": "Bullet2",
-      "State": "RightMovingProjectile",
-      "PowerUpState": "",
-      "TexturePath": "Sprint6/SoldierBulletRight",
+      "Name": "Tank",
+      "State": "RightStandingState",
+      "PowerUpState": "ActiveState",
+      "TexturePath": "Sprint6/Tank/StandRight",
+      "FrameCount": 1,
+      "FrameDelay": 3
+    },
+    {
+      "Name": "Tank",
+      "State": "LeftWalkingingState",
+      "PowerUpState": "ActiveState",
+      "TexturePath": "Sprint6/Tank/MoveLeft",
+      "FrameCount": 3,
+      "FrameDelay": 3
+    },
+    {
+      "Name": "Tank",
+      "State": "RightWalkingingState",
+      "PowerUpState": "ActiveState",
+      "TexturePath": "Sprint6/Tank/MoveRight",
+      "FrameCount": 3,
+      "FrameDelay": 3
+    },
+    {
+      "Name": "Tank",
+      "State": "ClimbingState",
+      "PowerUpState": "ActiveState",
+      "TexturePath": "Sprint6/Tank/Climbing",
       "FrameCount": 2,
       "FrameDelay": 3
     },
     {
-      "Name": "Bullet2",
-      "State": "LeftMovingProjectile",
-      "PowerUpState": "",
-      "TexturePath": "Sprint6/SoldierBulletLeft",
+      "Name": "Tank",
+      "State": "LeftJumpingState",
+      "PowerUpState": "ActiveState",
+      "TexturePath": "Sprint6/Tank/JumpLeft",
+      "FrameCount": 1,
+      "FrameDelay": 3
+    },
+    {
+      "Name": "Tank",
+      "State": "RightJumpingState",
+      "PowerUpState": "ActiveState",
+      "TexturePath": "Sprint6/Tank/JumpRight",
+      "FrameCount": 1,
+      "FrameDelay": 3
+    },
+    {
+      "Name": "Tank",
+      "State": "RightCrouchingState",
+      "PowerUpState": "ActiveState",
+      "TexturePath": "Sprint6/Tank/CrouchRight",
+      "FrameCount": 1,
+      "FrameDelay": 3
+    },
+    {
+      "Name": "Tank",
+      "State": "LeftCrouchingState",
+      "PowerUpState": "ActiveState",
+      "TexturePath": "Sprint6/Tank/CrouchLeft",
+      "FrameCount": 1,
+      "FrameDelay": 3
+    },
+    {
+      "Name": "Tank",
+      "State": "",
+      "PowerUpState": "DeadState",
+      "TexturePath": "Sprint6/Tank/Dead",
+      "FrameCount": 1,
+      "FrameDelay": 3
+    },
+    {
+      "Name": "Tank",
+      "State": "LeftStandingState",
+      "PowerUpState": "ActiveState",
+      "TexturePath": "Sprint6/Tank/StandLeft",
+      "FrameCount": 1,
+      "FrameDelay": 3
+    },
+    {
+      "Name": "Tank",
+      "State": "RightStandingState",
+      "PowerUpState": "ActiveState",
+      "TexturePath": "Sprint6/Tank/StandRight",
+      "FrameCount": 1,
+      "FrameDelay": 3
+    },
+    {
+      "Name": "Tank",
+      "State": "LeftWalkingingState",
+      "PowerUpState": "ActiveState",
+      "TexturePath": "Sprint6/Tank/MoveLeft",
+      "FrameCount": 3,
+      "FrameDelay": 3
+    },
+    {
+      "Name": "Tank",
+      "State": "RightWalkingingState",
+      "PowerUpState": "ActiveState",
+      "TexturePath": "Sprint6/Tank/MoveRight",
+      "FrameCount": 3,
+      "FrameDelay": 3
+    },
+    {
+      "Name": "Tank",
+      "State": "ClimbingState",
+      "PowerUpState": "ActiveState",
+      "TexturePath": "Sprint6/Tank/Climbing",
       "FrameCount": 2,
       "FrameDelay": 3
     },
     {
-      "Name": "Bomb",
+      "Name": "Tank",
+      "State": "LeftJumpingState",
+      "PowerUpState": "ActiveState",
+      "TexturePath": "Sprint6/Tank/JumpLeft",
+      "FrameCount": 1,
+      "FrameDelay": 3
+    },
+    {
+      "Name": "Tank",
+      "State": "RightJumpingState",
+      "PowerUpState": "ActiveState",
+      "TexturePath": "Sprint6/Tank/JumpRight",
+      "FrameCount": 1,
+      "FrameDelay": 3
+    },
+    {
+      "Name": "Tank",
+      "State": "RightCrouchingState",
+      "PowerUpState": "ActiveState",
+      "TexturePath": "Sprint6/Tank/CrouchRight",
+      "FrameCount": 1,
+      "FrameDelay": 3
+    },
+    {
+      "Name": "Tank",
+      "State": "LeftCrouchingState",
+      "PowerUpState": "ActiveState",
+      "TexturePath": "Sprint6/Tank/CrouchLeft",
+      "FrameCount": 1,
+      "FrameDelay": 3
+    },
+    {
+      "Name": "Tank",
       "State": "",
-      "PowerUpState": "",
-      "TexturePath": "Sprint6/TankBomb",
+      "PowerUpState": "DeadState",
+      "TexturePath": "Sprint6/Tank/Dead",
+      "FrameCount": 1,
+      "FrameDelay": 3
+    },
+    {
+      "Name": "Soldier",
+      "State": "LeftStandingState",
+      "PowerUpState": "ActiveState",
+      "TexturePath": "Sprint6/Soldier/StandLeft",
+      "FrameCount": 1,
+      "FrameDelay": 3
+    },
+    {
+      "Name": "Soldier",
+      "State": "RightStandingState",
+      "PowerUpState": "ActiveState",
+      "TexturePath": "Sprint6/Soldier/StandRight",
+      "FrameCount": 1,
+      "FrameDelay": 3
+    },
+    {
+      "Name": "Soldier",
+      "State": "LeftWalkingingState",
+      "PowerUpState": "ActiveState",
+      "TexturePath": "Sprint6/Soldier/MoveLeft",
+      "FrameCount": 3,
+      "FrameDelay": 3
+    },
+    {
+      "Name": "Soldier",
+      "State": "RightWalkingingState",
+      "PowerUpState": "ActiveState",
+      "TexturePath": "Sprint6/Soldier/MoveRight",
+      "FrameCount": 3,
+      "FrameDelay": 3
+    },
+    {
+      "Name": "Soldier",
+      "State": "ClimbingState",
+      "PowerUpState": "ActiveState",
+      "TexturePath": "Sprint6/Soldier/Climbing",
       "FrameCount": 2,
       "FrameDelay": 3
-    }
+    },
+    {
+      "Name": "Soldier",
+      "State": "LeftJumpingState",
+      "PowerUpState": "ActiveState",
+      "TexturePath": "Sprint6/Soldier/JumpLeft",
+      "FrameCount": 1,
+      "FrameDelay": 3
+    },
+    {
+      "Name": "Soldier",
+      "State": "RightJumpingState",
+      "PowerUpState": "ActiveState",
+      "TexturePath": "Sprint6/Soldier/JumpRight",
+      "FrameCount": 1,
+      "FrameDelay": 3
+    },
+    {
+      "Name": "Soldier",
+      "State": "RightCrouchingState",
+      "PowerUpState": "ActiveState",
+      "TexturePath": "Sprint6/Soldier/CrouchRight",
+      "FrameCount": 1,
+      "FrameDelay": 3
+    },
+    {
+      "Name": "Soldier",
+      "State": "LeftCrouchingState",
+      "PowerUpState": "ActiveState",
+      "TexturePath": "Sprint6/Soldier/CrouchLeft",
+      "FrameCount": 1,
+      "FrameDelay": 3
+    },
+    {
+      "Name": "Tank",
+      "State": "",
+      "PowerUpState": "DeadState",
+      "TexturePath": "Sprint6/Tank/Dead",
+      "FrameCount": 1,
+      "FrameDelay": 3
+    },
+    {
+      "Name": "Soldier",
+      "State": "LeftStandingState",
+      "PowerUpState": "ActiveState",
+      "TexturePath": "Sprint6/Tank/StandLeft",
+      "FrameCount": 1,
+      "FrameDelay": 3
+    },
+    {
+      "Name": "Soldier",
+      "State": "RightStandingState",
+      "PowerUpState": "ActiveState",
+      "TexturePath": "Sprint6/Tank/StandRight",
+      "FrameCount": 1,
+      "FrameDelay": 3
+    },
+    {
+      "Name": "Soldier",
+      "State": "LeftWalkingingState",
+      "PowerUpState": "ActiveState",
+      "TexturePath": "Sprint6/Soldier/MoveLeft",
+      "FrameCount": 3,
+      "FrameDelay": 3
+    },
+    {
+      "Name": "Soldier",
+      "State": "RightWalkingingState",
+      "PowerUpState": "ActiveState",
+      "TexturePath": "Sprint6/Soldier/MoveRight",
+      "FrameCount": 3,
+      "FrameDelay": 3
+    },
+    {
+      "Name": "Soldier",
+      "State": "ClimbingState",
+      "PowerUpState": "ActiveState",
+      "TexturePath": "Sprint6/Soldier/Climbing",
+      "FrameCount": 2,
+      "FrameDelay": 3
+    },
+    {
+      "Name": "Soldier",
+      "State": "LeftJumpingState",
+      "PowerUpState": "ActiveState",
+      "TexturePath": "Sprint6/Soldier/JumpLeft",
+      "FrameCount": 1,
+      "FrameDelay": 3
+    },
+    {
+      "Name": "Soldier",
+      "State": "RightJumpingState",
+      "PowerUpState": "ActiveState",
+      "TexturePath": "Sprint6/Soldier/JumpRight",
+      "FrameCount": 1,
+      "FrameDelay": 3
+    },
+    {
+      "Name": "Soldier",
+      "State": "RightCrouchingState",
+      "PowerUpState": "ActiveState",
+      "TexturePath": "Sprint6/Soldier/CrouchRight",
+      "FrameCount": 1,
+      "FrameDelay": 3
+    },
+    {
+      "Name": "Soldier",
+      "State": "LeftCrouchingState",
+      "PowerUpState": "ActiveState",
+      "TexturePath": "Sprint6/Soldier/CrouchLeft",
+      "FrameCount": 1,
+      "FrameDelay": 3
+    },
+    {
+      "Name": "Soldier",
+      "State": "",
+      "PowerUpState": "DeadState",
+      "TexturePath": "Sprint6/Soldier/Dead",
+      "FrameCount": 1,
+      "FrameDelay": 3
+    },
+    {
+      "Name": "Scout",
+      "State": "LeftStandingState",
+      "PowerUpState": "ActiveState",
+      "TexturePath": "Sprint6/Scout/StandLeft",
+      "FrameCount": 1,
+      "FrameDelay": 3
+    },
+    {
+      "Name": "Scout",
+      "State": "RightStandingState",
+      "PowerUpState": "ActiveState",
+      "TexturePath": "Sprint6/Scout/StandRight",
+      "FrameCount": 1,
+      "FrameDelay": 3
+    },
+    {
+      "Name": "Scout",
+      "State": "LeftWalkingingState",
+      "PowerUpState": "ActiveState",
+      "TexturePath": "Sprint6/Scout/MoveLeft",
+      "FrameCount": 3,
+      "FrameDelay": 3
+    },
+    {
+      "Name": "Scout",
+      "State": "RightWalkingingState",
+      "PowerUpState": "ActiveState",
+      "TexturePath": "Sprint6/Scout/MoveRight",
+      "FrameCount": 3,
+      "FrameDelay": 3
+    },
+    {
+      "Name": "Scout",
+      "State": "ClimbingState",
+      "PowerUpState": "ActiveState",
+      "TexturePath": "Sprint6/Scout/Climbing",
+      "FrameCount": 2,
+      "FrameDelay": 3
+    },
+    {
+      "Name": "Scout",
+      "State": "LeftJumpingState",
+      "PowerUpState": "ActiveState",
+      "TexturePath": "Sprint6/Scout/JumpLeft",
+      "FrameCount": 1,
+      "FrameDelay": 3
+    },
+    {
+      "Name": "Scout",
+      "State": "RightJumpingState",
+      "PowerUpState": "ActiveState",
+      "TexturePath": "Sprint6/Scout/JumpRight",
+      "FrameCount": 1,
+      "FrameDelay": 3
+    },
+    {
+      "Name": "Scout",
+      "State": "RightCrouchingState",
+      "PowerUpState": "ActiveState",
+      "TexturePath": "Sprint6/Scout/CrouchRight",
+      "FrameCount": 1,
+      "FrameDelay": 3
+    },
+    {
+      "Name": "Scout",
+      "State": "LeftCrouchingState",
+      "PowerUpState": "ActiveState",
+      "TexturePath": "Sprint6/Scout/CrouchLeft",
+      "FrameCount": 1,
+      "FrameDelay": 3
+    },
+    {
+      "Name": "Scout",
+      "State": "",
+      "PowerUpState": "DeadState",
+      "TexturePath": "Sprint6/Scout/Dead",
+      "FrameCount": 1,
+      "FrameDelay": 3
+    },
+
+    {
+      "Name": "Thief",
+      "State": "LeftStandingState",
+      "PowerUpState": "ActiveState",
+      "TexturePath": "Sprint6/Thief/StandLeft",
+      "FrameCount": 1,
+      "FrameDelay": 3
+    },
+    {
+      "Name": "Thief",
+      "State": "RightStandingState",
+      "PowerUpState": "ActiveState",
+      "TexturePath": "Sprint6/Thief/StandRight",
+      "FrameCount": 1,
+      "FrameDelay": 3
+    },
+    {
+      "Name": "Thief",
+      "State": "LeftWalkingingState",
+      "PowerUpState": "ActiveState",
+      "TexturePath": "Sprint6/Thief/MoveLeft",
+      "FrameCount": 3,
+      "FrameDelay": 3
+    },
+    {
+      "Name": "Thief",
+      "State": "RightWalkingingState",
+      "PowerUpState": "ActiveState",
+      "TexturePath": "Sprint6/Thief/MoveRight",
+      "FrameCount": 3,
+      "FrameDelay": 3
+    },
+    {
+      "Name": "Thief",
+      "State": "ClimbingState",
+      "PowerUpState": "ActiveState",
+      "TexturePath": "Sprint6/Thief/Climbing",
+      "FrameCount": 2,
+      "FrameDelay": 3,
+
+      {
+        "Name": "Thief",
+        "State": "LeftJumpingState",
+        "PowerUpState": "ActiveState",
+        "TexturePath": "Sprint6/Thief/JumpLeft",
+        "FrameCount": 1,
+        "FrameDelay": 3
+      },
+      {
+        "Name": "Thief",
+        "State": "RightJumpingState",
+        "PowerUpState": "ActiveState",
+        "TexturePath": "Sprint6/Thief/JumpRight",
+        "FrameCount": 1,
+        "FrameDelay": 3
+      },
+      {
+        "Name": "Thief",
+        "State": "RightCrouchingState",
+        "PowerUpState": "ActiveState",
+        "TexturePath": "Sprint6/Thief/CrouchRight",
+        "FrameCount": 1,
+        "FrameDelay": 3
+      },
+      {
+        "Name": "Thief",
+        "State": "LeftCrouchingState",
+        "PowerUpState": "ActiveState",
+        "TexturePath": "Sprint6/Thief/CrouchLeft",
+        "FrameCount": 1,
+        "FrameDelay": 3
+      },
+      {
+        "Name": "Thief",
+        "State": "",
+        "PowerUpState": "DeadState",
+        "TexturePath": "Sprint6/Thief/Dead",
+        "FrameCount": 1,
+        "FrameDelay": 3
+      },
+      {
+        "Name": "TankAvatar",
+        "State": "",
+        "PowerUpState": "",
+        "TexturePath": "TankAvatar",
+        "FrameCount": 1,
+        "FrameDelay": 1
+      },
+      {
+        "Name": "ThiefAvatar",
+        "State": "",
+        "PowerUpState": "",
+        "TexturePath": "ThiefAvatar",
+        "FrameCount": 1,
+        "FrameDelay": 1
+      },
+      {
+        "Name": "SoldierAvatar",
+        "State": "",
+        "PowerUpState": "",
+        "TexturePath": "SoldierAvatar",
+        "FrameCount": 1,
+        "FrameDelay": 1
+      },
+      {
+        "Name": "ScoutAvatar",
+        "State": "",
+        "PowerUpState": "",
+        "TexturePath": "ScoutAvatar",
+        "FrameCount": 1,
+        "FrameDelay": 1
+      },
+      {
+        "Name": "Bullet1",
+        "State": "",
+        "PowerUpState": "",
+        "TexturePath": "Sprint6/ScoutBullet",
+        "FrameCount": 4,
+        "FrameDelay": 3
+      },
+      {
+        "Name": "Bullet2",
+        "State": "RightMovingProjectile",
+        "PowerUpState": "",
+        "TexturePath": "Sprint6/SoldierBulletRight",
+        "FrameCount": 2,
+        "FrameDelay": 3
+      },
+      {
+        "Name": "Bullet2",
+        "State": "LeftMovingProjectile",
+        "PowerUpState": "",
+        "TexturePath": "Sprint6/SoldierBulletLeft",
+        "FrameCount": 2,
+        "FrameDelay": 3
+      },
+      {
+        "Name": "Bomb",
+        "State": "",
+        "PowerUpState": "",
+        "TexturePath": "Sprint6/TankBomb",
+        "FrameCount": 2,
+        "FrameDelay": 3
+      }
 
   ]
 }
