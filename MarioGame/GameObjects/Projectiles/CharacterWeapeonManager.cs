@@ -20,7 +20,8 @@ namespace Gamespace.Projectiles
             {
                 {typeof(Mario),(new Func<IProjectile>(()=>new Fireball()),10,5)},
                 {typeof(BrickBlock),(new Func<IProjectile>(()=>new Fireball()),10,5)},
-                {typeof(Scout),(new Func<IProjectile>(()=>new Fireball()),20,5)}
+                {typeof(Scout),(new Func<IProjectile>(()=>new Fireball()),20,5)},
+                {typeof(Tank),(new Func<IProjectile>(()=>new Fireball()),20,5)}
             };
 
         }
