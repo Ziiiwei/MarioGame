@@ -1,5 +1,6 @@
 ﻿using Gamespace;
 using Gamespace.Multiplayer;
+using Gamespace.States;
 using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
@@ -13,7 +14,7 @@ namespace Gamespace
     {
         public Soldier(Vector2 positionOnScreen, Scoreboard scoreboard) : base(positionOnScreen, scoreboard)
         {
-
+            PowerUpState = new MarioFireState();
         }
         public override void PowerDown()
         {
