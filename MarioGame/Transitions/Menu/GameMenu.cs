@@ -33,7 +33,7 @@ namespace Gamespace.Transitions
         public int ArenaSelected { get; private set; }
         public int Time { get; private set; }
         public Dictionary<PlayerIndex, Type> playerCharacterSelection { get; private set; }
-
+        public List<Type> PlayableCharacters { get; }
         private Dictionary<Tuple<MenuState, InputDirection>, Delegate> inputAction;
         private IView view;
         private IController input;
@@ -50,6 +50,11 @@ namespace Gamespace.Transitions
             PlayerCount = 1;
             ArenaSelected = 0;
             Time = StartingTime;
+
+            PlayableCharacters = new List<Type>()
+            {
+                typeof(Scout)
+            };
 
             stateTransitions = new Dictionary<MenuState, Delegate>()
             {
@@ -75,6 +80,14 @@ namespace Gamespace.Transitions
 
                 {new Tuple<MenuState, InputDirection>(MenuState.Character, InputDirection.Up), new Action(() => { }) },
                 {new Tuple<MenuState, InputDirection>(MenuState.Character, InputDirection.Down), new Action(() => { }) },
+            };
+
+            playerCharacterSelection = new Dictionary<PlayerIndex, Type>()
+            {
+                {PlayerIndex.One, typeof(Scout) },
+                {PlayerIndex.Two, typeof(Scout) },
+                {PlayerIndex.Three, typeof(Scout) },
+                {PlayerIndex.Four, typeof(Scout) }
             };
         }
 
@@ -172,7 +185,7 @@ namespace Gamespace.Transitions
         private void ArenaToCharacterTransition()
         {
             currentState = MenuState.Character;
-            view = new PlayerCountSelection(this);
+            view = new CharacterSelection(this);
         }
 
         private void SelectionsComplete()
