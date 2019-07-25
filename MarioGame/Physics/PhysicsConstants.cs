@@ -68,7 +68,23 @@ namespace Gamespace
                 {
                     typeof(Bullet1),
                     (1.0f, 2.0f, 10f, 8f, 5f)
-                }
+                },
+                {
+                    typeof(Tank),
+                    (0.5f, 0.5f, 5f, 10f, 1f)
+                },
+                {
+                    typeof(Thief),
+                    (0.5f, 0.5f, 5f, 10f, 1f)
+                },
+                {
+                    typeof(Scout),
+                    (0.5f, 0.5f, 5f, 10f, 1f)
+                },
+                {
+                    typeof(Soldier),
+                    (0.5f, 0.5f, 5f, 10f, 1f)
+                },
             };
         }
            
