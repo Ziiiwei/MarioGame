@@ -35,7 +35,15 @@ namespace Gamespace
             /* This will become data driven */
             translator.Add(new Tuple<Type, Type>(typeof(Mario), typeof(BrickBlock)), TypeTranslator.MarioBlockTranslator);
             translator.Add(new Tuple<Type, Type>(typeof(Mario), typeof(Goomba)), TypeTranslator.MarioGoombaTranslator);
+            translator.Add(new Tuple<Type, Type>(typeof(Scout), typeof(Goomba)), TypeTranslator.MarioGoombaTranslator);
+            translator.Add(new Tuple<Type, Type>(typeof(Tank), typeof(Goomba)), TypeTranslator.MarioGoombaTranslator);
+            translator.Add(new Tuple<Type, Type>(typeof(Soldier), typeof(Goomba)), TypeTranslator.MarioGoombaTranslator);
+            translator.Add(new Tuple<Type, Type>(typeof(Thief), typeof(Goomba)), TypeTranslator.MarioGoombaTranslator);
             translator.Add(new Tuple<Type, Type>(typeof(Mario), typeof(Koopa)), TypeTranslator.MarioKoopaTranslator);
+            translator.Add(new Tuple<Type, Type>(typeof(Scout), typeof(Koopa)), TypeTranslator.MarioKoopaTranslator);
+            translator.Add(new Tuple<Type, Type>(typeof(Tank), typeof(Koopa)), TypeTranslator.MarioKoopaTranslator);
+            translator.Add(new Tuple<Type, Type>(typeof(Soldier), typeof(Koopa)), TypeTranslator.MarioKoopaTranslator);
+            translator.Add(new Tuple<Type, Type>(typeof(Thief), typeof(Koopa)), TypeTranslator.MarioKoopaTranslator);
             translator.Add(new Tuple<Type, Type>(typeof(Goomba), typeof(BrickBlock)), TypeTranslator.BumpableBlockEnemyTranslator);
             translator.Add(new Tuple<Type, Type>(typeof(Koopa), typeof(BrickBlock)), TypeTranslator.BumpableBlockEnemyTranslator);
             statefulCollisionActions = JsonParser.Instance.ParseCollisionStatefulFile();
