@@ -11,7 +11,6 @@ namespace Gamespace
         ISprite Sprite { get; }
         IMarioState State { get; set; }
         IMarioPowerUpState PowerUpState { get; set; }
-        IMarioPowerUpState PreviousState { get; set; }
         IPhysics GameObjectPhysics { get; set; }       
         ILauncher Launcher { get; set; }
 

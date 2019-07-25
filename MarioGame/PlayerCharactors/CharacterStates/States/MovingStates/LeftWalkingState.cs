@@ -5,53 +5,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
+using Gamespace.States;
 
 namespace Gamespace.Characters
 {
-    class LeftWalkingCharacterState : MovingCharacterState
+    class LeftWalkingCharacterState : LeftWalkingMarioState
     {
-        public LeftWalkingCharacterState(ICharacter character) : base(character)
+        public LeftWalkingCharacterState(IMario mario) : base(mario)
         {
         }
 
-        public override void Jump()
-        {
-            character.PowerUpState.Jump(character);
-            character.State = new LeftJumpingCharacterState(character);
-            character.GameObjectPhysics.Jump();
-            character.UpdateArt();
-        }
-
-        public override void MoveRight()
-        {
-            character.State = new LeftStandingCharacterState(character);
-            character.UpdateArt();
-        }
-
-        public override void MoveLeft()
-        {
-            character.GameObjectPhysics.Move(Side.Left);
-        }
-
-        public override void FrictionStop()
-        {
-            if (character.GameObjectPhysics.Velocity.X == 0)
-            {
-                character.State = new LeftStandingCharacterState(character);
-                character.UpdateArt();
-            }
-        }
-
-        public override void Fire()
-        {
-            character.Launcher.Fire(Projectiles.ShootAngle.Left);
-        }
-
-        public override void ClimbUp()
-        {
-            character.State = new ClimbingCharacterState(character);
-            character.GameObjectPhysics.Climb(Side.Up);
-            character.UpdateArt();
-        }
+       
     }
 }

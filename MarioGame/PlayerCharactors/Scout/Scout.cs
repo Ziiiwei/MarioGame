@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Gamespace
 {
-    class Scout : Character
+    class Scout : Mario
     {
         public Scout(Vector2 positionOnScreen, Scoreboard scoreboard) : base(positionOnScreen, scoreboard)
         {

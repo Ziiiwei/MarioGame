@@ -21,7 +21,6 @@ namespace Gamespace
         new Vector2 PositionOnScreen { get; }
 
         public  IMarioPowerUpState PowerUpState { get; set; }
-        public IMarioPowerUpState PreviousState { get; set; }
         internal IPhysics Physics { get; set; }
         public Scoreboard scoreboard { get ; set; }
         public ILauncher Launcher { get; set; }
@@ -45,7 +44,6 @@ namespace Gamespace
             timer--;
             if (timer == 0)
             {
-                this.mario.PowerUpState = this.PreviousState;
                 this.mario.UpdateArt();
                // World.Instance.Replace(this, this.mario);
             }
