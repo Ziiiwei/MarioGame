@@ -33,7 +33,6 @@ namespace Gamespace.Controllers
             playerOneBinds.Add(Keys.D, typeof(MarioMoveRightCommand));
             playerOneBinds.Add(Keys.Space, typeof(MarioFireCommand));
             playerOneBinds.Add(Keys.R, typeof(Reset));
-            playerOneBinds.Add(Keys.F, typeof(PlayTestAnimation));
             playerOneBinds.Add(Keys.C, typeof(MarioClimbingUpCommand));
             playerOneBinds.Add(Keys.X, typeof(MarioClimbingDownCommand));
 
