@@ -16,7 +16,7 @@ namespace Gamespace.Controllers
         private GamePadState previousState;
         private Dictionary<Buttons, ICommand> buttonCommands;
         private static readonly List<Type> nonHoldableCommands;
-        private IPlayer player;
+        private readonly IPlayer player;
 
         static GamepadController()
         {
@@ -61,13 +61,13 @@ namespace Gamespace.Controllers
             {
                 foreach (Buttons button in buttonCommands.Keys)
                 {
-                    if (gamePadState.IsButtonDown(button) && !previousState.IsButtonDown(button))
+                    if (gamePadState.IsButtonDown(button))
                     {
                         buttonCommands[button].Execute();
                     }
                 }
             }
-            previousState = gamePadState;
+
         }
       
     }

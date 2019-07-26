@@ -72,6 +72,25 @@ namespace Gamespace
             }
         }
 
+        private void PlayerOneBezel(Vector2 position)
+        {
+            drawable.Clear();
+
+            Rectangle verticalRectangle = new Rectangle((int)position.X + (MarioGame.WINDOW_WIDTH / 2) - 1, 0, 1, MarioGame.WINDOW_HEIGHT / 2);
+
+            if (playerCount < 3)
+            {
+                Rectangle horizontalRectangle = new Rectangle((int)position.X, (int)cam.CameraPosition.Y + (MarioGame.WINDOW_HEIGHT / 2) - 1, MarioGame.WINDOW_WIDTH, 1);
+                drawable.Add(new Tuple<Texture2D, Rectangle>(horizontalBezel, horizontalRectangle));
+            }
+            else
+            {
+                Rectangle horizontalRectangle = new Rectangle((int)position.X, (MarioGame.WINDOW_HEIGHT / 2) - 1, MarioGame.WINDOW_WIDTH / 2, 1);
+                drawable.Add(new Tuple<Texture2D, Rectangle>(horizontalBezel, horizontalRectangle));
+                drawable.Add(new Tuple<Texture2D, Rectangle>(verticalBezel, verticalRectangle));
+            }
+        }
+
         private void PlayerOneBezel()
         {
             drawable.Clear();
