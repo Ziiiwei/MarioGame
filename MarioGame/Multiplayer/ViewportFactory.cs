@@ -55,9 +55,9 @@ namespace Gamespace
         {
             var originAndDimensions = splitScreenOrigins[numberOfPlayers-1];
 
-            Point origin = originAndDimensions[playerID].Item1;
-            int width = originAndDimensions[playerID].Item2;
-            int height = originAndDimensions[playerID].Item3;
+            Point origin = originAndDimensions[playerID % 4].Item1;
+            int width = originAndDimensions[playerID % 4].Item2;
+            int height = originAndDimensions[playerID % 4].Item3;
 
             return new Viewport()
             {

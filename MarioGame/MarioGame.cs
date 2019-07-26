@@ -83,7 +83,8 @@ namespace Gamespace
         {
             base.Initialize();
 
-            WinScore = 3000000;
+            
+            WinScore = 10;
 
             ArenaPaths = new Dictionary<int, Tuple<string, string>>()
             {
@@ -166,13 +167,35 @@ namespace Gamespace
         {
             World.Instance.ClearWorld();
 
+            /*
             IPlayer player1 = new Player(typeof(Mario), new SpriteBatch(GraphicsDevice), new Vector2(Numbers.PLAYER_ONE_X, Numbers.STARTING_Y));
             World.Instance.AddPlayer(player1);
 
             IPlayer player2 = new Player(typeof(Mario), new SpriteBatch(GraphicsDevice), new Vector2(Numbers.PLAYER_TWO_X, Numbers.STARTING_Y));
             World.Instance.AddPlayer(player2);
+            */
 
-            SoundManager.Instance.PlayMainBGM();  
+            //SoundManager.Instance.PlayMainBGM();  
+
+            foreach (GameDraw del in gameDraw.GetInvocationList())
+            {
+                gameDraw -= del;
+            }
+
+            foreach (GameUpdate del in gameUpdate.GetInvocationList())
+            {
+                gameUpdate -= del;
+            }
+
+            menuSpriteBatch = new SpriteBatch(graphics.GraphicsDevice);
+            menu = new GameMenu();
+
+            gameUpdate += UpdateGameMenu;
+            gameDraw += DrawGameMenu;
+
+            World.Instance.ResetPlayerIdCounter();
+
+            winScreen += WinScreen;
         }
 
         private void UpdateGameWorld(GameTime gameTime)
