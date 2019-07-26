@@ -86,11 +86,6 @@ namespace Gamespace.Multiplayer
             {
                 viewTimer.Tick();
             }
-
-            if (Lives == 0)
-            {
-                view = new DeadView(Cam);
-            }
         }
 
         public void DrawPlayersScreen()
@@ -130,7 +125,7 @@ namespace Gamespace.Multiplayer
         public void Respawn()
         {
             var spawnList = World.Instance.SpawnPoints;
-            Random rand = new Random();
+            Random rand = new Random(playerID);
             spawnPoint = spawnList[rand.Next(0, spawnList.Count)];
             GameObject = (IMario)Activator.CreateInstance(GameObject.GetType(), spawnPoint, scoreboard, this);
             World.Instance.AddGameObject(GameObject);
