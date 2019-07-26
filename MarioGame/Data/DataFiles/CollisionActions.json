@@ -2115,6 +2115,67 @@
       "Side": "Right",
       "Command1": "Gamespace.Commands.NullCommand",
       "Command2": "Gamespace.Commands.DestroyBlock"
+    },
+    {
+      "Mover": "Gamespace.Projectiles.Bullet1",
+      "Target": "Gamespace.Blocks.BrickBlock",
+      "Side": "Down",
+      "Command1": "Gamespace.Commands.NullCommand",
+      "Command2": "Gamespace.Commands.DestroyBlock"
+    },
+    {
+      "Mover": "Gamespace.Projectiles.Bullet1",
+      "Target": "Gamespace.Blocks.BrickBlock",
+      "Side": "Up",
+      "Command1": "Gamespace.Commands.NullCommand",
+      "Command2": "Gamespace.Commands.DestroyBlock"
+    },
+
+    {
+      "Mover": "Gamespace.Projectiles.Bullet1",
+      "Target": "Gamespace.Blocks.BrickBlock",
+      "Side": "Left",
+      "Command1": "Gamespace.Commands.NullCommand",
+      "Command2": "Gamespace.Commands.DestroyBlock"
+    },
+
+    {
+      "Mover": "Gamespace.Projectiles.Bullet1",
+      "Target": "Gamespace.Blocks.BrickBlock",
+      "Side": "Right",
+      "Command1": "Gamespace.Commands.NullCommand",
+      "Command2": "Gamespace.Commands.DestroyBlock"
+    },
+
+    {
+      "Mover": "Gamespace.Projectiles.Bullet2",
+      "Target": "Gamespace.Blocks.BrickBlock",
+      "Side": "Down",
+      "Command1": "Gamespace.Commands.NullCommand",
+      "Command2": "Gamespace.Commands.DestroyBlock"
+    },
+    {
+      "Mover": "Gamespace.Projectiles.Bullet2",
+      "Target": "Gamespace.Blocks.BrickBlock",
+      "Side": "Up",
+      "Command1": "Gamespace.Commands.NullCommand",
+      "Command2": "Gamespace.Commands.DestroyBlock"
+    },
+
+    {
+      "Mover": "Gamespace.Projectiles.Bullet2",
+      "Target": "Gamespace.Blocks.BrickBlock",
+      "Side": "Left",
+      "Command1": "Gamespace.Commands.NullCommand",
+      "Command2": "Gamespace.Commands.DestroyBlock"
+    },
+
+    {
+      "Mover": "Gamespace.Projectiles.Bullet2",
+      "Target": "Gamespace.Blocks.BrickBlock",
+      "Side": "Right",
+      "Command1": "Gamespace.Commands.NullCommand",
+      "Command2": "Gamespace.Commands.DestroyBlock"
     }
 
   ]
