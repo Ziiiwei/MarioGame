@@ -21,6 +21,7 @@
       "Command1": "Gamespace.Commands.CollideUp",
       "Command2": "Gamespace.Commands.BumpBlock"
     },
+
     {
       "Mover": "Gamespace.States.MarioSuperState",
       "Target": "Gamespace.Blocks.BrickBlock",
