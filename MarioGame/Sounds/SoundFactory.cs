@@ -59,7 +59,7 @@ namespace Gamespace
                     soundEffectInstance = soundEffect.CreateInstance();
                     arenaAssignments.Add(key, soundEffectInstance);
                 }
-                else if (key == "arena3")
+                else if (key == "NoTime")
                 {
                     soundEffect = MarioGame.Instance.Content.Load<SoundEffect>(entry.SoundPath);
                     soundEffectInstance = soundEffect.CreateInstance();
