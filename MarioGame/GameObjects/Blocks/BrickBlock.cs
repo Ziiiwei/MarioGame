@@ -28,7 +28,8 @@ namespace Gamespace.Blocks
         public BrickBlock(Vector2 positionOnScreen) : base(positionOnScreen)
         {
             State = new BlockIsNotBumpedState(this);
-            SetSprite();
+            SetSprite(); blockExplode = CharacterWeapeonManager.Instance.GetMassWeapeon(this);
+            blockExplode = CharacterWeapeonManager.Instance.GetMassWeapeon(this);
         }
 
         public void Bump()

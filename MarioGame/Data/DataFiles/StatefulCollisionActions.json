@@ -35,7 +35,7 @@
       "Command1": "Gamespace.Commands.NullCommand",
       "Command2": "Gamespace.Commands.DestroyBlock"
     },
-	{
+    {
       "Mover": "Gamespace.Mario",
       "Target": "Gamespace.Goombas.StompedGoombaState",
       "Side": "Up",
@@ -211,7 +211,7 @@
       "Command1": "Gamespace.Commands.NullCommand",
       "Command2": "Gamespace.Commands.KillMario"
     },
-	{
+    {
       "Mover": "Gamespace.Scout",
       "Target": "Gamespace.Goombas.StompedGoombaState",
       "Side": "Up",
@@ -386,7 +386,7 @@
       "Command1": "Gamespace.Commands.NullCommand",
       "Command2": "Gamespace.Commands.KillMario"
     },
-	{
+    {
       "Mover": "Gamespace.Soldier",
       "Target": "Gamespace.Goombas.StompedGoombaState",
       "Side": "Up",
@@ -561,7 +561,7 @@
       "Command1": "Gamespace.Commands.NullCommand",
       "Command2": "Gamespace.Commands.KillMario"
     },
-	{
+    {
       "Mover": "Gamespace.Tank",
       "Target": "Gamespace.Goombas.StompedGoombaState",
       "Side": "Up",
