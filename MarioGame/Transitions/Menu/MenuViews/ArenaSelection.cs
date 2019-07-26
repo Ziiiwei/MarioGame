@@ -25,6 +25,9 @@ namespace Gamespace
 
         public void Draw(SpriteBatch spriteBatch)
         {
+            Texture2D Logo = MarioGame.Instance.Content.Load<Texture2D>("deathmatchlogo");
+            spriteBatch.Draw(Logo, new Rectangle(250, -150, 1000, 900), Color.White);
+
             for (int i = 0; i < MarioGame.Instance.ArenaPaths.Count; i++)
             {
                 Color color = Color.Black;
