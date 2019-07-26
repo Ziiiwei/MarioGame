@@ -83,14 +83,17 @@ namespace Gamespace
         {
             base.Initialize();
 
-            WinScore = 3000000;
+            
+            WinScore = 10;
 
             ArenaPaths = new Dictionary<int, Tuple<string, string>>()
             {
-                {0, new Tuple<string, string>("Arena One", "MarioGame/Data/DataFiles/level1.csv") },
-                {1, new Tuple<string, string>("Arena Two", "MarioGame/Data/DataFiles/level2a.csv") },
-                {2, new Tuple<string, string>("Arena Three", "MarioGame/Data/DataFiles/level3.csv") },
-                {3, new Tuple<string, string>("Flat Level", "MarioGame/Data/DataFiles/flatlevel.csv") }
+                {0, new Tuple<string, string>("Demo One", "MarioGame/Data/DataFiles/Demo1.csv") },
+                {1, new Tuple<string, string>("Demo Two", "MarioGame/Data/DataFiles/Demo2.csv") },
+                {2, new Tuple<string, string>("Arena One", "MarioGame/Data/DataFiles/level1.csv") },
+                {3, new Tuple<string, string>("Arena Two", "MarioGame/Data/DataFiles/level2a.csv") },
+                {4, new Tuple<string, string>("Arena Three", "MarioGame/Data/DataFiles/level3.csv") },
+                {5, new Tuple<string, string>("Flat Level", "MarioGame/Data/DataFiles/flatlevel.csv") }
             };
 
             PlayerCount = 1;
@@ -166,13 +169,35 @@ namespace Gamespace
         {
             World.Instance.ClearWorld();
 
+            /*
             IPlayer player1 = new Player(typeof(Mario), new SpriteBatch(GraphicsDevice), new Vector2(Numbers.PLAYER_ONE_X, Numbers.STARTING_Y));
             World.Instance.AddPlayer(player1);
 
             IPlayer player2 = new Player(typeof(Mario), new SpriteBatch(GraphicsDevice), new Vector2(Numbers.PLAYER_TWO_X, Numbers.STARTING_Y));
             World.Instance.AddPlayer(player2);
+            */
 
-            SoundManager.Instance.PlayMainBGM();  
+            //SoundManager.Instance.PlayMainBGM();  
+
+            foreach (GameDraw del in gameDraw.GetInvocationList())
+            {
+                gameDraw -= del;
+            }
+
+            foreach (GameUpdate del in gameUpdate.GetInvocationList())
+            {
+                gameUpdate -= del;
+            }
+
+            menuSpriteBatch = new SpriteBatch(graphics.GraphicsDevice);
+            menu = new GameMenu();
+
+            gameUpdate += UpdateGameMenu;
+            gameDraw += DrawGameMenu;
+
+            World.Instance.ResetPlayerIdCounter();
+
+            winScreen += WinScreen;
         }
 
         private void UpdateGameWorld(GameTime gameTime)

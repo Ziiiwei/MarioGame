@@ -357,5 +357,10 @@ namespace Gamespace
 
             return scores;
         }
+
+        public void ResetPlayerIdCounter()
+        {
+            players[0].ResetIdCounter();
+        }
     }
 }
