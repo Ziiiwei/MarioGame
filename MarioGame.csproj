@@ -130,6 +130,7 @@
     <Compile Include="MarioGame\GameObjects\Mario\States\MovingStates\LeftSlidingMarioState.cs" />
     <Compile Include="MarioGame\GameObjects\Mario\States\PowerupStates\SmallStarMarioState.cs" />
     <Compile Include="MarioGame\GameObjects\NullGameObject.cs" />
+    <Compile Include="MarioGame\GameObjects\Projectiles\MassProjectileLauncher.cs" />
     <Compile Include="MarioGame\GameObjects\Projectiles\ProjectileLauncher.cs" />
     <Compile Include="MarioGame\GameObjects\Projectiles\Bullet1.cs" />
     <Compile Include="MarioGame\Multiplayer\ScoringConstants.cs" />
