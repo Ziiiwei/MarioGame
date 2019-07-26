@@ -10,12 +10,14 @@ using Microsoft.Xna.Framework.Input;
 
 namespace Gamespace.Controllers
 {
-    class GamepadController: IController
+    class GamepadController : IController
     {
         private GamePadState gamePadState;
         private GamePadState previousState;
         private Dictionary<Buttons, ICommand> buttonCommands;
         private static readonly List<Type> nonHoldableCommands;
+        private List<Buttons> previouslyPressed;
+        private List<Buttons> pressed;
 
         static GamepadController()
         {
@@ -33,11 +35,18 @@ namespace Gamespace.Controllers
                 {Buttons.Start, new PauseGameCommand(player.GameObject) },
                 {Buttons.Back, new QuitGame(player.GameObject) },
                 {Buttons.DPadUp, new MarioJumpCommand(player.GameObject) },
+                {Buttons.LeftThumbstickUp, new MarioJumpCommand(player.GameObject) },
                 {Buttons.DPadDown, new MarioCrouchCommand(player.GameObject) },
+                {Buttons.LeftThumbstickDown, new MarioCrouchCommand(player.GameObject) },
                 {Buttons.DPadLeft, new MarioMoveLeftCommand(player.GameObject) },
+                {Buttons.LeftThumbstickLeft, new MarioMoveLeftCommand(player.GameObject) },
                 {Buttons.DPadRight, new MarioMoveRightCommand(player.GameObject) },
-                {Buttons.A, new MarioFireCommand(player.GameObject) }
+                {Buttons.LeftThumbstickRight, new MarioMoveRightCommand(player.GameObject) },
+                {Buttons.A, new MarioFireCommand(player.GameObject) },
+                {Buttons.RightShoulder, new MarioFireCommand(player.GameObject) }
             };
+            previouslyPressed = new List<Buttons>();
+            pressed = new List<Buttons>();
         }
 
         public bool CommandOverRide(string comand)
@@ -54,19 +63,38 @@ namespace Gamespace.Controllers
         public void Update()
         {
             gamePadState = GamePad.GetState(PlayerIndex.One);
-
             if (gamePadState.IsConnected)
             {
                 foreach (Buttons button in buttonCommands.Keys)
                 {
+                    if (gamePadState.IsButtonDown(button))
+                        pressed.Add(button);
+
+                    /*
                     if (gamePadState.IsButtonDown(button) && !previousState.IsButtonDown(button))
                     {
                         buttonCommands[button].Execute();
                     }
+                    */
                 }
+
+                foreach (Buttons button in pressed)
+                {
+                    if (buttonCommands.ContainsKey(button))
+                    {
+                        if (!nonHoldableCommands.Contains(buttonCommands[button].GetType()) || !previouslyPressed.Contains(button))
+                        {
+                            buttonCommands[button].Execute();
+                        }
+                    }
+                }
+
+                previouslyPressed = pressed;
+                pressed.Clear();
             }
             previousState = gamePadState;
         }
-      
+
     }
 }
+
