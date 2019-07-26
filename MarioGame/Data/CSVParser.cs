@@ -13,8 +13,17 @@ namespace Gamespace
 {
     public class CSVParser
     {
+        private const int UNIT = 32;
+        private static Dictionary<string, string> shortcuts;
+
+        public int width;
+
+        private static List<string> alreadyParsed;
+
         static CSVParser()
         {
+            alreadyParsed = new List<string>();
+
             shortcuts = new Dictionary<string, string>
             {
                 {"BB", "Gamespace.Blocks.BrickBlock"},
@@ -48,14 +57,17 @@ namespace Gamespace
                 {"SH", "Gamespace.Hills.SmallHill" },
             };
         }
-        private const int UNIT = 32;
-        private static Dictionary<string, string> shortcuts;
 
-        public static int width;
 
-        public static void ConvertCSVtoJSON(String path)
+        public void ConvertCSVtoJSON(String path)
         {
-            String[][] data = File.ReadLines(path).Select(x => x.Split(',')).ToArray();
+            if (alreadyParsed.Contains(path))
+            {
+                return;
+            }
+            alreadyParsed.Add(path);
+            String[][] data = File.ReadAllLines(path).Select(x => x.Split(',')).ToArray();
+            
             int _X = 0;
             int _Y = 0;
             var JsonList = new List<CSVObject>();
@@ -97,7 +109,9 @@ namespace Gamespace
             {
                 JsonSerializer serializer = new JsonSerializer();
                 serializer.Serialize(file, JsonListWithHeader);
+                file.Close();
             }
+
         }
     }
 }

@@ -17,6 +17,7 @@ namespace Gamespace.Multiplayer
         void Release();
         void Respawn();
 void DisableGameControl();
+        void ResetIdCounter();
 
  void ResumeControl();
     }

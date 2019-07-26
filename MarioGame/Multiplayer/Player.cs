@@ -155,5 +155,10 @@ namespace Gamespace.Multiplayer
         {
             return scoreboard.Score;
         }
+
+        public void ResetIdCounter()
+        {
+            playerCounter = 0;
+        }
     }
 }
