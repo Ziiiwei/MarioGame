@@ -119,6 +119,7 @@
     <Compile Include="MarioGame\GameObjects\Projectiles\BrokenBB.cs" />
     <Compile Include="MarioGame\GameObjects\Projectiles\Bullet2.cs" />
     <Compile Include="MarioGame\GameObjects\Projectiles\CharacterWeapeonManager.cs" />
+    <Compile Include="MarioGame\GameObjects\Projectiles\Explosion.cs" />
     <Compile Include="MarioGame\GameObjects\Projectiles\FireballStates\MovingProjectileState.cs" />
     <Compile Include="MarioGame\GameObjects\Projectiles\FireballStates\UpMovingProjectile.cs" />
     <Compile Include="MarioGame\GameObjects\Projectiles\Fireball.cs" />

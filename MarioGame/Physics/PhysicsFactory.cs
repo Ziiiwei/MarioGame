@@ -38,7 +38,11 @@ namespace Gamespace
                 {typeof(Tank), typeof(MarioPhysics) },
                 {typeof(Thief), typeof(MarioPhysics) },
                  {typeof(Soldier), typeof(MarioPhysics) },
-                  {typeof(Scout), typeof(MarioPhysics) }
+                  {typeof(Scout), typeof(MarioPhysics) },
+                {typeof(BrickBlockPart1),typeof(TrajectoryPhysics) },
+                {typeof(BrickBlockPart2),typeof(TrajectoryPhysics) },
+                {typeof(BrickBlockPart3),typeof(TrajectoryPhysics) },
+                {typeof(BrickBlockPart4),typeof(TrajectoryPhysics) }
 
             };
         }

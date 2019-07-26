@@ -12,7 +12,7 @@ namespace Gamespace.Projectiles
     {
         public Bullet2(Vector2 positionOnScreen, ShootAngle angle) : base(positionOnScreen, angle)
         {
-            bounceBound = 1;
+            bounceBound = 2;
         }
         public Bullet2() : this(new Vector2(0,0),ShootAngle.Right)
         {

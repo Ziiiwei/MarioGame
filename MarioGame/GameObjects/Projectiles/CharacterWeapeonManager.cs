@@ -8,11 +8,12 @@ using Gamespace.Blocks;
 
 namespace Gamespace.Projectiles
 {
-    public enum ShootAngle : int { None, Up, Down, Left, Right, LeftUp, RightUp};
+    public enum ShootAngle : int { None, Up, Down, Left, Right, LeftUp, RightUp,LeftDown,RightDown};
     class CharacterWeapeonManager
     {
   
         private Dictionary<Type, (Func<IProjectile> ammoType, int ammoMax, int fillSpeed)> weapeonLog;
+        private Dictionary<Type, List<(Func<IProjectile>,int)>> massweapeonLog;
         static CharacterWeapeonManager() { }
         private CharacterWeapeonManager()
         {
@@ -21,9 +22,32 @@ namespace Gamespace.Projectiles
                 {typeof(Mario),(new Func<IProjectile>(()=>new Fireball()),10,5)},
                 {typeof(BrickBlock),(new Func<IProjectile>(()=>new Fireball()),10,5)},
                 {typeof(Scout),(new Func<IProjectile>(()=>new Bullet1()),20,5)},
-                {typeof(Tank),(new Func<IProjectile>(()=>new Fireball()),20,5)},
+                {typeof(Tank),(new Func<IProjectile>(()=>new Bomb()),3,5)},
                 {typeof(Thief),(new Func<IProjectile>(()=>new ThrowStar()),10,30)},
                 {typeof(Soldier),(new Func<IProjectile>(()=>new Bullet2()),20,5)}
+            };
+
+            massweapeonLog = new Dictionary<Type, List<(Func<IProjectile>,int)>>
+            {
+                {
+                    typeof(BrickBlock),
+                    new List<(Func<IProjectile>,int)> {
+                        (new Func<IProjectile>(() => new BrickBlockPart1()),1),
+                        (new Func<IProjectile>(() => new BrickBlockPart2()),1),
+                        (new Func<IProjectile>(() => new BrickBlockPart3()),1),
+                        (new Func<IProjectile>(() => new BrickBlockPart4()),1)
+                     }
+                },
+                {
+                    typeof(Bomb),
+                    new List<(Func<IProjectile>,int)>
+                    {
+                        (new Func<IProjectile>(() => new BrickBlockPart1()),1),
+                        (new Func<IProjectile>(() => new BrickBlockPart2()),1),
+                        (new Func<IProjectile>(() => new BrickBlockPart3()),1),
+                        (new Func<IProjectile>(() => new BrickBlockPart4()),1)
+                    }
+                }
             };
 
         }
@@ -39,6 +63,16 @@ namespace Gamespace.Projectiles
 
             return launcher;
 
+        }
+
+        public MassProjectileLauncher GetMassWeapeon(IGameObject gameObject)
+        {
+            Type type = gameObject.GetType();
+            MassProjectileLauncher launcher = new MassProjectileLauncher(gameObject, massweapeonLog[type], 0)
+            {
+                MaxProjectiles = 0
+            };
+            return launcher;
         }
     }
 }

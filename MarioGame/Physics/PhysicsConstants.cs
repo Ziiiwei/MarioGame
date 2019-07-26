@@ -74,6 +74,10 @@ namespace Gamespace
                     (1.0f, 2.0f, 15f, 8f, 5f)
                 },
                 {
+                    typeof(Bomb),
+                    (1.0f, 0.5f, 5f, 15f, 5f)
+                },
+                {
                     typeof(ThrowStar),
                     (1.0f, 2.0f, 8f, 8f, 5f)
                 },
@@ -92,6 +96,22 @@ namespace Gamespace
                 {
                     typeof(Soldier),
                     (0.5f, 0.5f, 5f, 10f, 1f)
+                },
+                {
+                    typeof(BrickBlockPart1),
+                    (1.0f, 0.5f, 5f, 15f, 5f)
+                },
+                    {
+                    typeof(BrickBlockPart2),
+                    (1.0f, 0.5f, 5f, 15f, 5f)
+                },
+                        {
+                    typeof(BrickBlockPart3),
+                    (1.0f, 0.5f, 5f, 15f, 5f)
+                },
+                            {
+                    typeof(BrickBlockPart4),
+                    (1.0f, 0.5f, 5f, 15f, 5f)
                 },
             };
         }

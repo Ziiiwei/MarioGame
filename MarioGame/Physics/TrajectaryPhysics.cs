@@ -21,5 +21,27 @@ namespace Gamespace
             velocity.X = position.X - currentPosition.X;
             updateTimer++;
         }
+
+        public override void LeftStop(Rectangle collisionArea)
+        {
+            position.X += collisionArea.Width;
+        }
+
+        public override void RightStop(Rectangle collisionArea)
+        {
+            position.X -= collisionArea.Width;
+        }
+
+        public override void UpStop(Rectangle collisionArea)
+        {
+            position.Y += collisionArea.Height;
+        }
+
+        public override void DownStop(Rectangle collisionArea)
+        {
+            position.Y -= collisionArea.Height;
+
+        }
+
     }
 }

@@ -1213,6 +1213,14 @@
       "TexturePath": "Sprint6/ThrowingStar",
       "FrameCount": 3,
       "FrameDelay": 4
+    },
+    {
+      "Name": "Explosion",
+      "State": "",
+      "PowerUpState": "",
+      "TexturePath": "Sprint6/Explosion",
+      "FrameCount": 3,
+      "FrameDelay": 10
     }
 
   ]

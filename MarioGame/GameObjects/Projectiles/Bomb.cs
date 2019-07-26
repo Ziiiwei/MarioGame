@@ -9,51 +9,21 @@ using System.Threading.Tasks;
 
 namespace Gamespace.Projectiles
 {
-    class Bomb : AbstractGameStatefulObject<IProjectileState>, IProjectile
+    class Bomb : Fireball, IProjectile
     {
-        protected static Dictionary<ShootAngle, Type> initialOrientation;
-        protected Dictionary<ShootAngle, Func<Vector2, Func<Vector2, int, Vector2>>> trajectoryLog;
-        protected static readonly Dictionary<ShootAngle, Func<Vector2, int, Vector2>> spriteOffset;
-        protected int bounceCounter = 0;
-        protected int bounceBound;
-        protected IMario owner;
+        private MassProjectileLauncher explode;
 
-        public ShootAngle Angle { get; set; }
-
-
-        static Bomb()
+        public Bomb(Vector2 positionOnScreen, ShootAngle angle) : base(positionOnScreen, angle)
         {
-            initialOrientation = new Dictionary<ShootAngle, Type>()
-            {
-                {ShootAngle.Left, typeof(LeftMovingProjectile) },
-                {ShootAngle.Right, typeof(RightMovingProjectile) },
-                {ShootAngle.Up,typeof(UpMovingProjectile) }
-
-            };
-
-            spriteOffset = new Dictionary<ShootAngle, Func<Vector2, int, Vector2>>()
-            {
-                {ShootAngle.Left, new Func<Vector2, int, Vector2> ((p,offset)=> new Vector2(p.X - offset,p.Y))},
-                {ShootAngle.Right,new Func<Vector2, int, Vector2> ((p,offset)=> new Vector2(p.X,p.Y))},
-                {ShootAngle.Up,new Func<Vector2, int, Vector2> ((p,offset)=> new Vector2(p.X,p.Y-offset)) }
-            };
-
-
-        }
-
-        public Bomb(Vector2 positionOnScreen, ShootAngle angle) : base(positionOnScreen)
-        {
-            bounceBound = 4;
-            State = (IProjectileState)Activator.CreateInstance(initialOrientation[angle], this);
-            SetSprite();
+            bounceBound = 3;
+            explode = CharacterWeapeonManager.Instance.GetMassWeapeon(this);
         }
 
         public Bomb() : this(new Vector2(0), ShootAngle.Right)
         {
-
             trajectoryLog = new Dictionary<ShootAngle, Func<Vector2, Func<Vector2, int, Vector2>>>
             {
-                 {ShootAngle.Left, new Func<Vector2, Func<Vector2, int, Vector2>>((ini_v) =>
+                {ShootAngle.Left, new Func<Vector2, Func<Vector2, int, Vector2>>((ini_v) =>
                 {
                     float v_x = ini_v.X - GameObjectPhysics.PhysicsConstants.X_V;
                     float v_y = ini_v.Y - GameObjectPhysics.PhysicsConstants.Y_V;
@@ -79,89 +49,58 @@ namespace Gamespace.Projectiles
                     float v_y = ini_v.Y +GameObjectPhysics.PhysicsConstants.Y_V;;
                     return new Func<Vector2, int, Vector2>((p,t)=>new Vector2(p.X+v_x*t,p.Y+v_y*t+0.5f*GameObjectPhysics.PhysicsConstants.G*t*t));
                 }) }
-
             };
-        }
 
-        public virtual void ChangeDirection(ShootAngle angle)
-        {
-            State.ChangeDirection(angle);
-            SetSprite();
-        }
-
-        protected override void SetSprite()
-        {
-            Sprite = SpriteFactory.Instance.GetSprite(this.GetType().Name, "", "");
-        }
-
-        protected override void SurrogateUpdate()
-        {
-            if (bounceCounter < bounceBound)
+            bounceMove = new Func<Vector2, Func<Vector2, int, Vector2>>((ini_v) =>
             {
-                base.SurrogateUpdate();
-                GameObjectPhysics.Update();
-                positionOnScreen = GameObjectPhysics.Position;
-            }
-            else
-            {
-                Remove();
-            }
+                return new Func<Vector2, int, Vector2>((p, t) => new Vector2(p.X + ini_v.X * t, p.Y + ini_v.Y * t + 0.5f * GameObjectPhysics.PhysicsConstants.G * t * t));
+            });
         }
 
-        public virtual void Remove()
+        public override void CollideDown(Rectangle collisionArea)
         {
-            Sprite = SpriteFactory.Instance.GetSprite("Fireball_out", "", "");
-            World.Instance.RemoveFromWorld(this);
+            GameObjectPhysics.DownStop(collisionArea);
+            positionOnScreen = GameObjectPhysics.Position;
+            Vector2 ini_v = new Vector2(GameObjectPhysics.Velocity.X/1.4f, -GameObjectPhysics.Velocity.Y/1.4f);
+            GameObjectPhysics.TrajectMove(bounceMove.Invoke(ini_v));
+            bounceCounter++;
         }
 
         public override void CollideLeft(Rectangle collisionArea)
         {
-            base.CollideLeft(collisionArea);
-            Vector2 ini_v = new Vector2(-GameObjectPhysics.Velocity.X/1.4f, GameObjectPhysics.Velocity.Y / 1.4f);
-            GameObjectPhysics.TrajectMove(trajectoryLog[ShootAngle.Right].Invoke(ini_v));
+            GameObjectPhysics.LeftStop(collisionArea);
+            positionOnScreen = GameObjectPhysics.Position;
+            Vector2 ini_v = new Vector2(-GameObjectPhysics.Velocity.X / 1.4f, GameObjectPhysics.Velocity.Y /1.4f);
+            GameObjectPhysics.TrajectMove(bounceMove.Invoke(ini_v));
             bounceCounter++;
         }
 
         public override void CollideRight(Rectangle collisionArea)
         {
-            base.CollideRight(collisionArea);
-            Vector2 ini_v = new Vector2(-GameObjectPhysics.Velocity.X/1.4f, GameObjectPhysics.Velocity.Y / 1.4f);
-            GameObjectPhysics.TrajectMove(trajectoryLog[ShootAngle.Left].Invoke(ini_v));
-            bounceCounter++;
-        }
-
-        public override void CollideDown(Rectangle collisionArea)
-        {
-            base.CollideDown(collisionArea);
-            Vector2 ini_v = new Vector2(GameObjectPhysics.Velocity.X/1.4f, -GameObjectPhysics.Velocity.Y / 1.4f);
-            GameObjectPhysics.TrajectMove(trajectoryLog[ShootAngle.Up].Invoke(ini_v));
+            GameObjectPhysics.RightStop(collisionArea);
+            positionOnScreen = GameObjectPhysics.Position;
+            Vector2 ini_v = new Vector2(-GameObjectPhysics.Velocity.X/1.4f, GameObjectPhysics.Velocity.Y/1.4f);
+            GameObjectPhysics.TrajectMove(bounceMove.Invoke(ini_v));
             bounceCounter++;
         }
 
         public override void CollideUp(Rectangle collisionArea)
         {
-            base.CollideUp(collisionArea);
-            Vector2 ini_v = new Vector2(GameObjectPhysics.Velocity.X/1.4f, -GameObjectPhysics.Velocity.Y / 1.4f);
-            GameObjectPhysics.TrajectMove(trajectoryLog[ShootAngle.Down].Invoke(ini_v));
+            GameObjectPhysics.UpStop(collisionArea);
+            positionOnScreen = GameObjectPhysics.Position;
+            Vector2 ini_v = new Vector2(GameObjectPhysics.Velocity.X / 1.4f, -GameObjectPhysics.Velocity.Y /1.4f);
+            GameObjectPhysics.TrajectMove(bounceMove.Invoke(ini_v));
             bounceCounter++;
         }
 
-        public virtual void Shoot(ShootAngle angle, Vector2 initialV, Vector2 initialP)
+        public override void Remove()
         {
-            State.ChangeDirection(angle);
-            int offset = angle == ShootAngle.Up ? Sprite.Height : Sprite.Width;
-            GameObjectPhysics.Position = spriteOffset[angle].Invoke(initialP, offset);
-            GameObjectPhysics.TrajectMove(trajectoryLog[angle].Invoke(initialV));
+            base.Remove();
+           
+            explode.Fire(ShootAngle.None);
         }
 
-        public virtual void OwnerScores()
-        {
-            owner.ScoreKill();
-        }
 
-        public virtual void SetOwner(IGameObject owner)
-        {
-            this.owner = (IMario)owner;
-        }
+
     }
 }
