@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Gamespace.Sounds;
 
 namespace Gamespace.Projectiles
 {
@@ -61,7 +62,12 @@ namespace Gamespace.Projectiles
 
         public override void Shoot(ShootAngle angle, Vector2 initialV, Vector2 initialP)
         {
-            base.Shoot(angle, initialV, initialP);
+            State.ChangeDirection(angle);
+            int offset = angle == ShootAngle.Up ? Sprite.Height : Sprite.Width;
+            GameObjectPhysics.Position = spriteOffset[angle].Invoke(initialP, offset);
+            GameObjectPhysics.TrajectMove(trajectoryLog[angle].Invoke(initialV));
+
+            SoundManager.Instance.PlaySoundEffect("DesertEagle");
             SetSprite();
         }
     }
