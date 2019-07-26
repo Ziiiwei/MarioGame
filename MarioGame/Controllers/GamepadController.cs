@@ -55,7 +55,7 @@ namespace Gamespace.Controllers
 
         public void Update()
         {
-            gamePadState = GamePad.GetState((PlayerIndex)player.PlayerID + 1);
+            gamePadState = GamePad.GetState((PlayerIndex)player.PlayerID - 1);
 
             if (gamePadState.IsConnected)
             {
