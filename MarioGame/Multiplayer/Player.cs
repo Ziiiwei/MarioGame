@@ -77,7 +77,7 @@ namespace Gamespace.Multiplayer
         public void Update(GameTime gameTime)
         {
             controllerUpdate.Invoke();
-            Lives = scoreboard.Lives;
+            Lives = scoreboard.Deaths;
             Cam.Update(GameObject.PositionOnScreen);
             scoreboard.Update(gameTime);
             scoreboard.Ammo =  GameObject.Launcher.RemainingAmmo;
