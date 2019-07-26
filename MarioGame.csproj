@@ -135,6 +135,7 @@
     <Compile Include="MarioGame\GameObjects\Projectiles\MassProjectileLauncher.cs" />
     <Compile Include="MarioGame\GameObjects\Projectiles\ProjectileLauncher.cs" />
     <Compile Include="MarioGame\GameObjects\Projectiles\Bullet1.cs" />
+    <Compile Include="MarioGame\GameObjects\Projectiles\ThrowStar.cs" />
     <Compile Include="MarioGame\Multiplayer\ScoringConstants.cs" />
     <Compile Include="MarioGame\Multiplayer\IPlayer.cs" />
     <Compile Include="MarioGame\Multiplayer\Player.cs" />
@@ -228,6 +229,7 @@
     <Compile Include="MarioGame\Transitions\Menu\MenuViews\CharacterSelection.cs" />
     <Compile Include="MarioGame\Transitions\Menu\MenuViews\ContinueScreen.cs" />
     <Compile Include="MarioGame\Transitions\Menu\MenuViews\CreditScene.cs" />
+    <Compile Include="MarioGame\Transitions\Menu\MenuViews\GameOver.cs" />
     <Compile Include="MarioGame\Transitions\Menu\MenuViews\IntroScene.cs" />
     <Compile Include="MarioGame\Transitions\Menu\MenuViews\PlayerCountSelection.cs" />
     <Compile Include="MarioGame\Transitions\Views\Bezel.cs" />

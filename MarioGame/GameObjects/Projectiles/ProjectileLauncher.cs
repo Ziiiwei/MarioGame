@@ -22,6 +22,7 @@ namespace Gamespace.Projectiles
 
         private Stack<IProjectile> ammos;
         private Func<IProjectile> refill;
+        protected Action resetCounter;
 
         private readonly Dictionary<ShootAngle, Func<Vector2>> spawnOffset;
 
@@ -51,6 +52,8 @@ namespace Gamespace.Projectiles
                     OwnedBy.Center.X,
                     OwnedBy.GameObjectPhysics.Position.Y))}
             };
+
+            resetCounter = new Action(() => delayCounter = 0);
   
         }
 
@@ -64,6 +67,7 @@ namespace Gamespace.Projectiles
                 projectile.Shoot(angle, OwnedBy.GameObjectPhysics.Velocity, spawnOffset[angle].Invoke());
             }
             delayCounter++;
+            resetCounter = () => { };
         }
 
         public void Update()
@@ -73,6 +77,10 @@ namespace Gamespace.Projectiles
                 ammos.Push(refill.Invoke());
             }
             refillCounter++;
+
+            resetCounter.Invoke();
+            resetCounter = () => delayCounter = 0;
+
         }
     }
 }

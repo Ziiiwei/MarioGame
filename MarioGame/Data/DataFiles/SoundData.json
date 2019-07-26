@@ -123,6 +123,40 @@
     {
       "SoundName": "ThiefDash",
       "SoundPath": "Sounds/ThiefDash"
+    },
+    {
+      "SoundName": "3ks",
+      "SoundPath": "Sounds/3ks"
+    },
+    {
+      "SoundName": "4ks",
+      "SoundPath": "Sounds/4ks"
+    },
+    {
+      "SoundName": "5ks",
+      "SoundPath": "Sounds/5ks"
+    },
+    {
+      "SoundName": "SoldierKill",
+      "SoundPath": "Sounds/SoldierKill"
+    },
+    {
+      "SoundName": "ScoutKill",
+      "SoundPath": "Sounds/ScoutKill"
+    },
+    {
+      "SoundName": "ThiefKill",
+      "SoundPath": "Sounds/ThiefKill"
+    },
+    {
+      "SoundName": "TankKill",
+      "SoundPath": "Sounds/TankKill"
+    },
+    {
+      "SoundName": "FirstBlood",
+      "SoundPath": "Sounds/FirstBlood"
     }
+
+
   ]
 }
