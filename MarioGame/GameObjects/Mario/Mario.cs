@@ -136,7 +136,7 @@ namespace Gamespace
             World.Instance.MaskCollision(this);
             ((MarioPhysics)GameObjectPhysics).Die();
             scoreboard?.Die();
-            SoundManager.Instance.PlaySoundEffect("MarioDies");
+            SoundManager.Instance.PlaySoundEffect("AK47");
             deathTimer = new DiscreteTimer(100, new Action(() => { player?.Respawn(); World.Instance.RemoveFromWorld(this); }));
             
       
