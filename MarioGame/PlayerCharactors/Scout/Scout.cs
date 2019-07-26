@@ -14,6 +14,11 @@ namespace Gamespace
         public Scout(Vector2 positionOnScreen, Scoreboard scoreboard, IPlayer player) : base(positionOnScreen, scoreboard, player)
         {
             PowerUpState = new MarioFireState();
+
+        }
+        public Scout(Vector2 positionOnScreen) : base(positionOnScreen)
+        {
+
         }
 
         public override void PowerDown()

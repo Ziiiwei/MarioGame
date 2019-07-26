@@ -46,6 +46,10 @@ namespace Gamespace
                 {"C3", "Gamespace.Clouds.Cloud3" },
                 {"BH", "Gamespace.Hills.BigHill" },
                 {"SH", "Gamespace.Hills.SmallHill" },
+                {"SCO", "Gamespace.Scout" },
+                {"SOL", "Gamespace.Soldier" },
+                {"TH", "Gamespace.Thief" },
+                {"TAN", "Gamespace.Tank" }
             };
         }
         private const int UNIT = 32;

@@ -16,6 +16,10 @@ namespace Gamespace
         {
             PowerUpState = new MarioFireState();
         }
+        public Soldier(Vector2 positionOnScreen) : base(positionOnScreen)
+        {
+
+        }
         public override void PowerDown()
         {
         }
