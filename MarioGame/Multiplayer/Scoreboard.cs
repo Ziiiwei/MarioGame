@@ -36,7 +36,7 @@ namespace Gamespace.Multiplayer
         public void UpScore(int score)
         {
             Score += score;
-            MaxScore += score; 
+            //MaxScore += score; 
             if (Score == MarioGame.Instance.WinScore)
             {
                 MarioGame.Instance.PlayerWon();

@@ -169,6 +169,7 @@ namespace Gamespace.Projectiles
         public virtual void OwnerScores()
         {
             owner.ScoreKill();
+            World.Instance.RemoveFromWorld(this);
         }
         
         public virtual void SetOwner(IGameObject owner)
