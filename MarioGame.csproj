@@ -330,9 +330,6 @@
     <None Include="MarioGame\Data\DataFiles\flatlevel.csv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="MarioGame\Data\DataFiles\level2used.csv">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
     <None Include="MarioGame\Data\DataFiles\level2a.csv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
