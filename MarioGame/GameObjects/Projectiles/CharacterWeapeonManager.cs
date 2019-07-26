@@ -22,7 +22,7 @@ namespace Gamespace.Projectiles
             {
                 {typeof(Mario),(new Func<IProjectile>(()=>new Fireball()),10,5)},
                 {typeof(Scout),(new Func<IProjectile>(()=>new Bullet1()),20,20)},
-                {typeof(Tank),(new Func<IProjectile>(()=>new Bomb()),5,60)},
+                {typeof(Tank),(new Func<IProjectile>(()=>new Bomb()),5,40)},
                 {typeof(Thief),(new Func<IProjectile>(()=>new ThrowStar()),10,20)},
                 {typeof(Soldier),(new Func<IProjectile>(()=>new Bullet2()),20,20)}
             };
