@@ -51,7 +51,8 @@ namespace Gamespace.Multiplayer
             GameObject = (IMario) Activator.CreateInstance(character, spawnPoint, scoreboard);
             playerID = playerCounter;
             playerCounter++;
-            ShowLives();
+            //ShowLives();
+            
             this.spawnPoint = spawnPoint;
             viewport = ViewportFactory.Instance.GetViewport(playerID, MarioGame.Instance.PlayerCount);
             //Cam = new MultiplayerCamera(PlayerID, new Vector2(Numbers.CAMERA_START_X, 0), MarioGame.Instance.PlayerCount, viewport);
@@ -70,6 +71,7 @@ namespace Gamespace.Multiplayer
             disabledController = new KeyboardController(this, false);
             controllerUpdate = ()=> Controller.Update();
             Screen = screen;
+            view = new PlayableView(scoreboard, Cam, viewport, MarioGame.Instance.GraphicsDevice);
         }
 
         public void Update(GameTime gameTime)
@@ -140,6 +142,11 @@ namespace Gamespace.Multiplayer
         public void ResumeControl()
         {
             controllerUpdate = () => Controller.Update();
+        }
+
+        public int GetScore()
+        {
+            return scoreboard.Score;
         }
     }
 }

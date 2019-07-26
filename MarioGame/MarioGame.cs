@@ -11,6 +11,7 @@ using Gamespace.Sounds;
 using Gamespace.Data;
 using System;
 using Gamespace.Transitions;
+using Gamespace.Views;
 
 namespace Gamespace
 {
@@ -42,6 +43,10 @@ namespace Gamespace
         private SpriteBatch menuSpriteBatch;
         private GameUpdate gameUpdate;
         private GameDraw gameDraw;
+        private GameDraw winScreen;
+        public int WinScore { get; set; }
+        private Dictionary<IPlayer, int> scores;
+        private IView winView;
         
         static MarioGame()
         {
@@ -78,6 +83,8 @@ namespace Gamespace
         {
             base.Initialize();
 
+            WinScore = 3;
+
             ArenaPaths = new Dictionary<int, Tuple<string, string>>()
             {
                 {0, new Tuple<string, string>("Arena One", "MarioGame/Data/DataFiles/level1.csv") },
@@ -94,7 +101,7 @@ namespace Gamespace
             gameUpdate += UpdateGameMenu;
             gameDraw += DrawGameMenu;
 
-            
+            winScreen += WinScreen;
 
         }
 
@@ -193,6 +200,24 @@ namespace Gamespace
             World.Instance.DrawWorld(menuSpriteBatch);
             menu.Draw(menuSpriteBatch);
             menuSpriteBatch.End();
+        }
+
+        private void WinScreen()
+        {
+            menuSpriteBatch.Begin();
+            winView.Draw(menuSpriteBatch);
+            menuSpriteBatch.End();
+        }
+
+        public void PlayerWon()
+        {
+            foreach (GameDraw del in gameDraw.GetInvocationList())
+            {
+                gameDraw -= del;
+            }
+            gameDraw += winScreen;
+            scores = World.Instance.GetPlayerScores();
+            winView = new WinView(scores);
         }
     }
 }
