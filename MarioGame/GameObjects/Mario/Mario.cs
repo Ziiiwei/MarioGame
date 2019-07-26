@@ -47,6 +47,7 @@ namespace Gamespace
         public Mario(Vector2 positionOnScreen, Scoreboard scoreboard) : this(positionOnScreen)
         {
             this.scoreboard = scoreboard;
+            scoreboard.MaxAmmo = Launcher.MaxProjectiles;
         }
 
         protected override void SurrogateUpdate()
@@ -63,6 +64,7 @@ namespace Gamespace
             jumpKeyPressed = false;
 
             Launcher.Update();
+           
         }
 
         public virtual void Crouch()

@@ -22,6 +22,9 @@ namespace Gamespace.Projectiles
 
         private readonly Dictionary<ShootAngle, Func<Vector2>> spawnOffset;
         private AbstractGameObject OwnedBy { get; }
+
+        public int RemainingAmmo { get => ammos.Count; }
+
         public MassProjectileLauncher(IGameObject gameObject, List<(Func<IProjectile>,int)> fill, int fillSpeed)
         {
             this.OwnedBy = (AbstractGameObject)gameObject;

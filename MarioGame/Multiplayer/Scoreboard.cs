@@ -17,6 +17,9 @@ namespace Gamespace.Multiplayer
         public int Coins { get; set; }
         public int Lives { get; set; }
         public int Time { get; set; }
+
+        public int Ammo { get; set; }
+        public int MaxAmmo { get; set; }
         private int StartingTime = Numbers.STARTING_TIME;
 
         public Scoreboard(int lives)

@@ -80,6 +80,7 @@ namespace Gamespace.Multiplayer
             Lives = scoreboard.Lives;
             Cam.Update(GameObject.PositionOnScreen);
             scoreboard.Update(gameTime);
+            scoreboard.Ammo =  GameObject.Launcher.RemainingAmmo;
 
             if (timerIsArmed)
             {
