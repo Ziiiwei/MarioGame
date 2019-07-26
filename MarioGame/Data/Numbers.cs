@@ -38,7 +38,7 @@ namespace Gamespace.Data
         public const int FIREBALL_REFILL_SPEED = 10;
         public const int BULLET1_BOUNCE_BOUND = 6;
         public const int MAX_PLAYERS = 4;
-        public const int SPAWN_LIMITER = 547;
+        public const int SPAWN_LIMITER = 1031;
         public const int TITLE_TIME = 13;
         public const int INTRO_CREDIT = 6;
     }

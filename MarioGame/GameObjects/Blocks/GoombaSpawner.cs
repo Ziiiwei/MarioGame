@@ -27,8 +27,10 @@ namespace Gamespace.Blocks
 
         public void MaybeSpawn()
         {
-            if (random.Next() % Numbers.SPAWN_LIMITER == 0)
+            if (random.Next(2000) <= 10)
+            {
                 World.Instance.AddGameObject(new Goomba(this.positionOnScreen));
+            }
         }
     }
 }

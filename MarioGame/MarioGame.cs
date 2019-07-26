@@ -88,10 +88,11 @@ namespace Gamespace
             ArenaPaths = new Dictionary<int, Tuple<string, string>>()
             {
                 {0, new Tuple<string, string>("Demo One", "MarioGame/Data/DataFiles/Demo1.csv") },
-                {1, new Tuple<string, string>("Arena One", "MarioGame/Data/DataFiles/level1.csv") },
-                {2, new Tuple<string, string>("Arena Two", "MarioGame/Data/DataFiles/level2a.csv") },
-                {3, new Tuple<string, string>("Arena Three", "MarioGame/Data/DataFiles/level3.csv") },
-                {4, new Tuple<string, string>("Flat Level", "MarioGame/Data/DataFiles/flatlevel.csv") }
+                {1, new Tuple<string, string>("Demo Two", "MarioGame/Data/DataFiles/Demo2.csv") },
+                {2, new Tuple<string, string>("Arena One", "MarioGame/Data/DataFiles/level1.csv") },
+                {3, new Tuple<string, string>("Arena Two", "MarioGame/Data/DataFiles/level2a.csv") },
+                {4, new Tuple<string, string>("Arena Three", "MarioGame/Data/DataFiles/level3.csv") },
+                {5, new Tuple<string, string>("Flat Level", "MarioGame/Data/DataFiles/flatlevel.csv") }
             };
 
             PlayerCount = 1;

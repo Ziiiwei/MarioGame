@@ -25,6 +25,7 @@ namespace Gamespace.Sounds
             arenaPath = new Dictionary<string, string>
             {
                 {"MarioGame/Data/DataFiles/level1.csv", "arena1"},
+                {"MarioGame/Data/DataFiles/Demo2.csv", "arena1"},
                 {"MarioGame/Data/DataFiles/level2a.csv", "arena2"},
                 {"MarioGame/Data/DataFiles/level3.csv", "NoTime"},
                 {"MarioGame/Data/DataFiles/Demo1.csv", "NoTime"},
