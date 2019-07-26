@@ -71,6 +71,8 @@ namespace Gamespace
             jumpKeyPressed = false;
 
             Launcher.Update();
+
+            deathTimer?.Tick();
         }
 
         public virtual void Crouch()
@@ -136,6 +138,7 @@ namespace Gamespace
             scoreboard?.Die();
             SoundManager.Instance.PlaySoundEffect("MarioDies");
             deathTimer = new DiscreteTimer(100, new Action(() => { player?.Respawn(); World.Instance.RemoveFromWorld(this); }));
+            
       
         }
         public override void CollideDown(Rectangle collisionArea)

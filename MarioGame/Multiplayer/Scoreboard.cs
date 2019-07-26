@@ -15,7 +15,7 @@ namespace Gamespace.Multiplayer
 
         public int MaxScore { get; set; }
         public int Coins { get; set; }
-        public int Lives { get; set; }
+        public int Deaths { get; set; }
         public int Time { get; set; }
 
         public int Ammo { get; set; }
@@ -26,7 +26,7 @@ namespace Gamespace.Multiplayer
         {
             Score = 0;
             Coins = 0;
-            Lives = lives;
+            Deaths = lives;
             Time = StartingTime;
         }
 
@@ -39,7 +39,7 @@ namespace Gamespace.Multiplayer
         public void UpScore(int score)
         {
             Score += score;
-            //MaxScore += score; 
+            MaxScore += score; 
             if (Score == MarioGame.Instance.WinScore)
             {
                 MarioGame.Instance.PlayerWon();
@@ -53,13 +53,13 @@ namespace Gamespace.Multiplayer
 
         public void Die()
         {
-            Lives--;
+            Deaths++;
             MaxScore = 0;
         }
 
         public void AddLife()
         {
-            Lives++;
+
         }
 
 
