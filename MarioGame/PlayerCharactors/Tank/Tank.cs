@@ -11,7 +11,7 @@ namespace Gamespace
 {
     class Tank : Mario
     {
-        public Tank (Vector2 positionOnScreen, Scoreboard scoreboard) : base(positionOnScreen, scoreboard)
+        public Tank (Vector2 positionOnScreen, Scoreboard scoreboard, IPlayer player) : base(positionOnScreen, scoreboard, player)
         {
             PowerUpState = new MarioFireState();
         }

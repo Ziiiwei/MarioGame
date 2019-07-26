@@ -48,7 +48,7 @@ namespace Gamespace.Multiplayer
         {
             Lives = Numbers.LIVES_STOCK;
             scoreboard = new Scoreboard(Lives);
-            GameObject = (IMario) Activator.CreateInstance(character, spawnPoint, scoreboard);
+            GameObject = (IMario) Activator.CreateInstance(character, spawnPoint, scoreboard, this);
             playerID = playerCounter;
             playerCounter++;
             //ShowLives();
@@ -128,10 +128,21 @@ namespace Gamespace.Multiplayer
 
         public void Respawn()
         {
-            GameObject = (IMario)Activator.CreateInstance(GameObject.GetType(), spawnPoint, scoreboard);
-            ShowLives();
-            Cam = new MultiplayerCamera(PlayerID, new Vector2(Numbers.CAMERA_START_X, 0), MarioGame.Instance.PlayerCount, viewport);
-            Controller = new KeyboardController(this);
+            var spawnList = World.Instance.SpawnPoints;
+            Random rand = new Random();
+            spawnPoint = spawnList[rand.Next(0, spawnList.Count)];
+            GameObject = (IMario)Activator.CreateInstance(GameObject.GetType(), spawnPoint, scoreboard, this);
+            World.Instance.AddGameObject(GameObject);
+            Cam = new MultiplayerCamera2(viewport, GameObject);
+            if (playerID > 0)
+            {
+                Controller = new GamepadController(this);
+            }
+            else
+            {
+                Controller = new KeyboardController(this);
+            }
+            view = new PlayableView(scoreboard, Cam, viewport, MarioGame.Instance.GraphicsDevice);
         }
 
         public void DisableGameControl()

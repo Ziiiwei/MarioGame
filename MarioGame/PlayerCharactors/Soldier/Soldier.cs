@@ -12,7 +12,7 @@ namespace Gamespace
 {
     class Soldier : Mario
     {
-        public Soldier(Vector2 positionOnScreen, Scoreboard scoreboard) : base(positionOnScreen, scoreboard)
+        public Soldier(Vector2 positionOnScreen, Scoreboard scoreboard, IPlayer player) : base(positionOnScreen, scoreboard, player)
         {
             PowerUpState = new MarioFireState();
         }

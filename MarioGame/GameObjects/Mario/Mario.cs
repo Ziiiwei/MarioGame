@@ -22,8 +22,9 @@ namespace Gamespace
         public  Scoreboard scoreboard { get; set; }
 
         private Action keepStanding;
-        
-       
+
+        protected IPlayer player;
+        protected DiscreteTimer deathTimer;
         
         private bool jumpKeyPressed;
         private bool jumpKeyHolded;
@@ -49,6 +50,12 @@ namespace Gamespace
             this.scoreboard = scoreboard;
         }
 
+        public Mario(Vector2 positionOnScreen, Scoreboard scoreboard, IPlayer player) : this(positionOnScreen)
+        {
+            this.scoreboard = scoreboard;
+            this.player = player;
+        }
+
         protected override void SurrogateUpdate()
         {
             base.SurrogateUpdate();
@@ -63,6 +70,8 @@ namespace Gamespace
             jumpKeyPressed = false;
 
             Launcher.Update();
+
+            deathTimer?.Tick();
         }
 
         public virtual void Crouch()
@@ -127,6 +136,7 @@ namespace Gamespace
             ((MarioPhysics)GameObjectPhysics).Die();
             scoreboard?.Die();
             SoundManager.Instance.PlaySoundEffect("MarioDies");
+            deathTimer = new DiscreteTimer(100, new Action(() => { player?.Respawn(); World.Instance.RemoveFromWorld(this); }));
       
         }
         public override void CollideDown(Rectangle collisionArea)
