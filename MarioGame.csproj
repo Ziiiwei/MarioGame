@@ -331,6 +331,9 @@
     <None Include="MarioGame\Data\DataFiles\CollisionActions.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Include="MarioGame\Data\DataFiles\Demo1.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="MarioGame\Data\DataFiles\flatlevel.csv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
