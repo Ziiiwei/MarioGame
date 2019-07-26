@@ -14,10 +14,16 @@ namespace Gamespace
     internal class SoundFactory
     {
         private static readonly SoundFactory instance = new SoundFactory();
-        private Dictionary<String, SoundEffectInstance> soundAssignments;
+        private Dictionary<String, SoundEffect> soundAssignments;
+        private Dictionary<String, SoundEffectInstance> arenaAssignments;
+
         private SoundEffect soundEffect;
         private SoundEffectInstance soundEffectInstance;
         private SoundEffectInstance MainMenuBGM;
+        private SoundEffectInstance SelectBGM;
+        private SoundEffectInstance arena1BGM;
+        private SoundEffectInstance arena2BGM;
+        private SoundEffectInstance arena3BGM;
 
         static SoundFactory()
         {
@@ -30,7 +36,8 @@ namespace Gamespace
             var magicNumbers = javaScriptSerializer.Deserialize<SoundDataRoot>(reader.ReadToEnd());
             reader.Close();
 
-            soundAssignments = new Dictionary<String, SoundEffectInstance>();
+            soundAssignments = new Dictionary<String, SoundEffect>();
+            arenaAssignments = new Dictionary<String, SoundEffectInstance>();
 
             foreach (SoundData entry in magicNumbers.Entries)
             {
@@ -40,14 +47,37 @@ namespace Gamespace
                     soundEffect = MarioGame.Instance.Content.Load<SoundEffect>(entry.SoundPath);
                     MainMenuBGM = soundEffect.CreateInstance();
                 }
+                else if(key == "arena1")
+                {
+                    soundEffect = MarioGame.Instance.Content.Load<SoundEffect>(entry.SoundPath);
+                    soundEffectInstance = soundEffect.CreateInstance();
+                    arenaAssignments.Add(key, soundEffectInstance);
+                }
+                else if (key == "arena2")
+                {
+                    soundEffect = MarioGame.Instance.Content.Load<SoundEffect>(entry.SoundPath);
+                    soundEffectInstance = soundEffect.CreateInstance();
+                    arenaAssignments.Add(key, soundEffectInstance);
+                }
+                else if (key == "arena3")
+                {
+                    soundEffect = MarioGame.Instance.Content.Load<SoundEffect>(entry.SoundPath);
+                    soundEffectInstance = soundEffect.CreateInstance();
+                    arenaAssignments.Add(key, soundEffectInstance);
+                }
+                else if (key == "Select")
+                {
+                    soundEffect = MarioGame.Instance.Content.Load<SoundEffect>(entry.SoundPath);
+                    SelectBGM = soundEffect.CreateInstance();
+                }
 
                 else 
                 {
                     soundEffect = MarioGame.Instance.Content.Load<SoundEffect>(entry.SoundPath);
-                    soundEffectInstance = soundEffect.CreateInstance();
+                    //soundEffectInstance = soundEffect.CreateInstance();
                     if (!soundAssignments.ContainsKey(key))
                     {
-                        soundAssignments.Add(key, soundEffectInstance);
+                        soundAssignments.Add(key, soundEffect);
                     }
                 }
 
@@ -67,20 +97,29 @@ namespace Gamespace
             public List<SoundData> Entries { get; set; }
         }
 
-        public SoundEffectInstance GetSoundEffect(String name)
+        public SoundEffect GetSoundEffect(String name)
         {
             String key = name;
-            SoundEffectInstance _soundEffect = soundAssignments[name];
+            SoundEffect _soundEffect = soundAssignments[name];
             return _soundEffect;
+        }
+        public SoundEffectInstance GetArenaBGM(String name)
+        {
+            String key = name;
+            SoundEffectInstance _soundEffectInstance = arenaAssignments[name];
+            return _soundEffectInstance;
         }
         public SoundEffectInstance GetMainBGM()
         {
             return MainMenuBGM;
         }
-
-        public SoundEffectInstance GetNoTimeBGM()
+        public SoundEffectInstance GetSelectBGM()
         {
-            SoundEffectInstance BGM = soundAssignments["NoTime"];
+            return SelectBGM;
+        }
+        public SoundEffect GetNoTimeBGM()
+        {
+            SoundEffect BGM = soundAssignments["NoTime"];
             return BGM;
         }
     }
