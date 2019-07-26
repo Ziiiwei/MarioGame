@@ -16,6 +16,8 @@ namespace Gamespace.Controllers
         private GamePadState previousState;
         private Dictionary<Buttons, ICommand> buttonCommands;
         private static readonly List<Type> nonHoldableCommands;
+        private List<Buttons> pressed;
+        private List<Buttons> previouslyPressed;
         private IPlayer player;
 
         static GamepadController()
@@ -40,6 +42,8 @@ namespace Gamespace.Controllers
                 {Buttons.DPadRight, new MarioMoveRightCommand(player.GameObject) },
                 {Buttons.A, new MarioFireCommand(player.GameObject) }
             };
+            pressed = new List<Buttons>();
+            previouslyPressed = new List<Buttons>();
         }
 
         public bool CommandOverRide(string comand)
@@ -57,18 +61,37 @@ namespace Gamespace.Controllers
         {
             gamePadState = GamePad.GetState((PlayerIndex)player.PlayerID);
 
-            if (gamePadState.IsConnected)
+            if(gamePadState.IsConnected)
             {
                 foreach (Buttons button in buttonCommands.Keys)
                 {
+                    if (gamePadState.IsButtonDown(button))
+                        pressed.Add(button);
+
+                    /*
                     if (gamePadState.IsButtonDown(button) && !previousState.IsButtonDown(button))
                     {
                         buttonCommands[button].Execute();
                     }
+                    */
                 }
+
+                foreach (Buttons button in pressed)
+                {
+                    if (buttonCommands.ContainsKey(button))
+                    {
+                        if (!nonHoldableCommands.Contains(buttonCommands[button].GetType()) || !previouslyPressed.Contains(button))
+                        {
+                            buttonCommands[button].Execute();
+                        }
+                    }
+                }
+
+                previouslyPressed = pressed;
+                pressed.Clear();
             }
             previousState = gamePadState;
         }
-      
+
     }
 }
