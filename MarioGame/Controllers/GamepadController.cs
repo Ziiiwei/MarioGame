@@ -16,6 +16,7 @@ namespace Gamespace.Controllers
         private GamePadState previousState;
         private Dictionary<Buttons, ICommand> buttonCommands;
         private static readonly List<Type> nonHoldableCommands;
+        private readonly IPlayer player;
 
         static GamepadController()
         {
@@ -28,6 +29,7 @@ namespace Gamespace.Controllers
 
         public GamepadController(IPlayer player)
         {
+            this.player = player;
             buttonCommands = new Dictionary<Buttons, ICommand>()
             {
                 {Buttons.Start, new PauseGameCommand(player.GameObject) },
@@ -53,19 +55,19 @@ namespace Gamespace.Controllers
 
         public void Update()
         {
-            gamePadState = GamePad.GetState(PlayerIndex.One);
+            gamePadState = GamePad.GetState((PlayerIndex)player.PlayerID - 1);
 
             if (gamePadState.IsConnected)
             {
                 foreach (Buttons button in buttonCommands.Keys)
                 {
-                    if (gamePadState.IsButtonDown(button) && !previousState.IsButtonDown(button))
+                    if (gamePadState.IsButtonDown(button))
                     {
                         buttonCommands[button].Execute();
                     }
                 }
             }
-            previousState = gamePadState;
+
         }
       
     }
