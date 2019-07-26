@@ -26,7 +26,7 @@ namespace Gamespace.Multiplayer
         {
             Score = 0;
             Coins = 0;
-            Deaths = lives;
+            Deaths = 0;
             Time = StartingTime;
         }
 

@@ -46,6 +46,7 @@ namespace Gamespace
             translator.Add(new Tuple<Type, Type>(typeof(Thief), typeof(Koopa)), TypeTranslator.MarioKoopaTranslator);
             translator.Add(new Tuple<Type, Type>(typeof(Goomba), typeof(BrickBlock)), TypeTranslator.BumpableBlockEnemyTranslator);
             translator.Add(new Tuple<Type, Type>(typeof(Koopa), typeof(BrickBlock)), TypeTranslator.BumpableBlockEnemyTranslator);
+           
             statefulCollisionActions = JsonParser.Instance.ParseCollisionStatefulFile();
 
             collisionMasks = new List<Type>()
