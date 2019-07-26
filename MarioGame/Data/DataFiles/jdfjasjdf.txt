@@ -1,4 +1,4 @@
-﻿{
+{
   "Entries": [
     {
       "Mover": "Gamespace.Goombas.Goomba",
@@ -1499,28 +1499,28 @@
       "Command2": "Gamespace.Commands.PlayerHitsProjectile"
     },
 	    {
-      "Mover": "Gamespace.Projectiles.Explosion",
+      "Mover": "Gamespace.Projectiles.Bomb",
       "Target": "Gamespace.Scout",
       "Side": "Up",
       "Command1": "Gamespace.Commands.ProjectileHitsPlayer",
       "Command2": "Gamespace.Commands.PlayerHitsProjectile"
     },
     {
-      "Mover": "Gamespace.Projectiles.Explosion",
+      "Mover": "Gamespace.Projectiles.Bomb",
       "Target": "Gamespace.Scout",
       "Side": "Down",
       "Command1": "Gamespace.Commands.ProjectileHitsPlayer",
       "Command2": "Gamespace.Commands.PlayerHitsProjectile"
     },
     {
-      "Mover": "Gamespace.Projectiles.Explosion",
+      "Mover": "Gamespace.Projectiles.Bomb",
       "Target": "Gamespace.Scout",
       "Side": "Left",
       "Command1": "Gamespace.Commands.ProjectileHitsPlayer",
       "Command2": "Gamespace.Commands.PlayerHitsProjectile"
     },
     {
-      "Mover": "Gamespace.Projectiles.Explosion",
+      "Mover": "Gamespace.Projectiles.Bomb",
       "Target": "Gamespace.Scout",
       "Side": "Right",
       "Command1": "Gamespace.Commands.ProjectileHitsPlayer",
@@ -1611,28 +1611,28 @@
       "Command2": "Gamespace.Commands.PlayerHitsProjectile"
     },
 	    {
-      "Mover": "Gamespace.Projectiles.Explosion",
+      "Mover": "Gamespace.Projectiles.Bomb",
       "Target": "Gamespace.Soldier",
       "Side": "Up",
       "Command1": "Gamespace.Commands.ProjectileHitsPlayer",
       "Command2": "Gamespace.Commands.PlayerHitsProjectile"
     },
     {
-      "Mover": "Gamespace.Projectiles.Explosion",
+      "Mover": "Gamespace.Projectiles.Bomb",
       "Target": "Gamespace.Soldier",
       "Side": "Down",
       "Command1": "Gamespace.Commands.ProjectileHitsPlayer",
       "Command2": "Gamespace.Commands.PlayerHitsProjectile"
     },
     {
-      "Mover": "Gamespace.Projectiles.Explosion",
+      "Mover": "Gamespace.Projectiles.Bomb",
       "Target": "Gamespace.Soldier",
       "Side": "Left",
       "Command1": "Gamespace.Commands.ProjectileHitsPlayer",
       "Command2": "Gamespace.Commands.PlayerHitsProjectile"
     },
     {
-      "Mover": "Gamespace.Projectiles.Explosion",
+      "Mover": "Gamespace.Projectiles.Bomb",
       "Target": "Gamespace.Soldier",
       "Side": "Right",
       "Command1": "Gamespace.Commands.ProjectileHitsPlayer",
@@ -1723,28 +1723,28 @@
       "Command2": "Gamespace.Commands.PlayerHitsProjectile"
     },
 	    {
-      "Mover": "Gamespace.Projectiles.Explosion",
+      "Mover": "Gamespace.Projectiles.Bomb",
       "Target": "Gamespace.Tank",
       "Side": "Up",
       "Command1": "Gamespace.Commands.ProjectileHitsPlayer",
       "Command2": "Gamespace.Commands.PlayerHitsProjectile"
     },
     {
-      "Mover": "Gamespace.Projectiles.Explosion",
+      "Mover": "Gamespace.Projectiles.Bomb",
       "Target": "Gamespace.Tank",
       "Side": "Down",
       "Command1": "Gamespace.Commands.ProjectileHitsPlayer",
       "Command2": "Gamespace.Commands.PlayerHitsProjectile"
     },
     {
-      "Mover": "Gamespace.Projectiles.Explosion",
+      "Mover": "Gamespace.Projectiles.Bomb",
       "Target": "Gamespace.Tank",
       "Side": "Left",
       "Command1": "Gamespace.Commands.ProjectileHitsPlayer",
       "Command2": "Gamespace.Commands.PlayerHitsProjectile"
     },
     {
-      "Mover": "Gamespace.Projectiles.Explosion",
+      "Mover": "Gamespace.Projectiles.Bomb",
       "Target": "Gamespace.Tank",
       "Side": "Right",
       "Command1": "Gamespace.Commands.ProjectileHitsPlayer",
@@ -1835,28 +1835,28 @@
       "Command2": "Gamespace.Commands.PlayerHitsProjectile"
     },
 	    {
-      "Mover": "Gamespace.Projectiles.Explosion",
+      "Mover": "Gamespace.Projectiles.Bomb",
       "Target": "Gamespace.Thief",
       "Side": "Up",
       "Command1": "Gamespace.Commands.ProjectileHitsPlayer",
       "Command2": "Gamespace.Commands.PlayerHitsProjectile"
     },
     {
-      "Mover": "Gamespace.Projectiles.Explosion",
+      "Mover": "Gamespace.Projectiles.Bomb",
       "Target": "Gamespace.Thief",
       "Side": "Down",
       "Command1": "Gamespace.Commands.ProjectileHitsPlayer",
       "Command2": "Gamespace.Commands.PlayerHitsProjectile"
     },
     {
-      "Mover": "Gamespace.Projectiles.Explosion",
+      "Mover": "Gamespace.Projectiles.Bomb",
       "Target": "Gamespace.Thief",
       "Side": "Left",
       "Command1": "Gamespace.Commands.ProjectileHitsPlayer",
       "Command2": "Gamespace.Commands.PlayerHitsProjectile"
     },
     {
-      "Mover": "Gamespace.Projectiles.Explosion",
+      "Mover": "Gamespace.Projectiles.Bomb",
       "Target": "Gamespace.Thief",
       "Side": "Right",
       "Command1": "Gamespace.Commands.ProjectileHitsPlayer",
@@ -1947,28 +1947,28 @@
       "Command2": "Gamespace.Commands.KillEnemy"
     },
 	    {
-      "Mover": "Gamespace.Projectiles.Explosion",
+      "Mover": "Gamespace.Projectiles.Bomb",
       "Target": "Gamespace.Koopas.Koopa",
       "Side": "Up",
       "Command1": "Gamespace.Commands.NullCommand",
       "Command2": "Gamespace.Commands.KillEnemy"
     },
     {
-      "Mover": "Gamespace.Projectiles.Explosion",
+      "Mover": "Gamespace.Projectiles.Bomb",
       "Target": "Gamespace.Koopas.Koopa",
       "Side": "Down",
       "Command1": "Gamespace.Commands.NullCommand",
       "Command2": "Gamespace.Commands.KillEnemy"
     },
     {
-      "Mover": "Gamespace.Projectiles.Explosion",
+      "Mover": "Gamespace.Projectiles.Bomb",
       "Target": "Gamespace.Koopas.Koopa",
       "Side": "Left",
       "Command1": "Gamespace.Commands.NullCommand",
       "Command2": "Gamespace.Commands.KillEnemy"
     },
     {
-      "Mover": "Gamespace.Projectiles.Explosion",
+      "Mover": "Gamespace.Projectiles.Bomb",
       "Target": "Gamespace.Koopas.Koopa",
       "Side": "Right",
       "Command1": "Gamespace.Commands.NullCommand",
@@ -2059,28 +2059,28 @@
       "Command2": "Gamespace.Commands.KillEnemy"
     },
 	    {
-      "Mover": "Gamespace.Projectiles.Explosion",
+      "Mover": "Gamespace.Projectiles.Bomb",
       "Target": "Gamespace.Goombas.Goomba",
       "Side": "Up",
       "Command1": "Gamespace.Commands.NullCommand",
       "Command2": "Gamespace.Commands.KillEnemy"
     },
     {
-      "Mover": "Gamespace.Projectiles.Explosion",
+      "Mover": "Gamespace.Projectiles.Bomb",
       "Target": "Gamespace.Goombas.Goomba",
       "Side": "Down",
       "Command1": "Gamespace.Commands.NullCommand",
       "Command2": "Gamespace.Commands.KillEnemy"
     },
     {
-      "Mover": "Gamespace.Projectiles.Explosion",
+      "Mover": "Gamespace.Projectiles.Bomb",
       "Target": "Gamespace.Goombas.Goomba",
       "Side": "Left",
       "Command1": "Gamespace.Commands.NullCommand",
       "Command2": "Gamespace.Commands.KillEnemy"
     },
     {
-      "Mover": "Gamespace.Projectiles.Explosion",
+      "Mover": "Gamespace.Projectiles.Bomb",
       "Target": "Gamespace.Goombas.Goomba",
       "Side": "Right",
       "Command1": "Gamespace.Commands.NullCommand",
