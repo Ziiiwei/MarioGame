@@ -86,11 +86,6 @@ namespace Gamespace.Multiplayer
             {
                 viewTimer.Tick();
             }
-
-            if (Lives == 0)
-            {
-                view = new DeadView(Cam);
-            }
         }
 
         public void DrawPlayersScreen()
