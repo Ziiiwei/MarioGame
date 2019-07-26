@@ -18,10 +18,12 @@ namespace Gamespace.Projectiles
         protected int bounceCounter = 0;
         protected int bounceBound;
         protected IMario owner;
+        public IGameObject OwnedBy => owner;
 
         public ShootAngle Angle { get ; set; }
 
         
+
         static Fireball()
         {
             initialOrientation = new Dictionary<ShootAngle, Type>()

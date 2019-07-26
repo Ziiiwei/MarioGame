@@ -12,6 +12,7 @@ namespace Gamespace
     {
         IProjectileState State { get; set; }
         ShootAngle Angle { get; set; }
+        IGameObject OwnedBy { get; }
         void ChangeDirection(ShootAngle angle);
         void Shoot(ShootAngle angle, Vector2 initialV, Vector2 initialP);
         void Remove();

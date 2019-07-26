@@ -56,7 +56,7 @@
       "Command1": "Gamespace.Commands.CollideRight",
       "Command2": "Gamespace.Commands.CollideLeft"
     },
-	{
+		{
       "Mover": "Gamespace.Thief",
       "Target": "Gamespace.Blocks.HiddenBlock",
       "Side": "Up",
@@ -1414,5 +1414,6 @@
       "Command1": "Gamespace.Commands.KillEnemy",
       "Command2": "Gamespace.Commands.NullCommand"
     }
+
   ]
 }

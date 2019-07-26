@@ -120,8 +120,8 @@ namespace Gamespace
             Type object2Type = actions[key].Item2==null? typeof(NullCommand) : actions[key].Item2;
 
             
-            ICommand collisionMember1 = (ICommand)Activator.CreateInstance(object1Type, mover, new CollisionData(collisionArea));
-            ICommand collisionMember2 = (ICommand)Activator.CreateInstance(object2Type, target, new CollisionData(collisionArea));
+            ICommand collisionMember1 = (ICommand)Activator.CreateInstance(object1Type, mover, new CollisionData(collisionArea, target));
+            ICommand collisionMember2 = (ICommand)Activator.CreateInstance(object2Type, target, new CollisionData(collisionArea, mover));
 
             // Thiis is for the instance that mario finds a coin
             if (target.GetType().Equals(typeof(QuestionBlock)) || target.GetType().Equals(typeof(BrickBlock)))
@@ -140,14 +140,14 @@ namespace Gamespace
 
         private void ExecuteDefaultCollision(IGameObject mover, IGameObject target, Rectangle collisionArea, Side side)
         {
-            ICommand defaultCommand = new CollideUp((ICollidable)mover, new CollisionData(collisionArea));
+            ICommand defaultCommand = new CollideUp((ICollidable)mover, new CollisionData(collisionArea, target));
 
             if (side is Side.Down)
-                defaultCommand = new CollideDown((ICollidable)mover, new CollisionData(collisionArea));
+                defaultCommand = new CollideDown((ICollidable)mover, new CollisionData(collisionArea, target));
             if (side is Side.Left)
-                defaultCommand = new CollideLeft((ICollidable)mover, new CollisionData(collisionArea));
+                defaultCommand = new CollideLeft((ICollidable)mover, new CollisionData(collisionArea, target));
             if (side is Side.Right)
-                defaultCommand = new CollideRight((ICollidable)mover, new CollisionData(collisionArea));
+                defaultCommand = new CollideRight((ICollidable)mover, new CollisionData(collisionArea, target));
 
             defaultCommand.Execute();
         }
