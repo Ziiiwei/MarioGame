@@ -24,7 +24,7 @@ namespace Gamespace.Projectiles
                     float v_x = ini_v.X - GameObjectPhysics.PhysicsConstants.X_V;
                     float v_y = ini_v.Y;
                     return new Func<Vector2, int, Vector2>((p,t)=>new Vector2(
-                        (float)(p.X+v_x*t+Numbers.BLOCK_SPACING_SCALE*(Math.Sin(Math.PI+Math.PI/15*t))),
+                        (float)(p.X+v_x*t+Numbers.BLOCK_SPACING_SCALE*(Math.Sin(Math.PI+Math.PI/10*t))),
                         (float)(p.Y+v_y*t-2*Numbers.BLOCK_SPACING_SCALE*(Math.Sin(-Math.PI/2+Math.PI/15*t)+1))
                         ));
                 }) },
@@ -34,7 +34,7 @@ namespace Gamespace.Projectiles
                     float v_x = ini_v.X + GameObjectPhysics.PhysicsConstants.X_V;
                     float v_y = ini_v.Y;
                     return new Func<Vector2, int, Vector2>((p,t)=>new Vector2(
-                        (float)(p.X+v_x*t+Numbers.BLOCK_SPACING_SCALE*(Math.Sin(Math.PI/15*t))),
+                        (float)(p.X+v_x*t+Numbers.BLOCK_SPACING_SCALE*(Math.Sin(Math.PI/10*t))),
                         (float)(p.Y+v_y*t-2*Numbers.BLOCK_SPACING_SCALE*(Math.Sin(-Math.PI/2+Math.PI/15*t)+1))
                         ));
                 }) },
