@@ -45,6 +45,7 @@ namespace Gamespace.Blocks
         public void Destroy()
         {
             SoundManager.Instance.PlaySoundEffect("BreakBlock");
+            blockExplode.Fire(ShootAngle.None);
             World.Instance.RemoveFromWorld(this);
         }
 
