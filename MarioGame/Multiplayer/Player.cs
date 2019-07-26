@@ -75,7 +75,6 @@ namespace Gamespace.Multiplayer
         public void Update(GameTime gameTime)
         {
             controllerUpdate.Invoke();
-            scoreboard.Update(gameTime);
             Lives = scoreboard.Lives;
             Cam.Update(GameObject.PositionOnScreen);
             scoreboard.Update(gameTime);
@@ -103,7 +102,7 @@ namespace Gamespace.Multiplayer
 
             Screen.DrawString(MarioGame.Instance.Font, "FPS " + MarioGame.Instance.Framerate, fpsCounterPosition, Color.Red);
 
-            //bezel.Draw(Screen);
+            bezel.Draw(Screen);
 
             Screen.End();
         }
