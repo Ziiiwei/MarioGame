@@ -12,6 +12,8 @@ namespace Gamespace.Multiplayer
     public class Scoreboard
     {
         public int Score { get; set; }
+
+        public int MaxScore { get; set; }
         public int Coins { get; set; }
         public int Lives { get; set; }
         public int Time { get; set; }
@@ -34,6 +36,7 @@ namespace Gamespace.Multiplayer
         public void UpScore(int score)
         {
             Score += score;
+            MaxScore += score; 
         }
 
         public void Collect()
@@ -44,6 +47,7 @@ namespace Gamespace.Multiplayer
         public void Die()
         {
             Lives--;
+            MaxScore = 0;
         }
 
         public void AddLife()

@@ -20,6 +20,7 @@ namespace Gamespace
         private KeyboardState previousKeyboardState;
         private List<GamePadState> previousGamePadStates;
 
+
         public MenuInputController(GameMenu menu)
         {
             this.menu = menu;
@@ -37,12 +38,20 @@ namespace Gamespace
             buttonBinds = new Dictionary<Buttons, Delegate>()
             {
                 {Buttons.DPadUp, new Action<PlayerIndex>((i) => menu.SelectionUp(i)) },
+                {Buttons.LeftThumbstickUp, new Action<PlayerIndex>((i) => menu.SelectionUp(i)) },
                 {Buttons.DPadDown, new Action<PlayerIndex>((i) => menu.SelectionDown(i)) },
-                {Buttons.Start, new Action<PlayerIndex>((i) => menu.SelectionEntered()) }
+                {Buttons.LeftThumbstickDown, new Action<PlayerIndex>((i) => menu.SelectionDown(i)) },
+                {Buttons.Start, new Action<PlayerIndex>((i) => menu.SelectionEntered()) },
+                {Buttons.B, new Action<PlayerIndex>((i) => menu.Reset()) },
+                {Buttons.A, new Action<PlayerIndex>((i) => menu.SelectionEntered()) }
             };
 
             previousKeyboardState = Keyboard.GetState();
             previousGamePadStates = new List<GamePadState>();
+            previousGamePadStates.Add(new GamePadState());
+            previousGamePadStates.Add(new GamePadState());
+            previousGamePadStates.Add(new GamePadState());
+            previousGamePadStates.Add(new GamePadState());
         }
 
         public void Update()
@@ -58,18 +67,21 @@ namespace Gamespace
             }
 
             previousKeyboardState = keyboardState;
-
+            int playerNum = 0;
             for (PlayerIndex i = PlayerIndex.One; i < PlayerIndex.Four; i++)
             {
                 GamePadState gamePadState = GamePad.GetState(i);
 
                 foreach (Buttons button in buttonBinds.Keys)
                 {
-                    if (gamePadState.IsButtonDown(button))
+
+                    if (gamePadState.IsButtonDown(button) && !previousGamePadStates[playerNum].IsButtonDown(button))
                     {
                         buttonBinds[button].DynamicInvoke(i + 1);
                     }
                 }
+                previousGamePadStates[playerNum] = gamePadState;
+                playerNum++;
             }
         }
     }

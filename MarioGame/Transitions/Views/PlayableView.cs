@@ -27,7 +27,7 @@ namespace Gamespace.Views
         public void Draw(SpriteBatch spriteBatch)
         {
             spriteBatch.DrawString(MarioGame.Instance.Font,
-                "Kills: " + scoreboard.Score + scoreboard.Lives,
+                "Kills: " + scoreboard.Score + "  Lives: " + scoreboard.Lives + "  Kill-Streak: " + scoreboard.MaxScore,
                 cam.CameraPosition, Color.Black);
             World.Instance.DrawWorld(spriteBatch);
         }
