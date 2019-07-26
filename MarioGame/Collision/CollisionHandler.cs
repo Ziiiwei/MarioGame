@@ -47,6 +47,7 @@ namespace Gamespace
                 typeof(Cloud3),
                 typeof(BigHill),
                 typeof(SmallHill),
+                typeof(Spawner),
                 typeof(GoombaSpawner),
                 typeof(KoopaSpawner)
             };
