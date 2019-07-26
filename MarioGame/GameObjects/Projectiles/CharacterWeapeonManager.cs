@@ -20,11 +20,11 @@ namespace Gamespace.Projectiles
             weapeonLog = new Dictionary<Type, (Func<IProjectile> ammoType, int ammoMax, int fillSpeed)>
             {
                 {typeof(Mario),(new Func<IProjectile>(()=>new Fireball()),10,5)},
-                {typeof(BrickBlock),(new Func<IProjectile>(()=>new Fireball()),10,5)},
-                {typeof(Scout),(new Func<IProjectile>(()=>new Bullet1()),20,5)},
-                {typeof(Tank),(new Func<IProjectile>(()=>new Bomb()),3,5)},
+                {typeof(BrickBlock),(new Func<IProjectile>(()=>new Fireball()),10,30)},
+                {typeof(Scout),(new Func<IProjectile>(()=>new Bullet1()),20,30)},
+                {typeof(Tank),(new Func<IProjectile>(()=>new Bomb()),5,60)},
                 {typeof(Thief),(new Func<IProjectile>(()=>new ThrowStar()),10,30)},
-                {typeof(Soldier),(new Func<IProjectile>(()=>new Bullet2()),20,5)}
+                {typeof(Soldier),(new Func<IProjectile>(()=>new Bullet2()),20,20)}
             };
 
             massweapeonLog = new Dictionary<Type, List<(Func<IProjectile>,int)>>
@@ -57,9 +57,11 @@ namespace Gamespace.Projectiles
         {
 
             Type type = gameObject.GetType();
-            ProjectileLauncher launcher = new ProjectileLauncher(gameObject,weapeonLog[type].ammoType,
-                weapeonLog[type].fillSpeed);
-            launcher.MaxProjectiles = weapeonLog[type].ammoMax;
+            ProjectileLauncher launcher = new ProjectileLauncher(gameObject, weapeonLog[type].ammoType,
+                weapeonLog[type].fillSpeed)
+            {
+                MaxProjectiles = weapeonLog[type].ammoMax
+            };
 
             return launcher;
 

@@ -15,7 +15,8 @@ namespace Gamespace.Projectiles
         private AbstractGameObject OwnedBy { get; }
 
         public int MaxProjectiles { get; set; }
-      
+        public int RemainingAmmo { get => ammos.Count; }
+
         private int delayCounter;
         private int refillCounter;
         private int refillSpeed;
@@ -29,7 +30,6 @@ namespace Gamespace.Projectiles
         public ProjectileLauncher(IGameObject gameObject, Func<IProjectile> fill,int fillSpeed)
         {
             this.OwnedBy = (AbstractGameObject)gameObject;
-            MaxProjectiles = Numbers.MAX_PROJECTILES;
 
             ammos = new Stack<IProjectile>();
 
@@ -72,12 +72,12 @@ namespace Gamespace.Projectiles
 
         public void Update()
         {
-            if (refillCounter % refillSpeed ==0 && ammos.Count< Numbers.MAX_PROJECTILES)
+            if (refillCounter % refillSpeed ==0 && ammos.Count< MaxProjectiles)
             {
                 ammos.Push(refill.Invoke());
             }
             refillCounter++;
-
+          
             resetCounter.Invoke();
             resetCounter = () => delayCounter = 0;
 
