@@ -1,4 +1,5 @@
 ﻿using Gamespace.Data;
+using Gamespace.Sounds;
 using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
@@ -52,6 +53,12 @@ namespace Gamespace.Projectiles
                     return new Func<Vector2, int, Vector2>((p,t)=>new Vector2(p.X+v_x*t,p.Y+v_y*t+0.5f*GameObjectPhysics.PhysicsConstants.G*t*t));
                 }) }
             };
+        }
+
+        public override void Shoot(ShootAngle angle, Vector2 initialV, Vector2 initialP)
+        {
+            base.Shoot(angle, initialV, initialP);
+            SoundManager.Instance.PlaySoundEffect("ThiefDash");
         }
     }
 }

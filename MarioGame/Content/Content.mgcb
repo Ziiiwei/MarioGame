@@ -1047,6 +1047,12 @@
 /processorParam:Quality=Best
 /build:Sounds/ScoutKill.wav
 
+#begin Sounds/Slack.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sounds/Slack.wav
+
 #begin Sounds/smalljump.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor
