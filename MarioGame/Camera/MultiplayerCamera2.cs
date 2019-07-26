@@ -22,7 +22,7 @@ namespace Gamespace
         public Matrix Transform { get; private set; }
         bool recentering = false;
         IGameObject target;
-        
+
 
         public MultiplayerCamera2(Viewport viewport, IGameObject target)
         {
@@ -70,31 +70,31 @@ namespace Gamespace
 
             if (position.X < CameraPosition.X + (viewport.Width / 2) - (xEpsilon / 2))
             {
-               float t = position.X - (CameraPosition.X + (viewport.Width / 2) - (xEpsilon / 2));
-                xTransform = -t/5;
+                int t = (int)(position.X - (CameraPosition.X + (viewport.Width / 2) - (xEpsilon / 2)));
+                xTransform = -t / 5;
                 cameraPosition.X -= xTransform;
             }
             else
             {
-                float t = position.X - (CameraPosition.X + (viewport.Width / 2) + (xEpsilon / 2));
-                xTransform = t/5;
+                int t = (int)(position.X - (CameraPosition.X + (viewport.Width / 2) + (xEpsilon / 2)));
+                xTransform = t / 5;
                 cameraPosition.X += xTransform;
             }
 
-            
+
             if (position.Y < CameraPosition.Y + (viewport.Height / 2) - (yEpsilon / 2))
             {
-                float t = (CameraPosition.Y + (viewport.Height / 2) - (yEpsilon / 2)) - position.Y;
-                yTransform = -t/10;
-                cameraPosition.Y -= yTransform;
+                int t = (int)(Math.Abs((CameraPosition.Y + (viewport.Height / 2) - (yEpsilon / 2)) - position.Y));
+                yTransform = -t / 10;
+                cameraPosition.Y += yTransform;
             }
             else
             {
-                float t = position.Y - (CameraPosition.Y + (viewport.Height / 2) + (yEpsilon / 2));
-                yTransform = t/10;
+                int t = (int)(position.Y - (CameraPosition.Y + (viewport.Height / 2) + (yEpsilon / 2)));
+                yTransform = t / 10;
                 cameraPosition.Y += yTransform;
             }
-            
+
             Transform = Matrix.CreateTranslation(-cameraPosition.X + xTransform, -cameraPosition.Y + yTransform, 0);
         }
 
