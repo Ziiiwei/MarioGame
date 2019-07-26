@@ -102,13 +102,16 @@ namespace Gamespace
             collisionPriorities = new Dictionary<Type, int>()
             {
                 {typeof(Mario), 1},
-                {typeof(Fireball), 2 },
                 {typeof(Goomba), 3},
                 {typeof(Koopa), 4},
-                {typeof(Tank), 1 },
-                {typeof(Scout),1 },
-                {typeof(Soldier),1},
-                {typeof(Thief),1 }
+                {typeof(Fireball), 1 },
+                {typeof(Bullet1), 1 },
+                {typeof(Bullet2), 1 },
+                {typeof(Bomb), 1 },
+                {typeof(Tank), 2 },
+                {typeof(Scout),2 },
+                {typeof(Soldier), 2},
+                {typeof(Thief), 2}
             };
 
             collisionHandler = new CollisionHandler();
