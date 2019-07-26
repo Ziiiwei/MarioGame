@@ -49,7 +49,7 @@ namespace Gamespace
 
         private readonly List<List<IGameObject>> collisionColumns;
 
-        private List<Vector2> SpawnPoints;
+        public List<Vector2> SpawnPoints { get; }
         private bool worldIsPaused = false;
 
    
@@ -298,7 +298,6 @@ namespace Gamespace
             objectsToRemoveFromUpdate.Clear();
             objectsToAdd.Clear();
             objectsToRemove.Clear();
-            SpawnPoints.Clear();
         }
 
 

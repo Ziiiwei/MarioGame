@@ -11,12 +11,10 @@ namespace Gamespace.Blocks
 {
     public class Spawner : AbstractGameObject
     {
-        private Random random;
         public Spawner(Vector2 positionOnScreen) : base(positionOnScreen)
         {
-            SetSprite();
-            random = new Random();
-            
+            World.Instance.AddSpawner(this);
+            World.Instance.MaskCollision(this);
         }
     }
 }

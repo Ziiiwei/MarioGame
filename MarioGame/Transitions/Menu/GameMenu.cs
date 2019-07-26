@@ -37,7 +37,8 @@ namespace Gamespace.Transitions
         private Dictionary<Tuple<MenuState, InputDirection>, Delegate> inputAction;
         private IView view;
         private IController input;
- 
+
+        private Dictionary<MenuState, Delegate> goBack;
 
 
 
@@ -68,6 +69,12 @@ namespace Gamespace.Transitions
                 {MenuState.Arena, new Action(ArenaToCharacterTransition) },
                 {MenuState.Character, new Action(SelectionsComplete) },
 
+            };
+
+            goBack = new Dictionary<MenuState, Delegate>()
+            {
+                {MenuState.Arena, new Action(()=> { currentState = MenuState.Count; view = new PlayerCountSelection(this); }) },
+                {MenuState.Character, new Action(()=> { currentState = MenuState.Arena; view = new ArenaSelection(this); }) }
             };
 
             inputAction = new Dictionary<Tuple<MenuState, InputDirection>, Delegate>()
@@ -148,6 +155,14 @@ namespace Gamespace.Transitions
         public void SelectionEntered()
         {
             stateTransitions[currentState].DynamicInvoke();
+        }
+
+        public void Back()
+        {
+            if (goBack.ContainsKey(currentState))
+            {
+                goBack[currentState].DynamicInvoke();
+            }
         }
 
         private void IntroToCreditTransition()
