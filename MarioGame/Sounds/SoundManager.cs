@@ -13,7 +13,7 @@ namespace Gamespace.Sounds
     public class SoundManager
     {
         private static readonly SoundManager instance = new SoundManager();
-        private SoundEffectInstance  soundEffect;
+        private SoundEffect soundEffect;
         private SoundEffectInstance MainMenuBGM;
         private SoundEffectInstance SelectBGM; 
         private SoundEffectInstance ArenaBGM;
@@ -36,6 +36,7 @@ namespace Gamespace.Sounds
         {
             soundEffect = SoundFactory.Instance.GetSoundEffect(name);
             soundEffect.Play();
+            
         }
 
         public void PlayMainBGM()
@@ -52,7 +53,7 @@ namespace Gamespace.Sounds
 
         public void PlaySelectBGM()
         {
-            SelectBGM = SoundFactory.Instance.GetSoundEffect("Select");
+            SelectBGM = SoundFactory.Instance.GetSelectBGM();
             SelectBGM.IsLooped = true;
             SelectBGM.Volume = 0.5f;
             SelectBGM.Play();
@@ -64,7 +65,7 @@ namespace Gamespace.Sounds
         }
         public void PlayArenaBGM(string path)
         {
-            ArenaBGM = SoundFactory.Instance.GetSoundEffect(arenaPath[path]);
+            ArenaBGM = SoundFactory.Instance.GetArenaBGM(arenaPath[path]);
             ArenaBGM.IsLooped = true;
             ArenaBGM.Volume = 0.5f;
             ArenaBGM.Play();

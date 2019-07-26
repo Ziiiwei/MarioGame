@@ -46,7 +46,6 @@ namespace Gamespace.Projectiles
         {
             bounceBound = Numbers.BOUNCE_BOUND;
             State = (IProjectileState) Activator.CreateInstance(initialOrientation[angle], this);
-            SoundManager.Instance.PlaySoundEffect("Fireball");
             SetSprite();
         }
 
