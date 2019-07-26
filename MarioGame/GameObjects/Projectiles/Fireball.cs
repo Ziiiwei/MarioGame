@@ -34,9 +34,9 @@ namespace Gamespace.Projectiles
 
             spriteOffset = new Dictionary<ShootAngle, Func<Vector2, int, Vector2>>()
             {
-                {ShootAngle.Left, new Func<Vector2, int, Vector2> ((p,offset)=> new Vector2(p.X - offset,p.Y))},
-                {ShootAngle.Right,new Func<Vector2, int, Vector2> ((p,offset)=> new Vector2(p.X,p.Y))},
-                {ShootAngle.Up,new Func<Vector2, int, Vector2> ((p,offset)=> new Vector2(p.X,p.Y-offset)) }
+                {ShootAngle.Left, new Func<Vector2, int, Vector2> ((p,offset)=> new Vector2(p.X - 1.3f* offset,p.Y))},
+                {ShootAngle.Right,new Func<Vector2, int, Vector2> ((p,offset)=> new Vector2(p.X + 0.3f*offset,p.Y))},
+                {ShootAngle.Up,new Func<Vector2, int, Vector2> ((p,offset)=> new Vector2(p.X,p.Y-1.3f * offset)) }
             };
 
             
@@ -150,7 +150,7 @@ namespace Gamespace.Projectiles
         public virtual void Shoot(ShootAngle angle, Vector2 initialV, Vector2 initialP)
         {
             State.ChangeDirection(angle);
-            int offset = angle == ShootAngle.Up ? Sprite.Height : Sprite.Width;
+            int offset = Sprite.Width;
             GameObjectPhysics.Position = spriteOffset[angle].Invoke(initialP,offset);
             GameObjectPhysics.TrajectMove(trajectoryLog[angle].Invoke(initialV));
         }
