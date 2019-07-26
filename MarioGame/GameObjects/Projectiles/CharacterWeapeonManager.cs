@@ -22,7 +22,7 @@ namespace Gamespace.Projectiles
                 {typeof(BrickBlock),(new Func<IProjectile>(()=>new Fireball()),10,5)},
                 {typeof(Scout),(new Func<IProjectile>(()=>new Bullet1()),20,5)},
                 {typeof(Tank),(new Func<IProjectile>(()=>new Fireball()),20,5)},
-                {typeof(Thief),(new Func<IProjectile>(()=>new ThrowStar()),10,10)},
+                {typeof(Thief),(new Func<IProjectile>(()=>new ThrowStar()),10,30)},
                 {typeof(Soldier),(new Func<IProjectile>(()=>new Bullet2()),20,5)}
             };
 
