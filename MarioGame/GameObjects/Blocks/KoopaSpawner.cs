@@ -27,7 +27,7 @@ namespace Gamespace.Blocks
 
         public void MaybeSpawn()
         {
-            if (random.Next(3000) <= 10)
+            if (random.Next(5000) <= 10)
             {
                 World.Instance.AddGameObject(new Koopa(this.positionOnScreen));
             }

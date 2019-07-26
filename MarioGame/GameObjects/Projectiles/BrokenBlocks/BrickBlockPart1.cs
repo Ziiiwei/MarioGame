@@ -72,5 +72,6 @@ namespace Gamespace.Projectiles
         public override void SetOwner(IGameObject owner)
         {
         }
+
     }
 }
