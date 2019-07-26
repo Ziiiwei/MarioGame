@@ -99,7 +99,8 @@ namespace Gamespace
                 typeof(Bullet2),
                 typeof(ThrowStar),
                 typeof(Bomb),
-                typeof(Explosion)
+                typeof(Explosion),
+            
             };
 
             collisionPriorities = new Dictionary<Type, int>()
