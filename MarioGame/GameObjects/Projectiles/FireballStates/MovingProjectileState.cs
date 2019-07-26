@@ -20,7 +20,10 @@ namespace Gamespace.Projectiles
                 {ShootAngle.Left,new Action(()=>projectile.State = new LeftMovingProjectile(projectile)) },
                 {ShootAngle.Right, new Action(()=>projectile.State = new RightMovingProjectile(projectile))},
                 {ShootAngle.Up, new Action(()=>projectile.State = new UpMovingProjectile(projectile))},
-                {ShootAngle.None,()=>{ } }
+                {ShootAngle.None,()=>{ } },
+                  {ShootAngle.LeftUp,()=>{ } },
+                  {ShootAngle.RightUp,()=>{ } }
+
             };
         }
         public virtual void ChangeDirection(ShootAngle angle)

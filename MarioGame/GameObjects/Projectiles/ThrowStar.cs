@@ -24,7 +24,7 @@ namespace Gamespace.Projectiles
                     float v_x = ini_v.X - GameObjectPhysics.PhysicsConstants.X_V;
                     float v_y = ini_v.Y;
                     return new Func<Vector2, int, Vector2>((p,t)=>new Vector2(
-                        (float)(p.X+v_x*t+Numbers.BLOCK_SPACING_SCALE*(Math.Sin(Math.PI+Math.PI/10*t))),
+                        (float)(p.X+v_x*t+Numbers.BLOCK_SPACING_SCALE*(Math.Sin(Math.PI+Math.PI/15*t))),
                         (float)(p.Y+v_y*t-2*Numbers.BLOCK_SPACING_SCALE*(Math.Sin(-Math.PI/2+Math.PI/15*t)+1))
                         ));
                 }) },
@@ -34,7 +34,7 @@ namespace Gamespace.Projectiles
                     float v_x = ini_v.X + GameObjectPhysics.PhysicsConstants.X_V;
                     float v_y = ini_v.Y;
                     return new Func<Vector2, int, Vector2>((p,t)=>new Vector2(
-                        (float)(p.X+v_x*t+Numbers.BLOCK_SPACING_SCALE*(Math.Sin(Math.PI/10*t))),
+                        (float)(p.X+v_x*t+Numbers.BLOCK_SPACING_SCALE*(Math.Sin(Math.PI/15*t))),
                         (float)(p.Y+v_y*t-2*Numbers.BLOCK_SPACING_SCALE*(Math.Sin(-Math.PI/2+Math.PI/15*t)+1))
                         ));
                 }) },
@@ -42,13 +42,13 @@ namespace Gamespace.Projectiles
                  {ShootAngle.Up, new Func<Vector2, Func<Vector2, int, Vector2>>((ini_v) =>
                 {
                     float v_x = ini_v.X;
-                    float v_y = ini_v.Y -GameObjectPhysics.PhysicsConstants.Y_V;;
+                    float v_y = ini_v.Y;
                     return new Func<Vector2, int, Vector2>((p,t)=>new Vector2(p.X+v_x*t,p.Y+v_y*t+0.5f*GameObjectPhysics.PhysicsConstants.G*t*t));
                 }) },
                    {ShootAngle.Down, new Func<Vector2, Func<Vector2, int, Vector2>>((ini_v) =>
                 {
                     float v_x = ini_v.X;
-                    float v_y = ini_v.Y +GameObjectPhysics.PhysicsConstants.Y_V;;
+                    float v_y = ini_v.Y;
                     return new Func<Vector2, int, Vector2>((p,t)=>new Vector2(p.X+v_x*t,p.Y+v_y*t+0.5f*GameObjectPhysics.PhysicsConstants.G*t*t));
                 }) }
             };

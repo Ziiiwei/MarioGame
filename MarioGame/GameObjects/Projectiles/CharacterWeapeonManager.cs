@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Gamespace.Blocks;
+using Gamespace.Projectiles;
 
 namespace Gamespace.Projectiles
 {
@@ -42,10 +43,7 @@ namespace Gamespace.Projectiles
                     typeof(Bomb),
                     new List<(Func<IProjectile>,int)>
                     {
-                        (new Func<IProjectile>(() => new BrickBlockPart1()),1),
-                        (new Func<IProjectile>(() => new BrickBlockPart2()),1),
-                        (new Func<IProjectile>(() => new BrickBlockPart3()),1),
-                        (new Func<IProjectile>(() => new BrickBlockPart4()),1)
+                        (new Func<IProjectile>(() => new Explosion()),5),                  
                     }
                 }
             };

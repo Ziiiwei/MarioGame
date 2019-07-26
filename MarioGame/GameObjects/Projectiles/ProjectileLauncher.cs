@@ -82,5 +82,10 @@ namespace Gamespace.Projectiles
             resetCounter = () => delayCounter = 0;
 
         }
+
+        public void Fire(List<ShootAngle> angles)
+        {
+
+        }
     }
 }
