@@ -102,6 +102,7 @@ namespace Gamespace
 
             collisionPriorities = new Dictionary<Type, int>()
             {
+
                 {typeof(Mario), 1},
                 {typeof(Goomba), 3},
                 {typeof(Koopa), 4},
