@@ -9,15 +9,20 @@ namespace Gamespace.Commands
     internal class ProjectileHitsPlayer : ICommand
     {
         IProjectile projectile;
+        CollisionData collisionData;
 
         public ProjectileHitsPlayer(IProjectile projectile, CollisionData collisionData)
         {
             this.projectile = projectile;
+            this.collisionData = collisionData;
         }
 
         public void Execute()
         {
-            projectile.OwnerScores();
+            if (collisionData.CollisionTarget != projectile.OwnedBy)
+            {
+                projectile.OwnerScores();
+            }
         }
     }
 }
