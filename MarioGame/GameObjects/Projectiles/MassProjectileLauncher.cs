@@ -1,4 +1,5 @@
-﻿using Gamespace.Data;
+﻿using Gamespace.Blocks;
+using Gamespace.Data;
 using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
@@ -94,7 +95,10 @@ namespace Gamespace.Projectiles
             {
                 projectile = ammos.Pop();
                 projectile.Shoot(angles[i], OwnedBy.GameObjectPhysics.Velocity, spawnOffset[angles[i]].Invoke());
-                projectile.SetOwner(OwnedBy);
+                if (OwnedBy.GetType() != typeof(BrickBlock))
+                {
+                    projectile.SetOwner(((IProjectile)OwnedBy).OwnedBy);
+                }
                 World.Instance.AddGameObject(projectile);
                 i++;
             }

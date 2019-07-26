@@ -40,8 +40,8 @@ namespace Gamespace.Projectiles
                 {ShootAngle.Left, new Func<Vector2, int, Vector2> ((p,offset)=> new Vector2(p.X - 1.3f* offset,p.Y-0.5f*offset))},
                 {ShootAngle.Right,new Func<Vector2, int, Vector2> ((p,offset)=> new Vector2(p.X + 0.3f*offset,p.Y-0.5f*offset))},
                 {ShootAngle.Up,new Func<Vector2, int, Vector2> ((p,offset)=> new Vector2(p.X,p.Y-1.3f * offset)) },
-                {ShootAngle.LeftUp,new Func<Vector2, int, Vector2> ((p,offset)=> new Vector2(p.X - 1.3f*offset,p.Y-0.5f*offset))},
-                {ShootAngle.RightUp,new Func<Vector2, int, Vector2> ((p,offset)=> new Vector2(p.X + 0.3f*offset,p.Y-0.5f*offset))},
+                {ShootAngle.LeftUp,new Func<Vector2, int, Vector2> ((p,offset)=> new Vector2(p.X - offset,p.Y-0.5f*offset))},
+                {ShootAngle.RightUp,new Func<Vector2, int, Vector2> ((p,offset)=> new Vector2(p.X + offset,p.Y-0.5f*offset))},
                  {ShootAngle.None,new Func<Vector2, int, Vector2> ((p,offset)=> new Vector2(p.X,p.Y)) }
             };
 
