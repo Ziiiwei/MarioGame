@@ -63,6 +63,7 @@ namespace Gamespace.Projectiles
             positionOnScreen = GameObjectPhysics.Position;
             Vector2 ini_v = new Vector2(GameObjectPhysics.Velocity.X/1.4f, -GameObjectPhysics.Velocity.Y/1.4f);
             GameObjectPhysics.TrajectMove(bounceMove.Invoke(ini_v));
+            SoundManager.Instance.PlaySoundEffect("GrenadeBounce");
             bounceCounter++;
         }
 
@@ -72,6 +73,7 @@ namespace Gamespace.Projectiles
             positionOnScreen = GameObjectPhysics.Position;
             Vector2 ini_v = new Vector2(-GameObjectPhysics.Velocity.X / 1.4f, GameObjectPhysics.Velocity.Y /1.4f);
             GameObjectPhysics.TrajectMove(bounceMove.Invoke(ini_v));
+            SoundManager.Instance.PlaySoundEffect("GrenadeBounce");
             bounceCounter++;
         }
 
@@ -81,6 +83,7 @@ namespace Gamespace.Projectiles
             positionOnScreen = GameObjectPhysics.Position;
             Vector2 ini_v = new Vector2(-GameObjectPhysics.Velocity.X/1.4f, GameObjectPhysics.Velocity.Y/1.4f);
             GameObjectPhysics.TrajectMove(bounceMove.Invoke(ini_v));
+            SoundManager.Instance.PlaySoundEffect("GrenadeBounce");
             bounceCounter++;
         }
 
@@ -90,6 +93,7 @@ namespace Gamespace.Projectiles
             positionOnScreen = GameObjectPhysics.Position;
             Vector2 ini_v = new Vector2(GameObjectPhysics.Velocity.X / 1.4f, -GameObjectPhysics.Velocity.Y /1.4f);
             GameObjectPhysics.TrajectMove(bounceMove.Invoke(ini_v));
+            SoundManager.Instance.PlaySoundEffect("GrenadeBounce");
             bounceCounter++;
         }
 
@@ -99,6 +103,7 @@ namespace Gamespace.Projectiles
             List<ShootAngle> fireCommand = new List<ShootAngle>
             { ShootAngle.Left, ShootAngle.LeftUp,ShootAngle.Up,ShootAngle.RightUp, ShootAngle.Right};         
             explode.Fire(fireCommand);
+            SoundManager.Instance.PlaySoundEffect("GrenadeExplosion");
         }
 
 
