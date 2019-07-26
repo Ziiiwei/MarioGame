@@ -141,6 +141,7 @@ namespace Gamespace.Transitions
             {
                 inputAction[key].DynamicInvoke(i);
             }
+            SoundManager.Instance.PlaySoundEffect("BumpBlock");
         }
 
         public void SelectionDown(PlayerIndex i)
@@ -150,6 +151,7 @@ namespace Gamespace.Transitions
             {
                 inputAction[key].DynamicInvoke(i);
             }
+            SoundManager.Instance.PlaySoundEffect("BumpBlock");
         }
 
         public void SelectionEntered()
@@ -211,6 +213,7 @@ namespace Gamespace.Transitions
         {
             MarioGame.Instance.OnMenuSelectionsComplete();
             SoundManager.Instance.StopSelectBGM();
+            SoundManager.Instance.PlaySoundEffect("OutOfTime");
         }
 
         private void HandlePlayerCharacterSwitch(PlayerIndex i, Side side)
