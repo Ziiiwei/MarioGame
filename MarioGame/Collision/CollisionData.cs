@@ -10,10 +10,12 @@ namespace Gamespace
     internal class CollisionData
     {
         public Rectangle CollisionArea { get;  }
+        public IGameObject CollisionTarget { get; }
 
-        public CollisionData(Rectangle collisionArea)
+        public CollisionData(Rectangle collisionArea, IGameObject collisionObject)
         {
             CollisionArea = collisionArea;
+            CollisionTarget = collisionObject;
         }
     }
 }

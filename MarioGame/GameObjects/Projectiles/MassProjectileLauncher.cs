@@ -1,4 +1,5 @@
-﻿using Gamespace.Data;
+﻿using Gamespace.Blocks;
+using Gamespace.Data;
 using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
@@ -18,20 +19,24 @@ namespace Gamespace.Projectiles
         private int refillSpeed;
 
         private Stack<IProjectile> ammos;
-        private List<Func<IProjectile>> refill;
+        private List<(Func<IProjectile>,int)> refill;
 
         private readonly Dictionary<ShootAngle, Func<Vector2>> spawnOffset;
         private AbstractGameObject OwnedBy { get; }
-        public MassProjectileLauncher(IGameObject gameObject, List<Func<IProjectile>> fill, int fillSpeed)
+
+        public int RemainingAmmo { get => ammos.Count; }
+
+        public MassProjectileLauncher(IGameObject gameObject, List<(Func<IProjectile>,int)> fill, int fillSpeed)
         {
             this.OwnedBy = (AbstractGameObject)gameObject;
             MaxProjectiles = Numbers.MAX_PROJECTILES;
 
             ammos = new Stack<IProjectile>();
 
-            foreach (Func<IProjectile>f in fill)
+            foreach ((Func<IProjectile> ammoType,int count) in fill)
             {
-                ammos.Push(f.Invoke());
+                for(int i=0;i<count;i++)
+                ammos.Push(ammoType.Invoke());
             }
             refill = fill;
             refillSpeed = fillSpeed;
@@ -43,21 +48,65 @@ namespace Gamespace.Projectiles
                     OwnedBy.Center.Y))},
                 {ShootAngle.Right,  new Func<Vector2>(()=>new Vector2(
                     OwnedBy.GameObjectPhysics.Position.X+OwnedBy.Sprite.Width,
-                    OwnedBy.Center.Y))},
+                    OwnedBy.Center.Y))}
+                ,
                 {ShootAngle.Up, new Func<Vector2>(() => new Vector2(
                     OwnedBy.Center.X,
                     OwnedBy.GameObjectPhysics.Position.Y))}
+                ,
+                {ShootAngle.LeftUp, new Func<Vector2>(() => new Vector2(
+                    OwnedBy.GameObjectPhysics.Position.X,
+                    OwnedBy.GameObjectPhysics.Position.Y))}
+                ,
+                {ShootAngle.LeftDown, new Func<Vector2>(() => new Vector2(
+                    OwnedBy.GameObjectPhysics.Position.X,
+                    OwnedBy.GameObjectPhysics.Position.Y+OwnedBy.Sprite.Height))}
+                ,
+                {ShootAngle.RightDown, new Func<Vector2>(() => new Vector2(
+                    OwnedBy.GameObjectPhysics.Position.X+OwnedBy.Sprite.Width,
+                    OwnedBy.GameObjectPhysics.Position.Y+OwnedBy.Sprite.Height))}
+                       ,
+                {ShootAngle.RightUp, new Func<Vector2>(() => new Vector2(
+                    OwnedBy.GameObjectPhysics.Position.X+OwnedBy.Sprite.Width,
+                    OwnedBy.GameObjectPhysics.Position.Y))}
+                  ,
+                {ShootAngle.None, new Func<Vector2>(() => OwnedBy.Center)}
             };
 
         }
         public void Fire(ShootAngle angle)
         {
-            throw new NotImplementedException();
+            IProjectile projectile;
+            while (ammos.Count > 0)
+            {
+                projectile = ammos.Pop();
+                projectile.Shoot(angle, OwnedBy.GameObjectPhysics.Velocity, spawnOffset[angle].Invoke());
+                projectile.SetOwner(OwnedBy);
+                World.Instance.AddGameObject(projectile);
+            }
+            delayCounter++;
+        }
+
+        public void Fire(List<ShootAngle> angles)
+        {
+            int i = 0;
+            IProjectile projectile;
+            while (ammos.Count > 0)
+            {
+                projectile = ammos.Pop();
+                projectile.Shoot(angles[i], OwnedBy.GameObjectPhysics.Velocity, spawnOffset[angles[i]].Invoke());
+                if (OwnedBy.GetType() != typeof(BrickBlock))
+                {
+                    projectile.SetOwner(((IProjectile)OwnedBy).OwnedBy);
+                }
+                World.Instance.AddGameObject(projectile);
+                i++;
+            }
+            delayCounter++;
         }
 
         public void Update()
         {
-            throw new NotImplementedException();
         }
     }
 }

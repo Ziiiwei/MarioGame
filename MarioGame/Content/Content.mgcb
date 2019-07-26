@@ -873,6 +873,24 @@
 /processorParam:Quality=Best
 /build:Sounds/1-up.wav
 
+#begin Sounds/3ks.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sounds/3ks.wav
+
+#begin Sounds/4ks.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sounds/4ks.wav
+
+#begin Sounds/5ks.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sounds/5ks.wav
+
 #begin Sounds/AK47.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor
@@ -938,6 +956,12 @@
 /processor:SoundEffectProcessor
 /processorParam:Quality=Best
 /build:Sounds/fireworks.wav
+
+#begin Sounds/firstBlood.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sounds/firstBlood.wav
 
 #begin Sounds/flagpole.wav
 /importer:WavImporter
@@ -1017,11 +1041,23 @@
 /processorParam:Quality=Best
 /build:Sounds/powerupappears.wav
 
+#begin Sounds/ScoutKill.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sounds/ScoutKill.wav
+
 #begin Sounds/smalljump.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor
 /processorParam:Quality=Best
 /build:Sounds/smalljump.wav
+
+#begin Sounds/SoldierKill.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sounds/SoldierKill.wav
 
 #begin Sounds/StageClear.wav
 /importer:WavImporter
@@ -1047,11 +1083,23 @@
 /processorParam:Quality=Best
 /build:Sounds/superjump.wav
 
+#begin Sounds/TankKill.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sounds/TankKill.wav
+
 #begin Sounds/ThiefDash.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor
 /processorParam:Quality=Best
 /build:Sounds/ThiefDash.wav
+
+#begin Sounds/ThiefKill.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sounds/ThiefKill.wav
 
 #begin SpecialMarioMove/FMClimingLeft.png
 /importer:TextureImporter
@@ -1784,6 +1832,18 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Sprint6/Thief/StandRight.png
+
+#begin Sprint6/ThrowingStar.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Sprint6/ThrowingStar.png
 
 #begin Sprint6/Tree1.png
 /importer:TextureImporter

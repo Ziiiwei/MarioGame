@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Gamespace.Projectiles;
 
 namespace Gamespace.Blocks
 {
@@ -15,11 +16,14 @@ namespace Gamespace.Blocks
     {
         public Type bumpReward { get; private set; }
 
+        private MassProjectileLauncher blockExplode;
+
         public BrickBlock(Vector2 positionOnScreen, Type bumpReward) : base(positionOnScreen)
         {
             State = new BlockIsNotBumpedState(this);
             SetSprite();
             this.bumpReward = bumpReward;
+            blockExplode = CharacterWeapeonManager.Instance.GetMassWeapeon(this);
         }
         public BrickBlock(Vector2 positionOnScreen) : base(positionOnScreen)
         {
@@ -41,6 +45,7 @@ namespace Gamespace.Blocks
         public void Destroy()
         {
             SoundManager.Instance.PlaySoundEffect("BreakBlock");
+            blockExplode.Fire(ShootAngle.None);
             World.Instance.RemoveFromWorld(this);
         }
 

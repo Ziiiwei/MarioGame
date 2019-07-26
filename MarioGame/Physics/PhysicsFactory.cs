@@ -32,12 +32,18 @@ namespace Gamespace
                 {typeof(Bullet1), typeof(TrajectoryPhysics) },
                 {typeof(Bullet2), typeof(TrajectoryPhysics) },
                 {typeof(BrokenBB), typeof(TrajectoryPhysics) },
+                {typeof(ThrowStar),typeof(TrajectoryPhysics) },
                 {typeof(Goomba), typeof(EnemyPhysics) },
                 {typeof(Koopa), typeof(EnemyPhysics) },
                 {typeof(Tank), typeof(MarioPhysics) },
                 {typeof(Thief), typeof(MarioPhysics) },
                  {typeof(Soldier), typeof(MarioPhysics) },
-                  {typeof(Scout), typeof(MarioPhysics) }
+                  {typeof(Scout), typeof(MarioPhysics) },
+                {typeof(BrickBlockPart1),typeof(TrajectoryPhysics) },
+                {typeof(BrickBlockPart2),typeof(TrajectoryPhysics) },
+                {typeof(BrickBlockPart3),typeof(TrajectoryPhysics) },
+                {typeof(BrickBlockPart4),typeof(TrajectoryPhysics) },
+                 {typeof(Explosion),typeof(TrajectoryPhysics) }
 
             };
         }

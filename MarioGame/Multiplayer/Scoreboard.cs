@@ -15,15 +15,18 @@ namespace Gamespace.Multiplayer
 
         public int MaxScore { get; set; }
         public int Coins { get; set; }
-        public int Lives { get; set; }
+        public int Deaths { get; set; }
         public int Time { get; set; }
+
+        public int Ammo { get; set; }
+        public int MaxAmmo { get; set; }
         private int StartingTime = Numbers.STARTING_TIME;
 
         public Scoreboard(int lives)
         {
             Score = 0;
             Coins = 0;
-            Lives = lives;
+            Deaths = lives;
             Time = StartingTime;
         }
 
@@ -37,6 +40,10 @@ namespace Gamespace.Multiplayer
         {
             Score += score;
             MaxScore += score; 
+            if (Score == MarioGame.Instance.WinScore)
+            {
+                MarioGame.Instance.PlayerWon();
+            }
         }
 
         public void Collect()
@@ -46,13 +53,13 @@ namespace Gamespace.Multiplayer
 
         public void Die()
         {
-            Lives--;
+            Deaths++;
             MaxScore = 0;
         }
 
         public void AddLife()
         {
-            Lives++;
+
         }
 
 

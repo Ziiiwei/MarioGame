@@ -38,6 +38,8 @@ namespace Gamespace
 
             for (PlayerIndex i = PlayerIndex.One; i <= PlayerIndex.Four; i++)
             {
+                spriteBatch.DrawString(MarioGame.Instance.Font, "Player " + i.ToString(), characterOrigins[i] - (stringDistance), Color.Gray);
+
                 for (int j = 0; j < menu.PlayableCharacters.Count ; j++)
                 {
 

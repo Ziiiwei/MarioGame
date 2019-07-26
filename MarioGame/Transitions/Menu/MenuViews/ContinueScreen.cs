@@ -18,8 +18,8 @@ namespace Gamespace
       
         public void Draw(SpriteBatch spriteBatch)
         {
-            Logo = MarioGame.Instance.Content.Load<Texture2D>("deathmatchlogo");
-            spriteBatch.Draw(Logo, new Rectangle(250, 0, 1000, 900), Color.White);
+            Texture2D Logo = MarioGame.Instance.Content.Load<Texture2D>("deathmatchlogo");
+            spriteBatch.Draw(Logo, new Rectangle(250, -150, 1000, 900), Color.White);
             spriteBatch.DrawString(MarioGame.Instance.Font, textOnScreen, positionOnScreen, Color.Black, 0.0f, Vector2.Zero, 1.0f, SpriteEffects.None, 0.0f);
         }
     }

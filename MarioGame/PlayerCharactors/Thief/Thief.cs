@@ -11,7 +11,7 @@ namespace Gamespace
 {
     class Thief : Mario
     {
-        public Thief(Vector2 positionOnScreen, Scoreboard scoreboard) : base(positionOnScreen, scoreboard)
+        public Thief(Vector2 positionOnScreen, Scoreboard scoreboard, IPlayer player) : base(positionOnScreen, scoreboard, player)
         {
             PowerUpState = new MarioFireState();
         }

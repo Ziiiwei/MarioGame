@@ -55,7 +55,7 @@ namespace Gamespace
         {
             SetDefautUpdators();
 
-            position.Y -= PhysicsConstants.G;
+            position.Y -= 2*PhysicsConstants.G;
             velocity.Y = -PhysicsConstants.Y_V / 4;
 
             keepJumpAble = true;

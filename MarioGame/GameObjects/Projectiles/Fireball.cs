@@ -14,14 +14,17 @@ namespace Gamespace.Projectiles
     {
         protected static Dictionary<ShootAngle, Type> initialOrientation;
         protected Dictionary<ShootAngle, Func<Vector2, Func<Vector2, int, Vector2>>> trajectoryLog;
+        protected Func<Vector2, Func<Vector2, int, Vector2>> bounceMove;
         protected static readonly Dictionary<ShootAngle, Func<Vector2, int, Vector2>> spriteOffset;
         protected int bounceCounter = 0;
         protected int bounceBound;
         protected IMario owner;
+        public IGameObject OwnedBy => owner;
 
         public ShootAngle Angle { get ; set; }
 
         
+
         static Fireball()
         {
             initialOrientation = new Dictionary<ShootAngle, Type>()
@@ -34,11 +37,15 @@ namespace Gamespace.Projectiles
 
             spriteOffset = new Dictionary<ShootAngle, Func<Vector2, int, Vector2>>()
             {
-                {ShootAngle.Left, new Func<Vector2, int, Vector2> ((p,offset)=> new Vector2(p.X - offset,p.Y))},
-                {ShootAngle.Right,new Func<Vector2, int, Vector2> ((p,offset)=> new Vector2(p.X,p.Y))},
-                {ShootAngle.Up,new Func<Vector2, int, Vector2> ((p,offset)=> new Vector2(p.X,p.Y-offset)) }
+                {ShootAngle.Left, new Func<Vector2, int, Vector2> ((p,offset)=> new Vector2(p.X - 1.3f* offset,p.Y-0.5f*offset))},
+                {ShootAngle.Right,new Func<Vector2, int, Vector2> ((p,offset)=> new Vector2(p.X + 0.3f*offset,p.Y-0.5f*offset))},
+                {ShootAngle.Up,new Func<Vector2, int, Vector2> ((p,offset)=> new Vector2(p.X,p.Y-1.3f * offset)) },
+                {ShootAngle.LeftUp,new Func<Vector2, int, Vector2> ((p,offset)=> new Vector2(p.X - offset,p.Y-0.5f*offset))},
+                {ShootAngle.RightUp,new Func<Vector2, int, Vector2> ((p,offset)=> new Vector2(p.X + offset,p.Y-0.5f*offset))},
+                 {ShootAngle.None,new Func<Vector2, int, Vector2> ((p,offset)=> new Vector2(p.X,p.Y)) }
             };
 
+       
             
         }
         
@@ -82,6 +89,12 @@ namespace Gamespace.Projectiles
                 }) }
               
             };
+
+            bounceMove = new Func<Vector2, Func<Vector2, int, Vector2>>((ini_v) =>
+            {
+                return new Func<Vector2, int, Vector2>((p, t) => new Vector2(p.X + ini_v.X * t, p.Y + ini_v.Y * t + 0.5f * GameObjectPhysics.PhysicsConstants.G * t * t));
+            });
+
         }
 
         public virtual void ChangeDirection(ShootAngle angle)
@@ -150,7 +163,7 @@ namespace Gamespace.Projectiles
         public virtual void Shoot(ShootAngle angle, Vector2 initialV, Vector2 initialP)
         {
             State.ChangeDirection(angle);
-            int offset = angle == ShootAngle.Up ? Sprite.Height : Sprite.Width;
+            int offset = Sprite.Width;
             GameObjectPhysics.Position = spriteOffset[angle].Invoke(initialP,offset);
             GameObjectPhysics.TrajectMove(trajectoryLog[angle].Invoke(initialV));
         }
@@ -158,6 +171,7 @@ namespace Gamespace.Projectiles
         public virtual void OwnerScores()
         {
             owner.ScoreKill();
+            World.Instance.RemoveFromWorld(this);
         }
         
         public virtual void SetOwner(IGameObject owner)

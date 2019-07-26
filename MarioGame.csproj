@@ -119,6 +119,7 @@
     <Compile Include="MarioGame\GameObjects\Projectiles\BrokenBB.cs" />
     <Compile Include="MarioGame\GameObjects\Projectiles\Bullet2.cs" />
     <Compile Include="MarioGame\GameObjects\Projectiles\CharacterWeapeonManager.cs" />
+    <Compile Include="MarioGame\GameObjects\Projectiles\Explosion.cs" />
     <Compile Include="MarioGame\GameObjects\Projectiles\FireballStates\MovingProjectileState.cs" />
     <Compile Include="MarioGame\GameObjects\Projectiles\FireballStates\UpMovingProjectile.cs" />
     <Compile Include="MarioGame\GameObjects\Projectiles\Fireball.cs" />
@@ -135,6 +136,7 @@
     <Compile Include="MarioGame\GameObjects\Projectiles\MassProjectileLauncher.cs" />
     <Compile Include="MarioGame\GameObjects\Projectiles\ProjectileLauncher.cs" />
     <Compile Include="MarioGame\GameObjects\Projectiles\Bullet1.cs" />
+    <Compile Include="MarioGame\GameObjects\Projectiles\ThrowStar.cs" />
     <Compile Include="MarioGame\Multiplayer\ScoringConstants.cs" />
     <Compile Include="MarioGame\Multiplayer\IPlayer.cs" />
     <Compile Include="MarioGame\Multiplayer\Player.cs" />
@@ -228,6 +230,7 @@
     <Compile Include="MarioGame\Transitions\Menu\MenuViews\CharacterSelection.cs" />
     <Compile Include="MarioGame\Transitions\Menu\MenuViews\ContinueScreen.cs" />
     <Compile Include="MarioGame\Transitions\Menu\MenuViews\CreditScene.cs" />
+    <Compile Include="MarioGame\Transitions\Menu\MenuViews\GameOver.cs" />
     <Compile Include="MarioGame\Transitions\Menu\MenuViews\IntroScene.cs" />
     <Compile Include="MarioGame\Transitions\Menu\MenuViews\PlayerCountSelection.cs" />
     <Compile Include="MarioGame\Transitions\Views\Bezel.cs" />
@@ -236,6 +239,7 @@
     <Compile Include="MarioGame\Transitions\Views\IView.cs" />
     <Compile Include="MarioGame\Transitions\Views\LivesView.cs" />
     <Compile Include="MarioGame\Transitions\Views\PlayableView.cs" />
+    <Compile Include="MarioGame\Transitions\Views\WinView.cs" />
     <Compile Include="MarioGame\World\WorldAnimation.cs" />
     <Compile Include="MarioGame\World\LevelLoader.cs" />
     <Compile Include="MarioGame\GameObjects\Items\RedShroom.cs" />
@@ -343,6 +347,12 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="MarioGame\Data\DataFiles\level1.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="MarioGame\Data\DataFiles\OtherCollisionActions.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="MarioGame\Data\DataFiles\OtherStatefulCollisionActions.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="MarioGame\Data\DataFiles\SoundData.json">

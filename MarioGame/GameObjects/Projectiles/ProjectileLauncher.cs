@@ -15,20 +15,21 @@ namespace Gamespace.Projectiles
         private AbstractGameObject OwnedBy { get; }
 
         public int MaxProjectiles { get; set; }
-      
+        public int RemainingAmmo { get => ammos.Count; }
+
         private int delayCounter;
         private int refillCounter;
         private int refillSpeed;
 
         private Stack<IProjectile> ammos;
         private Func<IProjectile> refill;
+        protected Action resetCounter;
 
         private readonly Dictionary<ShootAngle, Func<Vector2>> spawnOffset;
 
         public ProjectileLauncher(IGameObject gameObject, Func<IProjectile> fill,int fillSpeed)
         {
             this.OwnedBy = (AbstractGameObject)gameObject;
-            MaxProjectiles = Numbers.MAX_PROJECTILES;
 
             ammos = new Stack<IProjectile>();
 
@@ -51,6 +52,8 @@ namespace Gamespace.Projectiles
                     OwnedBy.Center.X,
                     OwnedBy.GameObjectPhysics.Position.Y))}
             };
+
+            resetCounter = new Action(() => delayCounter = 0);
   
         }
 
@@ -64,15 +67,25 @@ namespace Gamespace.Projectiles
                 projectile.Shoot(angle, OwnedBy.GameObjectPhysics.Velocity, spawnOffset[angle].Invoke());
             }
             delayCounter++;
+            resetCounter = () => { };
         }
 
         public void Update()
         {
-            if (refillCounter % refillSpeed ==0 && ammos.Count< Numbers.MAX_PROJECTILES)
+            if (refillCounter % refillSpeed ==0 && ammos.Count< MaxProjectiles)
             {
                 ammos.Push(refill.Invoke());
             }
             refillCounter++;
+          
+            resetCounter.Invoke();
+            resetCounter = () => delayCounter = 0;
+
+        }
+
+        public void Fire(List<ShootAngle> angles)
+        {
+
         }
     }
 }

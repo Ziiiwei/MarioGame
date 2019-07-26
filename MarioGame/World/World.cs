@@ -49,7 +49,7 @@ namespace Gamespace
 
         private readonly List<List<IGameObject>> collisionColumns;
 
-        private List<Vector2> SpawnPoints;
+        public List<Vector2> SpawnPoints { get; }
         private bool worldIsPaused = false;
 
    
@@ -96,19 +96,27 @@ namespace Gamespace
                 typeof(Soldier),
                 typeof(Thief),
                 typeof(Bullet1),
-                typeof(Bullet2)
+                typeof(Bullet2),
+                typeof(ThrowStar),
+                typeof(Bomb),
+                typeof(Explosion)
             };
 
             collisionPriorities = new Dictionary<Type, int>()
             {
+
                 {typeof(Mario), 1},
-                {typeof(Fireball), 2 },
                 {typeof(Goomba), 3},
                 {typeof(Koopa), 4},
-                {typeof(Tank), 1 },
-                {typeof(Scout),1 },
-                {typeof(Soldier),1},
-                {typeof(Thief),1 }
+                {typeof(Fireball), 1 },
+                {typeof(Bullet1), 1 },
+                {typeof(Bullet2), 1 },
+                {typeof(Bomb), 1 },
+                {typeof(Tank), 2 },
+                {typeof(Scout),2 },
+                {typeof(Soldier), 2},
+                {typeof(Thief), 2},
+                { typeof(Explosion),1 }
             };
 
             collisionHandler = new CollisionHandler();
@@ -290,7 +298,6 @@ namespace Gamespace
             objectsToRemoveFromUpdate.Clear();
             objectsToAdd.Clear();
             objectsToRemove.Clear();
-            SpawnPoints.Clear();
         }
 
 
@@ -337,6 +344,18 @@ namespace Gamespace
             {
                 gameObject.IsPaused = worldIsPaused;
             }
+        }
+
+        public Dictionary<IPlayer, int> GetPlayerScores()
+        {
+            Dictionary<IPlayer, int> scores = new Dictionary<IPlayer, int>();
+
+            foreach (IPlayer player in players)
+            {
+                scores.Add(player, player.GetScore());
+            }
+
+            return scores;
         }
     }
 }
