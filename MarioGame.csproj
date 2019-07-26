@@ -51,6 +51,7 @@
     <Compile Include="MarioGame\Animation\SimpleKeyFrame.cs" />
     <Compile Include="MarioGame\Camera\ICamera.cs" />
     <Compile Include="MarioGame\Camera\MultiplayerCamera.cs" />
+    <Compile Include="MarioGame\Camera\MultiplayerCamera2.cs" />
     <Compile Include="MarioGame\Collision\RewardChecker.cs" />
     <Compile Include="MarioGame\Commands\AnimationCommands\PlayFlagSlidDown.cs" />
     <Compile Include="MarioGame\Commands\AnimationCommands\PlayMarioIntroScene.cs" />
@@ -72,6 +73,7 @@
     <Compile Include="MarioGame\GameObjects\Blocks\Bump States\BlockIsBumpedState.cs" />
     <Compile Include="MarioGame\GameObjects\Blocks\Bump States\BlockIsNotBumpedState.cs" />
     <Compile Include="MarioGame\GameObjects\Blocks\Bump States\IBlockBumpState.cs" />
+    <Compile Include="MarioGame\GameObjects\Blocks\Spawner.cs" />
     <Compile Include="MarioGame\GameObjects\Blocks\KoopaSpawner.cs" />
     <Compile Include="MarioGame\GameObjects\Blocks\GoombaSpawner.cs" />
     <Compile Include="MarioGame\GameObjects\Blocks\DeathBlock.cs" />
@@ -325,7 +327,10 @@
     <None Include="MarioGame\Data\DataFiles\CollisionActions.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="MarioGame\Data\DataFiles\level2.csv">
+    <None Include="MarioGame\Data\DataFiles\flatlevel.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="MarioGame\Data\DataFiles\level2used.csv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="MarioGame\Data\DataFiles\level2a.csv">
