@@ -56,7 +56,7 @@
       "Command1": "Gamespace.Commands.CollideRight",
       "Command2": "Gamespace.Commands.CollideLeft"
     },
-		{
+    {
       "Mover": "Gamespace.Thief",
       "Target": "Gamespace.Blocks.HiddenBlock",
       "Side": "Up",
@@ -217,7 +217,7 @@
       "Command1": "Gamespace.Commands.NullCommand",
       "Command2": "Gamespace.Commands.ConsumeItem"
     },
-	{
+    {
       "Mover": "Gamespace.Mario",
       "Target": "Gamespace.Blocks.HiddenBlock",
       "Side": "Up",
@@ -385,63 +385,63 @@
       "Command1": "Gamespace.Commands.NullCommand",
       "Command2": "Gamespace.Commands.ConsumeItem"
     },
-	{
+    {
       "Mover": "Gamespace.Mario",
       "Target": "Gamespace.Blocks.DeathBlock",
       "Side": "Left",
       "Command1": "Gamespace.Commands.KillMario",
       "Command2": "Gamespace.Commands.NullCommand"
     },
-	{
+    {
       "Mover": "Gamespace.Mario",
       "Target": "Gamespace.Blocks.DeathBlock",
       "Side": "Right",
       "Command1": "Gamespace.Commands.KillMario",
       "Command2": "Gamespace.Commands.NullCommand"
     },
-	{
+    {
       "Mover": "Gamespace.Mario",
       "Target": "Gamespace.FlagPole.Flagpole",
       "Side": "Right",
       "Command1": "Gamespace.Commands.PlayMarioTouchFlag",
       "Command2": "Gamespace.Commands.PlayFlagSlidDown"
     },
-	{
+    {
       "Mover": "Gamespace.Mario",
       "Target": "Gamespace.Blocks.DeathBlock",
       "Side": "Up",
       "Command1": "Gamespace.Commands.KillMario",
       "Command2": "Gamespace.Commands.NullCommand"
     },
-	{
+    {
       "Mover": "Gamespace.Mario",
       "Target": "Gamespace.Blocks.DeathBlock",
       "Side": "Down",
       "Command1": "Gamespace.Commands.KillMario",
       "Command2": "Gamespace.Commands.NullCommand"
     },
-	{
+    {
       "Mover": "Gamespace.Mario",
       "Target": "Gamespace.FlagPole.Flagpole",
       "Side": "Left",
       "Command1": "Gamespace.Commands.PlayMarioTouchFlag",
       "Command2": "Gamespace.Commands.PlayFlagSlidDown"
     },
-	{
+    {
       "Mover": "Gamespace.Mario",
       "Target": "Gamespace.Projectiles.Fireball",
       "Side": "Up",
       "Command1": "Gamespace.Commands.PlayerHitsProjectile",
       "Command2": "Gamespace.Commands.ProjectileHitsPlayer"
     },
-	{
+    {
       "Mover": "Gamespace.Mario",
       "Target": "Gamespace.Projectiles.Fireball",
       "Side": "Down",
       "Command1": "Gamespace.Commands.PlayerHitsProjectile",
       "Command2": "Gamespace.Commands.ProjectileHitsPlayer"
     },
-	{
+    {
       "Mover": "Gamespace.Mario",
       "Target": "Gamespace.Projectiles.Fireball",
       "Side": "Left",
@@ -462,63 +462,63 @@
       "Command1": "Gamespace.Commands.NullCommand",
       "Command2": "Gamespace.Commands.ConsumeItem"
     },
-	{
+    {
       "Mover": "Gamespace.Thief",
       "Target": "Gamespace.Blocks.DeathBlock",
       "Side": "Left",
       "Command1": "Gamespace.Commands.KillMario",
       "Command2": "Gamespace.Commands.NullCommand"
     },
-	{
+    {
       "Mover": "Gamespace.Thief",
       "Target": "Gamespace.Blocks.DeathBlock",
       "Side": "Right",
       "Command1": "Gamespace.Commands.KillMario",
       "Command2": "Gamespace.Commands.NullCommand"
     },
-	{
+    {
       "Mover": "Gamespace.Thief",
       "Target": "Gamespace.FlagPole.Flagpole",
       "Side": "Right",
       "Command1": "Gamespace.Commands.PlayMarioTouchFlag",
       "Command2": "Gamespace.Commands.PlayFlagSlidDown"
     },
-	{
+    {
       "Mover": "Gamespace.Thief",
       "Target": "Gamespace.Blocks.DeathBlock",
       "Side": "Up",
       "Command1": "Gamespace.Commands.KillMario",
       "Command2": "Gamespace.Commands.NullCommand"
     },
-	{
+    {
       "Mover": "Gamespace.Thief",
       "Target": "Gamespace.Blocks.DeathBlock",
       "Side": "Down",
       "Command1": "Gamespace.Commands.KillMario",
       "Command2": "Gamespace.Commands.NullCommand"
     },
-	{
+    {
       "Mover": "Gamespace.Thief",
       "Target": "Gamespace.FlagPole.Flagpole",
       "Side": "Left",
       "Command1": "Gamespace.Commands.PlayMarioTouchFlag",
       "Command2": "Gamespace.Commands.PlayFlagSlidDown"
     },
-	{
+    {
       "Mover": "Gamespace.Thief",
       "Target": "Gamespace.Projectiles.Fireball",
       "Side": "Up",
       "Command1": "Gamespace.Commands.PlayerHitsProjectile",
       "Command2": "Gamespace.Commands.ProjectileHitsPlayer"
     },
-	{
+    {
       "Mover": "Gamespace.Thief",
       "Target": "Gamespace.Projectiles.Fireball",
       "Side": "Down",
       "Command1": "Gamespace.Commands.PlayerHitsProjectile",
       "Command2": "Gamespace.Commands.ProjectileHitsPlayer"
     },
-	{
+    {
       "Mover": "Gamespace.Thief",
       "Target": "Gamespace.Projectiles.Fireball",
       "Side": "Left",
@@ -532,7 +532,7 @@
       "Command1": "Gamespace.Commands.PlayerHitsProjectile",
       "Command2": "Gamespace.Commands.ProjectileHitsPlayer"
     },
-	{
+    {
       "Mover": "Gamespace.Soldier",
       "Target": "Gamespace.Blocks.HiddenBlock",
       "Side": "Up",
@@ -700,63 +700,63 @@
       "Command1": "Gamespace.Commands.NullCommand",
       "Command2": "Gamespace.Commands.ConsumeItem"
     },
-	{
+    {
       "Mover": "Gamespace.Soldier",
       "Target": "Gamespace.Blocks.DeathBlock",
       "Side": "Left",
       "Command1": "Gamespace.Commands.KillMario",
       "Command2": "Gamespace.Commands.NullCommand"
     },
-	{
+    {
       "Mover": "Gamespace.Soldier",
       "Target": "Gamespace.Blocks.DeathBlock",
       "Side": "Right",
       "Command1": "Gamespace.Commands.KillMario",
       "Command2": "Gamespace.Commands.NullCommand"
     },
-	{
+    {
       "Mover": "Gamespace.Soldier",
       "Target": "Gamespace.FlagPole.Flagpole",
       "Side": "Right",
       "Command1": "Gamespace.Commands.PlayMarioTouchFlag",
       "Command2": "Gamespace.Commands.PlayFlagSlidDown"
     },
-	{
+    {
       "Mover": "Gamespace.Soldier",
       "Target": "Gamespace.Blocks.DeathBlock",
       "Side": "Up",
       "Command1": "Gamespace.Commands.KillMario",
       "Command2": "Gamespace.Commands.NullCommand"
     },
-	{
+    {
       "Mover": "Gamespace.Soldier",
       "Target": "Gamespace.Blocks.DeathBlock",
       "Side": "Down",
       "Command1": "Gamespace.Commands.KillMario",
       "Command2": "Gamespace.Commands.NullCommand"
     },
-	{
+    {
       "Mover": "Gamespace.Soldier",
       "Target": "Gamespace.FlagPole.Flagpole",
       "Side": "Left",
       "Command1": "Gamespace.Commands.PlayMarioTouchFlag",
       "Command2": "Gamespace.Commands.PlayFlagSlidDown"
     },
-	{
+    {
       "Mover": "Gamespace.Soldier",
       "Target": "Gamespace.Projectiles.Fireball",
       "Side": "Up",
       "Command1": "Gamespace.Commands.PlayerHitsProjectile",
       "Command2": "Gamespace.Commands.ProjectileHitsPlayer"
     },
-	{
+    {
       "Mover": "Gamespace.Soldier",
       "Target": "Gamespace.Projectiles.Fireball",
       "Side": "Down",
       "Command1": "Gamespace.Commands.PlayerHitsProjectile",
       "Command2": "Gamespace.Commands.ProjectileHitsPlayer"
     },
-	{
+    {
       "Mover": "Gamespace.Soldier",
       "Target": "Gamespace.Projectiles.Fireball",
       "Side": "Left",
@@ -770,7 +770,7 @@
       "Command1": "Gamespace.Commands.PlayerHitsProjectile",
       "Command2": "Gamespace.Commands.ProjectileHitsPlayer"
     },
-	{
+    {
       "Mover": "Gamespace.Tank",
       "Target": "Gamespace.Blocks.HiddenBlock",
       "Side": "Up",
@@ -938,63 +938,63 @@
       "Command1": "Gamespace.Commands.NullCommand",
       "Command2": "Gamespace.Commands.ConsumeItem"
     },
-	{
+    {
       "Mover": "Gamespace.Tank",
       "Target": "Gamespace.Blocks.DeathBlock",
       "Side": "Left",
       "Command1": "Gamespace.Commands.KillMario",
       "Command2": "Gamespace.Commands.NullCommand"
     },
-	{
+    {
       "Mover": "Gamespace.Tank",
       "Target": "Gamespace.Blocks.DeathBlock",
       "Side": "Right",
       "Command1": "Gamespace.Commands.KillMario",
       "Command2": "Gamespace.Commands.NullCommand"
     },
-	{
+    {
       "Mover": "Gamespace.Tank",
       "Target": "Gamespace.FlagPole.Flagpole",
       "Side": "Right",
       "Command1": "Gamespace.Commands.PlayMarioTouchFlag",
       "Command2": "Gamespace.Commands.PlayFlagSlidDown"
     },
-	{
+    {
       "Mover": "Gamespace.Tank",
       "Target": "Gamespace.Blocks.DeathBlock",
       "Side": "Up",
       "Command1": "Gamespace.Commands.KillMario",
       "Command2": "Gamespace.Commands.NullCommand"
     },
-	{
+    {
       "Mover": "Gamespace.Tank",
       "Target": "Gamespace.Blocks.DeathBlock",
       "Side": "Down",
       "Command1": "Gamespace.Commands.KillMario",
       "Command2": "Gamespace.Commands.NullCommand"
     },
-	{
+    {
       "Mover": "Gamespace.Tank",
       "Target": "Gamespace.FlagPole.Flagpole",
       "Side": "Left",
       "Command1": "Gamespace.Commands.PlayMarioTouchFlag",
       "Command2": "Gamespace.Commands.PlayFlagSlidDown"
     },
-	{
+    {
       "Mover": "Gamespace.Tank",
       "Target": "Gamespace.Projectiles.Fireball",
       "Side": "Up",
       "Command1": "Gamespace.Commands.PlayerHitsProjectile",
       "Command2": "Gamespace.Commands.ProjectileHitsPlayer"
     },
-	{
+    {
       "Mover": "Gamespace.Tank",
       "Target": "Gamespace.Projectiles.Fireball",
       "Side": "Down",
       "Command1": "Gamespace.Commands.PlayerHitsProjectile",
       "Command2": "Gamespace.Commands.ProjectileHitsPlayer"
     },
-	{
+    {
       "Mover": "Gamespace.Tank",
       "Target": "Gamespace.Projectiles.Fireball",
       "Side": "Left",
@@ -1008,7 +1008,7 @@
       "Command1": "Gamespace.Commands.PlayerHitsProjectile",
       "Command2": "Gamespace.Commands.ProjectileHitsPlayer"
     },
-	{
+    {
       "Mover": "Gamespace.Scout",
       "Target": "Gamespace.Blocks.HiddenBlock",
       "Side": "Up",
@@ -1176,63 +1176,63 @@
       "Command1": "Gamespace.Commands.NullCommand",
       "Command2": "Gamespace.Commands.ConsumeItem"
     },
-	{
+    {
       "Mover": "Gamespace.Scout",
       "Target": "Gamespace.Blocks.DeathBlock",
       "Side": "Left",
       "Command1": "Gamespace.Commands.KillMario",
       "Command2": "Gamespace.Commands.NullCommand"
     },
-	{
+    {
       "Mover": "Gamespace.Scout",
       "Target": "Gamespace.Blocks.DeathBlock",
       "Side": "Right",
       "Command1": "Gamespace.Commands.KillMario",
       "Command2": "Gamespace.Commands.NullCommand"
     },
-	{
+    {
       "Mover": "Gamespace.Scout",
       "Target": "Gamespace.FlagPole.Flagpole",
       "Side": "Right",
       "Command1": "Gamespace.Commands.PlayMarioTouchFlag",
       "Command2": "Gamespace.Commands.PlayFlagSlidDown"
     },
-	{
+    {
       "Mover": "Gamespace.Scout",
       "Target": "Gamespace.Blocks.DeathBlock",
       "Side": "Up",
       "Command1": "Gamespace.Commands.KillMario",
       "Command2": "Gamespace.Commands.NullCommand"
     },
-	{
+    {
       "Mover": "Gamespace.Scout",
       "Target": "Gamespace.Blocks.DeathBlock",
       "Side": "Down",
       "Command1": "Gamespace.Commands.KillMario",
       "Command2": "Gamespace.Commands.NullCommand"
     },
-	{
+    {
       "Mover": "Gamespace.Scout",
       "Target": "Gamespace.FlagPole.Flagpole",
       "Side": "Left",
       "Command1": "Gamespace.Commands.PlayMarioTouchFlag",
       "Command2": "Gamespace.Commands.PlayFlagSlidDown"
     },
-	{
+    {
       "Mover": "Gamespace.Scout",
       "Target": "Gamespace.Projectiles.Fireball",
       "Side": "Up",
       "Command1": "Gamespace.Commands.PlayerHitsProjectile",
       "Command2": "Gamespace.Commands.ProjectileHitsPlayer"
     },
-	{
+    {
       "Mover": "Gamespace.Scout",
       "Target": "Gamespace.Projectiles.Fireball",
       "Side": "Down",
       "Command1": "Gamespace.Commands.PlayerHitsProjectile",
       "Command2": "Gamespace.Commands.ProjectileHitsPlayer"
     },
-	{
+    {
       "Mover": "Gamespace.Scout",
       "Target": "Gamespace.Projectiles.Fireball",
       "Side": "Left",
@@ -1358,49 +1358,49 @@
       "Command1": "Gamespace.Commands.ProjectileRemoveCommand",
       "Command2": "Gamespace.Commands.MarioHitsEnemy"
     },
-	{
+    {
       "Mover": "Gamespace.Goombas.Goomba",
       "Target": "Gamespace.Blocks.DeathBlock",
       "Side": "Up",
       "Command1": "Gamespace.Commands.KillEnemy",
       "Command2": "Gamespace.Commands.NullCommand"
     },
-	{
+    {
       "Mover": "Gamespace.Goombas.Goomba",
       "Target": "Gamespace.Blocks.DeathBlock",
       "Side": "Down",
       "Command1": "Gamespace.Commands.KillEnemy",
       "Command2": "Gamespace.Commands.NullCommand"
     },
-	{
+    {
       "Mover": "Gamespace.Goombas.Goomba",
       "Target": "Gamespace.Blocks.DeathBlock",
       "Side": "Left",
       "Command1": "Gamespace.Commands.KillEnemy",
       "Command2": "Gamespace.Commands.NullCommand"
     },
-	{
+    {
       "Mover": "Gamespace.Goombas.Goomba",
       "Target": "Gamespace.Blocks.DeathBlock",
       "Side": "Right",
       "Command1": "Gamespace.Commands.KillEnemy",
       "Command2": "Gamespace.Commands.NullCommand"
     },
-			{
+    {
       "Mover": "Gamespace.Koopas.Koopa",
       "Target": "Gamespace.Blocks.DeathBlock",
       "Side": "Up",
       "Command1": "Gamespace.Commands.KillEnemy",
       "Command2": "Gamespace.Commands.NullCommand"
     },
-	{
+    {
       "Mover": "Gamespace.Koopas.Koopa",
       "Target": "Gamespace.Blocks.DeathBlock",
       "Side": "Down",
       "Command1": "Gamespace.Commands.KillEnemy",
       "Command2": "Gamespace.Commands.NullCommand"
     },
-	{
+    {
       "Mover": "Gamespace.Koopas.Koopa",
       "Target": "Gamespace.Blocks.DeathBlock",
       "Side": "Left",
@@ -1414,7 +1414,7 @@
       "Command1": "Gamespace.Commands.KillEnemy",
       "Command2": "Gamespace.Commands.NullCommand"
     },
-		{
+    {
       "Mover": "Gamespace.Projectiles.Fireball",
       "Target": "Gamespace.Scout",
       "Side": "Up",
@@ -1442,7 +1442,7 @@
       "Command1": "Gamespace.Commands.ProjectileHitsPlayer",
       "Command2": "Gamespace.Commands.PlayerHitsProjectile"
     },
-	{
+    {
       "Mover": "Gamespace.Projectiles.Bullet1",
       "Target": "Gamespace.Scout",
       "Side": "Up",
@@ -1470,7 +1470,7 @@
       "Command1": "Gamespace.Commands.ProjectileHitsPlayer",
       "Command2": "Gamespace.Commands.PlayerHitsProjectile"
     },
-	    {
+    {
       "Mover": "Gamespace.Projectiles.Bullet2",
       "Target": "Gamespace.Scout",
       "Side": "Up",
@@ -1498,7 +1498,7 @@
       "Command1": "Gamespace.Commands.ProjectileHitsPlayer",
       "Command2": "Gamespace.Commands.PlayerHitsProjectile"
     },
-	    {
+    {
       "Mover": "Gamespace.Projectiles.Explosion",
       "Target": "Gamespace.Scout",
       "Side": "Up",
@@ -1526,7 +1526,7 @@
       "Command1": "Gamespace.Commands.ProjectileHitsPlayer",
       "Command2": "Gamespace.Commands.PlayerHitsProjectile"
     },
-	    {
+    {
       "Mover": "Gamespace.Projectiles.Fireball",
       "Target": "Gamespace.Soldier",
       "Side": "Up",
@@ -1554,23 +1554,23 @@
       "Command1": "Gamespace.Commands.ProjectileHitsPlayer",
       "Command2": "Gamespace.Commands.PlayerHitsProjectile"
     },
-	{
-      "Mover": "Gamespace.Projectiles.Bullet1",
-      "Target": "Gamespace.Soldier",
-      "Side": "Up",
-      "Command1": "Gamespace.Commands.ProjectileHitsPlayer",
-      "Command2": "Gamespace.Commands.PlayerHitsProjectile"
-    },
     {
       "Mover": "Gamespace.Projectiles.Bullet1",
       "Target": "Gamespace.Soldier",
-      "Side": "Down",
+      "Side": "Up",
       "Command1": "Gamespace.Commands.ProjectileHitsPlayer",
       "Command2": "Gamespace.Commands.PlayerHitsProjectile"
     },
     {
       "Mover": "Gamespace.Projectiles.Bullet1",
       "Target": "Gamespace.Soldier",
+      "Side": "Down",
+      "Command1": "Gamespace.Commands.ProjectileHitsPlayer",
+      "Command2": "Gamespace.Commands.PlayerHitsProjectile"
+    },
+    {
+      "Mover": "Gamespace.Projectiles.Bullet1",
+      "Target": "Gamespace.Soldier",
       "Side": "Left",
       "Command1": "Gamespace.Commands.ProjectileHitsPlayer",
       "Command2": "Gamespace.Commands.PlayerHitsProjectile"
@@ -1582,23 +1582,23 @@
       "Command1": "Gamespace.Commands.ProjectileHitsPlayer",
       "Command2": "Gamespace.Commands.PlayerHitsProjectile"
     },
-	    {
-      "Mover": "Gamespace.Projectiles.Bullet2",
-      "Target": "Gamespace.Soldier",
-      "Side": "Up",
-      "Command1": "Gamespace.Commands.ProjectileHitsPlayer",
-      "Command2": "Gamespace.Commands.PlayerHitsProjectile"
-    },
     {
       "Mover": "Gamespace.Projectiles.Bullet2",
       "Target": "Gamespace.Soldier",
-      "Side": "Down",
+      "Side": "Up",
       "Command1": "Gamespace.Commands.ProjectileHitsPlayer",
       "Command2": "Gamespace.Commands.PlayerHitsProjectile"
     },
     {
       "Mover": "Gamespace.Projectiles.Bullet2",
       "Target": "Gamespace.Soldier",
+      "Side": "Down",
+      "Command1": "Gamespace.Commands.ProjectileHitsPlayer",
+      "Command2": "Gamespace.Commands.PlayerHitsProjectile"
+    },
+    {
+      "Mover": "Gamespace.Projectiles.Bullet2",
+      "Target": "Gamespace.Soldier",
       "Side": "Left",
       "Command1": "Gamespace.Commands.ProjectileHitsPlayer",
       "Command2": "Gamespace.Commands.PlayerHitsProjectile"
@@ -1610,23 +1610,23 @@
       "Command1": "Gamespace.Commands.ProjectileHitsPlayer",
       "Command2": "Gamespace.Commands.PlayerHitsProjectile"
     },
-	    {
-      "Mover": "Gamespace.Projectiles.Explosion",
-      "Target": "Gamespace.Soldier",
-      "Side": "Up",
-      "Command1": "Gamespace.Commands.ProjectileHitsPlayer",
-      "Command2": "Gamespace.Commands.PlayerHitsProjectile"
-    },
     {
       "Mover": "Gamespace.Projectiles.Explosion",
       "Target": "Gamespace.Soldier",
-      "Side": "Down",
+      "Side": "Up",
       "Command1": "Gamespace.Commands.ProjectileHitsPlayer",
       "Command2": "Gamespace.Commands.PlayerHitsProjectile"
     },
     {
       "Mover": "Gamespace.Projectiles.Explosion",
       "Target": "Gamespace.Soldier",
+      "Side": "Down",
+      "Command1": "Gamespace.Commands.ProjectileHitsPlayer",
+      "Command2": "Gamespace.Commands.PlayerHitsProjectile"
+    },
+    {
+      "Mover": "Gamespace.Projectiles.Explosion",
+      "Target": "Gamespace.Soldier",
       "Side": "Left",
       "Command1": "Gamespace.Commands.ProjectileHitsPlayer",
       "Command2": "Gamespace.Commands.PlayerHitsProjectile"
@@ -1638,7 +1638,7 @@
       "Command1": "Gamespace.Commands.ProjectileHitsPlayer",
       "Command2": "Gamespace.Commands.PlayerHitsProjectile"
     },
-	    {
+    {
       "Mover": "Gamespace.Projectiles.Fireball",
       "Target": "Gamespace.Tank",
       "Side": "Up",
@@ -1666,7 +1666,7 @@
       "Command1": "Gamespace.Commands.ProjectileHitsPlayer",
       "Command2": "Gamespace.Commands.PlayerHitsProjectile"
     },
-	    {
+    {
       "Mover": "Gamespace.Projectiles.Bullet1",
       "Target": "Gamespace.Tank",
       "Side": "Up",
@@ -1694,7 +1694,7 @@
       "Command1": "Gamespace.Commands.ProjectileHitsPlayer",
       "Command2": "Gamespace.Commands.PlayerHitsProjectile"
     },
-	    {
+    {
       "Mover": "Gamespace.Projectiles.Bullet2",
       "Target": "Gamespace.Tank",
       "Side": "Up",
@@ -1722,7 +1722,7 @@
       "Command1": "Gamespace.Commands.ProjectileHitsPlayer",
       "Command2": "Gamespace.Commands.PlayerHitsProjectile"
     },
-	    {
+    {
       "Mover": "Gamespace.Projectiles.Explosion",
       "Target": "Gamespace.Tank",
       "Side": "Up",
@@ -1750,7 +1750,7 @@
       "Command1": "Gamespace.Commands.ProjectileHitsPlayer",
       "Command2": "Gamespace.Commands.PlayerHitsProjectile"
     },
-	    {
+    {
       "Mover": "Gamespace.Projectiles.Fireball",
       "Target": "Gamespace.Thief",
       "Side": "Up",
@@ -1778,7 +1778,7 @@
       "Command1": "Gamespace.Commands.ProjectileHitsPlayer",
       "Command2": "Gamespace.Commands.PlayerHitsProjectile"
     },
-	    {
+    {
       "Mover": "Gamespace.Projectiles.Bullet1",
       "Target": "Gamespace.Thief",
       "Side": "Up",
@@ -1806,7 +1806,7 @@
       "Command1": "Gamespace.Commands.ProjectileHitsPlayer",
       "Command2": "Gamespace.Commands.PlayerHitsProjectile"
     },
-	    {
+    {
       "Mover": "Gamespace.Projectiles.Bullet2",
       "Target": "Gamespace.Thief",
       "Side": "Up",
@@ -1834,7 +1834,7 @@
       "Command1": "Gamespace.Commands.ProjectileHitsPlayer",
       "Command2": "Gamespace.Commands.PlayerHitsProjectile"
     },
-	    {
+    {
       "Mover": "Gamespace.Projectiles.Explosion",
       "Target": "Gamespace.Thief",
       "Side": "Up",
@@ -1862,7 +1862,7 @@
       "Command1": "Gamespace.Commands.ProjectileHitsPlayer",
       "Command2": "Gamespace.Commands.PlayerHitsProjectile"
     },
-		    {
+    {
       "Mover": "Gamespace.Projectiles.Fireball",
       "Target": "Gamespace.Koopas.Koopa",
       "Side": "Up",
@@ -1890,7 +1890,7 @@
       "Command1": "Gamespace.Commands.NullCommand",
       "Command2": "Gamespace.Commands.KillEnemy"
     },
-	    {
+    {
       "Mover": "Gamespace.Projectiles.Bullet1",
       "Target": "Gamespace.Koopas.Koopa",
       "Side": "Up",
@@ -1918,7 +1918,7 @@
       "Command1": "Gamespace.Commands.NullCommand",
       "Command2": "Gamespace.Commands.KillEnemy"
     },
-	    {
+    {
       "Mover": "Gamespace.Projectiles.Bullet2",
       "Target": "Gamespace.Koopas.Koopa",
       "Side": "Up",
@@ -1946,7 +1946,7 @@
       "Command1": "Gamespace.Commands.NullCommand",
       "Command2": "Gamespace.Commands.KillEnemy"
     },
-	    {
+    {
       "Mover": "Gamespace.Projectiles.Explosion",
       "Target": "Gamespace.Koopas.Koopa",
       "Side": "Up",
@@ -1974,7 +1974,7 @@
       "Command1": "Gamespace.Commands.NullCommand",
       "Command2": "Gamespace.Commands.KillEnemy"
     },
-	    {
+    {
       "Mover": "Gamespace.Projectiles.Fireball",
       "Target": "Gamespace.Goombas.Goomba",
       "Side": "Up",
@@ -2002,7 +2002,7 @@
       "Command1": "Gamespace.Commands.NullCommand",
       "Command2": "Gamespace.Commands.KillEnemy"
     },
-	    {
+    {
       "Mover": "Gamespace.Projectiles.Bullet1",
       "Target": "Gamespace.Goombas.Goomba",
       "Side": "Up",
@@ -2030,7 +2030,7 @@
       "Command1": "Gamespace.Commands.NullCommand",
       "Command2": "Gamespace.Commands.KillEnemy"
     },
-	    {
+    {
       "Mover": "Gamespace.Projectiles.Bullet2",
       "Target": "Gamespace.Goombas.Goomba",
       "Side": "Up",
@@ -2058,7 +2058,7 @@
       "Command1": "Gamespace.Commands.NullCommand",
       "Command2": "Gamespace.Commands.KillEnemy"
     },
-	    {
+    {
       "Mover": "Gamespace.Projectiles.Explosion",
       "Target": "Gamespace.Goombas.Goomba",
       "Side": "Up",
@@ -2085,6 +2085,97 @@
       "Side": "Right",
       "Command1": "Gamespace.Commands.NullCommand",
       "Command2": "Gamespace.Commands.KillEnemy"
+    },
+    {
+      "Mover": "Gamespace.Projectiles.Explosion",
+      "Target": "Gamespace.Blocks.BrickBlock",
+      "Side": "Down",
+      "Command1": "Gamespace.Commands.NullCommand",
+      "Command2": "Gamespace.Commands.DestroyBlock"
+    },
+    {
+      "Mover": "Gamespace.Projectiles.Explosion",
+      "Target": "Gamespace.Blocks.BrickBlock",
+      "Side": "Up",
+      "Command1": "Gamespace.Commands.NullCommand",
+      "Command2": "Gamespace.Commands.DestroyBlock"
+    },
+
+    {
+      "Mover": "Gamespace.Projectiles.Explosion",
+      "Target": "Gamespace.Blocks.BrickBlock",
+      "Side": "Left",
+      "Command1": "Gamespace.Commands.NullCommand",
+      "Command2": "Gamespace.Commands.DestroyBlock"
+    },
+
+    {
+      "Mover": "Gamespace.Projectiles.Explosion",
+      "Target": "Gamespace.Blocks.BrickBlock",
+      "Side": "Right",
+      "Command1": "Gamespace.Commands.NullCommand",
+      "Command2": "Gamespace.Commands.DestroyBlock"
+    },
+    {
+      "Mover": "Gamespace.Projectiles.Bullet1",
+      "Target": "Gamespace.Blocks.BrickBlock",
+      "Side": "Down",
+      "Command1": "Gamespace.Commands.NullCommand",
+      "Command2": "Gamespace.Commands.DestroyBlock"
+    },
+    {
+      "Mover": "Gamespace.Projectiles.Bullet1",
+      "Target": "Gamespace.Blocks.BrickBlock",
+      "Side": "Up",
+      "Command1": "Gamespace.Commands.NullCommand",
+      "Command2": "Gamespace.Commands.DestroyBlock"
+    },
+
+    {
+      "Mover": "Gamespace.Projectiles.Bullet1",
+      "Target": "Gamespace.Blocks.BrickBlock",
+      "Side": "Left",
+      "Command1": "Gamespace.Commands.NullCommand",
+      "Command2": "Gamespace.Commands.DestroyBlock"
+    },
+
+    {
+      "Mover": "Gamespace.Projectiles.Bullet1",
+      "Target": "Gamespace.Blocks.BrickBlock",
+      "Side": "Right",
+      "Command1": "Gamespace.Commands.NullCommand",
+      "Command2": "Gamespace.Commands.DestroyBlock"
+    },
+
+    {
+      "Mover": "Gamespace.Projectiles.Bullet2",
+      "Target": "Gamespace.Blocks.BrickBlock",
+      "Side": "Down",
+      "Command1": "Gamespace.Commands.NullCommand",
+      "Command2": "Gamespace.Commands.DestroyBlock"
+    },
+    {
+      "Mover": "Gamespace.Projectiles.Bullet2",
+      "Target": "Gamespace.Blocks.BrickBlock",
+      "Side": "Up",
+      "Command1": "Gamespace.Commands.NullCommand",
+      "Command2": "Gamespace.Commands.DestroyBlock"
+    },
+
+    {
+      "Mover": "Gamespace.Projectiles.Bullet2",
+      "Target": "Gamespace.Blocks.BrickBlock",
+      "Side": "Left",
+      "Command1": "Gamespace.Commands.NullCommand",
+      "Command2": "Gamespace.Commands.DestroyBlock"
+    },
+
+    {
+      "Mover": "Gamespace.Projectiles.Bullet2",
+      "Target": "Gamespace.Blocks.BrickBlock",
+      "Side": "Right",
+      "Command1": "Gamespace.Commands.NullCommand",
+      "Command2": "Gamespace.Commands.DestroyBlock"
     }
 
   ]
