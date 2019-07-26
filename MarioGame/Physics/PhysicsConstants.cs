@@ -74,6 +74,10 @@ namespace Gamespace
                     (1.0f, 2.0f, 15f, 8f, 5f)
                 },
                 {
+                    typeof(ThrowStar),
+                    (1.0f, 2.0f, 8f, 8f, 5f)
+                },
+                {
                     typeof(Tank),
                     (0.5f, 0.5f, 5f, 10f, 1f)
                 },

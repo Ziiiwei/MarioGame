@@ -135,6 +135,7 @@
     <Compile Include="MarioGame\GameObjects\Projectiles\MassProjectileLauncher.cs" />
     <Compile Include="MarioGame\GameObjects\Projectiles\ProjectileLauncher.cs" />
     <Compile Include="MarioGame\GameObjects\Projectiles\Bullet1.cs" />
+    <Compile Include="MarioGame\GameObjects\Projectiles\ThrowStar.cs" />
     <Compile Include="MarioGame\Multiplayer\ScoringConstants.cs" />
     <Compile Include="MarioGame\Multiplayer\IPlayer.cs" />
     <Compile Include="MarioGame\Multiplayer\Player.cs" />
