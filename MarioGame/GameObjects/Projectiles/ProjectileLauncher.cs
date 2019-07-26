@@ -42,14 +42,14 @@ namespace Gamespace.Projectiles
             spawnOffset = new Dictionary<ShootAngle, Func<Vector2>>
             {
                 {ShootAngle.Left,  new Func<Vector2>(()=>new Vector2(
-                    this.OwnedBy.GameObjectPhysics.Position.X,
-                    this.OwnedBy.Center.Y))},
+                    OwnedBy.GameObjectPhysics.Position.X,
+                    OwnedBy.Center.Y))},
                 {ShootAngle.Right,  new Func<Vector2>(()=>new Vector2(
-                    this.OwnedBy.GameObjectPhysics.Position.X+this.OwnedBy.Sprite.Width,
-                    this.OwnedBy.Center.Y))},
+                    OwnedBy.GameObjectPhysics.Position.X+OwnedBy.Sprite.Width,
+                    OwnedBy.Center.Y))},
                 {ShootAngle.Up, new Func<Vector2>(() => new Vector2(
-                    this.OwnedBy.Center.X,
-                    this.OwnedBy.GameObjectPhysics.Position.Y))}
+                    OwnedBy.Center.X,
+                    OwnedBy.GameObjectPhysics.Position.Y))}
             };
   
         }
@@ -59,7 +59,7 @@ namespace Gamespace.Projectiles
             if (delayCounter % Numbers.DELAY_BOUND == 0 && ammos.Count>0)
             {
                 IProjectile projectile = ammos.Pop();
-                projectile.SetOwner((IMario) OwnedBy);
+                projectile.SetOwner(OwnedBy);
                 World.Instance.AddGameObject(projectile);
                 projectile.Shoot(angle, OwnedBy.GameObjectPhysics.Velocity, spawnOffset[angle].Invoke());
             }

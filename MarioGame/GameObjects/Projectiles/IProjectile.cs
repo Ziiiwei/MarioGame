@@ -16,6 +16,6 @@ namespace Gamespace
         void Shoot(ShootAngle angle, Vector2 initialV, Vector2 initialP);
         void Remove();
         void OwnerScores();
-        void SetOwner(IMario owner);
+        void SetOwner(IGameObject owner);
     }
 }

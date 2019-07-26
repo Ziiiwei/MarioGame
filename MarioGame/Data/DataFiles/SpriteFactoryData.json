@@ -887,8 +887,8 @@
     },
     {
       "Name": "Tank",
-      "State": "",
-      "PowerUpState": "MarioDeadState",
+      "State": "MarioDeadState",
+      "PowerUpState": "",
       "TexturePath": "Sprint6/Tank/Dead",
       "FrameCount": 1,
       "FrameDelay": 3
@@ -967,8 +967,8 @@
     },
     {
       "Name": "Soldier",
-      "State": "",
-      "PowerUpState": "MarioDeadState",
+      "State": "MarioDeadState",
+      "PowerUpState": "",
       "TexturePath": "Sprint6/Soldier/Dead",
       "FrameCount": 1,
       "FrameDelay": 3
@@ -1047,8 +1047,8 @@
     },
     {
       "Name": "Scout",
-      "State": "",
-      "PowerUpState": "MarioDeadState",
+      "State": "MarioDeadState",
+      "PowerUpState": "",
       "TexturePath": "Sprint6/Scout/Dead",
       "FrameCount": 1,
       "FrameDelay": 3
@@ -1126,14 +1126,14 @@
         "FrameCount": 1,
         "FrameDelay": 3
       },
-      {
-        "Name": "Thief",
-        "State": "",
-        "PowerUpState": "MarioDeadState",
-        "TexturePath": "Sprint6/Thief/Dead",
-        "FrameCount": 1,
-        "FrameDelay": 3
-      },
+    {
+      "Name": "Thief",
+      "State": "MarioDeadState",
+      "PowerUpState": "",
+      "TexturePath": "Sprint6/Thief/Dead",
+      "FrameCount": 1,
+      "FrameDelay": 3
+    },
       {
         "Name": "TankAvatar",
         "State": "",

@@ -12,12 +12,12 @@ namespace Gamespace.Projectiles
 {
     internal class Fireball : AbstractGameStatefulObject<IProjectileState>, IProjectile
     {
-        private static readonly Dictionary<ShootAngle, Type> initialOrientation;
-        private readonly Dictionary<ShootAngle, Func<Vector2, Func<Vector2, int, Vector2>>> trajectoryLog;
-        private static readonly Dictionary<ShootAngle, Func<Vector2, int, Vector2>> spriteOffset;
-        private int bounceCounter = 0;
-        private readonly int bounceBound = Numbers.BOUNCE_BOUND;
-        private IMario owner;
+        protected static Dictionary<ShootAngle, Type> initialOrientation;
+        protected Dictionary<ShootAngle, Func<Vector2, Func<Vector2, int, Vector2>>> trajectoryLog;
+        protected static readonly Dictionary<ShootAngle, Func<Vector2, int, Vector2>> spriteOffset;
+        protected int bounceCounter = 0;
+        protected int bounceBound;
+        protected IMario owner;
 
         public ShootAngle Angle { get ; set; }
 
@@ -44,6 +44,7 @@ namespace Gamespace.Projectiles
         
         public Fireball(Vector2 positionOnScreen, ShootAngle angle) : base(positionOnScreen)
         {
+            bounceBound = Numbers.BOUNCE_BOUND;
             State = (IProjectileState) Activator.CreateInstance(initialOrientation[angle], this);
             SoundManager.Instance.PlaySoundEffect("Fireball");
             SetSprite();
@@ -53,7 +54,7 @@ namespace Gamespace.Projectiles
         {
 
             trajectoryLog = new Dictionary<ShootAngle, Func<Vector2, Func<Vector2, int, Vector2>>>
-            {/*
+            {
                 {ShootAngle.Left, new Func<Vector2, Func<Vector2, int, Vector2>>((ini_v) =>
                 {
                     float v_x = ini_v.X - GameObjectPhysics.PhysicsConstants.X_V;
@@ -80,37 +81,11 @@ namespace Gamespace.Projectiles
                     float v_y = ini_v.Y +GameObjectPhysics.PhysicsConstants.Y_V;;
                     return new Func<Vector2, int, Vector2>((p,t)=>new Vector2(p.X+v_x*t,p.Y+v_y*t+0.5f*GameObjectPhysics.PhysicsConstants.G*t*t));
                 }) }
-                */
-                 {ShootAngle.Left, new Func<Vector2, Func<Vector2, int, Vector2>>((ini_v) =>
-                {
-                    float v_x = ini_v.X - GameObjectPhysics.PhysicsConstants.X_V;
-                    float v_y = ini_v.Y - GameObjectPhysics.PhysicsConstants.Y_V;
-                    return new Func<Vector2, int, Vector2>((p,t)=>new Vector2(p.X+v_x*t,p.Y+v_y*t+0.5f*GameObjectPhysics.PhysicsConstants.G*t*t));
-                }) },
-
-                 {ShootAngle.Right, new Func<Vector2, Func<Vector2, int, Vector2>>((ini_v) =>
-                {
-                    float v_x = ini_v.X + GameObjectPhysics.PhysicsConstants.X_V;
-                    float v_y = ini_v.Y - GameObjectPhysics.PhysicsConstants.Y_V;
-                    return new Func<Vector2, int, Vector2>((p,t)=>new Vector2(p.X+v_x*t,p.Y+v_y*t+0.5f*GameObjectPhysics.PhysicsConstants.G*t*t));
-                }) },
-
-                 {ShootAngle.Up, new Func<Vector2, Func<Vector2, int, Vector2>>((ini_v) =>
-                {
-                    float v_x = ini_v.X;
-                    float v_y = ini_v.Y -GameObjectPhysics.PhysicsConstants.Y_V;;
-                    return new Func<Vector2, int, Vector2>((p,t)=>new Vector2(p.X+v_x*t,p.Y+v_y*t+0.5f*GameObjectPhysics.PhysicsConstants.G*t*t));
-                }) },
-                   {ShootAngle.Down, new Func<Vector2, Func<Vector2, int, Vector2>>((ini_v) =>
-                {
-                    float v_x = ini_v.X;
-                    float v_y = ini_v.Y +GameObjectPhysics.PhysicsConstants.Y_V;;
-                    return new Func<Vector2, int, Vector2>((p,t)=>new Vector2(p.X+v_x*t,p.Y+v_y*t+0.5f*GameObjectPhysics.PhysicsConstants.G*t*t));
-                }) }
+              
             };
         }
 
-        public void ChangeDirection(ShootAngle angle)
+        public virtual void ChangeDirection(ShootAngle angle)
         {
             State.ChangeDirection(angle);
             SetSprite();
@@ -135,7 +110,7 @@ namespace Gamespace.Projectiles
             }
         }
 
-        public void Remove()
+        public virtual void Remove()
         {
             Sprite = SpriteFactory.Instance.GetSprite("Fireball_out", "", "");
             World.Instance.RemoveFromWorld(this);
@@ -173,7 +148,7 @@ namespace Gamespace.Projectiles
             bounceCounter++;
         }
 
-        public void Shoot(ShootAngle angle, Vector2 initialV, Vector2 initialP)
+        public virtual void Shoot(ShootAngle angle, Vector2 initialV, Vector2 initialP)
         {
             State.ChangeDirection(angle);
             int offset = angle == ShootAngle.Up ? Sprite.Height : Sprite.Width;
@@ -181,14 +156,14 @@ namespace Gamespace.Projectiles
             GameObjectPhysics.TrajectMove(trajectoryLog[angle].Invoke(initialV));
         }
 
-        public void OwnerScores()
+        public virtual void OwnerScores()
         {
             owner.ScoreKill();
         }
         
-        public void SetOwner(IMario owner)
+        public virtual void SetOwner(IGameObject owner)
         {
-            this.owner = owner;
+            this.owner = (IMario)owner;
         }
     }
 }

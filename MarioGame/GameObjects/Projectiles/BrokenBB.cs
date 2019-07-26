@@ -7,42 +7,11 @@ using System.Threading.Tasks;
 
 namespace Gamespace.Projectiles
 {
-    class BrokenBB : AbstractGameStatefulObject<IProjectileState>, IProjectile
+    class BrokenBB : Fireball, IProjectile
     {
-        public BrokenBB(Vector2 positionOnScreen, ShootAngle angle) : base(positionOnScreen)
+        public BrokenBB(Vector2 positionOnScreen, ShootAngle angle) : base(positionOnScreen,angle)
         {
 
-        }
-        public ShootAngle Angle { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-
-        public void ChangeDirection(ShootAngle angle)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void OwnerScores()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Remove()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void SetOwner(IMario owner)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Shoot(ShootAngle angle)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Shoot(ShootAngle angle, Vector2 initialV, Vector2 initialP)
-        {
-            throw new NotImplementedException();
         }
     }
 }

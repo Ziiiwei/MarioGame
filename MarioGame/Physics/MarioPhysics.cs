@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework;
+﻿using Gamespace.Data;
+using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -109,6 +110,23 @@ namespace Gamespace
         public void ReSetMaxSpeedCheck()
         {
             maxYSpeedReach = false;
+        }
+
+        public void Die()
+        {
+            
+            Func<Vector2, int, Vector2> dieMove = new Func<Vector2, int, Vector2>((p, t) =>
+              {
+                  const int DieMoveDistance = Numbers.BLOCK_SPACING_SCALE*2;
+                  if (PhysicsConstants.X_V/4*t<= DieMoveDistance)
+                  {
+                      return new Vector2(p.X, p.Y + PhysicsConstants.X_V / 4 * t);
+                  } else
+                  {
+                      return new Vector2(p.X, p.Y + DieMoveDistance);
+                  }
+              });
+            TrajectMove(dieMove);
         }
     }
 }

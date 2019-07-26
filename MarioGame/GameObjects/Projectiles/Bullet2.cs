@@ -7,42 +7,62 @@ using System.Threading.Tasks;
 
 namespace Gamespace.Projectiles
 {
-    class Bullet2 : AbstractGameStatefulObject<IProjectileState>, IProjectile
+    class Bullet2 : Fireball, IProjectile
     {
-        public Bullet2(Vector2 positionOnScreen, ShootAngle angle) : base(positionOnScreen)
+        public Bullet2(Vector2 positionOnScreen, ShootAngle angle) : base(positionOnScreen, angle)
         {
-
+            bounceBound = 1;
         }
-        public ShootAngle Angle { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-
-        public void ChangeDirection(ShootAngle angle)
+        public Bullet2() : this(new Vector2(0,0),ShootAngle.Right)
         {
-            throw new NotImplementedException();
+            trajectoryLog = new Dictionary<ShootAngle, Func<Vector2, Func<Vector2, int, Vector2>>>
+            {
+                {ShootAngle.Left, new Func<Vector2, Func<Vector2, int, Vector2>>((ini_v) =>
+                {
+                    float v_x = ini_v.X - GameObjectPhysics.PhysicsConstants.X_V;
+                    return new Func<Vector2, int, Vector2>((p,t)=>new Vector2(p.X+v_x*t,p.Y));
+                }) },
+
+                 {ShootAngle.Right, new Func<Vector2, Func<Vector2, int, Vector2>>((ini_v) =>
+                {
+                    float v_x = ini_v.X + GameObjectPhysics.PhysicsConstants.X_V;
+                    return new Func<Vector2, int, Vector2>((p,t)=>new Vector2(p.X+v_x*t,p.Y));
+                }) },
+
+                 {ShootAngle.Up, new Func<Vector2, Func<Vector2, int, Vector2>>((ini_v) =>
+                {
+                     float v_x = ini_v.X + GameObjectPhysics.PhysicsConstants.X_V;
+                    return new Func<Vector2, int, Vector2>((p,t)=>new Vector2(p.X,p.Y));
+                }) },
+                   {ShootAngle.Down, new Func<Vector2, Func<Vector2, int, Vector2>>((ini_v) =>
+                {
+                     float v_x = ini_v.X + GameObjectPhysics.PhysicsConstants.X_V;
+                    return new Func<Vector2, int, Vector2>((p,t)=>new Vector2(p.X,p.Y));
+                }) }
+            };
         }
 
-        public void OwnerScores()
+        public override void CollideLeft(Rectangle collisionArea)
         {
-            throw new NotImplementedException();
+            base.CollideLeft(collisionArea);
+            ChangeDirection(ShootAngle.Right);
         }
 
-        public void Remove()
+        public override void CollideRight(Rectangle collisionArea)
         {
-            throw new NotImplementedException();
+            base.CollideRight(collisionArea);
+            ChangeDirection(ShootAngle.Left);
         }
 
-        public void SetOwner(IMario owner)
+        protected override void SetSprite()
         {
-            throw new NotImplementedException();
+            Sprite = SpriteFactory.Instance.GetSprite(GetType().Name, State.GetType().Name, "");
         }
 
-        public void Shoot(ShootAngle angle)
+        public override void Shoot(ShootAngle angle, Vector2 initialV, Vector2 initialP)
         {
-            throw new NotImplementedException();
-        }
-
-        public void Shoot(ShootAngle angle, Vector2 initialV, Vector2 initialP)
-        {
-            throw new NotImplementedException();
+            base.Shoot(angle, initialV, initialP);
+            SetSprite();
         }
     }
 }

@@ -72,6 +72,8 @@ namespace Gamespace
                 return;
             }
 
+
+
             if (collisionActions.ContainsKey(key))
             {
                 ExecuteCommand(collisionActions, key, mover, target, collisionArea);
