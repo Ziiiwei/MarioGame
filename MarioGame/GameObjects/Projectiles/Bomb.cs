@@ -96,8 +96,9 @@ namespace Gamespace.Projectiles
         public override void Remove()
         {
             base.Remove();
-           
-            explode.Fire(ShootAngle.None);
+            List<ShootAngle> fireCommand = new List<ShootAngle>
+            { ShootAngle.Left, ShootAngle.LeftUp,ShootAngle.Up,ShootAngle.RightUp, ShootAngle.Right};         
+            explode.Fire(fireCommand);
         }
 
 

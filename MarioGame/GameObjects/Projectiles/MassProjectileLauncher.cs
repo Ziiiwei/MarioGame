@@ -86,6 +86,21 @@ namespace Gamespace.Projectiles
             delayCounter++;
         }
 
+        public void Fire(List<ShootAngle> angles)
+        {
+            int i = 0;
+            IProjectile projectile;
+            while (ammos.Count > 0)
+            {
+                projectile = ammos.Pop();
+                projectile.Shoot(angles[i], OwnedBy.GameObjectPhysics.Velocity, spawnOffset[angles[i]].Invoke());
+                projectile.SetOwner(OwnedBy);
+                World.Instance.AddGameObject(projectile);
+                i++;
+            }
+            delayCounter++;
+        }
+
         public void Update()
         {
         }

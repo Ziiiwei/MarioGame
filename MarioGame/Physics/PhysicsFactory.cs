@@ -42,7 +42,8 @@ namespace Gamespace
                 {typeof(BrickBlockPart1),typeof(TrajectoryPhysics) },
                 {typeof(BrickBlockPart2),typeof(TrajectoryPhysics) },
                 {typeof(BrickBlockPart3),typeof(TrajectoryPhysics) },
-                {typeof(BrickBlockPart4),typeof(TrajectoryPhysics) }
+                {typeof(BrickBlockPart4),typeof(TrajectoryPhysics) },
+                 {typeof(Explosion),typeof(TrajectoryPhysics) }
 
             };
         }

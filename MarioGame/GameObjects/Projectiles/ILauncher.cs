@@ -13,5 +13,6 @@ namespace Gamespace.Projectiles
         int RemainingAmmo { get; }
         void Update();
         void Fire(ShootAngle angle);
+        void Fire(List<ShootAngle> angle);
     }
 }

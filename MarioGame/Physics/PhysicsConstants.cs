@@ -105,12 +105,16 @@ namespace Gamespace
                     typeof(BrickBlockPart2),
                     (1.0f, 0.5f, 5f, 15f, 5f)
                 },
-                        {
+                {
                     typeof(BrickBlockPart3),
                     (1.0f, 0.5f, 5f, 15f, 5f)
                 },
-                            {
+                {
                     typeof(BrickBlockPart4),
+                    (1.0f, 0.5f, 5f, 15f, 5f)
+                },
+                {
+                    typeof(Explosion),
                     (1.0f, 0.5f, 5f, 15f, 5f)
                 },
             };
