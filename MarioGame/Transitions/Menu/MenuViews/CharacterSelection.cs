@@ -36,8 +36,10 @@ namespace Gamespace
         {
             spriteBatch.DrawString(MarioGame.Instance.Font, "Select Your Character", stringsOrigin, Color.Black, 0.0f, Vector2.Zero, 2.0f, SpriteEffects.None, 0.0f);
 
-            for (PlayerIndex i = PlayerIndex.One; i <= PlayerIndex.Four; i++)
+            for (PlayerIndex i = PlayerIndex.One; i <= (PlayerIndex)MarioGame.Instance.PlayerCount; i++)
             {
+                spriteBatch.DrawString(MarioGame.Instance.Font, "Player " + i.ToString(), characterOrigins[i] - (stringDistance), Color.Gray);
+
                 for (int j = 0; j < menu.PlayableCharacters.Count ; j++)
                 {
 

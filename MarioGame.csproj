@@ -239,6 +239,7 @@
     <Compile Include="MarioGame\Transitions\Views\IView.cs" />
     <Compile Include="MarioGame\Transitions\Views\LivesView.cs" />
     <Compile Include="MarioGame\Transitions\Views\PlayableView.cs" />
+    <Compile Include="MarioGame\Transitions\Views\WinView.cs" />
     <Compile Include="MarioGame\World\WorldAnimation.cs" />
     <Compile Include="MarioGame\World\LevelLoader.cs" />
     <Compile Include="MarioGame\GameObjects\Items\RedShroom.cs" />

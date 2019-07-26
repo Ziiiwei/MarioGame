@@ -344,5 +344,17 @@ namespace Gamespace
                 gameObject.IsPaused = worldIsPaused;
             }
         }
+
+        public Dictionary<IPlayer, int> GetPlayerScores()
+        {
+            Dictionary<IPlayer, int> scores = new Dictionary<IPlayer, int>();
+
+            foreach (IPlayer player in players)
+            {
+                scores.Add(player, player.GetScore());
+            }
+
+            return scores;
+        }
     }
 }

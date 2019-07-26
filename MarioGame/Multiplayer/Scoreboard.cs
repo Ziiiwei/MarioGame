@@ -37,6 +37,10 @@ namespace Gamespace.Multiplayer
         {
             Score += score;
             MaxScore += score; 
+            if (Score == MarioGame.Instance.WinScore)
+            {
+                MarioGame.Instance.PlayerWon();
+            }
         }
 
         public void Collect()

@@ -10,8 +10,8 @@ namespace Gamespace
     public class JsonParser
     {
         private static readonly JsonParser instance = new JsonParser();
-        private readonly string collisionActionsPath = "MarioGame/Data/DataFiles/OtherCollisionActions.json";
-        private readonly string statefulCollisionActionsPath = "MarioGame/Data/DataFiles/OtherStatefulCollisionActions.json";
+        private readonly string collisionActionsPath = "MarioGame/Data/DataFiles/CollisionActions.json";
+        private readonly string statefulCollisionActionsPath = "MarioGame/Data/DataFiles/StatefulCollisionActions.json";
 
         static JsonParser()
         {
@@ -59,7 +59,10 @@ namespace Gamespace
                 CollisionHandler.Side Side = (CollisionHandler.Side) Enum.Parse(typeof(CollisionHandler.Side), cdo.Side);
                 var key = new Tuple<Type, Type, CollisionHandler.Side>(obj1, obj2, Side);
                 var value = new Tuple<Type, Type>(Type.GetType(cdo.Command1), Type.GetType(cdo.Command2));
-                collisionActions.Add(key, value);
+                if (!collisionActions.ContainsKey(key))
+                {
+                    collisionActions.Add(key, value);
+                }
             }
             return collisionActions;
         }

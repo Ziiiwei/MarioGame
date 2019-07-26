@@ -19,7 +19,7 @@ namespace Gamespace.Commands
 
         public void Execute()
         {
-            mario.PowerDown();
+            mario.Die();
         }
 
     }

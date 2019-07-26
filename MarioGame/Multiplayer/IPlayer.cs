@@ -9,6 +9,7 @@ namespace Gamespace.Multiplayer
 {
     public interface IPlayer
     {
+        int GetScore();
         int PlayerID { get; }
         IMario GameObject { get; }
         void Update(GameTime gameTime);
