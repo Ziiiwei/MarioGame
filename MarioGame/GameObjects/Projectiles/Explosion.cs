@@ -14,7 +14,7 @@ namespace Gamespace.Projectiles
 
         public Explosion(Vector2 positionOnScreen, ShootAngle angle) : base(positionOnScreen, angle)
     {
-        bounceBound = 3;
+        bounceBound = 5;
     }
 
     public Explosion() : this(new Vector2(0), ShootAngle.Right)
@@ -24,7 +24,7 @@ namespace Gamespace.Projectiles
                 {ShootAngle.Up, new Func<Vector2, Func<Vector2, int, Vector2>>((ini_v) =>
                 {
                     float v_x = ini_v.X;
-                    float v_y = ini_v.Y - GameObjectPhysics.PhysicsConstants.Y_V;
+                    float v_y = ini_v.Y - 2*GameObjectPhysics.PhysicsConstants.Y_V;
                     return new Func<Vector2, int, Vector2>((p,t)=>new Vector2(p.X+v_x*t,p.Y+v_y*t+0.5f*GameObjectPhysics.PhysicsConstants.G*t*t));
                 }) },
                  {ShootAngle.Left, new Func<Vector2, Func<Vector2, int, Vector2>>((ini_v) =>
@@ -95,9 +95,6 @@ namespace Gamespace.Projectiles
         bounceCounter++;
     }
 
-    public override void SetOwner(IGameObject owner)
-    {
-    }
 
     }
 }
