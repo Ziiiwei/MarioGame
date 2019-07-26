@@ -83,7 +83,7 @@ namespace Gamespace
         {
             base.Initialize();
 
-            WinScore = 3;
+            WinScore = 3000000;
 
             ArenaPaths = new Dictionary<int, Tuple<string, string>>()
             {

@@ -89,7 +89,7 @@ namespace Gamespace.Multiplayer
 
             if (Lives == 0)
             {
-                view = new DeadView();
+                view = new DeadView(Cam);
             }
         }
 
