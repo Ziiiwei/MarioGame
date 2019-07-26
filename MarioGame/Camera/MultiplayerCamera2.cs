@@ -70,13 +70,13 @@ namespace Gamespace
 
             if (position.X < CameraPosition.X + (viewport.Width / 2) - (xEpsilon / 2))
             {
-               float t = position.X - (CameraPosition.X + (viewport.Width / 2) - (xEpsilon / 2));
+               int t = (int) (position.X - (CameraPosition.X + (viewport.Width / 2) - (xEpsilon / 2)));
                 xTransform = -t/5;
                 cameraPosition.X -= xTransform;
             }
             else
             {
-                float t = position.X - (CameraPosition.X + (viewport.Width / 2) + (xEpsilon / 2));
+                int t = (int) (position.X - (CameraPosition.X + (viewport.Width / 2) + (xEpsilon / 2)));
                 xTransform = t/5;
                 cameraPosition.X += xTransform;
             }
@@ -84,13 +84,13 @@ namespace Gamespace
             
             if (position.Y < CameraPosition.Y + (viewport.Height / 2) - (yEpsilon / 2))
             {
-                float t = (CameraPosition.Y + (viewport.Height / 2) - (yEpsilon / 2)) - position.Y;
+                int t = (int) (Math.Abs((CameraPosition.Y + (viewport.Height / 2) - (yEpsilon / 2)) - position.Y));
                 yTransform = -t/10;
-                cameraPosition.Y -= yTransform;
+                cameraPosition.Y += yTransform;
             }
             else
             {
-                float t = position.Y - (CameraPosition.Y + (viewport.Height / 2) + (yEpsilon / 2));
+                int t = (int) (position.Y - (CameraPosition.Y + (viewport.Height / 2) + (yEpsilon / 2)));
                 yTransform = t/10;
                 cameraPosition.Y += yTransform;
             }
