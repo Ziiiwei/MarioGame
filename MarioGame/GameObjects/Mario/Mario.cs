@@ -51,7 +51,7 @@ namespace Gamespace
             scoreboard.MaxAmmo = Launcher.MaxProjectiles;
         }
 
-        public Mario(Vector2 positionOnScreen, Scoreboard scoreboard, IPlayer player) : this(positionOnScreen)
+        public Mario(Vector2 positionOnScreen, Scoreboard scoreboard, IPlayer player) : this(positionOnScreen, scoreboard)
         {
             this.scoreboard = scoreboard;
             this.player = player;

@@ -32,7 +32,8 @@ namespace Gamespace
                 {Keys.W, new Action<PlayerIndex>((i) => menu.SelectionUp(i)) },
                 {Keys.S, new Action<PlayerIndex>((i) => menu.SelectionDown(i)) },
                 {Keys.R, new Action<PlayerIndex>((i) => menu.Reset()) },
-                {Keys.Enter, new Action<PlayerIndex>((i) => menu.SelectionEntered()) }
+                {Keys.Enter, new Action<PlayerIndex>((i) => menu.SelectionEntered()) },
+                {Keys.B, new Action<PlayerIndex>((i) => menu.Back()) }
             };
 
             buttonBinds = new Dictionary<Buttons, Delegate>()
@@ -43,7 +44,8 @@ namespace Gamespace
                 {Buttons.LeftThumbstickDown, new Action<PlayerIndex>((i) => menu.SelectionDown(i)) },
                 {Buttons.Start, new Action<PlayerIndex>((i) => menu.SelectionEntered()) },
                 {Buttons.B, new Action<PlayerIndex>((i) => menu.Reset()) },
-                {Buttons.A, new Action<PlayerIndex>((i) => menu.SelectionEntered()) }
+                {Buttons.A, new Action<PlayerIndex>((i) => menu.SelectionEntered()) },
+                {Buttons.Back, new Action<PlayerIndex>((i) => menu.Back()) }
             };
 
             previousKeyboardState = Keyboard.GetState();
